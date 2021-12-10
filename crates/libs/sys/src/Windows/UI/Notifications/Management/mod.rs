@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 pub type UserNotificationListener = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Notifications_Management'*"]
 #[repr(transparent)]
 pub struct UserNotificationListenerAccessStatus(pub i32);
 impl UserNotificationListenerAccessStatus {

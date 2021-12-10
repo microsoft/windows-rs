@@ -27,12 +27,19 @@ pub mod Streaming;
 pub mod WindowsMediaFormat;
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_Media'*"]
     pub fn timeBeginPeriod(uperiod: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Media'*"]
     pub fn timeEndPeriod(uperiod: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Media'*"]
     pub fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Media'*"]
     pub fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Media'*"]
     pub fn timeGetTime() -> u32;
+    #[doc = "*Required features: 'Win32_Media'*"]
     pub fn timeKillEvent(utimerid: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Media'*"]
     pub fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32;
 }
 pub type HTASK = isize;
@@ -40,8 +47,10 @@ pub type IReferenceClock = *mut ::core::ffi::c_void;
 pub type IReferenceClock2 = *mut ::core::ffi::c_void;
 pub type IReferenceClockTimerControl = *mut ::core::ffi::c_void;
 pub const JOYERR_BASE: u32 = 160u32;
+#[doc = "*Required features: 'Win32_Media', 'Win32_Media_Multimedia'*"]
 #[cfg(feature = "Win32_Media_Multimedia")]
 pub type LPDRVCALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub type LPTIMECALLBACK = ::core::option::Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 pub const MAXERRORLENGTH: u32 = 256u32;
 pub const MAXPNAMELEN: u32 = 32u32;
@@ -78,6 +87,7 @@ pub const MMSYSERR_READERROR: u32 = 16u32;
 pub const MMSYSERR_VALNOTFOUND: u32 = 19u32;
 pub const MMSYSERR_WRITEERROR: u32 = 17u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub struct MMTIME {
     pub wType: u32,
     pub u: MMTIME_0,
@@ -89,6 +99,7 @@ impl ::core::clone::Clone for MMTIME {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub union MMTIME_0 {
     pub ms: u32,
     pub sample: u32,
@@ -104,6 +115,7 @@ impl ::core::clone::Clone for MMTIME_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub struct MMTIME_0_0 {
     pub songptrpos: u32,
 }
@@ -114,6 +126,7 @@ impl ::core::clone::Clone for MMTIME_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub struct MMTIME_0_1 {
     pub hour: u8,
     pub min: u8,
@@ -179,6 +192,7 @@ pub const MM_WOM_CLOSE: u32 = 956u32;
 pub const MM_WOM_DONE: u32 = 957u32;
 pub const MM_WOM_OPEN: u32 = 955u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub struct TIMECAPS {
     pub wPeriodMin: u32,
     pub wPeriodMax: u32,
@@ -190,6 +204,7 @@ impl ::core::clone::Clone for TIMECAPS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub union TIMECODE {
     pub Anonymous: TIMECODE_0,
     pub qw: u64,
@@ -201,6 +216,7 @@ impl ::core::clone::Clone for TIMECODE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub struct TIMECODE_0 {
     pub wFrameRate: u16,
     pub wFrameFract: u16,
@@ -213,6 +229,7 @@ impl ::core::clone::Clone for TIMECODE_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub struct TIMECODE_SAMPLE {
     pub qwTick: i64,
     pub timecode: TIMECODE,
@@ -225,9 +242,13 @@ impl ::core::clone::Clone for TIMECODE_SAMPLE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media'*"]
 pub type TIMECODE_SAMPLE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const ED_DEVCAP_TIMECODE_READ: TIMECODE_SAMPLE_FLAGS = 4121u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = 5047u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = 5050u32;
 pub const TIMERR_BASE: u32 = 96u32;
 pub const TIMERR_NOCANDO: u32 = 97u32;

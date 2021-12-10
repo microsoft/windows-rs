@@ -68,6 +68,7 @@ impl GameService {
 impl ::windows::core::RuntimeName for GameService {
     const NAME: &'static str = "Windows.Phone.System.UserProfile.GameServices.Core.GameService";
 }
+#[doc = "*Required features: 'Phone_System_UserProfile_GameServices_Core'*"]
 #[repr(transparent)]
 pub struct GameServiceGameOutcome(pub i32);
 impl GameServiceGameOutcome {
@@ -97,6 +98,7 @@ unsafe impl ::windows::core::RuntimeType for GameServiceGameOutcome {
 impl ::windows::core::DefaultType for GameServiceGameOutcome {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_System_UserProfile_GameServices_Core'*"]
 #[repr(transparent)]
 pub struct GameServicePropertyCollection(::windows::core::IUnknown);
 impl GameServicePropertyCollection {
@@ -172,6 +174,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameServicePropertyCollection {}
 unsafe impl ::core::marker::Sync for GameServicePropertyCollection {}
+#[doc = "*Required features: 'Phone_System_UserProfile_GameServices_Core'*"]
 #[repr(transparent)]
 pub struct GameServiceScoreKind(pub i32);
 impl GameServiceScoreKind {

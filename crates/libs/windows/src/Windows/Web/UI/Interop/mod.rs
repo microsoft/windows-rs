@@ -172,6 +172,7 @@ pub struct IWebViewControlSite2Vtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Web_UI_Interop'*"]
 #[repr(transparent)]
 pub struct WebViewControl(::windows::core::IUnknown);
 impl WebViewControl {
@@ -748,6 +749,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::IWebViewControl2> for &WebViewCon
         ::core::convert::TryInto::<super::IWebViewControl2>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Web_UI_Interop'*"]
 #[repr(transparent)]
 pub struct WebViewControlAcceleratorKeyPressedEventArgs(::windows::core::IUnknown);
 impl WebViewControlAcceleratorKeyPressedEventArgs {
@@ -855,6 +857,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Web_UI_Interop'*"]
 #[repr(transparent)]
 pub struct WebViewControlAcceleratorKeyRoutingStage(pub i32);
 impl WebViewControlAcceleratorKeyRoutingStage {
@@ -882,6 +885,7 @@ unsafe impl ::windows::core::RuntimeType for WebViewControlAcceleratorKeyRouting
 impl ::windows::core::DefaultType for WebViewControlAcceleratorKeyRoutingStage {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Web_UI_Interop'*"]
 #[repr(transparent)]
 pub struct WebViewControlMoveFocusReason(pub i32);
 impl WebViewControlMoveFocusReason {
@@ -910,6 +914,7 @@ unsafe impl ::windows::core::RuntimeType for WebViewControlMoveFocusReason {
 impl ::windows::core::DefaultType for WebViewControlMoveFocusReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Web_UI_Interop'*"]
 #[repr(transparent)]
 pub struct WebViewControlMoveFocusRequestedEventArgs(::windows::core::IUnknown);
 impl WebViewControlMoveFocusRequestedEventArgs {
@@ -982,6 +987,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Web_UI_Interop'*"]
 #[repr(transparent)]
 pub struct WebViewControlProcess(::windows::core::IUnknown);
 impl WebViewControlProcess {
@@ -1118,6 +1124,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Web_UI_Interop'*"]
 #[repr(transparent)]
 pub struct WebViewControlProcessCapabilityState(pub i32);
 impl WebViewControlProcessCapabilityState {
@@ -1146,6 +1153,7 @@ unsafe impl ::windows::core::RuntimeType for WebViewControlProcessCapabilityStat
 impl ::windows::core::DefaultType for WebViewControlProcessCapabilityState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Web_UI_Interop'*"]
 #[repr(transparent)]
 pub struct WebViewControlProcessOptions(::windows::core::IUnknown);
 impl WebViewControlProcessOptions {

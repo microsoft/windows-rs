@@ -1,20 +1,32 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
     pub fn WMCreateBackupRestorer(pcallback: ::windows_sys::core::IUnknown, ppbackup: *mut IWMLicenseBackup) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
     pub fn WMCreateEditor(ppeditor: *mut IWMMetadataEditor) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
     pub fn WMCreateIndexer(ppindexer: *mut IWMIndexer) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
     pub fn WMCreateProfileManager(ppprofilemanager: *mut IWMProfileManager) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
     pub fn WMCreateReader(punkcert: ::windows_sys::core::IUnknown, dwrights: u32, ppreader: *mut IWMReader) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
     pub fn WMCreateSyncReader(punkcert: ::windows_sys::core::IUnknown, dwrights: u32, ppsyncreader: *mut IWMSyncReader) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
     pub fn WMCreateWriter(punkcert: ::windows_sys::core::IUnknown, ppwriter: *mut IWMWriter) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
     pub fn WMCreateWriterFileSink(ppsink: *mut IWMWriterFileSink) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
     pub fn WMCreateWriterNetworkSink(ppsink: *mut IWMWriterNetworkSink) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
     pub fn WMCreateWriterPushSink(ppsink: *mut IWMWriterPushSink) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WMIsContentProtected(pwszfilename: super::super::Foundation::PWSTR, pfisprotected: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct AM_WMT_EVENT_DATA {
     pub hrStatus: ::windows_sys::core::HRESULT,
     pub pData: *mut ::core::ffi::c_void,
@@ -33,6 +45,7 @@ pub const CLSID_WMMUTEX_Language: ::windows_sys::core::GUID = ::windows_sys::cor
 pub const CLSID_WMMUTEX_Presentation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3605146114, data2: 13786, data3: 4561, data4: [144, 52, 0, 160, 201, 3, 73, 190] };
 pub const CLSID_WMMUTEX_Unknown: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3605146115, data2: 13786, data3: 4561, data4: [144, 52, 0, 160, 201, 3, 73, 190] };
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct DRM_COPY_OPL {
     pub wMinimumCopyLevel: u16,
     pub oplIdIncludes: DRM_OPL_OUTPUT_IDS,
@@ -45,6 +58,7 @@ impl ::core::clone::Clone for DRM_COPY_OPL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
     pub wCompressedDigitalVideo: u16,
     pub wUncompressedDigitalVideo: u16,
@@ -59,6 +73,7 @@ impl ::core::clone::Clone for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct DRM_OPL_OUTPUT_IDS {
     pub cIds: u16,
     pub rgIds: *mut ::windows_sys::core::GUID,
@@ -71,6 +86,7 @@ impl ::core::clone::Clone for DRM_OPL_OUTPUT_IDS {
 }
 pub const DRM_OPL_TYPES: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct DRM_OUTPUT_PROTECTION {
     pub guidId: ::windows_sys::core::GUID,
     pub bConfigData: u8,
@@ -82,6 +98,7 @@ impl ::core::clone::Clone for DRM_OUTPUT_PROTECTION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct DRM_PLAY_OPL {
     pub minOPL: DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS,
     pub oplIdReserved: DRM_OPL_OUTPUT_IDS,
@@ -94,6 +111,7 @@ impl ::core::clone::Clone for DRM_PLAY_OPL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct DRM_VAL16 {
     pub val: [u8; 16],
 }
@@ -104,6 +122,7 @@ impl ::core::clone::Clone for DRM_VAL16 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct DRM_VIDEO_OUTPUT_PROTECTION_IDS {
     pub cEntries: u16,
     pub rgVop: *mut DRM_OUTPUT_PROTECTION,
@@ -224,14 +243,22 @@ pub type IWMWriterPostViewCallback = *mut ::core::ffi::c_void;
 pub type IWMWriterPreprocess = *mut ::core::ffi::c_void;
 pub type IWMWriterPushSink = *mut ::core::ffi::c_void;
 pub type IWMWriterSink = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type NETSOURCE_URLCREDPOLICY_SETTINGS = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const NETSOURCE_URLCREDPOLICY_SETTING_SILENTLOGONOK: NETSOURCE_URLCREDPOLICY_SETTINGS = 0i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const NETSOURCE_URLCREDPOLICY_SETTING_MUSTPROMPTUSER: NETSOURCE_URLCREDPOLICY_SETTINGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const NETSOURCE_URLCREDPOLICY_SETTING_ANONYMOUSONLY: NETSOURCE_URLCREDPOLICY_SETTINGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WEBSTREAM_SAMPLE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WEBSTREAM_SAMPLE_TYPE_FILE: WEBSTREAM_SAMPLE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WEBSTREAM_SAMPLE_TYPE_RENDER: WEBSTREAM_SAMPLE_TYPE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WMDRM_IMPORT_INIT_STRUCT {
     pub dwVersion: u32,
     pub cbEncryptedSessionKeyMessage: u32,
@@ -300,6 +327,7 @@ pub const WMMEDIATYPE_Script: ::windows_sys::core::GUID = ::windows_sys::core::G
 pub const WMMEDIATYPE_Text: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2612666023, data2: 23218, data3: 18473, data4: [186, 87, 9, 64, 32, 155, 207, 62] };
 pub const WMMEDIATYPE_Video: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1935960438, data2: 0, data3: 16, data4: [128, 0, 0, 170, 0, 56, 155, 113] };
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WMMPEG2VIDEOINFO {
     pub hdr: WMVIDEOINFOHEADER2,
@@ -319,6 +347,7 @@ impl ::core::clone::Clone for WMMPEG2VIDEOINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WMSCRIPTFORMAT {
     pub scriptType: ::windows_sys::core::GUID,
 }
@@ -329,19 +358,32 @@ impl ::core::clone::Clone for WMSCRIPTFORMAT {
     }
 }
 pub const WMSCRIPTTYPE_TwoStrings: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2196998768, data2: 49823, data3: 4561, data4: [151, 173, 0, 160, 201, 94, 168, 80] };
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_ATTR_DATATYPE = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_TYPE_DWORD: WMT_ATTR_DATATYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_TYPE_STRING: WMT_ATTR_DATATYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_TYPE_BINARY: WMT_ATTR_DATATYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_TYPE_BOOL: WMT_ATTR_DATATYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_TYPE_QWORD: WMT_ATTR_DATATYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_TYPE_WORD: WMT_ATTR_DATATYPE = 5i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_TYPE_GUID: WMT_ATTR_DATATYPE = 6i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_ATTR_IMAGETYPE = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_IMAGETYPE_BITMAP: WMT_ATTR_IMAGETYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_IMAGETYPE_JPEG: WMT_ATTR_IMAGETYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_IMAGETYPE_GIF: WMT_ATTR_IMAGETYPE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WMT_BUFFER_SEGMENT {
     pub pBuffer: INSSBuffer,
     pub cbOffset: u32,
@@ -353,11 +395,16 @@ impl ::core::clone::Clone for WMT_BUFFER_SEGMENT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_CODEC_INFO_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_CODECINFO_AUDIO: WMT_CODEC_INFO_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_CODECINFO_VIDEO: WMT_CODEC_INFO_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_CODECINFO_UNKNOWN: WMT_CODEC_INFO_TYPE = -1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WMT_COLORSPACEINFO_EXTENSION_DATA {
     pub ucColorPrimaries: u8,
     pub ucColorTransferChar: u8,
@@ -369,19 +416,30 @@ impl ::core::clone::Clone for WMT_COLORSPACEINFO_EXTENSION_DATA {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_CREDENTIAL_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_CREDENTIAL_SAVE: WMT_CREDENTIAL_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_CREDENTIAL_DONT_CACHE: WMT_CREDENTIAL_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_CREDENTIAL_CLEAR_TEXT: WMT_CREDENTIAL_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_CREDENTIAL_PROXY: WMT_CREDENTIAL_FLAGS = 8i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_CREDENTIAL_ENCRYPT: WMT_CREDENTIAL_FLAGS = 16i32;
 pub const WMT_DMOCATEGORY_AUDIO_WATERMARK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1696734298, data2: 64117, data3: 19257, data4: [181, 12, 6, 195, 54, 182, 163, 239] };
 pub const WMT_DMOCATEGORY_VIDEO_WATERMARK: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 410831138, data2: 36604, data3: 17412, data4: [157, 175, 99, 244, 131, 13, 241, 188] };
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_DRMLA_TRUST = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_DRMLA_UNTRUSTED: WMT_DRMLA_TRUST = 0i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_DRMLA_TRUSTED: WMT_DRMLA_TRUST = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_DRMLA_TAMPERED: WMT_DRMLA_TRUST = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WMT_FILESINK_DATA_UNIT {
     pub packetHeaderBuffer: WMT_BUFFER_SEGMENT,
     pub cPayloads: u32,
@@ -395,36 +453,66 @@ impl ::core::clone::Clone for WMT_FILESINK_DATA_UNIT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_FILESINK_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_FM_SINGLE_BUFFERS: WMT_FILESINK_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_FM_FILESINK_DATA_UNITS: WMT_FILESINK_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_FM_FILESINK_UNBUFFERED: WMT_FILESINK_MODE = 4i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_IMAGE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_IT_NONE: WMT_IMAGE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_IT_BITMAP: WMT_IMAGE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_IT_JPEG: WMT_IMAGE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_IT_GIF: WMT_IMAGE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_INDEXER_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_IT_PRESENTATION_TIME: WMT_INDEXER_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_IT_FRAME_NUMBERS: WMT_INDEXER_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_IT_TIMECODE: WMT_INDEXER_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_INDEX_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_IT_NEAREST_DATA_UNIT: WMT_INDEX_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_IT_NEAREST_OBJECT: WMT_INDEX_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_IT_NEAREST_CLEAN_POINT: WMT_INDEX_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_MUSICSPEECH_CLASS_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_MS_CLASS_MUSIC: WMT_MUSICSPEECH_CLASS_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_MS_CLASS_SPEECH: WMT_MUSICSPEECH_CLASS_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_MS_CLASS_MIXED: WMT_MUSICSPEECH_CLASS_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_NET_PROTOCOL = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_PROTOCOL_HTTP: WMT_NET_PROTOCOL = 0i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_OFFSET_FORMAT = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_OFFSET_FORMAT_100NS: WMT_OFFSET_FORMAT = 0i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_OFFSET_FORMAT_FRAME_NUMBERS: WMT_OFFSET_FORMAT = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_OFFSET_FORMAT_PLAYLIST_OFFSET: WMT_OFFSET_FORMAT = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_OFFSET_FORMAT_TIMECODE: WMT_OFFSET_FORMAT = 3i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_OFFSET_FORMAT_100NS_APPROXIMATE: WMT_OFFSET_FORMAT = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WMT_PAYLOAD_FRAGMENT {
     pub dwPayloadIndex: u32,
     pub segmentData: WMT_BUFFER_SEGMENT,
@@ -435,90 +523,174 @@ impl ::core::clone::Clone for WMT_PAYLOAD_FRAGMENT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_PLAY_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_PLAY_MODE_AUTOSELECT: WMT_PLAY_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_PLAY_MODE_LOCAL: WMT_PLAY_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_PLAY_MODE_DOWNLOAD: WMT_PLAY_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_PLAY_MODE_STREAMING: WMT_PLAY_MODE = 3i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_PROXY_SETTINGS = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_PROXY_SETTING_NONE: WMT_PROXY_SETTINGS = 0i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_PROXY_SETTING_MANUAL: WMT_PROXY_SETTINGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_PROXY_SETTING_AUTO: WMT_PROXY_SETTINGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_PROXY_SETTING_BROWSER: WMT_PROXY_SETTINGS = 3i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_PROXY_SETTING_MAX: WMT_PROXY_SETTINGS = 4i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_RIGHTS = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_RIGHT_PLAYBACK: WMT_RIGHTS = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_RIGHT_COPY_TO_NON_SDMI_DEVICE: WMT_RIGHTS = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_RIGHT_COPY_TO_CD: WMT_RIGHTS = 8i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_RIGHT_COPY_TO_SDMI_DEVICE: WMT_RIGHTS = 16i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_RIGHT_ONE_TIME: WMT_RIGHTS = 32i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_RIGHT_SAVE_STREAM_PROTECTED: WMT_RIGHTS = 64i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_RIGHT_COPY: WMT_RIGHTS = 128i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_RIGHT_COLLABORATIVE_PLAY: WMT_RIGHTS = 256i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_RIGHT_SDMI_TRIGGER: WMT_RIGHTS = 65536i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_RIGHT_SDMI_NOMORECOPIES: WMT_RIGHTS = 131072i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_STATUS = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_ERROR: WMT_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_OPENED: WMT_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_BUFFERING_START: WMT_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_BUFFERING_STOP: WMT_STATUS = 3i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_EOF: WMT_STATUS = 4i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_END_OF_FILE: WMT_STATUS = 4i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_END_OF_SEGMENT: WMT_STATUS = 5i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_END_OF_STREAMING: WMT_STATUS = 6i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_LOCATING: WMT_STATUS = 7i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_CONNECTING: WMT_STATUS = 8i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_NO_RIGHTS: WMT_STATUS = 9i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_MISSING_CODEC: WMT_STATUS = 10i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_STARTED: WMT_STATUS = 11i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_STOPPED: WMT_STATUS = 12i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_CLOSED: WMT_STATUS = 13i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_STRIDING: WMT_STATUS = 14i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_TIMER: WMT_STATUS = 15i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_INDEX_PROGRESS: WMT_STATUS = 16i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_SAVEAS_START: WMT_STATUS = 17i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_SAVEAS_STOP: WMT_STATUS = 18i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_NEW_SOURCEFLAGS: WMT_STATUS = 19i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_NEW_METADATA: WMT_STATUS = 20i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_BACKUPRESTORE_BEGIN: WMT_STATUS = 21i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_SOURCE_SWITCH: WMT_STATUS = 22i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_ACQUIRE_LICENSE: WMT_STATUS = 23i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_INDIVIDUALIZE: WMT_STATUS = 24i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_NEEDS_INDIVIDUALIZATION: WMT_STATUS = 25i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_NO_RIGHTS_EX: WMT_STATUS = 26i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_BACKUPRESTORE_END: WMT_STATUS = 27i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_BACKUPRESTORE_CONNECTING: WMT_STATUS = 28i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_BACKUPRESTORE_DISCONNECTING: WMT_STATUS = 29i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_ERROR_WITHURL: WMT_STATUS = 30i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_RESTRICTED_LICENSE: WMT_STATUS = 31i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_CLIENT_CONNECT: WMT_STATUS = 32i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_CLIENT_DISCONNECT: WMT_STATUS = 33i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_NATIVE_OUTPUT_PROPS_CHANGED: WMT_STATUS = 34i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_RECONNECT_START: WMT_STATUS = 35i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_RECONNECT_END: WMT_STATUS = 36i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_CLIENT_CONNECT_EX: WMT_STATUS = 37i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_CLIENT_DISCONNECT_EX: WMT_STATUS = 38i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_SET_FEC_SPAN: WMT_STATUS = 39i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_PREROLL_READY: WMT_STATUS = 40i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_PREROLL_COMPLETE: WMT_STATUS = 41i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_CLIENT_PROPERTIES: WMT_STATUS = 42i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_LICENSEURL_SIGNATURE_STATE: WMT_STATUS = 43i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_INIT_PLAYLIST_BURN: WMT_STATUS = 44i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_TRANSCRYPTOR_INIT: WMT_STATUS = 45i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_TRANSCRYPTOR_SEEKED: WMT_STATUS = 46i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_TRANSCRYPTOR_READ: WMT_STATUS = 47i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_TRANSCRYPTOR_CLOSED: WMT_STATUS = 48i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_PROXIMITY_RESULT: WMT_STATUS = 49i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_PROXIMITY_COMPLETED: WMT_STATUS = 50i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_CONTENT_ENABLER: WMT_STATUS = 51i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_STORAGE_FORMAT = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_Storage_Format_MP3: WMT_STORAGE_FORMAT = 0i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_Storage_Format_V1: WMT_STORAGE_FORMAT = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_STREAM_SELECTION = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_OFF: WMT_STREAM_SELECTION = 0i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_CLEANPOINT_ONLY: WMT_STREAM_SELECTION = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_ON: WMT_STREAM_SELECTION = 2i32;
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WMT_TIMECODE_EXTENSION_DATA {
     pub wRange: u16,
     pub dwTimecode: u32,
@@ -531,23 +703,37 @@ impl ::core::clone::Clone for WMT_TIMECODE_EXTENSION_DATA {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_TIMECODE_FRAMERATE = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_TIMECODE_FRAMERATE_30: WMT_TIMECODE_FRAMERATE = 0i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_TIMECODE_FRAMERATE_30DROP: WMT_TIMECODE_FRAMERATE = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_TIMECODE_FRAMERATE_25: WMT_TIMECODE_FRAMERATE = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_TIMECODE_FRAMERATE_24: WMT_TIMECODE_FRAMERATE = 3i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_TRANSPORT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_Transport_Type_Unreliable: WMT_TRANSPORT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_Transport_Type_Reliable: WMT_TRANSPORT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_VERSION = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_VER_4_0: WMT_VERSION = 262144i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_VER_7_0: WMT_VERSION = 458752i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_VER_8_0: WMT_VERSION = 524288i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_VER_9_0: WMT_VERSION = 589824i32;
 pub const WMT_VIDEOIMAGE_INTEGER_DENOMINATOR: i32 = 65536i32;
 pub const WMT_VIDEOIMAGE_MAGIC_NUMBER: u32 = 491406834u32;
 pub const WMT_VIDEOIMAGE_MAGIC_NUMBER_2: u32 = 491406835u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WMT_VIDEOIMAGE_SAMPLE {
     pub dwMagic: u32,
     pub cbStruct: u32,
@@ -578,6 +764,7 @@ impl ::core::clone::Clone for WMT_VIDEOIMAGE_SAMPLE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WMT_VIDEOIMAGE_SAMPLE2 {
     pub dwMagic: u32,
@@ -642,6 +829,7 @@ pub const WMT_VIDEOIMAGE_TRANSITION_SPLIT: u32 = 29u32;
 pub const WMT_VIDEOIMAGE_TRANSITION_STAR: u32 = 30u32;
 pub const WMT_VIDEOIMAGE_TRANSITION_WHEEL: u32 = 31u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WMT_WATERMARK_ENTRY {
     pub wmetType: WMT_WATERMARK_ENTRY_TYPE,
@@ -657,10 +845,14 @@ impl ::core::clone::Clone for WMT_WATERMARK_ENTRY {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WMT_WATERMARK_ENTRY_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_WMETYPE_AUDIO: WMT_WATERMARK_ENTRY_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WMT_WMETYPE_VIDEO: WMT_WATERMARK_ENTRY_TYPE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WMT_WEBSTREAM_FORMAT {
     pub cbSize: u16,
     pub cbSampleHeaderFixedData: u16,
@@ -674,6 +866,7 @@ impl ::core::clone::Clone for WMT_WEBSTREAM_FORMAT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WMT_WEBSTREAM_SAMPLE_HEADER {
     pub cbLength: u16,
     pub wPart: u16,
@@ -688,6 +881,7 @@ impl ::core::clone::Clone for WMT_WEBSTREAM_SAMPLE_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WMVIDEOINFOHEADER {
     pub rcSource: super::super::Foundation::RECT,
@@ -706,6 +900,7 @@ impl ::core::clone::Clone for WMVIDEOINFOHEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WMVIDEOINFOHEADER2 {
     pub rcSource: super::super::Foundation::RECT,
@@ -730,6 +925,7 @@ impl ::core::clone::Clone for WMVIDEOINFOHEADER2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WM_ADDRESS_ACCESSENTRY {
     pub dwIPAddress: u32,
     pub dwMask: u32,
@@ -740,10 +936,14 @@ impl ::core::clone::Clone for WM_ADDRESS_ACCESSENTRY {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WM_AETYPE = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_AETYPE_INCLUDE: WM_AETYPE = 105i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_AETYPE_EXCLUDE: WM_AETYPE = 101i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WM_CLIENT_PROPERTIES {
     pub dwIPAddress: u32,
     pub dwPort: u32,
@@ -755,6 +955,7 @@ impl ::core::clone::Clone for WM_CLIENT_PROPERTIES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WM_CLIENT_PROPERTIES_EX {
     pub cbSize: u32,
@@ -776,26 +977,46 @@ pub const WM_CT_BOTTOM_FIELD_FIRST: u32 = 32u32;
 pub const WM_CT_INTERLACED: u32 = 128u32;
 pub const WM_CT_REPEAT_FIRST_FIELD: u32 = 16u32;
 pub const WM_CT_TOP_FIELD_FIRST: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WM_DM_INTERLACED_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_DM_NOTINTERLACED: WM_DM_INTERLACED_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_DM_DEINTERLACE_NORMAL: WM_DM_INTERLACED_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_DM_DEINTERLACE_HALFSIZE: WM_DM_INTERLACED_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_DM_DEINTERLACE_HALFSIZEDOUBLERATE: WM_DM_INTERLACED_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_DM_DEINTERLACE_INVERSETELECINE: WM_DM_INTERLACED_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_DM_DEINTERLACE_VERTICALHALFSIZEDOUBLERATE: WM_DM_INTERLACED_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WM_DM_IT_FIRST_FRAME_COHERENCY = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_DM_IT_DISABLE_COHERENT_MODE: WM_DM_IT_FIRST_FRAME_COHERENCY = 0i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = 3i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = 4i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = 5i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = 6i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = 7i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = 8i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = 9i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = 10i32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WM_LEAKY_BUCKET_PAIR {
     pub dwBitrate: u32,
     pub msBufferWindow: u32,
@@ -809,6 +1030,7 @@ impl ::core::clone::Clone for WM_LEAKY_BUCKET_PAIR {
 pub const WM_MAX_STREAMS: u32 = 63u32;
 pub const WM_MAX_VIDEO_STREAMS: u32 = 63u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WM_MEDIA_TYPE {
     pub majortype: ::windows_sys::core::GUID,
@@ -830,6 +1052,7 @@ impl ::core::clone::Clone for WM_MEDIA_TYPE {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WM_PICTURE {
     pub pwszMIMEType: super::super::Foundation::PWSTR,
@@ -846,11 +1069,16 @@ impl ::core::clone::Clone for WM_PICTURE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WM_PLAYBACK_DRC_LEVEL = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_PLAYBACK_DRC_HIGH: WM_PLAYBACK_DRC_LEVEL = 0i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_PLAYBACK_DRC_MEDIUM: WM_PLAYBACK_DRC_LEVEL = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_PLAYBACK_DRC_LOW: WM_PLAYBACK_DRC_LEVEL = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WM_PORT_NUMBER_RANGE {
     pub wPortBegin: u16,
     pub wPortEnd: u16,
@@ -862,6 +1090,7 @@ impl ::core::clone::Clone for WM_PORT_NUMBER_RANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WM_READER_CLIENTINFO {
     pub cbSize: u32,
@@ -883,6 +1112,7 @@ impl ::core::clone::Clone for WM_READER_CLIENTINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WM_READER_STATISTICS {
     pub cbSize: u32,
     pub dwBandwidth: u32,
@@ -897,14 +1127,22 @@ impl ::core::clone::Clone for WM_READER_STATISTICS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WM_SFEX_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_SFEX_NOTASYNCPOINT: WM_SFEX_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_SFEX_DATALOSS: WM_SFEX_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type WM_SF_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_SF_CLEANPOINT: WM_SF_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_SF_DISCONTINUITY: WM_SF_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const WM_SF_DATALOSS: WM_SF_TYPE = 4i32;
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WM_STREAM_PRIORITY_RECORD {
     pub wStreamNumber: u16,
@@ -919,6 +1157,7 @@ impl ::core::clone::Clone for WM_STREAM_PRIORITY_RECORD {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WM_STREAM_TYPE_INFO {
     pub guidMajorType: ::windows_sys::core::GUID,
     pub cbFormat: u32,
@@ -930,6 +1169,7 @@ impl ::core::clone::Clone for WM_STREAM_TYPE_INFO {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WM_SYNCHRONISED_LYRICS {
     pub bTimeStampFormat: u8,
@@ -963,6 +1203,7 @@ pub const WM_SampleExtension_PixelAspectRatio_Size: u32 = 2u32;
 pub const WM_SampleExtension_SampleDuration_Size: u32 = 2u32;
 pub const WM_SampleExtension_Timecode_Size: u32 = 14u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WM_USER_TEXT {
     pub pwszDescription: super::super::Foundation::PWSTR,
@@ -977,6 +1218,7 @@ impl ::core::clone::Clone for WM_USER_TEXT {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WM_USER_WEB_URL {
     pub pwszDescription: super::super::Foundation::PWSTR,
@@ -991,6 +1233,7 @@ impl ::core::clone::Clone for WM_USER_WEB_URL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WM_WRITER_STATISTICS {
     pub qwSampleCount: u64,
     pub qwByteCount: u64,
@@ -1010,6 +1253,7 @@ impl ::core::clone::Clone for WM_WRITER_STATISTICS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub struct WM_WRITER_STATISTICS_EX {
     pub dwBitratePlusOverhead: u32,
     pub dwCurrentSampleDropRateInQueue: u32,
@@ -1025,9 +1269,13 @@ impl ::core::clone::Clone for WM_WRITER_STATISTICS_EX {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub type _AM_ASFWRITERCONFIG_PARAM = i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const AM_CONFIGASFWRITER_PARAM_AUTOINDEX: _AM_ASFWRITERCONFIG_PARAM = 1i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const AM_CONFIGASFWRITER_PARAM_MULTIPASS: _AM_ASFWRITERCONFIG_PARAM = 2i32;
+#[doc = "*Required features: 'Win32_Media_WindowsMediaFormat'*"]
 pub const AM_CONFIGASFWRITER_PARAM_DONTCOMPRESS: _AM_ASFWRITERCONFIG_PARAM = 3i32;
 pub const g_dwWMContentAttributes: u32 = 5u32;
 pub const g_dwWMNSCAttributes: u32 = 5u32;

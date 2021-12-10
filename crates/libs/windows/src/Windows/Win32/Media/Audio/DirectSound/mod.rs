@@ -9,6 +9,7 @@ pub const DS3DALG_HRTF_FULL: ::windows::core::GUID = ::windows::core::GUID::from
 pub const DS3DALG_HRTF_LIGHT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2413342_1c1b_11d2_94f5_00c04fc28aca);
 pub const DS3DALG_NO_VIRTUALIZATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241333f_1c1b_11d2_94f5_00c04fc28aca);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound', 'Win32_Graphics_Direct3D'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct DS3DBUFFER {
     pub dwSize: u32,
@@ -49,6 +50,7 @@ impl ::core::default::Default for DS3DBUFFER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound', 'Win32_Graphics_Direct3D'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub struct DS3DLISTENER {
     pub dwSize: u32,
@@ -105,6 +107,7 @@ pub const DS3D_MINCONEANGLE: u32 = 0u32;
 pub const DS3D_MINDOPPLERFACTOR: f32 = 0f32;
 pub const DS3D_MINROLLOFFFACTOR: f32 = 0f32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub struct DSBCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -165,6 +168,7 @@ pub const DSBPLAY_TERMINATEBY_PRIORITY: u64 = 32u64;
 pub const DSBPLAY_TERMINATEBY_TIME: u32 = 8u32;
 pub const DSBPN_OFFSETSTOP: u32 = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSBPOSITIONNOTIFY {
     pub dwOffset: u32,
@@ -206,6 +210,7 @@ pub const DSBSTATUS_LOOPING: u32 = 4u32;
 pub const DSBSTATUS_PLAYING: u32 = 1u32;
 pub const DSBSTATUS_TERMINATED: u32 = 32u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub struct DSBUFFERDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -235,6 +240,7 @@ impl ::core::default::Default for DSBUFFERDESC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub struct DSBUFFERDESC1 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -265,6 +271,7 @@ impl ::core::default::Default for DSBUFFERDESC1 {
 pub const DSBVOLUME_MAX: u32 = 0u32;
 pub const DSBVOLUME_MIN: i32 = -10000i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub struct DSCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -323,6 +330,7 @@ pub const DSCAPS_SECONDARY8BIT: u32 = 1024u32;
 pub const DSCAPS_SECONDARYMONO: u32 = 256u32;
 pub const DSCAPS_SECONDARYSTEREO: u32 = 512u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub struct DSCBCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -356,6 +364,7 @@ pub const DSCBSTART_LOOPING: u32 = 1u32;
 pub const DSCBSTATUS_CAPTURING: u32 = 1u32;
 pub const DSCBSTATUS_LOOPING: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub struct DSCBUFFERDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -386,6 +395,7 @@ impl ::core::default::Default for DSCBUFFERDESC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub struct DSCBUFFERDESC1 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -414,6 +424,7 @@ impl ::core::default::Default for DSCBUFFERDESC1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub struct DSCCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -444,6 +455,7 @@ pub const DSCCAPS_CERTIFIED: u32 = 64u32;
 pub const DSCCAPS_EMULDRIVER: u32 = 32u32;
 pub const DSCCAPS_MULTIPLECAPTURE: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub struct DSCEFFECTDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -473,6 +485,7 @@ impl ::core::default::Default for DSCEFFECTDESC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSCFXAec {
     pub fEnable: super::super::super::Foundation::BOOL,
@@ -506,6 +519,7 @@ impl ::core::default::Default for DSCFXAec {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DSCFXNoiseSuppress {
     pub fEnable: super::super::super::Foundation::BOOL,
@@ -552,6 +566,7 @@ pub const DSDEVID_DefaultPlayback: ::windows::core::GUID = ::windows::core::GUID
 pub const DSDEVID_DefaultVoiceCapture: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdef00003_9c6d_47ed_aaf1_4dda8f2b5c03);
 pub const DSDEVID_DefaultVoicePlayback: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdef00002_9c6d_47ed_aaf1_4dda8f2b5c03);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub struct DSEFFECTDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -611,6 +626,7 @@ pub const DSFXCOMPRESSOR_RELEASE_MIN: f32 = 50f32;
 pub const DSFXCOMPRESSOR_THRESHOLD_MAX: f32 = 0f32;
 pub const DSFXCOMPRESSOR_THRESHOLD_MIN: f32 = -60f32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub struct DSFXChorus {
     pub fWetDryMix: f32,
     pub fDepth: f32,
@@ -641,6 +657,7 @@ impl ::core::default::Default for DSFXChorus {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub struct DSFXCompressor {
     pub fGain: f32,
     pub fAttack: f32,
@@ -680,6 +697,7 @@ pub const DSFXDISTORTION_POSTEQCENTERFREQUENCY_MIN: f32 = 100f32;
 pub const DSFXDISTORTION_PRELOWPASSCUTOFF_MAX: f32 = 8000f32;
 pub const DSFXDISTORTION_PRELOWPASSCUTOFF_MIN: f32 = 100f32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub struct DSFXDistortion {
     pub fGain: f32,
     pub fEdge: f32,
@@ -718,6 +736,7 @@ pub const DSFXECHO_RIGHTDELAY_MIN: f32 = 1f32;
 pub const DSFXECHO_WETDRYMIX_MAX: f32 = 100f32;
 pub const DSFXECHO_WETDRYMIX_MIN: f32 = 0f32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub struct DSFXEcho {
     pub fWetDryMix: f32,
     pub fFeedback: f32,
@@ -765,6 +784,7 @@ pub const DSFXFLANGER_WAVE_TRIANGLE: u32 = 0u32;
 pub const DSFXFLANGER_WETDRYMIX_MAX: f32 = 100f32;
 pub const DSFXFLANGER_WETDRYMIX_MIN: f32 = 0f32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub struct DSFXFlanger {
     pub fWetDryMix: f32,
     pub fDepth: f32,
@@ -799,6 +819,7 @@ pub const DSFXGARGLE_RATEHZ_MIN: u32 = 1u32;
 pub const DSFXGARGLE_WAVE_SQUARE: u32 = 1u32;
 pub const DSFXGARGLE_WAVE_TRIANGLE: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub struct DSFXGargle {
     pub dwRateHz: u32,
     pub dwWaveShape: u32,
@@ -824,6 +845,7 @@ impl ::core::default::Default for DSFXGargle {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub struct DSFXI3DL2Reverb {
     pub lRoom: i32,
     pub lRoomHF: i32,
@@ -865,6 +887,7 @@ pub const DSFXPARAMEQ_CENTER_MIN: f32 = 80f32;
 pub const DSFXPARAMEQ_GAIN_MAX: f32 = 15f32;
 pub const DSFXPARAMEQ_GAIN_MIN: f32 = -15f32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub struct DSFXParamEq {
     pub fCenter: f32,
     pub fBandwidth: f32,
@@ -898,6 +921,7 @@ pub const DSFXR_SENDLOOP: i32 = 6i32;
 pub const DSFXR_UNALLOCATED: i32 = 3i32;
 pub const DSFXR_UNKNOWN: i32 = 5i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub struct DSFXWavesReverb {
     pub fInGain: f32,
     pub fReverbMix: f32,
@@ -1036,8 +1060,10 @@ pub const DSSPEAKER_QUAD: u32 = 3u32;
 pub const DSSPEAKER_STEREO: u32 = 4u32;
 pub const DSSPEAKER_SURROUND: u32 = 5u32;
 pub const DS_CERTIFIED: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 pub const DS_NO_VIRTUALIZATION: ::windows::core::HRESULT = ::windows::core::HRESULT(142082058i32);
 pub const DS_UNCERTIFIED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[inline]
 pub unsafe fn DirectSoundCaptureCreate<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcguiddevice: *const ::windows::core::GUID, ppdsc: *mut ::core::option::Option<IDirectSoundCapture>, punkouter: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1051,6 +1077,7 @@ pub unsafe fn DirectSoundCaptureCreate<'a, Param2: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[inline]
 pub unsafe fn DirectSoundCaptureCreate8<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcguiddevice: *const ::windows::core::GUID, ppdsc8: *mut ::core::option::Option<IDirectSoundCapture>, punkouter: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1064,6 +1091,7 @@ pub unsafe fn DirectSoundCaptureCreate8<'a, Param2: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundCaptureEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -1078,6 +1106,7 @@ pub unsafe fn DirectSoundCaptureEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundCaptureEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -1092,6 +1121,7 @@ pub unsafe fn DirectSoundCaptureEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[inline]
 pub unsafe fn DirectSoundCreate<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcguiddevice: *const ::windows::core::GUID, ppds: *mut ::core::option::Option<IDirectSound>, punkouter: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1105,6 +1135,7 @@ pub unsafe fn DirectSoundCreate<'a, Param2: ::windows::core::IntoParam<'a, ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[inline]
 pub unsafe fn DirectSoundCreate8<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcguiddevice: *const ::windows::core::GUID, ppds8: *mut ::core::option::Option<IDirectSound8>, punkouter: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1118,6 +1149,7 @@ pub unsafe fn DirectSoundCreate8<'a, Param2: ::windows::core::IntoParam<'a, ::wi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -1132,6 +1164,7 @@ pub unsafe fn DirectSoundEnumerateA(pdsenumcallback: LPDSENUMCALLBACKA, pcontext
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -1146,6 +1179,7 @@ pub unsafe fn DirectSoundEnumerateW(pdsenumcallback: LPDSENUMCALLBACKW, pcontext
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundFullDuplexCreate<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param9: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcguidcapturedevice: *const ::windows::core::GUID, pcguidrenderdevice: *const ::windows::core::GUID, pcdscbufferdesc: *const DSCBUFFERDESC, pcdsbufferdesc: *const DSBUFFERDESC, hwnd: Param4, dwlevel: u32, ppdsfd: *mut ::core::option::Option<IDirectSoundFullDuplex>, ppdscbuffer8: *mut ::core::option::Option<IDirectSoundCaptureBuffer8>, ppdsbuffer8: *mut ::core::option::Option<IDirectSoundBuffer8>, punkouter: Param9) -> ::windows::core::Result<()> {
@@ -1176,6 +1210,7 @@ pub const GUID_DSFX_STANDARD_GARGLE: ::windows::core::GUID = ::windows::core::GU
 pub const GUID_DSFX_STANDARD_I3DL2REVERB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef985e71_d5c7_42d4_ba4d_2d073e2e96f4);
 pub const GUID_DSFX_STANDARD_PARAMEQ: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x120ced89_3bf4_4173_a132_3cb406cf3231);
 pub const GUID_DSFX_WAVES_REVERB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87fc0268_9a55_4360_95aa_004a1d9de26c);
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[inline]
 pub unsafe fn GetDeviceID(pguidsrc: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
@@ -1190,6 +1225,7 @@ pub unsafe fn GetDeviceID(pguidsrc: *const ::windows::core::GUID) -> ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSound(::windows::core::IUnknown);
 impl IDirectSound {
@@ -1273,6 +1309,7 @@ pub struct IDirectSoundVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwspeakerconfig: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcguiddevice: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSound3DBuffer(::windows::core::IUnknown);
 impl IDirectSound3DBuffer {
@@ -1409,6 +1446,7 @@ pub struct IDirectSound3DBufferVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSound3DListener(::windows::core::IUnknown);
 impl IDirectSound3DListener {
@@ -1531,6 +1569,7 @@ pub struct IDirectSound3DListenerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSound8(::windows::core::IUnknown);
 impl IDirectSound8 {
@@ -1639,6 +1678,7 @@ pub struct IDirectSound8Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcguiddevice: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcertified: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSoundBuffer(::windows::core::IUnknown);
 impl IDirectSoundBuffer {
@@ -1762,6 +1802,7 @@ pub struct IDirectSoundBufferVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvaudioptr1: *const ::core::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::core::ffi::c_void, dwaudiobytes2: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSoundBuffer8(::windows::core::IUnknown);
 impl IDirectSoundBuffer8 {
@@ -1917,6 +1958,7 @@ pub struct IDirectSoundBuffer8Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, dweffectscount: u32, pdwresultcodes: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguidobject: *const ::windows::core::GUID, dwindex: u32, rguidinterface: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSoundCapture(::windows::core::IUnknown);
 impl IDirectSoundCapture {
@@ -1976,6 +2018,7 @@ pub struct IDirectSoundCaptureVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsccaps: *mut DSCCAPS) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcguiddevice: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSoundCaptureBuffer(::windows::core::IUnknown);
 impl IDirectSoundCaptureBuffer {
@@ -2060,6 +2103,7 @@ pub struct IDirectSoundCaptureBufferVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvaudioptr1: *const ::core::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::core::ffi::c_void, dwaudiobytes2: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSoundCaptureBuffer8(::windows::core::IUnknown);
 impl IDirectSoundCaptureBuffer8 {
@@ -2172,6 +2216,7 @@ pub struct IDirectSoundCaptureBuffer8Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguidobject: *const ::windows::core::GUID, dwindex: u32, rguidinterface: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweffectscount: u32, pdwfxstatus: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSoundCaptureFXAec(::windows::core::IUnknown);
 impl IDirectSoundCaptureFXAec {
@@ -2240,6 +2285,7 @@ pub struct IDirectSoundCaptureFXAecVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSoundCaptureFXNoiseSuppress(::windows::core::IUnknown);
 impl IDirectSoundCaptureFXNoiseSuppress {
@@ -2303,6 +2349,7 @@ pub struct IDirectSoundCaptureFXNoiseSuppressVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSoundFXChorus(::windows::core::IUnknown);
 impl IDirectSoundFXChorus {
@@ -2358,6 +2405,7 @@ pub struct IDirectSoundFXChorusVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdsfxchorus: *const DSFXChorus) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsfxchorus: *mut DSFXChorus) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSoundFXCompressor(::windows::core::IUnknown);
 impl IDirectSoundFXCompressor {
@@ -2413,6 +2461,7 @@ pub struct IDirectSoundFXCompressorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdsfxcompressor: *const DSFXCompressor) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsfxcompressor: *mut DSFXCompressor) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSoundFXDistortion(::windows::core::IUnknown);
 impl IDirectSoundFXDistortion {
@@ -2468,6 +2517,7 @@ pub struct IDirectSoundFXDistortionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdsfxdistortion: *const DSFXDistortion) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsfxdistortion: *mut DSFXDistortion) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSoundFXEcho(::windows::core::IUnknown);
 impl IDirectSoundFXEcho {
@@ -2523,6 +2573,7 @@ pub struct IDirectSoundFXEchoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdsfxecho: *const DSFXEcho) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsfxecho: *mut DSFXEcho) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSoundFXFlanger(::windows::core::IUnknown);
 impl IDirectSoundFXFlanger {
@@ -2578,6 +2629,7 @@ pub struct IDirectSoundFXFlangerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdsfxflanger: *const DSFXFlanger) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsfxflanger: *mut DSFXFlanger) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSoundFXGargle(::windows::core::IUnknown);
 impl IDirectSoundFXGargle {
@@ -2633,6 +2685,7 @@ pub struct IDirectSoundFXGargleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdsfxgargle: *const DSFXGargle) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsfxgargle: *mut DSFXGargle) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSoundFXI3DL2Reverb(::windows::core::IUnknown);
 impl IDirectSoundFXI3DL2Reverb {
@@ -2706,6 +2759,7 @@ pub struct IDirectSoundFXI3DL2ReverbVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lquality: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plquality: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSoundFXParamEq(::windows::core::IUnknown);
 impl IDirectSoundFXParamEq {
@@ -2761,6 +2815,7 @@ pub struct IDirectSoundFXParamEqVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdsfxparameq: *const DSFXParamEq) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsfxparameq: *mut DSFXParamEq) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSoundFXWavesReverb(::windows::core::IUnknown);
 impl IDirectSoundFXWavesReverb {
@@ -2816,6 +2871,7 @@ pub struct IDirectSoundFXWavesReverbVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcdsfxwavesreverb: *const DSFXWavesReverb) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsfxwavesreverb: *mut DSFXWavesReverb) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSoundFullDuplex(::windows::core::IUnknown);
 impl IDirectSoundFullDuplex {
@@ -2868,6 +2924,7 @@ pub struct IDirectSoundFullDuplexVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcaptureguid: *const ::windows::core::GUID, prenderguid: *const ::windows::core::GUID, lpdscbufferdesc: *const DSCBUFFERDESC, lpdsbufferdesc: *const DSBUFFERDESC, hwnd: super::super::super::Foundation::HWND, dwlevel: u32, lplpdirectsoundcapturebuffer8: *mut ::windows::core::RawPtr, lplpdirectsoundbuffer8: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
 #[repr(transparent)]
 pub struct IDirectSoundNotify(::windows::core::IUnknown);
 impl IDirectSoundNotify {
@@ -2922,8 +2979,10 @@ pub struct IDirectSoundNotifyVtbl(
 );
 pub const KSPROPERTY_SUPPORT_GET: u32 = 1u32;
 pub const KSPROPERTY_SUPPORT_SET: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDSENUMCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows::core::GUID, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Media_Audio_DirectSound', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDSENUMCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows::core::GUID, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 pub const _FACDS: u32 = 2168u32;

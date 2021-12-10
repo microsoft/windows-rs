@@ -3,6 +3,7 @@
 extern "system" {}
 pub type HostMessageReceivedCallback = *mut ::core::ffi::c_void;
 pub type IsolatedWindowsEnvironment = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentActivator(pub i32);
 impl IsolatedWindowsEnvironmentActivator {
@@ -15,6 +16,7 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentActivator {
         *self
     }
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentAllowedClipboardFormats(pub u32);
 impl IsolatedWindowsEnvironmentAllowedClipboardFormats {
@@ -28,6 +30,7 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentAllowedClipboardFormats 
         *self
     }
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentAvailablePrinters(pub u32);
 impl IsolatedWindowsEnvironmentAvailablePrinters {
@@ -43,6 +46,7 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentAvailablePrinters {
         *self
     }
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentClipboardCopyPasteDirections(pub u32);
 impl IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
@@ -57,6 +61,7 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentClipboardCopyPasteDirect
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Security_Isolation'*"]
 pub struct IsolatedWindowsEnvironmentCreateProgress {
     pub State: IsolatedWindowsEnvironmentProgressState,
     pub PercentComplete: u32,
@@ -68,6 +73,7 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentCreateProgress {
     }
 }
 pub type IsolatedWindowsEnvironmentCreateResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentCreateStatus(pub i32);
 impl IsolatedWindowsEnvironmentCreateStatus {
@@ -82,6 +88,7 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentCreateStatus {
     }
 }
 pub type IsolatedWindowsEnvironmentFile = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentHostError(pub i32);
 impl IsolatedWindowsEnvironmentHostError {
@@ -98,6 +105,7 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentHostError {
     }
 }
 pub type IsolatedWindowsEnvironmentLaunchFileResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentLaunchFileStatus(pub i32);
 impl IsolatedWindowsEnvironmentLaunchFileStatus {
@@ -117,6 +125,7 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentLaunchFileStatus {
 pub type IsolatedWindowsEnvironmentOptions = *mut ::core::ffi::c_void;
 pub type IsolatedWindowsEnvironmentOwnerRegistrationData = *mut ::core::ffi::c_void;
 pub type IsolatedWindowsEnvironmentOwnerRegistrationResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationStatus(pub i32);
 impl IsolatedWindowsEnvironmentOwnerRegistrationStatus {
@@ -133,6 +142,7 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentOwnerRegistrationStatus 
     }
 }
 pub type IsolatedWindowsEnvironmentPostMessageResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentPostMessageStatus(pub i32);
 impl IsolatedWindowsEnvironmentPostMessageStatus {
@@ -147,6 +157,7 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentPostMessageStatus {
     }
 }
 pub type IsolatedWindowsEnvironmentProcess = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentProcessState(pub i32);
 impl IsolatedWindowsEnvironmentProcessState {
@@ -160,6 +171,7 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentProcessState {
         *self
     }
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentProgressState(pub i32);
 impl IsolatedWindowsEnvironmentProgressState {
@@ -175,6 +187,7 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentProgressState {
 }
 pub type IsolatedWindowsEnvironmentShareFileRequestOptions = *mut ::core::ffi::c_void;
 pub type IsolatedWindowsEnvironmentShareFileResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFileStatus(pub i32);
 impl IsolatedWindowsEnvironmentShareFileStatus {
@@ -193,6 +206,7 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFileStatus {
 }
 pub type IsolatedWindowsEnvironmentShareFolderRequestOptions = *mut ::core::ffi::c_void;
 pub type IsolatedWindowsEnvironmentShareFolderResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFolderStatus(pub i32);
 impl IsolatedWindowsEnvironmentShareFolderStatus {
@@ -209,6 +223,7 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFolderStatus {
     }
 }
 pub type IsolatedWindowsEnvironmentStartProcessResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentStartProcessStatus(pub i32);
 impl IsolatedWindowsEnvironmentStartProcessStatus {

@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_Geolocation_Geofencing'*"]
 #[repr(transparent)]
 pub struct Geofence(::windows::core::IUnknown);
 impl Geofence {
@@ -148,6 +149,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geof
 }
 unsafe impl ::core::marker::Send for Geofence {}
 unsafe impl ::core::marker::Sync for Geofence {}
+#[doc = "*Required features: 'Devices_Geolocation_Geofencing'*"]
 #[repr(transparent)]
 pub struct GeofenceMonitor(::windows::core::IUnknown);
 impl GeofenceMonitor {
@@ -281,6 +283,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geof
 }
 unsafe impl ::core::marker::Send for GeofenceMonitor {}
 unsafe impl ::core::marker::Sync for GeofenceMonitor {}
+#[doc = "*Required features: 'Devices_Geolocation_Geofencing'*"]
 #[repr(transparent)]
 pub struct GeofenceMonitorStatus(pub i32);
 impl GeofenceMonitorStatus {
@@ -312,6 +315,7 @@ unsafe impl ::windows::core::RuntimeType for GeofenceMonitorStatus {
 impl ::windows::core::DefaultType for GeofenceMonitorStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Geolocation_Geofencing'*"]
 #[repr(transparent)]
 pub struct GeofenceRemovalReason(pub i32);
 impl GeofenceRemovalReason {
@@ -339,6 +343,7 @@ unsafe impl ::windows::core::RuntimeType for GeofenceRemovalReason {
 impl ::windows::core::DefaultType for GeofenceRemovalReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Geolocation_Geofencing'*"]
 #[repr(transparent)]
 pub struct GeofenceState(pub u32);
 impl GeofenceState {
@@ -368,6 +373,7 @@ unsafe impl ::windows::core::RuntimeType for GeofenceState {
 impl ::windows::core::DefaultType for GeofenceState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Geolocation_Geofencing'*"]
 #[repr(transparent)]
 pub struct GeofenceStateChangeReport(::windows::core::IUnknown);
 impl GeofenceStateChangeReport {
@@ -583,6 +589,7 @@ pub struct IGeofenceStateChangeReportVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GeofenceRemovalReason) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Geolocation_Geofencing'*"]
 #[repr(transparent)]
 pub struct MonitoredGeofenceStates(pub u32);
 impl MonitoredGeofenceStates {

@@ -116,6 +116,7 @@ pub struct IMidiInPortStaticsVtbl(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct IMidiMessage(::windows::core::IUnknown);
 impl IMidiMessage {
@@ -310,6 +311,7 @@ pub struct IMidiNoteOnMessageFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channel: u8, note: u8, velocity: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct IMidiOutPort(::windows::core::IUnknown);
 impl IMidiOutPort {
@@ -737,6 +739,7 @@ pub struct IMidiTimeCodeMessageFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frametype: u8, values: u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiActiveSensingMessage(::windows::core::IUnknown);
 impl MidiActiveSensingMessage {
@@ -856,6 +859,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiActiveSensingMess
 }
 unsafe impl ::core::marker::Send for MidiActiveSensingMessage {}
 unsafe impl ::core::marker::Sync for MidiActiveSensingMessage {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiChannelPressureMessage(::windows::core::IUnknown);
 impl MidiChannelPressureMessage {
@@ -992,6 +996,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiChannelPressureMe
 }
 unsafe impl ::core::marker::Send for MidiChannelPressureMessage {}
 unsafe impl ::core::marker::Sync for MidiChannelPressureMessage {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiContinueMessage(::windows::core::IUnknown);
 impl MidiContinueMessage {
@@ -1111,6 +1116,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiContinueMessage {
 }
 unsafe impl ::core::marker::Send for MidiContinueMessage {}
 unsafe impl ::core::marker::Sync for MidiContinueMessage {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiControlChangeMessage(::windows::core::IUnknown);
 impl MidiControlChangeMessage {
@@ -1254,6 +1260,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiControlChangeMess
 }
 unsafe impl ::core::marker::Send for MidiControlChangeMessage {}
 unsafe impl ::core::marker::Sync for MidiControlChangeMessage {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiInPort(::windows::core::IUnknown);
 impl MidiInPort {
@@ -1389,6 +1396,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for MidiInPort {}
 unsafe impl ::core::marker::Sync for MidiInPort {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiMessageReceivedEventArgs(::windows::core::IUnknown);
 impl MidiMessageReceivedEventArgs {
@@ -1463,6 +1471,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Midi
 }
 unsafe impl ::core::marker::Send for MidiMessageReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MidiMessageReceivedEventArgs {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiMessageType(pub i32);
 impl MidiMessageType {
@@ -1508,6 +1517,7 @@ unsafe impl ::windows::core::RuntimeType for MidiMessageType {
 impl ::windows::core::DefaultType for MidiMessageType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiNoteOffMessage(::windows::core::IUnknown);
 impl MidiNoteOffMessage {
@@ -1651,6 +1661,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiNoteOffMessage {
 }
 unsafe impl ::core::marker::Send for MidiNoteOffMessage {}
 unsafe impl ::core::marker::Sync for MidiNoteOffMessage {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiNoteOnMessage(::windows::core::IUnknown);
 impl MidiNoteOnMessage {
@@ -1794,6 +1805,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiNoteOnMessage {
 }
 unsafe impl ::core::marker::Send for MidiNoteOnMessage {}
 unsafe impl ::core::marker::Sync for MidiNoteOnMessage {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiOutPort(::windows::core::IUnknown);
 impl MidiOutPort {
@@ -1947,6 +1959,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiOutPort> for &MidiOutPort {
 }
 unsafe impl ::core::marker::Send for MidiOutPort {}
 unsafe impl ::core::marker::Sync for MidiOutPort {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiPitchBendChangeMessage(::windows::core::IUnknown);
 impl MidiPitchBendChangeMessage {
@@ -2083,6 +2096,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiPitchBendChangeMe
 }
 unsafe impl ::core::marker::Send for MidiPitchBendChangeMessage {}
 unsafe impl ::core::marker::Sync for MidiPitchBendChangeMessage {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiPolyphonicKeyPressureMessage(::windows::core::IUnknown);
 impl MidiPolyphonicKeyPressureMessage {
@@ -2226,6 +2240,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiPolyphonicKeyPres
 }
 unsafe impl ::core::marker::Send for MidiPolyphonicKeyPressureMessage {}
 unsafe impl ::core::marker::Sync for MidiPolyphonicKeyPressureMessage {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiProgramChangeMessage(::windows::core::IUnknown);
 impl MidiProgramChangeMessage {
@@ -2362,6 +2377,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiProgramChangeMess
 }
 unsafe impl ::core::marker::Send for MidiProgramChangeMessage {}
 unsafe impl ::core::marker::Sync for MidiProgramChangeMessage {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiSongPositionPointerMessage(::windows::core::IUnknown);
 impl MidiSongPositionPointerMessage {
@@ -2491,6 +2507,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiSongPositionPoint
 }
 unsafe impl ::core::marker::Send for MidiSongPositionPointerMessage {}
 unsafe impl ::core::marker::Sync for MidiSongPositionPointerMessage {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiSongSelectMessage(::windows::core::IUnknown);
 impl MidiSongSelectMessage {
@@ -2620,6 +2637,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiSongSelectMessage
 }
 unsafe impl ::core::marker::Send for MidiSongSelectMessage {}
 unsafe impl ::core::marker::Sync for MidiSongSelectMessage {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiStartMessage(::windows::core::IUnknown);
 impl MidiStartMessage {
@@ -2739,6 +2757,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiStartMessage {
 }
 unsafe impl ::core::marker::Send for MidiStartMessage {}
 unsafe impl ::core::marker::Sync for MidiStartMessage {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiStopMessage(::windows::core::IUnknown);
 impl MidiStopMessage {
@@ -2858,6 +2877,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiStopMessage {
 }
 unsafe impl ::core::marker::Send for MidiStopMessage {}
 unsafe impl ::core::marker::Sync for MidiStopMessage {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiSynthesizer(::windows::core::IUnknown);
 impl MidiSynthesizer {
@@ -3038,6 +3058,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiOutPort> for &MidiSynthesizer {
 }
 unsafe impl ::core::marker::Send for MidiSynthesizer {}
 unsafe impl ::core::marker::Sync for MidiSynthesizer {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiSystemExclusiveMessage(::windows::core::IUnknown);
 impl MidiSystemExclusiveMessage {
@@ -3161,6 +3182,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiSystemExclusiveMe
 }
 unsafe impl ::core::marker::Send for MidiSystemExclusiveMessage {}
 unsafe impl ::core::marker::Sync for MidiSystemExclusiveMessage {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiSystemResetMessage(::windows::core::IUnknown);
 impl MidiSystemResetMessage {
@@ -3280,6 +3302,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiSystemResetMessag
 }
 unsafe impl ::core::marker::Send for MidiSystemResetMessage {}
 unsafe impl ::core::marker::Sync for MidiSystemResetMessage {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiTimeCodeMessage(::windows::core::IUnknown);
 impl MidiTimeCodeMessage {
@@ -3416,6 +3439,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiTimeCodeMessage {
 }
 unsafe impl ::core::marker::Send for MidiTimeCodeMessage {}
 unsafe impl ::core::marker::Sync for MidiTimeCodeMessage {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiTimingClockMessage(::windows::core::IUnknown);
 impl MidiTimingClockMessage {
@@ -3535,6 +3559,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiTimingClockMessag
 }
 unsafe impl ::core::marker::Send for MidiTimingClockMessage {}
 unsafe impl ::core::marker::Sync for MidiTimingClockMessage {}
+#[doc = "*Required features: 'Devices_Midi'*"]
 #[repr(transparent)]
 pub struct MidiTuneRequestMessage(::windows::core::IUnknown);
 impl MidiTuneRequestMessage {

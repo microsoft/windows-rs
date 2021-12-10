@@ -29,6 +29,7 @@ pub type AppActivationResult = *mut ::core::ffi::c_void;
 pub type AppDiagnosticInfo = *mut ::core::ffi::c_void;
 pub type AppDiagnosticInfoWatcher = *mut ::core::ffi::c_void;
 pub type AppDiagnosticInfoWatcherEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppDiagnosticInfoWatcherStatus(pub i32);
 impl AppDiagnosticInfoWatcherStatus {
@@ -47,6 +48,7 @@ impl ::core::clone::Clone for AppDiagnosticInfoWatcherStatus {
 }
 pub type AppExecutionStateChangeResult = *mut ::core::ffi::c_void;
 pub type AppMemoryReport = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppMemoryUsageLevel(pub i32);
 impl AppMemoryUsageLevel {
@@ -63,6 +65,7 @@ impl ::core::clone::Clone for AppMemoryUsageLevel {
 }
 pub type AppMemoryUsageLimitChangingEventArgs = *mut ::core::ffi::c_void;
 pub type AppResourceGroupBackgroundTaskReport = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppResourceGroupEnergyQuotaState(pub i32);
 impl AppResourceGroupEnergyQuotaState {
@@ -76,6 +79,7 @@ impl ::core::clone::Clone for AppResourceGroupEnergyQuotaState {
         *self
     }
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppResourceGroupExecutionState(pub i32);
 impl AppResourceGroupExecutionState {
@@ -95,6 +99,7 @@ pub type AppResourceGroupInfo = *mut ::core::ffi::c_void;
 pub type AppResourceGroupInfoWatcher = *mut ::core::ffi::c_void;
 pub type AppResourceGroupInfoWatcherEventArgs = *mut ::core::ffi::c_void;
 pub type AppResourceGroupInfoWatcherExecutionStateChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppResourceGroupInfoWatcherStatus(pub i32);
 impl AppResourceGroupInfoWatcherStatus {
@@ -116,6 +121,7 @@ pub type AppResourceGroupStateReport = *mut ::core::ffi::c_void;
 pub type AppUriHandlerHost = *mut ::core::ffi::c_void;
 pub type AppUriHandlerRegistration = *mut ::core::ffi::c_void;
 pub type AppUriHandlerRegistrationManager = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AutoUpdateTimeZoneStatus(pub i32);
 impl AutoUpdateTimeZoneStatus {
@@ -129,6 +135,7 @@ impl ::core::clone::Clone for AutoUpdateTimeZoneStatus {
         *self
     }
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct DiagnosticAccessStatus(pub i32);
 impl DiagnosticAccessStatus {
@@ -146,6 +153,7 @@ impl ::core::clone::Clone for DiagnosticAccessStatus {
 pub type DispatcherQueue = *mut ::core::ffi::c_void;
 pub type DispatcherQueueController = *mut ::core::ffi::c_void;
 pub type DispatcherQueueHandler = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct DispatcherQueuePriority(pub i32);
 impl DispatcherQueuePriority {
@@ -163,6 +171,7 @@ pub type DispatcherQueueShutdownStartingEventArgs = *mut ::core::ffi::c_void;
 pub type DispatcherQueueTimer = *mut ::core::ffi::c_void;
 pub type FolderLauncherOptions = *mut ::core::ffi::c_void;
 pub type ILauncherViewOptions = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct LaunchFileStatus(pub i32);
 impl LaunchFileStatus {
@@ -178,6 +187,7 @@ impl ::core::clone::Clone for LaunchFileStatus {
         *self
     }
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct LaunchQuerySupportStatus(pub i32);
 impl LaunchQuerySupportStatus {
@@ -193,6 +203,7 @@ impl ::core::clone::Clone for LaunchQuerySupportStatus {
         *self
     }
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct LaunchQuerySupportType(pub i32);
 impl LaunchQuerySupportType {
@@ -206,6 +217,7 @@ impl ::core::clone::Clone for LaunchQuerySupportType {
     }
 }
 pub type LaunchUriResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct LaunchUriStatus(pub i32);
 impl LaunchUriStatus {
@@ -222,6 +234,7 @@ impl ::core::clone::Clone for LaunchUriStatus {
 }
 pub type LauncherOptions = *mut ::core::ffi::c_void;
 pub type LauncherUIOptions = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct PowerState(pub i32);
 impl PowerState {
@@ -237,6 +250,7 @@ impl ::core::clone::Clone for PowerState {
 pub type ProcessLauncherOptions = *mut ::core::ffi::c_void;
 pub type ProcessLauncherResult = *mut ::core::ffi::c_void;
 pub type ProcessMemoryReport = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct ProcessorArchitecture(pub i32);
 impl ProcessorArchitecture {
@@ -255,6 +269,7 @@ impl ::core::clone::Clone for ProcessorArchitecture {
     }
 }
 pub type ProtocolForResultsOperation = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct RemoteLaunchUriStatus(pub i32);
 impl RemoteLaunchUriStatus {
@@ -274,6 +289,7 @@ impl ::core::clone::Clone for RemoteLaunchUriStatus {
     }
 }
 pub type RemoteLauncherOptions = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct ShutdownKind(pub i32);
 impl ShutdownKind {
@@ -287,6 +303,7 @@ impl ::core::clone::Clone for ShutdownKind {
     }
 }
 pub type User = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserAgeConsentGroup(pub i32);
 impl UserAgeConsentGroup {
@@ -300,6 +317,7 @@ impl ::core::clone::Clone for UserAgeConsentGroup {
         *self
     }
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserAgeConsentResult(pub i32);
 impl UserAgeConsentResult {
@@ -315,6 +333,7 @@ impl ::core::clone::Clone for UserAgeConsentResult {
         *self
     }
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserAuthenticationStatus(pub i32);
 impl UserAuthenticationStatus {
@@ -333,6 +352,7 @@ pub type UserAuthenticationStatusChangingEventArgs = *mut ::core::ffi::c_void;
 pub type UserChangedEventArgs = *mut ::core::ffi::c_void;
 pub type UserDeviceAssociationChangedEventArgs = *mut ::core::ffi::c_void;
 pub type UserPicker = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserPictureSize(pub i32);
 impl UserPictureSize {
@@ -347,6 +367,7 @@ impl ::core::clone::Clone for UserPictureSize {
         *self
     }
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserType(pub i32);
 impl UserType {
@@ -363,6 +384,7 @@ impl ::core::clone::Clone for UserType {
     }
 }
 pub type UserWatcher = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserWatcherStatus(pub i32);
 impl UserWatcherStatus {
@@ -379,6 +401,7 @@ impl ::core::clone::Clone for UserWatcherStatus {
         *self
     }
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserWatcherUpdateKind(pub i32);
 impl UserWatcherUpdateKind {
@@ -391,6 +414,7 @@ impl ::core::clone::Clone for UserWatcherUpdateKind {
         *self
     }
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct VirtualKey(pub i32);
 impl VirtualKey {
@@ -573,6 +597,7 @@ impl ::core::clone::Clone for VirtualKey {
         *self
     }
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct VirtualKeyModifiers(pub u32);
 impl VirtualKeyModifiers {

@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "UI_ViewManagement_Core")]
 pub mod Core;
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct AccessibilitySettings(::windows::core::IUnknown);
 impl AccessibilitySettings {
@@ -102,6 +103,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
 }
 unsafe impl ::core::marker::Send for AccessibilitySettings {}
 unsafe impl ::core::marker::Sync for AccessibilitySettings {}
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct ActivationViewSwitcher(::windows::core::IUnknown);
 impl ActivationViewSwitcher {
@@ -192,6 +194,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acti
 }
 unsafe impl ::core::marker::Send for ActivationViewSwitcher {}
 unsafe impl ::core::marker::Sync for ActivationViewSwitcher {}
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct ApplicationView(::windows::core::IUnknown);
 impl ApplicationView {
@@ -603,6 +606,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appl
 }
 unsafe impl ::core::marker::Send for ApplicationView {}
 unsafe impl ::core::marker::Sync for ApplicationView {}
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct ApplicationViewBoundsMode(pub i32);
 impl ApplicationViewBoundsMode {
@@ -630,6 +634,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationViewBoundsMode {
 impl ::windows::core::DefaultType for ApplicationViewBoundsMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct ApplicationViewConsolidatedEventArgs(::windows::core::IUnknown);
 impl ApplicationViewConsolidatedEventArgs {
@@ -711,6 +716,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appl
 }
 unsafe impl ::core::marker::Send for ApplicationViewConsolidatedEventArgs {}
 unsafe impl ::core::marker::Sync for ApplicationViewConsolidatedEventArgs {}
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct ApplicationViewMode(pub i32);
 impl ApplicationViewMode {
@@ -738,6 +744,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationViewMode {
 impl ::windows::core::DefaultType for ApplicationViewMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct ApplicationViewOrientation(pub i32);
 impl ApplicationViewOrientation {
@@ -765,6 +772,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationViewOrientation {
 impl ::windows::core::DefaultType for ApplicationViewOrientation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct ApplicationViewScaling(::windows::core::IUnknown);
 impl ApplicationViewScaling {
@@ -846,6 +854,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_ViewManagement', 'deprecated'*"]
 #[repr(transparent)]
 pub struct ApplicationViewState(pub i32);
 impl ApplicationViewState {
@@ -962,6 +971,7 @@ impl ApplicationViewSwitcher {
 impl ::windows::core::RuntimeName for ApplicationViewSwitcher {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewSwitcher";
 }
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct ApplicationViewSwitchingOptions(pub u32);
 impl ApplicationViewSwitchingOptions {
@@ -990,6 +1000,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationViewSwitchingOptions {
 impl ::windows::core::DefaultType for ApplicationViewSwitchingOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct ApplicationViewTitleBar(::windows::core::IUnknown);
 impl ApplicationViewTitleBar {
@@ -1213,6 +1224,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appl
 }
 unsafe impl ::core::marker::Send for ApplicationViewTitleBar {}
 unsafe impl ::core::marker::Sync for ApplicationViewTitleBar {}
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct ApplicationViewTransferContext(::windows::core::IUnknown);
 impl ApplicationViewTransferContext {
@@ -1306,6 +1318,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct ApplicationViewWindowingMode(pub i32);
 impl ApplicationViewWindowingMode {
@@ -1336,6 +1349,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationViewWindowingMode {
 impl ::windows::core::DefaultType for ApplicationViewWindowingMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct FullScreenSystemOverlayMode(pub i32);
 impl FullScreenSystemOverlayMode {
@@ -1363,6 +1377,7 @@ unsafe impl ::windows::core::RuntimeType for FullScreenSystemOverlayMode {
 impl ::windows::core::DefaultType for FullScreenSystemOverlayMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct HandPreference(pub i32);
 impl HandPreference {
@@ -2513,6 +2528,7 @@ pub struct IViewModePreferencesStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: ApplicationViewMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct InputPane(::windows::core::IUnknown);
 impl InputPane {
@@ -2657,6 +2673,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inpu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct InputPaneVisibilityEventArgs(::windows::core::IUnknown);
 impl InputPaneVisibilityEventArgs {
@@ -2820,6 +2837,7 @@ impl ProjectionManager {
 impl ::windows::core::RuntimeName for ProjectionManager {
     const NAME: &'static str = "Windows.UI.ViewManagement.ProjectionManager";
 }
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct StatusBar(::windows::core::IUnknown);
 impl StatusBar {
@@ -2991,6 +3009,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stat
 }
 unsafe impl ::core::marker::Send for StatusBar {}
 unsafe impl ::core::marker::Sync for StatusBar {}
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct StatusBarProgressIndicator(::windows::core::IUnknown);
 impl StatusBarProgressIndicator {
@@ -3098,6 +3117,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stat
 }
 unsafe impl ::core::marker::Send for StatusBarProgressIndicator {}
 unsafe impl ::core::marker::Sync for StatusBarProgressIndicator {}
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct UIColorType(pub i32);
 impl UIColorType {
@@ -3133,6 +3153,7 @@ unsafe impl ::windows::core::RuntimeType for UIColorType {
 impl ::windows::core::DefaultType for UIColorType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct UIElementType(pub i32);
 impl UIElementType {
@@ -3184,6 +3205,7 @@ unsafe impl ::windows::core::RuntimeType for UIElementType {
 impl ::windows::core::DefaultType for UIElementType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct UISettings(::windows::core::IUnknown);
 impl UISettings {
@@ -3459,6 +3481,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UISe
 }
 unsafe impl ::core::marker::Send for UISettings {}
 unsafe impl ::core::marker::Sync for UISettings {}
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct UISettingsAnimationsEnabledChangedEventArgs(::windows::core::IUnknown);
 impl UISettingsAnimationsEnabledChangedEventArgs {}
@@ -3525,6 +3548,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UISe
 }
 unsafe impl ::core::marker::Send for UISettingsAnimationsEnabledChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UISettingsAnimationsEnabledChangedEventArgs {}
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct UISettingsAutoHideScrollBarsChangedEventArgs(::windows::core::IUnknown);
 impl UISettingsAutoHideScrollBarsChangedEventArgs {}
@@ -3591,6 +3615,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UISe
 }
 unsafe impl ::core::marker::Send for UISettingsAutoHideScrollBarsChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UISettingsAutoHideScrollBarsChangedEventArgs {}
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct UISettingsMessageDurationChangedEventArgs(::windows::core::IUnknown);
 impl UISettingsMessageDurationChangedEventArgs {}
@@ -3657,6 +3682,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UISe
 }
 unsafe impl ::core::marker::Send for UISettingsMessageDurationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UISettingsMessageDurationChangedEventArgs {}
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct UIViewSettings(::windows::core::IUnknown);
 impl UIViewSettings {
@@ -3741,6 +3767,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UIVi
 }
 unsafe impl ::core::marker::Send for UIViewSettings {}
 unsafe impl ::core::marker::Sync for UIViewSettings {}
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct UserInteractionMode(pub i32);
 impl UserInteractionMode {
@@ -3768,6 +3795,7 @@ unsafe impl ::windows::core::RuntimeType for UserInteractionMode {
 impl ::windows::core::DefaultType for UserInteractionMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct ViewModePreferences(::windows::core::IUnknown);
 impl ViewModePreferences {
@@ -3867,6 +3895,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &View
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct ViewSizePreference(pub i32);
 impl ViewSizePreference {

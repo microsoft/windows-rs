@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
 #[repr(transparent)]
 pub struct AddAppointmentOperation(::windows::core::IUnknown);
 impl AddAppointmentOperation {
@@ -253,6 +254,7 @@ pub struct IReplaceAppointmentOperationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
 #[repr(transparent)]
 pub struct RemoveAppointmentOperation(::windows::core::IUnknown);
 impl RemoveAppointmentOperation {
@@ -358,6 +360,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoveAppointmentOperation {}
 unsafe impl ::core::marker::Sync for RemoveAppointmentOperation {}
+#[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
 #[repr(transparent)]
 pub struct ReplaceAppointmentOperation(::windows::core::IUnknown);
 impl ReplaceAppointmentOperation {

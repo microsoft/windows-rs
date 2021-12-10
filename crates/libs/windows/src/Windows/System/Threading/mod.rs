@@ -102,6 +102,7 @@ impl ThreadPool {
 impl ::windows::core::RuntimeName for ThreadPool {
     const NAME: &'static str = "Windows.System.Threading.ThreadPool";
 }
+#[doc = "*Required features: 'System_Threading'*"]
 #[repr(transparent)]
 pub struct ThreadPoolTimer(::windows::core::IUnknown);
 impl ThreadPoolTimer {
@@ -221,6 +222,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Thre
 }
 unsafe impl ::core::marker::Send for ThreadPoolTimer {}
 unsafe impl ::core::marker::Sync for ThreadPoolTimer {}
+#[doc = "*Required features: 'System_Threading'*"]
 #[repr(transparent)]
 pub struct TimerDestroyedHandler(pub ::windows::core::IUnknown);
 impl TimerDestroyedHandler {
@@ -289,6 +291,7 @@ unsafe impl ::windows::core::RuntimeType for TimerDestroyedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct TimerDestroyedHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timer: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'System_Threading'*"]
 #[repr(transparent)]
 pub struct TimerElapsedHandler(pub ::windows::core::IUnknown);
 impl TimerElapsedHandler {
@@ -357,6 +360,7 @@ unsafe impl ::windows::core::RuntimeType for TimerElapsedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct TimerElapsedHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timer: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'System_Threading', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 #[repr(transparent)]
 pub struct WorkItemHandler(pub ::windows::core::IUnknown);
@@ -442,6 +446,7 @@ pub struct WorkItemHandlerVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'System_Threading'*"]
 #[repr(transparent)]
 pub struct WorkItemOptions(pub u32);
 impl WorkItemOptions {
@@ -469,6 +474,7 @@ unsafe impl ::windows::core::RuntimeType for WorkItemOptions {
 impl ::windows::core::DefaultType for WorkItemOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_Threading'*"]
 #[repr(transparent)]
 pub struct WorkItemPriority(pub i32);
 impl WorkItemPriority {

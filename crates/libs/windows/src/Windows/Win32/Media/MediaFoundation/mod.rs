@@ -1,25 +1,42 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const AACMFTEncoder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93af0c51_2275_45d2_a35b_f2ba21caed00);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type AEC_INPUT_STREAM = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const AEC_CAPTURE_STREAM: AEC_INPUT_STREAM = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const AEC_REFERENCE_STREAM: AEC_INPUT_STREAM = 1i32;
 pub const AEC_MAX_SYSTEM_MODES: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type AEC_SYSTEM_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const SINGLE_CHANNEL_AEC: AEC_SYSTEM_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const ADAPTIVE_ARRAY_ONLY: AEC_SYSTEM_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPTIBEAM_ARRAY_ONLY: AEC_SYSTEM_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const ADAPTIVE_ARRAY_AND_AEC: AEC_SYSTEM_MODE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPTIBEAM_ARRAY_AND_AEC: AEC_SYSTEM_MODE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const SINGLE_CHANNEL_NSAGC: AEC_SYSTEM_MODE = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MODE_NOT_SET: AEC_SYSTEM_MODE = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type AEC_VAD_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const AEC_VAD_DISABLED: AEC_VAD_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const AEC_VAD_NORMAL: AEC_VAD_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const AEC_VAD_FOR_AGC: AEC_VAD_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const AEC_VAD_FOR_SILENCE_SUPPRESSION: AEC_VAD_MODE = 3i32;
 pub const ALawCodecWrapper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36cb6e0c_78c1_42b2_9943_846262f31786);
 pub const AM_MEDIA_TYPE_REPRESENTATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2e42ad2_132c_491e_a268_3c7c2dca181f);
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct ASF_FLAT_PICTURE {
     pub bPictureType: u8,
     pub dwDataLen: u32,
@@ -45,6 +62,7 @@ impl ::core::default::Default for ASF_FLAT_PICTURE {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct ASF_FLAT_SYNCHRONISED_LYRICS {
     pub bTimeStampFormat: u8,
     pub bContentType: u8,
@@ -71,6 +89,7 @@ impl ::core::default::Default for ASF_FLAT_SYNCHRONISED_LYRICS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct ASF_INDEX_DESCRIPTOR {
     pub Identifier: ASF_INDEX_IDENTIFIER,
     pub cPerEntryBytes: u16,
@@ -98,6 +117,7 @@ impl ::core::default::Default for ASF_INDEX_DESCRIPTOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct ASF_INDEX_IDENTIFIER {
     pub guidIndexType: ::windows::core::GUID,
     pub wStreamNumber: u16,
@@ -123,6 +143,7 @@ impl ::core::default::Default for ASF_INDEX_IDENTIFIER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct ASF_MUX_STATISTICS {
     pub cFramesWritten: u32,
     pub cFramesDropped: u32,
@@ -147,17 +168,25 @@ impl ::core::default::Default for ASF_MUX_STATISTICS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type ASF_SELECTION_STATUS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const ASF_STATUS_NOTSELECTED: ASF_SELECTION_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const ASF_STATUS_CLEANPOINTSONLY: ASF_SELECTION_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const ASF_STATUS_ALLDATAUNITS: ASF_SELECTION_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type ASF_STATUSFLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const ASF_STATUSFLAGS_INCOMPLETE: ASF_STATUSFLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const ASF_STATUSFLAGS_NONFATAL_ERROR: ASF_STATUSFLAGS = 2i32;
 pub const AVENC_H263V_LEVELCOUNT: u32 = 8u32;
 pub const AVENC_H264V_LEVELCOUNT: u32 = 16u32;
 pub const AVENC_H264V_MAX_MBBITS: u32 = 3200u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct AecQualityMetrics_Struct {
     pub i64Timestamp: i64,
     pub ConvergenceFlag: u8,
@@ -647,6 +676,7 @@ pub const CWVC1EncMediaObject: ::windows::core::GUID = ::windows::core::GUID::fr
 pub const CZuneAACCCDecMediaObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa74e98f2_52d6_4b4e_885b_e0a6ca4f187a);
 pub const CZuneM4S2DecMediaObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc56fc25c_0fc6_404a_9503_b10bf51a8ab9);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct CodecAPIEventData {
     pub guid: ::windows::core::GUID,
     pub dataLength: u32,
@@ -672,6 +702,7 @@ impl ::core::default::Default for CodecAPIEventData {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
 pub unsafe fn CreateNamedPropertyStore() -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::INamedPropertyStore> {
@@ -687,6 +718,7 @@ pub unsafe fn CreateNamedPropertyStore() -> ::windows::core::Result<super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
 pub unsafe fn CreatePropertyStore() -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
@@ -702,9 +734,12 @@ pub unsafe fn CreatePropertyStore() -> ::windows::core::Result<super::super::UI:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_BITSTREAM_ENCRYPTION_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_BITSTREAM_ENCRYPTION_TYPE_NONE: D3D12_BITSTREAM_ENCRYPTION_TYPE = 0i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
     pub IOCoherent: super::super::Foundation::BOOL,
@@ -736,6 +771,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
     pub VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
@@ -769,6 +805,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
     pub VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
@@ -803,6 +840,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
     pub NodeIndex: u32,
@@ -841,6 +879,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUP
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
     pub NodeIndex: u32,
@@ -875,6 +914,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -901,6 +941,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
     pub NodeIndex: u32,
@@ -939,6 +980,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
     pub NodeIndex: u32,
     pub ProfileCount: u32,
@@ -965,6 +1007,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
     pub NodeIndex: u32,
     pub ProfileCount: u32,
@@ -990,6 +1033,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT 
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -1016,6 +1060,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESO
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     pub NodeIndex: u32,
@@ -1056,6 +1101,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
     pub NodeIndex: u32,
@@ -1089,6 +1135,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
     pub NodeIndex: u32,
@@ -1124,6 +1171,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGU
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
     pub NodeIndex: u32,
@@ -1159,6 +1207,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE {
     pub NodeIndex: u32,
@@ -1195,6 +1244,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGI
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
     pub HeapDesc: D3D12_VIDEO_ENCODER_HEAP_DESC,
@@ -1229,6 +1279,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT {
     pub NodeIndex: u32,
@@ -1264,6 +1315,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT 
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE {
     pub NodeIndex: u32,
@@ -1300,6 +1352,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
     pub NodeIndex: u32,
@@ -1339,6 +1392,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLU
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -1365,6 +1419,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLU
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL {
     pub NodeIndex: u32,
@@ -1401,6 +1456,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
     pub NodeIndex: u32,
@@ -1435,6 +1491,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
     pub MaxSubregionsNumber: u32,
     pub MaxIntraRefreshFrameDuration: u32,
@@ -1462,6 +1519,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SU
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS {
     pub NodeIndex: u32,
@@ -1501,6 +1559,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQU
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
     pub NodeIndex: u32,
@@ -1547,6 +1606,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
     pub NodeIndex: u32,
@@ -1580,6 +1640,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
     pub NodeIndex: u32,
     pub CommandCount: u32,
@@ -1605,6 +1666,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COU
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
     pub CommandId: ::windows::core::GUID,
@@ -1639,6 +1701,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PAR
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
     pub CommandId: ::windows::core::GUID,
     pub Stage: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE,
@@ -1666,6 +1729,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PAR
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
     pub NodeIndex: u32,
     pub CommandId: ::windows::core::GUID,
@@ -1695,6 +1759,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZ
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
     pub NodeIndex: u32,
     pub CommandId: ::windows::core::GUID,
@@ -1724,6 +1789,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUP
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
     pub NodeIndex: u32,
@@ -1758,6 +1824,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT 
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
     pub NodeIndex: u32,
@@ -1793,6 +1860,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
     pub NodeIndex: u32,
     pub SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
@@ -1818,6 +1886,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROT
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
     pub NodeIndex: u32,
@@ -1858,6 +1927,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
     pub NodeMask: u32,
@@ -1894,6 +1964,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
     pub NodeMask: u32,
@@ -1931,6 +2002,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
     pub NodeIndex: u32,
     pub MaxInputStreams: u32,
@@ -1956,6 +2028,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STR
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
     pub NodeIndex: u32,
     pub SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
@@ -1981,6 +2054,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RES
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
     pub NodeIndex: u32,
@@ -2020,6 +2094,7 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INF
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
     pub NodeIndex: u32,
@@ -2064,35 +2139,64 @@ impl ::core::default::Default for D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_FEATURE_VIDEO = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_DECODE_SUPPORT: D3D12_FEATURE_VIDEO = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_DECODE_PROFILES: D3D12_FEATURE_VIDEO = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_DECODE_FORMATS: D3D12_FEATURE_VIDEO = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_DECODE_CONVERSION_SUPPORT: D3D12_FEATURE_VIDEO = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_PROCESS_SUPPORT: D3D12_FEATURE_VIDEO = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_PROCESS_MAX_INPUT_STREAMS: D3D12_FEATURE_VIDEO = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_PROCESS_REFERENCE_INFO: D3D12_FEATURE_VIDEO = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_DECODER_HEAP_SIZE: D3D12_FEATURE_VIDEO = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_PROCESSOR_SIZE: D3D12_FEATURE_VIDEO = 9i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_DECODE_PROFILE_COUNT: D3D12_FEATURE_VIDEO = 10i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_DECODE_FORMAT_COUNT: D3D12_FEATURE_VIDEO = 11i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_ARCHITECTURE: D3D12_FEATURE_VIDEO = 17i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_DECODE_HISTOGRAM: D3D12_FEATURE_VIDEO = 18i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_FEATURE_AREA_SUPPORT: D3D12_FEATURE_VIDEO = 19i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_MOTION_ESTIMATOR: D3D12_FEATURE_VIDEO = 20i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_MOTION_ESTIMATOR_SIZE: D3D12_FEATURE_VIDEO = 21i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_EXTENSION_COMMAND_COUNT: D3D12_FEATURE_VIDEO = 22i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_EXTENSION_COMMANDS: D3D12_FEATURE_VIDEO = 23i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT: D3D12_FEATURE_VIDEO = 24i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_EXTENSION_COMMAND_PARAMETERS: D3D12_FEATURE_VIDEO = 25i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_EXTENSION_COMMAND_SUPPORT: D3D12_FEATURE_VIDEO = 26i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_EXTENSION_COMMAND_SIZE: D3D12_FEATURE_VIDEO = 27i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_DECODE_PROTECTED_RESOURCES: D3D12_FEATURE_VIDEO = 28i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_PROCESS_PROTECTED_RESOURCES: D3D12_FEATURE_VIDEO = 29i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES: D3D12_FEATURE_VIDEO = 30i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_DECODER_HEAP_SIZE1: D3D12_FEATURE_VIDEO = 31i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_FEATURE_VIDEO_PROCESSOR_SIZE1: D3D12_FEATURE_VIDEO = 32i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
     pub Status: u64,
@@ -2127,6 +2231,7 @@ impl ::core::default::Default for D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     pub pMotionVectorHeap: ::core::option::Option<ID3D12VideoMotionVectorHeap>,
     pub PixelWidth: u32,
@@ -2152,6 +2257,7 @@ impl ::core::default::Default for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
     pub pMotionVectorTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
@@ -2182,6 +2288,7 @@ impl ::core::default::Default for D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT 
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_RESOURCE_COORDINATE {
     pub X: u64,
     pub Y: u32,
@@ -2209,6 +2316,7 @@ impl ::core::default::Default for D3D12_RESOURCE_COORDINATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_DECODER_DESC {
     pub NodeMask: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -2234,6 +2342,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODER_DESC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_DECODER_HEAP_DESC {
     pub NodeMask: u32,
@@ -2271,12 +2380,18 @@ impl ::core::default::Default for D3D12_VIDEO_DECODER_HEAP_DESC {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_DECODE_ARGUMENT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_ARGUMENT_TYPE_PICTURE_PARAMETERS: D3D12_VIDEO_DECODE_ARGUMENT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_ARGUMENT_TYPE_INVERSE_QUANTIZATION_MATRIX: D3D12_VIDEO_DECODE_ARGUMENT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_ARGUMENT_TYPE_SLICE_CONTROL: D3D12_VIDEO_DECODE_ARGUMENT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_ARGUMENT_TYPE_MAX_VALID: D3D12_VIDEO_DECODE_ARGUMENT_TYPE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
     pub pBuffer: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
@@ -2308,6 +2423,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_DECODE_CONFIGURATION {
     pub DecodeProfile: ::windows::core::GUID,
     pub BitstreamEncryption: D3D12_BITSTREAM_ENCRYPTION_TYPE,
@@ -2333,13 +2449,20 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_CONFIGURATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_NONE: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_HEIGHT_ALIGNMENT_MULTIPLE_32_REQUIRED: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_POST_PROCESSING_SUPPORTED: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_REFERENCE_ONLY_ALLOCATIONS_REQUIRED: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_ALLOW_RESOLUTION_CHANGE_ON_NON_KEY_FRAME: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS = 8u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
     pub Enable: super::super::Foundation::BOOL,
@@ -2379,6 +2502,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
     pub Enable: super::super::Foundation::BOOL,
@@ -2421,10 +2545,14 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAG_NONE: D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
     pub Type: D3D12_VIDEO_DECODE_ARGUMENT_TYPE,
     pub Size: u32,
@@ -2450,24 +2578,42 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_Y: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_U: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_V: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_R: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_G: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_B: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_A: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_NONE: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_Y: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_U: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_V: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_R: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_G: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_B: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAG_A: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_FLAGS = 8u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
     pub NumFrameArguments: u32,
@@ -2507,6 +2653,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
     pub Offset: u64,
@@ -2537,6 +2684,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
     pub pOutputTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
@@ -2572,6 +2720,7 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
     pub pOutputTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
@@ -2629,6 +2778,7 @@ pub const D3D12_VIDEO_DECODE_PROFILE_VP8: ::windows::core::GUID = ::windows::cor
 pub const D3D12_VIDEO_DECODE_PROFILE_VP9: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x463707f8_a1d0_4585_876d_83aa6d60b89e);
 pub const D3D12_VIDEO_DECODE_PROFILE_VP9_10BIT_PROFILE2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4c749ef_6ecf_48aa_8448_50a7a1165ff7);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
     pub NumTexture2Ds: u32,
@@ -2662,24 +2812,42 @@ impl ::core::default::Default for D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_DECODE_STATUS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_STATUS_OK: D3D12_VIDEO_DECODE_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_STATUS_CONTINUE: D3D12_VIDEO_DECODE_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_STATUS_CONTINUE_SKIP_DISPLAY: D3D12_VIDEO_DECODE_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_STATUS_RESTART: D3D12_VIDEO_DECODE_STATUS = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_STATUS_RATE_EXCEEDED: D3D12_VIDEO_DECODE_STATUS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_DECODE_SUPPORT_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_SUPPORT_FLAG_NONE: D3D12_VIDEO_DECODE_SUPPORT_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_DECODE_SUPPORT_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_DECODE_TIER = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_TIER_NOT_SUPPORTED: D3D12_VIDEO_DECODE_TIER = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_TIER_1: D3D12_VIDEO_DECODE_TIER = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_TIER_2: D3D12_VIDEO_DECODE_TIER = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_DECODE_TIER_3: D3D12_VIDEO_DECODE_TIER = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_CODEC = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_H264: D3D12_VIDEO_ENCODER_CODEC = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_HEVC: D3D12_VIDEO_ENCODER_CODEC = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0,
@@ -2705,6 +2873,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub union D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
     pub pH264Config: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264,
     pub pHEVCConfig: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC,
@@ -2730,6 +2899,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
     pub ConfigurationFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS,
     pub DirectModeConfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES,
@@ -2755,34 +2925,62 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES_DISABLED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES_TEMPORAL: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES_SPATIAL: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_USE_CONSTRAINED_INTRAPREDICTION: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_USE_ADAPTIVE_8x8_TRANSFORM: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_ENABLE_CABAC_ENCODING: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAG_ALLOW_REQUEST_INTRA_CONSTRAINED_SLICES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_0_ALL_LUMA_CHROMA_SLICE_BLOCK_EDGES_ALWAYS_FILTERED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_1_DISABLE_ALL_SLICE_BLOCK_EDGES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_2_DISABLE_SLICE_BOUNDARIES_BLOCKS: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_3_USE_TWO_STAGE_DEBLOCKING: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_4_DISABLE_CHROMA_BLOCK_EDGES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_5_DISABLE_CHROMA_BLOCK_EDGES_AND_LUMA_BOUNDARIES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_6_DISABLE_CHROMA_BLOCK_EDGES_AND_USE_LUMA_TWO_STAGE_DEBLOCKING: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_0_ALL_LUMA_CHROMA_SLICE_BLOCK_EDGES_ALWAYS_FILTERED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_1_DISABLE_ALL_SLICE_BLOCK_EDGES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_2_DISABLE_SLICE_BOUNDARIES_BLOCKS: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_3_USE_TWO_STAGE_DEBLOCKING: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_4_DISABLE_CHROMA_BLOCK_EDGES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_5_DISABLE_CHROMA_BLOCK_EDGES_AND_LUMA_BOUNDARIES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_6_DISABLE_CHROMA_BLOCK_EDGES_AND_USE_LUMA_TWO_STAGE_DEBLOCKING: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = 64u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
     pub ConfigurationFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS,
     pub MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
@@ -2812,26 +3010,46 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE_8x8: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE_16x16: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE_32x32: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE_64x64: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_DISABLE_LOOP_FILTER_ACROSS_SLICES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_ALLOW_REQUEST_INTRA_CONSTRAINED_SLICES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_ENABLE_SAO_FILTER: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_ENABLE_LONG_TERM_REFERENCES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_USE_ASYMETRIC_MOTION_PARTITION: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_ENABLE_TRANSFORM_SKIPPING: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAG_USE_CONSTRAINED_INTRAPREDICTION: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE_4x4: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE_8x8: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE_16x16: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE_32x32: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_TUSIZE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0,
@@ -2857,6 +3075,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPOR
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub union D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {
     pub pH264Support: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264,
     pub pHEVCSupport: *mut D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC,
@@ -2882,6 +3101,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPOR
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {
     pub SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS,
     pub DisableDeblockingFilterSupportedModes: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS,
@@ -2906,16 +3126,26 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPOR
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_CABAC_ENCODING_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_INTRA_SLICE_CONSTRAINED_ENCODING_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_BFRAME_LTR_COMBINED_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_ADAPTIVE_8x8_TRANSFORM_ENCODING_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_DIRECT_SPATIAL_ENCODING_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_DIRECT_TEMPORAL_ENCODING_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_CONSTRAINED_INTRAPREDICTION_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = 64u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
     pub SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS,
     pub MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
@@ -2945,18 +3175,30 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPOR
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_BFRAME_LTR_COMBINED_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_INTRA_SLICE_CONSTRAINED_ENCODING_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_CONSTRAINED_INTRAPREDICTION_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_SAO_FILTER_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_ASYMETRIC_MOTION_PARTITION_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_ASYMETRIC_MOTION_PARTITION_REQUIRED: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_TRANSFORM_SKIP_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_DISABLING_LOOP_FILTER_ACROSS_SLICES_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAG_P_FRAMES_IMPLEMENTED_AS_LOW_DELAY_B_FRAMES: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS = 256u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0,
@@ -2982,6 +3224,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPP
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub union D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {
     pub pH264Support: *mut D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264,
     pub pHEVCSupport: *mut D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC,
@@ -3007,6 +3250,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPP
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
     pub MaxL0ReferencesForP: u32,
     pub MaxL0ReferencesForB: u32,
@@ -3035,6 +3279,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPP
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
     pub MaxL0ReferencesForP: u32,
     pub MaxL0ReferencesForB: u32,
@@ -3063,6 +3308,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPP
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
     pub pBuffer: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
@@ -3093,6 +3339,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_ENCODER_DESC {
     pub NodeMask: u32,
@@ -3130,6 +3377,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_DESC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS {
     pub SequenceControlDesc: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC,
@@ -3169,6 +3417,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENT
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
     pub Bitstream: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM,
@@ -3203,14 +3452,22 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMEN
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_NO_ERROR: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_CODEC_PICTURE_CONTROL_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_SUBREGION_LAYOUT_CONFIGURATION_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_INVALID_REFERENCE_PICTURES: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_RECONFIGURATION_REQUEST_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_INVALID_METADATA_BUFFER_SOURCE: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
     pub pBuffer: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
@@ -3240,15 +3497,24 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_FLAG_NONE: D3D12_VIDEO_ENCODER_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_FULL_FRAME: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_BYTES_PER_SUBREGION: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_SQUARE_UNITS_PER_SUBREGION_ROW_UNALIGNED: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_UNIFORM_PARTITIONING_ROWS_PER_SUBREGION: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_UNIFORM_PARTITIONING_SUBREGIONS_PER_FRAME: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
     pub bSize: u64,
     pub bStartOffset: u64,
@@ -3274,17 +3540,28 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_H264_I_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_H264_P_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_H264_B_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_H264_IDR_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC_I_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC_P_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC_B_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC_IDR_FRAME: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_HEAP_DESC {
     pub NodeMask: u32,
     pub Flags: D3D12_VIDEO_ENCODER_HEAP_FLAGS,
@@ -3314,9 +3591,12 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_HEAP_DESC {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_HEAP_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_HEAP_FLAG_NONE: D3D12_VIDEO_ENCODER_HEAP_FLAGS = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_INTRA_REFRESH {
     pub Mode: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
     pub IntraRefreshDuration: u32,
@@ -3341,45 +3621,84 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_INTRA_REFRESH {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE_NONE: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE_ROW_BASED: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_LEVELS_H264 = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_1: D3D12_VIDEO_ENCODER_LEVELS_H264 = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_1b: D3D12_VIDEO_ENCODER_LEVELS_H264 = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_11: D3D12_VIDEO_ENCODER_LEVELS_H264 = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_12: D3D12_VIDEO_ENCODER_LEVELS_H264 = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_13: D3D12_VIDEO_ENCODER_LEVELS_H264 = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_2: D3D12_VIDEO_ENCODER_LEVELS_H264 = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_21: D3D12_VIDEO_ENCODER_LEVELS_H264 = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_22: D3D12_VIDEO_ENCODER_LEVELS_H264 = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_3: D3D12_VIDEO_ENCODER_LEVELS_H264 = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_31: D3D12_VIDEO_ENCODER_LEVELS_H264 = 9i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_32: D3D12_VIDEO_ENCODER_LEVELS_H264 = 10i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_4: D3D12_VIDEO_ENCODER_LEVELS_H264 = 11i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_41: D3D12_VIDEO_ENCODER_LEVELS_H264 = 12i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_42: D3D12_VIDEO_ENCODER_LEVELS_H264 = 13i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_5: D3D12_VIDEO_ENCODER_LEVELS_H264 = 14i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_51: D3D12_VIDEO_ENCODER_LEVELS_H264 = 15i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_52: D3D12_VIDEO_ENCODER_LEVELS_H264 = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_6: D3D12_VIDEO_ENCODER_LEVELS_H264 = 17i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_61: D3D12_VIDEO_ENCODER_LEVELS_H264 = 18i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_H264_62: D3D12_VIDEO_ENCODER_LEVELS_H264 = 19i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_LEVELS_HEVC = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_1: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_2: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_21: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_3: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_31: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_4: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_41: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_5: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_51: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_52: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 9i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_6: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 10i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_61: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 11i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_LEVELS_HEVC_62: D3D12_VIDEO_ENCODER_LEVELS_HEVC = 12i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_LEVEL_SETTING {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_LEVEL_SETTING_0,
@@ -3405,6 +3724,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_LEVEL_SETTING {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub union D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
     pub pH264LevelSetting: *mut D3D12_VIDEO_ENCODER_LEVELS_H264,
     pub pHEVCLevelSetting: *mut D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC,
@@ -3430,6 +3750,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
     pub Level: D3D12_VIDEO_ENCODER_LEVELS_HEVC,
     pub Tier: D3D12_VIDEO_ENCODER_TIER_HEVC,
@@ -3454,12 +3775,18 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEV
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_MAXIMUM: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_FULL_PIXEL: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_HALF_PIXEL: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_QUARTER_PIXEL: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
     pub EncodeErrorFlags: u64,
     pub EncodeStats: D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS,
@@ -3487,6 +3814,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
     pub AverageQP: u64,
     pub IntraCodingUnitsCount: u64,
@@ -3516,6 +3844,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA {
     pub DataSize: u32,
@@ -3548,6 +3877,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {
     pub pH264PicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264,
@@ -3580,6 +3910,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
     pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS,
@@ -3631,10 +3962,14 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_NONE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_REQUEST_INTRA_CONSTRAINED_SLICES: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
     pub modification_of_pic_nums_idc: u8,
     pub abs_diff_pic_num_minus1: u32,
@@ -3661,6 +3996,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
     pub memory_management_control_operation: u8,
     pub difference_of_pic_nums_minus1: u32,
@@ -3689,6 +4025,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
     pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS,
@@ -3735,10 +4072,14 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAG_NONE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAG_REQUEST_INTRA_CONSTRAINED_SLICES: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
     pub IntraRefreshFrameIndex: u32,
@@ -3772,10 +4113,14 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_NONE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAG_USED_AS_REFERENCE_PICTURE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0,
@@ -3801,6 +4146,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_0 {
     pub pSlicesPartition_H264: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES,
     pub pSlicesPartition_HEVC: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES,
@@ -3826,6 +4172,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES {
     pub Anonymous: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0,
 }
@@ -3850,6 +4197,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES_0 {
     pub MaxBytesPerSlice: u32,
     pub NumberOfCodingUnitsPerSlice: u32,
@@ -3877,6 +4225,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
     pub Width: u32,
     pub Height: u32,
@@ -3902,6 +4251,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
     pub WidthRatio: u32,
     pub HeightRatio: u32,
@@ -3927,6 +4277,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_D
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_PROFILE_DESC {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_PROFILE_DESC_0,
@@ -3952,6 +4303,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PROFILE_DESC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub union D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
     pub pH264Profile: *mut D3D12_VIDEO_ENCODER_PROFILE_H264,
     pub pHEVCProfile: *mut D3D12_VIDEO_ENCODER_PROFILE_HEVC,
@@ -3976,14 +4328,22 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_PROFILE_DESC_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_PROFILE_H264 = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_PROFILE_H264_MAIN: D3D12_VIDEO_ENCODER_PROFILE_H264 = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_PROFILE_H264_HIGH: D3D12_VIDEO_ENCODER_PROFILE_H264 = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_PROFILE_H264_HIGH_10: D3D12_VIDEO_ENCODER_PROFILE_H264 = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_PROFILE_HEVC = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN: D3D12_VIDEO_ENCODER_PROFILE_HEVC = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN10: D3D12_VIDEO_ENCODER_PROFILE_HEVC = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL {
     pub Mode: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE,
@@ -4018,6 +4378,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -4048,6 +4409,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0,
@@ -4073,6 +4435,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub union D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {
     pub pConfiguration_CQP: *mut D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP,
     pub pConfiguration_CBR: *mut D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR,
@@ -4100,6 +4463,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
     pub ConstantQP_FullIntracodedFrame: u32,
     pub ConstantQP_InterPredictedFrame_PrevRefOnly: u32,
@@ -4125,21 +4489,36 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_NONE: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_DELTA_QP: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_FRAME_ANALYSIS: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_QP_RANGE: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_INITIAL_QP: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_MAX_FRAME_SIZE: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAG_ENABLE_VBV_SIZES: D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_ABSOLUTE_QP_MAP: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_CQP: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_CBR: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_VBR: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_QVBR: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -4170,6 +4549,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -4201,6 +4581,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
     pub pReconstructedPicture: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
@@ -4231,6 +4612,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
     pub ReconstructedPictureResourceIndex: u32,
@@ -4267,6 +4649,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPT
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
     pub ReconstructedPictureResourceIndex: u32,
@@ -4302,6 +4685,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPT
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS {
     pub EncoderCodec: D3D12_VIDEO_ENCODER_CODEC,
@@ -4341,6 +4725,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARG
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
     pub ResolvedLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
@@ -4370,6 +4755,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_AR
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
     pub Flags: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS,
@@ -4406,14 +4792,22 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_NONE: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_RESOLUTION_CHANGE: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_RATE_CONTROL_CHANGE: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_SUBREGION_LAYOUT_CHANGE: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_REQUEST_INTRA_REFRESH: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAG_GOP_SEQUENCE_CHANGE: D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
     pub DataSize: u32,
     pub Anonymous: D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0,
@@ -4439,6 +4833,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub union D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
     pub pH264GroupOfPictures: *mut D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264,
     pub pHEVCGroupOfPictures: *mut D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC,
@@ -4464,6 +4859,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
     pub GOPLength: u32,
     pub PPicturePeriod: u32,
@@ -4492,6 +4888,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H26
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
     pub GOPLength: u32,
     pub PPicturePeriod: u32,
@@ -4517,36 +4914,66 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEV
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_NONE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_GENERAL_SUPPORT_OK: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_RECONFIGURATION_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RESOLUTION_RECONFIGURATION_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_VBV_SIZE_CONFIG_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_FRAME_ANALYSIS_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RECONSTRUCTED_FRAMES_REQUIRE_TEXTURE_ARRAYS: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_DELTA_QP_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_SUBREGION_LAYOUT_RECONFIGURATION_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_ADJUSTABLE_QP_RANGE_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_INITIAL_QP_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 512u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_RATE_CONTROL_MAX_FRAME_SIZE_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 1024u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_SEQUENCE_GOP_RECONFIGURATION_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 2048u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_SUPPORT_FLAG_MOTION_ESTIMATION_PRECISION_MODE_LIMIT_AVAILABLE: D3D12_VIDEO_ENCODER_SUPPORT_FLAGS = 4096u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_TIER_HEVC = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_TIER_HEVC_MAIN: D3D12_VIDEO_ENCODER_TIER_HEVC = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_TIER_HEVC_HIGH: D3D12_VIDEO_ENCODER_TIER_HEVC = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_NONE: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_CODEC_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_INPUT_FORMAT_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_CODEC_CONFIGURATION_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_RATE_CONTROL_MODE_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_RATE_CONTROL_CONFIGURATION_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_INTRA_REFRESH_MODE_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_SUBREGION_LAYOUT_MODE_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_RESOLUTION_NOT_SUPPORTED_IN_LIST: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 512u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_GOP_STRUCTURE_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 2048u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
     pub NumTexture2Ds: u32,
@@ -4580,6 +5007,7 @@ impl ::core::default::Default for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_DESC {
     pub NodeMask: u32,
     pub CommandId: ::windows::core::GUID,
@@ -4605,6 +5033,7 @@ impl ::core::default::Default for D3D12_VIDEO_EXTENSION_COMMAND_DESC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_INFO {
     pub CommandId: ::windows::core::GUID,
@@ -4637,11 +5066,16 @@ impl ::core::default::Default for D3D12_VIDEO_EXTENSION_COMMAND_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_NONE: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_READ: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_WRITE: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
     pub Name: super::super::Foundation::PWSTR,
@@ -4674,31 +5108,56 @@ impl ::core::default::Default for D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_CREATION: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_INITIALIZATION: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_EXECUTION: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_CAPS_INPUT: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_CAPS_OUTPUT: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_DEVICE_EXECUTE_INPUT: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE_DEVICE_EXECUTE_OUTPUT: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_UINT8: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_UINT16: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_UINT32: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_UINT64: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_SINT8: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_SINT16: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_SINT32: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_SINT64: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_FLOAT: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_DOUBLE: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE_RESOURCE: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_FIELD_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_FIELD_TYPE_NONE: D3D12_VIDEO_FIELD_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_FIELD_TYPE_INTERLACED_TOP_FIELD_FIRST: D3D12_VIDEO_FIELD_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_FIELD_TYPE_INTERLACED_BOTTOM_FIELD_FIRST: D3D12_VIDEO_FIELD_TYPE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_FORMAT {
     pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
@@ -4730,16 +5189,26 @@ impl ::core::default::Default for D3D12_VIDEO_FORMAT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE_NONE: D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE_FIELD_BASED: D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_FRAME_STEREO_FORMAT = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_NONE: D3D12_VIDEO_FRAME_STEREO_FORMAT = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_MONO: D3D12_VIDEO_FRAME_STEREO_FORMAT = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_HORIZONTAL: D3D12_VIDEO_FRAME_STEREO_FORMAT = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_VERTICAL: D3D12_VIDEO_FRAME_STEREO_FORMAT = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_SEPARATE: D3D12_VIDEO_FRAME_STEREO_FORMAT = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
     pub NodeMask: u32,
@@ -4775,6 +5244,7 @@ impl ::core::default::Default for D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
     pub pInputTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
@@ -4814,6 +5284,7 @@ impl ::core::default::Default for D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     pub pMotionVectorHeap: ::core::option::Option<ID3D12VideoMotionVectorHeap>,
 }
@@ -4836,19 +5307,32 @@ impl ::core::default::Default for D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_8X8: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_16X16: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAG_NONE: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAG_8X8: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAG_16X16: D3D12_VIDEO_MOTION_ESTIMATOR_SEARCH_BLOCK_SIZE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_QUARTER_PEL: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAG_NONE: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAG_QUARTER_PEL: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAGS = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
     pub NodeMask: u32,
@@ -4884,6 +5368,7 @@ impl ::core::default::Default for D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
     pub Enable: super::super::Foundation::BOOL,
@@ -4915,55 +5400,104 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_ALPHA_BLENDING {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE_OPAQUE: D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE_BACKGROUND: D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE_DESTINATION: D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE_SOURCE_STREAM: D3D12_VIDEO_PROCESS_ALPHA_FILL_MODE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_NONE: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_DENOISE: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_DERINGING: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_EDGE_ENHANCEMENT: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_COLOR_CORRECTION: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_FLESH_TONE_MAPPING: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_IMAGE_STABILIZATION: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_SUPER_RESOLUTION: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_ANAMORPHIC_SCALING: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAG_CUSTOM: D3D12_VIDEO_PROCESS_AUTO_PROCESSING_FLAGS = 2147483648u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_DEINTERLACE_FLAG_NONE: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_DEINTERLACE_FLAG_BOB: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_DEINTERLACE_FLAG_CUSTOM: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS = 2147483648u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_PROCESS_FEATURE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_NONE: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_ALPHA_FILL: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_LUMA_KEY: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_STEREO: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_ROTATION: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_FLIP: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_ALPHA_BLENDING: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FEATURE_FLAG_PIXEL_ASPECT_RATIO: D3D12_VIDEO_PROCESS_FEATURE_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_PROCESS_FILTER = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FILTER_BRIGHTNESS: D3D12_VIDEO_PROCESS_FILTER = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FILTER_CONTRAST: D3D12_VIDEO_PROCESS_FILTER = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FILTER_HUE: D3D12_VIDEO_PROCESS_FILTER = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FILTER_SATURATION: D3D12_VIDEO_PROCESS_FILTER = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FILTER_NOISE_REDUCTION: D3D12_VIDEO_PROCESS_FILTER = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FILTER_EDGE_ENHANCEMENT: D3D12_VIDEO_PROCESS_FILTER = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FILTER_ANAMORPHIC_SCALING: D3D12_VIDEO_PROCESS_FILTER = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FILTER_STEREO_ADJUSTMENT: D3D12_VIDEO_PROCESS_FILTER = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_PROCESS_FILTER_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_NONE: D3D12_VIDEO_PROCESS_FILTER_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_BRIGHTNESS: D3D12_VIDEO_PROCESS_FILTER_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_CONTRAST: D3D12_VIDEO_PROCESS_FILTER_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_HUE: D3D12_VIDEO_PROCESS_FILTER_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_SATURATION: D3D12_VIDEO_PROCESS_FILTER_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_NOISE_REDUCTION: D3D12_VIDEO_PROCESS_FILTER_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_EDGE_ENHANCEMENT: D3D12_VIDEO_PROCESS_FILTER_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_ANAMORPHIC_SCALING: D3D12_VIDEO_PROCESS_FILTER_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_FILTER_FLAG_STEREO_ADJUSTMENT: D3D12_VIDEO_PROCESS_FILTER_FLAGS = 128u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_PROCESS_FILTER_RANGE {
     pub Minimum: i32,
     pub Maximum: i32,
@@ -4991,6 +5525,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_FILTER_RANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM {
     pub pTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
@@ -5022,6 +5557,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_INPUT_STREAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
     pub InputStream: [D3D12_VIDEO_PROCESS_INPUT_STREAM; 2],
@@ -5063,6 +5599,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
     pub InputStream: [D3D12_VIDEO_PROCESS_INPUT_STREAM; 2],
@@ -5106,6 +5643,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
     pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
@@ -5152,11 +5690,16 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_NONE: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_FRAME_DISCONTINUITY: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_FRAME_REPEAT: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
     pub OutputIndex: u32,
     pub InputFrameOrField: u32,
@@ -5182,6 +5725,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_PROCESS_LUMA_KEY {
     pub Enable: super::super::Foundation::BOOL,
@@ -5214,16 +5758,26 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_LUMA_KEY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_PROCESS_ORIENTATION = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_ORIENTATION_DEFAULT: D3D12_VIDEO_PROCESS_ORIENTATION = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_ORIENTATION_FLIP_HORIZONTAL: D3D12_VIDEO_PROCESS_ORIENTATION = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_ORIENTATION_CLOCKWISE_90: D3D12_VIDEO_PROCESS_ORIENTATION = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_ORIENTATION_CLOCKWISE_90_FLIP_HORIZONTAL: D3D12_VIDEO_PROCESS_ORIENTATION = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_ORIENTATION_CLOCKWISE_180: D3D12_VIDEO_PROCESS_ORIENTATION = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_ORIENTATION_FLIP_VERTICAL: D3D12_VIDEO_PROCESS_ORIENTATION = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_ORIENTATION_CLOCKWISE_270: D3D12_VIDEO_PROCESS_ORIENTATION = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_ORIENTATION_CLOCKWISE_270_FLIP_HORIZONTAL: D3D12_VIDEO_PROCESS_ORIENTATION = 7i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
     pub pTexture2D: ::core::option::Option<super::super::Graphics::Direct3D12::ID3D12Resource>,
@@ -5254,6 +5808,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
     pub OutputStream: [D3D12_VIDEO_PROCESS_OUTPUT_STREAM; 2],
@@ -5284,6 +5839,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
     pub Format: super::super::Graphics::Dxgi::Common::DXGI_FORMAT,
@@ -5321,6 +5877,7 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub struct D3D12_VIDEO_PROCESS_REFERENCE_SET {
     pub NumPastFrames: u32,
@@ -5356,10 +5913,14 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_REFERENCE_SET {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_PROCESS_SUPPORT_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_SUPPORT_FLAG_NONE: D3D12_VIDEO_PROCESS_SUPPORT_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROCESS_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_PROCESS_SUPPORT_FLAGS = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D3D12_VIDEO_PROCESS_TRANSFORM {
     pub SourceRectangle: super::super::Foundation::RECT,
@@ -5392,10 +5953,14 @@ impl ::core::default::Default for D3D12_VIDEO_PROCESS_TRANSFORM {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAG_NONE: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct D3D12_VIDEO_SAMPLE {
     pub Width: u32,
@@ -5429,6 +5994,7 @@ impl ::core::default::Default for D3D12_VIDEO_SAMPLE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_SCALE_SUPPORT {
     pub OutputSizeRange: D3D12_VIDEO_SIZE_RANGE,
     pub Flags: D3D12_VIDEO_SCALE_SUPPORT_FLAGS,
@@ -5453,11 +6019,16 @@ impl ::core::default::Default for D3D12_VIDEO_SCALE_SUPPORT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type D3D12_VIDEO_SCALE_SUPPORT_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_NONE: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_POW2_ONLY: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_EVEN_DIMENSIONS_ONLY: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3D12_VIDEO_SIZE_RANGE {
     pub MaxWidth: u32,
     pub MaxHeight: u32,
@@ -5485,6 +6056,7 @@ impl ::core::default::Default for D3D12_VIDEO_SIZE_RANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct D3DCONTENTPROTECTIONCAPS {
     pub Caps: u32,
@@ -5520,6 +6092,7 @@ impl ::core::default::Default for D3DCONTENTPROTECTIONCAPS {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[cfg(target_arch = "x86")]
 pub struct D3DCONTENTPROTECTIONCAPS {
     pub Caps: u32,
@@ -5555,6 +6128,7 @@ impl ::core::default::Default for D3DCONTENTPROTECTIONCAPS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct D3DOVERLAYCAPS {
     pub Caps: u32,
     pub MaxOverlayDisplayWidth: u32,
@@ -5581,6 +6155,7 @@ impl ::core::default::Default for D3DOVERLAYCAPS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVICE_INFO {
     pub pFriendlyDeviceName: super::super::Foundation::BSTR,
@@ -5619,9 +6194,11 @@ impl ::core::default::Default for DEVICE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_IsVirtualCamera: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x6edc630d_c2e3_43b7_b2d1_20525a1af120), pid: 3u32 };
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIRTYRECT_INFO {
     pub FrameNumber: u32,
@@ -5654,6 +6231,7 @@ impl ::core::default::Default for DIRTYRECT_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn DXVA2CreateDirect3DDeviceManager9(presettoken: *mut u32, ppdevicemanager: *mut ::core::option::Option<IDirect3DDeviceManager9>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -5667,6 +6245,7 @@ pub unsafe fn DXVA2CreateDirect3DDeviceManager9(presettoken: *mut u32, ppdevicem
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
 pub unsafe fn DXVA2CreateVideoService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdd: Param0, riid: *const ::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -5682,6 +6261,7 @@ pub unsafe fn DXVA2CreateVideoService<'a, Param0: ::windows::core::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA2_AES_CTR_IV {
     pub IV: u64,
     pub Count: u64,
@@ -5707,6 +6287,7 @@ impl ::core::default::Default for DXVA2_AES_CTR_IV {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA2_AYUVSample16 {
     pub Cr: u16,
     pub Cb: u16,
@@ -5734,6 +6315,7 @@ impl ::core::default::Default for DXVA2_AYUVSample16 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA2_AYUVSample8 {
     pub Cr: u8,
     pub Cb: u8,
@@ -5760,17 +6342,28 @@ impl ::core::default::Default for DXVA2_AYUVSample8 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA2_BufferfType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_PictureParametersBufferType: DXVA2_BufferfType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_MacroBlockControlBufferType: DXVA2_BufferfType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_ResidualDifferenceBufferType: DXVA2_BufferfType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DeblockingControlBufferType: DXVA2_BufferfType = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_InverseQuantizationMatrixBufferType: DXVA2_BufferfType = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_SliceControlBufferType: DXVA2_BufferfType = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_BitStreamDateBufferType: DXVA2_BufferfType = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_MotionVectorBuffer: DXVA2_BufferfType = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_FilmGrainBuffer: DXVA2_BufferfType = 8i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA2_ConfigPictureDecode {
     pub guidConfigBitstreamEncryption: ::windows::core::GUID,
     pub guidConfigMBcontrolEncryption: ::windows::core::GUID,
@@ -5813,6 +6406,7 @@ impl ::core::default::Default for DXVA2_ConfigPictureDecode {
 pub const DXVA2_DECODE_GET_DRIVER_HANDLE: u32 = 1829u32;
 pub const DXVA2_DECODE_SPECIFY_ENCRYPTED_BLOCKS: u32 = 1828u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA2_DecodeBufferDesc {
     pub CompressedBufferType: DXVA2_BufferfType,
     pub BufferIndex: u32,
@@ -5847,6 +6441,7 @@ impl ::core::default::Default for DXVA2_DecodeBufferDesc {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA2_DecodeExecuteParams {
     pub NumCompBuffers: u32,
     pub pCompressedBuffers: *mut DXVA2_DecodeBufferDesc,
@@ -5873,6 +6468,7 @@ impl ::core::default::Default for DXVA2_DecodeExecuteParams {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA2_DecodeExtensionData {
     pub Function: u32,
     pub pPrivateInputData: *mut ::core::ffi::c_void,
@@ -5900,34 +6496,62 @@ impl ::core::default::Default for DXVA2_DecodeExtensionData {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA2_DeinterlaceTech = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DeinterlaceTech_Unknown: DXVA2_DeinterlaceTech = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DeinterlaceTech_BOBLineReplicate: DXVA2_DeinterlaceTech = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DeinterlaceTech_BOBVerticalStretch: DXVA2_DeinterlaceTech = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DeinterlaceTech_BOBVerticalStretch4Tap: DXVA2_DeinterlaceTech = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DeinterlaceTech_MedianFiltering: DXVA2_DeinterlaceTech = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DeinterlaceTech_EdgeFiltering: DXVA2_DeinterlaceTech = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DeinterlaceTech_FieldAdaptive: DXVA2_DeinterlaceTech = 32i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DeinterlaceTech_PixelAdaptive: DXVA2_DeinterlaceTech = 64i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DeinterlaceTech_MotionVectorSteered: DXVA2_DeinterlaceTech = 128i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DeinterlaceTech_InverseTelecine: DXVA2_DeinterlaceTech = 256i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DeinterlaceTech_Mask: DXVA2_DeinterlaceTech = 511i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA2_DestData = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DestData_RFF: DXVA2_DestData = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DestData_TFF: DXVA2_DestData = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DestData_RFF_TFF_Present: DXVA2_DestData = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DestData_Mask: DXVA2_DestData = 65535i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA2_DetailFilterTech = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DetailFilterTech_Unsupported: DXVA2_DetailFilterTech = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DetailFilterTech_Unknown: DXVA2_DetailFilterTech = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DetailFilterTech_Edge: DXVA2_DetailFilterTech = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DetailFilterTech_Sharpening: DXVA2_DetailFilterTech = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DetailFilterTech_Mask: DXVA2_DetailFilterTech = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_E_NEW_VIDEO_DEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217407i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_E_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217405i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_E_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217408i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_E_VIDEO_DEVICE_LOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217406i32);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA2_ExtendedFormat {
     pub Anonymous: DXVA2_ExtendedFormat_0,
 }
@@ -5952,6 +6576,7 @@ impl ::core::default::Default for DXVA2_ExtendedFormat {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub union DXVA2_ExtendedFormat_0 {
     pub Anonymous: DXVA2_ExtendedFormat_0_0,
     pub value: u32,
@@ -5977,6 +6602,7 @@ impl ::core::default::Default for DXVA2_ExtendedFormat_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA2_ExtendedFormat_0_0 {
     pub _bitfield: u32,
 }
@@ -6000,20 +6626,34 @@ impl ::core::default::Default for DXVA2_ExtendedFormat_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA2_FilterType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NoiseFilterLumaLevel: DXVA2_FilterType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NoiseFilterLumaThreshold: DXVA2_FilterType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NoiseFilterLumaRadius: DXVA2_FilterType = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NoiseFilterChromaLevel: DXVA2_FilterType = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NoiseFilterChromaThreshold: DXVA2_FilterType = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NoiseFilterChromaRadius: DXVA2_FilterType = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DetailFilterLumaLevel: DXVA2_FilterType = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DetailFilterLumaThreshold: DXVA2_FilterType = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DetailFilterLumaRadius: DXVA2_FilterType = 9i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DetailFilterChromaLevel: DXVA2_FilterType = 10i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DetailFilterChromaThreshold: DXVA2_FilterType = 11i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_DetailFilterChromaRadius: DXVA2_FilterType = 12i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA2_FilterValues {
     pub Level: DXVA2_Fixed32,
     pub Threshold: DXVA2_Fixed32,
@@ -6040,6 +6680,7 @@ impl ::core::default::Default for DXVA2_FilterValues {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA2_Fixed32 {
     pub Anonymous: DXVA2_Fixed32_0,
 }
@@ -6064,6 +6705,7 @@ impl ::core::default::Default for DXVA2_Fixed32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub union DXVA2_Fixed32_0 {
     pub Anonymous: DXVA2_Fixed32_0_0,
     pub ll: i32,
@@ -6089,6 +6731,7 @@ impl ::core::default::Default for DXVA2_Fixed32_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA2_Fixed32_0_0 {
     pub Fraction: u16,
     pub Value: i16,
@@ -6114,6 +6757,7 @@ impl ::core::default::Default for DXVA2_Fixed32_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA2_Frequency {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -6172,30 +6816,54 @@ pub const DXVA2_ModeWMV9_A: ::windows::core::GUID = ::windows::core::GUID::from_
 pub const DXVA2_ModeWMV9_B: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81be91_a0c7_11d3_b984_00c04f2e73c5);
 pub const DXVA2_ModeWMV9_C: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81be94_a0c7_11d3_b984_00c04f2e73c5);
 pub const DXVA2_NoEncrypt: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81bed0_a0c7_11d3_b984_00c04f2e73c5);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA2_NoiseFilterTech = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NoiseFilterTech_Unsupported: DXVA2_NoiseFilterTech = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NoiseFilterTech_Unknown: DXVA2_NoiseFilterTech = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NoiseFilterTech_Median: DXVA2_NoiseFilterTech = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NoiseFilterTech_Temporal: DXVA2_NoiseFilterTech = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NoiseFilterTech_BlockNoise: DXVA2_NoiseFilterTech = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NoiseFilterTech_MosquitoNoise: DXVA2_NoiseFilterTech = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NoiseFilterTech_Mask: DXVA2_NoiseFilterTech = 31i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA2_NominalRange = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NominalRangeMask: DXVA2_NominalRange = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NominalRange_Unknown: DXVA2_NominalRange = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NominalRange_Normal: DXVA2_NominalRange = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NominalRange_Wide: DXVA2_NominalRange = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NominalRange_0_255: DXVA2_NominalRange = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NominalRange_16_235: DXVA2_NominalRange = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_NominalRange_48_208: DXVA2_NominalRange = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA2_ProcAmp = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_ProcAmp_None: DXVA2_ProcAmp = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_ProcAmp_Brightness: DXVA2_ProcAmp = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_ProcAmp_Contrast: DXVA2_ProcAmp = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_ProcAmp_Hue: DXVA2_ProcAmp = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_ProcAmp_Saturation: DXVA2_ProcAmp = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_ProcAmp_Mask: DXVA2_ProcAmp = 15i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA2_ProcAmpValues {
     pub Brightness: DXVA2_Fixed32,
     pub Contrast: DXVA2_Fixed32,
@@ -6222,30 +6890,54 @@ impl ::core::default::Default for DXVA2_ProcAmpValues {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA2_SampleData = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_SampleData_RFF: DXVA2_SampleData = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_SampleData_TFF: DXVA2_SampleData = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_SampleData_RFF_TFF_Present: DXVA2_SampleData = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_SampleData_Mask: DXVA2_SampleData = 65535i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA2_SampleFormat = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_SampleFormatMask: DXVA2_SampleFormat = 255i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_SampleUnknown: DXVA2_SampleFormat = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_SampleProgressiveFrame: DXVA2_SampleFormat = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_SampleFieldInterleavedEvenFirst: DXVA2_SampleFormat = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_SampleFieldInterleavedOddFirst: DXVA2_SampleFormat = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_SampleFieldSingleEven: DXVA2_SampleFormat = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_SampleFieldSingleOdd: DXVA2_SampleFormat = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_SampleSubStream: DXVA2_SampleFormat = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA2_SurfaceType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_SurfaceType_DecoderRenderTarget: DXVA2_SurfaceType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_SurfaceType_ProcessorRenderTarget: DXVA2_SurfaceType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_SurfaceType_D3DRenderTargetTexture: DXVA2_SurfaceType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA2_VPDev = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VPDev_HardwareDevice: DXVA2_VPDev = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VPDev_EmulatedDXVA1: DXVA2_VPDev = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VPDev_SoftwareDevice: DXVA2_VPDev = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VPDev_Mask: DXVA2_VPDev = 7i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA2_ValueRange {
     pub MinValue: DXVA2_Fixed32,
     pub MaxValue: DXVA2_Fixed32,
@@ -6272,18 +6964,30 @@ impl ::core::default::Default for DXVA2_ValueRange {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA2_VideoChromaSubSampling = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoChromaSubsamplingMask: DXVA2_VideoChromaSubSampling = 15i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoChromaSubsampling_Unknown: DXVA2_VideoChromaSubSampling = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoChromaSubsampling_ProgressiveChroma: DXVA2_VideoChromaSubSampling = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoChromaSubsampling_Horizontally_Cosited: DXVA2_VideoChromaSubSampling = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoChromaSubsampling_Vertically_Cosited: DXVA2_VideoChromaSubSampling = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoChromaSubsampling_Vertically_AlignedChromaPlanes: DXVA2_VideoChromaSubSampling = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoChromaSubsampling_MPEG2: DXVA2_VideoChromaSubSampling = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoChromaSubsampling_MPEG1: DXVA2_VideoChromaSubSampling = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoChromaSubsampling_DV_PAL: DXVA2_VideoChromaSubSampling = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoChromaSubsampling_Cosited: DXVA2_VideoChromaSubSampling = 7i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA2_VideoDesc {
     pub SampleWidth: u32,
@@ -6321,47 +7025,85 @@ impl ::core::default::Default for DXVA2_VideoDesc {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA2_VideoLighting = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoLightingMask: DXVA2_VideoLighting = 15i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoLighting_Unknown: DXVA2_VideoLighting = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoLighting_bright: DXVA2_VideoLighting = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoLighting_office: DXVA2_VideoLighting = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoLighting_dim: DXVA2_VideoLighting = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoLighting_dark: DXVA2_VideoLighting = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA2_VideoPrimaries = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoPrimariesMask: DXVA2_VideoPrimaries = 31i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoPrimaries_Unknown: DXVA2_VideoPrimaries = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoPrimaries_reserved: DXVA2_VideoPrimaries = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoPrimaries_BT709: DXVA2_VideoPrimaries = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoPrimaries_BT470_2_SysM: DXVA2_VideoPrimaries = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoPrimaries_BT470_2_SysBG: DXVA2_VideoPrimaries = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoPrimaries_SMPTE170M: DXVA2_VideoPrimaries = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoPrimaries_SMPTE240M: DXVA2_VideoPrimaries = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoPrimaries_EBU3213: DXVA2_VideoPrimaries = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoPrimaries_SMPTE_C: DXVA2_VideoPrimaries = 8i32;
 pub const DXVA2_VideoProcBobDevice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x335aa36e_7884_43a4_9c91_7f87faf3e37e);
 pub const DXVA2_VideoProcProgressiveDevice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a54a0c9_c7ec_4bd9_8ede_f3c75dc4393b);
 pub const DXVA2_VideoProcSoftwareDevice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4553d47f_ee7e_4e3f_9475_dbf1376c4810);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA2_VideoProcess = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoProcess_None: DXVA2_VideoProcess = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoProcess_YUV2RGB: DXVA2_VideoProcess = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoProcess_StretchX: DXVA2_VideoProcess = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoProcess_StretchY: DXVA2_VideoProcess = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoProcess_AlphaBlend: DXVA2_VideoProcess = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoProcess_SubRects: DXVA2_VideoProcess = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoProcess_SubStreams: DXVA2_VideoProcess = 32i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoProcess_SubStreamsExtended: DXVA2_VideoProcess = 64i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoProcess_YUV2RGBExtended: DXVA2_VideoProcess = 128i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoProcess_AlphaBlendExtended: DXVA2_VideoProcess = 256i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoProcess_Constriction: DXVA2_VideoProcess = 512i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoProcess_NoiseFilter: DXVA2_VideoProcess = 1024i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoProcess_DetailFilter: DXVA2_VideoProcess = 2048i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoProcess_PlanarAlpha: DXVA2_VideoProcess = 4096i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoProcess_LinearScaling: DXVA2_VideoProcess = 8192i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoProcess_GammaCompensated: DXVA2_VideoProcess = 16384i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoProcess_MaintainsOriginalFieldData: DXVA2_VideoProcess = 32768i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoProcess_Mask: DXVA2_VideoProcess = 65535i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA2_VideoProcessBltParams {
     pub TargetFrame: i64,
@@ -6405,6 +7147,7 @@ impl ::core::default::Default for DXVA2_VideoProcessBltParams {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA2_VideoProcessorCaps {
     pub DeviceCaps: u32,
@@ -6444,11 +7187,16 @@ impl ::core::default::Default for DXVA2_VideoProcessorCaps {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA2_VideoRenderTargetType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoDecoderRenderTarget: DXVA2_VideoRenderTargetType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoProcessorRenderTarget: DXVA2_VideoRenderTargetType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoSoftwareRenderTarget: DXVA2_VideoRenderTargetType = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct DXVA2_VideoSample {
     pub Start: i64,
@@ -6495,24 +7243,42 @@ impl ::core::default::Default for DXVA2_VideoSample {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA2_VideoTransferFunction = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoTransFuncMask: DXVA2_VideoTransferFunction = 31i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoTransFunc_Unknown: DXVA2_VideoTransferFunction = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoTransFunc_10: DXVA2_VideoTransferFunction = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoTransFunc_18: DXVA2_VideoTransferFunction = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoTransFunc_20: DXVA2_VideoTransferFunction = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoTransFunc_22: DXVA2_VideoTransferFunction = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoTransFunc_709: DXVA2_VideoTransferFunction = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoTransFunc_240M: DXVA2_VideoTransferFunction = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoTransFunc_sRGB: DXVA2_VideoTransferFunction = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoTransFunc_28: DXVA2_VideoTransferFunction = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA2_VideoTransferMatrix = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoTransferMatrixMask: DXVA2_VideoTransferMatrix = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoTransferMatrix_Unknown: DXVA2_VideoTransferMatrix = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoTransferMatrix_BT709: DXVA2_VideoTransferMatrix = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoTransferMatrix_BT601: DXVA2_VideoTransferMatrix = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA2_VideoTransferMatrix_SMPTE240M: DXVA2_VideoTransferMatrix = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVABufferInfo {
     pub pCompSurface: *mut ::core::ffi::c_void,
     pub DataOffset: u32,
@@ -6539,6 +7305,7 @@ impl ::core::default::Default for DXVABufferInfo {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVACompBufferInfo {
     pub NumCompBuffers: u32,
@@ -6583,6 +7350,7 @@ pub const DXVAHDETWGUID_VIDEOPROCESSBLTHD_STREAM: ::windows::core::GUID = ::wind
 pub const DXVAHDETWGUID_VIDEOPROCESSBLTSTATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76c94b5a_193f_4692_9484_a4d999da81a8);
 pub const DXVAHDETWGUID_VIDEOPROCESSSTREAMSTATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x262c0b02_209d_47ed_94d8_82ae02b84aa7);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVAHDETW_CREATEVIDEOPROCESSOR {
     pub pObject: u64,
     pub pD3D9Ex: u64,
@@ -6609,6 +7377,7 @@ impl ::core::default::Default for DXVAHDETW_CREATEVIDEOPROCESSOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVAHDETW_DESTROYVIDEOPROCESSOR {
     pub pObject: u64,
 }
@@ -6633,6 +7402,7 @@ impl ::core::default::Default for DXVAHDETW_DESTROYVIDEOPROCESSOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct DXVAHDETW_VIDEOPROCESSBLTHD {
     pub pObject: u64,
@@ -6671,6 +7441,7 @@ impl ::core::default::Default for DXVAHDETW_VIDEOPROCESSBLTHD {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
     pub pObject: u64,
@@ -6713,6 +7484,7 @@ impl ::core::default::Default for DXVAHDETW_VIDEOPROCESSBLTHD_STREAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHDETW_VIDEOPROCESSBLTSTATE {
     pub pObject: u64,
@@ -6747,6 +7519,7 @@ impl ::core::default::Default for DXVAHDETW_VIDEOPROCESSBLTSTATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
     pub pObject: u64,
@@ -6782,6 +7555,7 @@ impl ::core::default::Default for DXVAHDETW_VIDEOPROCESSSTREAMSTATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct DXVAHDSW_CALLBACKS {
     pub CreateDevice: PDXVAHDSW_CreateDevice,
@@ -6827,19 +7601,32 @@ impl ::core::default::Default for DXVAHDSW_CALLBACKS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVAHD_ALPHA_FILL_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_ALPHA_FILL_MODE_OPAQUE: DXVAHD_ALPHA_FILL_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_ALPHA_FILL_MODE_BACKGROUND: DXVAHD_ALPHA_FILL_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_ALPHA_FILL_MODE_DESTINATION: DXVAHD_ALPHA_FILL_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_ALPHA_FILL_MODE_SOURCE_STREAM: DXVAHD_ALPHA_FILL_MODE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVAHD_BLT_STATE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_BLT_STATE_TARGET_RECT: DXVAHD_BLT_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_BLT_STATE_BACKGROUND_COLOR: DXVAHD_BLT_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE: DXVAHD_BLT_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_BLT_STATE_ALPHA_FILL: DXVAHD_BLT_STATE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_BLT_STATE_CONSTRICTION: DXVAHD_BLT_STATE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_BLT_STATE_PRIVATE: DXVAHD_BLT_STATE = 1000i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
     pub Mode: DXVAHD_ALPHA_FILL_MODE,
     pub StreamNumber: u32,
@@ -6865,6 +7652,7 @@ impl ::core::default::Default for DXVAHD_BLT_STATE_ALPHA_FILL_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
     pub YCbCr: super::super::Foundation::BOOL,
@@ -6897,6 +7685,7 @@ impl ::core::default::Default for DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_BLT_STATE_CONSTRICTION_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -6929,6 +7718,7 @@ impl ::core::default::Default for DXVAHD_BLT_STATE_CONSTRICTION_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
     pub Anonymous: DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0,
 }
@@ -6953,6 +7743,7 @@ impl ::core::default::Default for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub union DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {
     pub Anonymous: DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0,
     pub Value: u32,
@@ -6978,6 +7769,7 @@ impl ::core::default::Default for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
     pub _bitfield: u32,
 }
@@ -7002,6 +7794,7 @@ impl ::core::default::Default for DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVAHD_BLT_STATE_PRIVATE_DATA {
     pub Guid: ::windows::core::GUID,
     pub DataSize: u32,
@@ -7028,6 +7821,7 @@ impl ::core::default::Default for DXVAHD_BLT_STATE_PRIVATE_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_BLT_STATE_TARGET_RECT_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -7060,6 +7854,7 @@ impl ::core::default::Default for DXVAHD_BLT_STATE_TARGET_RECT_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub union DXVAHD_COLOR {
     pub RGB: DXVAHD_COLOR_RGBA,
     pub YCbCr: DXVAHD_COLOR_YCbCrA,
@@ -7085,6 +7880,7 @@ impl ::core::default::Default for DXVAHD_COLOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVAHD_COLOR_RGBA {
     pub R: f32,
     pub G: f32,
@@ -7112,6 +7908,7 @@ impl ::core::default::Default for DXVAHD_COLOR_RGBA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVAHD_COLOR_YCbCrA {
     pub Y: f32,
     pub Cb: f32,
@@ -7139,6 +7936,7 @@ impl ::core::default::Default for DXVAHD_COLOR_YCbCrA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVAHD_CONTENT_DESC {
     pub InputFrameFormat: DXVAHD_FRAME_FORMAT,
     pub InputFrameRate: DXVAHD_RATIONAL,
@@ -7169,6 +7967,7 @@ impl ::core::default::Default for DXVAHD_CONTENT_DESC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_CUSTOM_RATE_DATA {
     pub CustomRate: DXVAHD_RATIONAL,
@@ -7202,6 +8001,7 @@ impl ::core::default::Default for DXVAHD_CUSTOM_RATE_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
 pub unsafe fn DXVAHD_CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>>(pd3ddevice: Param0, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: PDXVAHDSW_Plugin) -> ::windows::core::Result<IDXVAHD_Device> {
@@ -7217,42 +8017,78 @@ pub unsafe fn DXVAHD_CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVAHD_DEVICE_CAPS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_DEVICE_CAPS_LINEAR_SPACE: DXVAHD_DEVICE_CAPS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_DEVICE_CAPS_xvYCC: DXVAHD_DEVICE_CAPS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_DEVICE_CAPS_RGB_RANGE_CONVERSION: DXVAHD_DEVICE_CAPS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_DEVICE_CAPS_YCbCr_MATRIX_CONVERSION: DXVAHD_DEVICE_CAPS = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVAHD_DEVICE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_DEVICE_TYPE_HARDWARE: DXVAHD_DEVICE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_DEVICE_TYPE_SOFTWARE: DXVAHD_DEVICE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_DEVICE_TYPE_REFERENCE: DXVAHD_DEVICE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_DEVICE_TYPE_OTHER: DXVAHD_DEVICE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVAHD_DEVICE_USAGE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_DEVICE_USAGE_PLAYBACK_NORMAL: DXVAHD_DEVICE_USAGE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_DEVICE_USAGE_OPTIMAL_SPEED: DXVAHD_DEVICE_USAGE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_DEVICE_USAGE_OPTIMAL_QUALITY: DXVAHD_DEVICE_USAGE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVAHD_FEATURE_CAPS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FEATURE_CAPS_ALPHA_FILL: DXVAHD_FEATURE_CAPS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FEATURE_CAPS_CONSTRICTION: DXVAHD_FEATURE_CAPS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FEATURE_CAPS_LUMA_KEY: DXVAHD_FEATURE_CAPS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FEATURE_CAPS_ALPHA_PALETTE: DXVAHD_FEATURE_CAPS = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVAHD_FILTER = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FILTER_BRIGHTNESS: DXVAHD_FILTER = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FILTER_CONTRAST: DXVAHD_FILTER = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FILTER_HUE: DXVAHD_FILTER = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FILTER_SATURATION: DXVAHD_FILTER = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FILTER_NOISE_REDUCTION: DXVAHD_FILTER = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FILTER_EDGE_ENHANCEMENT: DXVAHD_FILTER = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FILTER_ANAMORPHIC_SCALING: DXVAHD_FILTER = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVAHD_FILTER_CAPS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FILTER_CAPS_BRIGHTNESS: DXVAHD_FILTER_CAPS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FILTER_CAPS_CONTRAST: DXVAHD_FILTER_CAPS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FILTER_CAPS_HUE: DXVAHD_FILTER_CAPS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FILTER_CAPS_SATURATION: DXVAHD_FILTER_CAPS = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FILTER_CAPS_NOISE_REDUCTION: DXVAHD_FILTER_CAPS = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FILTER_CAPS_EDGE_ENHANCEMENT: DXVAHD_FILTER_CAPS = 32i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FILTER_CAPS_ANAMORPHIC_SCALING: DXVAHD_FILTER_CAPS = 64i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVAHD_FILTER_RANGE_DATA {
     pub Minimum: i32,
     pub Maximum: i32,
@@ -7279,38 +8115,70 @@ impl ::core::default::Default for DXVAHD_FILTER_RANGE_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVAHD_FRAME_FORMAT = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FRAME_FORMAT_PROGRESSIVE: DXVAHD_FRAME_FORMAT = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FRAME_FORMAT_INTERLACED_TOP_FIELD_FIRST: DXVAHD_FRAME_FORMAT = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_FRAME_FORMAT_INTERLACED_BOTTOM_FIELD_FIRST: DXVAHD_FRAME_FORMAT = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVAHD_INPUT_FORMAT_CAPS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_INPUT_FORMAT_CAPS_RGB_INTERLACED: DXVAHD_INPUT_FORMAT_CAPS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_INPUT_FORMAT_CAPS_RGB_PROCAMP: DXVAHD_INPUT_FORMAT_CAPS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_INPUT_FORMAT_CAPS_RGB_LUMA_KEY: DXVAHD_INPUT_FORMAT_CAPS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_INPUT_FORMAT_CAPS_PALETTE_INTERLACED: DXVAHD_INPUT_FORMAT_CAPS = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVAHD_ITELECINE_CAPS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_ITELECINE_CAPS_32: DXVAHD_ITELECINE_CAPS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_ITELECINE_CAPS_22: DXVAHD_ITELECINE_CAPS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_ITELECINE_CAPS_2224: DXVAHD_ITELECINE_CAPS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_ITELECINE_CAPS_2332: DXVAHD_ITELECINE_CAPS = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_ITELECINE_CAPS_32322: DXVAHD_ITELECINE_CAPS = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_ITELECINE_CAPS_55: DXVAHD_ITELECINE_CAPS = 32i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_ITELECINE_CAPS_64: DXVAHD_ITELECINE_CAPS = 64i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_ITELECINE_CAPS_87: DXVAHD_ITELECINE_CAPS = 128i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_ITELECINE_CAPS_222222222223: DXVAHD_ITELECINE_CAPS = 256i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_ITELECINE_CAPS_OTHER: DXVAHD_ITELECINE_CAPS = -2147483648i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVAHD_OUTPUT_RATE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_OUTPUT_RATE_NORMAL: DXVAHD_OUTPUT_RATE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_OUTPUT_RATE_HALF: DXVAHD_OUTPUT_RATE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_OUTPUT_RATE_CUSTOM: DXVAHD_OUTPUT_RATE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVAHD_PROCESSOR_CAPS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_PROCESSOR_CAPS_DEINTERLACE_BLEND: DXVAHD_PROCESSOR_CAPS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_PROCESSOR_CAPS_DEINTERLACE_BOB: DXVAHD_PROCESSOR_CAPS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_PROCESSOR_CAPS_DEINTERLACE_ADAPTIVE: DXVAHD_PROCESSOR_CAPS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_PROCESSOR_CAPS_DEINTERLACE_MOTION_COMPENSATION: DXVAHD_PROCESSOR_CAPS = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_PROCESSOR_CAPS_INVERSE_TELECINE: DXVAHD_PROCESSOR_CAPS = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_PROCESSOR_CAPS_FRAME_RATE_CONVERSION: DXVAHD_PROCESSOR_CAPS = 32i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVAHD_RATIONAL {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -7336,6 +8204,7 @@ impl ::core::default::Default for DXVAHD_RATIONAL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub struct DXVAHD_STREAM_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -7380,26 +8249,46 @@ impl ::core::default::Default for DXVAHD_STREAM_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVAHD_STREAM_STATE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_STREAM_STATE_D3DFORMAT: DXVAHD_STREAM_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_STREAM_STATE_FRAME_FORMAT: DXVAHD_STREAM_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE: DXVAHD_STREAM_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_STREAM_STATE_OUTPUT_RATE: DXVAHD_STREAM_STATE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_STREAM_STATE_SOURCE_RECT: DXVAHD_STREAM_STATE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_STREAM_STATE_DESTINATION_RECT: DXVAHD_STREAM_STATE = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_STREAM_STATE_ALPHA: DXVAHD_STREAM_STATE = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_STREAM_STATE_PALETTE: DXVAHD_STREAM_STATE = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_STREAM_STATE_LUMA_KEY: DXVAHD_STREAM_STATE = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_STREAM_STATE_ASPECT_RATIO: DXVAHD_STREAM_STATE = 9i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_STREAM_STATE_FILTER_BRIGHTNESS: DXVAHD_STREAM_STATE = 100i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_STREAM_STATE_FILTER_CONTRAST: DXVAHD_STREAM_STATE = 101i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_STREAM_STATE_FILTER_HUE: DXVAHD_STREAM_STATE = 102i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_STREAM_STATE_FILTER_SATURATION: DXVAHD_STREAM_STATE = 103i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_STREAM_STATE_FILTER_NOISE_REDUCTION: DXVAHD_STREAM_STATE = 104i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_STREAM_STATE_FILTER_EDGE_ENHANCEMENT: DXVAHD_STREAM_STATE = 105i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_STREAM_STATE_FILTER_ANAMORPHIC_SCALING: DXVAHD_STREAM_STATE = 106i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_STREAM_STATE_PRIVATE: DXVAHD_STREAM_STATE = 1000i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_ALPHA_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -7432,6 +8321,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_ALPHA_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -7465,6 +8355,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
     pub Format: super::super::Graphics::Direct3D9::D3DFORMAT,
@@ -7496,6 +8387,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_D3DFORMAT_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -7528,6 +8420,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_FILTER_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -7560,6 +8453,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_FILTER_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
     pub FrameFormat: DXVAHD_FRAME_FORMAT,
 }
@@ -7584,6 +8478,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
     pub Anonymous: DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0,
 }
@@ -7608,6 +8503,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub union DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {
     pub Anonymous: DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0,
     pub Value: u32,
@@ -7633,6 +8529,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0 {
     pub _bitfield: u32,
 }
@@ -7657,6 +8554,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA_0_0
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -7690,6 +8588,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_LUMA_KEY_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
     pub RepeatFrame: super::super::Foundation::BOOL,
@@ -7723,6 +8622,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVAHD_STREAM_STATE_PALETTE_DATA {
     pub Count: u32,
     pub pEntries: *mut u32,
@@ -7748,6 +8648,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_PALETTE_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVAHD_STREAM_STATE_PRIVATE_DATA {
     pub Guid: ::windows::core::GUID,
     pub DataSize: u32,
@@ -7775,6 +8676,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_PRIVATE_DATA {
 }
 pub const DXVAHD_STREAM_STATE_PRIVATE_IVTC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c601e3c_0f33_414c_a739_99540ee42da5);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -7809,6 +8711,7 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
     pub Enable: super::super::Foundation::BOOL,
@@ -7840,11 +8743,16 @@ impl ::core::default::Default for DXVAHD_STREAM_STATE_SOURCE_RECT_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVAHD_SURFACE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_SURFACE_TYPE_VIDEO_INPUT: DXVAHD_SURFACE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_SURFACE_TYPE_VIDEO_INPUT_PRIVATE: DXVAHD_SURFACE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVAHD_SURFACE_TYPE_VIDEO_OUTPUT: DXVAHD_SURFACE_TYPE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVAHD_VPCAPS {
     pub VPGuid: ::windows::core::GUID,
     pub PastFrames: u32,
@@ -7874,6 +8782,7 @@ impl ::core::default::Default for DXVAHD_VPCAPS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVAHD_VPDEVCAPS {
     pub DeviceType: DXVAHD_DEVICE_TYPE,
@@ -7915,6 +8824,7 @@ impl ::core::default::Default for DXVAHD_VPDEVCAPS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVAUncompDataInfo {
     pub UncompWidth: u32,
@@ -7948,6 +8858,7 @@ impl ::core::default::Default for DXVAUncompDataInfo {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA_AYUVsample2 {
     pub bCrValue: u8,
     pub bCbValue: u8,
@@ -7975,6 +8886,7 @@ impl ::core::default::Default for DXVA_AYUVsample2 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA_BufferDescription {
     pub dwTypeIndex: u32,
     pub dwBufferIndex: u32,
@@ -8008,6 +8920,7 @@ impl ::core::default::Default for DXVA_BufferDescription {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA_COPPCommand {
     pub macKDI: ::windows::core::GUID,
     pub guidCommandID: ::windows::core::GUID,
@@ -8036,6 +8949,7 @@ impl ::core::default::Default for DXVA_COPPCommand {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA_COPPSignature {
     pub Signature: [u8; 256],
 }
@@ -8060,6 +8974,7 @@ impl ::core::default::Default for DXVA_COPPSignature {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA_COPPStatusInput {
     pub rApp: ::windows::core::GUID,
     pub guidStatusRequestID: ::windows::core::GUID,
@@ -8088,6 +9003,7 @@ impl ::core::default::Default for DXVA_COPPStatusInput {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA_COPPStatusOutput {
     pub macKDI: ::windows::core::GUID,
     pub cbSizeData: u32,
@@ -8114,6 +9030,7 @@ impl ::core::default::Default for DXVA_COPPStatusOutput {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA_ConfigPictureDecode {
     pub dwFunction: u32,
     pub dwReservedBits: [u32; 3],
@@ -8154,6 +9071,7 @@ impl ::core::default::Default for DXVA_ConfigPictureDecode {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_DeinterlaceBlt {
     pub Size: u32,
@@ -8192,6 +9110,7 @@ impl ::core::default::Default for DXVA_DeinterlaceBlt {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_DeinterlaceBltEx {
     pub Size: u32,
@@ -8231,6 +9150,7 @@ impl ::core::default::Default for DXVA_DeinterlaceBltEx {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_DeinterlaceBltEx32 {
@@ -8277,6 +9197,7 @@ impl ::core::default::Default for DXVA_DeinterlaceBltEx32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA_DeinterlaceCaps {
     pub Size: u32,
@@ -8315,6 +9236,7 @@ impl ::core::default::Default for DXVA_DeinterlaceCaps {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA_DeinterlaceQueryAvailableModes {
     pub Size: u32,
     pub NumGuids: u32,
@@ -8341,6 +9263,7 @@ impl ::core::default::Default for DXVA_DeinterlaceQueryAvailableModes {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA_DeinterlaceQueryModeCaps {
     pub Size: u32,
@@ -8373,23 +9296,40 @@ impl ::core::default::Default for DXVA_DeinterlaceQueryModeCaps {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA_DeinterlaceTech = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_DeinterlaceTech_Unknown: DXVA_DeinterlaceTech = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_DeinterlaceTech_BOBLineReplicate: DXVA_DeinterlaceTech = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_DeinterlaceTech_BOBVerticalStretch: DXVA_DeinterlaceTech = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_DeinterlaceTech_BOBVerticalStretch4Tap: DXVA_DeinterlaceTech = 256i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_DeinterlaceTech_MedianFiltering: DXVA_DeinterlaceTech = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_DeinterlaceTech_EdgeFiltering: DXVA_DeinterlaceTech = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_DeinterlaceTech_FieldAdaptive: DXVA_DeinterlaceTech = 32i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_DeinterlaceTech_PixelAdaptive: DXVA_DeinterlaceTech = 64i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_DeinterlaceTech_MotionVectorSteered: DXVA_DeinterlaceTech = 128i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA_DestinationFlags = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_DestinationFlagMask: DXVA_DestinationFlags = 15i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_DestinationFlag_Background_Changed: DXVA_DestinationFlags = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_DestinationFlag_TargetRect_Changed: DXVA_DestinationFlags = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_DestinationFlag_ColorData_Changed: DXVA_DestinationFlags = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_DestinationFlag_Alpha_Changed: DXVA_DestinationFlags = 8i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA_ExtendedFormat {
     pub _bitfield: u32,
 }
@@ -8414,6 +9354,7 @@ impl ::core::default::Default for DXVA_ExtendedFormat {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA_Frequency {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -8438,16 +9379,26 @@ impl ::core::default::Default for DXVA_Frequency {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA_NominalRange = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_NominalRangeShift: DXVA_NominalRange = 12i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_NominalRangeMask: DXVA_NominalRange = 28672i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_NominalRange_Unknown: DXVA_NominalRange = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_NominalRange_Normal: DXVA_NominalRange = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_NominalRange_Wide: DXVA_NominalRange = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_NominalRange_0_255: DXVA_NominalRange = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_NominalRange_16_235: DXVA_NominalRange = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_NominalRange_48_208: DXVA_NominalRange = 3i32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA_PictureParameters {
     pub wDecodedPictureIndex: u16,
     pub wDeblockedPictureIndex: u16,
@@ -8507,6 +9458,7 @@ impl ::core::default::Default for DXVA_PictureParameters {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_ProcAmpControlBlt {
     pub Size: u32,
@@ -8545,6 +9497,7 @@ impl ::core::default::Default for DXVA_ProcAmpControlBlt {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA_ProcAmpControlCaps {
     pub Size: u32,
@@ -8579,13 +9532,20 @@ impl ::core::default::Default for DXVA_ProcAmpControlCaps {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA_ProcAmpControlProp = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_ProcAmp_None: DXVA_ProcAmpControlProp = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_ProcAmp_Brightness: DXVA_ProcAmpControlProp = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_ProcAmp_Contrast: DXVA_ProcAmpControlProp = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_ProcAmp_Hue: DXVA_ProcAmpControlProp = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_ProcAmp_Saturation: DXVA_ProcAmpControlProp = 8i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA_ProcAmpControlQueryRange {
     pub Size: u32,
@@ -8618,35 +9578,64 @@ impl ::core::default::Default for DXVA_ProcAmpControlQueryRange {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA_SampleFlags = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_SampleFlagsMask: DXVA_SampleFlags = 15i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_SampleFlag_Palette_Changed: DXVA_SampleFlags = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_SampleFlag_SrcRect_Changed: DXVA_SampleFlags = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_SampleFlag_DstRect_Changed: DXVA_SampleFlags = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_SampleFlag_ColorData_Changed: DXVA_SampleFlags = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA_SampleFormat = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_SampleFormatMask: DXVA_SampleFormat = 255i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_SampleUnknown: DXVA_SampleFormat = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_SamplePreviousFrame: DXVA_SampleFormat = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_SampleProgressiveFrame: DXVA_SampleFormat = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_SampleFieldInterleavedEvenFirst: DXVA_SampleFormat = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_SampleFieldInterleavedOddFirst: DXVA_SampleFormat = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_SampleFieldSingleEven: DXVA_SampleFormat = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_SampleFieldSingleOdd: DXVA_SampleFormat = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_SampleSubStream: DXVA_SampleFormat = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA_VideoChromaSubsampling = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoChromaSubsamplingShift: DXVA_VideoChromaSubsampling = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoChromaSubsamplingMask: DXVA_VideoChromaSubsampling = 3840i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoChromaSubsampling_Unknown: DXVA_VideoChromaSubsampling = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoChromaSubsampling_ProgressiveChroma: DXVA_VideoChromaSubsampling = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoChromaSubsampling_Horizontally_Cosited: DXVA_VideoChromaSubsampling = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoChromaSubsampling_Vertically_Cosited: DXVA_VideoChromaSubsampling = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoChromaSubsampling_Vertically_AlignedChromaPlanes: DXVA_VideoChromaSubsampling = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoChromaSubsampling_MPEG2: DXVA_VideoChromaSubsampling = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoChromaSubsampling_MPEG1: DXVA_VideoChromaSubsampling = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoChromaSubsampling_DV_PAL: DXVA_VideoChromaSubsampling = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoChromaSubsampling_Cosited: DXVA_VideoChromaSubsampling = 7i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct DXVA_VideoDesc {
     pub Size: u32,
@@ -8683,38 +9672,70 @@ impl ::core::default::Default for DXVA_VideoDesc {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA_VideoLighting = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoLightingShift: DXVA_VideoLighting = 18i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoLightingMask: DXVA_VideoLighting = 3932160i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoLighting_Unknown: DXVA_VideoLighting = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoLighting_bright: DXVA_VideoLighting = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoLighting_office: DXVA_VideoLighting = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoLighting_dim: DXVA_VideoLighting = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoLighting_dark: DXVA_VideoLighting = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA_VideoPrimaries = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoPrimariesShift: DXVA_VideoPrimaries = 22i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoPrimariesMask: DXVA_VideoPrimaries = 130023424i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoPrimaries_Unknown: DXVA_VideoPrimaries = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoPrimaries_reserved: DXVA_VideoPrimaries = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoPrimaries_BT709: DXVA_VideoPrimaries = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoPrimaries_BT470_2_SysM: DXVA_VideoPrimaries = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoPrimaries_BT470_2_SysBG: DXVA_VideoPrimaries = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoPrimaries_SMPTE170M: DXVA_VideoPrimaries = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoPrimaries_SMPTE240M: DXVA_VideoPrimaries = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoPrimaries_EBU3213: DXVA_VideoPrimaries = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoPrimaries_SMPTE_C: DXVA_VideoPrimaries = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA_VideoProcessCaps = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoProcess_None: DXVA_VideoProcessCaps = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoProcess_YUV2RGB: DXVA_VideoProcessCaps = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoProcess_StretchX: DXVA_VideoProcessCaps = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoProcess_StretchY: DXVA_VideoProcessCaps = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoProcess_AlphaBlend: DXVA_VideoProcessCaps = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoProcess_SubRects: DXVA_VideoProcessCaps = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoProcess_SubStreams: DXVA_VideoProcessCaps = 32i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoProcess_SubStreamsExtended: DXVA_VideoProcessCaps = 64i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoProcess_YUV2RGBExtended: DXVA_VideoProcessCaps = 128i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoProcess_AlphaBlendExtended: DXVA_VideoProcessCaps = 256i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA_VideoPropertyRange {
     pub MinValue: f32,
     pub MaxValue: f32,
@@ -8742,6 +9763,7 @@ impl ::core::default::Default for DXVA_VideoPropertyRange {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DXVA_VideoSample {
     pub rtStart: i64,
     pub rtEnd: i64,
@@ -8769,6 +9791,7 @@ impl ::core::default::Default for DXVA_VideoSample {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_VideoSample2 {
@@ -8816,6 +9839,7 @@ impl ::core::default::Default for DXVA_VideoSample2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_VideoSample2 {
@@ -8861,6 +9885,7 @@ impl ::core::default::Default for DXVA_VideoSample2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_VideoSample32 {
@@ -8905,36 +9930,61 @@ impl ::core::default::Default for DXVA_VideoSample32 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA_VideoTransferFunction = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoTransFuncShift: DXVA_VideoTransferFunction = 27i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoTransFuncMask: DXVA_VideoTransferFunction = -134217728i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoTransFunc_Unknown: DXVA_VideoTransferFunction = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoTransFunc_10: DXVA_VideoTransferFunction = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoTransFunc_18: DXVA_VideoTransferFunction = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoTransFunc_20: DXVA_VideoTransferFunction = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoTransFunc_22: DXVA_VideoTransferFunction = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoTransFunc_22_709: DXVA_VideoTransferFunction = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoTransFunc_22_240M: DXVA_VideoTransferFunction = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoTransFunc_22_8bit_sRGB: DXVA_VideoTransferFunction = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoTransFunc_28: DXVA_VideoTransferFunction = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DXVA_VideoTransferMatrix = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoTransferMatrixShift: DXVA_VideoTransferMatrix = 15i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoTransferMatrixMask: DXVA_VideoTransferMatrix = 229376i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoTransferMatrix_Unknown: DXVA_VideoTransferMatrix = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoTransferMatrix_BT709: DXVA_VideoTransferMatrix = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoTransferMatrix_BT601: DXVA_VideoTransferMatrix = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DXVA_VideoTransferMatrix_SMPTE240M: DXVA_VideoTransferMatrix = 3i32;
 pub const DXVAp_DeinterlaceBobDevice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x335aa36e_7884_43a4_9c91_7f87faf3e37e);
 pub const DXVAp_DeinterlaceContainerDevice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e85cb93_3046_4ff0_aecc_d58cb5f035fd);
 pub const DXVAp_ModeMPEG2_A: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81be0a_a0c7_11d3_b984_00c04f2e73c5);
 pub const DXVAp_ModeMPEG2_C: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81be0c_a0c7_11d3_b984_00c04f2e73c5);
 pub const DXVAp_NoEncrypt: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b81bed0_a0c7_11d3_b984_00c04f2e73c5);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type DeviceStreamState = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DeviceStreamState_Stop: DeviceStreamState = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DeviceStreamState_Pause: DeviceStreamState = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DeviceStreamState_Run: DeviceStreamState = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DeviceStreamState_Disabled: DeviceStreamState = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct DigitalWindowSetting {
     pub OriginX: f64,
     pub OriginY: f64,
@@ -8960,32 +10010,54 @@ impl ::core::default::Default for DigitalWindowSetting {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type EAllocationType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAllocationTypeDynamic: EAllocationType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAllocationTypeRT: EAllocationType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAllocationTypePageable: EAllocationType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAllocationTypeIgnore: EAllocationType = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type EVRFilterConfigPrefs = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const EVRFilterConfigPrefs_EnableQoS: EVRFilterConfigPrefs = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const EVRFilterConfigPrefs_Mask: EVRFilterConfigPrefs = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const E_TOCPARSER_INVALIDASFFILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1728053247i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const E_TOCPARSER_INVALIDRIFFFILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1728053246i32);
 pub const FACILITY_MF: u32 = 13u32;
 pub const FACILITY_MF_WIN32: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type FILE_ACCESSMODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const ACCESSMODE_READ: FILE_ACCESSMODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const ACCESSMODE_WRITE: FILE_ACCESSMODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const ACCESSMODE_READWRITE: FILE_ACCESSMODE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const ACCESSMODE_WRITE_EXCLUSIVE: FILE_ACCESSMODE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type FILE_OPENMODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPENMODE_FAIL_IF_NOT_EXIST: FILE_OPENMODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPENMODE_FAIL_IF_EXIST: FILE_OPENMODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPENMODE_RESET_IF_EXIST: FILE_OPENMODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPENMODE_APPEND_IF_EXIST: FILE_OPENMODE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPENMODE_DELETE_IF_EXIST: FILE_OPENMODE = 4i32;
 pub const FORMAT_MFVideoFormat: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaed4ab2d_7326_43cb_9464_c879cab9c43d);
 pub const GUID_NativeDeviceService: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef71e53c_52f4_43c5_b86a_ad6cb216a61e);
 pub const GUID_PlayToService: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6a8ff9d_9e14_41c9_bf0f_120a2b3ce120);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IAdvancedMediaCapture(::windows::core::IUnknown);
 impl IAdvancedMediaCapture {
@@ -9032,6 +10104,7 @@ unsafe impl ::windows::core::Interface for IAdvancedMediaCapture {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedMediaCaptureVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IAdvancedMediaCaptureInitializationSettings(::windows::core::IUnknown);
 impl IAdvancedMediaCaptureInitializationSettings {
@@ -9077,6 +10150,7 @@ unsafe impl ::windows::core::Interface for IAdvancedMediaCaptureInitializationSe
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedMediaCaptureInitializationSettingsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IAdvancedMediaCaptureSettings(::windows::core::IUnknown);
 impl IAdvancedMediaCaptureSettings {
@@ -9123,6 +10197,7 @@ unsafe impl ::windows::core::Interface for IAdvancedMediaCaptureSettings {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdvancedMediaCaptureSettingsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IAudioSourceProvider(::windows::core::IUnknown);
 impl IAudioSourceProvider {
@@ -9168,6 +10243,7 @@ unsafe impl ::windows::core::Interface for IAudioSourceProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSourceProviderVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsamplecount: u32, pdwchannelcount: *mut u32, pinterleavedaudiodata: *mut f32) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IClusterDetector(::windows::core::IUnknown);
 impl IClusterDetector {
@@ -9223,6 +10299,7 @@ pub struct IClusterDetectorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wbaseentrylevel: u16, wclusterentrylevel: u16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxnumclusters: u32, fminclusterduration: f32, fmaxclusterduration: f32, psrctoc: ::windows::core::RawPtr, ppdsttoc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ICodecAPI(::windows::core::IUnknown);
 impl ICodecAPI {
@@ -9349,6 +10426,7 @@ pub struct ICodecAPIVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__icodecapi0002: ::windows::core::RawPtr, changedparam: *mut *mut ::windows::core::GUID, changedparamcount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoDecodeCommandList(::windows::core::IUnknown);
 impl ID3D12VideoDecodeCommandList {
@@ -9577,6 +10655,7 @@ pub struct ID3D12VideoDecodeCommandListVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoDecodeCommandList1(::windows::core::IUnknown);
 impl ID3D12VideoDecodeCommandList1 {
@@ -9831,6 +10910,7 @@ pub struct ID3D12VideoDecodeCommandList1Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoder: ::windows::core::RawPtr, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS),
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoDecodeCommandList2(::windows::core::IUnknown);
 impl ID3D12VideoDecodeCommandList2 {
@@ -10119,6 +11199,7 @@ pub struct ID3D12VideoDecodeCommandList2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize),
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoDecoder(::windows::core::IUnknown);
 impl ID3D12VideoDecoder {
@@ -10273,6 +11354,7 @@ pub struct ID3D12VideoDecoderVtbl(
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_DESC),
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoDecoder1(::windows::core::IUnknown);
 impl ID3D12VideoDecoder1 {
@@ -10451,6 +11533,7 @@ pub struct ID3D12VideoDecoder1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_DESC),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoDecoderHeap(::windows::core::IUnknown);
 impl ID3D12VideoDecoderHeap {
@@ -10607,6 +11690,7 @@ pub struct ID3D12VideoDecoderHeapVtbl(
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_HEAP_DESC),
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoDecoderHeap1(::windows::core::IUnknown);
 impl ID3D12VideoDecoderHeap1 {
@@ -10787,6 +11871,7 @@ pub struct ID3D12VideoDecoderHeap1Vtbl(
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoDevice(::windows::core::IUnknown);
 impl ID3D12VideoDevice {
@@ -10856,6 +11941,7 @@ pub struct ID3D12VideoDeviceVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, riid: *const ::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoDevice1(::windows::core::IUnknown);
 impl ID3D12VideoDevice1 {
@@ -10959,6 +12045,7 @@ pub struct ID3D12VideoDevice1Vtbl(
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideomotionvectorheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoDevice2(::windows::core::IUnknown);
 impl ID3D12VideoDevice2 {
@@ -11114,6 +12201,7 @@ pub struct ID3D12VideoDevice2Vtbl(
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize, poutputdata: *mut ::core::ffi::c_void, outputdatasizeinbytes: usize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoDevice3(::windows::core::IUnknown);
 impl ID3D12VideoDevice3 {
@@ -11301,6 +12389,7 @@ pub struct ID3D12VideoDevice3Vtbl(
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_ENCODER_HEAP_DESC, riid: *const ::windows::core::GUID, ppvideoencoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoEncodeCommandList(::windows::core::IUnknown);
 impl ID3D12VideoEncodeCommandList {
@@ -11541,6 +12630,7 @@ pub struct ID3D12VideoEncodeCommandListVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprotectedresourcesession: ::windows::core::RawPtr),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoEncodeCommandList1(::windows::core::IUnknown);
 impl ID3D12VideoEncodeCommandList1 {
@@ -11809,6 +12899,7 @@ pub struct ID3D12VideoEncodeCommandList1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize),
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoEncodeCommandList2(::windows::core::IUnknown);
 impl ID3D12VideoEncodeCommandList2 {
@@ -12109,6 +13200,7 @@ pub struct ID3D12VideoEncodeCommandList2Vtbl(
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS),
     #[cfg(not(any(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoEncoder(::windows::core::IUnknown);
 impl ID3D12VideoEncoder {
@@ -12287,6 +13379,7 @@ pub struct ID3D12VideoEncoderVtbl(
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoEncoderHeap(::windows::core::IUnknown);
 impl ID3D12VideoEncoderHeap {
@@ -12463,6 +13556,7 @@ pub struct ID3D12VideoEncoderHeapVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resolutionslistcount: u32, presolutionlist: *mut D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoExtensionCommand(::windows::core::IUnknown);
 impl ID3D12VideoExtensionCommand {
@@ -12621,6 +13715,7 @@ pub struct ID3D12VideoExtensionCommandVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_EXTENSION_COMMAND_DESC),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoMotionEstimator(::windows::core::IUnknown);
 impl ID3D12VideoMotionEstimator {
@@ -12781,6 +13876,7 @@ pub struct ID3D12VideoMotionEstimatorVtbl(
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoMotionVectorHeap(::windows::core::IUnknown);
 impl ID3D12VideoMotionVectorHeap {
@@ -12941,6 +14037,7 @@ pub struct ID3D12VideoMotionVectorHeapVtbl(
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoProcessCommandList(::windows::core::IUnknown);
 impl ID3D12VideoProcessCommandList {
@@ -13169,6 +14266,7 @@ pub struct ID3D12VideoProcessCommandListVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoProcessCommandList1(::windows::core::IUnknown);
 impl ID3D12VideoProcessCommandList1 {
@@ -13423,6 +14521,7 @@ pub struct ID3D12VideoProcessCommandList1Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: ::windows::core::RawPtr, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1),
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoProcessCommandList2(::windows::core::IUnknown);
 impl ID3D12VideoProcessCommandList2 {
@@ -13711,6 +14810,7 @@ pub struct ID3D12VideoProcessCommandList2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize),
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoProcessor(::windows::core::IUnknown);
 impl ID3D12VideoProcessor {
@@ -13881,6 +14981,7 @@ pub struct ID3D12VideoProcessorVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC),
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ID3D12VideoProcessor1(::windows::core::IUnknown);
 impl ID3D12VideoProcessor1 {
@@ -14075,6 +15176,7 @@ pub struct ID3D12VideoProcessor1Vtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IDXVAHD_Device(::windows::core::IUnknown);
 impl IDXVAHD_Device {
@@ -14166,6 +15268,7 @@ pub struct IDXVAHD_DeviceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filter: DXVAHD_FILTER, prange: *mut DXVAHD_FILTER_RANGE_DATA) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvpguid: *const ::windows::core::GUID, ppvideoprocessor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IDXVAHD_VideoProcessor(::windows::core::IUnknown);
 impl IDXVAHD_VideoProcessor {
@@ -14234,6 +15337,7 @@ pub struct IDXVAHD_VideoProcessorVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poutputsurface: ::windows::core::RawPtr, outputframe: u32, streamcount: u32, pstreams: *const DXVAHD_STREAM_DATA) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IDirect3D9ExOverlayExtension(::windows::core::IUnknown);
 impl IDirect3D9ExOverlayExtension {
@@ -14286,6 +15390,7 @@ pub struct IDirect3D9ExOverlayExtensionVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adapter: u32, devtype: super::super::Graphics::Direct3D9::D3DDEVTYPE, overlaywidth: u32, overlayheight: u32, overlayformat: super::super::Graphics::Direct3D9::D3DFORMAT, pdisplaymode: *mut super::super::Graphics::Direct3D9::D3DDISPLAYMODEEX, displayrotation: super::super::Graphics::Direct3D9::D3DDISPLAYROTATION, poverlaycaps: *mut D3DOVERLAYCAPS) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IDirect3DAuthenticatedChannel9(::windows::core::IUnknown);
 impl IDirect3DAuthenticatedChannel9 {
@@ -14354,6 +15459,7 @@ pub struct IDirect3DAuthenticatedChannel9Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputsize: u32, pinput: *const ::core::ffi::c_void, poutput: *mut super::super::Graphics::Direct3D9::D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IDirect3DCryptoSession9(::windows::core::IUnknown);
 impl IDirect3DCryptoSession9 {
@@ -14442,6 +15548,7 @@ pub struct IDirect3DCryptoSession9Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preadbackkey: *mut ::core::ffi::c_void, keysize: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IDirect3DDevice9Video(::windows::core::IUnknown);
 impl IDirect3DDevice9Video {
@@ -14504,6 +15611,7 @@ pub struct IDirect3DDevice9VideoVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptotype: *const ::windows::core::GUID, pdecodeprofile: *const ::windows::core::GUID, ppcryptosession: *mut ::windows::core::RawPtr, pcryptohandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IDirect3DDeviceManager9(::windows::core::IUnknown);
 impl IDirect3DDeviceManager9 {
@@ -14593,6 +15701,7 @@ pub struct IDirect3DDeviceManager9Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdevice: super::super::Foundation::HANDLE, riid: *const ::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IDirectXVideoAccelerationService(::windows::core::IUnknown);
 impl IDirectXVideoAccelerationService {
@@ -14645,6 +15754,7 @@ pub struct IDirectXVideoAccelerationServiceVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32, backbuffers: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, dxvatype: DXVA2_VideoRenderTargetType, ppsurface: *mut ::windows::core::RawPtr, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IDirectXVideoDecoder(::windows::core::IUnknown);
 impl IDirectXVideoDecoder {
@@ -14726,6 +15836,7 @@ pub struct IDirectXVideoDecoderVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexecuteparams: *const DXVA2_DecodeExecuteParams) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IDirectXVideoDecoderService(::windows::core::IUnknown);
 impl IDirectXVideoDecoderService {
@@ -14821,6 +15932,7 @@ pub struct IDirectXVideoDecoderServiceVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, pconfig: *const DXVA2_ConfigPictureDecode, ppdecoderrendertargets: *const ::windows::core::RawPtr, numrendertargets: u32, ppdecode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IDirectXVideoMemoryConfiguration(::windows::core::IUnknown);
 impl IDirectXVideoMemoryConfiguration {
@@ -14876,6 +15988,7 @@ pub struct IDirectXVideoMemoryConfigurationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtypeindex: u32, pdwtype: *mut DXVA2_SurfaceType) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtype: DXVA2_SurfaceType) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IDirectXVideoProcessor(::windows::core::IUnknown);
 impl IDirectXVideoProcessor {
@@ -14956,6 +16069,7 @@ pub struct IDirectXVideoProcessorVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prendertarget: ::windows::core::RawPtr, pbltparams: *const DXVA2_VideoProcessBltParams, psamples: *const DXVA2_VideoSample, numsamples: u32, phandlecomplete: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IDirectXVideoProcessorService(::windows::core::IUnknown);
 impl IDirectXVideoProcessorService {
@@ -15078,6 +16192,7 @@ pub struct IDirectXVideoProcessorServiceVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, videoprocdeviceguid: *const ::windows::core::GUID, pvideodesc: *const DXVA2_VideoDesc, rendertargetformat: super::super::Graphics::Direct3D9::D3DFORMAT, maxnumsubstreams: u32, ppvidprocess: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IEVRFilterConfig(::windows::core::IUnknown);
 impl IEVRFilterConfig {
@@ -15133,6 +16248,7 @@ pub struct IEVRFilterConfigVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxstreams: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmaxstreams: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IEVRFilterConfigEx(::windows::core::IUnknown);
 impl IEVRFilterConfigEx {
@@ -15217,6 +16333,7 @@ pub struct IEVRFilterConfigExVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwconfigflags: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwconfigflags: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IEVRTrustedVideoPlugin(::windows::core::IUnknown);
 impl IEVRTrustedVideoPlugin {
@@ -15287,6 +16404,7 @@ pub struct IEVRTrustedVideoPluginVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bdisable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IEVRVideoStreamControl(::windows::core::IUnknown);
 impl IEVRVideoStreamControl {
@@ -15346,6 +16464,7 @@ pub struct IEVRVideoStreamControlVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpfactive: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IFileClient(::windows::core::IUnknown);
 impl IFileClient {
@@ -15404,6 +16523,7 @@ pub struct IFileClientVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfio: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfio: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IFileIo(::windows::core::IUnknown);
 impl IFileIo {
@@ -15494,6 +16614,7 @@ pub struct IFileIoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eseekorigin: SEEK_ORIGIN, qwseekoffset: u64, dwseekflags: u32, pqwcurrentposition: *mut u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMF2DBuffer(::windows::core::IUnknown);
 impl IMF2DBuffer {
@@ -15572,6 +16693,7 @@ pub struct IMF2DBufferVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdestbuffer: *mut u8, cbdestbuffer: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbsrcbuffer: *const u8, cbsrcbuffer: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMF2DBuffer2(::windows::core::IUnknown);
 impl IMF2DBuffer2 {
@@ -15678,6 +16800,7 @@ pub struct IMF2DBuffer2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lockflags: MF2DBuffer_LockFlags, ppbscanline0: *mut *mut u8, plpitch: *mut i32, ppbbufferstart: *mut *mut u8, pcbbufferlength: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFASFContentInfo(::windows::core::IUnknown);
 impl IMFASFContentInfo {
@@ -15758,6 +16881,7 @@ pub struct IMFASFContentInfoVtbl(
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnumber: u16, ppistore: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFASFIndexer(::windows::core::IUnknown);
 impl IMFASFIndexer {
@@ -15866,6 +16990,7 @@ pub struct IMFASFIndexerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbindexwritespace: *mut u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piindexbuffer: ::windows::core::RawPtr, cboffsetwithinindex: u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFASFMultiplexer(::windows::core::IUnknown);
 impl IMFASFMultiplexer {
@@ -15950,6 +17075,7 @@ pub struct IMFASFMultiplexerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnumber: u16, pmuxstats: *mut ASF_MUX_STATISTICS) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mssynctolerance: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFASFMutualExclusion(::windows::core::IUnknown);
 impl IMFASFMutualExclusion {
@@ -16036,6 +17162,7 @@ pub struct IMFASFMutualExclusionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwrecordnumber: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppimutex: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFASFProfile(::windows::core::IUnknown);
 impl IMFASFProfile {
@@ -16322,6 +17449,7 @@ pub struct IMFASFProfileVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppistreamprioritization: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFASFSplitter(::windows::core::IUnknown);
 impl IMFASFSplitter {
@@ -16406,6 +17534,7 @@ pub struct IMFASFSplitterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlastsendtime: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFASFStreamConfig(::windows::core::IUnknown);
 impl IMFASFStreamConfig {
@@ -16663,6 +17792,7 @@ pub struct IMFASFStreamConfigVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppistreamconfig: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFASFStreamPrioritization(::windows::core::IUnknown);
 impl IMFASFStreamPrioritization {
@@ -16731,6 +17861,7 @@ pub struct IMFASFStreamPrioritizationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppistreamprioritization: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFASFStreamSelector(::windows::core::IUnknown);
 impl IMFASFStreamSelector {
@@ -16843,6 +17974,7 @@ pub struct IMFASFStreamSelectorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwbitrate: u32, pdwstepnum: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamselectorflags: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFActivate(::windows::core::IUnknown);
 impl IMFActivate {
@@ -17069,6 +18201,7 @@ pub struct IMFActivateVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFAsyncCallback(::windows::core::IUnknown);
 impl IMFAsyncCallback {
@@ -17123,6 +18256,7 @@ pub struct IMFAsyncCallbackVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32, pdwqueue: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pasyncresult: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFAsyncCallbackLogging(::windows::core::IUnknown);
 impl IMFAsyncCallbackLogging {
@@ -17205,6 +18339,7 @@ pub struct IMFAsyncCallbackLoggingVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFAsyncResult(::windows::core::IUnknown);
 impl IMFAsyncResult {
@@ -17273,6 +18408,7 @@ pub struct IMFAsyncResultVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::core::option::Option<::windows::core::IUnknown>,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFAttributes(::windows::core::IUnknown);
 impl IMFAttributes {
@@ -17466,6 +18602,7 @@ pub struct IMFAttributesVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFAudioMediaType(::windows::core::IUnknown);
 impl IMFAudioMediaType {
@@ -17730,6 +18867,7 @@ pub struct IMFAudioMediaTypeVtbl(
     #[cfg(feature = "Win32_Media_Audio")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut super::Audio::WAVEFORMATEX,
     #[cfg(not(feature = "Win32_Media_Audio"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFAudioPolicy(::windows::core::IUnknown);
 impl IMFAudioPolicy {
@@ -17811,6 +18949,7 @@ pub struct IMFAudioPolicyVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFAudioStreamVolume(::windows::core::IUnknown);
 impl IMFAudioStreamVolume {
@@ -17879,6 +19018,7 @@ pub struct IMFAudioStreamVolumeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcount: u32, pfvolumes: *const f32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcount: u32, pfvolumes: *mut f32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFBufferListNotify(::windows::core::IUnknown);
 impl IMFBufferListNotify {
@@ -17927,6 +19067,7 @@ unsafe impl ::windows::core::Interface for IMFBufferListNotify {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFBufferListNotifyVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void), pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void));
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFByteStream(::windows::core::IUnknown);
 impl IMFByteStream {
@@ -18043,6 +19184,7 @@ pub struct IMFByteStreamVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFByteStreamBuffering(::windows::core::IUnknown);
 impl IMFByteStreamBuffering {
@@ -18103,6 +19245,7 @@ pub struct IMFByteStreamBufferingVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFByteStreamCacheControl(::windows::core::IUnknown);
 impl IMFByteStreamCacheControl {
@@ -18148,6 +19291,7 @@ unsafe impl ::windows::core::Interface for IMFByteStreamCacheControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFByteStreamCacheControlVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFByteStreamCacheControl2(::windows::core::IUnknown);
 impl IMFByteStreamCacheControl2 {
@@ -18233,6 +19377,7 @@ pub struct IMFByteStreamCacheControl2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfactive: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFByteStreamHandler(::windows::core::IUnknown);
 impl IMFByteStreamHandler {
@@ -18298,6 +19443,7 @@ pub struct IMFByteStreamHandlerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piunknowncancelcookie: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqwbytes: *mut u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFByteStreamProxyClassFactory(::windows::core::IUnknown);
 impl IMFByteStreamProxyClassFactory {
@@ -18349,6 +19495,7 @@ pub struct IMFByteStreamProxyClassFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, pattributes: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFByteStreamTimeSeek(::windows::core::IUnknown);
 impl IMFByteStreamTimeSeek {
@@ -18410,6 +19557,7 @@ pub struct IMFByteStreamTimeSeekVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, qwtimeposition: u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqwstarttime: *mut u64, pqwstoptime: *mut u64, pqwduration: *mut u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFCameraOcclusionStateMonitor(::windows::core::IUnknown);
 impl IMFCameraOcclusionStateMonitor {
@@ -18468,6 +19616,7 @@ pub struct IMFCameraOcclusionStateMonitorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFCameraOcclusionStateReport(::windows::core::IUnknown);
 impl IMFCameraOcclusionStateReport {
@@ -18514,6 +19663,7 @@ unsafe impl ::windows::core::Interface for IMFCameraOcclusionStateReport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFCameraOcclusionStateReportVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, occlusionstate: *mut u32) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFCameraOcclusionStateReportCallback(::windows::core::IUnknown);
 impl IMFCameraOcclusionStateReportCallback {
@@ -18559,6 +19709,7 @@ unsafe impl ::windows::core::Interface for IMFCameraOcclusionStateReportCallback
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFCameraOcclusionStateReportCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, occlusionstatereport: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFCameraSyncObject(::windows::core::IUnknown);
 impl IMFCameraSyncObject {
@@ -18607,6 +19758,7 @@ unsafe impl ::windows::core::Interface for IMFCameraSyncObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFCameraSyncObjectVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timeoutinms: u32) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void));
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFCaptureEngine(::windows::core::IUnknown);
 impl IMFCaptureEngine {
@@ -18689,6 +19841,7 @@ pub struct IMFCaptureEngineVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mfcaptureenginesinktype: MF_CAPTURE_ENGINE_SINK_TYPE, ppsink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFCaptureEngineClassFactory(::windows::core::IUnknown);
 impl IMFCaptureEngineClassFactory {
@@ -18739,6 +19892,7 @@ pub struct IMFCaptureEngineClassFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFCaptureEngineOnEventCallback(::windows::core::IUnknown);
 impl IMFCaptureEngineOnEventCallback {
@@ -18784,6 +19938,7 @@ unsafe impl ::windows::core::Interface for IMFCaptureEngineOnEventCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFCaptureEngineOnEventCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFCaptureEngineOnSampleCallback(::windows::core::IUnknown);
 impl IMFCaptureEngineOnSampleCallback {
@@ -18829,6 +19984,7 @@ unsafe impl ::windows::core::Interface for IMFCaptureEngineOnSampleCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFCaptureEngineOnSampleCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psample: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFCaptureEngineOnSampleCallback2(::windows::core::IUnknown);
 impl IMFCaptureEngineOnSampleCallback2 {
@@ -18903,6 +20059,7 @@ pub struct IMFCaptureEngineOnSampleCallback2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psample: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFCapturePhotoConfirmation(::windows::core::IUnknown);
 impl IMFCapturePhotoConfirmation {
@@ -18962,6 +20119,7 @@ pub struct IMFCapturePhotoConfirmationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtype: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subtype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFCapturePhotoSink(::windows::core::IUnknown);
 impl IMFCapturePhotoSink {
@@ -19065,6 +20223,7 @@ pub struct IMFCapturePhotoSinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFCapturePreviewSink(::windows::core::IUnknown);
 impl IMFCapturePreviewSink {
@@ -19200,6 +20359,7 @@ pub struct IMFCapturePreviewSinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, dwrotationvalue: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmediasink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFCaptureRecordSink(::windows::core::IUnknown);
 impl IMFCaptureRecordSink {
@@ -19316,6 +20476,7 @@ pub struct IMFCaptureRecordSinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pdwrotationvalue: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, dwrotationvalue: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFCaptureSink(::windows::core::IUnknown);
 impl IMFCaptureSink {
@@ -19385,6 +20546,7 @@ pub struct IMFCaptureSinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFCaptureSink2(::windows::core::IUnknown);
 impl IMFCaptureSink2 {
@@ -19478,6 +20640,7 @@ pub struct IMFCaptureSink2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pmediatype: ::windows::core::RawPtr, pencodingattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFCaptureSource(::windows::core::IUnknown);
 impl IMFCaptureSource {
@@ -19593,6 +20756,7 @@ pub struct IMFCaptureSourceVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uifriendlyname: u32, pdwactualstreamindex: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFCdmSuspendNotify(::windows::core::IUnknown);
 impl IMFCdmSuspendNotify {
@@ -19647,6 +20811,7 @@ pub struct IMFCdmSuspendNotifyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFClock(::windows::core::IUnknown);
 impl IMFClock {
@@ -19717,6 +20882,7 @@ pub struct IMFClockVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwreserved: u32, peclockstate: *mut MFCLOCK_STATE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclockproperties: *mut MFCLOCK_PROPERTIES) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFClockConsumer(::windows::core::IUnknown);
 impl IMFClockConsumer {
@@ -19772,6 +20938,7 @@ pub struct IMFClockConsumerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationclock: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppresentationclock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFClockStateSink(::windows::core::IUnknown);
 impl IMFClockStateSink {
@@ -19838,6 +21005,7 @@ pub struct IMFClockStateSinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hnssystemtime: i64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hnssystemtime: i64, flrate: f32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFCollection(::windows::core::IUnknown);
 impl IMFCollection {
@@ -19911,6 +21079,7 @@ pub struct IMFCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, punknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFContentDecryptionModule(::windows::core::IUnknown);
 impl IMFContentDecryptionModule {
@@ -19988,6 +21157,7 @@ pub struct IMFContentDecryptionModuleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentinitdata: *const u8, contentinitdatasize: u32, trustedinput: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, systemids: *mut *mut ::windows::core::GUID, count: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFContentDecryptionModuleAccess(::windows::core::IUnknown);
 impl IMFContentDecryptionModuleAccess {
@@ -20055,6 +21225,7 @@ pub struct IMFContentDecryptionModuleAccessVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFContentDecryptionModuleFactory(::windows::core::IUnknown);
 impl IMFContentDecryptionModuleFactory {
@@ -20114,6 +21285,7 @@ pub struct IMFContentDecryptionModuleFactoryVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: super::super::Foundation::PWSTR, configurations: *const ::windows::core::RawPtr, numconfigurations: u32, contentdecryptionmoduleaccess: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFContentDecryptionModuleSession(::windows::core::IUnknown);
 impl IMFContentDecryptionModuleSession {
@@ -20201,6 +21373,7 @@ pub struct IMFContentDecryptionModuleSessionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFContentDecryptionModuleSessionCallbacks(::windows::core::IUnknown);
 impl IMFContentDecryptionModuleSessionCallbacks {
@@ -20257,6 +21430,7 @@ pub struct IMFContentDecryptionModuleSessionCallbacksVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFContentDecryptorContext(::windows::core::IUnknown);
 impl IMFContentDecryptorContext {
@@ -20308,6 +21482,7 @@ pub struct IMFContentDecryptorContextVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputprivatedatabytecount: u32, inputprivatedata: *const ::core::ffi::c_void, outputprivatedata: *mut u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFContentEnabler(::windows::core::IUnknown);
 impl IMFContentEnabler {
@@ -20388,6 +21563,7 @@ pub struct IMFContentEnablerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFContentProtectionDevice(::windows::core::IUnknown);
 impl IMFContentProtectionDevice {
@@ -20442,6 +21618,7 @@ pub struct IMFContentProtectionDeviceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionid: u32, inputbufferbytecount: u32, inputbuffer: *const u8, outputbufferbytecount: *mut u32, outputbuffer: *mut u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, privateinputbytecount: *mut u32, privateoutputbytecount: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFContentProtectionManager(::windows::core::IUnknown);
 impl IMFContentProtectionManager {
@@ -20496,6 +21673,7 @@ pub struct IMFContentProtectionManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penableractivate: ::windows::core::RawPtr, ptopo: ::windows::core::RawPtr, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFD3D12SynchronizationObject(::windows::core::IUnknown);
 impl IMFD3D12SynchronizationObject {
@@ -20552,6 +21730,7 @@ pub struct IMFD3D12SynchronizationObjectVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFD3D12SynchronizationObjectCommands(::windows::core::IUnknown);
 impl IMFD3D12SynchronizationObjectCommands {
@@ -20622,6 +21801,7 @@ pub struct IMFD3D12SynchronizationObjectCommandsVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconsumercommandqueue: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFDLNASinkInit(::windows::core::IUnknown);
 impl IMFDLNASinkInit {
@@ -20674,6 +21854,7 @@ pub struct IMFDLNASinkInitVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, fpal: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFDRMNetHelper(::windows::core::IUnknown);
 impl IMFDRMNetHelper {
@@ -20730,6 +21911,7 @@ pub struct IMFDRMNetHelperVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplicenseresponse: *mut *mut u8, pcblicenseresponse: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFDXGIBuffer(::windows::core::IUnknown);
 impl IMFDXGIBuffer {
@@ -20793,6 +21975,7 @@ pub struct IMFDXGIBufferVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, punkdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFDXGIDeviceManager(::windows::core::IUnknown);
 impl IMFDXGIDeviceManager {
@@ -20880,6 +22063,7 @@ pub struct IMFDXGIDeviceManagerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdevice: super::super::Foundation::HANDLE, fsavestate: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFDXGIDeviceManagerSource(::windows::core::IUnknown);
 impl IMFDXGIDeviceManagerSource {
@@ -20926,6 +22110,7 @@ unsafe impl ::windows::core::Interface for IMFDXGIDeviceManagerSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFDXGIDeviceManagerSourceVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFDesiredSample(::windows::core::IUnknown);
 impl IMFDesiredSample {
@@ -20984,6 +22169,7 @@ pub struct IMFDesiredSampleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hnssampletime: i64, hnssampleduration: i64),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFExtendedCameraControl(::windows::core::IUnknown);
 impl IMFExtendedCameraControl {
@@ -21054,6 +22240,7 @@ pub struct IMFExtendedCameraControlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFExtendedCameraController(::windows::core::IUnknown);
 impl IMFExtendedCameraController {
@@ -21100,6 +22287,7 @@ unsafe impl ::windows::core::Interface for IMFExtendedCameraController {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFExtendedCameraControllerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, ulpropertyid: u32, ppcontrol: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFExtendedCameraIntrinsicModel(::windows::core::IUnknown);
 impl IMFExtendedCameraIntrinsicModel {
@@ -21160,6 +22348,7 @@ pub struct IMFExtendedCameraIntrinsicModelVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pintrinsicmodel: *const MFExtendedCameraIntrinsic_IntrinsicModel) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdistortionmodeltype: *mut MFCameraIntrinsic_DistortionModelType) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFExtendedCameraIntrinsics(::windows::core::IUnknown);
 impl IMFExtendedCameraIntrinsics {
@@ -21233,6 +22422,7 @@ pub struct IMFExtendedCameraIntrinsicsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppintrinsicmodel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pintrinsicmodel: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFExtendedCameraIntrinsicsDistortionModel6KT(::windows::core::IUnknown);
 impl IMFExtendedCameraIntrinsicsDistortionModel6KT {
@@ -21288,6 +22478,7 @@ pub struct IMFExtendedCameraIntrinsicsDistortionModel6KTVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdistortionmodel: *mut MFCameraIntrinsic_DistortionModel6KT) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdistortionmodel: *const MFCameraIntrinsic_DistortionModel6KT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFExtendedCameraIntrinsicsDistortionModelArcTan(::windows::core::IUnknown);
 impl IMFExtendedCameraIntrinsicsDistortionModelArcTan {
@@ -21343,6 +22534,7 @@ pub struct IMFExtendedCameraIntrinsicsDistortionModelArcTanVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdistortionmodel: *mut MFCameraIntrinsic_DistortionModelArcTan) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdistortionmodel: *const MFCameraIntrinsic_DistortionModelArcTan) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFExtendedDRMTypeSupport(::windows::core::IUnknown);
 impl IMFExtendedDRMTypeSupport {
@@ -21396,6 +22588,7 @@ pub struct IMFExtendedDRMTypeSupportVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, keysystem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, panswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFFieldOfUseMFTUnlock(::windows::core::IUnknown);
 impl IMFFieldOfUseMFTUnlock {
@@ -21441,6 +22634,7 @@ unsafe impl ::windows::core::Interface for IMFFieldOfUseMFTUnlock {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFFieldOfUseMFTUnlockVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkmft: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFFinalizableMediaSink(::windows::core::IUnknown);
 impl IMFFinalizableMediaSink {
@@ -21557,6 +22751,7 @@ pub struct IMFFinalizableMediaSinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFGetService(::windows::core::IUnknown);
 impl IMFGetService {
@@ -21608,6 +22803,7 @@ pub struct IMFGetServiceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFHDCPStatus(::windows::core::IUnknown);
 impl IMFHDCPStatus {
@@ -21664,6 +22860,7 @@ pub struct IMFHDCPStatusVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: MF_HDCP_STATUS) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFHttpDownloadRequest(::windows::core::IUnknown);
 impl IMFHttpDownloadRequest {
@@ -21791,6 +22988,7 @@ pub struct IMFHttpDownloadRequestVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqwrangeend: *mut u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFHttpDownloadSession(::windows::core::IUnknown);
 impl IMFHttpDownloadSession {
@@ -21854,6 +23052,7 @@ pub struct IMFHttpDownloadSessionVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFHttpDownloadSessionProvider(::windows::core::IUnknown);
 impl IMFHttpDownloadSessionProvider {
@@ -21907,6 +23106,7 @@ pub struct IMFHttpDownloadSessionProviderVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszscheme: super::super::Foundation::PWSTR, ppdownloadsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFImageSharingEngine(::windows::core::IUnknown);
 impl IMFImageSharingEngine {
@@ -21968,6 +23168,7 @@ pub struct IMFImageSharingEngineVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFImageSharingEngineClassFactory(::windows::core::IUnknown);
 impl IMFImageSharingEngineClassFactory {
@@ -22021,6 +23222,7 @@ pub struct IMFImageSharingEngineClassFactoryVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puniquedevicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppengine: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFInputTrustAuthority(::windows::core::IUnknown);
 impl IMFInputTrustAuthority {
@@ -22093,6 +23295,7 @@ pub struct IMFInputTrustAuthorityVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparam: *const MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFLocalMFTRegistration(::windows::core::IUnknown);
 impl IMFLocalMFTRegistration {
@@ -22145,6 +23348,7 @@ pub struct IMFLocalMFTRegistrationVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmfts: *const MFT_REGISTRATION_INFO, cmfts: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaBuffer(::windows::core::IUnknown);
 impl IMFMediaBuffer {
@@ -22213,6 +23417,7 @@ pub struct IMFMediaBufferVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbcurrentlength: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbmaxlength: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngine(::windows::core::IUnknown);
 impl IMFMediaEngine {
@@ -22464,6 +23669,7 @@ pub struct IMFMediaEngineVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppts: *mut i64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngineAudioEndpointId(::windows::core::IUnknown);
 impl IMFMediaEngineAudioEndpointId {
@@ -22523,6 +23729,7 @@ pub struct IMFMediaEngineAudioEndpointIdVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszendpointid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngineClassFactory(::windows::core::IUnknown);
 impl IMFMediaEngineClassFactory {
@@ -22584,6 +23791,7 @@ pub struct IMFMediaEngineClassFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptimerange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pperror: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngineClassFactory2(::windows::core::IUnknown);
 impl IMFMediaEngineClassFactory2 {
@@ -22637,6 +23845,7 @@ pub struct IMFMediaEngineClassFactory2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, defaultcdmstorepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, inprivatecdmstorepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppkeys: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngineClassFactory3(::windows::core::IUnknown);
 impl IMFMediaEngineClassFactory3 {
@@ -22690,6 +23899,7 @@ pub struct IMFMediaEngineClassFactory3Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppsupportedconfigurationsarray: *const ::windows::core::RawPtr, usize: u32, ppkeyaccess: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngineClassFactory4(::windows::core::IUnknown);
 impl IMFMediaEngineClassFactory4 {
@@ -22742,6 +23952,7 @@ pub struct IMFMediaEngineClassFactory4Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngineClassFactoryEx(::windows::core::IUnknown);
 impl IMFMediaEngineClassFactoryEx {
@@ -22842,6 +24053,7 @@ pub struct IMFMediaEngineClassFactoryExVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, keysystem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, issupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngineEME(::windows::core::IUnknown);
 impl IMFMediaEngineEME {
@@ -22897,6 +24109,7 @@ pub struct IMFMediaEngineEMEVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keys: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keys: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngineEMENotify(::windows::core::IUnknown);
 impl IMFMediaEngineEMENotify {
@@ -22953,6 +24166,7 @@ pub struct IMFMediaEngineEMENotifyVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngineEx(::windows::core::IUnknown);
 impl IMFMediaEngineEx {
@@ -23424,6 +24638,7 @@ pub struct IMFMediaEngineExVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenabletimer: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngineExtension(::windows::core::IUnknown);
 impl IMFMediaEngineExtension {
@@ -23492,6 +24707,7 @@ pub struct IMFMediaEngineExtensionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piunknowncancelcookie: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngineNeedKeyNotify(::windows::core::IUnknown);
 impl IMFMediaEngineNeedKeyNotify {
@@ -23537,6 +24753,7 @@ unsafe impl ::windows::core::Interface for IMFMediaEngineNeedKeyNotify {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFMediaEngineNeedKeyNotifyVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initdata: *const u8, cb: u32));
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngineNotify(::windows::core::IUnknown);
 impl IMFMediaEngineNotify {
@@ -23582,6 +24799,7 @@ unsafe impl ::windows::core::Interface for IMFMediaEngineNotify {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFMediaEngineNotifyVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: u32, param1: usize, param2: u32) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngineOPMInfo(::windows::core::IUnknown);
 impl IMFMediaEngineOPMInfo {
@@ -23634,6 +24852,7 @@ pub struct IMFMediaEngineOPMInfoVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut MF_MEDIA_ENGINE_OPM_STATUS, pconstricted: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngineProtectedContent(::windows::core::IUnknown);
 impl IMFMediaEngineProtectedContent {
@@ -23710,6 +24929,7 @@ pub struct IMFMediaEngineProtectedContentVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcpm: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbblob: *const u8, cbblob: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngineSrcElements(::windows::core::IUnknown);
 impl IMFMediaEngineSrcElements {
@@ -23791,6 +25011,7 @@ pub struct IMFMediaEngineSrcElementsVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngineSrcElementsEx(::windows::core::IUnknown);
 impl IMFMediaEngineSrcElementsEx {
@@ -23905,6 +25126,7 @@ pub struct IMFMediaEngineSrcElementsExVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, ptype: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngineSupportsSourceTransfer(::windows::core::IUnknown);
 impl IMFMediaEngineSupportsSourceTransfer {
@@ -23966,6 +25188,7 @@ pub struct IMFMediaEngineSupportsSourceTransferVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbytestream: *mut ::windows::core::RawPtr, ppmediasource: *mut ::windows::core::RawPtr, ppmse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, pmediasource: ::windows::core::RawPtr, pmse: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngineTransferSource(::windows::core::IUnknown);
 impl IMFMediaEngineTransferSource {
@@ -24011,6 +25234,7 @@ unsafe impl ::windows::core::Interface for IMFMediaEngineTransferSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFMediaEngineTransferSourceVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEngineWebSupport(::windows::core::IUnknown);
 impl IMFMediaEngineWebSupport {
@@ -24072,6 +25296,7 @@ pub struct IMFMediaEngineWebSupportVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsamplerate: u32, ppsourceprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaError(::windows::core::IUnknown);
 impl IMFMediaError {
@@ -24134,6 +25359,7 @@ pub struct IMFMediaErrorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: MF_MEDIA_ENGINE_ERR) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEvent(::windows::core::IUnknown);
 impl IMFMediaEvent {
@@ -24369,6 +25595,7 @@ pub struct IMFMediaEventVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEventGenerator(::windows::core::IUnknown);
 impl IMFMediaEventGenerator {
@@ -24435,6 +25662,7 @@ pub struct IMFMediaEventGeneratorVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaEventQueue(::windows::core::IUnknown);
 impl IMFMediaEventQueue {
@@ -24513,6 +25741,7 @@ pub struct IMFMediaEventQueueVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaKeySession(::windows::core::IUnknown);
 impl IMFMediaKeySession {
@@ -24585,6 +25814,7 @@ pub struct IMFMediaKeySessionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const u8, cb: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaKeySession2(::windows::core::IUnknown);
 impl IMFMediaKeySession2 {
@@ -24707,6 +25937,7 @@ pub struct IMFMediaKeySession2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaKeySessionNotify(::windows::core::IUnknown);
 impl IMFMediaKeySessionNotify {
@@ -24767,6 +25998,7 @@ pub struct IMFMediaKeySessionNotifyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, code: u16, systemcode: u32),
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaKeySessionNotify2(::windows::core::IUnknown);
 impl IMFMediaKeySessionNotify2 {
@@ -24857,6 +26089,7 @@ pub struct IMFMediaKeySessionNotify2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaKeySystemAccess(::windows::core::IUnknown);
 impl IMFMediaKeySystemAccess {
@@ -24924,6 +26157,7 @@ pub struct IMFMediaKeySystemAccessVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkeysystem: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaKeys(::windows::core::IUnknown);
 impl IMFMediaKeys {
@@ -24993,6 +26227,7 @@ pub struct IMFMediaKeysVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, notify: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaKeys2(::windows::core::IUnknown);
 impl IMFMediaKeys2 {
@@ -25096,6 +26331,7 @@ pub struct IMFMediaKeys2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbservercertificate: *const u8, cb: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, systemcode: ::windows::core::HRESULT, code: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaSession(::windows::core::IUnknown);
 impl IMFMediaSession {
@@ -25227,6 +26463,7 @@ pub struct IMFMediaSessionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcaps: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwgetfulltopologyflags: u32, topoid: u64, ppfulltopology: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaSharingEngine(::windows::core::IUnknown);
 impl IMFMediaSharingEngine {
@@ -25505,6 +26742,7 @@ pub struct IMFMediaSharingEngineVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: *mut DEVICE_INFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaSharingEngineClassFactory(::windows::core::IUnknown);
 impl IMFMediaSharingEngineClassFactory {
@@ -25551,6 +26789,7 @@ unsafe impl ::windows::core::Interface for IMFMediaSharingEngineClassFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFMediaSharingEngineClassFactoryVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pattr: ::windows::core::RawPtr, ppengine: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaSink(::windows::core::IUnknown);
 impl IMFMediaSink {
@@ -25639,6 +26878,7 @@ pub struct IMFMediaSinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppresentationclock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaSinkPreroll(::windows::core::IUnknown);
 impl IMFMediaSinkPreroll {
@@ -25684,6 +26924,7 @@ unsafe impl ::windows::core::Interface for IMFMediaSinkPreroll {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFMediaSinkPrerollVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hnsupcomingstarttime: i64) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaSource(::windows::core::IUnknown);
 impl IMFMediaSource {
@@ -25798,6 +27039,7 @@ pub struct IMFMediaSourceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaSource2(::windows::core::IUnknown);
 impl IMFMediaSource2 {
@@ -25970,6 +27212,7 @@ pub struct IMFMediaSource2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmanager: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamid: u32, pmediatype: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaSourceEx(::windows::core::IUnknown);
 impl IMFMediaSourceEx {
@@ -26118,6 +27361,7 @@ pub struct IMFMediaSourceExVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamidentifier: u32, ppattributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmanager: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaSourceExtension(::windows::core::IUnknown);
 impl IMFMediaSourceExtension {
@@ -26209,6 +27453,7 @@ pub struct IMFMediaSourceExtensionVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32) -> ::core::option::Option<IMFSourceBuffer>,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaSourceExtensionLiveSeekableRange(::windows::core::IUnknown);
 impl IMFMediaSourceExtensionLiveSeekableRange {
@@ -26263,6 +27508,7 @@ pub struct IMFMediaSourceExtensionLiveSeekableRangeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, start: f64, end: f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaSourceExtensionNotify(::windows::core::IUnknown);
 impl IMFMediaSourceExtensionNotify {
@@ -26321,6 +27567,7 @@ pub struct IMFMediaSourceExtensionNotifyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaSourcePresentationProvider(::windows::core::IUnknown);
 impl IMFMediaSourcePresentationProvider {
@@ -26366,6 +27613,7 @@ unsafe impl ::windows::core::Interface for IMFMediaSourcePresentationProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFMediaSourcePresentationProviderVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationdescriptor: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaSourceTopologyProvider(::windows::core::IUnknown);
 impl IMFMediaSourceTopologyProvider {
@@ -26417,6 +27665,7 @@ pub struct IMFMediaSourceTopologyProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationdescriptor: ::windows::core::RawPtr, pptopology: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaStream(::windows::core::IUnknown);
 impl IMFMediaStream {
@@ -26517,6 +27766,7 @@ pub struct IMFMediaStreamVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstreamdescriptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptoken: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaStream2(::windows::core::IUnknown);
 impl IMFMediaStream2 {
@@ -26646,6 +27896,7 @@ pub struct IMFMediaStream2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MF_STREAM_STATE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut MF_STREAM_STATE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaStreamSourceSampleRequest(::windows::core::IUnknown);
 impl IMFMediaStreamSourceSampleRequest {
@@ -26691,6 +27942,7 @@ unsafe impl ::windows::core::Interface for IMFMediaStreamSourceSampleRequest {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFMediaStreamSourceSampleRequestVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaTimeRange(::windows::core::IUnknown);
 impl IMFMediaTimeRange {
@@ -26765,6 +28017,7 @@ pub struct IMFMediaTimeRangeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: f64, endtime: f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaType(::windows::core::IUnknown);
 impl IMFMediaType {
@@ -27003,6 +28256,7 @@ pub struct IMFMediaTypeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidrepresentation: ::windows::core::GUID, ppvrepresentation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidrepresentation: ::windows::core::GUID, pvrepresentation: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMediaTypeHandler(::windows::core::IUnknown);
 impl IMFMediaTypeHandler {
@@ -27078,6 +28332,7 @@ pub struct IMFMediaTypeHandlerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidmajortype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMetadata(::windows::core::IUnknown);
 impl IMFMetadata {
@@ -27170,6 +28425,7 @@ pub struct IMFMetadataVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppvnames: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMetadataProvider(::windows::core::IUnknown);
 impl IMFMetadataProvider {
@@ -27221,6 +28477,7 @@ pub struct IMFMetadataProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationdescriptor: ::windows::core::RawPtr, dwstreamidentifier: u32, dwflags: u32, ppmfmetadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMuxStreamAttributesManager(::windows::core::IUnknown);
 impl IMFMuxStreamAttributesManager {
@@ -27277,6 +28534,7 @@ pub struct IMFMuxStreamAttributesManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmuxstreamcount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmuxstreamindex: u32, ppstreamattributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMuxStreamMediaTypeManager(::windows::core::IUnknown);
 impl IMFMuxStreamMediaTypeManager {
@@ -27351,6 +28609,7 @@ pub struct IMFMuxStreamMediaTypeManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ullstreammask: u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulindex: u32, pullstreammask: *mut u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFMuxStreamSampleManager(::windows::core::IUnknown);
 impl IMFMuxStreamSampleManager {
@@ -27411,6 +28670,7 @@ pub struct IMFMuxStreamSampleManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmuxstreamindex: u32, ppsample: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFNetCredential(::windows::core::IUnknown);
 impl IMFNetCredential {
@@ -27488,6 +28748,7 @@ pub struct IMFNetCredentialVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfloggedonuser: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFNetCredentialCache(::windows::core::IUnknown);
 impl IMFNetCredentialCache {
@@ -27550,6 +28811,7 @@ pub struct IMFNetCredentialCacheVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcred: ::windows::core::RawPtr, dwoptionsflags: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFNetCredentialManager(::windows::core::IUnknown);
 impl IMFNetCredentialManager {
@@ -27613,6 +28875,7 @@ pub struct IMFNetCredentialManagerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcred: ::windows::core::RawPtr, fgood: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFNetCrossOriginSupport(::windows::core::IUnknown);
 impl IMFNetCrossOriginSupport {
@@ -27678,6 +28941,7 @@ pub struct IMFNetCrossOriginSupportVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszurl: super::super::Foundation::PWSTR, pfissameorigin: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFNetProxyLocator(::windows::core::IUnknown);
 impl IMFNetProxyLocator {
@@ -27749,6 +29013,7 @@ pub struct IMFNetProxyLocatorVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppproxylocator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFNetProxyLocatorFactory(::windows::core::IUnknown);
 impl IMFNetProxyLocatorFactory {
@@ -27802,6 +29067,7 @@ pub struct IMFNetProxyLocatorFactoryVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszprotocol: super::super::Foundation::PWSTR, ppproxylocator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFNetResourceFilter(::windows::core::IUnknown);
 impl IMFNetResourceFilter {
@@ -27861,6 +29127,7 @@ pub struct IMFNetResourceFilterVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFNetSchemeHandlerConfig(::windows::core::IUnknown);
 impl IMFNetSchemeHandlerConfig {
@@ -27921,6 +29188,7 @@ pub struct IMFNetSchemeHandlerConfigVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nprotocolindex: u32, pnprotocoltype: *mut MFNETSOURCE_PROTOCOL_TYPE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFObjectReferenceStream(::windows::core::IUnknown);
 impl IMFObjectReferenceStream {
@@ -27975,6 +29243,7 @@ pub struct IMFObjectReferenceStreamVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFOutputPolicy(::windows::core::IUnknown);
 impl IMFOutputPolicy {
@@ -28203,6 +29472,7 @@ pub struct IMFOutputPolicyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidoriginatorid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwminimumgrlversion: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFOutputSchema(::windows::core::IUnknown);
 impl IMFOutputSchema {
@@ -28431,6 +29701,7 @@ pub struct IMFOutputSchemaVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwval: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidoriginatorid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFOutputTrustAuthority(::windows::core::IUnknown);
 impl IMFOutputTrustAuthority {
@@ -28486,6 +29757,7 @@ pub struct IMFOutputTrustAuthorityVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paction: *mut MFPOLICYMANAGER_ACTION) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppolicy: *const ::windows::core::RawPtr, npolicy: u32, ppbticket: *mut *mut u8, pcbticket: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFPMPClient(::windows::core::IUnknown);
 impl IMFPMPClient {
@@ -28531,6 +29803,7 @@ unsafe impl ::windows::core::Interface for IMFPMPClient {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFPMPClientVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmphost: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFPMPClientApp(::windows::core::IUnknown);
 impl IMFPMPClientApp {
@@ -28576,6 +29849,7 @@ unsafe impl ::windows::core::Interface for IMFPMPClientApp {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFPMPClientAppVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmphost: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFPMPHost(::windows::core::IUnknown);
 impl IMFPMPHost {
@@ -28637,6 +29911,7 @@ pub struct IMFPMPHostVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, pstream: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFPMPHostApp(::windows::core::IUnknown);
 impl IMFPMPHostApp {
@@ -28698,6 +29973,7 @@ pub struct IMFPMPHostAppVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: super::super::Foundation::PWSTR, pstream: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFPMPServer(::windows::core::IUnknown);
 impl IMFPMPServer {
@@ -28757,6 +30033,7 @@ pub struct IMFPMPServerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFPMediaItem(::windows::core::IUnknown);
 impl IMFPMediaItem {
@@ -28915,6 +30192,7 @@ pub struct IMFPMediaItemVtbl(
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmetadatastore: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFPMediaPlayer(::windows::core::IUnknown);
 impl IMFPMediaPlayer {
@@ -29143,6 +30421,7 @@ pub struct IMFPMediaPlayerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFPMediaPlayerCallback(::windows::core::IUnknown);
 impl IMFPMediaPlayerCallback {
@@ -29195,6 +30474,7 @@ pub struct IMFPMediaPlayerCallbackVtbl(
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventheader: *const MFP_EVENT_HEADER),
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFPluginControl(::windows::core::IUnknown);
 impl IMFPluginControl {
@@ -29275,6 +30555,7 @@ pub struct IMFPluginControlVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plugintype: u32, clsid: *const ::windows::core::GUID, disabled: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFPluginControl2(::windows::core::IUnknown);
 impl IMFPluginControl2 {
@@ -29379,6 +30660,7 @@ pub struct IMFPluginControl2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, policy: MF_PLUGIN_CONTROL_POLICY) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFPresentationClock(::windows::core::IUnknown);
 impl IMFPresentationClock {
@@ -29503,6 +30785,7 @@ pub struct IMFPresentationClockVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFPresentationDescriptor(::windows::core::IUnknown);
 impl IMFPresentationDescriptor {
@@ -29740,6 +31023,7 @@ pub struct IMFPresentationDescriptorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdescriptorindex: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppresentationdescriptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFPresentationTimeSource(::windows::core::IUnknown);
 impl IMFPresentationTimeSource {
@@ -29835,6 +31119,7 @@ pub struct IMFPresentationTimeSourceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclockproperties: *mut MFCLOCK_PROPERTIES) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppclock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFProtectedEnvironmentAccess(::windows::core::IUnknown);
 impl IMFProtectedEnvironmentAccess {
@@ -29890,6 +31175,7 @@ pub struct IMFProtectedEnvironmentAccessVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputlength: u32, input: *const u8, outputlength: u32, output: *mut u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputlength: *mut u32, output: *mut *mut u8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFQualityAdvise(::windows::core::IUnknown);
 impl IMFQualityAdvise {
@@ -29958,6 +31244,7 @@ pub struct IMFQualityAdviseVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pequalitylevel: *mut MF_QUALITY_LEVEL) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hnsamounttodrop: i64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFQualityAdvise2(::windows::core::IUnknown);
 impl IMFQualityAdvise2 {
@@ -30051,6 +31338,7 @@ pub struct IMFQualityAdvise2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hnsamounttodrop: i64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: ::windows::core::RawPtr, pdwflags: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFQualityAdviseLimits(::windows::core::IUnknown);
 impl IMFQualityAdviseLimits {
@@ -30107,6 +31395,7 @@ pub struct IMFQualityAdviseLimitsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pedropmode: *mut MF_QUALITY_DROP_MODE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pequalitylevel: *mut MF_QUALITY_LEVEL) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFQualityManager(::windows::core::IUnknown);
 impl IMFQualityManager {
@@ -30177,6 +31466,7 @@ pub struct IMFQualityManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFRateControl(::windows::core::IUnknown);
 impl IMFRateControl {
@@ -30235,6 +31525,7 @@ pub struct IMFRateControlVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfthin: *mut super::super::Foundation::BOOL, pflrate: *mut f32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFRateSupport(::windows::core::IUnknown);
 impl IMFRateSupport {
@@ -30301,6 +31592,7 @@ pub struct IMFRateSupportVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fthin: super::super::Foundation::BOOL, flrate: f32, pflnearestsupportedrate: *mut f32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFReadWriteClassFactory(::windows::core::IUnknown);
 impl IMFReadWriteClassFactory {
@@ -30357,6 +31649,7 @@ pub struct IMFReadWriteClassFactoryVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, punkobject: *mut ::core::ffi::c_void, pattributes: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFRealTimeClient(::windows::core::IUnknown);
 impl IMFRealTimeClient {
@@ -30417,6 +31710,7 @@ pub struct IMFRealTimeClientVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwworkqueueid: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFRealTimeClientEx(::windows::core::IUnknown);
 impl IMFRealTimeClientEx {
@@ -30477,6 +31771,7 @@ pub struct IMFRealTimeClientExVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmultithreadedworkqueueid: u32, lworkitembasepriority: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFRelativePanelReport(::windows::core::IUnknown);
 impl IMFRelativePanelReport {
@@ -30523,6 +31818,7 @@ unsafe impl ::windows::core::Interface for IMFRelativePanelReport {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFRelativePanelReportVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, panel: *mut u32) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFRelativePanelWatcher(::windows::core::IUnknown);
 impl IMFRelativePanelWatcher {
@@ -30612,6 +31908,7 @@ pub struct IMFRelativePanelWatcherVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, pprelativepanelreport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprelativepanelreport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFRemoteAsyncCallback(::windows::core::IUnknown);
 impl IMFRemoteAsyncCallback {
@@ -30657,6 +31954,7 @@ unsafe impl ::windows::core::Interface for IMFRemoteAsyncCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFRemoteAsyncCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, premoteresult: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFRemoteDesktopPlugin(::windows::core::IUnknown);
 impl IMFRemoteDesktopPlugin {
@@ -30702,6 +32000,7 @@ unsafe impl ::windows::core::Interface for IMFRemoteDesktopPlugin {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFRemoteDesktopPluginVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptopology: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFRemoteProxy(::windows::core::IUnknown);
 impl IMFRemoteProxy {
@@ -30756,6 +32055,7 @@ pub struct IMFRemoteProxyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSAMIStyle(::windows::core::IUnknown);
 impl IMFSAMIStyle {
@@ -30827,6 +32127,7 @@ pub struct IMFSAMIStyleVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszstyle: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSSLCertificateManager(::windows::core::IUnknown);
 impl IMFSSLCertificateManager {
@@ -30902,6 +32203,7 @@ pub struct IMFSSLCertificateManagerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, pbdata: *const u8, cbdata: u32, pfisgood: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSample(::windows::core::IUnknown);
 impl IMFSample {
@@ -31178,6 +32480,7 @@ pub struct IMFSampleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbtotallength: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSampleAllocatorControl(::windows::core::IUnknown);
 impl IMFSampleAllocatorControl {
@@ -31232,6 +32535,7 @@ pub struct IMFSampleAllocatorControlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputstreamid: u32, pallocator: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputstreamid: u32, pdwinputstreamid: *mut u32, peusage: *mut MFSampleAllocatorUsage) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSampleGrabberSinkCallback(::windows::core::IUnknown);
 impl IMFSampleGrabberSinkCallback {
@@ -31330,6 +32634,7 @@ pub struct IMFSampleGrabberSinkCallbackVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidmajormediatype: *const ::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSampleGrabberSinkCallback2(::windows::core::IUnknown);
 impl IMFSampleGrabberSinkCallback2 {
@@ -31452,6 +32757,7 @@ pub struct IMFSampleGrabberSinkCallback2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidmajormediatype: *const ::windows::core::GUID, dwsampleflags: u32, llsampletime: i64, llsampleduration: i64, psamplebuffer: *const u8, dwsamplesize: u32, pattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSampleOutputStream(::windows::core::IUnknown);
 impl IMFSampleOutputStream {
@@ -31510,6 +32816,7 @@ pub struct IMFSampleOutputStreamVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSampleProtection(::windows::core::IUnknown);
 impl IMFSampleProtection {
@@ -31578,6 +32885,7 @@ pub struct IMFSampleProtectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwversion: u32, dwoutputid: u32, pbcert: *const u8, cbcert: u32, ppbseed: *mut *mut u8, pcbseed: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwversion: u32, dwinputid: u32, pbseed: *const u8, cbseed: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSaveJob(::windows::core::IUnknown);
 impl IMFSaveJob {
@@ -31641,6 +32949,7 @@ pub struct IMFSaveJobVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwpercentcomplete: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSchemeHandler(::windows::core::IUnknown);
 impl IMFSchemeHandler {
@@ -31701,6 +33010,7 @@ pub struct IMFSchemeHandlerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piunknowncancelcookie: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSecureBuffer(::windows::core::IUnknown);
 impl IMFSecureBuffer {
@@ -31747,6 +33057,7 @@ unsafe impl ::windows::core::Interface for IMFSecureBuffer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFSecureBufferVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguididentifier: *mut ::windows::core::GUID) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSecureChannel(::windows::core::IUnknown);
 impl IMFSecureChannel {
@@ -31801,6 +33112,7 @@ pub struct IMFSecureChannelVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcert: *mut *mut u8, pcbcert: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbencryptedsessionkey: *const u8, cbsessionkey: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSeekInfo(::windows::core::IUnknown);
 impl IMFSeekInfo {
@@ -31853,6 +33165,7 @@ pub struct IMFSeekInfoVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarpreviouskeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarnextkeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSensorActivitiesReport(::windows::core::IUnknown);
 impl IMFSensorActivitiesReport {
@@ -31916,6 +33229,7 @@ pub struct IMFSensorActivitiesReportVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, symbolicname: super::super::Foundation::PWSTR, sensoractivityreport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSensorActivitiesReportCallback(::windows::core::IUnknown);
 impl IMFSensorActivitiesReportCallback {
@@ -31961,6 +33275,7 @@ unsafe impl ::windows::core::Interface for IMFSensorActivitiesReportCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFSensorActivitiesReportCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sensoractivitiesreport: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSensorActivityMonitor(::windows::core::IUnknown);
 impl IMFSensorActivityMonitor {
@@ -32015,6 +33330,7 @@ pub struct IMFSensorActivityMonitorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSensorActivityReport(::windows::core::IUnknown);
 impl IMFSensorActivityReport {
@@ -32083,6 +33399,7 @@ pub struct IMFSensorActivityReportVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, ppprocessactivity: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSensorDevice(::windows::core::IUnknown);
 impl IMFSensorDevice {
@@ -32174,6 +33491,7 @@ pub struct IMFSensorDeviceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, emode: MFSensorDeviceMode) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pemode: *mut MFSensorDeviceMode) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSensorGroup(::windows::core::IUnknown);
 impl IMFSensorGroup {
@@ -32260,6 +33578,7 @@ pub struct IMFSensorGroupVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwindex: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSensorProcessActivity(::windows::core::IUnknown);
 impl IMFSensorProcessActivity {
@@ -32330,6 +33649,7 @@ pub struct IMFSensorProcessActivityVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pft: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSensorProfile(::windows::core::IUnknown);
 impl IMFSensorProfile {
@@ -32400,6 +33720,7 @@ pub struct IMFSensorProfileVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wzblockedcontrol: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSensorProfileCollection(::windows::core::IUnknown);
 impl IMFSensorProfileCollection {
@@ -32472,6 +33793,7 @@ pub struct IMFSensorProfileCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profileid: *const SENSORPROFILEID),
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSensorStream(::windows::core::IUnknown);
 impl IMFSensorStream {
@@ -32700,6 +34022,7 @@ pub struct IMFSensorStreamVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSensorTransformFactory(::windows::core::IUnknown);
 impl IMFSensorTransformFactory {
@@ -32771,6 +34094,7 @@ pub struct IMFSensorTransformFactoryVtbl(
     #[cfg(feature = "Win32_Media_Streaming")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidsensortransformid: *const ::windows::core::GUID, pattributes: ::windows::core::RawPtr, ppdevicemft: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Media_Streaming"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSequencerSource(::windows::core::IUnknown);
 impl IMFSequencerSource {
@@ -32838,6 +34162,7 @@ pub struct IMFSequencerSourceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwid: u32, ptopology: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwid: u32, dwflags: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSharingEngineClassFactory(::windows::core::IUnknown);
 impl IMFSharingEngineClassFactory {
@@ -32884,6 +34209,7 @@ unsafe impl ::windows::core::Interface for IMFSharingEngineClassFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFSharingEngineClassFactoryVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pattr: ::windows::core::RawPtr, ppengine: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFShutdown(::windows::core::IUnknown);
 impl IMFShutdown {
@@ -32939,6 +34265,7 @@ pub struct IMFShutdownVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatus: *mut MFSHUTDOWN_STATUS) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSignedLibrary(::windows::core::IUnknown);
 impl IMFSignedLibrary {
@@ -32991,6 +34318,7 @@ pub struct IMFSignedLibraryVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR, address: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSimpleAudioVolume(::windows::core::IUnknown);
 impl IMFSimpleAudioVolume {
@@ -33059,6 +34387,7 @@ pub struct IMFSimpleAudioVolumeVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbmute: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSinkWriter(::windows::core::IUnknown);
 impl IMFSinkWriter {
@@ -33151,6 +34480,7 @@ pub struct IMFSinkWriterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pstats: *mut MF_SINK_WRITER_STATISTICS) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSinkWriterCallback(::windows::core::IUnknown);
 impl IMFSinkWriterCallback {
@@ -33205,6 +34535,7 @@ pub struct IMFSinkWriterCallbackVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSinkWriterCallback2(::windows::core::IUnknown);
 impl IMFSinkWriterCallback2 {
@@ -33287,6 +34618,7 @@ pub struct IMFSinkWriterCallback2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSinkWriterEncoderConfig(::windows::core::IUnknown);
 impl IMFSinkWriterEncoderConfig {
@@ -33341,6 +34673,7 @@ pub struct IMFSinkWriterEncoderConfigVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, ptargetmediatype: ::windows::core::RawPtr, pencodingparameters: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pencodingparameters: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSinkWriterEx(::windows::core::IUnknown);
 impl IMFSinkWriterEx {
@@ -33457,6 +34790,7 @@ pub struct IMFSinkWriterExVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pstats: *mut MF_SINK_WRITER_STATISTICS) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, dwtransformindex: u32, pguidcategory: *mut ::windows::core::GUID, pptransform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSourceBuffer(::windows::core::IUnknown);
 impl IMFSourceBuffer {
@@ -33554,6 +34888,7 @@ pub struct IMFSourceBufferVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, start: f64, end: f64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSourceBufferAppendMode(::windows::core::IUnknown);
 impl IMFSourceBufferAppendMode {
@@ -33608,6 +34943,7 @@ pub struct IMFSourceBufferAppendModeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> MF_MSE_APPEND_MODE,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: MF_MSE_APPEND_MODE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSourceBufferList(::windows::core::IUnknown);
 impl IMFSourceBufferList {
@@ -33662,6 +34998,7 @@ pub struct IMFSourceBufferListVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<IMFSourceBuffer>,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSourceBufferNotify(::windows::core::IUnknown);
 impl IMFSourceBufferNotify {
@@ -33728,6 +35065,7 @@ pub struct IMFSourceBufferNotifyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSourceOpenMonitor(::windows::core::IUnknown);
 impl IMFSourceOpenMonitor {
@@ -33773,6 +35111,7 @@ unsafe impl ::windows::core::Interface for IMFSourceOpenMonitor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFSourceOpenMonitorVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSourceReader(::windows::core::IUnknown);
 impl IMFSourceReader {
@@ -33871,6 +35210,7 @@ pub struct IMFSourceReaderVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidattribute: *const ::windows::core::GUID, pvarattribute: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSourceReaderCallback(::windows::core::IUnknown);
 impl IMFSourceReaderCallback {
@@ -33929,6 +35269,7 @@ pub struct IMFSourceReaderCallbackVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSourceReaderCallback2(::windows::core::IUnknown);
 impl IMFSourceReaderCallback2 {
@@ -34015,6 +35356,7 @@ pub struct IMFSourceReaderCallback2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSourceReaderEx(::windows::core::IUnknown);
 impl IMFSourceReaderEx {
@@ -34150,6 +35492,7 @@ pub struct IMFSourceReaderExVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, dwtransformindex: u32, pguidcategory: *mut ::windows::core::GUID, pptransform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSourceResolver(::windows::core::IUnknown);
 impl IMFSourceResolver {
@@ -34232,6 +35575,7 @@ pub struct IMFSourceResolverVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piunknowncancelcookie: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSpatialAudioObjectBuffer(::windows::core::IUnknown);
 impl IMFSpatialAudioObjectBuffer {
@@ -34349,6 +35693,7 @@ pub struct IMFSpatialAudioObjectBufferVtbl(
     #[cfg(feature = "Win32_Media_Audio")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmetadataitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Media_Audio"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSpatialAudioSample(::windows::core::IUnknown);
 impl IMFSpatialAudioSample {
@@ -34659,6 +36004,7 @@ pub struct IMFSpatialAudioSampleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paudioobjbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppaudioobjbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFStreamDescriptor(::windows::core::IUnknown);
 impl IMFStreamDescriptor {
@@ -34882,6 +36228,7 @@ pub struct IMFStreamDescriptorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstreamidentifier: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediatypehandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFStreamSink(::windows::core::IUnknown);
 impl IMFStreamSink {
@@ -34997,6 +36344,7 @@ pub struct IMFStreamSinkVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFStreamingSinkConfig(::windows::core::IUnknown);
 impl IMFStreamingSinkConfig {
@@ -35049,6 +36397,7 @@ pub struct IMFStreamingSinkConfigVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fseekoffsetisbyteoffset: super::super::Foundation::BOOL, qwseekoffset: u64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFSystemId(::windows::core::IUnknown);
 impl IMFSystemId {
@@ -35103,6 +36452,7 @@ pub struct IMFSystemIdVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: *mut u32, data: *mut *mut u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stage: u32, cbin: u32, pbin: *const u8, pcbout: *mut u32, ppbout: *mut *mut u8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTimecodeTranslate(::windows::core::IUnknown);
 impl IMFTimecodeTranslate {
@@ -35171,6 +36521,7 @@ pub struct IMFTimecodeTranslateVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppropvartimecode: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTimedText(::windows::core::IUnknown);
 impl IMFTimedText {
@@ -35293,6 +36644,7 @@ pub struct IMFTimedTextVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTimedTextBinary(::windows::core::IUnknown);
 impl IMFTimedTextBinary {
@@ -35338,6 +36690,7 @@ unsafe impl ::windows::core::Interface for IMFTimedTextBinary {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFTimedTextBinaryVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: *mut *mut u8, length: *mut u32) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTimedTextBouten(::windows::core::IUnknown);
 impl IMFTimedTextBouten {
@@ -35399,6 +36752,7 @@ pub struct IMFTimedTextBoutenVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut MFARGB) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut MF_TIMED_TEXT_BOUTEN_POSITION) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTimedTextCue(::windows::core::IUnknown);
 impl IMFTimedTextCue {
@@ -35496,6 +36850,7 @@ pub struct IMFTimedTextCueVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, line: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTimedTextCueList(::windows::core::IUnknown);
 impl IMFTimedTextCueList {
@@ -35579,6 +36934,7 @@ pub struct IMFTimedTextCueListVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, start: f64, duration: f64, data: *const u8, datasize: u32, cue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cue: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTimedTextFormattedText(::windows::core::IUnknown);
 impl IMFTimedTextFormattedText {
@@ -35640,6 +36996,7 @@ pub struct IMFTimedTextFormattedTextVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, firstchar: *mut u32, charlength: *mut u32, style: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTimedTextNotify(::windows::core::IUnknown);
 impl IMFTimedTextNotify {
@@ -35716,6 +37073,7 @@ pub struct IMFTimedTextNotifyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cueevent: MF_TIMED_TEXT_CUE_EVENT, currenttime: f64, cue: ::windows::core::RawPtr),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTimedTextRegion(::windows::core::IUnknown);
 impl IMFTimedTextRegion {
@@ -35824,6 +37182,7 @@ pub struct IMFTimedTextRegionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, zindex: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scrollmode: *mut MF_TIMED_TEXT_SCROLL_MODE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTimedTextRuby(::windows::core::IUnknown);
 impl IMFTimedTextRuby {
@@ -35892,6 +37251,7 @@ pub struct IMFTimedTextRubyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut MF_TIMED_TEXT_RUBY_ALIGN) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut MF_TIMED_TEXT_RUBY_RESERVE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTimedTextStyle(::windows::core::IUnknown);
 impl IMFTimedTextStyle {
@@ -36012,6 +37372,7 @@ pub struct IMFTimedTextStyleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textdecoration: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: *mut MFARGB, thickness: *mut f64, blurradius: *mut f64, unittype: *mut MF_TIMED_TEXT_UNIT_TYPE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTimedTextStyle2(::windows::core::IUnknown);
 impl IMFTimedTextStyle2 {
@@ -36080,6 +37441,7 @@ pub struct IMFTimedTextStyle2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut f64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTimedTextTrack(::windows::core::IUnknown);
 impl IMFTimedTextTrack {
@@ -36195,6 +37557,7 @@ pub struct IMFTimedTextTrackVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> MF_TIMED_TEXT_TRACK_READY_STATE,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cues: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTimedTextTrackList(::windows::core::IUnknown);
 impl IMFTimedTextTrackList {
@@ -36255,6 +37618,7 @@ pub struct IMFTimedTextTrackListVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, track: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, trackid: u32, track: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTimer(::windows::core::IUnknown);
 impl IMFTimer {
@@ -36310,6 +37674,7 @@ pub struct IMFTimerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, llclocktime: i64, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void, ppunkkey: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkkey: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTopoLoader(::windows::core::IUnknown);
 impl IMFTopoLoader {
@@ -36360,6 +37725,7 @@ pub struct IMFTopoLoaderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinputtopo: ::windows::core::RawPtr, ppoutputtopo: *mut ::windows::core::RawPtr, pcurrenttopo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTopology(::windows::core::IUnknown);
 impl IMFTopology {
@@ -36619,6 +37985,7 @@ pub struct IMFTopologyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTopologyNode(::windows::core::IUnknown);
 impl IMFTopologyNode {
@@ -36903,6 +38270,7 @@ pub struct IMFTopologyNodeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputindex: u32, pptype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnode: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTopologyNodeAttributeEditor(::windows::core::IUnknown);
 impl IMFTopologyNodeAttributeEditor {
@@ -36948,6 +38316,7 @@ unsafe impl ::windows::core::Interface for IMFTopologyNodeAttributeEditor {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFTopologyNodeAttributeEditorVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, topoid: u64, cupdates: u32, pupdates: *const MFTOPONODE_ATTRIBUTE_UPDATE) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTopologyServiceLookup(::windows::core::IUnknown);
 impl IMFTopologyServiceLookup {
@@ -36998,6 +38367,7 @@ pub struct IMFTopologyServiceLookupVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: MF_SERVICE_LOOKUP_TYPE, dwindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobjects: *mut *mut ::core::ffi::c_void, pnobjects: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTopologyServiceLookupClient(::windows::core::IUnknown);
 impl IMFTopologyServiceLookupClient {
@@ -37052,6 +38422,7 @@ pub struct IMFTopologyServiceLookupClientVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plookup: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTrackedSample(::windows::core::IUnknown);
 impl IMFTrackedSample {
@@ -37097,6 +38468,7 @@ unsafe impl ::windows::core::Interface for IMFTrackedSample {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFTrackedSampleVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psampleallocator: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTranscodeProfile(::windows::core::IUnknown);
 impl IMFTranscodeProfile {
@@ -37170,6 +38542,7 @@ pub struct IMFTranscodeProfileVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pattrs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppattrs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTranscodeSinkInfoProvider(::windows::core::IUnknown);
 impl IMFTranscodeSinkInfoProvider {
@@ -37235,6 +38608,7 @@ pub struct IMFTranscodeSinkInfoProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprofile: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psinkinfo: *mut MF_TRANSCODE_SINK_INFO) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTransform(::windows::core::IUnknown);
 impl IMFTransform {
@@ -37384,6 +38758,7 @@ pub struct IMFTransformVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputstreamid: u32, psample: ::windows::core::RawPtr, dwflags: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, coutputbuffercount: u32, poutputsamples: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTrustedInput(::windows::core::IUnknown);
 impl IMFTrustedInput {
@@ -37435,6 +38810,7 @@ pub struct IMFTrustedInputVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamid: u32, riid: *const ::windows::core::GUID, ppunkobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFTrustedOutput(::windows::core::IUnknown);
 impl IMFTrustedOutput {
@@ -37498,6 +38874,7 @@ pub struct IMFTrustedOutputVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisfinal: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoCaptureSampleAllocator(::windows::core::IUnknown);
 impl IMFVideoCaptureSampleAllocator {
@@ -37585,6 +38962,7 @@ pub struct IMFVideoCaptureSampleAllocatorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsample: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbsamplesize: u32, cbcapturemetadatasize: u32, cbalignment: u32, cminimumsamples: u32, pattributes: ::windows::core::RawPtr, pmediatype: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoDeviceID(::windows::core::IUnknown);
 impl IMFVideoDeviceID {
@@ -37631,6 +39009,7 @@ unsafe impl ::windows::core::Interface for IMFVideoDeviceID {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFVideoDeviceIDVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdeviceid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoDisplayControl(::windows::core::IUnknown);
 impl IMFVideoDisplayControl {
@@ -37764,6 +39143,7 @@ pub struct IMFVideoDisplayControlVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pffullscreen: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoMediaType(::windows::core::IUnknown);
 impl IMFVideoMediaType {
@@ -38032,6 +39412,7 @@ pub struct IMFVideoMediaTypeVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidrepresentation: ::windows::core::GUID, ppvrepresentation: *mut *mut ::core::ffi::c_void, lstride: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoMixerBitmap(::windows::core::IUnknown);
 impl IMFVideoMixerBitmap {
@@ -38101,6 +39482,7 @@ pub struct IMFVideoMixerBitmapVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbmpparms: *mut MFVideoAlphaBitmapParams) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoMixerControl(::windows::core::IUnknown);
 impl IMFVideoMixerControl {
@@ -38165,6 +39547,7 @@ pub struct IMFVideoMixerControlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamid: u32, pnrcoutput: *const MFVideoNormalizedRect) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamid: u32, pnrcoutput: *mut MFVideoNormalizedRect) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoMixerControl2(::windows::core::IUnknown);
 impl IMFVideoMixerControl2 {
@@ -38258,6 +39641,7 @@ pub struct IMFVideoMixerControl2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmixflags: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmixflags: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoPositionMapper(::windows::core::IUnknown);
 impl IMFVideoPositionMapper {
@@ -38308,6 +39692,7 @@ pub struct IMFVideoPositionMapperVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xout: f32, yout: f32, dwoutputstreamindex: u32, dwinputstreamindex: u32, pxin: *mut f32, pyin: *mut f32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoPresenter(::windows::core::IUnknown);
 impl IMFVideoPresenter {
@@ -38403,6 +39788,7 @@ pub struct IMFVideoPresenterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, emessage: MFVP_MESSAGE_TYPE, ulparam: usize) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoProcessor(::windows::core::IUnknown);
 impl IMFVideoProcessor {
@@ -38506,6 +39892,7 @@ pub struct IMFVideoProcessorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpclrbkg: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clrbkg: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoProcessorControl(::windows::core::IUnknown);
 impl IMFVideoProcessorControl {
@@ -38582,6 +39969,7 @@ pub struct IMFVideoProcessorControlVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconstrictionsize: *const super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoProcessorControl2(::windows::core::IUnknown);
 impl IMFVideoProcessorControl2 {
@@ -38693,6 +40081,7 @@ pub struct IMFVideoProcessorControl2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puisupport: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoProcessorControl3(::windows::core::IUnknown);
 impl IMFVideoProcessorControl3 {
@@ -38843,6 +40232,7 @@ pub struct IMFVideoProcessorControl3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: f32, y: f32, z: f32, w: f32, fieldofview: f32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poutputdevice: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoRenderer(::windows::core::IUnknown);
 impl IMFVideoRenderer {
@@ -38888,6 +40278,7 @@ unsafe impl ::windows::core::Interface for IMFVideoRenderer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFVideoRendererVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideomixer: ::windows::core::RawPtr, pvideopresenter: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoRendererEffectControl(::windows::core::IUnknown);
 impl IMFVideoRendererEffectControl {
@@ -38933,6 +40324,7 @@ unsafe impl ::windows::core::Interface for IMFVideoRendererEffectControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFVideoRendererEffectControlVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pappserviceconnection: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoSampleAllocator(::windows::core::IUnknown);
 impl IMFVideoSampleAllocator {
@@ -38996,6 +40388,7 @@ pub struct IMFVideoSampleAllocatorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crequestedframes: u32, pmediatype: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsample: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoSampleAllocatorCallback(::windows::core::IUnknown);
 impl IMFVideoSampleAllocatorCallback {
@@ -39051,6 +40444,7 @@ pub struct IMFVideoSampleAllocatorCallbackVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnotify: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsamples: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoSampleAllocatorEx(::windows::core::IUnknown);
 impl IMFVideoSampleAllocatorEx {
@@ -39138,6 +40532,7 @@ pub struct IMFVideoSampleAllocatorExVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsample: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cinitialsamples: u32, cmaximumsamples: u32, pattributes: ::windows::core::RawPtr, pmediatype: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoSampleAllocatorNotify(::windows::core::IUnknown);
 impl IMFVideoSampleAllocatorNotify {
@@ -39183,6 +40578,7 @@ unsafe impl ::windows::core::Interface for IMFVideoSampleAllocatorNotify {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMFVideoSampleAllocatorNotifyVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVideoSampleAllocatorNotifyEx(::windows::core::IUnknown);
 impl IMFVideoSampleAllocatorNotifyEx {
@@ -39257,6 +40653,7 @@ pub struct IMFVideoSampleAllocatorNotifyExVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__imfvideosampleallocatornotifyex0000: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFVirtualCamera(::windows::core::IUnknown);
 impl IMFVirtualCamera {
@@ -39527,6 +40924,7 @@ pub struct IMFVirtualCameraVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFWorkQueueServices(::windows::core::IUnknown);
 impl IMFWorkQueueServices {
@@ -39630,6 +41028,7 @@ pub struct IMFWorkQueueServicesVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwplatformworkqueueid: u32, pdwtaskid: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IMFWorkQueueServicesEx(::windows::core::IUnknown);
 impl IMFWorkQueueServicesEx {
@@ -39769,6 +41168,7 @@ pub struct IMFWorkQueueServicesExVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwplatformworkqueueid: u32, plpriority: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IOPMVideoOutput(::windows::core::IUnknown);
 impl IOPMVideoOutput {
@@ -39837,6 +41237,7 @@ pub struct IOPMVideoOutputVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparameters: *const OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS, prequestedinformation: *mut OPM_REQUESTED_INFORMATION) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparameters: *const OPM_CONFIGURE_PARAMETERS, uladditionalparameterssize: u32, pbadditionalparameters: *const u8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IPlayToControl(::windows::core::IUnknown);
 impl IPlayToControl {
@@ -39891,6 +41292,7 @@ pub struct IPlayToControlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfactory: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IPlayToControlWithCapabilities(::windows::core::IUnknown);
 impl IPlayToControlWithCapabilities {
@@ -39970,6 +41372,7 @@ pub struct IPlayToControlWithCapabilitiesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcapabilities: *mut PLAYTO_SOURCE_CREATEFLAGS) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IPlayToSourceClassFactory(::windows::core::IUnknown);
 impl IPlayToSourceClassFactory {
@@ -40021,6 +41424,7 @@ pub struct IPlayToSourceClassFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pcontrol: ::windows::core::RawPtr, ppsource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IToc(::windows::core::IUnknown);
 impl IToc {
@@ -40116,6 +41520,7 @@ pub struct ITocVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wentrylistindex: u16, pentrylist: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wentrylistindex: u16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ITocCollection(::windows::core::IUnknown);
 impl ITocCollection {
@@ -40183,6 +41588,7 @@ pub struct ITocCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwentryindex: u32, ptoc: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwentryindex: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ITocEntry(::windows::core::IUnknown);
 impl ITocEntry {
@@ -40265,6 +41671,7 @@ pub struct ITocEntryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdescriptiondatasize: u32, pbtdescriptiondata: *mut u8, pguidtype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwdescriptiondatasize: *mut u32, pbtdescriptiondata: *mut u8, pguidtype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ITocEntryList(::windows::core::IUnknown);
 impl ITocEntryList {
@@ -40332,6 +41739,7 @@ pub struct ITocEntryListVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwentryindex: u32, pentry: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwentryindex: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct ITocParser(::windows::core::IUnknown);
 impl ITocParser {
@@ -40414,6 +41822,7 @@ pub struct ITocParserVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumtocpostype: TOC_POS_TYPE, guidtoctype: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IValidateBinding(::windows::core::IUnknown);
 impl IValidateBinding {
@@ -40464,6 +41873,7 @@ pub struct IValidateBindingVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidlicensorid: ::windows::core::GUID, pbephemeron: *const u8, cbephemeron: u32, ppbblobvalidationid: *mut *mut u8, pcbblobsize: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IWMCodecLeakyBucket(::windows::core::IUnknown);
 impl IWMCodecLeakyBucket {
@@ -40526,6 +41936,7 @@ pub struct IWMCodecLeakyBucketVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulbufferfullness: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulbufferfullness: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IWMCodecOutputTimestamp(::windows::core::IUnknown);
 impl IWMCodecOutputTimestamp {
@@ -40571,6 +41982,7 @@ unsafe impl ::windows::core::Interface for IWMCodecOutputTimestamp {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMCodecOutputTimestampVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prttime: *mut i64) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IWMCodecPrivateData(::windows::core::IUnknown);
 impl IWMCodecPrivateData {
@@ -40627,6 +42039,7 @@ pub struct IWMCodecPrivateDataVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdata: *mut u8, pcbdata: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IWMCodecProps(::windows::core::IUnknown);
 impl IWMCodecProps {
@@ -40685,6 +42098,7 @@ pub struct IWMCodecPropsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwformat: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IWMCodecStrings(::windows::core::IUnknown);
 impl IWMCodecStrings {
@@ -40743,6 +42157,7 @@ pub struct IWMCodecStringsVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE, cchlength: u32, szdescription: super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IWMColorConvProps(::windows::core::IUnknown);
 impl IWMColorConvProps {
@@ -40797,6 +42212,7 @@ pub struct IWMColorConvPropsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmode: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsrccropleft: i32, lsrccroptop: i32, ldstcropleft: i32, ldstcroptop: i32, lcropwidth: i32, lcropheight: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IWMColorLegalizerProps(::windows::core::IUnknown);
 impl IWMColorLegalizerProps {
@@ -40842,6 +42258,7 @@ unsafe impl ::windows::core::Interface for IWMColorLegalizerProps {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMColorLegalizerPropsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lquality: i32) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IWMFrameInterpProps(::windows::core::IUnknown);
 impl IWMFrameInterpProps {
@@ -40906,6 +42323,7 @@ pub struct IWMFrameInterpPropsVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, icomplexity: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IWMInterlaceProps(::windows::core::IUnknown);
 impl IWMInterlaceProps {
@@ -40964,6 +42382,7 @@ pub struct IWMInterlacePropsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iinitpattern: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IWMResamplerProps(::windows::core::IUnknown);
 impl IWMResamplerProps {
@@ -41018,6 +42437,7 @@ pub struct IWMResamplerPropsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lhalffilterlen: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userchannelmtx: *mut f32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IWMResizerProps(::windows::core::IUnknown);
 impl IWMResizerProps {
@@ -41084,6 +42504,7 @@ pub struct IWMResizerPropsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcliporixsrc: i32, lcliporiysrc: i32, lclipwidthsrc: i32, lclipheightsrc: i32, lcliporixdst: i32, lcliporiydst: i32, lclipwidthdst: i32, lclipheightdst: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcliporixsrc: *mut i32, lcliporiysrc: *mut i32, lclipwidthsrc: *mut i32, lclipheightsrc: *mut i32, lcliporixdst: *mut i32, lcliporiydst: *mut i32, lclipwidthdst: *mut i32, lclipheightdst: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IWMSampleExtensionSupport(::windows::core::IUnknown);
 impl IWMSampleExtensionSupport {
@@ -41136,6 +42557,7 @@ pub struct IWMSampleExtensionSupportVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fuseextensions: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IWMValidate(::windows::core::IUnknown);
 impl IWMValidate {
@@ -41181,6 +42603,7 @@ unsafe impl ::windows::core::Interface for IWMValidate {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMValidateVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidvalidationid: ::windows::core::GUID) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IWMVideoDecoderHurryup(::windows::core::IUnknown);
 impl IWMVideoDecoderHurryup {
@@ -41235,6 +42658,7 @@ pub struct IWMVideoDecoderHurryupVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lhurryup: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhurryup: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IWMVideoDecoderReconBuffer(::windows::core::IUnknown);
 impl IWMVideoDecoderReconBuffer {
@@ -41297,6 +42721,7 @@ pub struct IWMVideoDecoderReconBufferVtbl(
     #[cfg(feature = "Win32_Media_DxMediaObjects")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuf: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Media_DxMediaObjects"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct IWMVideoForceKeyFrame(::windows::core::IUnknown);
 impl IWMVideoForceKeyFrame {
@@ -41342,13 +42767,18 @@ unsafe impl ::windows::core::Interface for IWMVideoForceKeyFrame {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMVideoForceKeyFrameVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type KSMETHOD_OPMVIDEOOUTPUT = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const KSMETHOD_OPMVIDEOOUTPUT_STARTINITIALIZATION: KSMETHOD_OPMVIDEOOUTPUT = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const KSMETHOD_OPMVIDEOOUTPUT_FINISHINITIALIZATION: KSMETHOD_OPMVIDEOOUTPUT = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const KSMETHOD_OPMVIDEOOUTPUT_GETINFORMATION: KSMETHOD_OPMVIDEOOUTPUT = 2i32;
 pub const KSPROPSETID_OPMVideoOutput: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06f414bb_f43a_4fe2_a566_774b4c81f0db);
 pub const LOCAL_D3DFMT_DEFINES: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MACROBLOCK_DATA {
     pub flags: u32,
     pub motionVectorX: i16,
@@ -41451,22 +42881,35 @@ pub const MEDIASUBTYPE_wmvr: ::windows::core::GUID = ::windows::core::GUID::from
 pub const MEDIASUBTYPE_wvc1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31637677_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_wvp2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32707677_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_x264: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34363278_0000_0010_8000_00aa00389b71);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_EVENT_FLAG_NONE: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_EVENT_FLAG_NO_WAIT: MEDIA_EVENT_GENERATOR_GET_EVENT_FLAGS = 1u32;
 pub const MEDeviceStreamCreated: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0252a1cf_3540_43b4_9164_d72eb405fa40);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF2DBuffer_LockFlags = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF2DBuffer_LockFlags_LockTypeMask: MF2DBuffer_LockFlags = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF2DBuffer_LockFlags_Read: MF2DBuffer_LockFlags = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF2DBuffer_LockFlags_Write: MF2DBuffer_LockFlags = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF2DBuffer_LockFlags_ReadWrite: MF2DBuffer_LockFlags = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF2DBuffer_LockFlags_ForceDWORD: MF2DBuffer_LockFlags = 2147483647i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF3DVideoOutputType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF3DVideoOutputType_BaseView: MF3DVideoOutputType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF3DVideoOutputType_Stereo: MF3DVideoOutputType = 1i32;
 pub const MFAMRNBByteStreamHandler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefe6208a_0a2c_49fa_8a01_3768b559b6da);
 pub const MFAMRNBSinkClassFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0271158_70d2_4c5b_9f94_76f549d90fdf);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFARGB {
     pub rgbBlue: u8,
     pub rgbGreen: u8,
@@ -41512,22 +42955,35 @@ pub const MFASFSampleExtension_PixelAspectRatio: ::windows::core::GUID = ::windo
 pub const MFASFSampleExtension_SMPTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x399595ec_8667_4e2d_8fdb_98814ce76c1e);
 pub const MFASFSampleExtension_SampleDuration: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6bd9450_867f_4907_83a3_c77921b733ad);
 pub const MFASF_DEFAULT_BUFFER_WINDOW_MS: u32 = 3000u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFASF_INDEXER_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFASF_INDEXER_WRITE_NEW_INDEX: MFASF_INDEXER_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFASF_INDEXER_READ_FOR_REVERSEPLAYBACK: MFASF_INDEXER_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFASF_INDEXER_WRITE_FOR_LIVEREAD: MFASF_INDEXER_FLAGS = 4i32;
 pub const MFASF_INVALID_STREAM_NUMBER: u32 = 128u32;
 pub const MFASF_MAX_STREAM_NUMBER: u32 = 127u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFASF_MULTIPLEXERFLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFASF_MULTIPLEXER_AUTOADJUST_BITRATE: MFASF_MULTIPLEXERFLAGS = 1i32;
 pub const MFASF_PAYLOADEXTENSION_MAX_SIZE: u32 = 255u32;
 pub const MFASF_PAYLOADEXTENSION_VARIABLE_SIZE: u32 = 65535u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFASF_SPLITTERFLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFASF_SPLITTER_REVERSE: MFASF_SPLITTERFLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFASF_SPLITTER_WMDRM: MFASF_SPLITTERFLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFASF_STREAMSELECTOR_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFASF_STREAMSELECTOR_DISABLE_THINNING: MFASF_STREAMSELECTOR_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFASF_STREAMSELECTOR_USE_AVERAGE_BITRATE: MFASF_STREAMSELECTOR_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[repr(transparent)]
 pub struct MFASYNCRESULT(::windows::core::IUnknown);
 impl MFASYNCRESULT {
@@ -41630,11 +43086,16 @@ pub const MFASYNC_FAST_IO_PROCESSING_CALLBACK: u32 = 1u32;
 pub const MFASYNC_LOCALIZE_REMOTE_CALLBACK: u32 = 16u32;
 pub const MFASYNC_REPLY_CALLBACK: u32 = 8u32;
 pub const MFASYNC_SIGNAL_CALLBACK: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFASYNC_WORKQUEUE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_STANDARD_WORKQUEUE: MFASYNC_WORKQUEUE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_WINDOW_WORKQUEUE: MFASYNC_WORKQUEUE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MULTITHREADED_WORKQUEUE: MFASYNC_WORKQUEUE_TYPE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFAYUVSample {
     pub bCrValue: u8,
     pub bCbValue: u8,
@@ -41661,6 +43122,7 @@ impl ::core::default::Default for MFAYUVSample {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFAddPeriodicCallback<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(callback: MFPERIODICCALLBACK, pcontext: Param1) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
@@ -41675,6 +43137,7 @@ pub unsafe fn MFAddPeriodicCallback<'a, Param1: ::windows::core::IntoParam<'a, :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFAllocateSerialWorkQueue(dwworkqueue: u32) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
@@ -41689,6 +43152,7 @@ pub unsafe fn MFAllocateSerialWorkQueue(dwworkqueue: u32) -> ::windows::core::Re
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFAllocateWorkQueue() -> ::windows::core::Result<u32> {
     #[cfg(windows)]
@@ -41703,6 +43167,7 @@ pub unsafe fn MFAllocateWorkQueue() -> ::windows::core::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFAllocateWorkQueueEx(workqueuetype: MFASYNC_WORKQUEUE_TYPE) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
@@ -41717,13 +43182,20 @@ pub unsafe fn MFAllocateWorkQueueEx(workqueuetype: MFASYNC_WORKQUEUE_TYPE) -> ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFAudioConstriction = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFaudioConstrictionOff: MFAudioConstriction = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFaudioConstriction48_16: MFAudioConstriction = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFaudioConstriction44_16: MFAudioConstriction = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFaudioConstriction14_14: MFAudioConstriction = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFaudioConstrictionMute: MFAudioConstriction = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFAudioDecoderDegradationInfo {
     pub eDegradationReason: MFT_AUDIO_DECODER_DEGRADATION_REASON,
     pub eType: MFT_AUDIO_DECODER_DEGRADATION_TYPE,
@@ -41790,6 +43262,7 @@ pub const MFAudioFormat_WMASPDIF: ::windows::core::GUID = ::windows::core::GUID:
 pub const MFAudioFormat_WMAudioV8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000161_0000_0010_8000_00aa00389b71);
 pub const MFAudioFormat_WMAudioV9: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000162_0000_0010_8000_00aa00389b71);
 pub const MFAudioFormat_WMAudio_Lossless: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000163_0000_0010_8000_00aa00389b71);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFAverageTimePerFrameToFrameRate(unaveragetimeperframe: u64, punnumerator: *mut u32, pundenominator: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -41804,6 +43277,7 @@ pub unsafe fn MFAverageTimePerFrameToFrameRate(unaveragetimeperframe: u64, punnu
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFBYTESTREAM_BUFFERING_PARAMS {
     pub cbTotalFileSize: u64,
     pub cbPlayableDataSize: u64,
@@ -41843,10 +43317,14 @@ pub const MFBYTESTREAM_IS_REMOTE: u32 = 8u32;
 pub const MFBYTESTREAM_IS_SEEKABLE: u32 = 4u32;
 pub const MFBYTESTREAM_IS_WRITABLE: u32 = 2u32;
 pub const MFBYTESTREAM_SEEK_FLAG_CANCEL_PENDING_IO: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFBYTESTREAM_SEEK_ORIGIN = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const msoBegin: MFBYTESTREAM_SEEK_ORIGIN = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const msoCurrent: MFBYTESTREAM_SEEK_ORIGIN = 1i32;
 pub const MFBYTESTREAM_SHARE_WRITE: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFBeginCreateFile<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, pwszfilepath: Param3, pcallback: Param4, pstate: Param5) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -41862,6 +43340,7 @@ pub unsafe fn MFBeginCreateFile<'a, Param3: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFBeginRegisterWorkQueueWithMMCSS<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(dwworkqueueid: u32, wszclass: Param1, dwtaskid: u32, pdonecallback: Param3, pdonestate: Param4) -> ::windows::core::Result<()> {
@@ -41876,6 +43355,7 @@ pub unsafe fn MFBeginRegisterWorkQueueWithMMCSS<'a, Param1: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFBeginRegisterWorkQueueWithMMCSSEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param5: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(dwworkqueueid: u32, wszclass: Param1, dwtaskid: u32, lpriority: i32, pdonecallback: Param4, pdonestate: Param5) -> ::windows::core::Result<()> {
@@ -41890,6 +43370,7 @@ pub unsafe fn MFBeginRegisterWorkQueueWithMMCSSEx<'a, Param1: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFBeginUnregisterWorkQueueWithMMCSS<'a, Param1: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(dwworkqueueid: u32, pdonecallback: Param1, pdonestate: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -41906,15 +43387,20 @@ pub unsafe fn MFBeginUnregisterWorkQueueWithMMCSS<'a, Param1: ::windows::core::I
 pub const MFCAPTURE_METADATA_SCANLINE_VERTICAL: u32 = 4u32;
 pub const MFCAPTURE_METADATA_SCAN_BOTTOM_TOP: u32 = 2u32;
 pub const MFCAPTURE_METADATA_SCAN_RIGHT_LEFT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFCLOCK_CHARACTERISTICS_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFCLOCK_CHARACTERISTICS_FLAG_FREQUENCY_10MHZ: MFCLOCK_CHARACTERISTICS_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFCLOCK_CHARACTERISTICS_FLAG_ALWAYS_RUNNING: MFCLOCK_CHARACTERISTICS_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFCLOCK_CHARACTERISTICS_FLAG_IS_SYSTEM_CLOCK: MFCLOCK_CHARACTERISTICS_FLAGS = 8i32;
 pub const MFCLOCK_FREQUENCY_HNS: u32 = 10000000u32;
 pub const MFCLOCK_JITTER_DPC: u32 = 4000u32;
 pub const MFCLOCK_JITTER_ISR: u32 = 1000u32;
 pub const MFCLOCK_JITTER_PASSIVE: u32 = 10000u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFCLOCK_PROPERTIES {
     pub qwCorrelationRate: u64,
     pub guidClockId: ::windows::core::GUID,
@@ -41943,12 +43429,19 @@ impl ::core::default::Default for MFCLOCK_PROPERTIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFCLOCK_RELATIONAL_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFCLOCK_RELATIONAL_FLAG_JITTER_NEVER_AHEAD: MFCLOCK_RELATIONAL_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFCLOCK_STATE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFCLOCK_STATE_INVALID: MFCLOCK_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFCLOCK_STATE_RUNNING: MFCLOCK_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFCLOCK_STATE_STOPPED: MFCLOCK_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFCLOCK_STATE_PAUSED: MFCLOCK_STATE = 3i32;
 pub const MFCLOCK_TOLERANCE_UNKNOWN: u32 = 50000u32;
 pub const MFCONNECTOR_AGP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac3aef60_ce43_11d9_92db_000bdb28ff98);
@@ -41975,6 +43468,7 @@ pub const MFCONNECTOR_UNKNOWN: ::windows::core::GUID = ::windows::core::GUID::fr
 pub const MFCONNECTOR_VGA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57cd5968_ce47_11d9_92db_000bdb28ff98);
 pub const MFCONTENTPROTECTIONDEVICE_FUNCTIONID_START: u32 = 67108864u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
     pub HWProtectionFunctionID: u32,
     pub PrivateDataByteCount: u32,
@@ -42003,6 +43497,7 @@ impl ::core::default::Default for MFCONTENTPROTECTIONDEVICE_INPUT_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
     pub PrivateDataByteCount: u32,
     pub MaxHWProtectionDataByteCount: u32,
@@ -42033,6 +43528,7 @@ impl ::core::default::Default for MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA {
     pub TaskIndex: u32,
     pub ClassName: [u16; 260],
@@ -42059,6 +43555,7 @@ impl ::core::default::Default for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA 
     }
 }
 pub const MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA_FUNCTIONID: u32 = 67108864u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn MFCalculateBitmapImageSize(pbmih: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbufsize: u32, pcbimagesize: *mut u32, pbknown: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
@@ -42073,6 +43570,7 @@ pub unsafe fn MFCalculateBitmapImageSize(pbmih: *const super::super::Graphics::G
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCalculateImageSize(guidsubtype: *const ::windows::core::GUID, unwidth: u32, unheight: u32) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
@@ -42088,6 +43586,7 @@ pub unsafe fn MFCalculateImageSize(guidsubtype: *const ::windows::core::GUID, un
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFCameraExtrinsic_CalibratedTransform {
     pub CalibrationId: ::windows::core::GUID,
     pub Position: MF_FLOAT3,
@@ -42114,6 +43613,7 @@ impl ::core::default::Default for MFCameraExtrinsic_CalibratedTransform {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFCameraExtrinsics {
     pub TransformCount: u32,
     pub CalibratedTransforms: [MFCameraExtrinsic_CalibratedTransform; 1],
@@ -42139,6 +43639,7 @@ impl ::core::default::Default for MFCameraExtrinsics {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFCameraIntrinsic_CameraModel {
     pub FocalLength_x: f32,
     pub FocalLength_y: f32,
@@ -42166,6 +43667,7 @@ impl ::core::default::Default for MFCameraIntrinsic_CameraModel {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFCameraIntrinsic_DistortionModel {
     pub Radial_k1: f32,
     pub Radial_k2: f32,
@@ -42194,6 +43696,7 @@ impl ::core::default::Default for MFCameraIntrinsic_DistortionModel {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFCameraIntrinsic_DistortionModel6KT {
     pub Radial_k1: f32,
     pub Radial_k2: f32,
@@ -42225,6 +43728,7 @@ impl ::core::default::Default for MFCameraIntrinsic_DistortionModel6KT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFCameraIntrinsic_DistortionModelArcTan {
     pub Radial_k0: f32,
     pub DistortionCenter_x: f32,
@@ -42252,10 +43756,14 @@ impl ::core::default::Default for MFCameraIntrinsic_DistortionModelArcTan {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFCameraIntrinsic_DistortionModelType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFCameraIntrinsic_DistortionModelType_6KT: MFCameraIntrinsic_DistortionModelType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFCameraIntrinsic_DistortionModelType_ArcTan: MFCameraIntrinsic_DistortionModelType = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFCameraIntrinsic_PinholeCameraModel {
     pub FocalLength: MF_FLOAT2,
     pub PrincipalPoint: MF_FLOAT2,
@@ -42280,10 +43788,15 @@ impl ::core::default::Default for MFCameraIntrinsic_PinholeCameraModel {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFCameraOcclusionState = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFCameraOcclusionState_Open: MFCameraOcclusionState = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFCameraOcclusionState_OccludedByLid: MFCameraOcclusionState = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFCameraOcclusionState_OccludedByCameraHardware: MFCameraOcclusionState = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCancelCreateFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcancelcookie: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -42297,6 +43810,7 @@ pub unsafe fn MFCancelCreateFile<'a, Param0: ::windows::core::IntoParam<'a, ::wi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCancelWorkItem(key: u64) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -42310,6 +43824,7 @@ pub unsafe fn MFCancelWorkItem(key: u64) -> ::windows::core::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCombineSamples<'a, Param0: ::windows::core::IntoParam<'a, IMFSample>, Param1: ::windows::core::IntoParam<'a, IMFSample>>(psample: Param0, psampletoadd: Param1, dwmaxmergeddurationinms: u32) -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -42325,6 +43840,7 @@ pub unsafe fn MFCombineSamples<'a, Param0: ::windows::core::IntoParam<'a, IMFSam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCompareFullToPartialMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftypefull: Param0, pmftypepartial: Param1) -> super::super::Foundation::BOOL {
@@ -42339,6 +43855,7 @@ pub unsafe fn MFCompareFullToPartialMediaType<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFConvertColorInfoFromDXVA(ptoformat: *mut MFVIDEOFORMAT, dwfromdxva: u32) -> ::windows::core::Result<()> {
@@ -42353,6 +43870,7 @@ pub unsafe fn MFConvertColorInfoFromDXVA(ptoformat: *mut MFVIDEOFORMAT, dwfromdx
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFConvertColorInfoToDXVA(pdwtodxva: *mut u32, pfromformat: *const MFVIDEOFORMAT) -> ::windows::core::Result<()> {
@@ -42367,6 +43885,7 @@ pub unsafe fn MFConvertColorInfoToDXVA(pdwtodxva: *mut u32, pfromformat: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFConvertFromFP16Array(pdest: *mut f32, psrc: *const u16, dwcount: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -42380,6 +43899,7 @@ pub unsafe fn MFConvertFromFP16Array(pdest: *mut f32, psrc: *const u16, dwcount:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFConvertToFP16Array(pdest: *mut u16, psrc: *const f32, dwcount: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -42393,6 +43913,7 @@ pub unsafe fn MFConvertToFP16Array(pdest: *mut u16, psrc: *const f32, dwcount: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCopyImage(pdest: *mut u8, ldeststride: i32, psrc: *const u8, lsrcstride: i32, dwwidthinbytes: u32, dwlines: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -42406,6 +43927,7 @@ pub unsafe fn MFCopyImage(pdest: *mut u8, ldeststride: i32, psrc: *const u8, lsr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreate2DMediaBuffer<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(dwwidth: u32, dwheight: u32, dwfourcc: u32, fbottomup: Param3) -> ::windows::core::Result<IMFMediaBuffer> {
@@ -42421,6 +43943,7 @@ pub unsafe fn MFCreate2DMediaBuffer<'a, Param3: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreate3GPMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>, Param2: ::windows::core::IntoParam<'a, IMFMediaType>>(pibytestream: Param0, pvideomediatype: Param1, paudiomediatype: Param2) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
@@ -42435,6 +43958,7 @@ pub unsafe fn MFCreate3GPMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateAC3MediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>>(ptargetbytestream: Param0, paudiomediatype: Param1) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
@@ -42449,6 +43973,7 @@ pub unsafe fn MFCreateAC3MediaSink<'a, Param0: ::windows::core::IntoParam<'a, IM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateADTSMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>>(ptargetbytestream: Param0, paudiomediatype: Param1) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
@@ -42463,6 +43988,7 @@ pub unsafe fn MFCreateADTSMediaSink<'a, Param0: ::windows::core::IntoParam<'a, I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Media_DirectShow'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
 #[inline]
 pub unsafe fn MFCreateAMMediaTypeFromMFMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(pmftype: Param0, guidformatblocktype: Param1, ppamtype: *mut *mut super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
@@ -42477,6 +44003,7 @@ pub unsafe fn MFCreateAMMediaTypeFromMFMediaType<'a, Param0: ::windows::core::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateASFContentInfo() -> ::windows::core::Result<IMFASFContentInfo> {
     #[cfg(windows)]
@@ -42491,6 +44018,7 @@ pub unsafe fn MFCreateASFContentInfo() -> ::windows::core::Result<IMFASFContentI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateASFIndexer() -> ::windows::core::Result<IMFASFIndexer> {
     #[cfg(windows)]
@@ -42505,6 +44033,7 @@ pub unsafe fn MFCreateASFIndexer() -> ::windows::core::Result<IMFASFIndexer> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateASFIndexerByteStream<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(picontentbytestream: Param0, cbindexstartoffset: u64) -> ::windows::core::Result<IMFByteStream> {
     #[cfg(windows)]
@@ -42519,6 +44048,7 @@ pub unsafe fn MFCreateASFIndexerByteStream<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateASFMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(pibytestream: Param0) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
@@ -42533,6 +44063,7 @@ pub unsafe fn MFCreateASFMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateASFMediaSinkActivate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IMFASFContentInfo>>(pwszfilename: Param0, pcontentinfo: Param1) -> ::windows::core::Result<IMFActivate> {
@@ -42548,6 +44079,7 @@ pub unsafe fn MFCreateASFMediaSinkActivate<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateASFMultiplexer() -> ::windows::core::Result<IMFASFMultiplexer> {
     #[cfg(windows)]
@@ -42562,6 +44094,7 @@ pub unsafe fn MFCreateASFMultiplexer() -> ::windows::core::Result<IMFASFMultiple
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateASFProfile() -> ::windows::core::Result<IMFASFProfile> {
     #[cfg(windows)]
@@ -42576,6 +44109,7 @@ pub unsafe fn MFCreateASFProfile() -> ::windows::core::Result<IMFASFProfile> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateASFProfileFromPresentationDescriptor<'a, Param0: ::windows::core::IntoParam<'a, IMFPresentationDescriptor>>(pipd: Param0) -> ::windows::core::Result<IMFASFProfile> {
     #[cfg(windows)]
@@ -42590,6 +44124,7 @@ pub unsafe fn MFCreateASFProfileFromPresentationDescriptor<'a, Param0: ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateASFSplitter() -> ::windows::core::Result<IMFASFSplitter> {
     #[cfg(windows)]
@@ -42604,6 +44139,7 @@ pub unsafe fn MFCreateASFSplitter() -> ::windows::core::Result<IMFASFSplitter> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateASFStreamSelector<'a, Param0: ::windows::core::IntoParam<'a, IMFASFProfile>>(piasfprofile: Param0) -> ::windows::core::Result<IMFASFStreamSelector> {
     #[cfg(windows)]
@@ -42618,6 +44154,7 @@ pub unsafe fn MFCreateASFStreamSelector<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateASFStreamingMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(pibytestream: Param0) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
@@ -42632,6 +44169,7 @@ pub unsafe fn MFCreateASFStreamingMediaSink<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateASFStreamingMediaSinkActivate<'a, Param0: ::windows::core::IntoParam<'a, IMFActivate>, Param1: ::windows::core::IntoParam<'a, IMFASFContentInfo>>(pbytestreamactivate: Param0, pcontentinfo: Param1) -> ::windows::core::Result<IMFActivate> {
     #[cfg(windows)]
@@ -42646,6 +44184,7 @@ pub unsafe fn MFCreateASFStreamingMediaSinkActivate<'a, Param0: ::windows::core:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateAVIMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>, Param2: ::windows::core::IntoParam<'a, IMFMediaType>>(pibytestream: Param0, pvideomediatype: Param1, paudiomediatype: Param2) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
@@ -42660,6 +44199,7 @@ pub unsafe fn MFCreateAVIMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateAggregateSource<'a, Param0: ::windows::core::IntoParam<'a, IMFCollection>>(psourcecollection: Param0) -> ::windows::core::Result<IMFMediaSource> {
     #[cfg(windows)]
@@ -42674,6 +44214,7 @@ pub unsafe fn MFCreateAggregateSource<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateAlignedMemoryBuffer(cbmaxlength: u32, cbaligment: u32) -> ::windows::core::Result<IMFMediaBuffer> {
     #[cfg(windows)]
@@ -42688,6 +44229,7 @@ pub unsafe fn MFCreateAlignedMemoryBuffer(cbmaxlength: u32, cbaligment: u32) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateAsyncResult<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkobject: Param0, pcallback: Param1, punkstate: Param2) -> ::windows::core::Result<IMFAsyncResult> {
     #[cfg(windows)]
@@ -42702,6 +44244,7 @@ pub unsafe fn MFCreateAsyncResult<'a, Param0: ::windows::core::IntoParam<'a, ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateAttributes(ppmfattributes: *mut ::core::option::Option<IMFAttributes>, cinitialsize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -42715,6 +44258,7 @@ pub unsafe fn MFCreateAttributes(ppmfattributes: *mut ::core::option::Option<IMF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Media_Audio'*"]
 #[cfg(feature = "Win32_Media_Audio")]
 #[inline]
 pub unsafe fn MFCreateAudioMediaType(paudioformat: *const super::Audio::WAVEFORMATEX) -> ::windows::core::Result<IMFAudioMediaType> {
@@ -42730,6 +44274,7 @@ pub unsafe fn MFCreateAudioMediaType(paudioformat: *const super::Audio::WAVEFORM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateAudioRenderer<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(paudioattributes: Param0) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
@@ -42744,6 +44289,7 @@ pub unsafe fn MFCreateAudioRenderer<'a, Param0: ::windows::core::IntoParam<'a, I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateAudioRendererActivate() -> ::windows::core::Result<IMFActivate> {
     #[cfg(windows)]
@@ -42758,6 +44304,7 @@ pub unsafe fn MFCreateAudioRendererActivate() -> ::windows::core::Result<IMFActi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateCameraOcclusionStateMonitor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IMFCameraOcclusionStateReportCallback>>(symboliclink: Param0, callback: Param1) -> ::windows::core::Result<IMFCameraOcclusionStateMonitor> {
@@ -42773,6 +44320,7 @@ pub unsafe fn MFCreateCameraOcclusionStateMonitor<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateCollection() -> ::windows::core::Result<IMFCollection> {
     #[cfg(windows)]
@@ -42787,6 +44335,7 @@ pub unsafe fn MFCreateCollection() -> ::windows::core::Result<IMFCollection> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateContentDecryptorContext<'a, Param1: ::windows::core::IntoParam<'a, IMFDXGIDeviceManager>, Param2: ::windows::core::IntoParam<'a, IMFContentProtectionDevice>>(guidmediaprotectionsystemid: *const ::windows::core::GUID, pd3dmanager: Param1, pcontentprotectiondevice: Param2) -> ::windows::core::Result<IMFContentDecryptorContext> {
     #[cfg(windows)]
@@ -42801,6 +44350,7 @@ pub unsafe fn MFCreateContentDecryptorContext<'a, Param1: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateContentProtectionDevice(protectionsystemid: *const ::windows::core::GUID) -> ::windows::core::Result<IMFContentProtectionDevice> {
     #[cfg(windows)]
@@ -42815,6 +44365,7 @@ pub unsafe fn MFCreateContentProtectionDevice(protectionsystemid: *const ::windo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateCredentialCache() -> ::windows::core::Result<IMFNetCredentialCache> {
     #[cfg(windows)]
@@ -42829,6 +44380,7 @@ pub unsafe fn MFCreateCredentialCache() -> ::windows::core::Result<IMFNetCredent
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D12'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[inline]
 pub unsafe fn MFCreateD3D12SynchronizationObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D12::ID3D12Device>>(pdevice: Param0, riid: *const ::windows::core::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -42843,6 +44395,7 @@ pub unsafe fn MFCreateD3D12SynchronizationObject<'a, Param0: ::windows::core::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateDXGIDeviceManager(resettoken: *mut u32, ppdevicemanager: *mut ::core::option::Option<IMFDXGIDeviceManager>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -42856,6 +44409,7 @@ pub unsafe fn MFCreateDXGIDeviceManager(resettoken: *mut u32, ppdevicemanager: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateDXGISurfaceBuffer<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(riid: *const ::windows::core::GUID, punksurface: Param1, usubresourceindex: u32, fbottomupwhenlinear: Param3) -> ::windows::core::Result<IMFMediaBuffer> {
@@ -42871,6 +44425,7 @@ pub unsafe fn MFCreateDXGISurfaceBuffer<'a, Param1: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateDXSurfaceBuffer<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(riid: *const ::windows::core::GUID, punksurface: Param1, fbottomupwhenlinear: Param2) -> ::windows::core::Result<IMFMediaBuffer> {
@@ -42886,6 +44441,7 @@ pub unsafe fn MFCreateDXSurfaceBuffer<'a, Param1: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateDeviceSource<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pattributes: Param0) -> ::windows::core::Result<IMFMediaSource> {
     #[cfg(windows)]
@@ -42900,6 +44456,7 @@ pub unsafe fn MFCreateDeviceSource<'a, Param0: ::windows::core::IntoParam<'a, IM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateDeviceSourceActivate<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pattributes: Param0) -> ::windows::core::Result<IMFActivate> {
     #[cfg(windows)]
@@ -42914,6 +44471,7 @@ pub unsafe fn MFCreateDeviceSourceActivate<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn MFCreateEncryptedMediaExtensionsStoreActivate<'a, Param0: ::windows::core::IntoParam<'a, IMFPMPHostApp>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pmphost: Param0, objectstream: Param1, classid: Param2) -> ::windows::core::Result<IMFActivate> {
@@ -42929,6 +44487,7 @@ pub unsafe fn MFCreateEncryptedMediaExtensionsStoreActivate<'a, Param0: ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateEventQueue() -> ::windows::core::Result<IMFMediaEventQueue> {
     #[cfg(windows)]
@@ -42943,6 +44502,7 @@ pub unsafe fn MFCreateEventQueue() -> ::windows::core::Result<IMFMediaEventQueue
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype: MFCameraIntrinsic_DistortionModelType) -> ::windows::core::Result<IMFExtendedCameraIntrinsicModel> {
     #[cfg(windows)]
@@ -42957,6 +44517,7 @@ pub unsafe fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype: MFCamera
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateExtendedCameraIntrinsics() -> ::windows::core::Result<IMFExtendedCameraIntrinsics> {
     #[cfg(windows)]
@@ -42971,6 +44532,7 @@ pub unsafe fn MFCreateExtendedCameraIntrinsics() -> ::windows::core::Result<IMFE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateFMPEG4MediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>, Param2: ::windows::core::IntoParam<'a, IMFMediaType>>(pibytestream: Param0, pvideomediatype: Param1, paudiomediatype: Param2) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
@@ -42985,6 +44547,7 @@ pub unsafe fn MFCreateFMPEG4MediaSink<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateFile<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, pwszfileurl: Param3) -> ::windows::core::Result<IMFByteStream> {
@@ -43000,6 +44563,7 @@ pub unsafe fn MFCreateFile<'a, Param3: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Media_DxMediaObjects'*"]
 #[cfg(feature = "Win32_Media_DxMediaObjects")]
 #[inline]
 pub unsafe fn MFCreateLegacyMediaBufferOnMFMediaBuffer<'a, Param0: ::windows::core::IntoParam<'a, IMFSample>, Param1: ::windows::core::IntoParam<'a, IMFMediaBuffer>>(psample: Param0, pmfmediabuffer: Param1, cboffset: u32) -> ::windows::core::Result<super::DxMediaObjects::IMediaBuffer> {
@@ -43015,6 +44579,7 @@ pub unsafe fn MFCreateLegacyMediaBufferOnMFMediaBuffer<'a, Param0: ::windows::co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFCreateMFByteStreamOnStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(pstream: Param0) -> ::windows::core::Result<IMFByteStream> {
@@ -43030,6 +44595,7 @@ pub unsafe fn MFCreateMFByteStreamOnStream<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateMFByteStreamOnStreamEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkstream: Param0) -> ::windows::core::Result<IMFByteStream> {
     #[cfg(windows)]
@@ -43044,6 +44610,7 @@ pub unsafe fn MFCreateMFByteStreamOnStreamEx<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateMFByteStreamWrapper<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(pstream: Param0) -> ::windows::core::Result<IMFByteStream> {
     #[cfg(windows)]
@@ -43058,6 +44625,7 @@ pub unsafe fn MFCreateMFByteStreamWrapper<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateMFVideoFormatFromMFMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, ppmfvf: *mut *mut MFVIDEOFORMAT, pcbsize: *mut u32) -> ::windows::core::Result<()> {
@@ -43072,6 +44640,7 @@ pub unsafe fn MFCreateMFVideoFormatFromMFMediaType<'a, Param0: ::windows::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateMP3MediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(ptargetbytestream: Param0) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
@@ -43086,6 +44655,7 @@ pub unsafe fn MFCreateMP3MediaSink<'a, Param0: ::windows::core::IntoParam<'a, IM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateMPEG4MediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>, Param2: ::windows::core::IntoParam<'a, IMFMediaType>>(pibytestream: Param0, pvideomediatype: Param1, paudiomediatype: Param2) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
@@ -43100,6 +44670,7 @@ pub unsafe fn MFCreateMPEG4MediaSink<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateMediaBufferFromMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmediatype: Param0, llduration: i64, dwminlength: u32, dwminalignment: u32) -> ::windows::core::Result<IMFMediaBuffer> {
     #[cfg(windows)]
@@ -43114,6 +44685,7 @@ pub unsafe fn MFCreateMediaBufferFromMediaType<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateMediaBufferWrapper<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaBuffer>>(pbuffer: Param0, cboffset: u32, dwlength: u32) -> ::windows::core::Result<IMFMediaBuffer> {
     #[cfg(windows)]
@@ -43128,6 +44700,7 @@ pub unsafe fn MFCreateMediaBufferWrapper<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn MFCreateMediaEvent(met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<IMFMediaEvent> {
@@ -43143,6 +44716,7 @@ pub unsafe fn MFCreateMediaEvent(met: u32, guidextendedtype: *const ::windows::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateMediaExtensionActivate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(szactivatableclassid: Param0, pconfiguration: Param1, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -43157,6 +44731,7 @@ pub unsafe fn MFCreateMediaExtensionActivate<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateMediaSession<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pconfiguration: Param0) -> ::windows::core::Result<IMFMediaSession> {
     #[cfg(windows)]
@@ -43171,6 +44746,7 @@ pub unsafe fn MFCreateMediaSession<'a, Param0: ::windows::core::IntoParam<'a, IM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateMediaType() -> ::windows::core::Result<IMFMediaType> {
     #[cfg(windows)]
@@ -43185,6 +44761,7 @@ pub unsafe fn MFCreateMediaType() -> ::windows::core::Result<IMFMediaType> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateMediaTypeFromProperties<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkstream: Param0) -> ::windows::core::Result<IMFMediaType> {
     #[cfg(windows)]
@@ -43199,6 +44776,7 @@ pub unsafe fn MFCreateMediaTypeFromProperties<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateMediaTypeFromRepresentation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(guidrepresentation: Param0, pvrepresentation: *const ::core::ffi::c_void) -> ::windows::core::Result<IMFMediaType> {
     #[cfg(windows)]
@@ -43213,6 +44791,7 @@ pub unsafe fn MFCreateMediaTypeFromRepresentation<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateMemoryBuffer(cbmaxlength: u32) -> ::windows::core::Result<IMFMediaBuffer> {
     #[cfg(windows)]
@@ -43227,6 +44806,7 @@ pub unsafe fn MFCreateMemoryBuffer(cbmaxlength: u32) -> ::windows::core::Result<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateMuxSink<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, IMFAttributes>, Param2: ::windows::core::IntoParam<'a, IMFByteStream>>(guidoutputsubtype: Param0, poutputattributes: Param1, poutputbytestream: Param2) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
@@ -43241,6 +44821,7 @@ pub unsafe fn MFCreateMuxSink<'a, Param0: ::windows::core::IntoParam<'a, ::windo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateMuxStreamAttributes<'a, Param0: ::windows::core::IntoParam<'a, IMFCollection>>(pattributestomux: Param0) -> ::windows::core::Result<IMFAttributes> {
     #[cfg(windows)]
@@ -43255,6 +44836,7 @@ pub unsafe fn MFCreateMuxStreamAttributes<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateMuxStreamMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFCollection>>(pmediatypestomux: Param0) -> ::windows::core::Result<IMFMediaType> {
     #[cfg(windows)]
@@ -43269,6 +44851,7 @@ pub unsafe fn MFCreateMuxStreamMediaType<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateMuxStreamSample<'a, Param0: ::windows::core::IntoParam<'a, IMFCollection>>(psamplestomux: Param0) -> ::windows::core::Result<IMFSample> {
     #[cfg(windows)]
@@ -43283,6 +44866,7 @@ pub unsafe fn MFCreateMuxStreamSample<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateNetSchemePlugin(riid: *const ::windows::core::GUID, ppvhandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -43296,6 +44880,7 @@ pub unsafe fn MFCreateNetSchemePlugin(riid: *const ::windows::core::GUID, ppvhan
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreatePMPMediaSession<'a, Param1: ::windows::core::IntoParam<'a, IMFAttributes>>(dwcreationflags: u32, pconfiguration: Param1, ppmediasession: *mut ::core::option::Option<IMFMediaSession>, ppenableractivate: *mut ::core::option::Option<IMFActivate>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -43309,6 +44894,7 @@ pub unsafe fn MFCreatePMPMediaSession<'a, Param1: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreatePMPServer(dwcreationflags: u32) -> ::windows::core::Result<IMFPMPServer> {
     #[cfg(windows)]
@@ -43323,6 +44909,7 @@ pub unsafe fn MFCreatePMPServer(dwcreationflags: u32) -> ::windows::core::Result
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreatePresentationClock() -> ::windows::core::Result<IMFPresentationClock> {
     #[cfg(windows)]
@@ -43337,6 +44924,7 @@ pub unsafe fn MFCreatePresentationClock() -> ::windows::core::Result<IMFPresenta
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreatePresentationDescriptor(cstreamdescriptors: u32, apstreamdescriptors: *const ::core::option::Option<IMFStreamDescriptor>) -> ::windows::core::Result<IMFPresentationDescriptor> {
     #[cfg(windows)]
@@ -43351,6 +44939,7 @@ pub unsafe fn MFCreatePresentationDescriptor(cstreamdescriptors: u32, apstreamde
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreatePresentationDescriptorFromASFProfile<'a, Param0: ::windows::core::IntoParam<'a, IMFASFProfile>>(piprofile: Param0) -> ::windows::core::Result<IMFPresentationDescriptor> {
     #[cfg(windows)]
@@ -43365,6 +44954,7 @@ pub unsafe fn MFCreatePresentationDescriptorFromASFProfile<'a, Param0: ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreatePropertiesFromMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmediatype: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -43378,6 +44968,7 @@ pub unsafe fn MFCreatePropertiesFromMediaType<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateProtectedEnvironmentAccess() -> ::windows::core::Result<IMFProtectedEnvironmentAccess> {
     #[cfg(windows)]
@@ -43392,6 +44983,7 @@ pub unsafe fn MFCreateProtectedEnvironmentAccess() -> ::windows::core::Result<IM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
 pub unsafe fn MFCreateProxyLocator<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>(pszprotocol: Param0, pproxyconfig: Param1) -> ::windows::core::Result<IMFNetProxyLocator> {
@@ -43407,6 +44999,7 @@ pub unsafe fn MFCreateProxyLocator<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateRelativePanelWatcher<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(videodeviceid: Param0, displaymonitordeviceid: Param1) -> ::windows::core::Result<IMFRelativePanelWatcher> {
@@ -43422,6 +45015,7 @@ pub unsafe fn MFCreateRelativePanelWatcher<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateRemoteDesktopPlugin() -> ::windows::core::Result<IMFRemoteDesktopPlugin> {
     #[cfg(windows)]
@@ -43436,6 +45030,7 @@ pub unsafe fn MFCreateRemoteDesktopPlugin() -> ::windows::core::Result<IMFRemote
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateSample() -> ::windows::core::Result<IMFSample> {
     #[cfg(windows)]
@@ -43450,6 +45045,7 @@ pub unsafe fn MFCreateSample() -> ::windows::core::Result<IMFSample> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateSampleCopierMFT() -> ::windows::core::Result<IMFTransform> {
     #[cfg(windows)]
@@ -43464,6 +45060,7 @@ pub unsafe fn MFCreateSampleCopierMFT() -> ::windows::core::Result<IMFTransform>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateSampleGrabberSinkActivate<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, IMFSampleGrabberSinkCallback>>(pimfmediatype: Param0, pimfsamplegrabbersinkcallback: Param1) -> ::windows::core::Result<IMFActivate> {
     #[cfg(windows)]
@@ -43478,6 +45075,7 @@ pub unsafe fn MFCreateSampleGrabberSinkActivate<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateSensorActivityMonitor<'a, Param0: ::windows::core::IntoParam<'a, IMFSensorActivitiesReportCallback>>(pcallback: Param0) -> ::windows::core::Result<IMFSensorActivityMonitor> {
     #[cfg(windows)]
@@ -43492,6 +45090,7 @@ pub unsafe fn MFCreateSensorActivityMonitor<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateSensorGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(sensorgroupsymboliclink: Param0) -> ::windows::core::Result<IMFSensorGroup> {
@@ -43507,6 +45106,7 @@ pub unsafe fn MFCreateSensorGroup<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateSensorProfile<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(profiletype: *const ::windows::core::GUID, profileindex: u32, constraints: Param2) -> ::windows::core::Result<IMFSensorProfile> {
@@ -43522,6 +45122,7 @@ pub unsafe fn MFCreateSensorProfile<'a, Param2: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateSensorProfileCollection() -> ::windows::core::Result<IMFSensorProfileCollection> {
     #[cfg(windows)]
@@ -43536,6 +45137,7 @@ pub unsafe fn MFCreateSensorProfileCollection() -> ::windows::core::Result<IMFSe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateSensorStream<'a, Param1: ::windows::core::IntoParam<'a, IMFAttributes>, Param2: ::windows::core::IntoParam<'a, IMFCollection>>(streamid: u32, pattributes: Param1, pmediatypecollection: Param2) -> ::windows::core::Result<IMFSensorStream> {
     #[cfg(windows)]
@@ -43550,6 +45152,7 @@ pub unsafe fn MFCreateSensorStream<'a, Param1: ::windows::core::IntoParam<'a, IM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn MFCreateSequencerSegmentOffset(dwid: u32, hnsoffset: i64) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -43565,6 +45168,7 @@ pub unsafe fn MFCreateSequencerSegmentOffset(dwid: u32, hnsoffset: i64) -> ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateSequencerSource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(preserved: Param0) -> ::windows::core::Result<IMFSequencerSource> {
     #[cfg(windows)]
@@ -43579,6 +45183,7 @@ pub unsafe fn MFCreateSequencerSource<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateSimpleTypeHandler() -> ::windows::core::Result<IMFMediaTypeHandler> {
     #[cfg(windows)]
@@ -43593,6 +45198,7 @@ pub unsafe fn MFCreateSimpleTypeHandler() -> ::windows::core::Result<IMFMediaTyp
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateSinkWriterFromMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaSink>, Param1: ::windows::core::IntoParam<'a, IMFAttributes>>(pmediasink: Param0, pattributes: Param1) -> ::windows::core::Result<IMFSinkWriter> {
     #[cfg(windows)]
@@ -43607,6 +45213,7 @@ pub unsafe fn MFCreateSinkWriterFromMediaSink<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateSinkWriterFromURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IMFByteStream>, Param2: ::windows::core::IntoParam<'a, IMFAttributes>>(pwszoutputurl: Param0, pbytestream: Param1, pattributes: Param2) -> ::windows::core::Result<IMFSinkWriter> {
@@ -43622,6 +45229,7 @@ pub unsafe fn MFCreateSinkWriterFromURL<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateSourceReaderFromByteStream<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFAttributes>>(pbytestream: Param0, pattributes: Param1) -> ::windows::core::Result<IMFSourceReader> {
     #[cfg(windows)]
@@ -43636,6 +45244,7 @@ pub unsafe fn MFCreateSourceReaderFromByteStream<'a, Param0: ::windows::core::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateSourceReaderFromMediaSource<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaSource>, Param1: ::windows::core::IntoParam<'a, IMFAttributes>>(pmediasource: Param0, pattributes: Param1) -> ::windows::core::Result<IMFSourceReader> {
     #[cfg(windows)]
@@ -43650,6 +45259,7 @@ pub unsafe fn MFCreateSourceReaderFromMediaSource<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateSourceReaderFromURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IMFAttributes>>(pwszurl: Param0, pattributes: Param1) -> ::windows::core::Result<IMFSourceReader> {
@@ -43665,6 +45275,7 @@ pub unsafe fn MFCreateSourceReaderFromURL<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateSourceResolver() -> ::windows::core::Result<IMFSourceResolver> {
     #[cfg(windows)]
@@ -43679,6 +45290,7 @@ pub unsafe fn MFCreateSourceResolver() -> ::windows::core::Result<IMFSourceResol
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateStandardQualityManager() -> ::windows::core::Result<IMFQualityManager> {
     #[cfg(windows)]
@@ -43693,6 +45305,7 @@ pub unsafe fn MFCreateStandardQualityManager() -> ::windows::core::Result<IMFQua
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateStreamDescriptor(dwstreamidentifier: u32, cmediatypes: u32, apmediatypes: *const ::core::option::Option<IMFMediaType>) -> ::windows::core::Result<IMFStreamDescriptor> {
     #[cfg(windows)]
@@ -43707,6 +45320,7 @@ pub unsafe fn MFCreateStreamDescriptor(dwstreamidentifier: u32, cmediatypes: u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFCreateStreamOnMFByteStream<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(pbytestream: Param0) -> ::windows::core::Result<super::super::System::Com::IStream> {
@@ -43722,6 +45336,7 @@ pub unsafe fn MFCreateStreamOnMFByteStream<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateStreamOnMFByteStreamEx<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>>(pbytestream: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -43735,6 +45350,7 @@ pub unsafe fn MFCreateStreamOnMFByteStreamEx<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateSystemTimeSource() -> ::windows::core::Result<IMFPresentationTimeSource> {
     #[cfg(windows)]
@@ -43749,6 +45365,7 @@ pub unsafe fn MFCreateSystemTimeSource() -> ::windows::core::Result<IMFPresentat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateTempFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS) -> ::windows::core::Result<IMFByteStream> {
     #[cfg(windows)]
@@ -43763,6 +45380,7 @@ pub unsafe fn MFCreateTempFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateTopoLoader() -> ::windows::core::Result<IMFTopoLoader> {
     #[cfg(windows)]
@@ -43777,6 +45395,7 @@ pub unsafe fn MFCreateTopoLoader() -> ::windows::core::Result<IMFTopoLoader> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateTopology() -> ::windows::core::Result<IMFTopology> {
     #[cfg(windows)]
@@ -43791,6 +45410,7 @@ pub unsafe fn MFCreateTopology() -> ::windows::core::Result<IMFTopology> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateTopologyNode(nodetype: MF_TOPOLOGY_TYPE) -> ::windows::core::Result<IMFTopologyNode> {
     #[cfg(windows)]
@@ -43805,6 +45425,7 @@ pub unsafe fn MFCreateTopologyNode(nodetype: MF_TOPOLOGY_TYPE) -> ::windows::cor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateTrackedSample() -> ::windows::core::Result<IMFTrackedSample> {
     #[cfg(windows)]
@@ -43819,6 +45440,7 @@ pub unsafe fn MFCreateTrackedSample() -> ::windows::core::Result<IMFTrackedSampl
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateTranscodeProfile() -> ::windows::core::Result<IMFTranscodeProfile> {
     #[cfg(windows)]
@@ -43833,6 +45455,7 @@ pub unsafe fn MFCreateTranscodeProfile() -> ::windows::core::Result<IMFTranscode
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateTranscodeSinkActivate() -> ::windows::core::Result<IMFActivate> {
     #[cfg(windows)]
@@ -43847,6 +45470,7 @@ pub unsafe fn MFCreateTranscodeSinkActivate() -> ::windows::core::Result<IMFActi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateTranscodeTopology<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaSource>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, IMFTranscodeProfile>>(psrc: Param0, pwszoutputfilepath: Param1, pprofile: Param2) -> ::windows::core::Result<IMFTopology> {
@@ -43862,6 +45486,7 @@ pub unsafe fn MFCreateTranscodeTopology<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateTranscodeTopologyFromByteStream<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaSource>, Param1: ::windows::core::IntoParam<'a, IMFByteStream>, Param2: ::windows::core::IntoParam<'a, IMFTranscodeProfile>>(psrc: Param0, poutputstream: Param1, pprofile: Param2) -> ::windows::core::Result<IMFTopology> {
     #[cfg(windows)]
@@ -43876,6 +45501,7 @@ pub unsafe fn MFCreateTranscodeTopologyFromByteStream<'a, Param0: ::windows::cor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateTransformActivate() -> ::windows::core::Result<IMFActivate> {
     #[cfg(windows)]
@@ -43890,6 +45516,7 @@ pub unsafe fn MFCreateTransformActivate() -> ::windows::core::Result<IMFActivate
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT) -> ::windows::core::Result<IMFVideoMediaType> {
@@ -43905,6 +45532,7 @@ pub unsafe fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT) -> ::wi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, qwframespersecondnumerator: u64, qwframesperseconddenominator: u64, dwmaxbitrate: u32) -> ::windows::core::Result<IMFVideoMediaType> {
@@ -43920,6 +45548,7 @@ pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbitmapinfoheader: u32, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, dwframespersecondnumerator: u32, dwframesperseconddenominator: u32, dwmaxbitrate: u32) -> ::windows::core::Result<IMFVideoMediaType> {
@@ -43935,6 +45564,7 @@ pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: *const ::windows::core::GUID) -> ::windows::core::Result<IMFVideoMediaType> {
     #[cfg(windows)]
@@ -43949,6 +45579,7 @@ pub unsafe fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: *const ::windows::co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateVideoMixer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(powner: Param0, riiddevice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -43962,6 +45593,7 @@ pub unsafe fn MFCreateVideoMixer<'a, Param0: ::windows::core::IntoParam<'a, ::wi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateVideoMixerAndPresenter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pmixerowner: Param0, ppresenterowner: Param1, riidmixer: *const ::windows::core::GUID, ppvvideomixer: *mut *mut ::core::ffi::c_void, riidpresenter: *const ::windows::core::GUID, ppvvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -43975,6 +45607,7 @@ pub unsafe fn MFCreateVideoMixerAndPresenter<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateVideoPresenter<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(powner: Param0, riiddevice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvideopresenter: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -43988,6 +45621,7 @@ pub unsafe fn MFCreateVideoPresenter<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateVideoRenderer(riidrenderer: *const ::windows::core::GUID, ppvideorenderer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -44001,6 +45635,7 @@ pub unsafe fn MFCreateVideoRenderer(riidrenderer: *const ::windows::core::GUID, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateVideoRendererActivate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndvideo: Param0) -> ::windows::core::Result<IMFActivate> {
@@ -44016,6 +45651,7 @@ pub unsafe fn MFCreateVideoRendererActivate<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateVideoSampleAllocator(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -44029,6 +45665,7 @@ pub unsafe fn MFCreateVideoSampleAllocator(riid: *const ::windows::core::GUID, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateVideoSampleAllocatorEx(riid: *const ::windows::core::GUID, ppsampleallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -44042,6 +45679,7 @@ pub unsafe fn MFCreateVideoSampleAllocatorEx(riid: *const ::windows::core::GUID,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateVideoSampleFromSurface<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punksurface: Param0) -> ::windows::core::Result<IMFSample> {
     #[cfg(windows)]
@@ -44056,6 +45694,7 @@ pub unsafe fn MFCreateVideoSampleFromSurface<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateVirtualCamera<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001, lifetime: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002, access: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003, friendlyname: Param3, sourceid: Param4, categories: *const ::windows::core::GUID, categorycount: u32) -> ::windows::core::Result<IMFVirtualCamera> {
@@ -44071,6 +45710,7 @@ pub unsafe fn MFCreateVirtualCamera<'a, Param3: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateWAVEMediaSink<'a, Param0: ::windows::core::IntoParam<'a, IMFByteStream>, Param1: ::windows::core::IntoParam<'a, IMFMediaType>>(ptargetbytestream: Param0, paudiomediatype: Param1) -> ::windows::core::Result<IMFMediaSink> {
     #[cfg(windows)]
@@ -44085,6 +45725,7 @@ pub unsafe fn MFCreateWAVEMediaSink<'a, Param0: ::windows::core::IntoParam<'a, I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFCreateWICBitmapBuffer<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(riid: *const ::windows::core::GUID, punksurface: Param1) -> ::windows::core::Result<IMFMediaBuffer> {
     #[cfg(windows)]
@@ -44099,6 +45740,7 @@ pub unsafe fn MFCreateWICBitmapBuffer<'a, Param1: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
 pub unsafe fn MFCreateWMAEncoderActivate<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>(pmediatype: Param0, pencodingconfigurationproperties: Param1) -> ::windows::core::Result<IMFActivate> {
@@ -44114,6 +45756,7 @@ pub unsafe fn MFCreateWMAEncoderActivate<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
 pub unsafe fn MFCreateWMVEncoderActivate<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::IPropertyStore>>(pmediatype: Param0, pencodingconfigurationproperties: Param1) -> ::windows::core::Result<IMFActivate> {
@@ -44129,6 +45772,7 @@ pub unsafe fn MFCreateWMVEncoderActivate<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Media_Audio'*"]
 #[cfg(feature = "Win32_Media_Audio")]
 #[inline]
 pub unsafe fn MFCreateWaveFormatExFromMFMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, ppwf: *mut *mut super::Audio::WAVEFORMATEX, pcbsize: *mut u32, flags: u32) -> ::windows::core::Result<()> {
@@ -44143,9 +45787,13 @@ pub unsafe fn MFCreateWaveFormatExFromMFMediaType<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFDepthMeasurement = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DistanceToFocalPlane: MFDepthMeasurement = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const DistanceToOpticalCenter: MFDepthMeasurement = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFDeserializeAttributesFromStream<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(pattr: Param0, dwoptions: u32, pstm: Param2) -> ::windows::core::Result<()> {
@@ -44160,6 +45808,7 @@ pub unsafe fn MFDeserializeAttributesFromStream<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFDeserializePresentationDescriptor(cbdata: u32, pbdata: *const u8) -> ::windows::core::Result<IMFPresentationDescriptor> {
     #[cfg(windows)]
@@ -44181,6 +45830,7 @@ pub const MFENABLETYPE_WMDRMV1_LicenseAcquisition: ::windows::core::GUID = ::win
 pub const MFENABLETYPE_WMDRMV7_Individualization: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacd2c84a_b303_4f65_bc2c_2c848d01a989);
 pub const MFENABLETYPE_WMDRMV7_LicenseAcquisition: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x003306df_4a06_4884_a097_ef6d22ec84a3);
 pub const MFEVRDLL: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFEndCreateFile<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncResult>>(presult: Param0) -> ::windows::core::Result<IMFByteStream> {
     #[cfg(windows)]
@@ -44195,6 +45845,7 @@ pub unsafe fn MFEndCreateFile<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyn
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFEndRegisterWorkQueueWithMMCSS<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncResult>>(presult: Param0) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
@@ -44209,6 +45860,7 @@ pub unsafe fn MFEndRegisterWorkQueueWithMMCSS<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFEndUnregisterWorkQueueWithMMCSS<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncResult>>(presult: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -44222,6 +45874,7 @@ pub unsafe fn MFEndUnregisterWorkQueueWithMMCSS<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFEnumDeviceSources<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pattributes: Param0, pppsourceactivate: *mut *mut ::core::option::Option<IMFActivate>, pcsourceactivate: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -44236,6 +45889,7 @@ pub unsafe fn MFEnumDeviceSources<'a, Param0: ::windows::core::IntoParam<'a, IMF
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFExtendedCameraIntrinsic_IntrinsicModel {
     pub Width: u32,
     pub Height: u32,
@@ -44265,6 +45919,7 @@ impl ::core::default::Default for MFExtendedCameraIntrinsic_IntrinsicModel {
 pub const MFFLACBytestreamHandler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e41cfb8_0506_40f4_a516_77cc23642d91);
 pub const MFFLACSinkClassFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d39c56f_6075_47c9_9bae_8cf9e531b5f5);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFFOLDDOWN_MATRIX {
     pub cbSize: u32,
     pub cSrcChannels: u32,
@@ -44292,6 +45947,7 @@ impl ::core::default::Default for MFFOLDDOWN_MATRIX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFFrameRateToAverageTimePerFrame(unnumerator: u32, undenominator: u32) -> ::windows::core::Result<u64> {
     #[cfg(windows)]
@@ -44306,12 +45962,19 @@ pub unsafe fn MFFrameRateToAverageTimePerFrame(unnumerator: u32, undenominator: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFFrameSourceTypes = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFFrameSourceTypes_Color: MFFrameSourceTypes = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFFrameSourceTypes_Infrared: MFFrameSourceTypes = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFFrameSourceTypes_Depth: MFFrameSourceTypes = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFFrameSourceTypes_Image: MFFrameSourceTypes = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFFrameSourceTypes_Custom: MFFrameSourceTypes = 128i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFGetAttributesAsBlob<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pattributes: Param0, pbuf: *mut u8, cbbufsize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -44325,6 +45988,7 @@ pub unsafe fn MFGetAttributesAsBlob<'a, Param0: ::windows::core::IntoParam<'a, I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFGetAttributesAsBlobSize<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pattributes: Param0) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
@@ -44339,6 +46003,7 @@ pub unsafe fn MFGetAttributesAsBlobSize<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: *const ::windows::core::GUID) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
@@ -44353,6 +46018,7 @@ pub unsafe fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: *const :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFGetLocalId(verifier: *const u8, size: u32) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
@@ -44368,6 +46034,7 @@ pub unsafe fn MFGetLocalId(verifier: *const u8, size: u32) -> ::windows::core::R
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFGetMFTMerit<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pmft: Param0, cbverifier: u32, verifier: *const u8, merit: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -44381,6 +46048,7 @@ pub unsafe fn MFGetMFTMerit<'a, Param0: ::windows::core::IntoParam<'a, ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFGetPlaneSize(format: u32, dwwidth: u32, dwheight: u32) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
@@ -44395,6 +46063,7 @@ pub unsafe fn MFGetPlaneSize(format: u32, dwwidth: u32, dwheight: u32) -> ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFGetPluginControl() -> ::windows::core::Result<IMFPluginControl> {
     #[cfg(windows)]
@@ -44409,6 +46078,7 @@ pub unsafe fn MFGetPluginControl() -> ::windows::core::Result<IMFPluginControl> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFGetService<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkobject: Param0, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -44422,6 +46092,7 @@ pub unsafe fn MFGetService<'a, Param0: ::windows::core::IntoParam<'a, ::windows:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFGetStrideForBitmapInfoHeader(format: u32, dwwidth: u32) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
@@ -44436,6 +46107,7 @@ pub unsafe fn MFGetStrideForBitmapInfoHeader(format: u32, dwwidth: u32) -> ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn MFGetSupportedMimeTypes() -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -44451,6 +46123,7 @@ pub unsafe fn MFGetSupportedMimeTypes() -> ::windows::core::Result<super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn MFGetSupportedSchemes() -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -44466,6 +46139,7 @@ pub unsafe fn MFGetSupportedSchemes() -> ::windows::core::Result<super::super::S
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFGetSystemId() -> ::windows::core::Result<IMFSystemId> {
     #[cfg(windows)]
@@ -44480,6 +46154,7 @@ pub unsafe fn MFGetSystemId() -> ::windows::core::Result<IMFSystemId> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFGetSystemTime() -> i64 {
     #[cfg(windows)]
@@ -44493,6 +46168,7 @@ pub unsafe fn MFGetSystemTime() -> i64 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFGetTimerPeriodicity() -> ::windows::core::Result<u32> {
     #[cfg(windows)]
@@ -44507,6 +46183,7 @@ pub unsafe fn MFGetTimerPeriodicity() -> ::windows::core::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFGetTopoNodeCurrentType<'a, Param0: ::windows::core::IntoParam<'a, IMFTopologyNode>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pnode: Param0, dwstreamindex: u32, foutput: Param2) -> ::windows::core::Result<IMFMediaType> {
@@ -44522,6 +46199,7 @@ pub unsafe fn MFGetTopoNodeCurrentType<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFGetUncompressedVideoFormat(pvideoformat: *const MFVIDEOFORMAT) -> u32 {
@@ -44536,6 +46214,7 @@ pub unsafe fn MFGetUncompressedVideoFormat(pvideoformat: *const MFVIDEOFORMAT) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFGetWorkQueueMMCSSClass(dwworkqueueid: u32, pwszclass: super::super::Foundation::PWSTR, pcchclass: *mut u32) -> ::windows::core::Result<()> {
@@ -44550,6 +46229,7 @@ pub unsafe fn MFGetWorkQueueMMCSSClass(dwworkqueueid: u32, pwszclass: super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFGetWorkQueueMMCSSPriority(dwworkqueueid: u32) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
@@ -44564,6 +46244,7 @@ pub unsafe fn MFGetWorkQueueMMCSSPriority(dwworkqueueid: u32) -> ::windows::core
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFGetWorkQueueMMCSSTaskId(dwworkqueueid: u32) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
@@ -44578,6 +46259,7 @@ pub unsafe fn MFGetWorkQueueMMCSSTaskId(dwworkqueueid: u32) -> ::windows::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFHeapAlloc<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(nsize: usize, dwflags: u32, pszfile: Param2, line: i32, eat: EAllocationType) -> *mut ::core::ffi::c_void {
@@ -44592,6 +46274,7 @@ pub unsafe fn MFHeapAlloc<'a, Param2: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFHeapFree(pv: *mut ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -44606,6 +46289,7 @@ pub unsafe fn MFHeapFree(pv: *mut ::core::ffi::c_void) {
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
     pub Action: MFPOLICYMANAGER_ACTION,
     pub pbTicket: *mut u8,
@@ -44632,6 +46316,7 @@ impl ::core::default::Default for MFINPUTTRUSTAUTHORITY_ACCESS_ACTION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
     pub dwSize: u32,
     pub dwVer: u32,
@@ -44664,6 +46349,7 @@ impl ::core::default::Default for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
 }
 pub const MFImageFormat_JPEG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19e4a5aa_5662_4fc5_a0c0_1758028e1057);
 pub const MFImageFormat_RGB32: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000016_0000_0010_8000_00aa00389b71);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Media_DirectShow'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
 #[inline]
 pub unsafe fn MFInitAMMediaTypeFromMFMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(pmftype: Param0, guidformatblocktype: Param1, pamtype: *mut super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
@@ -44678,6 +46364,7 @@ pub unsafe fn MFInitAMMediaTypeFromMFMediaType<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFInitAttributesFromBlob<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(pattributes: Param0, pbuf: *const u8, cbbufsize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -44691,6 +46378,7 @@ pub unsafe fn MFInitAttributesFromBlob<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Media_DirectShow'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromAMMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pamtype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
@@ -44705,6 +46393,7 @@ pub unsafe fn MFInitMediaTypeFromAMMediaType<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromMFVideoFormat<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmfvf: *const MFVIDEOFORMAT, cbbufsize: u32) -> ::windows::core::Result<()> {
@@ -44719,6 +46408,7 @@ pub unsafe fn MFInitMediaTypeFromMFVideoFormat<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Media_DirectShow'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromMPEG1VideoInfo<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmp1vi: *const super::DirectShow::MPEG1VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -44733,6 +46423,7 @@ pub unsafe fn MFInitMediaTypeFromMPEG1VideoInfo<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Media_DirectShow'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromMPEG2VideoInfo<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmp2vi: *const super::DirectShow::MPEG2VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -44747,6 +46438,7 @@ pub unsafe fn MFInitMediaTypeFromMPEG2VideoInfo<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Media_DirectShow'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromVideoInfoHeader<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pvih: *const super::DirectShow::VIDEOINFOHEADER, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -44761,6 +46453,7 @@ pub unsafe fn MFInitMediaTypeFromVideoInfoHeader<'a, Param0: ::windows::core::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Media_DirectShow'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromVideoInfoHeader2<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pvih2: *const super::DirectShow::VIDEOINFOHEADER2, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -44775,6 +46468,7 @@ pub unsafe fn MFInitMediaTypeFromVideoInfoHeader2<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Media_Audio'*"]
 #[cfg(feature = "Win32_Media_Audio")]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromWaveFormatEx<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pwaveformat: *const super::Audio::WAVEFORMATEX, cbbufsize: u32) -> ::windows::core::Result<()> {
@@ -44789,6 +46483,7 @@ pub unsafe fn MFInitMediaTypeFromWaveFormatEx<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitVideoFormat(pvideoformat: *const MFVIDEOFORMAT, r#type: MFStandardVideoFormat) -> ::windows::core::Result<()> {
@@ -44803,6 +46498,7 @@ pub unsafe fn MFInitVideoFormat(pvideoformat: *const MFVIDEOFORMAT, r#type: MFSt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitVideoFormat_RGB(pvideoformat: *const MFVIDEOFORMAT, dwwidth: u32, dwheight: u32, d3dfmt: u32) -> ::windows::core::Result<()> {
@@ -44817,6 +46513,7 @@ pub unsafe fn MFInitVideoFormat_RGB(pvideoformat: *const MFVIDEOFORMAT, dwwidth:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFInvokeCallback<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncResult>>(pasyncresult: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -44830,6 +46527,7 @@ pub unsafe fn MFInvokeCallback<'a, Param0: ::windows::core::IntoParam<'a, IMFAsy
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -44845,6 +46543,7 @@ pub unsafe fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFIsFormatYUV(format: u32) -> super::super::Foundation::BOOL {
@@ -44859,6 +46558,7 @@ pub unsafe fn MFIsFormatYUV(format: u32) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFIsVirtualCameraTypeSupported(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001) -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -44874,6 +46574,7 @@ pub unsafe fn MFIsVirtualCameraTypeSupported(r#type: __MIDL___MIDL_itf_mfvirtual
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFLoadSignedLibrary<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszname: Param0) -> ::windows::core::Result<IMFSignedLibrary> {
@@ -44889,6 +46590,7 @@ pub unsafe fn MFLoadSignedLibrary<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFLockDXGIDeviceManager(presettoken: *mut u32, ppmanager: *mut ::core::option::Option<IMFDXGIDeviceManager>) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -44902,6 +46604,7 @@ pub unsafe fn MFLockDXGIDeviceManager(presettoken: *mut u32, ppmanager: *mut ::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFLockPlatform() -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -44915,6 +46618,7 @@ pub unsafe fn MFLockPlatform() -> ::windows::core::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFLockSharedWorkQueue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(wszclass: Param0, basepriority: i32, pdwtaskid: *mut u32, pid: *mut u32) -> ::windows::core::Result<()> {
@@ -44929,6 +46633,7 @@ pub unsafe fn MFLockSharedWorkQueue<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFLockWorkQueue(dwworkqueue: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -44942,16 +46647,26 @@ pub unsafe fn MFLockWorkQueue(dwworkqueue: u32) -> ::windows::core::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFMEDIASOURCE_CHARACTERISTICS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFMEDIASOURCE_IS_LIVE: MFMEDIASOURCE_CHARACTERISTICS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFMEDIASOURCE_CAN_SEEK: MFMEDIASOURCE_CHARACTERISTICS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFMEDIASOURCE_CAN_PAUSE: MFMEDIASOURCE_CHARACTERISTICS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFMEDIASOURCE_HAS_SLOW_SEEK: MFMEDIASOURCE_CHARACTERISTICS = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFMEDIASOURCE_HAS_MULTIPLE_PRESENTATIONS: MFMEDIASOURCE_CHARACTERISTICS = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFMEDIASOURCE_CAN_SKIPFORWARD: MFMEDIASOURCE_CHARACTERISTICS = 32i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFMEDIASOURCE_CAN_SKIPBACKWARD: MFMEDIASOURCE_CHARACTERISTICS = 64i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFMEDIASOURCE_DOES_NOT_USE_NETWORK: MFMEDIASOURCE_CHARACTERISTICS = 128i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MFMPEG2DLNASINKSTATS {
     pub cBytesWritten: u64,
@@ -44996,6 +46711,7 @@ impl ::core::default::Default for MFMPEG2DLNASINKSTATS {
     }
 }
 pub const MFMPEG4Format_Base: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_767a_494d_b478_f29d25dc9037);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[inline]
 pub unsafe fn MFMapDX9FormatToDXGIFormat(dx9: u32) -> super::super::Graphics::Dxgi::Common::DXGI_FORMAT {
@@ -45010,6 +46726,7 @@ pub unsafe fn MFMapDX9FormatToDXGIFormat(dx9: u32) -> super::super::Graphics::Dx
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[inline]
 pub unsafe fn MFMapDXGIFormatToDX9Format(dx11: super::super::Graphics::Dxgi::Common::DXGI_FORMAT) -> u32 {
@@ -45025,6 +46742,7 @@ pub unsafe fn MFMapDXGIFormatToDX9Format(dx11: super::super::Graphics::Dxgi::Com
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFMediaKeyStatus {
     pub pbKeyId: *mut u8,
     pub cbKeyId: u32,
@@ -45072,9 +46790,13 @@ pub const MFNETSOURCE_BROWSERUSERAGENT: ::windows::core::GUID = ::windows::core:
 pub const MFNETSOURCE_BROWSERWEBPAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb1f28c_0505_4c5d_ae71_0a556344efa1);
 pub const MFNETSOURCE_BUFFERINGTIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb1f276_0505_4c5d_ae71_0a556344efa1);
 pub const MFNETSOURCE_CACHEENABLED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb1f279_0505_4c5d_ae71_0a556344efa1);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFNETSOURCE_CACHE_STATE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_CACHE_UNAVAILABLE: MFNETSOURCE_CACHE_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_CACHE_ACTIVE_WRITING: MFNETSOURCE_CACHE_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_CACHE_ACTIVE_COMPLETE: MFNETSOURCE_CACHE_STATE = 2i32;
 pub const MFNETSOURCE_CLIENTGUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60a2c4a6_f197_4c14_a5bf_88830d2458af);
 pub const MFNETSOURCE_CONNECTIONBANDWIDTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb1f278_0505_4c5d_ae71_0a556344efa1);
@@ -45104,11 +46826,17 @@ pub const MFNETSOURCE_PLAYERVERSION: ::windows::core::GUID = ::windows::core::GU
 pub const MFNETSOURCE_PPBANDWIDTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb1f281_0505_4c5d_ae71_0a556344efa1);
 pub const MFNETSOURCE_PREVIEWMODEENABLED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb1f27f_0505_4c5d_ae71_0a556344efa1);
 pub const MFNETSOURCE_PROTOCOL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb1f27d_0505_4c5d_ae71_0a556344efa1);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFNETSOURCE_PROTOCOL_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_UNDEFINED: MFNETSOURCE_PROTOCOL_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_HTTP: MFNETSOURCE_PROTOCOL_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_RTSP: MFNETSOURCE_PROTOCOL_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_FILE: MFNETSOURCE_PROTOCOL_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_MULTICAST: MFNETSOURCE_PROTOCOL_TYPE = 4i32;
 pub const MFNETSOURCE_PROXYBYPASSFORLOCAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb1f286_0505_4c5d_ae71_0a556344efa1);
 pub const MFNETSOURCE_PROXYEXCEPTIONLIST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb1f285_0505_4c5d_ae71_0a556344efa1);
@@ -45122,56 +46850,100 @@ pub const MFNETSOURCE_RESENDSENABLED: ::windows::core::GUID = ::windows::core::G
 pub const MFNETSOURCE_RESOURCE_FILTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x815d0ff6_265a_4477_9e46_7b80ad80b5fb);
 pub const MFNETSOURCE_SSLCERTIFICATE_MANAGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55e6cb27_e69b_4267_940c_2d7ec5bb8a0f);
 pub const MFNETSOURCE_STATISTICS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb1f274_0505_4c5d_ae71_0a556344efa1);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFNETSOURCE_STATISTICS_IDS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_RECVPACKETS_ID: MFNETSOURCE_STATISTICS_IDS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_LOSTPACKETS_ID: MFNETSOURCE_STATISTICS_IDS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_RESENDSREQUESTED_ID: MFNETSOURCE_STATISTICS_IDS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_RESENDSRECEIVED_ID: MFNETSOURCE_STATISTICS_IDS = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_RECOVEREDBYECCPACKETS_ID: MFNETSOURCE_STATISTICS_IDS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_RECOVEREDBYRTXPACKETS_ID: MFNETSOURCE_STATISTICS_IDS = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_OUTPACKETS_ID: MFNETSOURCE_STATISTICS_IDS = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_RECVRATE_ID: MFNETSOURCE_STATISTICS_IDS = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_AVGBANDWIDTHBPS_ID: MFNETSOURCE_STATISTICS_IDS = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_BYTESRECEIVED_ID: MFNETSOURCE_STATISTICS_IDS = 9i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_PROTOCOL_ID: MFNETSOURCE_STATISTICS_IDS = 10i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_TRANSPORT_ID: MFNETSOURCE_STATISTICS_IDS = 11i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_CACHE_STATE_ID: MFNETSOURCE_STATISTICS_IDS = 12i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_LINKBANDWIDTH_ID: MFNETSOURCE_STATISTICS_IDS = 13i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_CONTENTBITRATE_ID: MFNETSOURCE_STATISTICS_IDS = 14i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_SPEEDFACTOR_ID: MFNETSOURCE_STATISTICS_IDS = 15i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_BUFFERSIZE_ID: MFNETSOURCE_STATISTICS_IDS = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_BUFFERPROGRESS_ID: MFNETSOURCE_STATISTICS_IDS = 17i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_LASTBWSWITCHTS_ID: MFNETSOURCE_STATISTICS_IDS = 18i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_SEEKRANGESTART_ID: MFNETSOURCE_STATISTICS_IDS = 19i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_SEEKRANGEEND_ID: MFNETSOURCE_STATISTICS_IDS = 20i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_BUFFERINGCOUNT_ID: MFNETSOURCE_STATISTICS_IDS = 21i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_INCORRECTLYSIGNEDPACKETS_ID: MFNETSOURCE_STATISTICS_IDS = 22i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_SIGNEDSESSION_ID: MFNETSOURCE_STATISTICS_IDS = 23i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_MAXBITRATE_ID: MFNETSOURCE_STATISTICS_IDS = 24i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_RECEPTION_QUALITY_ID: MFNETSOURCE_STATISTICS_IDS = 25i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_RECOVEREDPACKETS_ID: MFNETSOURCE_STATISTICS_IDS = 26i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_VBR_ID: MFNETSOURCE_STATISTICS_IDS = 27i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_DOWNLOADPROGRESS_ID: MFNETSOURCE_STATISTICS_IDS = 28i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_UNPREDEFINEDPROTOCOLNAME_ID: MFNETSOURCE_STATISTICS_IDS = 29i32;
 pub const MFNETSOURCE_STATISTICS_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb1f275_0505_4c5d_ae71_0a556344efa1);
 pub const MFNETSOURCE_STREAM_LANGUAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ab44318_f7cd_4f2d_8d6d_fa35b492cecb);
 pub const MFNETSOURCE_THINNINGENABLED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb1f27c_0505_4c5d_ae71_0a556344efa1);
 pub const MFNETSOURCE_TRANSPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb1f27e_0505_4c5d_ae71_0a556344efa1);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFNETSOURCE_TRANSPORT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_UDP: MFNETSOURCE_TRANSPORT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNETSOURCE_TCP: MFNETSOURCE_TRANSPORT_TYPE = 1i32;
 pub const MFNETSOURCE_UDP_PORT_RANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb1f29a_0505_4c5d_ae71_0a556344efa1);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFNET_PROXYSETTINGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNET_PROXYSETTING_NONE: MFNET_PROXYSETTINGS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNET_PROXYSETTING_MANUAL: MFNET_PROXYSETTINGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNET_PROXYSETTING_AUTO: MFNET_PROXYSETTINGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNET_PROXYSETTING_BROWSER: MFNET_PROXYSETTINGS = 3i32;
 pub const MFNET_SAVEJOB_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb85a587f_3d02_4e52_9565_55d3ec1e7ff7);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFNetAuthenticationFlags = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNET_AUTHENTICATION_PROXY: MFNetAuthenticationFlags = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNET_AUTHENTICATION_CLEAR_TEXT: MFNetAuthenticationFlags = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNET_AUTHENTICATION_LOGGED_ON_USER: MFNetAuthenticationFlags = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MFNetCredentialManagerGetParam {
     pub hrOp: ::windows::core::HRESULT,
@@ -45209,24 +46981,42 @@ impl ::core::default::Default for MFNetCredentialManagerGetParam {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFNetCredentialOptions = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNET_CREDENTIAL_SAVE: MFNetCredentialOptions = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNET_CREDENTIAL_DONT_CACHE: MFNetCredentialOptions = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNET_CREDENTIAL_ALLOW_CLEAR_TEXT: MFNetCredentialOptions = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFNetCredentialRequirements = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const REQUIRE_PROMPT: MFNetCredentialRequirements = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const REQUIRE_SAVE_SELECTED: MFNetCredentialRequirements = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFNominalRange = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNominalRange_Unknown: MFNominalRange = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNominalRange_Normal: MFNominalRange = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNominalRange_Wide: MFNominalRange = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNominalRange_0_255: MFNominalRange = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNominalRange_16_235: MFNominalRange = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNominalRange_48_208: MFNominalRange = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNominalRange_64_127: MFNominalRange = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNominalRange_Last: MFNominalRange = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFNominalRange_ForceDWORD: MFNominalRange = 2147483647i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFOffset {
     pub fract: u16,
     pub value: i16,
@@ -45251,6 +47041,7 @@ impl ::core::default::Default for MFOffset {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFPCreateMediaPlayer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, IMFPMediaPlayerCallback>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(pwszurl: Param0, fstartplayback: Param1, creationoptions: MFP_CREATION_OPTIONS, pcallback: Param3, hwnd: Param4) -> ::windows::core::Result<IMFPMediaPlayer> {
@@ -45266,19 +47057,33 @@ pub unsafe fn MFPCreateMediaPlayer<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFPERIODICCALLBACK = ::core::option::Option<unsafe extern "system" fn(pcontext: ::core::option::Option<::windows::core::IUnknown>)>;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFPMPSESSION_CREATION_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFPMPSESSION_UNPROTECTED_PROCESS: MFPMPSESSION_CREATION_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFPMPSESSION_IN_PROCESS: MFPMPSESSION_CREATION_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFPOLICYMANAGER_ACTION = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const PEACTION_NO: MFPOLICYMANAGER_ACTION = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const PEACTION_PLAY: MFPOLICYMANAGER_ACTION = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const PEACTION_COPY: MFPOLICYMANAGER_ACTION = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const PEACTION_EXPORT: MFPOLICYMANAGER_ACTION = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const PEACTION_EXTRACT: MFPOLICYMANAGER_ACTION = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const PEACTION_RESERVED1: MFPOLICYMANAGER_ACTION = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const PEACTION_RESERVED2: MFPOLICYMANAGER_ACTION = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const PEACTION_RESERVED3: MFPOLICYMANAGER_ACTION = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const PEACTION_LAST: MFPOLICYMANAGER_ACTION = 7i32;
 pub const MFPROTECTIONATTRIBUTE_BEST_EFFORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8e06331_75f0_4ec1_8e77_17578f773b46);
 pub const MFPROTECTIONATTRIBUTE_CONSTRICTVIDEO_IMAGESIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x008476fc_4b58_4d80_a790_e7297673161d);
@@ -45301,6 +47106,7 @@ pub const MFPROTECTION_TRUSTEDAUDIODRIVERS: ::windows::core::GUID = ::windows::c
 pub const MFPROTECTION_VIDEO_FRAMES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36a59cbc_7401_4a8c_bc20_46a7c9e597f0);
 pub const MFPROTECTION_WMDRMOTA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa267a6a1_362e_47d0_8805_4628598a23e4);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -45351,12 +47157,18 @@ impl ::core::default::Default for MFP_ACQUIRE_USER_CREDENTIAL_EVENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFP_CREATION_OPTIONS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_OPTION_NONE: MFP_CREATION_OPTIONS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_OPTION_FREE_THREADED_CALLBACK: MFP_CREATION_OPTIONS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_OPTION_NO_MMCSS: MFP_CREATION_OPTIONS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_OPTION_NO_REMOTE_DESKTOP_OPTIMIZATION: MFP_CREATION_OPTIONS = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_ERROR_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -45386,6 +47198,7 @@ impl ::core::default::Default for MFP_ERROR_EVENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_EVENT_HEADER {
     pub eEventType: MFP_EVENT_TYPE,
@@ -45424,21 +47237,36 @@ impl ::core::default::Default for MFP_EVENT_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFP_EVENT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_EVENT_TYPE_PLAY: MFP_EVENT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_EVENT_TYPE_PAUSE: MFP_EVENT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_EVENT_TYPE_STOP: MFP_EVENT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_EVENT_TYPE_POSITION_SET: MFP_EVENT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_EVENT_TYPE_RATE_SET: MFP_EVENT_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_EVENT_TYPE_MEDIAITEM_CREATED: MFP_EVENT_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_EVENT_TYPE_MEDIAITEM_SET: MFP_EVENT_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_EVENT_TYPE_FRAME_STEP: MFP_EVENT_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_EVENT_TYPE_MEDIAITEM_CLEARED: MFP_EVENT_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_EVENT_TYPE_MF: MFP_EVENT_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_EVENT_TYPE_ERROR: MFP_EVENT_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_EVENT_TYPE_PLAYBACK_ENDED: MFP_EVENT_TYPE = 11i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_EVENT_TYPE_ACQUIRE_USER_CREDENTIAL: MFP_EVENT_TYPE = 12i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_FRAME_STEP_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -45469,6 +47297,7 @@ impl ::core::default::Default for MFP_FRAME_STEP_EVENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_MEDIAITEM_CLEARED_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -45499,6 +47328,7 @@ impl ::core::default::Default for MFP_MEDIAITEM_CLEARED_EVENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_MEDIAITEM_CREATED_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -45530,6 +47360,7 @@ impl ::core::default::Default for MFP_MEDIAITEM_CREATED_EVENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_MEDIAITEM_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -45559,13 +47390,20 @@ impl ::core::default::Default for MFP_MEDIAITEM_SET_EVENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFP_MEDIAPLAYER_STATE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_MEDIAPLAYER_STATE_EMPTY: MFP_MEDIAPLAYER_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_MEDIAPLAYER_STATE_STOPPED: MFP_MEDIAPLAYER_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_MEDIAPLAYER_STATE_PLAYING: MFP_MEDIAPLAYER_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_MEDIAPLAYER_STATE_PAUSED: MFP_MEDIAPLAYER_STATE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_MEDIAPLAYER_STATE_SHUTDOWN: MFP_MEDIAPLAYER_STATE = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_MF_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -45598,6 +47436,7 @@ impl ::core::default::Default for MFP_MF_EVENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_PAUSE_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -45628,6 +47467,7 @@ impl ::core::default::Default for MFP_PAUSE_EVENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_PLAYBACK_ENDED_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -45658,6 +47498,7 @@ impl ::core::default::Default for MFP_PLAYBACK_ENDED_EVENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_PLAY_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -45689,6 +47530,7 @@ impl ::core::default::Default for MFP_PLAY_EVENT {
 }
 pub const MFP_POSITIONTYPE_100NS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_POSITION_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -45719,6 +47561,7 @@ impl ::core::default::Default for MFP_POSITION_SET_EVENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_RATE_SET_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -45750,6 +47593,7 @@ impl ::core::default::Default for MFP_RATE_SET_EVENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct MFP_STOP_EVENT {
     pub header: MFP_EVENT_HEADER,
@@ -45780,6 +47624,7 @@ impl ::core::default::Default for MFP_STOP_EVENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub union MFPaletteEntry {
     pub ARGB: MFARGB,
     pub AYCbCr: MFAYUVSample,
@@ -45805,6 +47650,7 @@ impl ::core::default::Default for MFPaletteEntry {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFPinholeCameraIntrinsic_IntrinsicModel {
     pub Width: u32,
     pub Height: u32,
@@ -45832,6 +47678,7 @@ impl ::core::default::Default for MFPinholeCameraIntrinsic_IntrinsicModel {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFPinholeCameraIntrinsics {
     pub IntrinsicModelCount: u32,
     pub IntrinsicModels: [MFPinholeCameraIntrinsic_IntrinsicModel; 1],
@@ -45856,6 +47703,7 @@ impl ::core::default::Default for MFPinholeCameraIntrinsics {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFPutWaitingWorkItem<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, IMFAsyncResult>>(hevent: Param0, priority: i32, presult: Param2) -> ::windows::core::Result<u64> {
@@ -45871,6 +47719,7 @@ pub unsafe fn MFPutWaitingWorkItem<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFPutWorkItem<'a, Param1: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(dwqueue: u32, pcallback: Param1, pstate: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -45884,6 +47733,7 @@ pub unsafe fn MFPutWorkItem<'a, Param1: ::windows::core::IntoParam<'a, IMFAsyncC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFPutWorkItem2<'a, Param2: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(dwqueue: u32, priority: i32, pcallback: Param2, pstate: Param3) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -45897,6 +47747,7 @@ pub unsafe fn MFPutWorkItem2<'a, Param2: ::windows::core::IntoParam<'a, IMFAsync
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFPutWorkItemEx<'a, Param1: ::windows::core::IntoParam<'a, IMFAsyncResult>>(dwqueue: u32, presult: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -45910,6 +47761,7 @@ pub unsafe fn MFPutWorkItemEx<'a, Param1: ::windows::core::IntoParam<'a, IMFAsyn
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFPutWorkItemEx2<'a, Param2: ::windows::core::IntoParam<'a, IMFAsyncResult>>(dwqueue: u32, priority: i32, presult: Param2) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -45923,10 +47775,14 @@ pub unsafe fn MFPutWorkItemEx2<'a, Param2: ::windows::core::IntoParam<'a, IMFAsy
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFRATE_DIRECTION = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFRATE_FORWARD: MFRATE_DIRECTION = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFRATE_REVERSE: MFRATE_DIRECTION = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFRR_COMPONENTS {
     pub dwRRInfoVersion: u32,
     pub dwRRComponents: u32,
@@ -45953,6 +47809,7 @@ impl ::core::default::Default for MFRR_COMPONENTS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFRR_COMPONENT_HASH_INFO {
     pub ulReason: u32,
     pub rgHeaderHash: [u16; 43],
@@ -45981,6 +47838,7 @@ impl ::core::default::Default for MFRR_COMPONENT_HASH_INFO {
 }
 pub const MFRR_INFO_VERSION: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFRatio {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -46005,6 +47863,7 @@ impl ::core::default::Default for MFRatio {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFRegisterLocalByteStreamHandler<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, IMFActivate>>(szfileextension: Param0, szmimetype: Param1, pactivate: Param2) -> ::windows::core::Result<()> {
@@ -46019,6 +47878,7 @@ pub unsafe fn MFRegisterLocalByteStreamHandler<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFRegisterLocalSchemeHandler<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IMFActivate>>(szscheme: Param0, pactivate: Param1) -> ::windows::core::Result<()> {
@@ -46033,6 +47893,7 @@ pub unsafe fn MFRegisterLocalSchemeHandler<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFRegisterPlatformWithMMCSS<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(wszclass: Param0, pdwtaskid: *mut u32, lpriority: i32) -> ::windows::core::Result<()> {
@@ -46047,6 +47908,7 @@ pub unsafe fn MFRegisterPlatformWithMMCSS<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFRemovePeriodicCallback(dwkey: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -46060,6 +47922,7 @@ pub unsafe fn MFRemovePeriodicCallback(dwkey: u32) -> ::windows::core::Result<()
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFRequireProtectedEnvironment<'a, Param0: ::windows::core::IntoParam<'a, IMFPresentationDescriptor>>(ppresentationdescriptor: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -46080,36 +47943,64 @@ pub const MFSESSIONCAP_RATE_FORWARD: u32 = 16u32;
 pub const MFSESSIONCAP_RATE_REVERSE: u32 = 32u32;
 pub const MFSESSIONCAP_SEEK: u32 = 2u32;
 pub const MFSESSIONCAP_START: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFSESSION_GETFULLTOPOLOGY_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSESSION_GETFULLTOPOLOGY_CURRENT: MFSESSION_GETFULLTOPOLOGY_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFSESSION_SETTOPOLOGY_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSESSION_SETTOPOLOGY_IMMEDIATE: MFSESSION_SETTOPOLOGY_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSESSION_SETTOPOLOGY_NORESOLUTION: MFSESSION_SETTOPOLOGY_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSESSION_SETTOPOLOGY_CLEAR_CURRENT: MFSESSION_SETTOPOLOGY_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFSHUTDOWN_STATUS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSHUTDOWN_INITIATED: MFSHUTDOWN_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSHUTDOWN_COMPLETED: MFSHUTDOWN_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFSINK_WMDRMACTION = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSINK_WMDRMACTION_UNDEFINED: MFSINK_WMDRMACTION = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSINK_WMDRMACTION_ENCODE: MFSINK_WMDRMACTION = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSINK_WMDRMACTION_TRANSCODE: MFSINK_WMDRMACTION = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSINK_WMDRMACTION_TRANSCRYPT: MFSINK_WMDRMACTION = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSINK_WMDRMACTION_LAST: MFSINK_WMDRMACTION = 3i32;
 pub const MFSTARTUP_FULL: u32 = 0u32;
 pub const MFSTARTUP_LITE: u32 = 1u32;
 pub const MFSTARTUP_NOSOCKET: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFSTREAMSINK_MARKER_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSTREAMSINK_MARKER_DEFAULT: MFSTREAMSINK_MARKER_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSTREAMSINK_MARKER_ENDOFSEGMENT: MFSTREAMSINK_MARKER_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSTREAMSINK_MARKER_TICK: MFSTREAMSINK_MARKER_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSTREAMSINK_MARKER_EVENT: MFSTREAMSINK_MARKER_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFSampleAllocatorUsage = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSampleAllocatorUsage_UsesProvidedAllocator: MFSampleAllocatorUsage = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSampleAllocatorUsage_UsesCustomAllocator: MFSampleAllocatorUsage = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSampleAllocatorUsage_DoesNotAllocate: MFSampleAllocatorUsage = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFSampleEncryptionProtectionScheme = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SAMPLE_ENCRYPTION_PROTECTION_SCHEME_NONE: MFSampleEncryptionProtectionScheme = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SAMPLE_ENCRYPTION_PROTECTION_SCHEME_AES_CTR: MFSampleEncryptionProtectionScheme = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SAMPLE_ENCRYPTION_PROTECTION_SCHEME_AES_CBC: MFSampleEncryptionProtectionScheme = 2i32;
 pub const MFSampleExtension_3DVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf86f97a4_dd54_4e2e_9a5e_55fc2d74a005);
 pub const MFSampleExtension_3DVideo_SampleFormat: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08671772_e36f_4cff_97b3_d72e20987a48);
@@ -46185,6 +48076,7 @@ pub const MFSampleExtension_Token: ::windows::core::GUID = ::windows::core::GUID
 pub const MFSampleExtension_VideoDSPMode: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc12d55cb_d7d9_476d_81f3_69117f163ea0);
 pub const MFSampleExtension_VideoEncodePictureType: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x973704e6_cd14_483c_8f20_c9fc0928bad5);
 pub const MFSampleExtension_VideoEncodeQP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2efe478_f979_4c66_b95e_ee2b82c82f36);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFScheduleWorkItem<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncCallback>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pcallback: Param0, pstate: Param1, timeout: i64) -> ::windows::core::Result<u64> {
     #[cfg(windows)]
@@ -46199,6 +48091,7 @@ pub unsafe fn MFScheduleWorkItem<'a, Param0: ::windows::core::IntoParam<'a, IMFA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFScheduleWorkItemEx<'a, Param0: ::windows::core::IntoParam<'a, IMFAsyncResult>>(presult: Param0, timeout: i64) -> ::windows::core::Result<u64> {
     #[cfg(windows)]
@@ -46213,21 +48106,37 @@ pub unsafe fn MFScheduleWorkItemEx<'a, Param0: ::windows::core::IntoParam<'a, IM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFSensorDeviceMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSensorDeviceMode_Controller: MFSensorDeviceMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSensorDeviceMode_Shared: MFSensorDeviceMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFSensorDeviceType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSensorDeviceType_Unknown: MFSensorDeviceType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSensorDeviceType_Device: MFSensorDeviceType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSensorDeviceType_MediaSource: MFSensorDeviceType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSensorDeviceType_FrameProvider: MFSensorDeviceType = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSensorDeviceType_SensorTransform: MFSensorDeviceType = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFSensorStreamType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSensorStreamType_Unknown: MFSensorStreamType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSensorStreamType_Input: MFSensorStreamType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSensorStreamType_Output: MFSensorStreamType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFSequencerTopologyFlags = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const SequencerTopologyFlags_Last: MFSequencerTopologyFlags = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFSerializeAttributesToStream<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(pattr: Param0, dwoptions: u32, pstm: Param2) -> ::windows::core::Result<()> {
@@ -46242,6 +48151,7 @@ pub unsafe fn MFSerializeAttributesToStream<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFSerializePresentationDescriptor<'a, Param0: ::windows::core::IntoParam<'a, IMFPresentationDescriptor>>(ppd: Param0, pcbdata: *mut u32, ppbdata: *mut *mut u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -46255,6 +48165,7 @@ pub unsafe fn MFSerializePresentationDescriptor<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFShutdown() -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -46268,6 +48179,7 @@ pub unsafe fn MFShutdown() -> ::windows::core::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFShutdownObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -46281,6 +48193,7 @@ pub unsafe fn MFShutdownObject<'a, Param0: ::windows::core::IntoParam<'a, ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFSplitSample<'a, Param0: ::windows::core::IntoParam<'a, IMFSample>>(psample: Param0, poutputsamples: *mut ::core::option::Option<IMFSample>, dwoutputsamplemaxcount: u32, pdwoutputsamplecount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -46294,17 +48207,29 @@ pub unsafe fn MFSplitSample<'a, Param0: ::windows::core::IntoParam<'a, IMFSample
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFStandardVideoFormat = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFStdVideoFormat_reserved: MFStandardVideoFormat = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFStdVideoFormat_NTSC: MFStandardVideoFormat = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFStdVideoFormat_PAL: MFStandardVideoFormat = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFStdVideoFormat_DVD_NTSC: MFStandardVideoFormat = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFStdVideoFormat_DVD_PAL: MFStandardVideoFormat = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFStdVideoFormat_DV_PAL: MFStandardVideoFormat = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFStdVideoFormat_DV_NTSC: MFStandardVideoFormat = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFStdVideoFormat_ATSC_SD480i: MFStandardVideoFormat = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFStdVideoFormat_ATSC_HD1080i: MFStandardVideoFormat = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFStdVideoFormat_ATSC_HD720p: MFStandardVideoFormat = 9i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFStartup(version: u32, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -46332,6 +48257,7 @@ pub const MFSubtitleFormat_TTML: ::windows::core::GUID = ::windows::core::GUID::
 pub const MFSubtitleFormat_VobSub: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b8e40f4_8d2c_4ced_ad91_5960e45b4433);
 pub const MFSubtitleFormat_WebVTT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc886d215_f485_40bb_8db6_fadbc619a45d);
 pub const MFSubtitleFormat_XML: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2006f94f_29ca_4195_b8db_00ded8ff0c97);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFTEnum<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param4: ::windows::core::IntoParam<'a, IMFAttributes>>(guidcategory: Param0, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: Param4, ppclsidmft: *mut *mut ::windows::core::GUID, pcmfts: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -46345,6 +48271,7 @@ pub unsafe fn MFTEnum<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFTEnum2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param4: ::windows::core::IntoParam<'a, IMFAttributes>>(guidcategory: Param0, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pattributes: Param4, pppmftactivate: *mut *mut ::core::option::Option<IMFActivate>, pnummftactivate: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -46358,6 +48285,7 @@ pub unsafe fn MFTEnum2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::cor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFTEnumEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(guidcategory: Param0, flags: u32, pinputtype: *const MFT_REGISTER_TYPE_INFO, poutputtype: *const MFT_REGISTER_TYPE_INFO, pppmftactivate: *mut *mut ::core::option::Option<IMFActivate>, pnummftactivate: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -46371,6 +48299,7 @@ pub unsafe fn MFTEnumEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFTGetInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(clsidmft: Param0, pszname: *mut super::super::Foundation::PWSTR, ppinputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcinputtypes: *mut u32, ppoutputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcoutputtypes: *mut u32, ppattributes: *mut ::core::option::Option<IMFAttributes>) -> ::windows::core::Result<()> {
@@ -46385,17 +48314,28 @@ pub unsafe fn MFTGetInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFTIMER_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFTIMER_RELATIVE: MFTIMER_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFTOPOLOGY_DXVA_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFTOPOLOGY_DXVA_DEFAULT: MFTOPOLOGY_DXVA_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFTOPOLOGY_DXVA_NONE: MFTOPOLOGY_DXVA_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFTOPOLOGY_DXVA_FULL: MFTOPOLOGY_DXVA_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFTOPOLOGY_HARDWARE_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFTOPOLOGY_HWMODE_SOFTWARE_ONLY: MFTOPOLOGY_HARDWARE_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFTOPOLOGY_HWMODE_USE_HARDWARE: MFTOPOLOGY_HARDWARE_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFTOPOLOGY_HWMODE_USE_ONLY_HARDWARE: MFTOPOLOGY_HARDWARE_MODE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFTOPONODE_ATTRIBUTE_UPDATE {
     pub NodeId: u64,
     pub guidAttributeKey: ::windows::core::GUID,
@@ -46423,6 +48363,7 @@ impl ::core::default::Default for MFTOPONODE_ATTRIBUTE_UPDATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub union MFTOPONODE_ATTRIBUTE_UPDATE_0 {
     pub u32: u32,
     pub u64: u64,
@@ -46448,6 +48389,7 @@ impl ::core::default::Default for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFTRegister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, IMFAttributes>>(clsidmft: Param0, guidcategory: Param1, pszname: Param2, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO, pattributes: Param8) -> ::windows::core::Result<()> {
@@ -46462,6 +48404,7 @@ pub unsafe fn MFTRegister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn MFTRegisterLocal<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IClassFactory>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pclassfactory: Param0, guidcategory: *const ::windows::core::GUID, pszname: Param2, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::core::Result<()> {
@@ -46476,6 +48419,7 @@ pub unsafe fn MFTRegisterLocal<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFTRegisterLocalByCLSID<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(clisdmft: *const ::windows::core::GUID, guidcategory: *const ::windows::core::GUID, pszname: Param2, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::core::Result<()> {
@@ -46490,6 +48434,7 @@ pub unsafe fn MFTRegisterLocalByCLSID<'a, Param2: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFTUnregister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(clsidmft: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -46503,6 +48448,7 @@ pub unsafe fn MFTUnregister<'a, Param0: ::windows::core::IntoParam<'a, ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFTUnregisterLocal<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IClassFactory>>(pclassfactory: Param0) -> ::windows::core::Result<()> {
@@ -46517,6 +48463,7 @@ pub unsafe fn MFTUnregisterLocal<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFTUnregisterLocalByCLSID<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(clsidmft: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -46532,13 +48479,21 @@ pub unsafe fn MFTUnregisterLocalByCLSID<'a, Param0: ::windows::core::IntoParam<'
 }
 pub const MFT_AUDIO_DECODER_AUDIO_ENDPOINT_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7ccdd6e_5398_4695_8be7_51b3e95111bd);
 pub const MFT_AUDIO_DECODER_DEGRADATION_INFO_ATTRIBUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c3386ad_ec20_430d_b2a5_505c7178d9c4);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFT_AUDIO_DECODER_DEGRADATION_REASON = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_AUDIO_DECODER_DEGRADATION_REASON_NONE: MFT_AUDIO_DECODER_DEGRADATION_REASON = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_AUDIO_DECODER_DEGRADATION_REASON_LICENSING_REQUIREMENT: MFT_AUDIO_DECODER_DEGRADATION_REASON = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFT_AUDIO_DECODER_DEGRADATION_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_AUDIO_DECODER_DEGRADATION_TYPE_NONE: MFT_AUDIO_DECODER_DEGRADATION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_AUDIO_DECODER_DEGRADATION_TYPE_DOWNMIX2CHANNEL: MFT_AUDIO_DECODER_DEGRADATION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_AUDIO_DECODER_DEGRADATION_TYPE_DOWNMIX6CHANNEL: MFT_AUDIO_DECODER_DEGRADATION_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_AUDIO_DECODER_DEGRADATION_TYPE_DOWNMIX8CHANNEL: MFT_AUDIO_DECODER_DEGRADATION_TYPE = 3i32;
 pub const MFT_AUDIO_DECODER_SPATIAL_METADATA_CLIENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05987df4_1270_4999_925f_8e939a7c0af7);
 pub const MFT_CATEGORY_AUDIO_DECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ea73fb4_ef7a_4559_8d5d_719d8f0426c7);
@@ -46560,8 +48515,11 @@ pub const MFT_DECODER_EXPOSE_OUTPUT_TYPES_IN_NATIVE_ORDER: ::windows::core::GUID
 pub const MFT_DECODER_FINAL_VIDEO_RESOLUTION_HINT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc2f8496_15c4_407a_b6f0_1b66ab5fbf53);
 pub const MFT_DECODER_QUALITY_MANAGEMENT_CUSTOM_CONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa24e30d7_de25_4558_bbfb_71070a2d332e);
 pub const MFT_DECODER_QUALITY_MANAGEMENT_RECOVERY_WITHOUT_ARTIFACTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8980deb_0a48_425f_8623_611db41d3810);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFT_DRAIN_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_DRAIN_PRODUCE_TAILS: MFT_DRAIN_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_DRAIN_NO_TAILS: MFT_DRAIN_TYPE = 1i32;
 pub const MFT_ENCODER_ERROR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8d1eda4_98e4_41d5_9297_44f53852f90e);
 pub const MFT_ENCODER_SUPPORTS_CONFIG_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86a355ae_3a77_4ec4_9f31_01149a4e92de);
@@ -46576,6 +48534,7 @@ pub const MFT_FRIENDLY_NAME_Attribute: ::windows::core::GUID = ::windows::core::
 pub const MFT_GFX_DRIVER_VERSION_ID_Attribute: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf34b9093_05e0_4b16_993d_3e2a2cde6ad3);
 pub const MFT_HW_TIMESTAMP_WITH_QPC_Attribute: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d030fb8_cc43_4258_a22e_9210bef89be4);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFT_INPUT_STREAM_INFO {
     pub hnsMaxLatency: i64,
     pub dwFlags: u32,
@@ -46604,24 +48563,41 @@ impl ::core::default::Default for MFT_INPUT_STREAM_INFO {
     }
 }
 pub const MFT_INPUT_TYPES_Attributes: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4276c9b1_759d_4bf3_9cd0_0d723d138f96);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFT_MESSAGE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_MESSAGE_COMMAND_FLUSH: MFT_MESSAGE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_MESSAGE_COMMAND_DRAIN: MFT_MESSAGE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_MESSAGE_SET_D3D_MANAGER: MFT_MESSAGE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_MESSAGE_DROP_SAMPLES: MFT_MESSAGE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_MESSAGE_COMMAND_TICK: MFT_MESSAGE_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_MESSAGE_NOTIFY_BEGIN_STREAMING: MFT_MESSAGE_TYPE = 268435456i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_MESSAGE_NOTIFY_END_STREAMING: MFT_MESSAGE_TYPE = 268435457i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_MESSAGE_NOTIFY_END_OF_STREAM: MFT_MESSAGE_TYPE = 268435458i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_MESSAGE_NOTIFY_START_OF_STREAM: MFT_MESSAGE_TYPE = 268435459i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_MESSAGE_NOTIFY_RELEASE_RESOURCES: MFT_MESSAGE_TYPE = 268435460i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_MESSAGE_NOTIFY_REACQUIRE_RESOURCES: MFT_MESSAGE_TYPE = 268435461i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_MESSAGE_NOTIFY_EVENT: MFT_MESSAGE_TYPE = 268435462i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_MESSAGE_COMMAND_SET_OUTPUT_STREAM_STATE: MFT_MESSAGE_TYPE = 268435463i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_MESSAGE_COMMAND_FLUSH_OUTPUT_STREAM: MFT_MESSAGE_TYPE = 268435464i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_MESSAGE_COMMAND_MARKER: MFT_MESSAGE_TYPE = 536870912i32;
 pub const MFT_OUTPUT_BOUND_UPPER_UNBOUNDED: u64 = 9223372036854775807u64;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFT_OUTPUT_DATA_BUFFER {
     pub dwStreamID: u32,
     pub pSample: ::core::option::Option<IMFSample>,
@@ -46648,6 +48624,7 @@ impl ::core::default::Default for MFT_OUTPUT_DATA_BUFFER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFT_OUTPUT_STREAM_INFO {
     pub dwFlags: u32,
     pub cbSize: u32,
@@ -46679,6 +48656,7 @@ pub const MFT_PREFERRED_ENCODER_PROFILE: ::windows::core::GUID = ::windows::core
 pub const MFT_PREFERRED_OUTPUTTYPE_Attribute: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e700499_396a_49ee_b1b4_f628021e8c9d);
 pub const MFT_PROCESS_LOCAL_Attribute: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x543186e4_4649_4e65_b588_4aa352aff379);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFT_REGISTER_TYPE_INFO {
     pub guidMajorType: ::windows::core::GUID,
     pub guidSubtype: ::windows::core::GUID,
@@ -46704,6 +48682,7 @@ impl ::core::default::Default for MFT_REGISTER_TYPE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MFT_REGISTRATION_INFO {
     pub clsid: ::windows::core::GUID,
@@ -46744,6 +48723,7 @@ impl ::core::default::Default for MFT_REGISTRATION_INFO {
 pub const MFT_REMUX_MARK_I_PICTURE_AS_CLEAN_POINT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x364e8f85_3f2e_436c_b2a2_4440a012a9e8);
 pub const MFT_STREAMS_UNLIMITED: u32 = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFT_STREAM_STATE_PARAM {
     pub StreamId: u32,
     pub State: MF_STREAM_STATE,
@@ -46784,6 +48764,7 @@ pub const MFTranscodeContainerType_MP3: ::windows::core::GUID = ::windows::core:
 pub const MFTranscodeContainerType_MPEG2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfc2dbf9_7bb4_4f8f_afde_e112c44ba882);
 pub const MFTranscodeContainerType_MPEG4: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc6cd05d_b9d0_40ef_bd35_fa622c1ab28a);
 pub const MFTranscodeContainerType_WAVE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64c3453c_0f26_4741_be63_87bdf8bb935b);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFTranscodeGetAudioOutputAvailableTypes<'a, Param2: ::windows::core::IntoParam<'a, IMFAttributes>>(guidsubtype: *const ::windows::core::GUID, dwmftflags: u32, pcodecconfig: Param2) -> ::windows::core::Result<IMFCollection> {
     #[cfg(windows)]
@@ -46798,6 +48779,7 @@ pub unsafe fn MFTranscodeGetAudioOutputAvailableTypes<'a, Param2: ::windows::cor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFUnlockDXGIDeviceManager() -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -46811,6 +48793,7 @@ pub unsafe fn MFUnlockDXGIDeviceManager() -> ::windows::core::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFUnlockPlatform() -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -46824,6 +48807,7 @@ pub unsafe fn MFUnlockPlatform() -> ::windows::core::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFUnlockWorkQueue(dwworkqueue: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -46837,6 +48821,7 @@ pub unsafe fn MFUnlockWorkQueue(dwworkqueue: u32) -> ::windows::core::Result<()>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFUnregisterPlatformFromMMCSS() -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -46850,6 +48835,7 @@ pub unsafe fn MFUnregisterPlatformFromMMCSS() -> ::windows::core::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFUnwrapMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pwrap: Param0) -> ::windows::core::Result<IMFMediaType> {
     #[cfg(windows)]
@@ -46865,6 +48851,7 @@ pub unsafe fn MFUnwrapMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMe
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MFVIDEOFORMAT {
     pub dwSize: u32,
@@ -46899,15 +48886,25 @@ impl ::core::default::Default for MFVIDEOFORMAT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVP_MESSAGE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVP_MESSAGE_FLUSH: MFVP_MESSAGE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVP_MESSAGE_INVALIDATEMEDIATYPE: MFVP_MESSAGE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVP_MESSAGE_PROCESSINPUTNOTIFY: MFVP_MESSAGE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVP_MESSAGE_BEGINSTREAMING: MFVP_MESSAGE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVP_MESSAGE_ENDSTREAMING: MFVP_MESSAGE_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVP_MESSAGE_ENDOFSTREAM: MFVP_MESSAGE_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVP_MESSAGE_STEP: MFVP_MESSAGE_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVP_MESSAGE_CANCELSTEP: MFVP_MESSAGE_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFValidateMediaTypeSize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(formattype: Param0, pblock: *const u8, cbsize: u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -46921,15 +48918,24 @@ pub unsafe fn MFValidateMediaTypeSize<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideo3DFormat = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideo3DSampleFormat_BaseView: MFVideo3DFormat = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideo3DSampleFormat_MultiView: MFVideo3DFormat = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideo3DSampleFormat_Packed_LeftRight: MFVideo3DFormat = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideo3DSampleFormat_Packed_TopBottom: MFVideo3DFormat = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideo3DSampleFormat = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSampleExtension_3DVideo_MultiView: MFVideo3DSampleFormat = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFSampleExtension_3DVideo_Packed: MFVideo3DSampleFormat = 0i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D9', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 pub struct MFVideoAlphaBitmap {
     pub GetBitmapFromDC: super::super::Foundation::BOOL,
@@ -46961,6 +48967,7 @@ impl ::core::default::Default for MFVideoAlphaBitmap {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D9', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 pub union MFVideoAlphaBitmap_0 {
     pub hdc: super::super::Graphics::Gdi::HDC,
@@ -46990,15 +48997,24 @@ impl ::core::default::Default for MFVideoAlphaBitmap_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideoAlphaBitmapFlags = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoAlphaBitmap_EntireDDS: MFVideoAlphaBitmapFlags = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoAlphaBitmap_SrcColorKey: MFVideoAlphaBitmapFlags = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoAlphaBitmap_SrcRect: MFVideoAlphaBitmapFlags = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoAlphaBitmap_DestRect: MFVideoAlphaBitmapFlags = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoAlphaBitmap_FilterMode: MFVideoAlphaBitmapFlags = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoAlphaBitmap_Alpha: MFVideoAlphaBitmapFlags = 32i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoAlphaBitmap_BitMask: MFVideoAlphaBitmapFlags = 63i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MFVideoAlphaBitmapParams {
     pub dwFlags: u32,
@@ -47035,6 +49051,7 @@ impl ::core::default::Default for MFVideoAlphaBitmapParams {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MFVideoArea {
     pub OffsetX: MFOffset,
@@ -47067,25 +49084,44 @@ impl ::core::default::Default for MFVideoArea {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideoAspectRatioMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoARMode_None: MFVideoAspectRatioMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoARMode_PreservePicture: MFVideoAspectRatioMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoARMode_PreservePixel: MFVideoAspectRatioMode = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoARMode_NonLinearStretch: MFVideoAspectRatioMode = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoARMode_Mask: MFVideoAspectRatioMode = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideoChromaSubsampling = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoChromaSubsampling_Unknown: MFVideoChromaSubsampling = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoChromaSubsampling_ProgressiveChroma: MFVideoChromaSubsampling = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoChromaSubsampling_Horizontally_Cosited: MFVideoChromaSubsampling = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoChromaSubsampling_Vertically_Cosited: MFVideoChromaSubsampling = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoChromaSubsampling_Vertically_AlignedChromaPlanes: MFVideoChromaSubsampling = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoChromaSubsampling_MPEG2: MFVideoChromaSubsampling = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoChromaSubsampling_MPEG1: MFVideoChromaSubsampling = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoChromaSubsampling_DV_PAL: MFVideoChromaSubsampling = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoChromaSubsampling_Cosited: MFVideoChromaSubsampling = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoChromaSubsampling_Last: MFVideoChromaSubsampling = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoChromaSubsampling_ForceDWORD: MFVideoChromaSubsampling = 2147483647i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFVideoCompressedInfo {
     pub AvgBitrate: i64,
     pub AvgBitErrorRate: i64,
@@ -47111,33 +49147,61 @@ impl ::core::default::Default for MFVideoCompressedInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideoDRMFlags = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoDRMFlag_None: MFVideoDRMFlags = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoDRMFlag_AnalogProtected: MFVideoDRMFlags = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoDRMFlag_DigitallyProtected: MFVideoDRMFlags = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideoDSPMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoDSPMode_Passthrough: MFVideoDSPMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoDSPMode_Stabilization: MFVideoDSPMode = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideoFlags = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlag_PAD_TO_Mask: MFVideoFlags = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlag_PAD_TO_None: MFVideoFlags = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlag_PAD_TO_4x3: MFVideoFlags = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlag_PAD_TO_16x9: MFVideoFlags = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlag_SrcContentHintMask: MFVideoFlags = 28i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlag_SrcContentHintNone: MFVideoFlags = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlag_SrcContentHint16x9: MFVideoFlags = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlag_SrcContentHint235_1: MFVideoFlags = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlag_AnalogProtected: MFVideoFlags = 32i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlag_DigitallyProtected: MFVideoFlags = 64i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlag_ProgressiveContent: MFVideoFlags = 128i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlag_FieldRepeatCountMask: MFVideoFlags = 1792i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlag_FieldRepeatCountShift: MFVideoFlags = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlag_ProgressiveSeqReset: MFVideoFlags = 2048i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlag_PanScanEnabled: MFVideoFlags = 131072i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlag_LowerFieldFirst: MFVideoFlags = 262144i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlag_BottomUpLinearRep: MFVideoFlags = 524288i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlags_DXVASurface: MFVideoFlags = 1048576i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlags_RenderTargetSurface: MFVideoFlags = 4194304i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoFlags_ForceQWORD: MFVideoFlags = 2147483647i32;
 pub const MFVideoFormat_420O: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f303234_0000_0010_8000_00aa00389b71);
 pub const MFVideoFormat_A16B16G16R16F: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000071_0000_0010_8000_00aa00389b71);
@@ -47213,6 +49277,7 @@ pub const MFVideoFormat_v210: ::windows::core::GUID = ::windows::core::GUID::fro
 pub const MFVideoFormat_v216: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36313276_0000_0010_8000_00aa00389b71);
 pub const MFVideoFormat_v410: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30313476_0000_0010_8000_00aa00389b71);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MFVideoInfo {
     pub dwWidth: u32,
@@ -47257,32 +49322,58 @@ impl ::core::default::Default for MFVideoInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideoInterlaceMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoInterlace_Unknown: MFVideoInterlaceMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoInterlace_Progressive: MFVideoInterlaceMode = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoInterlace_FieldInterleavedUpperFirst: MFVideoInterlaceMode = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoInterlace_FieldInterleavedLowerFirst: MFVideoInterlaceMode = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoInterlace_FieldSingleUpper: MFVideoInterlaceMode = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoInterlace_FieldSingleLower: MFVideoInterlaceMode = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoInterlace_MixedInterlaceOrProgressive: MFVideoInterlaceMode = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoInterlace_Last: MFVideoInterlaceMode = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoInterlace_ForceDWORD: MFVideoInterlaceMode = 2147483647i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideoLighting = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoLighting_Unknown: MFVideoLighting = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoLighting_bright: MFVideoLighting = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoLighting_office: MFVideoLighting = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoLighting_dim: MFVideoLighting = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoLighting_dark: MFVideoLighting = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoLighting_Last: MFVideoLighting = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoLighting_ForceDWORD: MFVideoLighting = 2147483647i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideoMixPrefs = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoMixPrefs_ForceHalfInterlace: MFVideoMixPrefs = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoMixPrefs_AllowDropToHalfInterlace: MFVideoMixPrefs = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoMixPrefs_AllowDropToBob: MFVideoMixPrefs = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoMixPrefs_ForceBob: MFVideoMixPrefs = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoMixPrefs_EnableRotation: MFVideoMixPrefs = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoMixPrefs_Mask: MFVideoMixPrefs = 31i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFVideoNormalizedRect {
     pub left: f32,
     pub top: f32,
@@ -47309,55 +49400,104 @@ impl ::core::default::Default for MFVideoNormalizedRect {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideoPadFlags = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoPadFlag_PAD_TO_None: MFVideoPadFlags = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoPadFlag_PAD_TO_4x3: MFVideoPadFlags = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoPadFlag_PAD_TO_16x9: MFVideoPadFlags = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideoPrimaries = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoPrimaries_Unknown: MFVideoPrimaries = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoPrimaries_reserved: MFVideoPrimaries = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoPrimaries_BT709: MFVideoPrimaries = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoPrimaries_BT470_2_SysM: MFVideoPrimaries = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoPrimaries_BT470_2_SysBG: MFVideoPrimaries = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoPrimaries_SMPTE170M: MFVideoPrimaries = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoPrimaries_SMPTE240M: MFVideoPrimaries = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoPrimaries_EBU3213: MFVideoPrimaries = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoPrimaries_SMPTE_C: MFVideoPrimaries = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoPrimaries_BT2020: MFVideoPrimaries = 9i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoPrimaries_XYZ: MFVideoPrimaries = 10i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoPrimaries_DCI_P3: MFVideoPrimaries = 11i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoPrimaries_ACES: MFVideoPrimaries = 12i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoPrimaries_Last: MFVideoPrimaries = 13i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoPrimaries_ForceDWORD: MFVideoPrimaries = 2147483647i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideoRenderPrefs = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoRenderPrefs_DoNotRenderBorder: MFVideoRenderPrefs = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoRenderPrefs_DoNotClipToDevice: MFVideoRenderPrefs = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoRenderPrefs_AllowOutputThrottling: MFVideoRenderPrefs = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoRenderPrefs_ForceOutputThrottling: MFVideoRenderPrefs = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoRenderPrefs_ForceBatching: MFVideoRenderPrefs = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoRenderPrefs_AllowBatching: MFVideoRenderPrefs = 32i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoRenderPrefs_ForceScaling: MFVideoRenderPrefs = 64i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoRenderPrefs_AllowScaling: MFVideoRenderPrefs = 128i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoRenderPrefs_DoNotRepaintOnStop: MFVideoRenderPrefs = 256i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoRenderPrefs_Mask: MFVideoRenderPrefs = 511i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideoRotationFormat = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoRotationFormat_0: MFVideoRotationFormat = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoRotationFormat_90: MFVideoRotationFormat = 90i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoRotationFormat_180: MFVideoRotationFormat = 180i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoRotationFormat_270: MFVideoRotationFormat = 270i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideoSphericalFormat = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoSphericalFormat_Unsupported: MFVideoSphericalFormat = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoSphericalFormat_Equirectangular: MFVideoSphericalFormat = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoSphericalFormat_CubeMap: MFVideoSphericalFormat = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoSphericalFormat_3DMesh: MFVideoSphericalFormat = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideoSphericalProjectionMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoSphericalProjectionMode_Spherical: MFVideoSphericalProjectionMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoSphericalProjectionMode_Flat: MFVideoSphericalProjectionMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideoSrcContentHintFlags = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoSrcContentHintFlag_None: MFVideoSrcContentHintFlags = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoSrcContentHintFlag_16x9: MFVideoSrcContentHintFlags = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoSrcContentHintFlag_235_1: MFVideoSrcContentHintFlags = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MFVideoSurfaceInfo {
     pub Format: u32,
     pub PaletteEntries: u32,
@@ -47383,39 +49523,73 @@ impl ::core::default::Default for MFVideoSurfaceInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideoTransferFunction = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_Unknown: MFVideoTransferFunction = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_10: MFVideoTransferFunction = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_18: MFVideoTransferFunction = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_20: MFVideoTransferFunction = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_22: MFVideoTransferFunction = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_709: MFVideoTransferFunction = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_240M: MFVideoTransferFunction = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_sRGB: MFVideoTransferFunction = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_28: MFVideoTransferFunction = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_Log_100: MFVideoTransferFunction = 9i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_Log_316: MFVideoTransferFunction = 10i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_709_sym: MFVideoTransferFunction = 11i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_2020_const: MFVideoTransferFunction = 12i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_2020: MFVideoTransferFunction = 13i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_26: MFVideoTransferFunction = 14i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_2084: MFVideoTransferFunction = 15i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_HLG: MFVideoTransferFunction = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_10_rel: MFVideoTransferFunction = 17i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_Last: MFVideoTransferFunction = 18i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransFunc_ForceDWORD: MFVideoTransferFunction = 2147483647i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFVideoTransferMatrix = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransferMatrix_Unknown: MFVideoTransferMatrix = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransferMatrix_BT709: MFVideoTransferMatrix = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransferMatrix_BT601: MFVideoTransferMatrix = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransferMatrix_SMPTE240M: MFVideoTransferMatrix = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransferMatrix_BT2020_10: MFVideoTransferMatrix = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransferMatrix_BT2020_12: MFVideoTransferMatrix = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransferMatrix_Last: MFVideoTransferMatrix = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVideoTransferMatrix_ForceDWORD: MFVideoTransferMatrix = 2147483647i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MFWaveFormatExConvertFlags = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFWaveFormatExConvertFlag_Normal: MFWaveFormatExConvertFlags = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFWaveFormatExConvertFlag_ForceExtensible: MFWaveFormatExConvertFlags = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFWrapMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(porig: Param0, majortype: *const ::windows::core::GUID, subtype: *const ::windows::core::GUID) -> ::windows::core::Result<IMFMediaType> {
     #[cfg(windows)]
@@ -47445,9 +49619,13 @@ pub const MF_64_BYTE_ALIGNMENT: u32 = 63u32;
 pub const MF_8192_BYTE_ALIGNMENT: u32 = 8191u32;
 pub const MF_8_BYTE_ALIGNMENT: u32 = 7u32;
 pub const MF_ACCESS_CONTROLLED_MEDIASOURCE_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x014a5031_2f05_4c6a_9f9c_7d0dc4eda5f4);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_ACTIVATE_CUSTOM_MIXER = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_ACTIVATE_CUSTOM_MIXER_ALLOWFAIL: MF_ACTIVATE_CUSTOM_MIXER = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_ACTIVATE_CUSTOM_PRESENTER = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_ACTIVATE_CUSTOM_PRESENTER_ALLOWFAIL: MF_ACTIVATE_CUSTOM_PRESENTER = 1i32;
 pub const MF_ACTIVATE_CUSTOM_VIDEO_MIXER_ACTIVATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba491361_be50_451e_95ab_6d4accc7dad8);
 pub const MF_ACTIVATE_CUSTOM_VIDEO_MIXER_CLSID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba491360_be50_451e_95ab_6d4accc7dad8);
@@ -47462,21 +49640,37 @@ pub const MF_ASFPROFILE_MAXPACKETSIZE: ::windows::core::GUID = ::windows::core::
 pub const MF_ASFPROFILE_MINPACKETSIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22587626_47de_4168_87f5_b5aa9b12a8f0);
 pub const MF_ASFSTREAMCONFIG_LEAKYBUCKET1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc69b5901_ea1a_4c9b_b692_e2a0d29a8add);
 pub const MF_ASFSTREAMCONFIG_LEAKYBUCKET2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc69b5902_ea1a_4c9b_b692_e2a0d29a8add);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_ATTRIBUTES_MATCH_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_ATTRIBUTES_MATCH_OUR_ITEMS: MF_ATTRIBUTES_MATCH_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_ATTRIBUTES_MATCH_THEIR_ITEMS: MF_ATTRIBUTES_MATCH_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_ATTRIBUTES_MATCH_ALL_ITEMS: MF_ATTRIBUTES_MATCH_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_ATTRIBUTES_MATCH_INTERSECTION: MF_ATTRIBUTES_MATCH_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_ATTRIBUTES_MATCH_SMALLER: MF_ATTRIBUTES_MATCH_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_ATTRIBUTE_SERIALIZE_OPTIONS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_ATTRIBUTE_SERIALIZE_UNKNOWN_BYREF: MF_ATTRIBUTE_SERIALIZE_OPTIONS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_ATTRIBUTE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_ATTRIBUTE_UINT32: MF_ATTRIBUTE_TYPE = 19i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_ATTRIBUTE_UINT64: MF_ATTRIBUTE_TYPE = 21i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_ATTRIBUTE_DOUBLE: MF_ATTRIBUTE_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_ATTRIBUTE_GUID: MF_ATTRIBUTE_TYPE = 72i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_ATTRIBUTE_STRING: MF_ATTRIBUTE_TYPE = 31i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_ATTRIBUTE_BLOB: MF_ATTRIBUTE_TYPE = 4113i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_ATTRIBUTE_IUNKNOWN: MF_ATTRIBUTE_TYPE = 13i32;
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_ENDPOINT_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb10aaec3_ef71_4cc3_b873_05a9a08b9f8e);
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_ENDPOINT_ROLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ba644ff_27c5_4d02_9887_c28619fdb91b);
@@ -47486,10 +49680,15 @@ pub const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_DONT_ALLOW_FORMAT_CHANGES: u32 = 4u3
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_FLAGS_NOPERSIST: u32 = 2u32;
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_SESSION_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xede4b5e3_f805_4d6c_99b3_db01bf95dfab);
 pub const MF_AUDIO_RENDERER_ATTRIBUTE_STREAM_CATEGORY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9770471_92ec_4df4_94fe_81c36f0c3a7a);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_AUVRHP_ROOMMODEL = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const VRHP_SMALLROOM: MF_AUVRHP_ROOMMODEL = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const VRHP_MEDIUMROOM: MF_AUVRHP_ROOMMODEL = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const VRHP_BIGROOM: MF_AUVRHP_ROOMMODEL = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const VRHP_CUSTUMIZEDROOM: MF_AUVRHP_ROOMMODEL = 3i32;
 pub const MF_BD_MVC_PLANE_OFFSET_METADATA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62a654e4_b76c_4901_9823_2cb615d47318);
 pub const MF_BOOT_DRIVER_VERIFICATION_FAILED: u32 = 1048576u32;
@@ -47504,6 +49703,7 @@ pub const MF_BYTESTREAM_ORIGIN_NAME: ::windows::core::GUID = ::windows::core::GU
 pub const MF_BYTESTREAM_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab025e2b_16d9_4180_a127_ba6c70156161);
 pub const MF_BYTESTREAM_TRANSCODED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6c5c282_4dc9_4db9_ab48_cf3b6d8bc5e0);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MF_BYTE_STREAM_CACHE_RANGE {
     pub qwStartOffset: u64,
     pub qwEndOffset: u64,
@@ -47530,15 +49730,21 @@ impl ::core::default::Default for MF_BYTE_STREAM_CACHE_RANGE {
 }
 pub const MF_CAPTURE_ENGINE_ALL_EFFECTS_REMOVED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfded7521_8ed8_431a_a96b_f3e2565e981c);
 pub const MF_CAPTURE_ENGINE_AUDIO_PROCESSING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10f1be5e_7e11_410b_973d_f4b6109000fe);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_AUDIO_PROCESSING_DEFAULT: MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_AUDIO_PROCESSING_RAW: MF_CAPTURE_ENGINE_AUDIO_PROCESSING_MODE = 1i32;
 pub const MF_CAPTURE_ENGINE_CAMERA_STREAM_BLOCKED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4209417_8d39_46f3_b759_5912528f4207);
 pub const MF_CAPTURE_ENGINE_CAMERA_STREAM_UNBLOCKED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9be9eef0_cdaf_4717_8564_834aae66415c);
 pub const MF_CAPTURE_ENGINE_D3D_MANAGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76e25e7b_d595_4283_962c_c594afd78ddf);
 pub const MF_CAPTURE_ENGINE_DECODER_MFT_FIELDOFUSE_UNLOCK_Attribute: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b8ad2e8_7acb_4321_a606_325c4249f4fc);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_CAPTURE_ENGINE_DEVICE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_DEVICE_TYPE_AUDIO: MF_CAPTURE_ENGINE_DEVICE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_DEVICE_TYPE_VIDEO: MF_CAPTURE_ENGINE_DEVICE_TYPE = 1i32;
 pub const MF_CAPTURE_ENGINE_DISABLE_DXVA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9818862_179d_433f_a32f_74cbcf74466d);
 pub const MF_CAPTURE_ENGINE_DISABLE_HARDWARE_TRANSFORMS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7c42a6b_3207_4495_b4e7_81f9c35d5991);
@@ -47552,14 +49758,23 @@ pub const MF_CAPTURE_ENGINE_EVENT_STREAM_INDEX: ::windows::core::GUID = ::window
 pub const MF_CAPTURE_ENGINE_INITIALIZED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x219992bc_cf92_4531_a1ae_96e1e886c8f1);
 pub const MF_CAPTURE_ENGINE_MEDIASOURCE_CONFIG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc6989d2_0fc1_46e1_a74f_efd36bc788de);
 pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e3f5bd5_dbbf_42f0_8542_d07a3971762a);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_OTHER: MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_COMMUNICATIONS: MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_MEDIA: MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_GAMECHAT: MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_SPEECH: MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_FARFIELDSPEECH: MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_UNIFORMSPEECH: MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE_VOICETYPING: MF_CAPTURE_ENGINE_MEDIA_CATEGORY_TYPE = 7i32;
 pub const MF_CAPTURE_ENGINE_OUTPUT_MEDIA_TYPE_SET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaaad994_83ec_45e9_a30a_1f20aadb9831);
 pub const MF_CAPTURE_ENGINE_PHOTO_TAKEN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c50c445_7304_48eb_865d_bba19ba3af5c);
@@ -47573,24 +49788,43 @@ pub const MF_CAPTURE_ENGINE_RECORD_STARTED: ::windows::core::GUID = ::windows::c
 pub const MF_CAPTURE_ENGINE_RECORD_STOPPED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55e5200a_f98f_4c0d_a9ec_9eb25ed3d773);
 pub const MF_CAPTURE_ENGINE_SELECTEDCAMERAPROFILE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03160b7e_1c6f_4db2_ad56_a7c430f82392);
 pub const MF_CAPTURE_ENGINE_SELECTEDCAMERAPROFILE_INDEX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ce88613_2214_46c3_b417_82f8a313c9c3);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_CAPTURE_ENGINE_SINK_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_SINK_TYPE_RECORD: MF_CAPTURE_ENGINE_SINK_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_SINK_TYPE_PREVIEW: MF_CAPTURE_ENGINE_SINK_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_SINK_TYPE_PHOTO: MF_CAPTURE_ENGINE_SINK_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_CAPTURE_ENGINE_SOURCE = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_VIDEO_PREVIEW: MF_CAPTURE_ENGINE_SOURCE = 4294967290u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_VIDEO_RECORD: MF_CAPTURE_ENGINE_SOURCE = 4294967289u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_PHOTO: MF_CAPTURE_ENGINE_SOURCE = 4294967288u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_AUDIO: MF_CAPTURE_ENGINE_SOURCE = 4294967287u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_PREFERRED_SOURCE_STREAM_FOR_METADATA: MF_CAPTURE_ENGINE_SOURCE = 4294967286u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_MEDIASOURCE: MF_CAPTURE_ENGINE_SOURCE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_CAPTURE_ENGINE_STREAM_CATEGORY = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_STREAM_CATEGORY_VIDEO_PREVIEW: MF_CAPTURE_ENGINE_STREAM_CATEGORY = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_STREAM_CATEGORY_VIDEO_CAPTURE: MF_CAPTURE_ENGINE_STREAM_CATEGORY = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_STREAM_CATEGORY_PHOTO_INDEPENDENT: MF_CAPTURE_ENGINE_STREAM_CATEGORY = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_STREAM_CATEGORY_PHOTO_DEPENDENT: MF_CAPTURE_ENGINE_STREAM_CATEGORY = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_STREAM_CATEGORY_AUDIO: MF_CAPTURE_ENGINE_STREAM_CATEGORY = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_STREAM_CATEGORY_UNSUPPORTED: MF_CAPTURE_ENGINE_STREAM_CATEGORY = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CAPTURE_ENGINE_STREAM_CATEGORY_METADATA: MF_CAPTURE_ENGINE_STREAM_CATEGORY = 6i32;
 pub const MF_CAPTURE_ENGINE_USE_AUDIO_DEVICE_ONLY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c8077da_8466_4dc4_8b8e_276b3f85923b);
 pub const MF_CAPTURE_ENGINE_USE_VIDEO_DEVICE_ONLY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e025171_cf32_4f2e_8f19_410577b73a66);
@@ -47631,22 +49865,36 @@ pub const MF_COMPONENT_INVALID_EKU: u32 = 16384u32;
 pub const MF_COMPONENT_INVALID_ROOT: u32 = 65536u32;
 pub const MF_COMPONENT_LS_CERT_REVOKED: u32 = 262144u32;
 pub const MF_COMPONENT_REVOKED: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_CONNECT_METHOD = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CONNECT_DIRECT: MF_CONNECT_METHOD = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CONNECT_ALLOW_CONVERTER: MF_CONNECT_METHOD = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CONNECT_ALLOW_DECODER: MF_CONNECT_METHOD = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CONNECT_RESOLVE_INDEPENDENT_OUTPUTTYPES: MF_CONNECT_METHOD = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CONNECT_AS_OPTIONAL: MF_CONNECT_METHOD = 65536i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CONNECT_AS_OPTIONAL_BRANCH: MF_CONNECT_METHOD = 131072i32;
 pub const MF_CONTENTDECRYPTIONMODULE_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15320c45_ff80_484a_9dcb_0df894e69a01);
 pub const MF_CONTENT_DECRYPTOR_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68a72927_fc7b_44ee_85f4_7c51bd55a659);
 pub const MF_CONTENT_PROTECTION_DEVICE_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff58436f_76a0_41fe_b566_10cc53962edd);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_CROSS_ORIGIN_POLICY = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CROSS_ORIGIN_POLICY_NONE: MF_CROSS_ORIGIN_POLICY = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CROSS_ORIGIN_POLICY_ANONYMOUS: MF_CROSS_ORIGIN_POLICY = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_CROSS_ORIGIN_POLICY_USE_CREDENTIALS: MF_CROSS_ORIGIN_POLICY = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_CUSTOM_DECODE_UNIT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_DECODE_UNIT_NAL: MF_CUSTOM_DECODE_UNIT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_DECODE_UNIT_SEI: MF_CUSTOM_DECODE_UNIT_TYPE = 1i32;
 pub const MF_D3D12_SYNCHRONIZATION_OBJECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a7c8d6a_85a6_494d_a046_06ea1a138f4b);
 pub const MF_DECODER_FWD_CUSTOM_SEI_DECODE_ORDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf13bbe3c_36d4_410a_b985_7a951a1e6294);
@@ -47717,480 +49965,954 @@ pub const MF_EVENT_STREAM_METADATA_CONTENT_KEYIDS: ::windows::core::GUID = ::win
 pub const MF_EVENT_STREAM_METADATA_KEYDATA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd59a4a1_4a3b_4bbd_8665_72a40fbea776);
 pub const MF_EVENT_STREAM_METADATA_SYSTEMID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ea2ef64_ba16_4a36_8719_fe7560ba32ad);
 pub const MF_EVENT_TOPOLOGY_STATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30c5018d_9a53_454b_ad9e_6d5f8fa7c43b);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_EVENT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEUnknown: MF_EVENT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEError: MF_EVENT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEExtendedType: MF_EVENT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MENonFatalError: MF_EVENT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEGenericV1Anchor: MF_EVENT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESessionUnknown: MF_EVENT_TYPE = 100i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESessionTopologySet: MF_EVENT_TYPE = 101i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESessionTopologiesCleared: MF_EVENT_TYPE = 102i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESessionStarted: MF_EVENT_TYPE = 103i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESessionPaused: MF_EVENT_TYPE = 104i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESessionStopped: MF_EVENT_TYPE = 105i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESessionClosed: MF_EVENT_TYPE = 106i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESessionEnded: MF_EVENT_TYPE = 107i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESessionRateChanged: MF_EVENT_TYPE = 108i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESessionScrubSampleComplete: MF_EVENT_TYPE = 109i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESessionCapabilitiesChanged: MF_EVENT_TYPE = 110i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESessionTopologyStatus: MF_EVENT_TYPE = 111i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESessionNotifyPresentationTime: MF_EVENT_TYPE = 112i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MENewPresentation: MF_EVENT_TYPE = 113i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MELicenseAcquisitionStart: MF_EVENT_TYPE = 114i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MELicenseAcquisitionCompleted: MF_EVENT_TYPE = 115i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEIndividualizationStart: MF_EVENT_TYPE = 116i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEIndividualizationCompleted: MF_EVENT_TYPE = 117i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEEnablerProgress: MF_EVENT_TYPE = 118i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEEnablerCompleted: MF_EVENT_TYPE = 119i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEPolicyError: MF_EVENT_TYPE = 120i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEPolicyReport: MF_EVENT_TYPE = 121i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEBufferingStarted: MF_EVENT_TYPE = 122i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEBufferingStopped: MF_EVENT_TYPE = 123i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEConnectStart: MF_EVENT_TYPE = 124i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEConnectEnd: MF_EVENT_TYPE = 125i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEReconnectStart: MF_EVENT_TYPE = 126i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEReconnectEnd: MF_EVENT_TYPE = 127i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MERendererEvent: MF_EVENT_TYPE = 128i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESessionStreamSinkFormatChanged: MF_EVENT_TYPE = 129i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESessionV1Anchor: MF_EVENT_TYPE = 129i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESourceUnknown: MF_EVENT_TYPE = 200i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESourceStarted: MF_EVENT_TYPE = 201i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEStreamStarted: MF_EVENT_TYPE = 202i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESourceSeeked: MF_EVENT_TYPE = 203i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEStreamSeeked: MF_EVENT_TYPE = 204i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MENewStream: MF_EVENT_TYPE = 205i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEUpdatedStream: MF_EVENT_TYPE = 206i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESourceStopped: MF_EVENT_TYPE = 207i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEStreamStopped: MF_EVENT_TYPE = 208i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESourcePaused: MF_EVENT_TYPE = 209i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEStreamPaused: MF_EVENT_TYPE = 210i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEEndOfPresentation: MF_EVENT_TYPE = 211i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEEndOfStream: MF_EVENT_TYPE = 212i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEMediaSample: MF_EVENT_TYPE = 213i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEStreamTick: MF_EVENT_TYPE = 214i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEStreamThinMode: MF_EVENT_TYPE = 215i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEStreamFormatChanged: MF_EVENT_TYPE = 216i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESourceRateChanged: MF_EVENT_TYPE = 217i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEEndOfPresentationSegment: MF_EVENT_TYPE = 218i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESourceCharacteristicsChanged: MF_EVENT_TYPE = 219i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESourceRateChangeRequested: MF_EVENT_TYPE = 220i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESourceMetadataChanged: MF_EVENT_TYPE = 221i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESequencerSourceTopologyUpdated: MF_EVENT_TYPE = 222i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESourceV1Anchor: MF_EVENT_TYPE = 222i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESinkUnknown: MF_EVENT_TYPE = 300i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEStreamSinkStarted: MF_EVENT_TYPE = 301i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEStreamSinkStopped: MF_EVENT_TYPE = 302i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEStreamSinkPaused: MF_EVENT_TYPE = 303i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEStreamSinkRateChanged: MF_EVENT_TYPE = 304i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEStreamSinkRequestSample: MF_EVENT_TYPE = 305i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEStreamSinkMarker: MF_EVENT_TYPE = 306i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEStreamSinkPrerolled: MF_EVENT_TYPE = 307i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEStreamSinkScrubSampleComplete: MF_EVENT_TYPE = 308i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEStreamSinkFormatChanged: MF_EVENT_TYPE = 309i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEStreamSinkDeviceChanged: MF_EVENT_TYPE = 310i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEQualityNotify: MF_EVENT_TYPE = 311i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESinkInvalidated: MF_EVENT_TYPE = 312i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEAudioSessionNameChanged: MF_EVENT_TYPE = 313i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEAudioSessionVolumeChanged: MF_EVENT_TYPE = 314i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEAudioSessionDeviceRemoved: MF_EVENT_TYPE = 315i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEAudioSessionServerShutdown: MF_EVENT_TYPE = 316i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEAudioSessionGroupingParamChanged: MF_EVENT_TYPE = 317i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEAudioSessionIconChanged: MF_EVENT_TYPE = 318i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEAudioSessionFormatChanged: MF_EVENT_TYPE = 319i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEAudioSessionDisconnected: MF_EVENT_TYPE = 320i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEAudioSessionExclusiveModeOverride: MF_EVENT_TYPE = 321i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESinkV1Anchor: MF_EVENT_TYPE = 321i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MECaptureAudioSessionVolumeChanged: MF_EVENT_TYPE = 322i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MECaptureAudioSessionDeviceRemoved: MF_EVENT_TYPE = 323i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MECaptureAudioSessionFormatChanged: MF_EVENT_TYPE = 324i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MECaptureAudioSessionDisconnected: MF_EVENT_TYPE = 325i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MECaptureAudioSessionExclusiveModeOverride: MF_EVENT_TYPE = 326i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MECaptureAudioSessionServerShutdown: MF_EVENT_TYPE = 327i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MESinkV2Anchor: MF_EVENT_TYPE = 327i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const METrustUnknown: MF_EVENT_TYPE = 400i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEPolicyChanged: MF_EVENT_TYPE = 401i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEContentProtectionMessage: MF_EVENT_TYPE = 402i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEPolicySet: MF_EVENT_TYPE = 403i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const METrustV1Anchor: MF_EVENT_TYPE = 403i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEWMDRMLicenseBackupCompleted: MF_EVENT_TYPE = 500i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEWMDRMLicenseBackupProgress: MF_EVENT_TYPE = 501i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEWMDRMLicenseRestoreCompleted: MF_EVENT_TYPE = 502i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEWMDRMLicenseRestoreProgress: MF_EVENT_TYPE = 503i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEWMDRMLicenseAcquisitionCompleted: MF_EVENT_TYPE = 506i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEWMDRMIndividualizationCompleted: MF_EVENT_TYPE = 508i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEWMDRMIndividualizationProgress: MF_EVENT_TYPE = 513i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEWMDRMProximityCompleted: MF_EVENT_TYPE = 514i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEWMDRMLicenseStoreCleaned: MF_EVENT_TYPE = 515i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEWMDRMRevocationDownloadCompleted: MF_EVENT_TYPE = 516i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEWMDRMV1Anchor: MF_EVENT_TYPE = 516i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const METransformUnknown: MF_EVENT_TYPE = 600i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const METransformNeedInput: MF_EVENT_TYPE = 601i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const METransformHaveOutput: MF_EVENT_TYPE = 602i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const METransformDrainComplete: MF_EVENT_TYPE = 603i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const METransformMarker: MF_EVENT_TYPE = 604i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const METransformInputStreamStateChanged: MF_EVENT_TYPE = 605i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEByteStreamCharacteristicsChanged: MF_EVENT_TYPE = 700i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEVideoCaptureDeviceRemoved: MF_EVENT_TYPE = 800i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEVideoCaptureDevicePreempted: MF_EVENT_TYPE = 801i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEStreamSinkFormatInvalidated: MF_EVENT_TYPE = 802i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEEncodingParameters: MF_EVENT_TYPE = 803i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEContentProtectionMetadata: MF_EVENT_TYPE = 900i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEDeviceThermalStateChanged: MF_EVENT_TYPE = 950i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MEReservedMax: MF_EVENT_TYPE = 10000i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ALLOCATOR_ALREADY_COMMITED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072846854i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ALLOCATOR_NOT_COMMITED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072846855i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ALLOCATOR_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072846856i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ALL_PROCESS_RESTART_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860820i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ALREADY_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072871856i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ASF_DROPPED_PACKET: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072874847i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ASF_FILESINK_BITRATE_UNKNOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072870848i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ASF_INDEXNOTLOADED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072874850i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ASF_INVALIDDATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072874854i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ASF_MISSINGDATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072874855i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ASF_NOINDEX: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072874852i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ASF_OPAQUEPACKET: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072874853i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ASF_OUTOFRANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072874851i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ASF_PARSINGINCOMPLETE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072874856i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ASF_TOO_MANY_PAYLOADS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072874849i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ASF_UNSUPPORTED_STREAM_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072874848i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ATTRIBUTENOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875802i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_AUDIO_BUFFER_SIZE_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072869752i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_AUDIO_CLIENT_WRAPPER_SPOOF_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072869751i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_AUDIO_PLAYBACK_DEVICE_INVALIDATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072869754i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_AUDIO_PLAYBACK_DEVICE_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072869755i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_AUDIO_RECORDING_DEVICE_INVALIDATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873823i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_AUDIO_RECORDING_DEVICE_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873824i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_AUDIO_SERVICE_NOT_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072869753i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_BACKUP_RESTRICTED_LICENSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860850i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_BAD_OPL_STRUCTURE_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860803i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_BAD_STARTUP_VERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875805i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_BANDWIDTH_OVERRUN: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072871855i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_BUFFERTOOSMALL: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875855i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_BYTESTREAM_NOT_SEEKABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875794i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_BYTESTREAM_UNKNOWN_LENGTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875781i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CANNOT_CREATE_SINK: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875782i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CANNOT_FIND_KEYFRAME_SAMPLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873827i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CANNOT_INDEX_IN_PLACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072871849i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CANNOT_PARSE_BYTESTREAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875792i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CAPTURE_ENGINE_ALL_EFFECTS_REMOVED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072845851i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CAPTURE_ENGINE_INVALID_OP: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072845852i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CAPTURE_NO_SAMPLES_IN_QUEUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072845845i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CAPTURE_PROPERTY_SET_DURING_PHOTO: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072845846i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CAPTURE_SINK_MIRROR_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072845854i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CAPTURE_SINK_OUTPUT_NOT_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072845855i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CAPTURE_SINK_ROTATE_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072845853i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CAPTURE_SOURCE_DEVICE_EXTENDEDPROP_OP_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072845847i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CAPTURE_SOURCE_NO_AUDIO_STREAM_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072845848i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CAPTURE_SOURCE_NO_INDEPENDENT_PHOTO_STREAM_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072845850i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CAPTURE_SOURCE_NO_VIDEO_STREAM_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072845849i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CLOCK_AUDIO_DEVICE_POSITION_UNEXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(891973i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CLOCK_AUDIO_RENDER_POSITION_UNEXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(891974i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CLOCK_AUDIO_RENDER_TIME_UNEXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(891975i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CLOCK_INVALID_CONTINUITY_KEY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072849856i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CLOCK_NOT_SIMPLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072849853i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CLOCK_NO_TIME_SOURCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072849855i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CLOCK_STATE_ALREADY_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072849854i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CODE_EXPIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860834i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_COMPONENT_REVOKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860847i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_CONTENT_PROTECTION_SYSTEM_NOT_ENABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860795i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_DEBUGGING_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860835i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_DISABLED_IN_SAFEMODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875793i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_DRM_HARDWARE_INCONSISTENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860853i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_DRM_MIGRATION_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860793i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_DRM_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875776i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_DROPTIME_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072848854i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_DURATION_TOO_LONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875769i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_DXGI_DEVICE_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217408i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_DXGI_NEW_VIDEO_DEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217407i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_DXGI_VIDEO_DEVICE_LOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217406i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_END_OF_STREAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873852i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_FLUSH_NEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072871853i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_FORMAT_CHANGE_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875778i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_GRL_ABSENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860814i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_GRL_EXTENSIBLE_ENTRY_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860831i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_GRL_INVALID_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860822i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_GRL_RENEWAL_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860832i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_GRL_UNRECOGNIZED_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860821i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_GRL_VERSION_TOO_LOW: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860833i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_HARDWARE_DRM_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875770i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_HDCP_AUTHENTICATION_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860792i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_HDCP_LINK_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860791i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_HIGH_SECURITY_LEVEL_CONTENT_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860808i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_HW_ACCELERATED_THUMBNAIL_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072845844i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_HW_MFT_FAILED_START_STREAMING: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875772i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_HW_STREAM_NOT_CONNECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072846851i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INCOMPATIBLE_SAMPLE_PROTECTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860810i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INDEX_NOT_COMMITTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072871851i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INSUFFICIENT_BUFFER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860816i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INVALIDINDEX: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875841i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INVALIDMEDIATYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875852i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INVALIDNAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875844i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INVALIDREQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875854i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INVALIDSTREAMNUMBER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875853i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INVALIDTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875843i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INVALID_AKE_CHANNEL_PARAMETERS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860796i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INVALID_ASF_STREAMID: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072871847i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INVALID_CODEC_MERIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875773i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INVALID_FILE_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875842i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INVALID_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873844i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INVALID_KEY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875806i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INVALID_POSITION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875803i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INVALID_PROFILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072871852i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INVALID_STATE_TRANSITION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873854i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INVALID_STREAM_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875829i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INVALID_STREAM_STATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072846852i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INVALID_TIMESTAMP: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875840i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_INVALID_WORKQUEUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875777i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ITA_ERROR_PARSING_SAP_PARAMETERS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860805i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ITA_OPL_DATA_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860800i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ITA_UNRECOGNIZED_ANALOG_VIDEO_OUTPUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860799i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ITA_UNRECOGNIZED_ANALOG_VIDEO_PROTECTION_GUID: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860802i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ITA_UNRECOGNIZED_DIGITAL_VIDEO_OUTPUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860798i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_ITA_UNSUPPORTED_ACTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860806i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_KERNEL_UNTRUSTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860830i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_LATE_SAMPLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072871854i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_LICENSE_INCORRECT_RIGHTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860856i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_LICENSE_OUTOFDATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860855i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_LICENSE_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860854i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_LICENSE_RESTORE_NEEDS_INDIVIDUALIZATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860849i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_LICENSE_RESTORE_NO_RIGHTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860851i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_MEDIAPROC_WRONGSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875790i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_MEDIA_EXTENSION_APPSERVICE_CONNECTION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072843856i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_MEDIA_EXTENSION_APPSERVICE_REQUEST_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072843855i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_MEDIA_EXTENSION_PACKAGE_INTEGRITY_CHECK_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072843854i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_MEDIA_EXTENSION_PACKAGE_LICENSE_INVALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072843853i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_MEDIA_SOURCE_NOT_STARTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873839i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_MEDIA_SOURCE_NO_STREAMS_SELECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873828i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_MEDIA_SOURCE_WRONGSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873829i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_METADATA_TOO_LONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072870845i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_MISSING_ASF_LEAKYBUCKET: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072871848i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_MP3_BAD_CRC: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873831i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_MP3_NOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873850i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_MP3_NOTMP3: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873848i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_MP3_NOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873847i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_MP3_OUTOFDATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873849i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_MULTIPLE_BEGIN: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875815i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_MULTIPLE_SUBSCRIBERS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875814i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NETWORK_RESOURCE_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872856i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_BAD_CONTROL_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872838i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_BAD_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872833i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_BUSY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872822i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_BWLEVEL_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872851i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_CACHESTREAM_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872847i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_CACHE_NO_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872835i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_CANNOTCONNECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872825i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_CLIENT_CLOSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872839i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_COMPANION_DRIVER_DISCONNECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872811i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_CONNECTION_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872829i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_EOL: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872834i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_ERROR_FROM_PROXY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872820i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_INCOMPATIBLE_PUSHSERVER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872828i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_INCOMPATIBLE_SERVER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872837i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_INTERNAL_SERVER_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872832i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_INVALID_PRESENTATION_DESCRIPTOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872848i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_INVALID_PUSH_PUBLISHING_POINT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872823i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_INVALID_PUSH_TEMPLATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872824i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_MANUALSS_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872849i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_NOCONNECTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872830i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_PROTOCOL_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872812i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_PROXY_ACCESSDENIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872826i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_PROXY_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872819i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_READ: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872854i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_REDIRECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872843i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_REDIRECT_TO_PROXY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872842i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_REQUIRE_ASYNC: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872852i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_REQUIRE_INPUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872844i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_REQUIRE_NETWORK: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872853i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_RESOURCE_GONE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872821i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_SERVER_ACCESSDENIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872827i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_SERVER_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872818i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_SESSION_INVALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872816i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_SESSION_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872831i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_STREAMGROUPS_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872850i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872840i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_TOO_MANY_REDIRECTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872841i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_TOO_MUCH_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872817i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_UDP_BLOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872814i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_UNSAFE_URL: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872836i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_UNSUPPORTED_CONFIGURATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872813i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NET_WRITE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872855i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NEW_VIDEO_DEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072869851i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NON_PE_PROCESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860827i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NOTACCEPTING: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875851i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875818i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875819i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875850i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NOT_PROTECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873830i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NO_AUDIO_PLAYBACK_DEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072869756i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NO_AUDIO_RECORDING_DEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873825i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NO_BITPUMP: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875786i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NO_CAPTURE_DEVICES_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072845856i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NO_CLOCK: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875817i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NO_CONTENT_PROTECTION_MANAGER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860852i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NO_DURATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873846i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NO_EVENTS_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873856i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NO_INDEX: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072871850i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NO_MORE_DROP_MODES: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072848856i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NO_MORE_QUALITY_LEVELS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072848855i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NO_MORE_TYPES: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875847i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NO_PMP_HOST: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860801i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NO_SAMPLE_DURATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875831i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NO_SAMPLE_TIMESTAMP: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875832i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NO_SOURCE_IN_CACHE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072864850i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_NO_VIDEO_SAMPLE_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072869850i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_OFFLINE_MODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072872815i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_OPERATION_CANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875795i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_OPERATION_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875771i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_OPERATION_UNSUPPORTED_AT_D3D_FEATURE_LEVEL: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875768i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_OPL_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860838i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875774i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_PEAUTH_NOT_STARTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860811i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_PEAUTH_PUBLICKEY_REVOKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860815i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_PEAUTH_SESSION_NOT_STARTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860817i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_PEAUTH_UNTRUSTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860829i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_PE_SESSIONS_MAXED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860809i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_PE_UNTRUSTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860812i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_PLATFORM_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875856i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_POLICY_MGR_ACTION_OUTOFBOUNDS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860804i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_POLICY_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860839i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_PROCESS_RESTART_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860819i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_PROPERTY_EMPTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875799i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_PROPERTY_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873841i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_PROPERTY_NOT_EMPTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875798i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_PROPERTY_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873843i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_PROPERTY_READ_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873842i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_PROPERTY_TYPE_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875801i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_PROPERTY_TYPE_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875800i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_PROPERTY_VECTOR_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875797i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_PROPERTY_VECTOR_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875796i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_QM_INVALIDSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072848852i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_QUALITYKNOB_WAIT_LONGER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072848853i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_RATE_CHANGE_PREEMPTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875820i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_REBOOT_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860825i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_RESOLUTION_REQUIRES_PMP_CREATION_CALLBACK: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860797i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_REVERSE_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875822i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_RT_OUTOFMEMORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875785i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_RT_THROUGHPUT_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875789i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_RT_TOO_MANY_CLASSES: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875788i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_RT_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875825i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_RT_WORKQUEUE_CLASS_NOT_SPECIFIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875784i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_RT_WOULDBLOCK: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875787i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_SAMPLEALLOCATOR_CANCELED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072870851i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_SAMPLEALLOCATOR_EMPTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072870850i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_SAMPLE_HAS_TOO_MANY_BUFFERS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875809i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_SAMPLE_NOT_WRITABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875808i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_SEQUENCER_UNKNOWN_SEGMENT_ID: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072864852i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_SESSION_PAUSEWHILESTOPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875780i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_SHUTDOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873851i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_SIGNATURE_VERIFICATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860836i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_SINK_ALREADYSTOPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072870849i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_SINK_HEADERS_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072870843i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_SINK_NO_SAMPLES_PROCESSED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072870844i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_SINK_NO_STREAMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072870847i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_SOURCERESOLVER_MUTUALLY_EXCLUSIVE_FLAGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875791i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_STATE_TRANSITION_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875812i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_STREAMSINKS_FIXED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072870853i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_STREAMSINKS_OUT_OF_SYNC: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072870854i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_STREAMSINK_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072870852i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_STREAMSINK_REMOVED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072870856i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_STREAM_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072846853i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TEST_SIGNED_COMPONENTS_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860807i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_THINNING_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875823i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TIMELINECONTROLLER_CANNOT_ATTACH: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072844854i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TIMELINECONTROLLER_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072844855i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TIMELINECONTROLLER_UNSUPPORTED_SOURCE_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072844856i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TIMER_ORPHANED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875813i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TOPOLOGY_VERIFICATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860837i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TOPO_CANNOT_CONNECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072868845i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TOPO_CANNOT_FIND_DECRYPTOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072868847i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TOPO_CODEC_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072868846i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TOPO_INVALID_OPTIONAL_NODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072868850i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TOPO_INVALID_TIME_ATTRIBUTES: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072868843i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TOPO_LOOPS_IN_TOPOLOGY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072868842i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TOPO_MISSING_PRESENTATION_DESCRIPTOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072868841i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TOPO_MISSING_SOURCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072868838i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TOPO_MISSING_STREAM_DESCRIPTOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072868840i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TOPO_SINK_ACTIVATES_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072868837i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TOPO_STREAM_DESCRIPTOR_NOT_SELECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072868839i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TOPO_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072868844i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSCODE_INVALID_PROFILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072847853i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSCODE_NO_CONTAINERTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072847856i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSCODE_NO_MATCHING_ENCODER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072847854i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSCODE_PROFILE_NO_MATCHING_STREAMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072847855i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_ASYNC_LOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861833i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_ASYNC_MFT_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861830i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_CANNOT_CHANGE_MEDIATYPE_WHILE_PROCESSING: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861836i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_CANNOT_INITIALIZE_ACM_DRIVER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861832i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_CONFLICTS_WITH_OTHER_CURRENTLY_ENABLED_FEATURES: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861840i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_EXATTRIBUTE_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861828i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_INPUT_REMAINING: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861854i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_NEED_MORE_INPUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861838i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_NOT_POSSIBLE_FOR_CURRENT_INPUT_MEDIATYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861842i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_NOT_POSSIBLE_FOR_CURRENT_MEDIATYPE_COMBINATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861841i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_NOT_POSSIBLE_FOR_CURRENT_OUTPUT_MEDIATYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861843i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_NOT_POSSIBLE_FOR_CURRENT_SPKR_CONFIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861837i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_PROFILE_INVALID_OR_CORRUPT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861852i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_PROFILE_MISSING: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861853i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_PROFILE_TRUNCATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861851i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_PROPERTY_ARRAY_VALUE_WRONG_NUM_DIM: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861847i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_PROPERTY_NOT_WRITEABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861848i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_PROPERTY_PID_NOT_RECOGNIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861850i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_PROPERTY_VALUE_INCOMPATIBLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861844i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_PROPERTY_VALUE_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861845i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_PROPERTY_VALUE_SIZE_WRONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861846i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_PROPERTY_VARIANT_TYPE_WRONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861849i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_STREAM_CHANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861855i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_STREAM_INVALID_RESOLUTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861831i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRANSFORM_TYPE_NOT_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861856i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_TRUST_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860846i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_UNAUTHORIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875775i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_UNEXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875845i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_UNRECOVERABLE_ERROR_OCCURRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875810i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_UNSUPPORTED_BYTESTREAM_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875836i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_UNSUPPORTED_CAPTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875804i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_UNSUPPORTED_CAPTURE_DEVICE_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072845843i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_UNSUPPORTED_CHARACTERISTICS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873826i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_UNSUPPORTED_CONTENT_PROTECTION_SYSTEM: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860794i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_UNSUPPORTED_D3D_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072861834i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_UNSUPPORTED_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873832i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_UNSUPPORTED_MEDIATYPE_AT_D3D_FEATURE_LEVEL: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875767i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_UNSUPPORTED_RATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875824i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_UNSUPPORTED_RATE_TRANSITION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875821i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_UNSUPPORTED_REPRESENTATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875849i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_UNSUPPORTED_SCHEME: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875837i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_UNSUPPORTED_SERVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875846i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_UNSUPPORTED_STATE_TRANSITION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875811i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_UNSUPPORTED_TIME_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072875835i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_USERMODE_UNTRUSTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860818i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_VIDEO_DEVICE_LOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072869852i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_VIDEO_RECORDING_DEVICE_INVALIDATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873822i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_VIDEO_RECORDING_DEVICE_PREEMPTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072873821i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_VIDEO_REN_COPYPROT_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072869854i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_VIDEO_REN_NO_DEINTERLACE_HW: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072869855i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_VIDEO_REN_NO_PROCAMP_HW: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072869856i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_VIDEO_REN_SURFACE_NOT_SHARED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072869853i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_WMDRMOTA_ACTION_ALREADY_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860844i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_WMDRMOTA_ACTION_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860841i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_WMDRMOTA_DRM_ENCRYPTION_SCHEME_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860842i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_WMDRMOTA_DRM_HEADER_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860843i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_WMDRMOTA_INVALID_POLICY: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860840i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_E_WMDRMOTA_NO_ACTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072860845i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_FILE_ACCESSMODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_ACCESSMODE_READ: MF_FILE_ACCESSMODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_ACCESSMODE_WRITE: MF_FILE_ACCESSMODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_ACCESSMODE_READWRITE: MF_FILE_ACCESSMODE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_FILE_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_FILEFLAGS_NONE: MF_FILE_FLAGS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_FILEFLAGS_NOBUFFERING: MF_FILE_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_FILEFLAGS_ALLOW_WRITE_SHARING: MF_FILE_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_FILE_OPENMODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OPENMODE_FAIL_IF_NOT_EXIST: MF_FILE_OPENMODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OPENMODE_FAIL_IF_EXIST: MF_FILE_OPENMODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OPENMODE_RESET_IF_EXIST: MF_FILE_OPENMODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OPENMODE_APPEND_IF_EXIST: MF_FILE_OPENMODE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OPENMODE_DELETE_IF_EXIST: MF_FILE_OPENMODE = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MF_FLOAT2 {
     pub x: f32,
     pub y: f32,
@@ -48216,6 +50938,7 @@ impl ::core::default::Default for MF_FLOAT2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MF_FLOAT3 {
     pub x: f32,
     pub y: f32,
@@ -48249,9 +50972,13 @@ pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_STOP: ::windows::core::GUID =
 pub const MF_FRAMESERVER_VCAMEVENT_EXTENDED_SOURCE_UNINITIALIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0ebaba7_a422_4e33_8401_b37d2800aa67);
 pub const MF_GRL_ABSENT: u32 = 4096u32;
 pub const MF_GRL_LOAD_FAILED: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_HDCP_STATUS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_HDCP_STATUS_ON: MF_HDCP_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_HDCP_STATUS_OFF: MF_HDCP_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_HDCP_STATUS_ON_WITH_TYPE_ENFORCEMENT: MF_HDCP_STATUS = 2i32;
 pub const MF_HISTOGRAM_CHANNEL_B: u32 = 8u32;
 pub const MF_HISTOGRAM_CHANNEL_Cb: u32 = 16u32;
@@ -48265,9 +50992,11 @@ pub const MF_INVALID_ACCESS_ERR: u32 = 2154823695u32;
 pub const MF_INVALID_GRL_SIGNATURE: u32 = 32u32;
 pub const MF_INVALID_PRESENTATION_TIME: u64 = 9223372036854775808u64;
 pub const MF_INVALID_STATE_ERR: u32 = 2154823691u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_I_MANUAL_PROXY: ::windows::core::HRESULT = ::windows::core::HRESULT(1074610802i32);
 pub const MF_KERNEL_MODE_COMPONENT_LOAD: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MF_LEAKY_BUCKET_PAIR {
     pub dwBitrate: u32,
     pub msBufferWindow: u32,
@@ -48298,28 +51027,51 @@ pub const MF_LOW_LATENCY: ::windows::core::GUID = ::windows::core::GUID::from_u1
 pub const MF_LUMA_KEY_ENABLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7369820f_76de_43ca_9284_47b8f37e0649);
 pub const MF_LUMA_KEY_LOWER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93d7b8d5_0b81_4715_aea0_8725871621e9);
 pub const MF_LUMA_KEY_UPPER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd09f39bb_4602_4c31_a706_a12171a5110a);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIAKEYSESSION_MESSAGETYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAKEYSESSION_MESSAGETYPE_LICENSE_REQUEST: MF_MEDIAKEYSESSION_MESSAGETYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAKEYSESSION_MESSAGETYPE_LICENSE_RENEWAL: MF_MEDIAKEYSESSION_MESSAGETYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAKEYSESSION_MESSAGETYPE_LICENSE_RELEASE: MF_MEDIAKEYSESSION_MESSAGETYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAKEYSESSION_MESSAGETYPE_INDIVIDUALIZATION_REQUEST: MF_MEDIAKEYSESSION_MESSAGETYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIAKEYSESSION_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAKEYSESSION_TYPE_TEMPORARY: MF_MEDIAKEYSESSION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAKEYSESSION_TYPE_PERSISTENT_LICENSE: MF_MEDIAKEYSESSION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAKEYSESSION_TYPE_PERSISTENT_RELEASE_MESSAGE: MF_MEDIAKEYSESSION_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAKEYSESSION_TYPE_PERSISTENT_USAGE_RECORD: MF_MEDIAKEYSESSION_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIAKEYS_REQUIREMENT = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAKEYS_REQUIREMENT_REQUIRED: MF_MEDIAKEYS_REQUIREMENT = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAKEYS_REQUIREMENT_OPTIONAL: MF_MEDIAKEYS_REQUIREMENT = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAKEYS_REQUIREMENT_NOT_ALLOWED: MF_MEDIAKEYS_REQUIREMENT = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIAKEY_STATUS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAKEY_STATUS_USABLE: MF_MEDIAKEY_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAKEY_STATUS_EXPIRED: MF_MEDIAKEY_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAKEY_STATUS_OUTPUT_DOWNSCALED: MF_MEDIAKEY_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAKEY_STATUS_OUTPUT_NOT_ALLOWED: MF_MEDIAKEY_STATUS = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAKEY_STATUS_STATUS_PENDING: MF_MEDIAKEY_STATUS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAKEY_STATUS_INTERNAL_ERROR: MF_MEDIAKEY_STATUS = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAKEY_STATUS_RELEASED: MF_MEDIAKEY_STATUS = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAKEY_STATUS_OUTPUT_RESTRICTED: MF_MEDIAKEY_STATUS = 7i32;
 pub const MF_MEDIASINK_AUTOFINALIZE_SUPPORTED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48c131be_135a_41cb_8290_03652509c999);
 pub const MF_MEDIASINK_ENABLE_AUTOFINALIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34014265_cb7e_4cde_ac7c_effd3b3c2530);
@@ -48338,9 +51090,13 @@ pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE11: ::windows::core::GUID
 pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE9: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x052c2d39_40c0_4188_ab86_f828273b7522);
 pub const MF_MEDIA_ENGINE_BROWSER_COMPATIBILITY_MODE_IE_EDGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6f3e465_3aca_442c_a3f0_ad6ddad839ae);
 pub const MF_MEDIA_ENGINE_CALLBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc60381b8_83a4_41f8_a3d0_de05076849a9);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIA_ENGINE_CANPLAY = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_CANPLAY_NOT_SUPPORTED: MF_MEDIA_ENGINE_CANPLAY = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_CANPLAY_MAYBE: MF_MEDIA_ENGINE_CANPLAY = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_CANPLAY_PROBABLY: MF_MEDIA_ENGINE_CANPLAY = 2i32;
 pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ef26ad4_dc54_45de_b9af_76c8c66bfa8e);
 pub const MF_MEDIA_ENGINE_COMPATIBILITY_MODE_WIN10: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b25e089_6ca7_4139_a2cb_fcaab39552a3);
@@ -48349,130 +51105,246 @@ pub const MF_MEDIA_ENGINE_CONTENT_PROTECTION_FLAGS: ::windows::core::GUID = ::wi
 pub const MF_MEDIA_ENGINE_CONTENT_PROTECTION_MANAGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdd6dfaa_bd85_4af3_9e0f_a01d539d876a);
 pub const MF_MEDIA_ENGINE_CONTINUE_ON_CODEC_ERROR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbcdb7f9_48e4_4295_b70d_d518234eeb38);
 pub const MF_MEDIA_ENGINE_COREWINDOW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfccae4dc_0b7f_41c2_9f96_4659948acddc);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIA_ENGINE_CREATEFLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_AUDIOONLY: MF_MEDIA_ENGINE_CREATEFLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_WAITFORSTABLE_STATE: MF_MEDIA_ENGINE_CREATEFLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_FORCEMUTE: MF_MEDIA_ENGINE_CREATEFLAGS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_REAL_TIME_MODE: MF_MEDIA_ENGINE_CREATEFLAGS = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_DISABLE_LOCAL_PLUGINS: MF_MEDIA_ENGINE_CREATEFLAGS = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_CREATEFLAGS_MASK: MF_MEDIA_ENGINE_CREATEFLAGS = 31i32;
 pub const MF_MEDIA_ENGINE_DXGI_MANAGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x065702da_1094_486d_8617_ee7cc4ee4648);
 pub const MF_MEDIA_ENGINE_EME_CALLBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x494553a7_a481_4cb7_bec5_380903513731);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIA_ENGINE_ERR = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_ERR_NOERROR: MF_MEDIA_ENGINE_ERR = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_ERR_ABORTED: MF_MEDIA_ENGINE_ERR = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_ERR_NETWORK: MF_MEDIA_ENGINE_ERR = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_ERR_DECODE: MF_MEDIA_ENGINE_ERR = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_ERR_SRC_NOT_SUPPORTED: MF_MEDIA_ENGINE_ERR = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_ERR_ENCRYPTED: MF_MEDIA_ENGINE_ERR = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIA_ENGINE_EVENT = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_LOADSTART: MF_MEDIA_ENGINE_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_PROGRESS: MF_MEDIA_ENGINE_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_SUSPEND: MF_MEDIA_ENGINE_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_ABORT: MF_MEDIA_ENGINE_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_ERROR: MF_MEDIA_ENGINE_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_EMPTIED: MF_MEDIA_ENGINE_EVENT = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_STALLED: MF_MEDIA_ENGINE_EVENT = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_PLAY: MF_MEDIA_ENGINE_EVENT = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_PAUSE: MF_MEDIA_ENGINE_EVENT = 9i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_LOADEDMETADATA: MF_MEDIA_ENGINE_EVENT = 10i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_LOADEDDATA: MF_MEDIA_ENGINE_EVENT = 11i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_WAITING: MF_MEDIA_ENGINE_EVENT = 12i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_PLAYING: MF_MEDIA_ENGINE_EVENT = 13i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_CANPLAY: MF_MEDIA_ENGINE_EVENT = 14i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_CANPLAYTHROUGH: MF_MEDIA_ENGINE_EVENT = 15i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_SEEKING: MF_MEDIA_ENGINE_EVENT = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_SEEKED: MF_MEDIA_ENGINE_EVENT = 17i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_TIMEUPDATE: MF_MEDIA_ENGINE_EVENT = 18i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_ENDED: MF_MEDIA_ENGINE_EVENT = 19i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_RATECHANGE: MF_MEDIA_ENGINE_EVENT = 20i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_DURATIONCHANGE: MF_MEDIA_ENGINE_EVENT = 21i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_VOLUMECHANGE: MF_MEDIA_ENGINE_EVENT = 22i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_FORMATCHANGE: MF_MEDIA_ENGINE_EVENT = 1000i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_PURGEQUEUEDEVENTS: MF_MEDIA_ENGINE_EVENT = 1001i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_TIMELINE_MARKER: MF_MEDIA_ENGINE_EVENT = 1002i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_BALANCECHANGE: MF_MEDIA_ENGINE_EVENT = 1003i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_DOWNLOADCOMPLETE: MF_MEDIA_ENGINE_EVENT = 1004i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_BUFFERINGSTARTED: MF_MEDIA_ENGINE_EVENT = 1005i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_BUFFERINGENDED: MF_MEDIA_ENGINE_EVENT = 1006i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_FRAMESTEPCOMPLETED: MF_MEDIA_ENGINE_EVENT = 1007i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_NOTIFYSTABLESTATE: MF_MEDIA_ENGINE_EVENT = 1008i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_FIRSTFRAMEREADY: MF_MEDIA_ENGINE_EVENT = 1009i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_TRACKSCHANGE: MF_MEDIA_ENGINE_EVENT = 1010i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_OPMINFO: MF_MEDIA_ENGINE_EVENT = 1011i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_RESOURCELOST: MF_MEDIA_ENGINE_EVENT = 1012i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_DELAYLOADEVENT_CHANGED: MF_MEDIA_ENGINE_EVENT = 1013i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_STREAMRENDERINGERROR: MF_MEDIA_ENGINE_EVENT = 1014i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_SUPPORTEDRATES_CHANGED: MF_MEDIA_ENGINE_EVENT = 1015i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EVENT_AUDIOENDPOINTCHANGE: MF_MEDIA_ENGINE_EVENT = 1016i32;
 pub const MF_MEDIA_ENGINE_EXTENSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3109fd46_060d_4b62_8dcf_faff811318d2);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIA_ENGINE_EXTENSION_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EXTENSION_TYPE_MEDIASOURCE: MF_MEDIA_ENGINE_EXTENSION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_EXTENSION_TYPE_BYTESTREAM: MF_MEDIA_ENGINE_EXTENSION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAG_PROTECTED: MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAG_REQUIRES_SURFACE_PROTECTION: MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAG_REQUIRES_ANTI_SCREEN_SCRAPE_PROTECTION: MF_MEDIA_ENGINE_FRAME_PROTECTION_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIA_ENGINE_KEYERR = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAENGINE_KEYERR_UNKNOWN: MF_MEDIA_ENGINE_KEYERR = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAENGINE_KEYERR_CLIENT: MF_MEDIA_ENGINE_KEYERR = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAENGINE_KEYERR_SERVICE: MF_MEDIA_ENGINE_KEYERR = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAENGINE_KEYERR_OUTPUT: MF_MEDIA_ENGINE_KEYERR = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAENGINE_KEYERR_HARDWARECHANGE: MF_MEDIA_ENGINE_KEYERR = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIAENGINE_KEYERR_DOMAIN: MF_MEDIA_ENGINE_KEYERR = 6i32;
 pub const MF_MEDIA_ENGINE_MEDIA_PLAYER_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ddd8d45_5aa1_4112_82e5_36f6a2197e6e);
 pub const MF_MEDIA_ENGINE_NEEDKEY_CALLBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ea80843_b6e4_432c_8ea4_7848ffe4220e);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIA_ENGINE_NETWORK = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_NETWORK_EMPTY: MF_MEDIA_ENGINE_NETWORK = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_NETWORK_IDLE: MF_MEDIA_ENGINE_NETWORK = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_NETWORK_LOADING: MF_MEDIA_ENGINE_NETWORK = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_NETWORK_NO_SOURCE: MF_MEDIA_ENGINE_NETWORK = 3i32;
 pub const MF_MEDIA_ENGINE_OPM_HWND: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0be8ee7_0572_4f2c_a801_2a151bd3e726);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIA_ENGINE_OPM_STATUS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_OPM_NOT_REQUESTED: MF_MEDIA_ENGINE_OPM_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_OPM_ESTABLISHED: MF_MEDIA_ENGINE_OPM_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_OPM_FAILED_VM: MF_MEDIA_ENGINE_OPM_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_OPM_FAILED_BDA: MF_MEDIA_ENGINE_OPM_STATUS = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_OPM_FAILED_UNSIGNED_DRIVER: MF_MEDIA_ENGINE_OPM_STATUS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_OPM_FAILED: MF_MEDIA_ENGINE_OPM_STATUS = 5i32;
 pub const MF_MEDIA_ENGINE_PLAYBACK_HWND: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd988879b_67c9_4d92_baa7_6eadd446039d);
 pub const MF_MEDIA_ENGINE_PLAYBACK_VISUAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6debd26f_6ab9_4d7e_b0ee_c61a73ffad15);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIA_ENGINE_PRELOAD = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_PRELOAD_MISSING: MF_MEDIA_ENGINE_PRELOAD = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_PRELOAD_EMPTY: MF_MEDIA_ENGINE_PRELOAD = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_PRELOAD_NONE: MF_MEDIA_ENGINE_PRELOAD = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_PRELOAD_METADATA: MF_MEDIA_ENGINE_PRELOAD = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_PRELOAD_AUTOMATIC: MF_MEDIA_ENGINE_PRELOAD = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIA_ENGINE_PROTECTION_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_ENABLE_PROTECTED_CONTENT: MF_MEDIA_ENGINE_PROTECTION_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_USE_PMP_FOR_ALL_CONTENT: MF_MEDIA_ENGINE_PROTECTION_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_USE_UNPROTECTED_PMP: MF_MEDIA_ENGINE_PROTECTION_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIA_ENGINE_READY = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_READY_HAVE_NOTHING: MF_MEDIA_ENGINE_READY = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_READY_HAVE_METADATA: MF_MEDIA_ENGINE_READY = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_READY_HAVE_CURRENT_DATA: MF_MEDIA_ENGINE_READY = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_READY_HAVE_FUTURE_DATA: MF_MEDIA_ENGINE_READY = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_READY_HAVE_ENOUGH_DATA: MF_MEDIA_ENGINE_READY = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIA_ENGINE_S3D_PACKING_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_S3D_PACKING_MODE_NONE: MF_MEDIA_ENGINE_S3D_PACKING_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_S3D_PACKING_MODE_SIDE_BY_SIDE: MF_MEDIA_ENGINE_S3D_PACKING_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_S3D_PACKING_MODE_TOP_BOTTOM: MF_MEDIA_ENGINE_S3D_PACKING_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIA_ENGINE_SEEK_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_SEEK_MODE_NORMAL: MF_MEDIA_ENGINE_SEEK_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_SEEK_MODE_APPROXIMATE: MF_MEDIA_ENGINE_SEEK_MODE = 1i32;
 pub const MF_MEDIA_ENGINE_SOURCE_RESOLVER_CONFIG_STORE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ac0c497_b3c4_48c9_9cde_bb8ca2442ca3);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIA_ENGINE_STATISTIC = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_STATISTIC_FRAMES_RENDERED: MF_MEDIA_ENGINE_STATISTIC = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_STATISTIC_FRAMES_DROPPED: MF_MEDIA_ENGINE_STATISTIC = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_STATISTIC_BYTES_DOWNLOADED: MF_MEDIA_ENGINE_STATISTIC = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_STATISTIC_BUFFER_PROGRESS: MF_MEDIA_ENGINE_STATISTIC = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_STATISTIC_FRAMES_PER_SECOND: MF_MEDIA_ENGINE_STATISTIC = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_STATISTIC_PLAYBACK_JITTER: MF_MEDIA_ENGINE_STATISTIC = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_STATISTIC_FRAMES_CORRUPTED: MF_MEDIA_ENGINE_STATISTIC = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_STATISTIC_TOTAL_FRAME_DELAY: MF_MEDIA_ENGINE_STATISTIC = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIA_ENGINE_STREAMTYPE_FAILED = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_STREAMTYPE_FAILED_UNKNOWN: MF_MEDIA_ENGINE_STREAMTYPE_FAILED = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_STREAMTYPE_FAILED_AUDIO: MF_MEDIA_ENGINE_STREAMTYPE_FAILED = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_ENGINE_STREAMTYPE_FAILED_VIDEO: MF_MEDIA_ENGINE_STREAMTYPE_FAILED = 2i32;
 pub const MF_MEDIA_ENGINE_STREAM_CONTAINS_ALPHA_CHANNEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cbfaf44_d2b2_4cfb_80a7_d429c74c789d);
 pub const MF_MEDIA_ENGINE_SYNCHRONOUS_CLOSE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3c2e12f_7e0e_4e43_b91c_dc992ccdfa5e);
@@ -48483,7 +51355,9 @@ pub const MF_MEDIA_ENGINE_VIDEO_OUTPUT_FORMAT: ::windows::core::GUID = ::windows
 pub const MF_MEDIA_PROTECTION_MANAGER_PROPERTIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38bd81a9_acea_4c73_89b2_5532c0aeca79);
 pub const MF_MEDIA_SHARING_ENGINE_DEVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb461c58a_7a08_4b98_99a8_70fd5f3badfd);
 pub const MF_MEDIA_SHARING_ENGINE_DEVICE_NAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x771e05d1_862f_4299_95ac_ae81fd14f3e7);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MEDIA_SHARING_ENGINE_EVENT = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MEDIA_SHARING_ENGINE_EVENT_DISCONNECT: MF_MEDIA_SHARING_ENGINE_EVENT = 2000i32;
 pub const MF_MEDIA_SHARING_ENGINE_INITIAL_SEEK_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f3497f5_d528_4a4f_8dd7_db36657ec4c9);
 pub const MF_METADATAFACIALEXPRESSION_SMILE: u32 = 1u32;
@@ -48502,28 +51376,47 @@ pub const MF_MPEG4SINK_MIN_FRAGMENT_DURATION: ::windows::core::GUID = ::windows:
 pub const MF_MPEG4SINK_MOOV_BEFORE_MDAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf672e3ac_e1e6_4f10_b5ec_5f3b30828816);
 pub const MF_MPEG4SINK_SPSPPS_PASSTHROUGH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5601a134_2005_4ad2_b37d_22a6c554deb2);
 pub const MF_MSE_ACTIVELIST_CALLBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x949bda0f_4549_46d5_ad7f_b846e1ab1652);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MSE_APPEND_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MSE_APPEND_MODE_SEGMENTS: MF_MSE_APPEND_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MSE_APPEND_MODE_SEQUENCE: MF_MSE_APPEND_MODE = 1i32;
 pub const MF_MSE_BUFFERLIST_CALLBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42e669b0_d60e_4afb_a85b_d8e5fe6bdab5);
 pub const MF_MSE_CALLBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9063a7c0_42c5_4ffd_a8a8_6fcf9ea3d00c);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MSE_ERROR = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MSE_ERROR_NOERROR: MF_MSE_ERROR = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MSE_ERROR_NETWORK: MF_MSE_ERROR = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MSE_ERROR_DECODE: MF_MSE_ERROR = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MSE_ERROR_UNKNOWN_ERROR: MF_MSE_ERROR = 3i32;
 pub const MF_MSE_OPUS_SUPPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d224cc1_8cc4_48a3_a7a7_e4c16ce6388a);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MSE_OPUS_SUPPORT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MSE_OPUS_SUPPORT_ON: MF_MSE_OPUS_SUPPORT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MSE_OPUS_SUPPORT_OFF: MF_MSE_OPUS_SUPPORT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MSE_READY = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MSE_READY_CLOSED: MF_MSE_READY = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MSE_READY_OPEN: MF_MSE_READY = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MSE_READY_ENDED: MF_MSE_READY = 3i32;
 pub const MF_MSE_VP9_SUPPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92d78429_d88b_4ff0_8322_803efa6e9626);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MSE_VP9_SUPPORT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MSE_VP9_SUPPORT_DEFAULT: MF_MSE_VP9_SUPPORT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MSE_VP9_SUPPORT_ON: MF_MSE_VP9_SUPPORT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_MSE_VP9_SUPPORT_OFF: MF_MSE_VP9_SUPPORT_TYPE = 2i32;
 pub const MF_MT_AAC_AUDIO_PROFILE_LEVEL_INDICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7632f0e6_9538_4d61_acda_ea29c8c14456);
 pub const MF_MT_AAC_PAYLOAD_TYPE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfbabe79_7434_4d1c_94f0_72a3b9e17188);
@@ -48562,8 +51455,11 @@ pub const MF_MT_D3D12_RESOURCE_FLAG_ALLOW_UNORDERED_ACCESS: ::windows::core::GUI
 pub const MF_MT_D3D12_RESOURCE_FLAG_DENY_SHADER_RESOURCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba06bfac_ffe3_474a_ab55_161ee4417a2e);
 pub const MF_MT_D3D12_TEXTURE_LAYOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97c85caa_0beb_4ee1_9715_f22fad8c10f5);
 pub const MF_MT_D3D_RESOURCE_VERSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x174f1e85_fe26_453d_b52e_5bdd4e55b944);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_MT_D3D_RESOURCE_VERSION_ENUM = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_D3D11_RESOURCE: MF_MT_D3D_RESOURCE_VERSION_ENUM = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_D3D12_RESOURCE: MF_MT_D3D_RESOURCE_VERSION_ENUM = 1i32;
 pub const MF_MT_DECODER_MAX_DPB_COUNT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67be144c_88b7_4ca9_9628_c808d5262217);
 pub const MF_MT_DECODER_USE_MAX_RESOLUTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c547c24_af9a_4f38_96ad_978773cf53e7);
@@ -48664,22 +51560,39 @@ pub const MF_NALU_LENGTH_INFORMATION: ::windows::core::GUID = ::windows::core::G
 pub const MF_NALU_LENGTH_SET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7911d53_12a4_4965_ae70_6eadd6ff0551);
 pub const MF_NOT_FOUND_ERR: u32 = 2154823688u32;
 pub const MF_NOT_SUPPORTED_ERR: u32 = 2154823689u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_OBJECT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OBJECT_MEDIASOURCE: MF_OBJECT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OBJECT_BYTESTREAM: MF_OBJECT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OBJECT_INVALID: MF_OBJECT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_OPM_ACP_PROTECTION_LEVEL = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OPM_ACP_OFF: MF_OPM_ACP_PROTECTION_LEVEL = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OPM_ACP_LEVEL_ONE: MF_OPM_ACP_PROTECTION_LEVEL = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OPM_ACP_LEVEL_TWO: MF_OPM_ACP_PROTECTION_LEVEL = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OPM_ACP_LEVEL_THREE: MF_OPM_ACP_PROTECTION_LEVEL = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OPM_ACP_FORCE_ULONG: MF_OPM_ACP_PROTECTION_LEVEL = 2147483647i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_OPM_CGMSA_PROTECTION_LEVEL = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OPM_CGMSA_OFF: MF_OPM_CGMSA_PROTECTION_LEVEL = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OPM_CGMSA_COPY_FREELY: MF_OPM_CGMSA_PROTECTION_LEVEL = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OPM_CGMSA_COPY_NO_MORE: MF_OPM_CGMSA_PROTECTION_LEVEL = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OPM_CGMSA_COPY_ONE_GENERATION: MF_OPM_CGMSA_PROTECTION_LEVEL = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OPM_CGMSA_COPY_NEVER: MF_OPM_CGMSA_PROTECTION_LEVEL = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OPM_CGMSA_REDISTRIBUTION_CONTROL_REQUIRED: MF_OPM_CGMSA_PROTECTION_LEVEL = 8i32;
 pub const MF_PARSE_ERR: u32 = 2154823761u32;
 pub const MF_PD_ADAPTIVE_STREAMING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea0d5d97_29f9_488b_ae6b_7d6b4136112b);
@@ -48725,43 +51638,72 @@ pub const MF_PD_PREFERRED_LANGUAGE: ::windows::core::GUID = ::windows::core::GUI
 pub const MF_PD_SAMI_STYLELIST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0b73c7f_486d_484e_9872_4de5192a7bf8);
 pub const MF_PD_TOTAL_FILE_SIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c990d34_bb8e_477a_8598_0d5d96fcd88a);
 pub const MF_PD_VIDEO_ENCODING_BITRATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c990d36_bb8e_477a_8598_0d5d96fcd88a);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_PLUGIN_CONTROL_POLICY = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_PLUGIN_CONTROL_POLICY_USE_ALL_PLUGINS: MF_PLUGIN_CONTROL_POLICY = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_PLUGIN_CONTROL_POLICY_USE_APPROVED_PLUGINS: MF_PLUGIN_CONTROL_POLICY = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_PLUGIN_CONTROL_POLICY_USE_WEB_PLUGINS: MF_PLUGIN_CONTROL_POLICY = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_PLUGIN_CONTROL_POLICY_USE_WEB_PLUGINS_EDGEMODE: MF_PLUGIN_CONTROL_POLICY = 3i32;
 pub const MF_PMP_SERVER_CONTEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f00c910_d2cf_4278_8b6a_d077fac3a25f);
 pub const MF_POLICY_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb160c24d_c059_48f1_a901_9ee298a9a8c3);
 pub const MF_PREFERRED_SOURCE_URI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fc85488_436a_4db8_90af_4db402ae5c57);
 pub const MF_PROGRESSIVE_CODING_CONTENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f020eea_1508_471f_9da6_507d7cfa40db);
 pub const MF_PROPERTY_HANDLER_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3face02_32b8_41dd_90e7_5fef7c8991b5);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_Plugin_Type = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_Plugin_Type_MFT: MF_Plugin_Type = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_Plugin_Type_MediaSource: MF_Plugin_Type = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_Plugin_Type_MFT_MatchOutputType: MF_Plugin_Type = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_Plugin_Type_Other: MF_Plugin_Type = -1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_QUALITY_ADVISE_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_QUALITY_CANNOT_KEEP_UP: MF_QUALITY_ADVISE_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_QUALITY_DROP_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_DROP_MODE_NONE: MF_QUALITY_DROP_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_DROP_MODE_1: MF_QUALITY_DROP_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_DROP_MODE_2: MF_QUALITY_DROP_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_DROP_MODE_3: MF_QUALITY_DROP_MODE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_DROP_MODE_4: MF_QUALITY_DROP_MODE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_DROP_MODE_5: MF_QUALITY_DROP_MODE = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_NUM_DROP_MODES: MF_QUALITY_DROP_MODE = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_QUALITY_LEVEL = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_QUALITY_NORMAL: MF_QUALITY_LEVEL = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_QUALITY_NORMAL_MINUS_1: MF_QUALITY_LEVEL = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_QUALITY_NORMAL_MINUS_2: MF_QUALITY_LEVEL = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_QUALITY_NORMAL_MINUS_3: MF_QUALITY_LEVEL = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_QUALITY_NORMAL_MINUS_4: MF_QUALITY_LEVEL = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_QUALITY_NORMAL_MINUS_5: MF_QUALITY_LEVEL = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_NUM_QUALITY_LEVELS: MF_QUALITY_LEVEL = 6i32;
 pub const MF_QUALITY_NOTIFY_PROCESSING_LATENCY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6b44af8_604d_46fe_a95d_45479b10c9bc);
 pub const MF_QUALITY_NOTIFY_SAMPLE_LAG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30d15206_ed2a_4760_be17_eb4a9f12295c);
 pub const MF_QUALITY_SERVICES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7e2be11_2f96_4640_b52c_282365bdf16c);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MF_QUATERNION {
     pub x: f32,
     pub y: f32,
@@ -48799,17 +51741,29 @@ pub const MF_READWRITE_MMCSS_CLASS_AUDIO: ::windows::core::GUID = ::windows::cor
 pub const MF_READWRITE_MMCSS_PRIORITY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43ad19ce_f33f_4ba9_a580_e4cd12f2d144);
 pub const MF_READWRITE_MMCSS_PRIORITY_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x273db885_2de2_4db2_a6a7_fdb66fb40b61);
 pub const MF_REMOTE_PROXY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f00c90e_d2cf_4278_8b6a_d077fac3a25f);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_RESOLUTION_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_RESOLUTION_MEDIASOURCE: MF_RESOLUTION_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_RESOLUTION_BYTESTREAM: MF_RESOLUTION_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_RESOLUTION_CONTENT_DOES_NOT_HAVE_TO_MATCH_EXTENSION_OR_MIME_TYPE: MF_RESOLUTION_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_RESOLUTION_KEEP_BYTE_STREAM_ALIVE_ON_FAIL: MF_RESOLUTION_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_RESOLUTION_DISABLE_LOCAL_PLUGINS: MF_RESOLUTION_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_RESOLUTION_PLUGIN_CONTROL_POLICY_APPROVED_ONLY: MF_RESOLUTION_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_RESOLUTION_PLUGIN_CONTROL_POLICY_WEB_ONLY: MF_RESOLUTION_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_RESOLUTION_PLUGIN_CONTROL_POLICY_WEB_ONLY_EDGEMODE: MF_RESOLUTION_FLAGS = 512u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_RESOLUTION_ENABLE_STORE_PLUGINS: MF_RESOLUTION_FLAGS = 1024u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_RESOLUTION_READ: MF_RESOLUTION_FLAGS = 65536u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_RESOLUTION_WRITE: MF_RESOLUTION_FLAGS = 131072u32;
 pub const MF_SAMI_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49a89ae7_b4d9_4ef2_aa5c_f65a3e05ae4e);
 pub const MF_SAMPLEGRABBERSINK_IGNORE_CLOCK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0efda2c0_2b69_4e2e_ab8d_46dcbff7d25d);
@@ -48852,12 +51806,19 @@ pub const MF_SD_STREAM_NAME: ::windows::core::GUID = ::windows::core::GUID::from
 pub const MF_SD_VIDEO_SPHERICAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa51da449_3fdc_478c_bcb5_30be76595f55);
 pub const MF_SD_VIDEO_SPHERICAL_FORMAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a8fc407_6ea1_46c8_b567_6971d4a139c3);
 pub const MF_SD_VIDEO_SPHERICAL_INITIAL_VIEWDIRECTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11d25a49_bb62_467f_9db1_c17165716c49);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_SERVICE_LOOKUP_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SERVICE_LOOKUP_UPSTREAM: MF_SERVICE_LOOKUP_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SERVICE_LOOKUP_UPSTREAM_DIRECT: MF_SERVICE_LOOKUP_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SERVICE_LOOKUP_DOWNSTREAM: MF_SERVICE_LOOKUP_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SERVICE_LOOKUP_DOWNSTREAM_DIRECT: MF_SERVICE_LOOKUP_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SERVICE_LOOKUP_ALL: MF_SERVICE_LOOKUP_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SERVICE_LOOKUP_GLOBAL: MF_SERVICE_LOOKUP_TYPE = 5i32;
 pub const MF_SESSION_APPROX_EVENT_OCCURRENCE_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x190e852f_6238_42d1_b5af_69ea338ef850);
 pub const MF_SESSION_CONTENT_PROTECTION_MANAGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e83d482_1f1c_4571_8405_88f4b2181f74);
@@ -48867,11 +51828,17 @@ pub const MF_SESSION_REMOTE_SOURCE_MODE: ::windows::core::GUID = ::windows::core
 pub const MF_SESSION_SERVER_CONTEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafe5b291_50fa_46e8_b9be_0c0c3ce4b3a5);
 pub const MF_SESSION_TOPOLOADER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e83d482_1f1c_4571_8405_88f4b2181f71);
 pub const MF_SHARING_ENGINE_CALLBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57dc1e95_d252_43fa_9bbc_180070eefe6d);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_SHARING_ENGINE_EVENT = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SHARING_ENGINE_EVENT_DISCONNECT: MF_SHARING_ENGINE_EVENT = 2000i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SHARING_ENGINE_EVENT_LOCALRENDERINGSTARTED: MF_SHARING_ENGINE_EVENT = 2001i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SHARING_ENGINE_EVENT_LOCALRENDERINGENDED: MF_SHARING_ENGINE_EVENT = 2002i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SHARING_ENGINE_EVENT_STOPPED: MF_SHARING_ENGINE_EVENT = 2003i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SHARING_ENGINE_EVENT_ERROR: MF_SHARING_ENGINE_EVENT = 2501i32;
 pub const MF_SHARING_ENGINE_SHAREDRENDERER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa446a0_73e7_404e_8ae2_fef60af5a32b);
 pub const MF_SHUTDOWN_RENDERER_ON_ENGINE_SHUTDOWN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc112d94d_6b9c_48f8_b6f9_7950ff9ab71e);
@@ -48881,14 +51848,19 @@ pub const MF_SINK_VIDEO_NATIVE_HEIGHT: ::windows::core::GUID = ::windows::core::
 pub const MF_SINK_VIDEO_NATIVE_WIDTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6d6a707_1505_4747_9b10_72d2d158cb3a);
 pub const MF_SINK_VIDEO_PTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2162bde7_421e_4b90_9b33_e58fbf1d58b6);
 pub const MF_SINK_WRITER_ASYNC_CALLBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48cb183e_7b0b_46f4_822e_5e1d2dda4354);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_SINK_WRITER_CONSTANTS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SINK_WRITER_INVALID_STREAM_INDEX: MF_SINK_WRITER_CONSTANTS = 4294967295u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SINK_WRITER_ALL_STREAMS: MF_SINK_WRITER_CONSTANTS = 4294967294u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SINK_WRITER_MEDIASINK: MF_SINK_WRITER_CONSTANTS = 4294967295u32;
 pub const MF_SINK_WRITER_D3D_MANAGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec822da2_e1e9_4b29_a0d8_563c719f5269);
 pub const MF_SINK_WRITER_DISABLE_THROTTLING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08b845d8_2b74_4afe_9d53_be16d2d5ae4f);
 pub const MF_SINK_WRITER_ENCODER_CONFIG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad91cd04_a7cc_4ac7_99b6_a57b9a4a7c70);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MF_SINK_WRITER_STATISTICS {
     pub cb: u32,
     pub llLastTimestampReceived: i64,
@@ -48929,16 +51901,27 @@ impl ::core::default::Default for MF_SINK_WRITER_STATISTICS {
 }
 pub const MF_SOURCE_PRESENTATION_PROVIDER_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe002aadc_f4af_4ee5_9847_053edf840426);
 pub const MF_SOURCE_READER_ASYNC_CALLBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e3dbeac_bb43_4c35_b507_cd644464c965);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_SOURCE_READER_CONSTANTS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SOURCE_READER_INVALID_STREAM_INDEX: MF_SOURCE_READER_CONSTANTS = -1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SOURCE_READER_ALL_STREAMS: MF_SOURCE_READER_CONSTANTS = -2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SOURCE_READER_ANY_STREAM: MF_SOURCE_READER_CONSTANTS = -2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SOURCE_READER_FIRST_AUDIO_STREAM: MF_SOURCE_READER_CONSTANTS = -3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SOURCE_READER_FIRST_VIDEO_STREAM: MF_SOURCE_READER_CONSTANTS = -4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SOURCE_READER_MEDIASOURCE: MF_SOURCE_READER_CONSTANTS = -1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_SOURCE_READER_CONTROL_FLAG = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SOURCE_READER_CONTROLF_DRAIN: MF_SOURCE_READER_CONTROL_FLAG = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SOURCE_READER_CURRENT_TYPE_INDEX: MF_SOURCE_READER_CURRENT_TYPE_CONSTANTS = -1i32;
 pub const MF_SOURCE_READER_D3D11_BIND_FLAGS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33f3197b_f73a_4e14_8d85_0e4c4368788d);
 pub const MF_SOURCE_READER_D3D_MANAGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec822da2_e1e9_4b29_a0d8_563c719f5269);
@@ -48948,13 +51931,21 @@ pub const MF_SOURCE_READER_DISCONNECT_MEDIASOURCE_ON_SHUTDOWN: ::windows::core::
 pub const MF_SOURCE_READER_ENABLE_ADVANCED_VIDEO_PROCESSING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f81da2c_b537_4672_a8b2_a681b17307a3);
 pub const MF_SOURCE_READER_ENABLE_TRANSCODE_ONLY_TRANSFORMS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfd4f008_b5fd_4e78_ae44_62a1e67bbe27);
 pub const MF_SOURCE_READER_ENABLE_VIDEO_PROCESSING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb394f3d_ccf1_42ee_bbb3_f9b845d5681d);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_SOURCE_READER_FLAG = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SOURCE_READERF_ERROR: MF_SOURCE_READER_FLAG = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SOURCE_READERF_ENDOFSTREAM: MF_SOURCE_READER_FLAG = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SOURCE_READERF_NEWSTREAM: MF_SOURCE_READER_FLAG = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SOURCE_READERF_NATIVEMEDIATYPECHANGED: MF_SOURCE_READER_FLAG = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SOURCE_READERF_CURRENTMEDIATYPECHANGED: MF_SOURCE_READER_FLAG = 32i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SOURCE_READERF_STREAMTICK: MF_SOURCE_READER_FLAG = 256i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_SOURCE_READERF_ALLEFFECTSREMOVED: MF_SOURCE_READER_FLAG = 512i32;
 pub const MF_SOURCE_READER_MEDIASOURCE_CHARACTERISTICS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d23f5c8_c5d7_4a9b_9971_5d11f8bca880);
 pub const MF_SOURCE_READER_MEDIASOURCE_CONFIG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9085abeb_0354_48f9_abb5_200df838c68e);
@@ -48963,107 +51954,204 @@ pub const MF_STF_VERSION_DATE: ::windows::core::GUID = ::windows::core::GUID::fr
 pub const MF_STF_VERSION_INFO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6770bd39_ef82_44ee_a49b_934beb24aef7);
 pub const MF_STREAM_SINK_SUPPORTS_HW_CONNECTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b465cbf_0597_4f9e_9f3c_b97eeef90359);
 pub const MF_STREAM_SINK_SUPPORTS_ROTATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3e96280_bd05_41a5_97ad_8a7fee24b912);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_STREAM_STATE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_STREAM_STATE_STOPPED: MF_STREAM_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_STREAM_STATE_PAUSED: MF_STREAM_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_STREAM_STATE_RUNNING: MF_STREAM_STATE = 2i32;
 pub const MF_ST_MEDIASOURCE_COLLECTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x616de972_83ad_4950_8170_630d19cbe307);
 pub const MF_SYNTAX_ERR: u32 = 2154823692u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_S_ACTIVATE_REPLACED: ::windows::core::HRESULT = ::windows::core::HRESULT(866045i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_S_ASF_PARSEINPROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(1074608792i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_S_CLOCK_STOPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(891972i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_S_MULTIPLE_BEGIN: ::windows::core::HRESULT = ::windows::core::HRESULT(866008i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_S_PE_TRUSTED: ::windows::core::HRESULT = ::windows::core::HRESULT(881011i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_S_PROTECTION_NOT_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(880976i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_S_SEQUENCER_CONTEXT_CANCELED: ::windows::core::HRESULT = ::windows::core::HRESULT(876973i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_S_SEQUENCER_SEGMENT_AT_END_OF_STREAM: ::windows::core::HRESULT = ::windows::core::HRESULT(876975i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_S_SINK_NOT_FINALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(870978i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_S_TRANSFORM_DO_NOT_PROPAGATE_EVENT: ::windows::core::HRESULT = ::windows::core::HRESULT(879989i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_S_VIDEO_DISABLED_WITH_UNKNOWN_SOFTWARE_OUTPUT: ::windows::core::HRESULT = ::windows::core::HRESULT(881001i32);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_S_WAIT_FOR_POLICY_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(881000i32);
 pub const MF_SampleProtectionSalt: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5403deee_b9ee_438f_aa83_3804997e569d);
 pub const MF_TEST_SIGNED_COMPONENT_LOADING: u32 = 16777216u32;
 pub const MF_TIMECODE_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0d502a7_0eb3_4885_b1b9_9feb0d083454);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TIMED_TEXT_ALIGNMENT = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_ALIGNMENT_START: MF_TIMED_TEXT_ALIGNMENT = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_ALIGNMENT_END: MF_TIMED_TEXT_ALIGNMENT = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_ALIGNMENT_CENTER: MF_TIMED_TEXT_ALIGNMENT = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TIMED_TEXT_BOUTEN_POSITION = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_BOUTEN_POSITION_BEFORE: MF_TIMED_TEXT_BOUTEN_POSITION = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_BOUTEN_POSITION_AFTER: MF_TIMED_TEXT_BOUTEN_POSITION = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_BOUTEN_POSITION_OUTSIDE: MF_TIMED_TEXT_BOUTEN_POSITION = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TIMED_TEXT_BOUTEN_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_BOUTEN_TYPE_NONE: MF_TIMED_TEXT_BOUTEN_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_BOUTEN_TYPE_AUTO: MF_TIMED_TEXT_BOUTEN_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_BOUTEN_TYPE_FILLEDCIRCLE: MF_TIMED_TEXT_BOUTEN_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_BOUTEN_TYPE_OPENCIRCLE: MF_TIMED_TEXT_BOUTEN_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_BOUTEN_TYPE_FILLEDDOT: MF_TIMED_TEXT_BOUTEN_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_BOUTEN_TYPE_OPENDOT: MF_TIMED_TEXT_BOUTEN_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_BOUTEN_TYPE_FILLEDSESAME: MF_TIMED_TEXT_BOUTEN_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_BOUTEN_TYPE_OPENSESAME: MF_TIMED_TEXT_BOUTEN_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TIMED_TEXT_CUE_EVENT = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_CUE_EVENT_ACTIVE: MF_TIMED_TEXT_CUE_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_CUE_EVENT_INACTIVE: MF_TIMED_TEXT_CUE_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_CUE_EVENT_CLEAR: MF_TIMED_TEXT_CUE_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TIMED_TEXT_DECORATION = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_DECORATION_NONE: MF_TIMED_TEXT_DECORATION = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_DECORATION_UNDERLINE: MF_TIMED_TEXT_DECORATION = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_DECORATION_LINE_THROUGH: MF_TIMED_TEXT_DECORATION = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_DECORATION_OVERLINE: MF_TIMED_TEXT_DECORATION = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TIMED_TEXT_DISPLAY_ALIGNMENT = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_DISPLAY_ALIGNMENT_BEFORE: MF_TIMED_TEXT_DISPLAY_ALIGNMENT = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_DISPLAY_ALIGNMENT_AFTER: MF_TIMED_TEXT_DISPLAY_ALIGNMENT = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_DISPLAY_ALIGNMENT_CENTER: MF_TIMED_TEXT_DISPLAY_ALIGNMENT = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TIMED_TEXT_ERROR_CODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_ERROR_CODE_NOERROR: MF_TIMED_TEXT_ERROR_CODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_ERROR_CODE_FATAL: MF_TIMED_TEXT_ERROR_CODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_ERROR_CODE_DATA_FORMAT: MF_TIMED_TEXT_ERROR_CODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_ERROR_CODE_NETWORK: MF_TIMED_TEXT_ERROR_CODE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_ERROR_CODE_INTERNAL: MF_TIMED_TEXT_ERROR_CODE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TIMED_TEXT_FONT_STYLE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_FONT_STYLE_NORMAL: MF_TIMED_TEXT_FONT_STYLE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_FONT_STYLE_OBLIQUE: MF_TIMED_TEXT_FONT_STYLE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_FONT_STYLE_ITALIC: MF_TIMED_TEXT_FONT_STYLE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TIMED_TEXT_RUBY_ALIGN = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_RUBY_ALIGN_CENTER: MF_TIMED_TEXT_RUBY_ALIGN = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_RUBY_ALIGN_START: MF_TIMED_TEXT_RUBY_ALIGN = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_RUBY_ALIGN_END: MF_TIMED_TEXT_RUBY_ALIGN = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_RUBY_ALIGN_SPACEAROUND: MF_TIMED_TEXT_RUBY_ALIGN = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_RUBY_ALIGN_SPACEBETWEEN: MF_TIMED_TEXT_RUBY_ALIGN = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_RUBY_ALIGN_WITHBASE: MF_TIMED_TEXT_RUBY_ALIGN = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TIMED_TEXT_RUBY_POSITION = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_RUBY_POSITION_BEFORE: MF_TIMED_TEXT_RUBY_POSITION = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_RUBY_POSITION_AFTER: MF_TIMED_TEXT_RUBY_POSITION = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_RUBY_POSITION_OUTSIDE: MF_TIMED_TEXT_RUBY_POSITION = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TIMED_TEXT_RUBY_RESERVE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_RUBY_RESERVE_NONE: MF_TIMED_TEXT_RUBY_RESERVE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_RUBY_RESERVE_BEFORE: MF_TIMED_TEXT_RUBY_RESERVE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_RUBY_RESERVE_AFTER: MF_TIMED_TEXT_RUBY_RESERVE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_RUBY_RESERVE_BOTH: MF_TIMED_TEXT_RUBY_RESERVE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_RUBY_RESERVE_OUTSIDE: MF_TIMED_TEXT_RUBY_RESERVE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TIMED_TEXT_SCROLL_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_SCROLL_MODE_POP_ON: MF_TIMED_TEXT_SCROLL_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_SCROLL_MODE_ROLL_UP: MF_TIMED_TEXT_SCROLL_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TIMED_TEXT_TRACK_KIND = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_TRACK_KIND_UNKNOWN: MF_TIMED_TEXT_TRACK_KIND = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_TRACK_KIND_SUBTITLES: MF_TIMED_TEXT_TRACK_KIND = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_TRACK_KIND_CAPTIONS: MF_TIMED_TEXT_TRACK_KIND = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_TRACK_KIND_METADATA: MF_TIMED_TEXT_TRACK_KIND = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TIMED_TEXT_TRACK_READY_STATE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_TRACK_READY_STATE_NONE: MF_TIMED_TEXT_TRACK_READY_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_TRACK_READY_STATE_LOADING: MF_TIMED_TEXT_TRACK_READY_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_TRACK_READY_STATE_LOADED: MF_TIMED_TEXT_TRACK_READY_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_TRACK_READY_STATE_ERROR: MF_TIMED_TEXT_TRACK_READY_STATE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TIMED_TEXT_UNIT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_UNIT_TYPE_PIXELS: MF_TIMED_TEXT_UNIT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_UNIT_TYPE_PERCENTAGE: MF_TIMED_TEXT_UNIT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TIMED_TEXT_WRITING_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_WRITING_MODE_LRTB: MF_TIMED_TEXT_WRITING_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_WRITING_MODE_RLTB: MF_TIMED_TEXT_WRITING_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_WRITING_MODE_TBRL: MF_TIMED_TEXT_WRITING_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_WRITING_MODE_TBLR: MF_TIMED_TEXT_WRITING_MODE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_WRITING_MODE_LR: MF_TIMED_TEXT_WRITING_MODE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_WRITING_MODE_RL: MF_TIMED_TEXT_WRITING_MODE = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TIMED_TEXT_WRITING_MODE_TB: MF_TIMED_TEXT_WRITING_MODE = 6i32;
 pub const MF_TIME_FORMAT_ENTRY_RELATIVE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4399f178_46d3_4504_afda_20d32e9ba360);
 pub const MF_TIME_FORMAT_SEGMENT_OFFSET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8b8be77_869c_431d_812e_169693f65a39);
@@ -49078,17 +52166,27 @@ pub const MF_TOPOLOGY_PLAYBACK_MAX_DIMS: ::windows::core::GUID = ::windows::core
 pub const MF_TOPOLOGY_PROJECTSTART: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ed3f802_86bb_4b3f_b7e4_7cb43afd4b80);
 pub const MF_TOPOLOGY_PROJECTSTOP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ed3f803_86bb_4b3f_b7e4_7cb43afd4b80);
 pub const MF_TOPOLOGY_RESOLUTION_STATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x494bbcde_b031_4e38_97c4_d5422dd618dc);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TOPOLOGY_RESOLUTION_SUCCEEDED: MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OPTIONAL_NODE_REJECTED_MEDIA_TYPE: MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_OPTIONAL_NODE_REJECTED_PROTECTED_PROCESS: MF_TOPOLOGY_RESOLUTION_STATUS_FLAGS = 2i32;
 pub const MF_TOPOLOGY_START_TIME_ON_PRESENTATION_SWITCH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8cc113f_7951_4548_aad6_9ed6202e62b3);
 pub const MF_TOPOLOGY_STATIC_PLAYBACK_OPTIMIZATIONS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb86cac42_41a6_4b79_897a_1ab0e52b4a1b);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TOPOLOGY_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TOPOLOGY_OUTPUT_NODE: MF_TOPOLOGY_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TOPOLOGY_SOURCESTREAM_NODE: MF_TOPOLOGY_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TOPOLOGY_TRANSFORM_NODE: MF_TOPOLOGY_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TOPOLOGY_TEE_NODE: MF_TOPOLOGY_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TOPOLOGY_MAX: MF_TOPOLOGY_TYPE = -1i32;
 pub const MF_TOPONODE_ATTRIBUTE_EDITOR_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65656e1a_077f_4472_83ef_316f11d5087a);
 pub const MF_TOPONODE_CONNECT_METHOD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x494bbcf1_b031_4e38_97c4_d5422dd618dc);
@@ -49098,17 +52196,25 @@ pub const MF_TOPONODE_DECRYPTOR: ::windows::core::GUID = ::windows::core::GUID::
 pub const MF_TOPONODE_DISABLE_PREROLL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14932f9e_9087_4bb4_8412_5167145cbe04);
 pub const MF_TOPONODE_DISCARDABLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x494bbcfb_b031_4e38_97c4_d5422dd618dc);
 pub const MF_TOPONODE_DRAIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x494bbce9_b031_4e38_97c4_d5422dd618dc);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TOPONODE_DRAIN_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TOPONODE_DRAIN_DEFAULT: MF_TOPONODE_DRAIN_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TOPONODE_DRAIN_ALWAYS: MF_TOPONODE_DRAIN_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TOPONODE_DRAIN_NEVER: MF_TOPONODE_DRAIN_MODE = 2i32;
 pub const MF_TOPONODE_ERRORCODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x494bbcee_b031_4e38_97c4_d5422dd618dc);
 pub const MF_TOPONODE_ERROR_MAJORTYPE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x494bbcfd_b031_4e38_97c4_d5422dd618dc);
 pub const MF_TOPONODE_ERROR_SUBTYPE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x494bbcfe_b031_4e38_97c4_d5422dd618dc);
 pub const MF_TOPONODE_FLUSH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x494bbce8_b031_4e38_97c4_d5422dd618dc);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TOPONODE_FLUSH_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TOPONODE_FLUSH_ALWAYS: MF_TOPONODE_FLUSH_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TOPONODE_FLUSH_SEEK: MF_TOPONODE_FLUSH_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TOPONODE_FLUSH_NEVER: MF_TOPONODE_FLUSH_MODE = 2i32;
 pub const MF_TOPONODE_LOCKED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x494bbcf7_b031_4e38_97c4_d5422dd618dc);
 pub const MF_TOPONODE_MARKIN_HERE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x494bbd00_b031_4e38_97c4_d5422dd618dc);
@@ -49129,22 +52235,33 @@ pub const MF_TOPONODE_WORKQUEUE_ITEM_PRIORITY: ::windows::core::GUID = ::windows
 pub const MF_TOPONODE_WORKQUEUE_MMCSS_CLASS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x494bbcf9_b031_4e38_97c4_d5422dd618dc);
 pub const MF_TOPONODE_WORKQUEUE_MMCSS_PRIORITY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5001f840_2816_48f4_9364_ad1ef661a123);
 pub const MF_TOPONODE_WORKQUEUE_MMCSS_TASKID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x494bbcff_b031_4e38_97c4_d5422dd618dc);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TOPOSTATUS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TOPOSTATUS_INVALID: MF_TOPOSTATUS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TOPOSTATUS_READY: MF_TOPOSTATUS = 100i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TOPOSTATUS_STARTED_SOURCE: MF_TOPOSTATUS = 200i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TOPOSTATUS_DYNAMIC_CHANGED: MF_TOPOSTATUS = 210i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TOPOSTATUS_SINK_SWITCHED: MF_TOPOSTATUS = 300i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TOPOSTATUS_ENDED: MF_TOPOSTATUS = 400i32;
 pub const MF_TRANSCODE_ADJUST_PROFILE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c37c21b_060f_487c_a690_80d7f50d1c72);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TRANSCODE_ADJUST_PROFILE_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TRANSCODE_ADJUST_PROFILE_DEFAULT: MF_TRANSCODE_ADJUST_PROFILE_FLAGS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TRANSCODE_ADJUST_PROFILE_USE_SOURCE_ATTRIBUTES: MF_TRANSCODE_ADJUST_PROFILE_FLAGS = 1i32;
 pub const MF_TRANSCODE_CONTAINERTYPE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x150ff23f_4abc_478b_ac4f_e1916fba1cca);
 pub const MF_TRANSCODE_DONOT_INSERT_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf45aa7ce_ab24_4012_a11b_dc8220201410);
 pub const MF_TRANSCODE_ENCODINGPROFILE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6947787c_f508_4ea9_b1e9_a1fe3a49fbc9);
 pub const MF_TRANSCODE_QUALITYVSSPEED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98332df8_03cd_476b_89fa_3f9e442dec9f);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MF_TRANSCODE_SINK_INFO {
     pub dwVideoStreamID: u32,
     pub pVideoMediaType: ::core::option::Option<IMFMediaType>,
@@ -49177,8 +52294,11 @@ impl ::core::default::Default for MF_TRANSCODE_SINK_INFO {
 }
 pub const MF_TRANSCODE_SKIP_METADATA_TRANSFER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e4469ef_b571_4959_8f83_3dcfba33a393);
 pub const MF_TRANSCODE_TOPOLOGYMODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e3df610_394a_40b2_9dea_3bab650bebf2);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_TRANSCODE_TOPOLOGYMODE_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TRANSCODE_TOPOLOGYMODE_SOFTWARE_ONLY: MF_TRANSCODE_TOPOLOGYMODE_FLAGS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_TRANSCODE_TOPOLOGYMODE_HARDWARE_ALLOWED: MF_TRANSCODE_TOPOLOGYMODE_FLAGS = 1i32;
 pub const MF_TRANSFORM_ASYNC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf81a699a_649a_497d_8c73_29f8fed6ad7a);
 pub const MF_TRANSFORM_ASYNC_UNLOCK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5666d6b_3422_4eb6_a421_da7db1f8e207);
@@ -49186,9 +52306,13 @@ pub const MF_TRANSFORM_CATEGORY_Attribute: ::windows::core::GUID = ::windows::co
 pub const MF_TRANSFORM_FLAGS_Attribute: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9359bb7e_6275_46c4_a025_1c01e45f1a86);
 pub const MF_TYPE_ERR: u32 = 2154840069u32;
 pub const MF_UNKNOWN_DURATION: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_URL_TRUST_STATUS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_LICENSE_URL_UNTRUSTED: MF_URL_TRUST_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_LICENSE_URL_TRUSTED: MF_URL_TRUST_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_LICENSE_URL_TAMPERED: MF_URL_TRUST_STATUS = 2i32;
 pub const MF_USER_DATA_PAYLOAD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1d4985d_dc92_457a_b3a0_651a33a31047);
 pub const MF_USER_EXTENDED_ATTRIBUTES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc02abac6_feb2_4541_922f_920b43702722);
@@ -49196,18 +52320,29 @@ pub const MF_USER_MODE_COMPONENT_LOAD: u32 = 1u32;
 pub const MF_VIDEODSP_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16d720f0_768c_11de_8a39_0800200c9a66);
 pub const MF_VIDEO_MAX_MB_PER_SEC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3f2e203_d445_4b8c_9211_ae390d3ba017);
 pub const MF_VIDEO_PROCESSOR_ALGORITHM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a0a1e1f_272c_4fb6_9eb1_db330cbc97ca);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_VIDEO_PROCESSOR_ALGORITHM_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_VIDEO_PROCESSOR_ALGORITHM_DEFAULT: MF_VIDEO_PROCESSOR_ALGORITHM_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MF_VIDEO_PROCESSOR_ALGORITHM_MRF_CRF_444: MF_VIDEO_PROCESSOR_ALGORITHM_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_VIDEO_PROCESSOR_MIRROR = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MIRROR_NONE: MF_VIDEO_PROCESSOR_MIRROR = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MIRROR_HORIZONTAL: MF_VIDEO_PROCESSOR_MIRROR = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MIRROR_VERTICAL: MF_VIDEO_PROCESSOR_MIRROR = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MF_VIDEO_PROCESSOR_ROTATION = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const ROTATION_NONE: MF_VIDEO_PROCESSOR_ROTATION = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const ROTATION_NORMAL: MF_VIDEO_PROCESSOR_ROTATION = 1i32;
 pub const MF_VIDEO_RENDERER_EFFECT_APP_SERVICE_NAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6052a80_6d9c_40a3_9db8_f027a25c9ab9);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MF_VIDEO_SPHERICAL_VIEWDIRECTION {
     pub iHeading: i32,
     pub iPitch: i32,
@@ -49242,6 +52377,7 @@ pub const MF_WVC1_PROG_SINGLE_SLICE_CONTENT: ::windows::core::GUID = ::windows::
 pub const MF_XVP_CALLER_ALLOCATES_OUTPUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04a2cabc_0cab_40b1_a1b9_75bc3658f000);
 pub const MF_XVP_DISABLE_FRC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c0afa19_7a97_4d5a_9ee8_16d4fc518d8c);
 pub const MF_XVP_SAMPLE_LOCK_TIMEOUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa4ddb29_5134_4363_ac72_83ec4bc10426);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64 {
     #[cfg(windows)]
@@ -49255,13 +52391,20 @@ pub unsafe fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type MIC_ARRAY_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MICARRAY_SINGLE_CHAN: MIC_ARRAY_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MICARRAY_SIMPLE_SUM: MIC_ARRAY_MODE = 256i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MICARRAY_SINGLE_BEAM: MIC_ARRAY_MODE = 512i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MICARRAY_FIXED_BEAM: MIC_ARRAY_MODE = 1024i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MICARRAY_EXTERN_BEAM: MIC_ARRAY_MODE = 2048i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MOVEREGION_INFO {
     pub FrameNumber: u32,
@@ -49295,6 +52438,7 @@ impl ::core::default::Default for MOVEREGION_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MOVE_RECT {
     pub SourcePoint: super::super::Foundation::POINT,
@@ -49338,6 +52482,7 @@ pub const MR_VIDEO_RENDER_SERVICE: ::windows::core::GUID = ::windows::core::GUID
 pub const MSAMRNBDecoder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x265011ae_5481_4f77_a295_abb6ffe8d63e);
 pub const MSAMRNBEncoder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fae8afe_04a3_423a_a814_85db454712b0);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MT_ARBITRARY_HEADER {
     pub majortype: ::windows::core::GUID,
@@ -49374,6 +52519,7 @@ impl ::core::default::Default for MT_ARBITRARY_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct MT_CUSTOM_VIDEO_PRIMARIES {
     pub fRx: f32,
     pub fRy: f32,
@@ -49405,6 +52551,7 @@ impl ::core::default::Default for MT_CUSTOM_VIDEO_PRIMARIES {
     }
 }
 pub const MULawCodecWrapper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92b66080_5e2d_449e_90c4_c41f268e5514);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foundation::LUID, vidpntarget: u32, vos: OPM_VIDEO_OUTPUT_SEMANTICS) -> ::windows::core::Result<IOPMVideoOutput> {
@@ -49420,6 +52567,7 @@ pub unsafe fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn OPMGetVideoOutputsFromHMONITOR<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>>(hmonitor: Param0, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut ::core::option::Option<IOPMVideoOutput>) -> ::windows::core::Result<()> {
@@ -49434,6 +52582,7 @@ pub unsafe fn OPMGetVideoOutputsFromHMONITOR<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
 pub unsafe fn OPMGetVideoOutputsFromIDirect3DDevice9Object<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdirect3ddevice9: Param0, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut ::core::option::Option<IOPMVideoOutput>) -> ::windows::core::Result<()> {
@@ -49448,6 +52597,7 @@ pub unsafe fn OPMGetVideoOutputsFromIDirect3DDevice9Object<'a, Param0: ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -49461,6 +52611,7 @@ pub unsafe fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows::core::Res
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn OPMXboxGetHDCPStatus(phdcpstatus: *mut OPM_HDCP_STATUS) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -49474,6 +52625,7 @@ pub unsafe fn OPMXboxGetHDCPStatus(phdcpstatus: *mut OPM_HDCP_STATUS) -> ::windo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 #[inline]
 pub unsafe fn OPMXboxGetHDCPStatusAndType(phdcpstatus: *mut OPM_HDCP_STATUS, phdcptype: *mut OPM_HDCP_TYPE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -49488,6 +52640,7 @@ pub unsafe fn OPMXboxGetHDCPStatusAndType(phdcpstatus: *mut OPM_HDCP_STATUS, phd
     unimplemented!("Unsupported target OS");
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct OPM_ACP_AND_CGMSA_SIGNALING {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
@@ -49523,13 +52676,20 @@ impl ::core::default::Default for OPM_ACP_AND_CGMSA_SIGNALING {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type OPM_ACP_PROTECTION_LEVEL = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_ACP_OFF: OPM_ACP_PROTECTION_LEVEL = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_ACP_LEVEL_ONE: OPM_ACP_PROTECTION_LEVEL = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_ACP_LEVEL_TWO: OPM_ACP_PROTECTION_LEVEL = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_ACP_LEVEL_THREE: OPM_ACP_PROTECTION_LEVEL = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_ACP_FORCE_ULONG: OPM_ACP_PROTECTION_LEVEL = 2147483647i32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub struct OPM_ACTUAL_OUTPUT_FORMAT {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
@@ -49567,27 +52727,48 @@ impl ::core::default::Default for OPM_ACTUAL_OUTPUT_FORMAT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type OPM_BUS_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_BUS_TYPE_OTHER: OPM_BUS_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_BUS_TYPE_PCI: OPM_BUS_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_BUS_TYPE_PCIX: OPM_BUS_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_BUS_TYPE_PCIEXPRESS: OPM_BUS_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_BUS_TYPE_AGP: OPM_BUS_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_BUS_IMPLEMENTATION_MODIFIER_INSIDE_OF_CHIPSET: OPM_BUS_TYPE = 65536i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_BUS_IMPLEMENTATION_MODIFIER_TRACKS_ON_MOTHER_BOARD_TO_CHIP: OPM_BUS_TYPE = 131072i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_BUS_IMPLEMENTATION_MODIFIER_TRACKS_ON_MOTHER_BOARD_TO_SOCKET: OPM_BUS_TYPE = 196608i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_BUS_IMPLEMENTATION_MODIFIER_DAUGHTER_BOARD_CONNECTOR: OPM_BUS_TYPE = 262144i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_BUS_IMPLEMENTATION_MODIFIER_DAUGHTER_BOARD_CONNECTOR_INSIDE_OF_NUAE: OPM_BUS_TYPE = 327680i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_BUS_IMPLEMENTATION_MODIFIER_NON_STANDARD: OPM_BUS_TYPE = -2147483648i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_COPP_COMPATIBLE_BUS_TYPE_INTEGRATED: OPM_BUS_TYPE = -2147483648i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type OPM_CGMSA = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CGMSA_OFF: OPM_CGMSA = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CGMSA_COPY_FREELY: OPM_CGMSA = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CGMSA_COPY_NO_MORE: OPM_CGMSA = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CGMSA_COPY_ONE_GENERATION: OPM_CGMSA = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CGMSA_COPY_NEVER: OPM_CGMSA = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CGMSA_REDISTRIBUTION_CONTROL_REQUIRED: OPM_CGMSA = 8i32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct OPM_CONFIGURE_PARAMETERS {
     pub omac: OPM_OMAC,
     pub guidSetting: ::windows::core::GUID,
@@ -49616,6 +52797,7 @@ impl ::core::default::Default for OPM_CONFIGURE_PARAMETERS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
@@ -49646,6 +52828,7 @@ impl ::core::default::Default for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub guidInformation: ::windows::core::GUID,
@@ -49673,14 +52856,22 @@ impl ::core::default::Default for OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type OPM_DPCP_PROTECTION_LEVEL = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_DPCP_OFF: OPM_DPCP_PROTECTION_LEVEL = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_DPCP_ON: OPM_DPCP_PROTECTION_LEVEL = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_DPCP_FORCE_ULONG: OPM_DPCP_PROTECTION_LEVEL = 2147483647i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type OPM_DVI_CHARACTERISTIC = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_DVI_CHARACTERISTIC_1_0: OPM_DVI_CHARACTERISTIC = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_DVI_CHARACTERISTIC_1_1_OR_ABOVE: OPM_DVI_CHARACTERISTIC = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct OPM_ENCRYPTED_INITIALIZATION_PARAMETERS {
     pub abEncryptedInitializationParameters: [u8; 256],
 }
@@ -49710,6 +52901,7 @@ pub const OPM_GET_ACTUAL_PROTECTION_LEVEL: ::windows::core::GUID = ::windows::co
 pub const OPM_GET_ADAPTER_BUS_TYPE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6f4d673_6174_4184_8e35_f6db5200bcba);
 pub const OPM_GET_CODEC_INFO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f374491_8f5f_4445_9dba_95588f6b58b4);
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct OPM_GET_CODEC_INFO_INFORMATION {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub Merit: u32,
@@ -49735,6 +52927,7 @@ impl ::core::default::Default for OPM_GET_CODEC_INFO_INFORMATION {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct OPM_GET_CODEC_INFO_PARAMETERS {
     pub cbVerifier: u32,
     pub Verifier: [u8; 4052],
@@ -49764,6 +52957,7 @@ pub const OPM_GET_CONNECTOR_TYPE: ::windows::core::GUID = ::windows::core::GUID:
 pub const OPM_GET_CURRENT_HDCP_SRM_VERSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99c5ceff_5f1d_4879_81c1_c52443c9482b);
 pub const OPM_GET_DVI_CHARACTERISTICS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa470b3bb_5dd7_4172_839c_3d3776e0ebf5);
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct OPM_GET_INFO_PARAMETERS {
     pub omac: OPM_OMAC,
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
@@ -49796,10 +52990,14 @@ pub const OPM_GET_OUTPUT_HARDWARE_PROTECTION_SUPPORT: ::windows::core::GUID = ::
 pub const OPM_GET_OUTPUT_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72cb6df3_244f_40ce_b09e_20506af6302f);
 pub const OPM_GET_SUPPORTED_PROTECTION_TYPES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38f2a801_9a6c_48bb_9107_b6696e6f1797);
 pub const OPM_GET_VIRTUAL_PROTECTION_LEVEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2075857_3eda_4d5d_88db_748f8c1a0549);
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type OPM_HDCP_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_HDCP_FLAG_NONE: OPM_HDCP_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_HDCP_FLAG_REPEATER: OPM_HDCP_FLAGS = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct OPM_HDCP_KEY_SELECTION_VECTOR {
     pub abKeySelectionVector: [u8; 5],
 }
@@ -49823,27 +53021,48 @@ impl ::core::default::Default for OPM_HDCP_KEY_SELECTION_VECTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type OPM_HDCP_PROTECTION_LEVEL = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_HDCP_OFF: OPM_HDCP_PROTECTION_LEVEL = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_HDCP_ON: OPM_HDCP_PROTECTION_LEVEL = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_HDCP_FORCE_ULONG: OPM_HDCP_PROTECTION_LEVEL = 2147483647i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type OPM_HDCP_STATUS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_HDCP_STATUS_ON: OPM_HDCP_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_HDCP_STATUS_OFF: OPM_HDCP_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type OPM_HDCP_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_HDCP_TYPE_0: OPM_HDCP_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_HDCP_TYPE_1: OPM_HDCP_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type OPM_IMAGE_ASPECT_RATIO_EN300294 = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_4_BY_3: OPM_IMAGE_ASPECT_RATIO_EN300294 = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_ASPECT_RATIO_EN300294_BOX_14_BY_9_CENTER: OPM_IMAGE_ASPECT_RATIO_EN300294 = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_ASPECT_RATIO_EN300294_BOX_14_BY_9_TOP: OPM_IMAGE_ASPECT_RATIO_EN300294 = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_ASPECT_RATIO_EN300294_BOX_16_BY_9_CENTER: OPM_IMAGE_ASPECT_RATIO_EN300294 = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_ASPECT_RATIO_EN300294_BOX_16_BY_9_TOP: OPM_IMAGE_ASPECT_RATIO_EN300294 = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_ASPECT_RATIO_EN300294_BOX_GT_16_BY_9_CENTER: OPM_IMAGE_ASPECT_RATIO_EN300294 = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_4_BY_3_PROTECTED_CENTER: OPM_IMAGE_ASPECT_RATIO_EN300294 = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_16_BY_9_ANAMORPHIC: OPM_IMAGE_ASPECT_RATIO_EN300294 = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_ASPECT_RATIO_FORCE_ULONG: OPM_IMAGE_ASPECT_RATIO_EN300294 = 2147483647i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct OPM_OMAC {
     pub abOMAC: [u8; 16],
 }
@@ -49867,10 +53086,14 @@ impl ::core::default::Default for OPM_OMAC {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type OPM_OUTPUT_HARDWARE_PROTECTION = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_OUTPUT_HARDWARE_PROTECTION_NOT_SUPPORTED: OPM_OUTPUT_HARDWARE_PROTECTION = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_OUTPUT_HARDWARE_PROTECTION_SUPPORTED: OPM_OUTPUT_HARDWARE_PROTECTION = 1i32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct OPM_OUTPUT_ID_DATA {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
@@ -49896,34 +53119,62 @@ impl ::core::default::Default for OPM_OUTPUT_ID_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type OPM_PROTECTION_STANDARD_TYPE = u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_STANDARD_OTHER: OPM_PROTECTION_STANDARD_TYPE = 2147483648u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_STANDARD_NONE: OPM_PROTECTION_STANDARD_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_STANDARD_IEC61880_525I: OPM_PROTECTION_STANDARD_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_STANDARD_IEC61880_2_525I: OPM_PROTECTION_STANDARD_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_STANDARD_IEC62375_625P: OPM_PROTECTION_STANDARD_TYPE = 4u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_STANDARD_EIA608B_525: OPM_PROTECTION_STANDARD_TYPE = 8u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_STANDARD_EN300294_625I: OPM_PROTECTION_STANDARD_TYPE = 16u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_STANDARD_CEA805A_TYPEA_525P: OPM_PROTECTION_STANDARD_TYPE = 32u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_STANDARD_CEA805A_TYPEA_750P: OPM_PROTECTION_STANDARD_TYPE = 64u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_STANDARD_CEA805A_TYPEA_1125I: OPM_PROTECTION_STANDARD_TYPE = 128u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_STANDARD_CEA805A_TYPEB_525P: OPM_PROTECTION_STANDARD_TYPE = 256u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_STANDARD_CEA805A_TYPEB_750P: OPM_PROTECTION_STANDARD_TYPE = 512u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_STANDARD_CEA805A_TYPEB_1125I: OPM_PROTECTION_STANDARD_TYPE = 1024u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_STANDARD_ARIBTRB15_525I: OPM_PROTECTION_STANDARD_TYPE = 2048u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_STANDARD_ARIBTRB15_525P: OPM_PROTECTION_STANDARD_TYPE = 4096u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_STANDARD_ARIBTRB15_750P: OPM_PROTECTION_STANDARD_TYPE = 8192u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_STANDARD_ARIBTRB15_1125I: OPM_PROTECTION_STANDARD_TYPE = 16384u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type OPM_PROTECTION_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_TYPE_OTHER: OPM_PROTECTION_TYPE = -2147483648i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_TYPE_NONE: OPM_PROTECTION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_TYPE_COPP_COMPATIBLE_HDCP: OPM_PROTECTION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_TYPE_ACP: OPM_PROTECTION_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_TYPE_CGMSA: OPM_PROTECTION_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_TYPE_HDCP: OPM_PROTECTION_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_TYPE_DPCP: OPM_PROTECTION_TYPE = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_TYPE_TYPE_ENFORCEMENT_HDCP: OPM_PROTECTION_TYPE = 32i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct OPM_RANDOM_NUMBER {
     pub abRandomNumber: [u8; 16],
 }
@@ -49948,6 +53199,7 @@ impl ::core::default::Default for OPM_RANDOM_NUMBER {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct OPM_REQUESTED_INFORMATION {
     pub omac: OPM_OMAC,
     pub cbRequestedInformationSize: u32,
@@ -49975,6 +53227,7 @@ impl ::core::default::Default for OPM_REQUESTED_INFORMATION {
 }
 pub const OPM_SET_ACP_AND_CGMSA_SIGNALING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09a631a5_d684_4c60_8e4d_d3bb0f0be3ee);
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
     pub ulNewTVProtectionStandard: u32,
     pub ulAspectRatioChangeMask1: u32,
@@ -50009,6 +53262,7 @@ impl ::core::default::Default for OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS {
 }
 pub const OPM_SET_HDCP_SRM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b5ef5d1_c30d_44ff_84a5_ea71dce78f13);
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct OPM_SET_HDCP_SRM_PARAMETERS {
     pub ulSRMVersion: u32,
 }
@@ -50035,6 +53289,7 @@ impl ::core::default::Default for OPM_SET_HDCP_SRM_PARAMETERS {
 pub const OPM_SET_PROTECTION_LEVEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bb9327c_4eb5_4727_9f00_b42b0919c0da);
 pub const OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39ce333e_4cc0_44ae_bfcc_da50b5f82e72);
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     pub ulProtectionType: u32,
     pub ulProtectionLevel: u32,
@@ -50062,6 +53317,7 @@ impl ::core::default::Default for OPM_SET_PROTECTION_LEVEL_PARAMETERS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct OPM_STANDARD_INFORMATION {
     pub rnRandomNumber: OPM_RANDOM_NUMBER,
     pub ulStatusFlags: u32,
@@ -50089,95 +53345,166 @@ impl ::core::default::Default for OPM_STANDARD_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type OPM_STATUS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_STATUS_NORMAL: OPM_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_STATUS_LINK_LOST: OPM_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_STATUS_RENEGOTIATION_REQUIRED: OPM_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_STATUS_TAMPERING_DETECTED: OPM_STATUS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_STATUS_REVOKED_HDCP_DEVICE_ATTACHED: OPM_STATUS = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type OPM_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_OMAC_SIZE: OPM_TYPE = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_128_BIT_RANDOM_NUMBER_SIZE: OPM_TYPE = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_ENCRYPTED_INITIALIZATION_PARAMETERS_SIZE: OPM_TYPE = 256i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CONFIGURE_SETTING_DATA_SIZE: OPM_TYPE = 4056i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_GET_INFORMATION_PARAMETERS_SIZE: OPM_TYPE = 4056i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_REQUESTED_INFORMATION_SIZE: OPM_TYPE = 4076i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_HDCP_KEY_SELECTION_VECTOR_SIZE: OPM_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_PROTECTION_TYPE_SIZE: OPM_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_BUS_TYPE_MASK: OPM_TYPE = 65535i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_BUS_IMPLEMENTATION_MODIFIER_MASK: OPM_TYPE = 32767i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_TYPE_ENFORCEMENT_HDCP_OFF: OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_NO_TYPE_RESTRICTION: OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_TYPE1_RESTRICTION: OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_TYPE_ENFORCEMENT_HDCP_FORCE_ULONG: OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = 2147483647i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type OPM_VIDEO_OUTPUT_SEMANTICS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_VOS_COPP_SEMANTICS: OPM_VIDEO_OUTPUT_SEMANTICS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_VOS_OPM_SEMANTICS: OPM_VIDEO_OUTPUT_SEMANTICS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_VOS_OPM_INDIRECT_DISPLAY: OPM_VIDEO_OUTPUT_SEMANTICS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_CreateDevice = ::core::option::Option<unsafe extern "system" fn(pd3ddevice: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>, phdevice: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_CreateVideoProcessor = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pvpguid: *const ::windows::core::GUID, phvideoprocessor: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_DestroyDevice = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_DestroyVideoProcessor = ::core::option::Option<unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_GetVideoProcessBltStatePrivate = ::core::option::Option<unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, pdata: *mut DXVAHD_BLT_STATE_PRIVATE_DATA) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_GetVideoProcessStreamStatePrivate = ::core::option::Option<unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, streamnumber: u32, pdata: *mut DXVAHD_STREAM_STATE_PRIVATE_DATA) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_GetVideoProcessorCaps = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, count: u32, pcaps: *mut DXVAHD_VPCAPS) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_GetVideoProcessorCustomRates = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pvpguid: *const ::windows::core::GUID, count: u32, prates: *mut DXVAHD_CUSTOM_RATE_DATA) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_GetVideoProcessorDeviceCaps = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pcaps: *mut DXVAHD_VPDEVCAPS) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_GetVideoProcessorFilterRange = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, filter: DXVAHD_FILTER, prange: *mut DXVAHD_FILTER_RANGE_DATA) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_GetVideoProcessorInputFormats = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, count: u32, pformats: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_GetVideoProcessorOutputFormats = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, count: u32, pformats: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type PDXVAHDSW_Plugin = ::core::option::Option<unsafe extern "system" fn(size: u32, pcallbacks: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_ProposeVideoPrivateFormat = ::core::option::Option<unsafe extern "system" fn(hdevice: super::super::Foundation::HANDLE, pformat: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_SetVideoProcessBltState = ::core::option::Option<unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, state: DXVAHD_BLT_STATE, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDXVAHDSW_SetVideoProcessStreamState = ::core::option::Option<unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, streamnumber: u32, state: DXVAHD_STREAM_STATE, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PDXVAHDSW_VideoProcessBltHD = ::core::option::Option<unsafe extern "system" fn(hvideoprocessor: super::super::Foundation::HANDLE, poutputsurface: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DSurface9>, outputframe: u32, streamcount: u32, pstreams: *const DXVAHD_STREAM_DATA) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type PDXVAHD_CreateDevice = ::core::option::Option<unsafe extern "system" fn(pd3ddevice: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: PDXVAHDSW_Plugin, ppdevice: *mut ::core::option::Option<IDXVAHD_Device>) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type PLAYTO_SOURCE_CREATEFLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const PLAYTO_SOURCE_NONE: PLAYTO_SOURCE_CREATEFLAGS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const PLAYTO_SOURCE_IMAGE: PLAYTO_SOURCE_CREATEFLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const PLAYTO_SOURCE_AUDIO: PLAYTO_SOURCE_CREATEFLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const PLAYTO_SOURCE_VIDEO: PLAYTO_SOURCE_CREATEFLAGS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const PLAYTO_SOURCE_PROTECTED: PLAYTO_SOURCE_CREATEFLAGS = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type PM_CONNECTOR_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CONNECTOR_TYPE_OTHER: PM_CONNECTOR_TYPE = -1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CONNECTOR_TYPE_VGA: PM_CONNECTOR_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CONNECTOR_TYPE_SVIDEO: PM_CONNECTOR_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CONNECTOR_TYPE_COMPOSITE_VIDEO: PM_CONNECTOR_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CONNECTOR_TYPE_COMPONENT_VIDEO: PM_CONNECTOR_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CONNECTOR_TYPE_DVI: PM_CONNECTOR_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CONNECTOR_TYPE_HDMI: PM_CONNECTOR_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CONNECTOR_TYPE_LVDS: PM_CONNECTOR_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CONNECTOR_TYPE_D_JPN: PM_CONNECTOR_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CONNECTOR_TYPE_SDI: PM_CONNECTOR_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CONNECTOR_TYPE_DISPLAYPORT_EXTERNAL: PM_CONNECTOR_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CONNECTOR_TYPE_DISPLAYPORT_EMBEDDED: PM_CONNECTOR_TYPE = 11i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CONNECTOR_TYPE_UDI_EXTERNAL: PM_CONNECTOR_TYPE = 12i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CONNECTOR_TYPE_UDI_EMBEDDED: PM_CONNECTOR_TYPE = 13i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CONNECTOR_TYPE_RESERVED: PM_CONNECTOR_TYPE = 14i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CONNECTOR_TYPE_MIRACAST: PM_CONNECTOR_TYPE = 15i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_A: PM_CONNECTOR_TYPE = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_B: PM_CONNECTOR_TYPE = 17i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const OPM_COPP_COMPATIBLE_CONNECTOR_TYPE_INTERNAL: PM_CONNECTOR_TYPE = -2147483648i32;
 pub const PRESENTATION_CURRENT_POSITION: u64 = 9223372036854775807u64;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ROI_AREA {
     pub rect: super::super::Foundation::RECT,
@@ -50209,16 +53536,26 @@ impl ::core::default::Default for ROI_AREA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type SAMPLE_PROTECTION_VERSION = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const SAMPLE_PROTECTION_VERSION_NO: SAMPLE_PROTECTION_VERSION = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const SAMPLE_PROTECTION_VERSION_BASIC_LOKI: SAMPLE_PROTECTION_VERSION = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const SAMPLE_PROTECTION_VERSION_SCATTER: SAMPLE_PROTECTION_VERSION = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const SAMPLE_PROTECTION_VERSION_RC4: SAMPLE_PROTECTION_VERSION = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const SAMPLE_PROTECTION_VERSION_AES128CTR: SAMPLE_PROTECTION_VERSION = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type SEEK_ORIGIN = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const _msoBegin: SEEK_ORIGIN = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const _msoCurrent: SEEK_ORIGIN = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct SENSORPROFILEID {
     pub Type: ::windows::core::GUID,
     pub Index: u32,
@@ -50246,6 +53583,7 @@ impl ::core::default::Default for SENSORPROFILEID {
 }
 pub const SHA_HASH_LEN: u32 = 20u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct STREAM_MEDIUM {
     pub gidMedium: ::windows::core::GUID,
     pub unMediumInstance: u32,
@@ -50279,6 +53617,7 @@ pub const SYSFXUI_DONOTSHOW_ROOMCORRECTION: u32 = 2u32;
 pub const SYSFXUI_DONOTSHOW_SPEAKERFILLING: u32 = 64u32;
 pub const SYSFXUI_DONOTSHOW_VIRTUALSURROUND: u32 = 32u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct TOC_DESCRIPTOR {
     pub guidID: ::windows::core::GUID,
     pub wStreamNumber: u16,
@@ -50306,6 +53645,7 @@ impl ::core::default::Default for TOC_DESCRIPTOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub struct TOC_ENTRY_DESCRIPTOR {
     pub qwStartTime: u64,
     pub qwEndTime: u64,
@@ -50335,507 +53675,1001 @@ impl ::core::default::Default for TOC_ENTRY_DESCRIPTOR {
 }
 pub const TOC_ENTRY_MAX_TITLE_SIZE: u32 = 65535u32;
 pub const TOC_MAX_DESCRIPTION_SIZE: u32 = 65535u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type TOC_POS_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const TOC_POS_INHEADER: TOC_POS_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const TOC_POS_TOPLEVELOBJECT: TOC_POS_TYPE = 1i32;
 pub const VIDEO_ZOOM_RECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7aaa1638_1b7f_4c93_bd89_5b9c9fb6fcf0);
 pub const VorbisDecoderMFT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a198ef2_60e5_4ea8_90d8_da1f2832c288);
 pub const WMAAECMA_E_NO_ACTIVE_RENDER_STREAM: u32 = 2278293514u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type WMT_PROP_DATATYPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const WMT_PROP_TYPE_DWORD: WMT_PROP_DATATYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const WMT_PROP_TYPE_STRING: WMT_PROP_DATATYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const WMT_PROP_TYPE_BINARY: WMT_PROP_DATATYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const WMT_PROP_TYPE_BOOL: WMT_PROP_DATATYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const WMT_PROP_TYPE_QWORD: WMT_PROP_DATATYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const WMT_PROP_TYPE_WORD: WMT_PROP_DATATYPE = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const WMT_PROP_TYPE_GUID: WMT_PROP_DATATYPE = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type WMV_DYNAMIC_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const WMV_DYNAMIC_BITRATE: WMV_DYNAMIC_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const WMV_DYNAMIC_RESOLUTION: WMV_DYNAMIC_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const WMV_DYNAMIC_COMPLEXITY: WMV_DYNAMIC_FLAGS = 4i32;
 pub const WM_CODEC_ONEPASS_CBR: u32 = 1u32;
 pub const WM_CODEC_ONEPASS_VBR: u32 = 2u32;
 pub const WM_CODEC_TWOPASS_CBR: u32 = 4u32;
 pub const WM_CODEC_TWOPASS_VBR_PEAKCONSTRAINED: u32 = 16u32;
 pub const WM_CODEC_TWOPASS_VBR_UNCONSTRAINED: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type _MFP_CREDENTIAL_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_CREDENTIAL_PROMPT: _MFP_CREDENTIAL_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_CREDENTIAL_SAVE: _MFP_CREDENTIAL_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_CREDENTIAL_DO_NOT_CACHE: _MFP_CREDENTIAL_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_CREDENTIAL_CLEAR_TEXT: _MFP_CREDENTIAL_FLAGS = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_CREDENTIAL_PROXY: _MFP_CREDENTIAL_FLAGS = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_CREDENTIAL_LOGGED_ON_USER: _MFP_CREDENTIAL_FLAGS = 32i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type _MFP_MEDIAITEM_CHARACTERISTICS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_MEDIAITEM_IS_LIVE: _MFP_MEDIAITEM_CHARACTERISTICS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_MEDIAITEM_CAN_SEEK: _MFP_MEDIAITEM_CHARACTERISTICS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_MEDIAITEM_CAN_PAUSE: _MFP_MEDIAITEM_CHARACTERISTICS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFP_MEDIAITEM_HAS_SLOW_SEEK: _MFP_MEDIAITEM_CHARACTERISTICS = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type _MFT_ENUM_FLAG = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_ENUM_FLAG_SYNCMFT: _MFT_ENUM_FLAG = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_ENUM_FLAG_ASYNCMFT: _MFT_ENUM_FLAG = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_ENUM_FLAG_HARDWARE: _MFT_ENUM_FLAG = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_ENUM_FLAG_FIELDOFUSE: _MFT_ENUM_FLAG = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_ENUM_FLAG_LOCALMFT: _MFT_ENUM_FLAG = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_ENUM_FLAG_TRANSCODE_ONLY: _MFT_ENUM_FLAG = 32i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_ENUM_FLAG_SORTANDFILTER: _MFT_ENUM_FLAG = 64i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_ENUM_FLAG_SORTANDFILTER_APPROVED_ONLY: _MFT_ENUM_FLAG = 192i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_ENUM_FLAG_SORTANDFILTER_WEB_ONLY: _MFT_ENUM_FLAG = 320i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_ENUM_FLAG_SORTANDFILTER_WEB_ONLY_EDGEMODE: _MFT_ENUM_FLAG = 576i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_ENUM_FLAG_UNTRUSTED_STOREMFT: _MFT_ENUM_FLAG = 1024i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_ENUM_FLAG_ALL: _MFT_ENUM_FLAG = 63i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type _MFT_INPUT_DATA_BUFFER_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_INPUT_DATA_BUFFER_PLACEHOLDER: _MFT_INPUT_DATA_BUFFER_FLAGS = -1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type _MFT_INPUT_STATUS_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_INPUT_STATUS_ACCEPT_DATA: _MFT_INPUT_STATUS_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type _MFT_INPUT_STREAM_INFO_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_INPUT_STREAM_WHOLE_SAMPLES: _MFT_INPUT_STREAM_INFO_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_INPUT_STREAM_SINGLE_SAMPLE_PER_BUFFER: _MFT_INPUT_STREAM_INFO_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_INPUT_STREAM_FIXED_SAMPLE_SIZE: _MFT_INPUT_STREAM_INFO_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_INPUT_STREAM_HOLDS_BUFFERS: _MFT_INPUT_STREAM_INFO_FLAGS = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_INPUT_STREAM_DOES_NOT_ADDREF: _MFT_INPUT_STREAM_INFO_FLAGS = 256i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_INPUT_STREAM_REMOVABLE: _MFT_INPUT_STREAM_INFO_FLAGS = 512i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_INPUT_STREAM_OPTIONAL: _MFT_INPUT_STREAM_INFO_FLAGS = 1024i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_INPUT_STREAM_PROCESSES_IN_PLACE: _MFT_INPUT_STREAM_INFO_FLAGS = 2048i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type _MFT_OUTPUT_DATA_BUFFER_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_OUTPUT_DATA_BUFFER_INCOMPLETE: _MFT_OUTPUT_DATA_BUFFER_FLAGS = 16777216i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_OUTPUT_DATA_BUFFER_FORMAT_CHANGE: _MFT_OUTPUT_DATA_BUFFER_FLAGS = 256i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_OUTPUT_DATA_BUFFER_STREAM_END: _MFT_OUTPUT_DATA_BUFFER_FLAGS = 512i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_OUTPUT_DATA_BUFFER_NO_SAMPLE: _MFT_OUTPUT_DATA_BUFFER_FLAGS = 768i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type _MFT_OUTPUT_STATUS_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_OUTPUT_STATUS_SAMPLE_READY: _MFT_OUTPUT_STATUS_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type _MFT_OUTPUT_STREAM_INFO_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_OUTPUT_STREAM_WHOLE_SAMPLES: _MFT_OUTPUT_STREAM_INFO_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_OUTPUT_STREAM_SINGLE_SAMPLE_PER_BUFFER: _MFT_OUTPUT_STREAM_INFO_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_OUTPUT_STREAM_FIXED_SAMPLE_SIZE: _MFT_OUTPUT_STREAM_INFO_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_OUTPUT_STREAM_DISCARDABLE: _MFT_OUTPUT_STREAM_INFO_FLAGS = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_OUTPUT_STREAM_OPTIONAL: _MFT_OUTPUT_STREAM_INFO_FLAGS = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_OUTPUT_STREAM_PROVIDES_SAMPLES: _MFT_OUTPUT_STREAM_INFO_FLAGS = 256i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_OUTPUT_STREAM_CAN_PROVIDE_SAMPLES: _MFT_OUTPUT_STREAM_INFO_FLAGS = 512i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_OUTPUT_STREAM_LAZY_READ: _MFT_OUTPUT_STREAM_INFO_FLAGS = 1024i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_OUTPUT_STREAM_REMOVABLE: _MFT_OUTPUT_STREAM_INFO_FLAGS = 2048i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type _MFT_PROCESS_OUTPUT_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_PROCESS_OUTPUT_DISCARD_WHEN_NO_BUFFER: _MFT_PROCESS_OUTPUT_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_PROCESS_OUTPUT_REGENERATE_LAST_OUTPUT: _MFT_PROCESS_OUTPUT_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type _MFT_PROCESS_OUTPUT_STATUS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_PROCESS_OUTPUT_STATUS_NEW_STREAMS: _MFT_PROCESS_OUTPUT_STATUS = 256i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type _MFT_SET_TYPE_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFT_SET_TYPE_TEST_ONLY: _MFT_SET_TYPE_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVirtualCameraType_SoftwareCameraSource: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001 = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVirtualCameraLifetime_Session: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVirtualCameraLifetime_System: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0002 = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVirtualCameraAccess_CurrentUser: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const MFVirtualCameraAccess_AllUsers: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0003 = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVAudioChannelConfig = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVAudioChannelConfig_FRONT_LEFT: eAVAudioChannelConfig = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVAudioChannelConfig_FRONT_RIGHT: eAVAudioChannelConfig = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVAudioChannelConfig_FRONT_CENTER: eAVAudioChannelConfig = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVAudioChannelConfig_LOW_FREQUENCY: eAVAudioChannelConfig = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVAudioChannelConfig_BACK_LEFT: eAVAudioChannelConfig = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVAudioChannelConfig_BACK_RIGHT: eAVAudioChannelConfig = 32i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVAudioChannelConfig_FRONT_LEFT_OF_CENTER: eAVAudioChannelConfig = 64i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVAudioChannelConfig_FRONT_RIGHT_OF_CENTER: eAVAudioChannelConfig = 128i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVAudioChannelConfig_BACK_CENTER: eAVAudioChannelConfig = 256i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVAudioChannelConfig_SIDE_LEFT: eAVAudioChannelConfig = 512i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVAudioChannelConfig_SIDE_RIGHT: eAVAudioChannelConfig = 1024i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVAudioChannelConfig_TOP_CENTER: eAVAudioChannelConfig = 2048i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVAudioChannelConfig_TOP_FRONT_LEFT: eAVAudioChannelConfig = 4096i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVAudioChannelConfig_TOP_FRONT_CENTER: eAVAudioChannelConfig = 8192i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVAudioChannelConfig_TOP_FRONT_RIGHT: eAVAudioChannelConfig = 16384i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVAudioChannelConfig_TOP_BACK_LEFT: eAVAudioChannelConfig = 32768i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVAudioChannelConfig_TOP_BACK_CENTER: eAVAudioChannelConfig = 65536i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVAudioChannelConfig_TOP_BACK_RIGHT: eAVAudioChannelConfig = 131072i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVDDSurroundMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDDSurroundMode_NotIndicated: eAVDDSurroundMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDDSurroundMode_No: eAVDDSurroundMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDDSurroundMode_Yes: eAVDDSurroundMode = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVDSPLoudnessEqualization = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDSPLoudnessEqualization_OFF: eAVDSPLoudnessEqualization = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDSPLoudnessEqualization_ON: eAVDSPLoudnessEqualization = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDSPLoudnessEqualization_AUTO: eAVDSPLoudnessEqualization = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVDSPSpeakerFill = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDSPSpeakerFill_OFF: eAVDSPSpeakerFill = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDSPSpeakerFill_ON: eAVDSPSpeakerFill = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDSPSpeakerFill_AUTO: eAVDSPSpeakerFill = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVDecAACDownmixMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecAACUseISODownmix: eAVDecAACDownmixMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecAACUseARIBDownmix: eAVDecAACDownmixMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVDecAudioDualMono = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecAudioDualMono_IsNotDualMono: eAVDecAudioDualMono = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecAudioDualMono_IsDualMono: eAVDecAudioDualMono = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecAudioDualMono_UnSpecified: eAVDecAudioDualMono = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVDecAudioDualMonoReproMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecAudioDualMonoReproMode_STEREO: eAVDecAudioDualMonoReproMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecAudioDualMonoReproMode_LEFT_MONO: eAVDecAudioDualMonoReproMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecAudioDualMonoReproMode_RIGHT_MONO: eAVDecAudioDualMonoReproMode = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecAudioDualMonoReproMode_MIX_MONO: eAVDecAudioDualMonoReproMode = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVDecDDMatrixDecodingMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecDDMatrixDecodingMode_OFF: eAVDecDDMatrixDecodingMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecDDMatrixDecodingMode_ON: eAVDecDDMatrixDecodingMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecDDMatrixDecodingMode_AUTO: eAVDecDDMatrixDecodingMode = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVDecDDOperationalMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecDDOperationalMode_NONE: eAVDecDDOperationalMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecDDOperationalMode_LINE: eAVDecDDOperationalMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecDDOperationalMode_RF: eAVDecDDOperationalMode = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecDDOperationalMode_CUSTOM0: eAVDecDDOperationalMode = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecDDOperationalMode_CUSTOM1: eAVDecDDOperationalMode = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecDDOperationalMode_PORTABLE8: eAVDecDDOperationalMode = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecDDOperationalMode_PORTABLE11: eAVDecDDOperationalMode = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecDDOperationalMode_PORTABLE14: eAVDecDDOperationalMode = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVDecDDStereoDownMixMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecDDStereoDownMixMode_Auto: eAVDecDDStereoDownMixMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecDDStereoDownMixMode_LtRt: eAVDecDDStereoDownMixMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecDDStereoDownMixMode_LoRo: eAVDecDDStereoDownMixMode = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVDecHEAACDynamicRangeControl = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecHEAACDynamicRangeControl_OFF: eAVDecHEAACDynamicRangeControl = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecHEAACDynamicRangeControl_ON: eAVDecHEAACDynamicRangeControl = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVDecVideoCodecType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoCodecType_NOTPLAYING: eAVDecVideoCodecType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoCodecType_MPEG2: eAVDecVideoCodecType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoCodecType_H264: eAVDecVideoCodecType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVDecVideoDXVABusEncryption = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoDXVABusEncryption_NONE: eAVDecVideoDXVABusEncryption = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoDXVABusEncryption_PRIVATE: eAVDecVideoDXVABusEncryption = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoDXVABusEncryption_AES: eAVDecVideoDXVABusEncryption = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVDecVideoDXVAMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoDXVAMode_NOTPLAYING: eAVDecVideoDXVAMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoDXVAMode_SW: eAVDecVideoDXVAMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoDXVAMode_MC: eAVDecVideoDXVAMode = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoDXVAMode_IDCT: eAVDecVideoDXVAMode = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoDXVAMode_VLD: eAVDecVideoDXVAMode = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVDecVideoH264ErrorConcealment = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eErrorConcealmentTypeDrop: eAVDecVideoH264ErrorConcealment = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eErrorConcealmentTypeBasic: eAVDecVideoH264ErrorConcealment = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eErrorConcealmentTypeAdvanced: eAVDecVideoH264ErrorConcealment = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eErrorConcealmentTypeDXVASetBlack: eAVDecVideoH264ErrorConcealment = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVDecVideoInputScanType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoInputScan_Unknown: eAVDecVideoInputScanType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoInputScan_Progressive: eAVDecVideoInputScanType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoInputScan_Interlaced_UpperFieldFirst: eAVDecVideoInputScanType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoInputScan_Interlaced_LowerFieldFirst: eAVDecVideoInputScanType = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVDecVideoMPEG2ErrorConcealment = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eErrorConcealmentOff: eAVDecVideoMPEG2ErrorConcealment = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eErrorConcealmentOn: eAVDecVideoMPEG2ErrorConcealment = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVDecVideoSWPowerLevel = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoSWPowerLevel_BatteryLife: eAVDecVideoSWPowerLevel = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoSWPowerLevel_Balanced: eAVDecVideoSWPowerLevel = 50i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoSWPowerLevel_VideoQuality: eAVDecVideoSWPowerLevel = 100i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVDecVideoSoftwareDeinterlaceMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoSoftwareDeinterlaceMode_NoDeinterlacing: eAVDecVideoSoftwareDeinterlaceMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoSoftwareDeinterlaceMode_ProgressiveDeinterlacing: eAVDecVideoSoftwareDeinterlaceMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoSoftwareDeinterlaceMode_BOBDeinterlacing: eAVDecVideoSoftwareDeinterlaceMode = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVDecVideoSoftwareDeinterlaceMode_SmartBOBDeinterlacing: eAVDecVideoSoftwareDeinterlaceMode = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncAdaptiveMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncAdaptiveMode_None: eAVEncAdaptiveMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncAdaptiveMode_Resolution: eAVEncAdaptiveMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncAdaptiveMode_FrameRate: eAVEncAdaptiveMode = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncAudioDualMono = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncAudioDualMono_SameAsInput: eAVEncAudioDualMono = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncAudioDualMono_Off: eAVEncAudioDualMono = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncAudioDualMono_On: eAVEncAudioDualMono = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncAudioInputContent = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const AVEncAudioInputContent_Unknown: eAVEncAudioInputContent = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const AVEncAudioInputContent_Voice: eAVEncAudioInputContent = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const AVEncAudioInputContent_Music: eAVEncAudioInputContent = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncChromaEncodeMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncChromaEncodeMode_420: eAVEncChromaEncodeMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncChromaEncodeMode_444: eAVEncChromaEncodeMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncChromaEncodeMode_444_v2: eAVEncChromaEncodeMode = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncCommonRateControlMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncCommonRateControlMode_CBR: eAVEncCommonRateControlMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncCommonRateControlMode_PeakConstrainedVBR: eAVEncCommonRateControlMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncCommonRateControlMode_UnconstrainedVBR: eAVEncCommonRateControlMode = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncCommonRateControlMode_Quality: eAVEncCommonRateControlMode = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncCommonRateControlMode_LowDelayVBR: eAVEncCommonRateControlMode = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncCommonRateControlMode_GlobalVBR: eAVEncCommonRateControlMode = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncCommonRateControlMode_GlobalLowDelayVBR: eAVEncCommonRateControlMode = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncCommonStreamEndHandling = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncCommonStreamEndHandling_DiscardPartial: eAVEncCommonStreamEndHandling = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncCommonStreamEndHandling_EnsureComplete: eAVEncCommonStreamEndHandling = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncDDAtoDConverterType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDAtoDConverterType_Standard: eAVEncDDAtoDConverterType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDAtoDConverterType_HDCD: eAVEncDDAtoDConverterType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncDDDynamicRangeCompressionControl = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDDynamicRangeCompressionControl_None: eAVEncDDDynamicRangeCompressionControl = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDDynamicRangeCompressionControl_FilmStandard: eAVEncDDDynamicRangeCompressionControl = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDDynamicRangeCompressionControl_FilmLight: eAVEncDDDynamicRangeCompressionControl = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDDynamicRangeCompressionControl_MusicStandard: eAVEncDDDynamicRangeCompressionControl = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDDynamicRangeCompressionControl_MusicLight: eAVEncDDDynamicRangeCompressionControl = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDDynamicRangeCompressionControl_Speech: eAVEncDDDynamicRangeCompressionControl = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncDDHeadphoneMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDHeadphoneMode_NotIndicated: eAVEncDDHeadphoneMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDHeadphoneMode_NotEncoded: eAVEncDDHeadphoneMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDHeadphoneMode_Encoded: eAVEncDDHeadphoneMode = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncDDPreferredStereoDownMixMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDPreferredStereoDownMixMode_LtRt: eAVEncDDPreferredStereoDownMixMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDPreferredStereoDownMixMode_LoRo: eAVEncDDPreferredStereoDownMixMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncDDProductionRoomType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDProductionRoomType_NotIndicated: eAVEncDDProductionRoomType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDProductionRoomType_Large: eAVEncDDProductionRoomType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDProductionRoomType_Small: eAVEncDDProductionRoomType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncDDService = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDService_CM: eAVEncDDService = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDService_ME: eAVEncDDService = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDService_VI: eAVEncDDService = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDService_HI: eAVEncDDService = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDService_D: eAVEncDDService = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDService_C: eAVEncDDService = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDService_E: eAVEncDDService = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDService_VO: eAVEncDDService = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncDDSurroundExMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDSurroundExMode_NotIndicated: eAVEncDDSurroundExMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDSurroundExMode_No: eAVEncDDSurroundExMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncDDSurroundExMode_Yes: eAVEncDDSurroundExMode = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncH263PictureType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263PictureType_I: eAVEncH263PictureType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263PictureType_P: eAVEncH263PictureType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263PictureType_B: eAVEncH263PictureType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncH263VLevel = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263VLevel1: eAVEncH263VLevel = 10i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263VLevel2: eAVEncH263VLevel = 20i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263VLevel3: eAVEncH263VLevel = 30i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263VLevel4: eAVEncH263VLevel = 40i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263VLevel4_5: eAVEncH263VLevel = 45i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263VLevel5: eAVEncH263VLevel = 50i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263VLevel6: eAVEncH263VLevel = 60i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263VLevel7: eAVEncH263VLevel = 70i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncH263VProfile = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263VProfile_Base: eAVEncH263VProfile = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263VProfile_CompatibilityV2: eAVEncH263VProfile = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263VProfile_CompatibilityV1: eAVEncH263VProfile = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263VProfile_WirelessV2: eAVEncH263VProfile = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263VProfile_WirelessV3: eAVEncH263VProfile = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263VProfile_HighCompression: eAVEncH263VProfile = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263VProfile_Internet: eAVEncH263VProfile = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263VProfile_Interlace: eAVEncH263VProfile = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH263VProfile_HighLatency: eAVEncH263VProfile = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncH264PictureType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264PictureType_IDR: eAVEncH264PictureType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264PictureType_P: eAVEncH264PictureType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264PictureType_B: eAVEncH264PictureType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncH264VLevel = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VLevel1: eAVEncH264VLevel = 10i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VLevel1_b: eAVEncH264VLevel = 11i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VLevel1_1: eAVEncH264VLevel = 11i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VLevel1_2: eAVEncH264VLevel = 12i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VLevel1_3: eAVEncH264VLevel = 13i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VLevel2: eAVEncH264VLevel = 20i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VLevel2_1: eAVEncH264VLevel = 21i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VLevel2_2: eAVEncH264VLevel = 22i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VLevel3: eAVEncH264VLevel = 30i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VLevel3_1: eAVEncH264VLevel = 31i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VLevel3_2: eAVEncH264VLevel = 32i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VLevel4: eAVEncH264VLevel = 40i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VLevel4_1: eAVEncH264VLevel = 41i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VLevel4_2: eAVEncH264VLevel = 42i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VLevel5: eAVEncH264VLevel = 50i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VLevel5_1: eAVEncH264VLevel = 51i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VLevel5_2: eAVEncH264VLevel = 52i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncH264VProfile = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VProfile_unknown: eAVEncH264VProfile = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VProfile_Simple: eAVEncH264VProfile = 66i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VProfile_Base: eAVEncH264VProfile = 66i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VProfile_Main: eAVEncH264VProfile = 77i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VProfile_High: eAVEncH264VProfile = 100i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VProfile_422: eAVEncH264VProfile = 122i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VProfile_High10: eAVEncH264VProfile = 110i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VProfile_444: eAVEncH264VProfile = 244i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VProfile_Extended: eAVEncH264VProfile = 88i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VProfile_ScalableBase: eAVEncH264VProfile = 83i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VProfile_ScalableHigh: eAVEncH264VProfile = 86i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VProfile_MultiviewHigh: eAVEncH264VProfile = 118i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VProfile_StereoHigh: eAVEncH264VProfile = 128i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VProfile_ConstrainedBase: eAVEncH264VProfile = 256i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VProfile_UCConstrainedHigh: eAVEncH264VProfile = 257i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VProfile_UCScalableConstrainedBase: eAVEncH264VProfile = 258i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH264VProfile_UCScalableConstrainedHigh: eAVEncH264VProfile = 259i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncH265VLevel = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VLevel1: eAVEncH265VLevel = 30i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VLevel2: eAVEncH265VLevel = 60i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VLevel2_1: eAVEncH265VLevel = 63i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VLevel3: eAVEncH265VLevel = 90i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VLevel3_1: eAVEncH265VLevel = 93i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VLevel4: eAVEncH265VLevel = 120i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VLevel4_1: eAVEncH265VLevel = 123i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VLevel5: eAVEncH265VLevel = 150i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VLevel5_1: eAVEncH265VLevel = 153i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VLevel5_2: eAVEncH265VLevel = 156i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VLevel6: eAVEncH265VLevel = 180i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VLevel6_1: eAVEncH265VLevel = 183i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VLevel6_2: eAVEncH265VLevel = 186i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncH265VProfile = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_unknown: eAVEncH265VProfile = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_Main_420_8: eAVEncH265VProfile = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_Main_420_10: eAVEncH265VProfile = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_Main_420_12: eAVEncH265VProfile = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_Main_422_10: eAVEncH265VProfile = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_Main_422_12: eAVEncH265VProfile = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_Main_444_8: eAVEncH265VProfile = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_Main_444_10: eAVEncH265VProfile = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_Main_444_12: eAVEncH265VProfile = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_Monochrome_12: eAVEncH265VProfile = 9i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_Monochrome_16: eAVEncH265VProfile = 10i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_MainIntra_420_8: eAVEncH265VProfile = 11i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_MainIntra_420_10: eAVEncH265VProfile = 12i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_MainIntra_420_12: eAVEncH265VProfile = 13i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_MainIntra_422_10: eAVEncH265VProfile = 14i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_MainIntra_422_12: eAVEncH265VProfile = 15i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_MainIntra_444_8: eAVEncH265VProfile = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_MainIntra_444_10: eAVEncH265VProfile = 17i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_MainIntra_444_12: eAVEncH265VProfile = 18i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_MainIntra_444_16: eAVEncH265VProfile = 19i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_MainStill_420_8: eAVEncH265VProfile = 20i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_MainStill_444_8: eAVEncH265VProfile = 21i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncH265VProfile_MainStill_444_16: eAVEncH265VProfile = 22i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncInputVideoSystem = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncInputVideoSystem_Unspecified: eAVEncInputVideoSystem = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncInputVideoSystem_PAL: eAVEncInputVideoSystem = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncInputVideoSystem_NTSC: eAVEncInputVideoSystem = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncInputVideoSystem_SECAM: eAVEncInputVideoSystem = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncInputVideoSystem_MAC: eAVEncInputVideoSystem = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncInputVideoSystem_HDV: eAVEncInputVideoSystem = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncInputVideoSystem_Component: eAVEncInputVideoSystem = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncMPACodingMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPACodingMode_Mono: eAVEncMPACodingMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPACodingMode_Stereo: eAVEncMPACodingMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPACodingMode_DualChannel: eAVEncMPACodingMode = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPACodingMode_JointStereo: eAVEncMPACodingMode = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPACodingMode_Surround: eAVEncMPACodingMode = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncMPAEmphasisType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPAEmphasisType_None: eAVEncMPAEmphasisType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPAEmphasisType_50_15: eAVEncMPAEmphasisType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPAEmphasisType_Reserved: eAVEncMPAEmphasisType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPAEmphasisType_CCITT_J17: eAVEncMPAEmphasisType = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncMPALayer = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPALayer_1: eAVEncMPALayer = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPALayer_2: eAVEncMPALayer = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPALayer_3: eAVEncMPALayer = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncMPVFrameFieldMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVFrameFieldMode_FieldMode: eAVEncMPVFrameFieldMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVFrameFieldMode_FrameMode: eAVEncMPVFrameFieldMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncMPVIntraVLCTable = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVIntraVLCTable_Auto: eAVEncMPVIntraVLCTable = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVIntraVLCTable_MPEG1: eAVEncMPVIntraVLCTable = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVIntraVLCTable_Alternate: eAVEncMPVIntraVLCTable = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncMPVLevel = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVLevel_Low: eAVEncMPVLevel = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVLevel_Main: eAVEncMPVLevel = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVLevel_High1440: eAVEncMPVLevel = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVLevel_High: eAVEncMPVLevel = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncMPVProfile = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVProfile_unknown: eAVEncMPVProfile = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVProfile_Simple: eAVEncMPVProfile = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVProfile_Main: eAVEncMPVProfile = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVProfile_High: eAVEncMPVProfile = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVProfile_422: eAVEncMPVProfile = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncMPVQScaleType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVQScaleType_Auto: eAVEncMPVQScaleType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVQScaleType_Linear: eAVEncMPVQScaleType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVQScaleType_NonLinear: eAVEncMPVQScaleType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncMPVScanPattern = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVScanPattern_Auto: eAVEncMPVScanPattern = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVScanPattern_ZigZagScan: eAVEncMPVScanPattern = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVScanPattern_AlternateScan: eAVEncMPVScanPattern = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncMPVSceneDetection = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVSceneDetection_None: eAVEncMPVSceneDetection = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVSceneDetection_InsertIPicture: eAVEncMPVSceneDetection = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVSceneDetection_StartNewGOP: eAVEncMPVSceneDetection = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMPVSceneDetection_StartNewLocatableGOP: eAVEncMPVSceneDetection = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncMuxOutput = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMuxOutputAuto: eAVEncMuxOutput = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMuxOutputPS: eAVEncMuxOutput = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncMuxOutputTS: eAVEncMuxOutput = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncVP9VProfile = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVP9VProfile_unknown: eAVEncVP9VProfile = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVP9VProfile_420_8: eAVEncVP9VProfile = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVP9VProfile_420_10: eAVEncVP9VProfile = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVP9VProfile_420_12: eAVEncVP9VProfile = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncVideoChromaResolution = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoChromaResolution_SameAsSource: eAVEncVideoChromaResolution = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoChromaResolution_444: eAVEncVideoChromaResolution = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoChromaResolution_422: eAVEncVideoChromaResolution = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoChromaResolution_420: eAVEncVideoChromaResolution = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoChromaResolution_411: eAVEncVideoChromaResolution = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncVideoChromaSubsampling = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoChromaSubsamplingFormat_SameAsSource: eAVEncVideoChromaSubsampling = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoChromaSubsamplingFormat_ProgressiveChroma: eAVEncVideoChromaSubsampling = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoChromaSubsamplingFormat_Horizontally_Cosited: eAVEncVideoChromaSubsampling = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoChromaSubsamplingFormat_Vertically_Cosited: eAVEncVideoChromaSubsampling = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoChromaSubsamplingFormat_Vertically_AlignedChromaPlanes: eAVEncVideoChromaSubsampling = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncVideoColorLighting = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorLighting_SameAsSource: eAVEncVideoColorLighting = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorLighting_Unknown: eAVEncVideoColorLighting = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorLighting_Bright: eAVEncVideoColorLighting = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorLighting_Office: eAVEncVideoColorLighting = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorLighting_Dim: eAVEncVideoColorLighting = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorLighting_Dark: eAVEncVideoColorLighting = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncVideoColorNominalRange = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorNominalRange_SameAsSource: eAVEncVideoColorNominalRange = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorNominalRange_0_255: eAVEncVideoColorNominalRange = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorNominalRange_16_235: eAVEncVideoColorNominalRange = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorNominalRange_48_208: eAVEncVideoColorNominalRange = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncVideoColorPrimaries = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorPrimaries_SameAsSource: eAVEncVideoColorPrimaries = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorPrimaries_Reserved: eAVEncVideoColorPrimaries = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorPrimaries_BT709: eAVEncVideoColorPrimaries = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorPrimaries_BT470_2_SysM: eAVEncVideoColorPrimaries = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorPrimaries_BT470_2_SysBG: eAVEncVideoColorPrimaries = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorPrimaries_SMPTE170M: eAVEncVideoColorPrimaries = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorPrimaries_SMPTE240M: eAVEncVideoColorPrimaries = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorPrimaries_EBU3231: eAVEncVideoColorPrimaries = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorPrimaries_SMPTE_C: eAVEncVideoColorPrimaries = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncVideoColorTransferFunction = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorTransferFunction_SameAsSource: eAVEncVideoColorTransferFunction = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorTransferFunction_10: eAVEncVideoColorTransferFunction = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorTransferFunction_18: eAVEncVideoColorTransferFunction = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorTransferFunction_20: eAVEncVideoColorTransferFunction = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorTransferFunction_22: eAVEncVideoColorTransferFunction = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorTransferFunction_22_709: eAVEncVideoColorTransferFunction = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorTransferFunction_22_240M: eAVEncVideoColorTransferFunction = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorTransferFunction_22_8bit_sRGB: eAVEncVideoColorTransferFunction = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorTransferFunction_28: eAVEncVideoColorTransferFunction = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncVideoColorTransferMatrix = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorTransferMatrix_SameAsSource: eAVEncVideoColorTransferMatrix = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorTransferMatrix_BT709: eAVEncVideoColorTransferMatrix = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorTransferMatrix_BT601: eAVEncVideoColorTransferMatrix = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoColorTransferMatrix_SMPTE240M: eAVEncVideoColorTransferMatrix = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncVideoContentType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoContentType_Unknown: eAVEncVideoContentType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoContentType_FixedCameraAngle: eAVEncVideoContentType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncVideoFilmContent = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoFilmContent_VideoOnly: eAVEncVideoFilmContent = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoFilmContent_FilmOnly: eAVEncVideoFilmContent = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoFilmContent_Mixed: eAVEncVideoFilmContent = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncVideoOutputFrameRateConversion = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoOutputFrameRateConversion_Disable: eAVEncVideoOutputFrameRateConversion = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoOutputFrameRateConversion_Enable: eAVEncVideoOutputFrameRateConversion = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoOutputFrameRateConversion_Alias: eAVEncVideoOutputFrameRateConversion = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncVideoOutputScanType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoOutputScan_Progressive: eAVEncVideoOutputScanType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoOutputScan_Interlaced: eAVEncVideoOutputScanType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoOutputScan_SameAsInput: eAVEncVideoOutputScanType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoOutputScan_Automatic: eAVEncVideoOutputScanType = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVEncVideoSourceScanType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoSourceScan_Automatic: eAVEncVideoSourceScanType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoSourceScan_Interlaced: eAVEncVideoSourceScanType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVEncVideoSourceScan_Progressive: eAVEncVideoSourceScanType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVFastDecodeMode = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eVideoDecodeCompliant: eAVFastDecodeMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eVideoDecodeOptimalLF: eAVFastDecodeMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eVideoDecodeDisableLF: eAVFastDecodeMode = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eVideoDecodeFastest: eAVFastDecodeMode = 32i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eAVScenarioInfo = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVScenarioInfo_Unknown: eAVScenarioInfo = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVScenarioInfo_DisplayRemoting: eAVScenarioInfo = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVScenarioInfo_VideoConference: eAVScenarioInfo = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVScenarioInfo_Archive: eAVScenarioInfo = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVScenarioInfo_LiveStreaming: eAVScenarioInfo = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVScenarioInfo_CameraRecord: eAVScenarioInfo = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eAVScenarioInfo_DisplayRemotingWithFeatureMap: eAVScenarioInfo = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub type eVideoEncoderDisplayContentType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eVideoEncoderDisplayContent_Unknown: eVideoEncoderDisplayContentType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaFoundation'*"]
 pub const eVideoEncoderDisplayContent_FullScreenVideo: eVideoEncoderDisplayContentType = 1i32;
 pub const g_wszSpeechFormatCaps: &'static str = "SpeechFormatCap";
 pub const g_wszWMCPAudioVBRQuality: &'static str = "_VBRQUALITY";

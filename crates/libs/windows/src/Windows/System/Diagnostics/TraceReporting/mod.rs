@@ -69,6 +69,7 @@ pub struct IPlatformDiagnosticTraceRuntimeInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
 pub struct PlatformDiagnosticActionState(pub i32);
 impl PlatformDiagnosticActionState {
@@ -158,6 +159,7 @@ impl PlatformDiagnosticActions {
 impl ::windows::core::RuntimeName for PlatformDiagnosticActions {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticActions";
 }
+#[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
 pub struct PlatformDiagnosticEscalationType(pub i32);
 impl PlatformDiagnosticEscalationType {
@@ -185,6 +187,7 @@ unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticEscalationType {
 impl ::windows::core::DefaultType for PlatformDiagnosticEscalationType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
 pub struct PlatformDiagnosticEventBufferLatencies(pub u32);
 impl PlatformDiagnosticEventBufferLatencies {
@@ -213,6 +216,7 @@ unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticEventBufferLatenc
 impl ::windows::core::DefaultType for PlatformDiagnosticEventBufferLatencies {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
 pub struct PlatformDiagnosticTraceInfo(::windows::core::IUnknown);
 impl PlatformDiagnosticTraceInfo {
@@ -322,6 +326,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Plat
 }
 unsafe impl ::core::marker::Send for PlatformDiagnosticTraceInfo {}
 unsafe impl ::core::marker::Sync for PlatformDiagnosticTraceInfo {}
+#[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
 pub struct PlatformDiagnosticTracePriority(pub i32);
 impl PlatformDiagnosticTracePriority {
@@ -349,6 +354,7 @@ unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTracePriority {
 impl ::windows::core::DefaultType for PlatformDiagnosticTracePriority {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
 pub struct PlatformDiagnosticTraceRuntimeInfo(::windows::core::IUnknown);
 impl PlatformDiagnosticTraceRuntimeInfo {
@@ -430,6 +436,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Plat
 }
 unsafe impl ::core::marker::Send for PlatformDiagnosticTraceRuntimeInfo {}
 unsafe impl ::core::marker::Sync for PlatformDiagnosticTraceRuntimeInfo {}
+#[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
 pub struct PlatformDiagnosticTraceSlotState(pub i32);
 impl PlatformDiagnosticTraceSlotState {
@@ -458,6 +465,7 @@ unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTraceSlotState {
 impl ::windows::core::DefaultType for PlatformDiagnosticTraceSlotState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
 pub struct PlatformDiagnosticTraceSlotType(pub i32);
 impl PlatformDiagnosticTraceSlotType {

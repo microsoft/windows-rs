@@ -73,6 +73,7 @@ pub struct IWebAuthenticationResultVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WebAuthenticationStatus) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Security_Authentication_Web'*"]
 #[repr(transparent)]
 pub struct TokenBindingKeyType(pub i32);
 impl TokenBindingKeyType {
@@ -162,6 +163,7 @@ impl WebAuthenticationBroker {
 impl ::windows::core::RuntimeName for WebAuthenticationBroker {
     const NAME: &'static str = "Windows.Security.Authentication.Web.WebAuthenticationBroker";
 }
+#[doc = "*Required features: 'Security_Authentication_Web'*"]
 #[repr(transparent)]
 pub struct WebAuthenticationOptions(pub u32);
 impl WebAuthenticationOptions {
@@ -192,6 +194,7 @@ unsafe impl ::windows::core::RuntimeType for WebAuthenticationOptions {
 impl ::windows::core::DefaultType for WebAuthenticationOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Web'*"]
 #[repr(transparent)]
 pub struct WebAuthenticationResult(::windows::core::IUnknown);
 impl WebAuthenticationResult {
@@ -278,6 +281,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Security_Authentication_Web'*"]
 #[repr(transparent)]
 pub struct WebAuthenticationStatus(pub i32);
 impl WebAuthenticationStatus {

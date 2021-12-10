@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Web_Http_Diagnostics'*"]
 #[repr(transparent)]
 pub struct HttpDiagnosticProvider(::windows::core::IUnknown);
 impl HttpDiagnosticProvider {
@@ -124,6 +125,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Http
 }
 unsafe impl ::core::marker::Send for HttpDiagnosticProvider {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProvider {}
+#[doc = "*Required features: 'Web_Http_Diagnostics'*"]
 #[repr(transparent)]
 pub struct HttpDiagnosticProviderRequestResponseCompletedEventArgs(::windows::core::IUnknown);
 impl HttpDiagnosticProviderRequestResponseCompletedEventArgs {
@@ -242,6 +244,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Http
 }
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestResponseCompletedEventArgs {}
+#[doc = "*Required features: 'Web_Http_Diagnostics'*"]
 #[repr(transparent)]
 pub struct HttpDiagnosticProviderRequestResponseTimestamps(::windows::core::IUnknown);
 impl HttpDiagnosticProviderRequestResponseTimestamps {
@@ -381,6 +384,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Http
 }
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestResponseTimestamps {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestResponseTimestamps {}
+#[doc = "*Required features: 'Web_Http_Diagnostics'*"]
 #[repr(transparent)]
 pub struct HttpDiagnosticProviderRequestSentEventArgs(::windows::core::IUnknown);
 impl HttpDiagnosticProviderRequestSentEventArgs {
@@ -499,6 +503,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Http
 }
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderRequestSentEventArgs {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderRequestSentEventArgs {}
+#[doc = "*Required features: 'Web_Http_Diagnostics'*"]
 #[repr(transparent)]
 pub struct HttpDiagnosticProviderResponseReceivedEventArgs(::windows::core::IUnknown);
 impl HttpDiagnosticProviderResponseReceivedEventArgs {
@@ -588,6 +593,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Http
 }
 unsafe impl ::core::marker::Send for HttpDiagnosticProviderResponseReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderResponseReceivedEventArgs {}
+#[doc = "*Required features: 'Web_Http_Diagnostics'*"]
 #[repr(transparent)]
 pub struct HttpDiagnosticRequestInitiator(pub i32);
 impl HttpDiagnosticRequestInitiator {
@@ -626,6 +632,7 @@ unsafe impl ::windows::core::RuntimeType for HttpDiagnosticRequestInitiator {
 impl ::windows::core::DefaultType for HttpDiagnosticRequestInitiator {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Web_Http_Diagnostics'*"]
 #[repr(transparent)]
 pub struct HttpDiagnosticSourceLocation(::windows::core::IUnknown);
 impl HttpDiagnosticSourceLocation {

@@ -18,6 +18,7 @@ pub mod Printing3D;
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
+#[doc = "*Required features: 'Graphics'*"]
 pub struct DisplayAdapterId {
     pub LowPart: u32,
     pub HighPart: i32,
@@ -29,6 +30,7 @@ impl ::core::clone::Clone for DisplayAdapterId {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Graphics'*"]
 pub struct DisplayId {
     pub Value: u64,
 }
@@ -40,6 +42,7 @@ impl ::core::clone::Clone for DisplayId {
 }
 pub type IGeometrySource2D = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Graphics'*"]
 pub struct PointInt32 {
     pub X: i32,
     pub Y: i32,
@@ -51,6 +54,7 @@ impl ::core::clone::Clone for PointInt32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Graphics'*"]
 pub struct RectInt32 {
     pub X: i32,
     pub Y: i32,
@@ -64,6 +68,7 @@ impl ::core::clone::Clone for RectInt32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Graphics'*"]
 pub struct SizeInt32 {
     pub Width: i32,
     pub Height: i32,

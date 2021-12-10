@@ -182,6 +182,7 @@ pub struct IPrintCustomItemListOptionDetails3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct IPrintCustomOptionDetails(::windows::core::IUnknown);
 impl IPrintCustomOptionDetails {
@@ -442,6 +443,7 @@ pub struct IPrintHolePunchOptionDetailsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct IPrintItemListOptionDetails(::windows::core::IUnknown);
 impl IPrintItemListOptionDetails {
@@ -638,6 +640,7 @@ pub struct IPrintMediaTypeOptionDetailsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct IPrintNumberOptionDetails(::windows::core::IUnknown);
 impl IPrintNumberOptionDetails {
@@ -798,6 +801,7 @@ pub struct IPrintNumberOptionDetailsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct IPrintOptionDetails(::windows::core::IUnknown);
 impl IPrintOptionDetails {
@@ -1095,6 +1099,7 @@ pub struct IPrintTaskOptionDetailsStaticVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printtaskoptions: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct IPrintTextOptionDetails(::windows::core::IUnknown);
 impl IPrintTextOptionDetails {
@@ -1247,6 +1252,7 @@ pub struct IPrintTextOptionDetailsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintBindingOptionDetails(::windows::core::IUnknown);
 impl PrintBindingOptionDetails {
@@ -1438,6 +1444,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintBindingOp
 }
 unsafe impl ::core::marker::Send for PrintBindingOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintBindingOptionDetails {}
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintBorderingOptionDetails(::windows::core::IUnknown);
 impl PrintBorderingOptionDetails {
@@ -1629,6 +1636,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintBordering
 }
 unsafe impl ::core::marker::Send for PrintBorderingOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintBorderingOptionDetails {}
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintCollationOptionDetails(::windows::core::IUnknown);
 impl PrintCollationOptionDetails {
@@ -1820,6 +1828,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintCollation
 }
 unsafe impl ::core::marker::Send for PrintCollationOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintCollationOptionDetails {}
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintColorModeOptionDetails(::windows::core::IUnknown);
 impl PrintColorModeOptionDetails {
@@ -2011,6 +2020,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintColorMode
 }
 unsafe impl ::core::marker::Send for PrintColorModeOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintColorModeOptionDetails {}
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintCopiesOptionDetails(::windows::core::IUnknown);
 impl PrintCopiesOptionDetails {
@@ -2208,6 +2218,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintCopiesOpt
 }
 unsafe impl ::core::marker::Send for PrintCopiesOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintCopiesOptionDetails {}
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintCustomItemDetails(::windows::core::IUnknown);
 impl PrintCustomItemDetails {
@@ -2293,6 +2304,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintCustomItemDetails {}
 unsafe impl ::core::marker::Sync for PrintCustomItemDetails {}
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintCustomItemListOptionDetails(::windows::core::IUnknown);
 impl PrintCustomItemListOptionDetails {
@@ -2526,6 +2538,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintCustomIte
 }
 unsafe impl ::core::marker::Send for PrintCustomItemListOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintCustomItemListOptionDetails {}
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintCustomTextOptionDetails(::windows::core::IUnknown);
 impl PrintCustomTextOptionDetails {
@@ -2731,6 +2744,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintCustomTex
 }
 unsafe impl ::core::marker::Send for PrintCustomTextOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintCustomTextOptionDetails {}
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintCustomToggleOptionDetails(::windows::core::IUnknown);
 impl PrintCustomToggleOptionDetails {
@@ -2925,6 +2939,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintCustomTog
 }
 unsafe impl ::core::marker::Send for PrintCustomToggleOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintCustomToggleOptionDetails {}
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintDuplexOptionDetails(::windows::core::IUnknown);
 impl PrintDuplexOptionDetails {
@@ -3116,6 +3131,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintDuplexOpt
 }
 unsafe impl ::core::marker::Send for PrintDuplexOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintDuplexOptionDetails {}
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintHolePunchOptionDetails(::windows::core::IUnknown);
 impl PrintHolePunchOptionDetails {
@@ -3307,6 +3323,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintHolePunch
 }
 unsafe impl ::core::marker::Send for PrintHolePunchOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintHolePunchOptionDetails {}
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintMediaSizeOptionDetails(::windows::core::IUnknown);
 impl PrintMediaSizeOptionDetails {
@@ -3498,6 +3515,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintMediaSize
 }
 unsafe impl ::core::marker::Send for PrintMediaSizeOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintMediaSizeOptionDetails {}
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintMediaTypeOptionDetails(::windows::core::IUnknown);
 impl PrintMediaTypeOptionDetails {
@@ -3689,6 +3707,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintMediaType
 }
 unsafe impl ::core::marker::Send for PrintMediaTypeOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintMediaTypeOptionDetails {}
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintOptionStates(pub u32);
 impl PrintOptionStates {
@@ -3717,6 +3736,7 @@ unsafe impl ::windows::core::RuntimeType for PrintOptionStates {
 impl ::windows::core::DefaultType for PrintOptionStates {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintOptionType(pub i32);
 impl PrintOptionType {
@@ -3747,6 +3767,7 @@ unsafe impl ::windows::core::RuntimeType for PrintOptionType {
 impl ::windows::core::DefaultType for PrintOptionType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintOrientationOptionDetails(::windows::core::IUnknown);
 impl PrintOrientationOptionDetails {
@@ -3938,6 +3959,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintOrientati
 }
 unsafe impl ::core::marker::Send for PrintOrientationOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintOrientationOptionDetails {}
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintPageRangeOptionDetails(::windows::core::IUnknown);
 impl PrintPageRangeOptionDetails {
@@ -4099,6 +4121,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintPageRange
 }
 unsafe impl ::core::marker::Send for PrintPageRangeOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintPageRangeOptionDetails {}
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintQualityOptionDetails(::windows::core::IUnknown);
 impl PrintQualityOptionDetails {
@@ -4290,6 +4313,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintQualityOp
 }
 unsafe impl ::core::marker::Send for PrintQualityOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintQualityOptionDetails {}
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintStapleOptionDetails(::windows::core::IUnknown);
 impl PrintStapleOptionDetails {
@@ -4481,6 +4505,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintOptionDetails> for &PrintStapleOpt
 }
 unsafe impl ::core::marker::Send for PrintStapleOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintStapleOptionDetails {}
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintTaskOptionChangedEventArgs(::windows::core::IUnknown);
 impl PrintTaskOptionChangedEventArgs {
@@ -4555,6 +4580,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintTaskOptionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskOptionChangedEventArgs {}
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintTaskOptionDetails(::windows::core::IUnknown);
 impl PrintTaskOptionDetails {

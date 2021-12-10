@@ -189,6 +189,7 @@ pub struct ISpatialSurfaceObserverStatics2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Perception_Spatial_Surfaces'*"]
 #[repr(transparent)]
 pub struct SpatialSurfaceInfo(::windows::core::IUnknown);
 impl SpatialSurfaceInfo {
@@ -295,6 +296,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialSurfaceInfo {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceInfo {}
+#[doc = "*Required features: 'Perception_Spatial_Surfaces'*"]
 #[repr(transparent)]
 pub struct SpatialSurfaceMesh(::windows::core::IUnknown);
 impl SpatialSurfaceMesh {
@@ -405,6 +407,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialSurfaceMesh {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceMesh {}
+#[doc = "*Required features: 'Perception_Spatial_Surfaces'*"]
 #[repr(transparent)]
 pub struct SpatialSurfaceMeshBuffer(::windows::core::IUnknown);
 impl SpatialSurfaceMeshBuffer {
@@ -502,6 +505,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialSurfaceMeshBuffer {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceMeshBuffer {}
+#[doc = "*Required features: 'Perception_Spatial_Surfaces'*"]
 #[repr(transparent)]
 pub struct SpatialSurfaceMeshOptions(::windows::core::IUnknown);
 impl SpatialSurfaceMeshOptions {
@@ -651,6 +655,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialSurfaceMeshOptions {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceMeshOptions {}
+#[doc = "*Required features: 'Perception_Spatial_Surfaces'*"]
 #[repr(transparent)]
 pub struct SpatialSurfaceObserver(::windows::core::IUnknown);
 impl SpatialSurfaceObserver {

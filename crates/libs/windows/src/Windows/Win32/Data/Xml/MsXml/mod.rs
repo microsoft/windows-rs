@@ -548,19 +548,33 @@ pub const DISPID_XTLRUNTIME__TOP: u32 = 196u32;
 pub const DOMDocument: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf90_7b36_11d2_b20e_00c04f983e60);
 pub const DOMDocument60: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d96a05_f192_11d4_a65f_0040963251e5);
 pub const DOMFreeThreadedDocument: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf91_7b36_11d2_b20e_00c04f983e60);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub type DOMNodeType = i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const NODE_INVALID: DOMNodeType = 0i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const NODE_ELEMENT: DOMNodeType = 1i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const NODE_ATTRIBUTE: DOMNodeType = 2i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const NODE_TEXT: DOMNodeType = 3i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const NODE_CDATA_SECTION: DOMNodeType = 4i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const NODE_ENTITY_REFERENCE: DOMNodeType = 5i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const NODE_ENTITY: DOMNodeType = 6i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const NODE_PROCESSING_INSTRUCTION: DOMNodeType = 7i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const NODE_COMMENT: DOMNodeType = 8i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const NODE_DOCUMENT: DOMNodeType = 9i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const NODE_DOCUMENT_TYPE: DOMNodeType = 10i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const NODE_DOCUMENT_FRAGMENT: DOMNodeType = 11i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const NODE_NOTATION: DOMNodeType = 12i32;
 pub const E_XML_BUFFERTOOSMALL: i32 = -1072897498i32;
 pub const E_XML_INVALID: i32 = -1072897499i32;
@@ -568,6 +582,7 @@ pub const E_XML_NODTD: i32 = -1072897500i32;
 pub const E_XML_NOTWF: i32 = -1072897501i32;
 pub const FreeThreadedDOMDocument60: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d96a06_f192_11d4_a65f_0040963251e5);
 pub const FreeThreadedXMLHTTP60: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d96a09_f192_11d4_a65f_0040963251e5);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IMXAttributes(::windows::core::IUnknown);
 impl IMXAttributes {
@@ -726,6 +741,7 @@ pub struct IMXAttributesVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, strvalue: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IMXNamespaceManager(::windows::core::IUnknown);
 impl IMXNamespaceManager {
@@ -821,6 +837,7 @@ pub struct IMXNamespaceManagerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchprefix: super::super::super::Foundation::PWSTR, pcontextnode: ::windows::core::RawPtr, pwchuri: super::super::super::Foundation::PWSTR, pcchuri: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IMXNamespacePrefixes(::windows::core::IUnknown);
 impl IMXNamespacePrefixes {
@@ -934,6 +951,7 @@ pub struct IMXNamespacePrefixesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IMXReaderControl(::windows::core::IUnknown);
 impl IMXReaderControl {
@@ -1042,6 +1060,7 @@ pub struct IMXReaderControlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IMXSchemaDeclHandler(::windows::core::IUnknown);
 impl IMXSchemaDeclHandler {
@@ -1142,6 +1161,7 @@ pub struct IMXSchemaDeclHandlerVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oschemaelement: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IMXWriter(::windows::core::IUnknown);
 impl IMXWriter {
@@ -1326,6 +1346,7 @@ pub struct IMXWriterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fvalue: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IMXXMLFilter(::windows::core::IUnknown);
 impl IMXXMLFilter {
@@ -1484,6 +1505,7 @@ pub struct IMXXMLFilterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ohandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ohandler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISAXAttributes(::windows::core::IUnknown);
 impl ISAXAttributes {
@@ -1597,6 +1619,7 @@ pub struct ISAXAttributesVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchqname: super::super::super::Foundation::PWSTR, cchqname: i32, ppwchvalue: *mut *mut u16, pcchvalue: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISAXContentHandler(::windows::core::IUnknown);
 impl ISAXContentHandler {
@@ -1703,6 +1726,7 @@ pub struct ISAXContentHandlerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISAXDTDHandler(::windows::core::IUnknown);
 impl ISAXDTDHandler {
@@ -1761,6 +1785,7 @@ pub struct ISAXDTDHandlerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchpublicid: super::super::super::Foundation::PWSTR, cchpublicid: i32, pwchsystemid: super::super::super::Foundation::PWSTR, cchsystemid: i32, pwchnotationname: super::super::super::Foundation::PWSTR, cchnotationname: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISAXDeclHandler(::windows::core::IUnknown);
 impl ISAXDeclHandler {
@@ -1831,6 +1856,7 @@ pub struct ISAXDeclHandlerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchname: super::super::super::Foundation::PWSTR, cchname: i32, pwchpublicid: super::super::super::Foundation::PWSTR, cchpublicid: i32, pwchsystemid: super::super::super::Foundation::PWSTR, cchsystemid: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISAXEntityResolver(::windows::core::IUnknown);
 impl ISAXEntityResolver {
@@ -1884,6 +1910,7 @@ pub struct ISAXEntityResolverVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchpublicid: super::super::super::Foundation::PWSTR, pwchsystemid: super::super::super::Foundation::PWSTR, pvarinput: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISAXErrorHandler(::windows::core::IUnknown);
 impl ISAXErrorHandler {
@@ -1948,6 +1975,7 @@ pub struct ISAXErrorHandlerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plocator: ::windows::core::RawPtr, pwcherrormessage: super::super::super::Foundation::PWSTR, hrerrorcode: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISAXLexicalHandler(::windows::core::IUnknown);
 impl ISAXLexicalHandler {
@@ -2030,6 +2058,7 @@ pub struct ISAXLexicalHandlerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchchars: super::super::super::Foundation::PWSTR, cchchars: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISAXLocator(::windows::core::IUnknown);
 impl ISAXLocator {
@@ -2096,6 +2125,7 @@ pub struct ISAXLocatorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwchpublicid: *mut *mut u16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwchsystemid: *mut *mut u16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISAXXMLFilter(::windows::core::IUnknown);
 impl ISAXXMLFilter {
@@ -2267,6 +2297,7 @@ pub struct ISAXXMLFilterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preader: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISAXXMLReader(::windows::core::IUnknown);
 impl ISAXXMLReader {
@@ -2409,6 +2440,7 @@ pub struct ISAXXMLReaderVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwchurl: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISchema(::windows::core::IUnknown);
 impl ISchema {
@@ -2615,6 +2647,7 @@ pub struct ISchemaVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, notations: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, schemalocations: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISchemaAny(::windows::core::IUnknown);
 impl ISchemaAny {
@@ -2816,6 +2849,7 @@ pub struct ISchemaAnyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaces: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, processcontents: *mut SCHEMAPROCESSCONTENTS) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISchemaAttribute(::windows::core::IUnknown);
 impl ISchemaAttribute {
@@ -3007,6 +3041,7 @@ pub struct ISchemaAttributeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#use: *mut SCHEMAUSE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reference: *mut i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISchemaAttributeGroup(::windows::core::IUnknown);
 impl ISchemaAttributeGroup {
@@ -3174,6 +3209,7 @@ pub struct ISchemaAttributeGroupVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, anyattribute: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISchemaComplexType(::windows::core::IUnknown);
 impl ISchemaComplexType {
@@ -3486,6 +3522,7 @@ pub struct ISchemaComplexTypeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentmodel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prohibited: *mut SCHEMADERIVATIONMETHOD) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISchemaElement(::windows::core::IUnknown);
 impl ISchemaElement {
@@ -3736,6 +3773,7 @@ pub struct ISchemaElementVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#abstract: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reference: *mut i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISchemaIdentityConstraint(::windows::core::IUnknown);
 impl ISchemaIdentityConstraint {
@@ -3910,6 +3948,7 @@ pub struct ISchemaIdentityConstraintVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fields: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISchemaItem(::windows::core::IUnknown);
 impl ISchemaItem {
@@ -4047,6 +4086,7 @@ pub struct ISchemaItemVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, annotationsink: *mut ::core::ffi::c_void, iswritten: *mut i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISchemaItemCollection(::windows::core::IUnknown);
 impl ISchemaItemCollection {
@@ -4172,6 +4212,7 @@ pub struct ISchemaItemCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISchemaModelGroup(::windows::core::IUnknown);
 impl ISchemaModelGroup {
@@ -4368,6 +4409,7 @@ pub struct ISchemaModelGroupVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, particles: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISchemaNotation(::windows::core::IUnknown);
 impl ISchemaNotation {
@@ -4539,6 +4581,7 @@ pub struct ISchemaNotationVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISchemaParticle(::windows::core::IUnknown);
 impl ISchemaParticle {
@@ -4710,6 +4753,7 @@ pub struct ISchemaParticleVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxoccurs: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISchemaStringCollection(::windows::core::IUnknown);
 impl ISchemaStringCollection {
@@ -4823,6 +4867,7 @@ pub struct ISchemaStringCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct ISchemaType(::windows::core::IUnknown);
 impl ISchemaType {
@@ -5085,6 +5130,7 @@ pub struct ISchemaTypeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, whitespace: *mut SCHEMAWHITESPACE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, patterns: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IServerXMLHTTPRequest(::windows::core::IUnknown);
 impl IServerXMLHTTPRequest {
@@ -5312,6 +5358,7 @@ pub struct IServerXMLHTTPRequestVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, option: SERVERXMLHTTP_OPTION, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IServerXMLHTTPRequest2(::windows::core::IUnknown);
 impl IServerXMLHTTPRequest2 {
@@ -5571,6 +5618,7 @@ pub struct IServerXMLHTTPRequest2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IVBMXNamespaceManager(::windows::core::IUnknown);
 impl IVBMXNamespaceManager {
@@ -5724,6 +5772,7 @@ pub struct IVBMXNamespaceManagerVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strprefix: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, contextnode: ::windows::core::RawPtr, uri: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IVBSAXAttributes(::windows::core::IUnknown);
 impl IVBSAXAttributes {
@@ -5902,6 +5951,7 @@ pub struct IVBSAXAttributesVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strqname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, strvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IVBSAXContentHandler(::windows::core::IUnknown);
 impl IVBSAXContentHandler {
@@ -6058,6 +6108,7 @@ pub struct IVBSAXContentHandlerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IVBSAXDTDHandler(::windows::core::IUnknown);
 impl IVBSAXDTDHandler {
@@ -6166,6 +6217,7 @@ pub struct IVBSAXDTDHandlerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR, strnotationname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IVBSAXDeclHandler(::windows::core::IUnknown);
 impl IVBSAXDeclHandler {
@@ -6286,6 +6338,7 @@ pub struct IVBSAXDeclHandlerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strname: *mut super::super::super::Foundation::BSTR, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IVBSAXEntityResolver(::windows::core::IUnknown);
 impl IVBSAXEntityResolver {
@@ -6388,6 +6441,7 @@ pub struct IVBSAXEntityResolverVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strpublicid: *mut super::super::super::Foundation::BSTR, strsystemid: *mut super::super::super::Foundation::BSTR, varinput: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IVBSAXErrorHandler(::windows::core::IUnknown);
 impl IVBSAXErrorHandler {
@@ -6502,6 +6556,7 @@ pub struct IVBSAXErrorHandlerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, olocator: ::windows::core::RawPtr, strerrormessage: *mut super::super::super::Foundation::BSTR, nerrorcode: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IVBSAXLexicalHandler(::windows::core::IUnknown);
 impl IVBSAXLexicalHandler {
@@ -6634,6 +6689,7 @@ pub struct IVBSAXLexicalHandlerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strchars: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IVBSAXLocator(::windows::core::IUnknown);
 impl IVBSAXLocator {
@@ -6754,6 +6810,7 @@ pub struct IVBSAXLocatorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strsystemid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IVBSAXXMLFilter(::windows::core::IUnknown);
 impl IVBSAXXMLFilter {
@@ -6859,6 +6916,7 @@ pub struct IVBSAXXMLFilterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, oreader: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IVBSAXXMLReader(::windows::core::IUnknown);
 impl IVBSAXXMLReader {
@@ -7055,6 +7113,7 @@ pub struct IVBSAXXMLReaderVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strurl: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLAttribute(::windows::core::IUnknown);
 impl IXMLAttribute {
@@ -7165,6 +7224,7 @@ pub struct IXMLAttributeVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, v: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMAttribute(::windows::core::IUnknown);
 impl IXMLDOMAttribute {
@@ -7497,6 +7557,7 @@ pub struct IXMLDOMAttributeVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributevalue: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMCDATASection(::windows::core::IUnknown);
 impl IXMLDOMCDATASection {
@@ -7900,6 +7961,7 @@ pub struct IXMLDOMCDATASectionVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: i32, righthandtextnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMCharacterData(::windows::core::IUnknown);
 impl IXMLDOMCharacterData {
@@ -8258,6 +8320,7 @@ pub struct IXMLDOMCharacterDataVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: i32, count: i32, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMComment(::windows::core::IUnknown);
 impl IXMLDOMComment {
@@ -8636,6 +8699,7 @@ pub struct IXMLDOMCommentVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: i32, count: i32, data: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMDocument(::windows::core::IUnknown);
 impl IXMLDOMDocument {
@@ -9131,6 +9195,7 @@ pub struct IXMLDOMDocumentVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ontransformnodesink: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMDocument2(::windows::core::IUnknown);
 impl IXMLDOMDocument2 {
@@ -9682,6 +9747,7 @@ pub struct IXMLDOMDocument2Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMDocument3(::windows::core::IUnknown);
 impl IXMLDOMDocument3 {
@@ -10263,6 +10329,7 @@ pub struct IXMLDOMDocument3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, node: ::windows::core::RawPtr, errorobj: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, node: ::windows::core::RawPtr, deep: i16, clone: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMDocumentFragment(::windows::core::IUnknown);
 impl IXMLDOMDocumentFragment {
@@ -10577,6 +10644,7 @@ pub struct IXMLDOMDocumentFragmentVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stylesheet: ::windows::core::RawPtr, outputobject: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMDocumentType(::windows::core::IUnknown);
 impl IXMLDOMDocumentType {
@@ -10907,6 +10975,7 @@ pub struct IXMLDOMDocumentTypeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entitymap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, notationmap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMElement(::windows::core::IUnknown);
 impl IXMLDOMElement {
@@ -11273,6 +11342,7 @@ pub struct IXMLDOMElementVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMEntity(::windows::core::IUnknown);
 impl IXMLDOMEntity {
@@ -11605,6 +11675,7 @@ pub struct IXMLDOMEntityVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMEntityReference(::windows::core::IUnknown);
 impl IXMLDOMEntityReference {
@@ -11919,6 +11990,7 @@ pub struct IXMLDOMEntityReferenceVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stylesheet: ::windows::core::RawPtr, outputobject: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMImplementation(::windows::core::IUnknown);
 impl IXMLDOMImplementation {
@@ -12021,6 +12093,7 @@ pub struct IXMLDOMImplementationVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feature: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, version: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, hasfeature: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMNamedNodeMap(::windows::core::IUnknown);
 impl IXMLDOMNamedNodeMap {
@@ -12173,6 +12246,7 @@ pub struct IXMLDOMNamedNodeMapVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMNode(::windows::core::IUnknown);
 impl IXMLDOMNode {
@@ -12467,6 +12541,7 @@ pub struct IXMLDOMNodeVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stylesheet: ::windows::core::RawPtr, outputobject: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMNodeList(::windows::core::IUnknown);
 impl IXMLDOMNodeList {
@@ -12586,6 +12661,7 @@ pub struct IXMLDOMNodeListVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMNotation(::windows::core::IUnknown);
 impl IXMLDOMNotation {
@@ -12912,6 +12988,7 @@ pub struct IXMLDOMNotationVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, systemid: *mut super::super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMParseError(::windows::core::IUnknown);
 impl IXMLDOMParseError {
@@ -13042,6 +13119,7 @@ pub struct IXMLDOMParseErrorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lineposition: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fileposition: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMParseError2(::windows::core::IUnknown);
 impl IXMLDOMParseError2 {
@@ -13216,6 +13294,7 @@ pub struct IXMLDOMParseError2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMParseErrorCollection(::windows::core::IUnknown);
 impl IXMLDOMParseErrorCollection {
@@ -13336,6 +13415,7 @@ pub struct IXMLDOMParseErrorCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMProcessingInstruction(::windows::core::IUnknown);
 impl IXMLDOMProcessingInstruction {
@@ -13668,6 +13748,7 @@ pub struct IXMLDOMProcessingInstructionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMSchemaCollection(::windows::core::IUnknown);
 impl IXMLDOMSchemaCollection {
@@ -13804,6 +13885,7 @@ pub struct IXMLDOMSchemaCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, othercollection: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMSchemaCollection2(::windows::core::IUnknown);
 impl IXMLDOMSchemaCollection2 {
@@ -13985,6 +14067,7 @@ pub struct IXMLDOMSchemaCollection2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, node: ::windows::core::RawPtr, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMSelection(::windows::core::IUnknown);
 impl IXMLDOMSelection {
@@ -14183,6 +14266,7 @@ pub struct IXMLDOMSelectionVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDOMText(::windows::core::IUnknown);
 impl IXMLDOMText {
@@ -14566,6 +14650,7 @@ pub struct IXMLDOMTextVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: i32, righthandtextnode: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDSOControl(::windows::core::IUnknown);
 impl IXMLDSOControl {
@@ -14687,6 +14772,7 @@ pub struct IXMLDSOControlVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDocument(::windows::core::IUnknown);
 impl IXMLDocument {
@@ -14875,6 +14961,7 @@ pub struct IXMLDocumentVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vtype: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, var1: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ppelem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLDocument2(::windows::core::IUnknown);
 impl IXMLDocument2 {
@@ -15072,6 +15159,7 @@ pub struct IXMLDocument2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pf: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, f: i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLElement(::windows::core::IUnknown);
 impl IXMLElement {
@@ -15236,6 +15324,7 @@ pub struct IXMLElementVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchildelem: ::windows::core::RawPtr, lindex: i32, lreserved: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchildelem: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLElement2(::windows::core::IUnknown);
 impl IXMLElement2 {
@@ -15405,6 +15494,7 @@ pub struct IXMLElement2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchildelem: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLElementCollection(::windows::core::IUnknown);
 impl IXMLElementCollection {
@@ -15522,6 +15612,7 @@ pub struct IXMLElementCollectionVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, var1: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, var2: ::core::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLError(::windows::core::IUnknown);
 impl IXMLError {
@@ -15574,6 +15665,7 @@ pub struct IXMLErrorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrorreturn: *mut XML_ERROR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLHTTPRequest(::windows::core::IUnknown);
 impl IXMLHTTPRequest {
@@ -15757,6 +15849,7 @@ pub struct IXMLHTTPRequestVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preadystatesink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLHTTPRequest2(::windows::core::IUnknown);
 impl IXMLHTTPRequest2 {
@@ -15860,6 +15953,7 @@ pub struct IXMLHTTPRequest2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszheader: super::super::super::Foundation::PWSTR, ppwszvalue: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLHTTPRequest2Callback(::windows::core::IUnknown);
 impl IXMLHTTPRequest2Callback {
@@ -15934,6 +16028,7 @@ pub struct IXMLHTTPRequest2CallbackVtbl(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, hrerror: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLHTTPRequest3(::windows::core::IUnknown);
 impl IXMLHTTPRequest3 {
@@ -16063,6 +16158,7 @@ pub struct IXMLHTTPRequest3Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbclientcertificatehash: u32, pbclientcertificatehash: *const u8, pwszpin: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLHTTPRequest3Callback(::windows::core::IUnknown);
 impl IXMLHTTPRequest3Callback {
@@ -16165,6 +16261,7 @@ pub struct IXMLHTTPRequest3CallbackVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, dwcertificateerrors: u32, cservercertificatechain: u32, rgservercertificatechain: *const XHR_CERT) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxhr: ::windows::core::RawPtr, cissuerlist: u32, rgpwszissuerlist: *const *const u16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXMLHttpRequest(::windows::core::IUnknown);
 impl IXMLHttpRequest {
@@ -16348,6 +16445,7 @@ pub struct IXMLHttpRequestVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preadystatesink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXSLProcessor(::windows::core::IUnknown);
 impl IXSLProcessor {
@@ -16526,6 +16624,7 @@ pub struct IXSLProcessorVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stylesheet: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXSLTemplate(::windows::core::IUnknown);
 impl IXSLTemplate {
@@ -16636,6 +16735,7 @@ pub struct IXSLTemplateVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stylesheet: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprocessor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct IXTLRuntime(::windows::core::IUnknown);
 impl IXTLRuntime {
@@ -17001,136 +17101,265 @@ pub const MXNamespaceManager60: ::windows::core::GUID = ::windows::core::GUID::f
 pub const MXXMLWriter60: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d96a0f_f192_11d4_a65f_0040963251e5);
 pub const SAXAttributes60: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d96a0e_f192_11d4_a65f_0040963251e5);
 pub const SAXXMLReader60: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d96a0c_f192_11d4_a65f_0040963251e5);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub type SCHEMACONTENTTYPE = i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMACONTENTTYPE_EMPTY: SCHEMACONTENTTYPE = 0i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMACONTENTTYPE_TEXTONLY: SCHEMACONTENTTYPE = 1i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMACONTENTTYPE_ELEMENTONLY: SCHEMACONTENTTYPE = 2i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMACONTENTTYPE_MIXED: SCHEMACONTENTTYPE = 3i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub type SCHEMADERIVATIONMETHOD = i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMADERIVATIONMETHOD_EMPTY: SCHEMADERIVATIONMETHOD = 0i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMADERIVATIONMETHOD_SUBSTITUTION: SCHEMADERIVATIONMETHOD = 1i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMADERIVATIONMETHOD_EXTENSION: SCHEMADERIVATIONMETHOD = 2i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMADERIVATIONMETHOD_RESTRICTION: SCHEMADERIVATIONMETHOD = 4i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMADERIVATIONMETHOD_LIST: SCHEMADERIVATIONMETHOD = 8i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMADERIVATIONMETHOD_UNION: SCHEMADERIVATIONMETHOD = 16i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMADERIVATIONMETHOD_ALL: SCHEMADERIVATIONMETHOD = 255i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMADERIVATIONMETHOD_NONE: SCHEMADERIVATIONMETHOD = 256i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub type SCHEMAPROCESSCONTENTS = i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMAPROCESSCONTENTS_NONE: SCHEMAPROCESSCONTENTS = 0i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMAPROCESSCONTENTS_SKIP: SCHEMAPROCESSCONTENTS = 1i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMAPROCESSCONTENTS_LAX: SCHEMAPROCESSCONTENTS = 2i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMAPROCESSCONTENTS_STRICT: SCHEMAPROCESSCONTENTS = 3i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub type SCHEMATYPEVARIETY = i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMATYPEVARIETY_NONE: SCHEMATYPEVARIETY = -1i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMATYPEVARIETY_ATOMIC: SCHEMATYPEVARIETY = 0i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMATYPEVARIETY_LIST: SCHEMATYPEVARIETY = 1i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMATYPEVARIETY_UNION: SCHEMATYPEVARIETY = 2i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub type SCHEMAUSE = i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMAUSE_OPTIONAL: SCHEMAUSE = 0i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMAUSE_PROHIBITED: SCHEMAUSE = 1i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMAUSE_REQUIRED: SCHEMAUSE = 2i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub type SCHEMAWHITESPACE = i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMAWHITESPACE_NONE: SCHEMAWHITESPACE = -1i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMAWHITESPACE_PRESERVE: SCHEMAWHITESPACE = 0i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMAWHITESPACE_REPLACE: SCHEMAWHITESPACE = 1i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SCHEMAWHITESPACE_COLLAPSE: SCHEMAWHITESPACE = 2i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub type SERVERXMLHTTP_OPTION = i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SXH_OPTION_URL: SERVERXMLHTTP_OPTION = -1i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SXH_OPTION_URL_CODEPAGE: SERVERXMLHTTP_OPTION = 0i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SXH_OPTION_ESCAPE_PERCENT_IN_URL: SERVERXMLHTTP_OPTION = 1i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SXH_OPTION_IGNORE_SERVER_SSL_CERT_ERROR_FLAGS: SERVERXMLHTTP_OPTION = 2i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SXH_OPTION_SELECT_CLIENT_SSL_CERT: SERVERXMLHTTP_OPTION = 3i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub type SOMITEMTYPE = i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_SCHEMA: SOMITEMTYPE = 4096i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_ATTRIBUTE: SOMITEMTYPE = 4097i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_ATTRIBUTEGROUP: SOMITEMTYPE = 4098i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_NOTATION: SOMITEMTYPE = 4099i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_ANNOTATION: SOMITEMTYPE = 4100i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_IDENTITYCONSTRAINT: SOMITEMTYPE = 4352i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_KEY: SOMITEMTYPE = 4353i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_KEYREF: SOMITEMTYPE = 4354i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_UNIQUE: SOMITEMTYPE = 4355i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_ANYTYPE: SOMITEMTYPE = 8192i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE: SOMITEMTYPE = 8448i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_ANYTYPE: SOMITEMTYPE = 8449i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_ANYURI: SOMITEMTYPE = 8450i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_BASE64BINARY: SOMITEMTYPE = 8451i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_BOOLEAN: SOMITEMTYPE = 8452i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_BYTE: SOMITEMTYPE = 8453i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_DATE: SOMITEMTYPE = 8454i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_DATETIME: SOMITEMTYPE = 8455i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_DAY: SOMITEMTYPE = 8456i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_DECIMAL: SOMITEMTYPE = 8457i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_DOUBLE: SOMITEMTYPE = 8458i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_DURATION: SOMITEMTYPE = 8459i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_ENTITIES: SOMITEMTYPE = 8460i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_ENTITY: SOMITEMTYPE = 8461i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_FLOAT: SOMITEMTYPE = 8462i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_HEXBINARY: SOMITEMTYPE = 8463i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_ID: SOMITEMTYPE = 8464i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_IDREF: SOMITEMTYPE = 8465i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_IDREFS: SOMITEMTYPE = 8466i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_INT: SOMITEMTYPE = 8467i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_INTEGER: SOMITEMTYPE = 8468i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_LANGUAGE: SOMITEMTYPE = 8469i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_LONG: SOMITEMTYPE = 8470i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_MONTH: SOMITEMTYPE = 8471i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_MONTHDAY: SOMITEMTYPE = 8472i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_NAME: SOMITEMTYPE = 8473i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_NCNAME: SOMITEMTYPE = 8474i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_NEGATIVEINTEGER: SOMITEMTYPE = 8475i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_NMTOKEN: SOMITEMTYPE = 8476i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_NMTOKENS: SOMITEMTYPE = 8477i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_NONNEGATIVEINTEGER: SOMITEMTYPE = 8478i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_NONPOSITIVEINTEGER: SOMITEMTYPE = 8479i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_NORMALIZEDSTRING: SOMITEMTYPE = 8480i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_NOTATION: SOMITEMTYPE = 8481i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_POSITIVEINTEGER: SOMITEMTYPE = 8482i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_QNAME: SOMITEMTYPE = 8483i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_SHORT: SOMITEMTYPE = 8484i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_STRING: SOMITEMTYPE = 8485i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_TIME: SOMITEMTYPE = 8486i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_TOKEN: SOMITEMTYPE = 8487i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_UNSIGNEDBYTE: SOMITEMTYPE = 8488i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_UNSIGNEDINT: SOMITEMTYPE = 8489i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_UNSIGNEDLONG: SOMITEMTYPE = 8490i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_UNSIGNEDSHORT: SOMITEMTYPE = 8491i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_YEAR: SOMITEMTYPE = 8492i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_YEARMONTH: SOMITEMTYPE = 8493i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_DATATYPE_ANYSIMPLETYPE: SOMITEMTYPE = 8703i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_SIMPLETYPE: SOMITEMTYPE = 8704i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_COMPLEXTYPE: SOMITEMTYPE = 9216i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_PARTICLE: SOMITEMTYPE = 16384i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_ANY: SOMITEMTYPE = 16385i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_ANYATTRIBUTE: SOMITEMTYPE = 16386i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_ELEMENT: SOMITEMTYPE = 16387i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_GROUP: SOMITEMTYPE = 16640i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_ALL: SOMITEMTYPE = 16641i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_CHOICE: SOMITEMTYPE = 16642i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_SEQUENCE: SOMITEMTYPE = 16643i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_EMPTYPARTICLE: SOMITEMTYPE = 16644i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_NULL: SOMITEMTYPE = 2048i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_NULL_TYPE: SOMITEMTYPE = 10240i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_NULL_ANY: SOMITEMTYPE = 18433i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_NULL_ANYATTRIBUTE: SOMITEMTYPE = 18434i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SOMITEM_NULL_ELEMENT: SOMITEMTYPE = 18435i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub type SXH_PROXY_SETTING = i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SXH_PROXY_SET_DEFAULT: SXH_PROXY_SETTING = 0i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SXH_PROXY_SET_PRECONFIG: SXH_PROXY_SETTING = 0i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SXH_PROXY_SET_DIRECT: SXH_PROXY_SETTING = 1i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SXH_PROXY_SET_PROXY: SXH_PROXY_SETTING = 2i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub type SXH_SERVER_CERT_OPTION = i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SXH_SERVER_CERT_IGNORE_UNKNOWN_CA: SXH_SERVER_CERT_OPTION = 256i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SXH_SERVER_CERT_IGNORE_WRONG_USAGE: SXH_SERVER_CERT_OPTION = 512i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SXH_SERVER_CERT_IGNORE_CERT_CN_INVALID: SXH_SERVER_CERT_OPTION = 4096i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SXH_SERVER_CERT_IGNORE_CERT_DATE_INVALID: SXH_SERVER_CERT_OPTION = 8192i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const SXH_SERVER_CERT_IGNORE_ALL_SERVER_ERRORS: SXH_SERVER_CERT_OPTION = 13056i32;
 pub const ServerXMLHTTP60: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d96a0b_f192_11d4_a65f_0040963251e5);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub type XHR_AUTH = i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_AUTH_ALL: XHR_AUTH = 0i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_AUTH_NONE: XHR_AUTH = 1i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_AUTH_PROXY: XHR_AUTH = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub struct XHR_CERT {
     pub cbCert: u32,
     pub pbCert: *mut u8,
@@ -17155,19 +17384,32 @@ impl ::core::default::Default for XHR_CERT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub type XHR_CERT_ERROR_FLAG = u32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_CERT_ERROR_REVOCATION_FAILED: XHR_CERT_ERROR_FLAG = 8388608u32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_CERT_ERROR_UNKNOWN_CA: XHR_CERT_ERROR_FLAG = 16777216u32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_CERT_ERROR_CERT_CN_INVALID: XHR_CERT_ERROR_FLAG = 33554432u32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_CERT_ERROR_CERT_DATE_INVALID: XHR_CERT_ERROR_FLAG = 67108864u32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_CERT_ERROR_ALL_SERVER_ERRORS: XHR_CERT_ERROR_FLAG = 125829120u32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub type XHR_CERT_IGNORE_FLAG = u32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_CERT_IGNORE_REVOCATION_FAILED: XHR_CERT_IGNORE_FLAG = 128u32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_CERT_IGNORE_UNKNOWN_CA: XHR_CERT_IGNORE_FLAG = 256u32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_CERT_IGNORE_CERT_CN_INVALID: XHR_CERT_IGNORE_FLAG = 4096u32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_CERT_IGNORE_CERT_DATE_INVALID: XHR_CERT_IGNORE_FLAG = 8192u32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_CERT_IGNORE_ALL_SERVER_ERRORS: XHR_CERT_IGNORE_FLAG = 12672u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct XHR_COOKIE {
     pub pwszUrl: super::super::super::Foundation::PWSTR,
@@ -17203,45 +17445,83 @@ impl ::core::default::Default for XHR_COOKIE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub type XHR_COOKIE_FLAG = i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_COOKIE_IS_SECURE: XHR_COOKIE_FLAG = 1i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_COOKIE_IS_SESSION: XHR_COOKIE_FLAG = 2i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_COOKIE_THIRD_PARTY: XHR_COOKIE_FLAG = 16i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_COOKIE_PROMPT_REQUIRED: XHR_COOKIE_FLAG = 32i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_COOKIE_EVALUATE_P3P: XHR_COOKIE_FLAG = 64i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_COOKIE_APPLY_P3P: XHR_COOKIE_FLAG = 128i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_COOKIE_P3P_ENABLED: XHR_COOKIE_FLAG = 256i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_COOKIE_IS_RESTRICTED: XHR_COOKIE_FLAG = 512i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_COOKIE_IE6: XHR_COOKIE_FLAG = 1024i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_COOKIE_IS_LEGACY: XHR_COOKIE_FLAG = 2048i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_COOKIE_NON_SCRIPT: XHR_COOKIE_FLAG = 4096i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_COOKIE_HTTPONLY: XHR_COOKIE_FLAG = 8192i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub type XHR_COOKIE_STATE = i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_COOKIE_STATE_UNKNOWN: XHR_COOKIE_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_COOKIE_STATE_ACCEPT: XHR_COOKIE_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_COOKIE_STATE_PROMPT: XHR_COOKIE_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_COOKIE_STATE_LEASH: XHR_COOKIE_STATE = 3i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_COOKIE_STATE_DOWNGRADE: XHR_COOKIE_STATE = 4i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_COOKIE_STATE_REJECT: XHR_COOKIE_STATE = 5i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub type XHR_CRED_PROMPT = i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_CRED_PROMPT_ALL: XHR_CRED_PROMPT = 0i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_CRED_PROMPT_NONE: XHR_CRED_PROMPT = 1i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_CRED_PROMPT_PROXY: XHR_CRED_PROMPT = 2i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub type XHR_PROPERTY = i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_PROP_NO_CRED_PROMPT: XHR_PROPERTY = 0i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_PROP_NO_AUTH: XHR_PROPERTY = 1i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_PROP_TIMEOUT: XHR_PROPERTY = 2i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_PROP_NO_DEFAULT_HEADERS: XHR_PROPERTY = 3i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_PROP_REPORT_REDIRECT_STATUS: XHR_PROPERTY = 4i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_PROP_NO_CACHE: XHR_PROPERTY = 5i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_PROP_EXTENDED_ERROR: XHR_PROPERTY = 6i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_PROP_QUERY_STRING_UTF8: XHR_PROPERTY = 7i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_PROP_IGNORE_CERT_ERRORS: XHR_PROPERTY = 8i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_PROP_ONDATA_THRESHOLD: XHR_PROPERTY = 9i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_PROP_SET_ENTERPRISEID: XHR_PROPERTY = 10i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_PROP_MAX_CONNECTIONS: XHR_PROPERTY = 11i32;
 pub const XHR_PROP_ONDATA_ALWAYS: u32 = 0u32;
 pub const XHR_PROP_ONDATA_NEVER: u64 = 18446744073709551615u64;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 #[repr(transparent)]
 pub struct XMLDOMDocumentEvents(::windows::core::IUnknown);
 impl XMLDOMDocumentEvents {
@@ -17340,18 +17620,27 @@ pub struct XMLDOMDocumentEventsVtbl(
 );
 pub const XMLDSOControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x550dda30_0541_11d2_9ca9_0060b0ec3d39);
 pub const XMLDocument: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfc399af_d876_11d0_9c10_00c04fc99c8e);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub type XMLEMEM_TYPE = i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XMLELEMTYPE_ELEMENT: XMLEMEM_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XMLELEMTYPE_TEXT: XMLEMEM_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XMLELEMTYPE_COMMENT: XMLEMEM_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XMLELEMTYPE_DOCUMENT: XMLEMEM_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XMLELEMTYPE_DTD: XMLEMEM_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XMLELEMTYPE_PI: XMLEMEM_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XMLELEMTYPE_OTHER: XMLEMEM_TYPE = 6i32;
 pub const XMLHTTP60: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d96a0a_f192_11d4_a65f_0040963251e5);
 pub const XMLHTTPRequest: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed8c108e_4349_11d2_91a4_00c04f7969e8);
 pub const XMLSchemaCache60: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d96a07_f192_11d4_a65f_0040963251e5);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct XML_ERROR {
     pub _nLine: u32,
@@ -17398,6 +17687,7 @@ impl ::core::default::Default for XML_ERROR {
 }
 pub const XSLTemplate60: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d96a08_f192_11d4_a65f_0040963251e5);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub struct __msxml6_ReferenceRemainingTypes__ {
     pub __tagDomNodeType__: DOMNodeType,
     pub __domNodeType__: DOMNodeType,

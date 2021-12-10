@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Devices_Adc_Provider")]
 pub mod Provider;
+#[doc = "*Required features: 'Devices_Adc'*"]
 #[repr(transparent)]
 pub struct AdcChannel(::windows::core::IUnknown);
 impl AdcChannel {
@@ -120,6 +121,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for AdcChannel {}
 unsafe impl ::core::marker::Sync for AdcChannel {}
+#[doc = "*Required features: 'Devices_Adc'*"]
 #[repr(transparent)]
 pub struct AdcChannelMode(pub i32);
 impl AdcChannelMode {
@@ -147,6 +149,7 @@ unsafe impl ::windows::core::RuntimeType for AdcChannelMode {
 impl ::windows::core::DefaultType for AdcChannelMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Adc'*"]
 #[repr(transparent)]
 pub struct AdcController(::windows::core::IUnknown);
 impl AdcController {

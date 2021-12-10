@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Devices_Display_Core")]
 pub mod Core;
+#[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
 pub struct DisplayMonitor(::windows::core::IUnknown);
 impl DisplayMonitor {
@@ -246,6 +247,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayMonitor {}
 unsafe impl ::core::marker::Sync for DisplayMonitor {}
+#[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
 pub struct DisplayMonitorConnectionKind(pub i32);
 impl DisplayMonitorConnectionKind {
@@ -275,6 +277,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayMonitorConnectionKind {
 impl ::windows::core::DefaultType for DisplayMonitorConnectionKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
 pub struct DisplayMonitorDescriptorKind(pub i32);
 impl DisplayMonitorDescriptorKind {
@@ -302,6 +305,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayMonitorDescriptorKind {
 impl ::windows::core::DefaultType for DisplayMonitorDescriptorKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
 pub struct DisplayMonitorPhysicalConnectorKind(pub i32);
 impl DisplayMonitorPhysicalConnectorKind {
@@ -335,6 +339,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayMonitorPhysicalConnectorKind
 impl ::windows::core::DefaultType for DisplayMonitorPhysicalConnectorKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
 pub struct DisplayMonitorUsageKind(pub i32);
 impl DisplayMonitorUsageKind {

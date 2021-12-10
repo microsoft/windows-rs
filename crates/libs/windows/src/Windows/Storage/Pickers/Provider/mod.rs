@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct AddFileResult(pub i32);
 impl AddFileResult {
@@ -28,6 +29,7 @@ unsafe impl ::windows::core::RuntimeType for AddFileResult {
 impl ::windows::core::DefaultType for AddFileResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct FileOpenPickerUI(::windows::core::IUnknown);
 impl FileOpenPickerUI {
@@ -177,6 +179,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct FileRemovedEventArgs(::windows::core::IUnknown);
@@ -266,6 +269,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct FileSavePickerUI(::windows::core::IUnknown);
 impl FileSavePickerUI {
@@ -397,6 +401,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct FileSelectionMode(pub i32);
 impl FileSelectionMode {
@@ -625,6 +630,7 @@ pub struct ITargetFileRequestedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct PickerClosingDeferral(::windows::core::IUnknown);
 impl PickerClosingDeferral {
@@ -694,6 +700,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pick
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct PickerClosingEventArgs(::windows::core::IUnknown);
 impl PickerClosingEventArgs {
@@ -773,6 +780,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pick
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct PickerClosingOperation(::windows::core::IUnknown);
 impl PickerClosingOperation {
@@ -853,6 +861,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pick
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct SetFileNameResult(pub i32);
 impl SetFileNameResult {
@@ -881,6 +890,7 @@ unsafe impl ::windows::core::RuntimeType for SetFileNameResult {
 impl ::windows::core::DefaultType for SetFileNameResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct TargetFileRequest(::windows::core::IUnknown);
 impl TargetFileRequest {
@@ -964,6 +974,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct TargetFileRequestDeferral(::windows::core::IUnknown);
 impl TargetFileRequestDeferral {
@@ -1033,6 +1044,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct TargetFileRequestedEventArgs(::windows::core::IUnknown);
 impl TargetFileRequestedEventArgs {

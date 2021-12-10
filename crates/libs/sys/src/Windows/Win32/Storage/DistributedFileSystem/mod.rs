@@ -1,54 +1,77 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NetDfsAdd(dfsentrypath: super::super::Foundation::PWSTR, servername: super::super::Foundation::PWSTR, sharename: super::super::Foundation::PWSTR, comment: super::super::Foundation::PWSTR, flags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NetDfsAddFtRoot(servername: super::super::Foundation::PWSTR, rootshare: super::super::Foundation::PWSTR, ftdfsname: super::super::Foundation::PWSTR, comment: super::super::Foundation::PWSTR, flags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NetDfsAddRootTarget(pdfspath: super::super::Foundation::PWSTR, ptargetpath: super::super::Foundation::PWSTR, majorversion: u32, pcomment: super::super::Foundation::PWSTR, flags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NetDfsAddStdRoot(servername: super::super::Foundation::PWSTR, rootshare: super::super::Foundation::PWSTR, comment: super::super::Foundation::PWSTR, flags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NetDfsEnum(dfsname: super::super::Foundation::PWSTR, level: u32, prefmaxlen: u32, buffer: *mut *mut u8, entriesread: *mut u32, resumehandle: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NetDfsGetClientInfo(dfsentrypath: super::super::Foundation::PWSTR, servername: super::super::Foundation::PWSTR, sharename: super::super::Foundation::PWSTR, level: u32, buffer: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn NetDfsGetFtContainerSecurity(domainname: super::super::Foundation::PWSTR, securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NetDfsGetInfo(dfsentrypath: super::super::Foundation::PWSTR, servername: super::super::Foundation::PWSTR, sharename: super::super::Foundation::PWSTR, level: u32, buffer: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn NetDfsGetSecurity(dfsentrypath: super::super::Foundation::PWSTR, securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn NetDfsGetStdContainerSecurity(machinename: super::super::Foundation::PWSTR, securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NetDfsGetSupportedNamespaceVersion(origin: DFS_NAMESPACE_VERSION_ORIGIN, pname: super::super::Foundation::PWSTR, ppversioninfo: *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NetDfsMove(olddfsentrypath: super::super::Foundation::PWSTR, newdfsentrypath: super::super::Foundation::PWSTR, flags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NetDfsRemove(dfsentrypath: super::super::Foundation::PWSTR, servername: super::super::Foundation::PWSTR, sharename: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NetDfsRemoveFtRoot(servername: super::super::Foundation::PWSTR, rootshare: super::super::Foundation::PWSTR, ftdfsname: super::super::Foundation::PWSTR, flags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NetDfsRemoveFtRootForced(domainname: super::super::Foundation::PWSTR, servername: super::super::Foundation::PWSTR, rootshare: super::super::Foundation::PWSTR, ftdfsname: super::super::Foundation::PWSTR, flags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NetDfsRemoveRootTarget(pdfspath: super::super::Foundation::PWSTR, ptargetpath: super::super::Foundation::PWSTR, flags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NetDfsRemoveStdRoot(servername: super::super::Foundation::PWSTR, rootshare: super::super::Foundation::PWSTR, flags: u32) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NetDfsSetClientInfo(dfsentrypath: super::super::Foundation::PWSTR, servername: super::super::Foundation::PWSTR, sharename: super::super::Foundation::PWSTR, level: u32, buffer: *const u8) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn NetDfsSetFtContainerSecurity(domainname: super::super::Foundation::PWSTR, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn NetDfsSetInfo(dfsentrypath: super::super::Foundation::PWSTR, servername: super::super::Foundation::PWSTR, sharename: super::super::Foundation::PWSTR, level: u32, buffer: *const u8) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn NetDfsSetSecurity(dfsentrypath: super::super::Foundation::PWSTR, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
+    #[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn NetDfsSetStdContainerSecurity(machinename: super::super::Foundation::PWSTR, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
 }
 pub const DFS_ADD_VOLUME: u32 = 1u32;
 pub const DFS_FORCE_REMOVE: u32 = 2147483648u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub struct DFS_GET_PKT_ENTRY_STATE_ARG {
     pub DfsEntryPathLen: u16,
     pub ServerNameLen: u16,
@@ -63,6 +86,7 @@ impl ::core::clone::Clone for DFS_GET_PKT_ENTRY_STATE_ARG {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_1 {
     pub EntryPath: super::super::Foundation::PWSTR,
@@ -76,6 +100,7 @@ impl ::core::clone::Clone for DFS_INFO_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_100 {
     pub Comment: super::super::Foundation::PWSTR,
@@ -89,6 +114,7 @@ impl ::core::clone::Clone for DFS_INFO_100 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub struct DFS_INFO_101 {
     pub State: u32,
 }
@@ -99,6 +125,7 @@ impl ::core::clone::Clone for DFS_INFO_101 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub struct DFS_INFO_102 {
     pub Timeout: u32,
 }
@@ -109,6 +136,7 @@ impl ::core::clone::Clone for DFS_INFO_102 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub struct DFS_INFO_103 {
     pub PropertyFlagMask: u32,
     pub PropertyFlags: u32,
@@ -120,6 +148,7 @@ impl ::core::clone::Clone for DFS_INFO_103 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub struct DFS_INFO_104 {
     pub TargetPriority: DFS_TARGET_PRIORITY,
 }
@@ -130,6 +159,7 @@ impl ::core::clone::Clone for DFS_INFO_104 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_105 {
     pub Comment: super::super::Foundation::PWSTR,
@@ -147,6 +177,7 @@ impl ::core::clone::Clone for DFS_INFO_105 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub struct DFS_INFO_106 {
     pub State: u32,
     pub TargetPriority: DFS_TARGET_PRIORITY,
@@ -158,6 +189,7 @@ impl ::core::clone::Clone for DFS_INFO_106 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct DFS_INFO_107 {
     pub Comment: super::super::Foundation::PWSTR,
@@ -177,6 +209,7 @@ impl ::core::clone::Clone for DFS_INFO_107 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct DFS_INFO_150 {
     pub SdLengthReserved: u32,
@@ -191,19 +224,21 @@ impl ::core::clone::Clone for DFS_INFO_150 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DFS_INFO_1_32 {
     pub EntryPath: u32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for DFS_INFO_1_32 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for DFS_INFO_1_32 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_2 {
     pub EntryPath: super::super::Foundation::PWSTR,
@@ -220,6 +255,7 @@ impl ::core::clone::Clone for DFS_INFO_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_200 {
     pub FtDfsName: super::super::Foundation::PWSTR,
@@ -233,22 +269,24 @@ impl ::core::clone::Clone for DFS_INFO_200 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DFS_INFO_2_32 {
     pub EntryPath: u32,
     pub Comment: u32,
     pub State: u32,
     pub NumberOfStorages: u32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for DFS_INFO_2_32 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for DFS_INFO_2_32 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_3 {
     pub EntryPath: super::super::Foundation::PWSTR,
@@ -266,6 +304,7 @@ impl ::core::clone::Clone for DFS_INFO_3 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_300 {
     pub Flags: u32,
@@ -280,7 +319,8 @@ impl ::core::clone::Clone for DFS_INFO_300 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DFS_INFO_3_32 {
     pub EntryPath: u32,
     pub Comment: u32,
@@ -288,15 +328,16 @@ pub struct DFS_INFO_3_32 {
     pub NumberOfStorages: u32,
     pub Storage: u32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for DFS_INFO_3_32 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for DFS_INFO_3_32 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_4 {
     pub EntryPath: super::super::Foundation::PWSTR,
@@ -316,7 +357,8 @@ impl ::core::clone::Clone for DFS_INFO_4 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DFS_INFO_4_32 {
     pub EntryPath: u32,
     pub Comment: u32,
@@ -326,15 +368,16 @@ pub struct DFS_INFO_4_32 {
     pub NumberOfStorages: u32,
     pub Storage: u32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for DFS_INFO_4_32 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for DFS_INFO_4_32 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_5 {
     pub EntryPath: super::super::Foundation::PWSTR,
@@ -355,6 +398,7 @@ impl ::core::clone::Clone for DFS_INFO_5 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub struct DFS_INFO_50 {
     pub NamespaceMajorVersion: u32,
     pub NamespaceMinorVersion: u32,
@@ -367,6 +411,7 @@ impl ::core::clone::Clone for DFS_INFO_50 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_INFO_6 {
     pub EntryPath: super::super::Foundation::PWSTR,
@@ -388,6 +433,7 @@ impl ::core::clone::Clone for DFS_INFO_6 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub struct DFS_INFO_7 {
     pub GenerationGuid: ::windows_sys::core::GUID,
 }
@@ -398,6 +444,7 @@ impl ::core::clone::Clone for DFS_INFO_7 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct DFS_INFO_8 {
     pub EntryPath: super::super::Foundation::PWSTR,
@@ -420,6 +467,7 @@ impl ::core::clone::Clone for DFS_INFO_8 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct DFS_INFO_9 {
     pub EntryPath: super::super::Foundation::PWSTR,
@@ -443,9 +491,13 @@ impl ::core::clone::Clone for DFS_INFO_9 {
     }
 }
 pub const DFS_MOVE_FLAG_REPLACE_IF_EXISTS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub type DFS_NAMESPACE_VERSION_ORIGIN = i32;
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub const DFS_NAMESPACE_VERSION_ORIGIN_COMBINED: DFS_NAMESPACE_VERSION_ORIGIN = 0i32;
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub const DFS_NAMESPACE_VERSION_ORIGIN_SERVER: DFS_NAMESPACE_VERSION_ORIGIN = 1i32;
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub const DFS_NAMESPACE_VERSION_ORIGIN_DOMAIN: DFS_NAMESPACE_VERSION_ORIGIN = 2i32;
 pub const DFS_PROPERTY_FLAG_ABDE: u32 = 32u32;
 pub const DFS_PROPERTY_FLAG_CLUSTER_ENABLED: u32 = 16u32;
@@ -455,6 +507,7 @@ pub const DFS_PROPERTY_FLAG_SITE_COSTING: u32 = 4u32;
 pub const DFS_PROPERTY_FLAG_TARGET_FAILBACK: u32 = 8u32;
 pub const DFS_RESTORE_VOLUME: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_SITELIST_INFO {
     pub cSites: u32,
@@ -469,6 +522,7 @@ impl ::core::clone::Clone for DFS_SITELIST_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_SITENAME_INFO {
     pub SiteFlags: u32,
@@ -485,6 +539,7 @@ impl ::core::clone::Clone for DFS_SITENAME_INFO {
 pub const DFS_SITE_PRIMARY: u32 = 1u32;
 pub const DFS_STORAGE_FLAVOR_UNUSED2: u32 = 768u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_STORAGE_INFO {
     pub State: u32,
@@ -500,21 +555,23 @@ impl ::core::clone::Clone for DFS_STORAGE_INFO {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DFS_STORAGE_INFO_0_32 {
     pub State: u32,
     pub ServerName: u32,
     pub ShareName: u32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for DFS_STORAGE_INFO_0_32 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for DFS_STORAGE_INFO_0_32 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DFS_STORAGE_INFO_1 {
     pub State: u32,
@@ -535,6 +592,7 @@ pub const DFS_STORAGE_STATE_ACTIVE: u32 = 4u32;
 pub const DFS_STORAGE_STATE_OFFLINE: u32 = 1u32;
 pub const DFS_STORAGE_STATE_ONLINE: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub struct DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     pub DomainDfsMajorVersion: u32,
     pub DomainDfsMinorVersion: u32,
@@ -550,6 +608,7 @@ impl ::core::clone::Clone for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub struct DFS_TARGET_PRIORITY {
     pub TargetPriorityClass: DFS_TARGET_PRIORITY_CLASS,
     pub TargetPriorityRank: u16,
@@ -561,12 +620,19 @@ impl ::core::clone::Clone for DFS_TARGET_PRIORITY {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub type DFS_TARGET_PRIORITY_CLASS = i32;
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub const DfsInvalidPriorityClass: DFS_TARGET_PRIORITY_CLASS = -1i32;
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub const DfsSiteCostNormalPriorityClass: DFS_TARGET_PRIORITY_CLASS = 0i32;
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub const DfsGlobalHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = 1i32;
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub const DfsSiteCostHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = 2i32;
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub const DfsSiteCostLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = 3i32;
+#[doc = "*Required features: 'Win32_Storage_DistributedFileSystem'*"]
 pub const DfsGlobalLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = 4i32;
 pub const DFS_VOLUME_FLAVORS: u32 = 768u32;
 pub const DFS_VOLUME_FLAVOR_AD_BLOB: u32 = 512u32;

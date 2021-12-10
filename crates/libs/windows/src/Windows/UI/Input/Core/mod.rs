@@ -57,6 +57,7 @@ pub struct IRadialControllerIndependentInputSourceStaticsVtbl(
     #[cfg(feature = "ApplicationModel_Core")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, view: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Core"))] usize,
 );
+#[doc = "*Required features: 'UI_Input_Core'*"]
 #[repr(transparent)]
 pub struct RadialControllerIndependentInputSource(::windows::core::IUnknown);
 impl RadialControllerIndependentInputSource {

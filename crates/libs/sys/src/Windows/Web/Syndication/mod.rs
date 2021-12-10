@@ -5,6 +5,7 @@ pub type ISyndicationClient = *mut ::core::ffi::c_void;
 pub type ISyndicationNode = *mut ::core::ffi::c_void;
 pub type ISyndicationText = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Web_Syndication'*"]
 pub struct RetrievalProgress {
     pub BytesRetrieved: u32,
     pub TotalBytesToRetrieve: u32,
@@ -19,6 +20,7 @@ pub type SyndicationAttribute = *mut ::core::ffi::c_void;
 pub type SyndicationCategory = *mut ::core::ffi::c_void;
 pub type SyndicationClient = *mut ::core::ffi::c_void;
 pub type SyndicationContent = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct SyndicationErrorStatus(pub i32);
 impl SyndicationErrorStatus {
@@ -36,6 +38,7 @@ impl ::core::clone::Clone for SyndicationErrorStatus {
     }
 }
 pub type SyndicationFeed = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct SyndicationFormat(pub i32);
 impl SyndicationFormat {
@@ -58,6 +61,7 @@ pub type SyndicationLink = *mut ::core::ffi::c_void;
 pub type SyndicationNode = *mut ::core::ffi::c_void;
 pub type SyndicationPerson = *mut ::core::ffi::c_void;
 pub type SyndicationText = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct SyndicationTextType(pub i32);
 impl SyndicationTextType {
@@ -72,6 +76,7 @@ impl ::core::clone::Clone for SyndicationTextType {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Web_Syndication'*"]
 pub struct TransferProgress {
     pub BytesSent: u32,
     pub TotalBytesToSend: u32,

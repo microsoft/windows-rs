@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintManagerInterop(::windows::core::IUnknown);
 impl IPrintManagerInterop {
@@ -82,6 +83,7 @@ pub struct IPrintManagerInteropVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appwindow: super::super::super::Foundation::HWND, riid: *const ::windows::core::GUID, asyncoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintWorkflowConfigurationNative(::windows::core::IUnknown);
 impl IPrintWorkflowConfigurationNative {
@@ -149,6 +151,7 @@ pub struct IPrintWorkflowConfigurationNativeVtbl(
     #[cfg(feature = "Win32_Graphics_Printing")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Printing"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintWorkflowObjectModelSourceFileContentNative(::windows::core::IUnknown);
 impl IPrintWorkflowObjectModelSourceFileContentNative {
@@ -206,6 +209,7 @@ pub struct IPrintWorkflowObjectModelSourceFileContentNativeVtbl(
     #[cfg(feature = "Win32_Storage_Xps")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Xps"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintWorkflowXpsObjectModelTargetPackageNative(::windows::core::IUnknown);
 impl IPrintWorkflowXpsObjectModelTargetPackageNative {
@@ -259,6 +263,7 @@ pub struct IPrintWorkflowXpsObjectModelTargetPackageNativeVtbl(
     #[cfg(feature = "Win32_Storage_Xps")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Xps"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintWorkflowXpsReceiver(::windows::core::IUnknown);
 impl IPrintWorkflowXpsReceiver {
@@ -333,6 +338,7 @@ pub struct IPrintWorkflowXpsReceiverVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_Xps")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintWorkflowXpsReceiver2(::windows::core::IUnknown);
 impl IPrintWorkflowXpsReceiver2 {
@@ -431,6 +437,7 @@ pub struct IPrintWorkflowXpsReceiver2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpserror: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
 #[repr(transparent)]
 pub struct IPrinting3DManagerInterop(::windows::core::IUnknown);
 impl IPrinting3DManagerInterop {

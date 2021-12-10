@@ -1,19 +1,27 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WnvOpen() -> super::super::Foundation::HANDLE;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization', 'Win32_Foundation', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn WnvRequestNotification(wnvhandle: super::super::Foundation::HANDLE, notificationparam: *mut WNV_NOTIFICATION_PARAM, overlapped: *mut super::super::System::IO::OVERLAPPED, bytestransferred: *mut u32) -> u32;
 }
 pub const WNV_API_MAJOR_VERSION_1: u32 = 1u32;
 pub const WNV_API_MINOR_VERSION_0: u32 = 0u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization'*"]
 pub type WNV_CA_NOTIFICATION_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization'*"]
 pub const WnvCustomerAddressAdded: WNV_CA_NOTIFICATION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization'*"]
 pub const WnvCustomerAddressDeleted: WNV_CA_NOTIFICATION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization'*"]
 pub const WnvCustomerAddressMoved: WNV_CA_NOTIFICATION_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization'*"]
 pub const WnvCustomerAddressMax: WNV_CA_NOTIFICATION_TYPE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization', 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
 pub struct WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     pub MACAddress: super::WindowsFilteringPlatform::DL_EUI48,
@@ -33,6 +41,7 @@ impl ::core::clone::Clone for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_IP_ADDRESS {
     pub IP: WNV_IP_ADDRESS_0,
@@ -46,6 +55,7 @@ impl ::core::clone::Clone for WNV_IP_ADDRESS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union WNV_IP_ADDRESS_0 {
     pub v4: super::super::Networking::WinSock::IN_ADDR,
@@ -61,6 +71,7 @@ impl ::core::clone::Clone for WNV_IP_ADDRESS_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization'*"]
 pub struct WNV_NOTIFICATION_PARAM {
     pub Header: WNV_OBJECT_HEADER,
     pub NotificationType: WNV_NOTIFICATION_TYPE,
@@ -73,12 +84,18 @@ impl ::core::clone::Clone for WNV_NOTIFICATION_PARAM {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization'*"]
 pub type WNV_NOTIFICATION_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization'*"]
 pub const WnvPolicyMismatchType: WNV_NOTIFICATION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization'*"]
 pub const WnvRedirectType: WNV_NOTIFICATION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization'*"]
 pub const WnvObjectChangeType: WNV_NOTIFICATION_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization'*"]
 pub const WnvNotificationTypeMax: WNV_NOTIFICATION_TYPE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization', 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
 pub struct WNV_OBJECT_CHANGE_PARAM {
     pub ObjectType: WNV_OBJECT_TYPE,
@@ -93,6 +110,7 @@ impl ::core::clone::Clone for WNV_OBJECT_CHANGE_PARAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization', 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
 #[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
 pub union WNV_OBJECT_CHANGE_PARAM_0 {
     pub ProviderAddressChange: WNV_PROVIDER_ADDRESS_CHANGE_PARAM,
@@ -107,6 +125,7 @@ impl ::core::clone::Clone for WNV_OBJECT_CHANGE_PARAM_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization'*"]
 pub struct WNV_OBJECT_HEADER {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
@@ -118,11 +137,16 @@ impl ::core::clone::Clone for WNV_OBJECT_HEADER {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization'*"]
 pub type WNV_OBJECT_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization'*"]
 pub const WnvProviderAddressType: WNV_OBJECT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization'*"]
 pub const WnvCustomerAddressType: WNV_OBJECT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization'*"]
 pub const WnvObjectTypeMax: WNV_OBJECT_TYPE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_POLICY_MISMATCH_PARAM {
     pub CAFamily: u16,
@@ -140,6 +164,7 @@ impl ::core::clone::Clone for WNV_POLICY_MISMATCH_PARAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
     pub PAFamily: u16,
@@ -155,6 +180,7 @@ impl ::core::clone::Clone for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_REDIRECT_PARAM {
     pub CAFamily: u16,

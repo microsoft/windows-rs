@@ -590,6 +590,7 @@ pub struct ISceneVisualStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneAlphaMode(pub i32);
 impl SceneAlphaMode {
@@ -618,6 +619,7 @@ unsafe impl ::windows::core::RuntimeType for SceneAlphaMode {
 impl ::windows::core::DefaultType for SceneAlphaMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneAttributeSemantic(pub i32);
 impl SceneAttributeSemantic {
@@ -650,6 +652,7 @@ unsafe impl ::windows::core::RuntimeType for SceneAttributeSemantic {
 impl ::windows::core::DefaultType for SceneAttributeSemantic {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneBoundingBox(::windows::core::IUnknown);
 impl SceneBoundingBox {
@@ -929,6 +932,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneBoun
 }
 unsafe impl ::core::marker::Send for SceneBoundingBox {}
 unsafe impl ::core::marker::Sync for SceneBoundingBox {}
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneComponent(::windows::core::IUnknown);
 impl SceneComponent {
@@ -1175,6 +1179,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneComp
 }
 unsafe impl ::core::marker::Send for SceneComponent {}
 unsafe impl ::core::marker::Sync for SceneComponent {}
+#[doc = "*Required features: 'UI_Composition_Scenes', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct SceneComponentCollection(::windows::core::IUnknown);
@@ -1595,6 +1600,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneComp
 unsafe impl ::core::marker::Send for SceneComponentCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for SceneComponentCollection {}
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneComponentType(pub i32);
 impl SceneComponentType {
@@ -1621,6 +1627,7 @@ unsafe impl ::windows::core::RuntimeType for SceneComponentType {
 impl ::windows::core::DefaultType for SceneComponentType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneMaterial(::windows::core::IUnknown);
 impl SceneMaterial {
@@ -1860,6 +1867,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMate
 }
 unsafe impl ::core::marker::Send for SceneMaterial {}
 unsafe impl ::core::marker::Sync for SceneMaterial {}
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneMaterialInput(::windows::core::IUnknown);
 impl SceneMaterialInput {
@@ -2099,6 +2107,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMate
 }
 unsafe impl ::core::marker::Send for SceneMaterialInput {}
 unsafe impl ::core::marker::Sync for SceneMaterialInput {}
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneMesh(::windows::core::IUnknown);
 impl SceneMesh {
@@ -2373,6 +2382,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMesh
 }
 unsafe impl ::core::marker::Send for SceneMesh {}
 unsafe impl ::core::marker::Sync for SceneMesh {}
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneMeshMaterialAttributeMap(::windows::core::IUnknown);
 impl SceneMeshMaterialAttributeMap {
@@ -2738,6 +2748,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMesh
 }
 unsafe impl ::core::marker::Send for SceneMeshMaterialAttributeMap {}
 unsafe impl ::core::marker::Sync for SceneMeshMaterialAttributeMap {}
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneMeshRendererComponent(::windows::core::IUnknown);
 impl SceneMeshRendererComponent {
@@ -3063,6 +3074,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMesh
 }
 unsafe impl ::core::marker::Send for SceneMeshRendererComponent {}
 unsafe impl ::core::marker::Sync for SceneMeshRendererComponent {}
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneMetallicRoughnessMaterial(::windows::core::IUnknown);
 impl SceneMetallicRoughnessMaterial {
@@ -3510,6 +3522,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMeta
 }
 unsafe impl ::core::marker::Send for SceneMetallicRoughnessMaterial {}
 unsafe impl ::core::marker::Sync for SceneMetallicRoughnessMaterial {}
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneModelTransform(::windows::core::IUnknown);
 impl SceneModelTransform {
@@ -3823,6 +3836,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneMode
 }
 unsafe impl ::core::marker::Send for SceneModelTransform {}
 unsafe impl ::core::marker::Sync for SceneModelTransform {}
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneNode(::windows::core::IUnknown);
 impl SceneNode {
@@ -4109,6 +4123,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneNode
 }
 unsafe impl ::core::marker::Send for SceneNode {}
 unsafe impl ::core::marker::Sync for SceneNode {}
+#[doc = "*Required features: 'UI_Composition_Scenes', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct SceneNodeCollection(::windows::core::IUnknown);
@@ -4529,6 +4544,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneNode
 unsafe impl ::core::marker::Send for SceneNodeCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for SceneNodeCollection {}
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneObject(::windows::core::IUnknown);
 impl SceneObject {
@@ -4748,6 +4764,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneObje
 }
 unsafe impl ::core::marker::Send for SceneObject {}
 unsafe impl ::core::marker::Sync for SceneObject {}
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct ScenePbrMaterial(::windows::core::IUnknown);
 impl ScenePbrMaterial {
@@ -5108,6 +5125,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &ScenePbrM
 }
 unsafe impl ::core::marker::Send for ScenePbrMaterial {}
 unsafe impl ::core::marker::Sync for ScenePbrMaterial {}
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneRendererComponent(::windows::core::IUnknown);
 impl SceneRendererComponent {
@@ -5374,6 +5392,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneRend
 }
 unsafe impl ::core::marker::Send for SceneRendererComponent {}
 unsafe impl ::core::marker::Sync for SceneRendererComponent {}
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneSurfaceMaterialInput(::windows::core::IUnknown);
 impl SceneSurfaceMaterialInput {
@@ -5687,6 +5706,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneSurf
 }
 unsafe impl ::core::marker::Send for SceneSurfaceMaterialInput {}
 unsafe impl ::core::marker::Sync for SceneSurfaceMaterialInput {}
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneVisual(::windows::core::IUnknown);
 impl SceneVisual {
@@ -6232,6 +6252,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &SceneVisu
 }
 unsafe impl ::core::marker::Send for SceneVisual {}
 unsafe impl ::core::marker::Sync for SceneVisual {}
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneWrappingMode(pub i32);
 impl SceneWrappingMode {

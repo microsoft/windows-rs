@@ -76,8 +76,10 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
 
         let cfg = gen.type_cfg(def);
         let cfg_gen = cfg.gen(gen);
+        let doc = cfg.gen_doc(gen);
 
         let mut tokens = quote! {
+            #doc
             #cfg_gen
             #[repr(transparent)]
             pub struct #name(::windows::core::IUnknown);

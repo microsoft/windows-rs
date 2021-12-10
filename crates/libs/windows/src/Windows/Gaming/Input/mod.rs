@@ -5,6 +5,7 @@ pub mod Custom;
 pub mod ForceFeedback;
 #[cfg(feature = "Gaming_Input_Preview")]
 pub mod Preview;
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct ArcadeStick(::windows::core::IUnknown);
 impl ArcadeStick {
@@ -242,6 +243,7 @@ impl<'a> ::windows::core::IntoParam<'a, IGameControllerBatteryInfo> for &ArcadeS
 }
 unsafe impl ::core::marker::Send for ArcadeStick {}
 unsafe impl ::core::marker::Sync for ArcadeStick {}
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct ArcadeStickButtons(pub u32);
 impl ArcadeStickButtons {
@@ -281,6 +283,7 @@ impl ::windows::core::DefaultType for ArcadeStickButtons {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Gaming_Input'*"]
 pub struct ArcadeStickReading {
     pub Timestamp: u64,
     pub Buttons: ArcadeStickButtons,
@@ -311,6 +314,7 @@ impl ::core::default::Default for ArcadeStickReading {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct FlightStick(::windows::core::IUnknown);
 impl FlightStick {
@@ -551,6 +555,7 @@ impl<'a> ::windows::core::IntoParam<'a, IGameControllerBatteryInfo> for &FlightS
 }
 unsafe impl ::core::marker::Send for FlightStick {}
 unsafe impl ::core::marker::Sync for FlightStick {}
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct FlightStickButtons(pub u32);
 impl FlightStickButtons {
@@ -580,6 +585,7 @@ impl ::windows::core::DefaultType for FlightStickButtons {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Gaming_Input'*"]
 pub struct FlightStickReading {
     pub Timestamp: u64,
     pub Buttons: FlightStickButtons,
@@ -615,6 +621,7 @@ impl ::core::default::Default for FlightStickReading {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct GameControllerButtonLabel(pub i32);
 impl GameControllerButtonLabel {
@@ -709,6 +716,7 @@ unsafe impl ::windows::core::RuntimeType for GameControllerButtonLabel {
 impl ::windows::core::DefaultType for GameControllerButtonLabel {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct GameControllerSwitchKind(pub i32);
 impl GameControllerSwitchKind {
@@ -737,6 +745,7 @@ unsafe impl ::windows::core::RuntimeType for GameControllerSwitchKind {
 impl ::windows::core::DefaultType for GameControllerSwitchKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct GameControllerSwitchPosition(pub i32);
 impl GameControllerSwitchPosition {
@@ -771,6 +780,7 @@ unsafe impl ::windows::core::RuntimeType for GameControllerSwitchPosition {
 impl ::windows::core::DefaultType for GameControllerSwitchPosition {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct Gamepad(::windows::core::IUnknown);
 impl Gamepad {
@@ -1019,6 +1029,7 @@ impl<'a> ::windows::core::IntoParam<'a, IGameControllerBatteryInfo> for &Gamepad
 }
 unsafe impl ::core::marker::Send for Gamepad {}
 unsafe impl ::core::marker::Sync for Gamepad {}
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct GamepadButtons(pub u32);
 impl GamepadButtons {
@@ -1064,6 +1075,7 @@ impl ::windows::core::DefaultType for GamepadButtons {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Gaming_Input'*"]
 pub struct GamepadReading {
     pub Timestamp: u64,
     pub Buttons: GamepadButtons,
@@ -1101,6 +1113,7 @@ impl ::core::default::Default for GamepadReading {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Gaming_Input'*"]
 pub struct GamepadVibration {
     pub LeftMotor: f64,
     pub RightMotor: f64,
@@ -1133,6 +1146,7 @@ impl ::core::default::Default for GamepadVibration {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct Headset(::windows::core::IUnknown);
 impl Headset {
@@ -1356,6 +1370,7 @@ pub struct IFlightStickStaticsVtbl(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct IGameController(::windows::core::IUnknown);
 impl IGameController {
@@ -1505,6 +1520,7 @@ pub struct IGameControllerVtbl(
     #[cfg(feature = "System")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))] usize,
 );
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct IGameControllerBatteryInfo(::windows::core::IUnknown);
 impl IGameControllerBatteryInfo {
@@ -1901,6 +1917,7 @@ pub struct IUINavigationControllerStatics2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gamecontroller: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct OptionalUINavigationButtons(pub u32);
 impl OptionalUINavigationButtons {
@@ -1939,6 +1956,7 @@ unsafe impl ::windows::core::RuntimeType for OptionalUINavigationButtons {
 impl ::windows::core::DefaultType for OptionalUINavigationButtons {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct RacingWheel(::windows::core::IUnknown);
 impl RacingWheel {
@@ -2219,6 +2237,7 @@ impl<'a> ::windows::core::IntoParam<'a, IGameControllerBatteryInfo> for &RacingW
 }
 unsafe impl ::core::marker::Send for RacingWheel {}
 unsafe impl ::core::marker::Sync for RacingWheel {}
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct RacingWheelButtons(pub u32);
 impl RacingWheelButtons {
@@ -2268,6 +2287,7 @@ impl ::windows::core::DefaultType for RacingWheelButtons {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Gaming_Input'*"]
 pub struct RacingWheelReading {
     pub Timestamp: u64,
     pub Buttons: RacingWheelButtons,
@@ -2304,6 +2324,7 @@ impl ::core::default::Default for RacingWheelReading {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct RawGameController(::windows::core::IUnknown);
 impl RawGameController {
@@ -2609,6 +2630,7 @@ impl<'a> ::windows::core::IntoParam<'a, IGameControllerBatteryInfo> for &RawGame
 }
 unsafe impl ::core::marker::Send for RawGameController {}
 unsafe impl ::core::marker::Sync for RawGameController {}
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct RequiredUINavigationButtons(pub u32);
 impl RequiredUINavigationButtons {
@@ -2643,6 +2665,7 @@ unsafe impl ::windows::core::RuntimeType for RequiredUINavigationButtons {
 impl ::windows::core::DefaultType for RequiredUINavigationButtons {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct UINavigationController(::windows::core::IUnknown);
 impl UINavigationController {
@@ -2888,6 +2911,7 @@ impl<'a> ::windows::core::IntoParam<'a, IGameControllerBatteryInfo> for &UINavig
 unsafe impl ::core::marker::Send for UINavigationController {}
 unsafe impl ::core::marker::Sync for UINavigationController {}
 #[repr(C)]
+#[doc = "*Required features: 'Gaming_Input'*"]
 pub struct UINavigationReading {
     pub Timestamp: u64,
     pub RequiredButtons: RequiredUINavigationButtons,

@@ -5,6 +5,7 @@ pub mod Core;
 pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'Security_Authentication_Web'*"]
 #[repr(transparent)]
 pub struct TokenBindingKeyType(pub i32);
 impl TokenBindingKeyType {
@@ -18,6 +19,7 @@ impl ::core::clone::Clone for TokenBindingKeyType {
         *self
     }
 }
+#[doc = "*Required features: 'Security_Authentication_Web'*"]
 #[repr(transparent)]
 pub struct WebAuthenticationOptions(pub u32);
 impl WebAuthenticationOptions {
@@ -34,6 +36,7 @@ impl ::core::clone::Clone for WebAuthenticationOptions {
     }
 }
 pub type WebAuthenticationResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Authentication_Web'*"]
 #[repr(transparent)]
 pub struct WebAuthenticationStatus(pub i32);
 impl WebAuthenticationStatus {

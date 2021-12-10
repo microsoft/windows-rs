@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_ApplicationSettings'*"]
 #[repr(transparent)]
 pub struct AccountsSettingsPane(::windows::core::IUnknown);
 impl AccountsSettingsPane {
@@ -126,6 +127,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acco
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_ApplicationSettings'*"]
 #[repr(transparent)]
 pub struct AccountsSettingsPaneCommandsRequestedEventArgs(::windows::core::IUnknown);
 impl AccountsSettingsPaneCommandsRequestedEventArgs {
@@ -249,6 +251,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acco
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_ApplicationSettings'*"]
 #[repr(transparent)]
 pub struct AccountsSettingsPaneEventDeferral(::windows::core::IUnknown);
 impl AccountsSettingsPaneEventDeferral {
@@ -318,6 +321,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acco
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_ApplicationSettings'*"]
 #[repr(transparent)]
 pub struct CredentialCommand(::windows::core::IUnknown);
 impl CredentialCommand {
@@ -416,6 +420,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cred
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_ApplicationSettings'*"]
 #[repr(transparent)]
 pub struct CredentialCommandCredentialDeletedHandler(pub ::windows::core::IUnknown);
 impl CredentialCommandCredentialDeletedHandler {
@@ -897,6 +902,7 @@ pub struct IWebAccountProviderCommandFactoryVtbl(
     #[cfg(feature = "Security_Credentials")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccountprovider: ::windows::core::RawPtr, invoked: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Security_Credentials"))] usize,
 );
+#[doc = "*Required features: 'UI_ApplicationSettings', 'UI_Popups'*"]
 #[cfg(feature = "UI_Popups")]
 #[repr(transparent)]
 pub struct SettingsCommand(::windows::core::IUnknown);
@@ -1065,6 +1071,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Popups::IUICommand> for &Settings
         ::core::convert::TryInto::<super::Popups::IUICommand>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_ApplicationSettings', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SettingsEdgeLocation(pub i32);
 impl SettingsEdgeLocation {
@@ -1092,6 +1099,7 @@ unsafe impl ::windows::core::RuntimeType for SettingsEdgeLocation {
 impl ::windows::core::DefaultType for SettingsEdgeLocation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_ApplicationSettings', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SettingsPane(::windows::core::IUnknown);
@@ -1208,6 +1216,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sett
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_ApplicationSettings', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SettingsPaneCommandsRequest(::windows::core::IUnknown);
@@ -1297,6 +1306,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sett
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_ApplicationSettings', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SettingsPaneCommandsRequestedEventArgs(::windows::core::IUnknown);
@@ -1386,6 +1396,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sett
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_ApplicationSettings'*"]
 #[repr(transparent)]
 pub struct SupportedWebAccountActions(pub u32);
 impl SupportedWebAccountActions {
@@ -1417,6 +1428,7 @@ unsafe impl ::windows::core::RuntimeType for SupportedWebAccountActions {
 impl ::windows::core::DefaultType for SupportedWebAccountActions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_ApplicationSettings'*"]
 #[repr(transparent)]
 pub struct WebAccountAction(pub i32);
 impl WebAccountAction {
@@ -1447,6 +1459,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountAction {
 impl ::windows::core::DefaultType for WebAccountAction {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_ApplicationSettings'*"]
 #[repr(transparent)]
 pub struct WebAccountCommand(::windows::core::IUnknown);
 impl WebAccountCommand {
@@ -1545,6 +1558,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_ApplicationSettings'*"]
 #[repr(transparent)]
 pub struct WebAccountCommandInvokedHandler(pub ::windows::core::IUnknown);
 impl WebAccountCommandInvokedHandler {
@@ -1613,6 +1627,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountCommandInvokedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct WebAccountCommandInvokedHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_ApplicationSettings'*"]
 #[repr(transparent)]
 pub struct WebAccountInvokedArgs(::windows::core::IUnknown);
 impl WebAccountInvokedArgs {
@@ -1685,6 +1700,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_ApplicationSettings'*"]
 #[repr(transparent)]
 pub struct WebAccountProviderCommand(::windows::core::IUnknown);
 impl WebAccountProviderCommand {
@@ -1776,6 +1792,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_ApplicationSettings'*"]
 #[repr(transparent)]
 pub struct WebAccountProviderCommandInvokedHandler(pub ::windows::core::IUnknown);
 impl WebAccountProviderCommandInvokedHandler {

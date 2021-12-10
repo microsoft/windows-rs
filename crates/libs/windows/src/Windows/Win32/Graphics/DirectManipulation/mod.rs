@@ -6,105 +6,198 @@ pub const CLSID_HorizontalIndicatorContent: ::windows::core::GUID = ::windows::c
 pub const CLSID_VerticalIndicatorContent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa10b5f17_afe0_4aa2_91e9_3e7001d2e6b4);
 pub const CLSID_VirtualViewportContent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3206a19a_86f0_4cb4_a7f3_16e3b7e2d852);
 pub const DCompManipulationCompositor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79dea627_a08a_43ac_8ef5_6900b9299126);
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub type DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION = i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION_STOP: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION_FORWARD: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION_REVERSE: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub type DIRECTMANIPULATION_CONFIGURATION = i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_CONFIGURATION_NONE: DIRECTMANIPULATION_CONFIGURATION = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_CONFIGURATION_INTERACTION: DIRECTMANIPULATION_CONFIGURATION = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_CONFIGURATION_TRANSLATION_X: DIRECTMANIPULATION_CONFIGURATION = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_CONFIGURATION_TRANSLATION_Y: DIRECTMANIPULATION_CONFIGURATION = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_CONFIGURATION_SCALING: DIRECTMANIPULATION_CONFIGURATION = 16i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_CONFIGURATION_TRANSLATION_INERTIA: DIRECTMANIPULATION_CONFIGURATION = 32i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_CONFIGURATION_SCALING_INERTIA: DIRECTMANIPULATION_CONFIGURATION = 128i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_CONFIGURATION_RAILS_X: DIRECTMANIPULATION_CONFIGURATION = 256i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_CONFIGURATION_RAILS_Y: DIRECTMANIPULATION_CONFIGURATION = 512i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub type DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION = i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_VERTICAL: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_HORIZONTAL: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_SELECT_ONLY: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION = 16i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_SELECT_DRAG: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION = 32i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_HOLD_DRAG: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION = 64i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub type DIRECTMANIPULATION_DRAG_DROP_STATUS = i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_READY: DIRECTMANIPULATION_DRAG_DROP_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_PRESELECT: DIRECTMANIPULATION_DRAG_DROP_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_SELECTING: DIRECTMANIPULATION_DRAG_DROP_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_DRAGGING: DIRECTMANIPULATION_DRAG_DROP_STATUS = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_CANCELLED: DIRECTMANIPULATION_DRAG_DROP_STATUS = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_COMMITTED: DIRECTMANIPULATION_DRAG_DROP_STATUS = 5i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub type DIRECTMANIPULATION_GESTURE_CONFIGURATION = i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_GESTURE_NONE: DIRECTMANIPULATION_GESTURE_CONFIGURATION = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_GESTURE_DEFAULT: DIRECTMANIPULATION_GESTURE_CONFIGURATION = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_GESTURE_CROSS_SLIDE_VERTICAL: DIRECTMANIPULATION_GESTURE_CONFIGURATION = 8i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_GESTURE_CROSS_SLIDE_HORIZONTAL: DIRECTMANIPULATION_GESTURE_CONFIGURATION = 16i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_GESTURE_PINCH_ZOOM: DIRECTMANIPULATION_GESTURE_CONFIGURATION = 32i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub type DIRECTMANIPULATION_HITTEST_TYPE = i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_HITTEST_TYPE_ASYNCHRONOUS: DIRECTMANIPULATION_HITTEST_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_HITTEST_TYPE_SYNCHRONOUS: DIRECTMANIPULATION_HITTEST_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_HITTEST_TYPE_AUTO_SYNCHRONOUS: DIRECTMANIPULATION_HITTEST_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub type DIRECTMANIPULATION_HORIZONTALALIGNMENT = i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_HORIZONTALALIGNMENT_NONE: DIRECTMANIPULATION_HORIZONTALALIGNMENT = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_HORIZONTALALIGNMENT_LEFT: DIRECTMANIPULATION_HORIZONTALALIGNMENT = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_HORIZONTALALIGNMENT_CENTER: DIRECTMANIPULATION_HORIZONTALALIGNMENT = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_HORIZONTALALIGNMENT_RIGHT: DIRECTMANIPULATION_HORIZONTALALIGNMENT = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_HORIZONTALALIGNMENT_UNLOCKCENTER: DIRECTMANIPULATION_HORIZONTALALIGNMENT = 8i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub type DIRECTMANIPULATION_INPUT_MODE = i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_INPUT_MODE_AUTOMATIC: DIRECTMANIPULATION_INPUT_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_INPUT_MODE_MANUAL: DIRECTMANIPULATION_INPUT_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub type DIRECTMANIPULATION_INTERACTION_TYPE = i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_INTERACTION_BEGIN: DIRECTMANIPULATION_INTERACTION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_INTERACTION_TYPE_MANIPULATION: DIRECTMANIPULATION_INTERACTION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_TAP: DIRECTMANIPULATION_INTERACTION_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_HOLD: DIRECTMANIPULATION_INTERACTION_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_CROSS_SLIDE: DIRECTMANIPULATION_INTERACTION_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_PINCH_ZOOM: DIRECTMANIPULATION_INTERACTION_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_INTERACTION_END: DIRECTMANIPULATION_INTERACTION_TYPE = 100i32;
 pub const DIRECTMANIPULATION_KEYBOARDFOCUS: u32 = 4294967294u32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub type DIRECTMANIPULATION_MOTION_TYPES = i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_MOTION_NONE: DIRECTMANIPULATION_MOTION_TYPES = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_MOTION_TRANSLATEX: DIRECTMANIPULATION_MOTION_TYPES = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_MOTION_TRANSLATEY: DIRECTMANIPULATION_MOTION_TYPES = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_MOTION_ZOOM: DIRECTMANIPULATION_MOTION_TYPES = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_MOTION_CENTERX: DIRECTMANIPULATION_MOTION_TYPES = 16i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_MOTION_CENTERY: DIRECTMANIPULATION_MOTION_TYPES = 32i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_MOTION_ALL: DIRECTMANIPULATION_MOTION_TYPES = 55i32;
 pub const DIRECTMANIPULATION_MOUSEFOCUS: u32 = 4294967293u32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub type DIRECTMANIPULATION_SNAPPOINT_COORDINATE = i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_COORDINATE_BOUNDARY: DIRECTMANIPULATION_SNAPPOINT_COORDINATE = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_COORDINATE_ORIGIN: DIRECTMANIPULATION_SNAPPOINT_COORDINATE = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_COORDINATE_MIRRORED: DIRECTMANIPULATION_SNAPPOINT_COORDINATE = 16i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub type DIRECTMANIPULATION_SNAPPOINT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_SNAPPOINT_MANDATORY: DIRECTMANIPULATION_SNAPPOINT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_SNAPPOINT_OPTIONAL: DIRECTMANIPULATION_SNAPPOINT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_SNAPPOINT_MANDATORY_SINGLE: DIRECTMANIPULATION_SNAPPOINT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_SNAPPOINT_OPTIONAL_SINGLE: DIRECTMANIPULATION_SNAPPOINT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub type DIRECTMANIPULATION_STATUS = i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_BUILDING: DIRECTMANIPULATION_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_ENABLED: DIRECTMANIPULATION_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_DISABLED: DIRECTMANIPULATION_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_RUNNING: DIRECTMANIPULATION_STATUS = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_INERTIA: DIRECTMANIPULATION_STATUS = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_READY: DIRECTMANIPULATION_STATUS = 5i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_SUSPENDED: DIRECTMANIPULATION_STATUS = 6i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub type DIRECTMANIPULATION_VERTICALALIGNMENT = i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_VERTICALALIGNMENT_NONE: DIRECTMANIPULATION_VERTICALALIGNMENT = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_VERTICALALIGNMENT_TOP: DIRECTMANIPULATION_VERTICALALIGNMENT = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_VERTICALALIGNMENT_CENTER: DIRECTMANIPULATION_VERTICALALIGNMENT = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_VERTICALALIGNMENT_BOTTOM: DIRECTMANIPULATION_VERTICALALIGNMENT = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_VERTICALALIGNMENT_UNLOCKCENTER: DIRECTMANIPULATION_VERTICALALIGNMENT = 8i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub type DIRECTMANIPULATION_VIEWPORT_OPTIONS = i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_DEFAULT: DIRECTMANIPULATION_VIEWPORT_OPTIONS = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_AUTODISABLE: DIRECTMANIPULATION_VIEWPORT_OPTIONS = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_MANUALUPDATE: DIRECTMANIPULATION_VIEWPORT_OPTIONS = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_INPUT: DIRECTMANIPULATION_VIEWPORT_OPTIONS = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_EXPLICITHITTEST: DIRECTMANIPULATION_VIEWPORT_OPTIONS = 8i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_DISABLEPIXELSNAPPING: DIRECTMANIPULATION_VIEWPORT_OPTIONS = 16i32;
 pub const DirectManipulationManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54e211b6_3650_4f75_8334_fa359598e1c5);
 pub const DirectManipulationPrimaryContent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaa02661_d59e_41c7_8393_3ba3bacb6b57);
 pub const DirectManipulationSharedManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99793286_77cc_4b57_96db_3b354f6f9fb5);
 pub const DirectManipulationUpdateManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fc1bfd5_1835_441a_b3b1_b6cc74b727d0);
 pub const DirectManipulationViewport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34e211b6_3650_4f75_8334_fa359598e1c5);
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 #[repr(transparent)]
 pub struct IDirectManipulationAutoScrollBehavior(::windows::core::IUnknown);
 impl IDirectManipulationAutoScrollBehavior {
@@ -155,6 +248,7 @@ pub struct IDirectManipulationAutoScrollBehaviorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, motiontypes: DIRECTMANIPULATION_MOTION_TYPES, scrollmotion: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 #[repr(transparent)]
 pub struct IDirectManipulationCompositor(::windows::core::IUnknown);
 impl IDirectManipulationCompositor {
@@ -217,6 +311,7 @@ pub struct IDirectManipulationCompositorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, updatemanager: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 #[repr(transparent)]
 pub struct IDirectManipulationCompositor2(::windows::core::IUnknown);
 impl IDirectManipulationCompositor2 {
@@ -303,6 +398,7 @@ pub struct IDirectManipulationCompositor2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: ::windows::core::RawPtr, device: *mut ::core::ffi::c_void, parentvisual: *mut ::core::ffi::c_void, childvisual: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 #[repr(transparent)]
 pub struct IDirectManipulationContent(::windows::core::IUnknown);
 impl IDirectManipulationContent {
@@ -387,6 +483,7 @@ pub struct IDirectManipulationContentVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *mut f32, pointcount: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const f32, pointcount: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 #[repr(transparent)]
 pub struct IDirectManipulationDeferContactService(::windows::core::IUnknown);
 impl IDirectManipulationDeferContactService {
@@ -445,6 +542,7 @@ pub struct IDirectManipulationDeferContactServiceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerid: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerid: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 #[repr(transparent)]
 pub struct IDirectManipulationDragDropBehavior(::windows::core::IUnknown);
 impl IDirectManipulationDragDropBehavior {
@@ -500,6 +598,7 @@ pub struct IDirectManipulationDragDropBehaviorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, configuration: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut DIRECTMANIPULATION_DRAG_DROP_STATUS) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 #[repr(transparent)]
 pub struct IDirectManipulationDragDropEventHandler(::windows::core::IUnknown);
 impl IDirectManipulationDragDropEventHandler {
@@ -550,6 +649,7 @@ pub struct IDirectManipulationDragDropEventHandlerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewport: ::windows::core::RawPtr, current: DIRECTMANIPULATION_DRAG_DROP_STATUS, previous: DIRECTMANIPULATION_DRAG_DROP_STATUS) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 #[repr(transparent)]
 pub struct IDirectManipulationFrameInfoProvider(::windows::core::IUnknown);
 impl IDirectManipulationFrameInfoProvider {
@@ -595,6 +695,7 @@ unsafe impl ::windows::core::Interface for IDirectManipulationFrameInfoProvider 
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectManipulationFrameInfoProviderVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, time: *mut u64, processtime: *mut u64, compositiontime: *mut u64) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 #[repr(transparent)]
 pub struct IDirectManipulationInteractionEventHandler(::windows::core::IUnknown);
 impl IDirectManipulationInteractionEventHandler {
@@ -640,6 +741,7 @@ unsafe impl ::windows::core::Interface for IDirectManipulationInteractionEventHa
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectManipulationInteractionEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewport: ::windows::core::RawPtr, interaction: DIRECTMANIPULATION_INTERACTION_TYPE) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 #[repr(transparent)]
 pub struct IDirectManipulationManager(::windows::core::IUnknown);
 impl IDirectManipulationManager {
@@ -728,6 +830,7 @@ pub struct IDirectManipulationManagerVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frameinfo: ::windows::core::RawPtr, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 #[repr(transparent)]
 pub struct IDirectManipulationManager2(::windows::core::IUnknown);
 impl IDirectManipulationManager2 {
@@ -841,6 +944,7 @@ pub struct IDirectManipulationManager2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frameinfo: ::windows::core::RawPtr, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 #[repr(transparent)]
 pub struct IDirectManipulationManager3(::windows::core::IUnknown);
 impl IDirectManipulationManager3 {
@@ -979,6 +1083,7 @@ pub struct IDirectManipulationManager3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 #[repr(transparent)]
 pub struct IDirectManipulationPrimaryContent(::windows::core::IUnknown);
 impl IDirectManipulationPrimaryContent {
@@ -1061,6 +1166,7 @@ pub struct IDirectManipulationPrimaryContentVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *mut f32, pointcount: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerx: *mut f32, centery: *mut f32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 #[repr(transparent)]
 pub struct IDirectManipulationUpdateHandler(::windows::core::IUnknown);
 impl IDirectManipulationUpdateHandler {
@@ -1106,6 +1212,7 @@ unsafe impl ::windows::core::Interface for IDirectManipulationUpdateHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectManipulationUpdateHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 #[repr(transparent)]
 pub struct IDirectManipulationUpdateManager(::windows::core::IUnknown);
 impl IDirectManipulationUpdateManager {
@@ -1167,6 +1274,7 @@ pub struct IDirectManipulationUpdateManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frameinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 #[repr(transparent)]
 pub struct IDirectManipulationViewport(::windows::core::IUnknown);
 impl IDirectManipulationViewport {
@@ -1337,6 +1445,7 @@ pub struct IDirectManipulationViewportVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 #[repr(transparent)]
 pub struct IDirectManipulationViewport2(::windows::core::IUnknown);
 impl IDirectManipulationViewport2 {
@@ -1540,6 +1649,7 @@ pub struct IDirectManipulationViewport2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_DirectManipulation'*"]
 #[repr(transparent)]
 pub struct IDirectManipulationViewportEventHandler(::windows::core::IUnknown);
 impl IDirectManipulationViewportEventHandler {

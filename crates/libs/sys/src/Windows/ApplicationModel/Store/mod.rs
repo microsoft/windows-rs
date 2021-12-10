@@ -5,6 +5,7 @@ pub mod LicenseManagement;
 pub mod Preview;
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'ApplicationModel_Store'*"]
 #[repr(transparent)]
 pub struct FulfillmentResult(pub i32);
 impl FulfillmentResult {
@@ -26,6 +27,7 @@ pub type ListingInformation = *mut ::core::ffi::c_void;
 pub type ProductLicense = *mut ::core::ffi::c_void;
 pub type ProductListing = *mut ::core::ffi::c_void;
 pub type ProductPurchaseDisplayProperties = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Store'*"]
 #[repr(transparent)]
 pub struct ProductPurchaseStatus(pub i32);
 impl ProductPurchaseStatus {
@@ -40,6 +42,7 @@ impl ::core::clone::Clone for ProductPurchaseStatus {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Store'*"]
 #[repr(transparent)]
 pub struct ProductType(pub i32);
 impl ProductType {

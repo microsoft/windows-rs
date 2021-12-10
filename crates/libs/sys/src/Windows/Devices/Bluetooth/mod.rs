@@ -10,6 +10,7 @@ pub mod Rfcomm;
 #[link(name = "windows")]
 extern "system" {}
 pub type BluetoothAdapter = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothAddressType(pub i32);
 impl BluetoothAddressType {
@@ -23,6 +24,7 @@ impl ::core::clone::Clone for BluetoothAddressType {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothCacheMode(pub i32);
 impl BluetoothCacheMode {
@@ -36,6 +38,7 @@ impl ::core::clone::Clone for BluetoothCacheMode {
     }
 }
 pub type BluetoothClassOfDevice = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothConnectionStatus(pub i32);
 impl BluetoothConnectionStatus {
@@ -50,6 +53,7 @@ impl ::core::clone::Clone for BluetoothConnectionStatus {
 }
 pub type BluetoothDevice = *mut ::core::ffi::c_void;
 pub type BluetoothDeviceId = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothError(pub i32);
 impl BluetoothError {
@@ -77,6 +81,7 @@ pub type BluetoothLEConnectionPhyInfo = *mut ::core::ffi::c_void;
 pub type BluetoothLEDevice = *mut ::core::ffi::c_void;
 pub type BluetoothLEPreferredConnectionParameters = *mut ::core::ffi::c_void;
 pub type BluetoothLEPreferredConnectionParametersRequest = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothLEPreferredConnectionParametersRequestStatus(pub i32);
 impl BluetoothLEPreferredConnectionParametersRequestStatus {
@@ -91,6 +96,7 @@ impl ::core::clone::Clone for BluetoothLEPreferredConnectionParametersRequestSta
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothMajorClass(pub i32);
 impl BluetoothMajorClass {
@@ -111,6 +117,7 @@ impl ::core::clone::Clone for BluetoothMajorClass {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothMinorClass(pub i32);
 impl BluetoothMinorClass {
@@ -192,6 +199,7 @@ impl ::core::clone::Clone for BluetoothMinorClass {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothServiceCapabilities(pub u32);
 impl BluetoothServiceCapabilities {

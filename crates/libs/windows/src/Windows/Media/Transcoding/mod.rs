@@ -81,6 +81,7 @@ pub struct IPrepareTranscodeResultVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Media_Transcoding'*"]
 #[repr(transparent)]
 pub struct MediaTranscoder(::windows::core::IUnknown);
 impl MediaTranscoder {
@@ -260,6 +261,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaTranscoder {}
 unsafe impl ::core::marker::Sync for MediaTranscoder {}
+#[doc = "*Required features: 'Media_Transcoding'*"]
 #[repr(transparent)]
 pub struct MediaVideoProcessingAlgorithm(pub i32);
 impl MediaVideoProcessingAlgorithm {
@@ -287,6 +289,7 @@ unsafe impl ::windows::core::RuntimeType for MediaVideoProcessingAlgorithm {
 impl ::windows::core::DefaultType for MediaVideoProcessingAlgorithm {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Transcoding'*"]
 #[repr(transparent)]
 pub struct PrepareTranscodeResult(::windows::core::IUnknown);
 impl PrepareTranscodeResult {
@@ -376,6 +379,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prep
 }
 unsafe impl ::core::marker::Send for PrepareTranscodeResult {}
 unsafe impl ::core::marker::Sync for PrepareTranscodeResult {}
+#[doc = "*Required features: 'Media_Transcoding'*"]
 #[repr(transparent)]
 pub struct TranscodeFailureReason(pub i32);
 impl TranscodeFailureReason {

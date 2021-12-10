@@ -5,6 +5,7 @@ pub type ChatCapabilities = *mut ::core::ffi::c_void;
 pub type ChatConversation = *mut ::core::ffi::c_void;
 pub type ChatConversationReader = *mut ::core::ffi::c_void;
 pub type ChatConversationThreadingInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatConversationThreadingKind(pub i32);
 impl ChatConversationThreadingKind {
@@ -19,6 +20,7 @@ impl ::core::clone::Clone for ChatConversationThreadingKind {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatItemKind(pub i32);
 impl ChatItemKind {
@@ -36,6 +38,7 @@ pub type ChatMessageAttachment = *mut ::core::ffi::c_void;
 pub type ChatMessageChange = *mut ::core::ffi::c_void;
 pub type ChatMessageChangeReader = *mut ::core::ffi::c_void;
 pub type ChatMessageChangeTracker = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageChangeType(pub i32);
 impl ChatMessageChangeType {
@@ -52,6 +55,7 @@ impl ::core::clone::Clone for ChatMessageChangeType {
 }
 pub type ChatMessageChangedDeferral = *mut ::core::ffi::c_void;
 pub type ChatMessageChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageKind(pub i32);
 impl ChatMessageKind {
@@ -70,6 +74,7 @@ impl ::core::clone::Clone for ChatMessageKind {
     }
 }
 pub type ChatMessageNotificationTriggerDetails = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageOperatorKind(pub i32);
 impl ChatMessageOperatorKind {
@@ -85,6 +90,7 @@ impl ::core::clone::Clone for ChatMessageOperatorKind {
     }
 }
 pub type ChatMessageReader = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageStatus(pub i32);
 impl ChatMessageStatus {
@@ -113,6 +119,7 @@ pub type ChatMessageStore = *mut ::core::ffi::c_void;
 pub type ChatMessageStoreChangedEventArgs = *mut ::core::ffi::c_void;
 pub type ChatMessageTransport = *mut ::core::ffi::c_void;
 pub type ChatMessageTransportConfiguration = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageTransportKind(pub i32);
 impl ChatMessageTransportKind {
@@ -128,6 +135,7 @@ impl ::core::clone::Clone for ChatMessageTransportKind {
     }
 }
 pub type ChatMessageValidationResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageValidationStatus(pub i32);
 impl ChatMessageValidationStatus {
@@ -154,6 +162,7 @@ impl ::core::clone::Clone for ChatMessageValidationStatus {
 }
 pub type ChatQueryOptions = *mut ::core::ffi::c_void;
 pub type ChatRecipientDeliveryInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatRestoreHistorySpan(pub i32);
 impl ChatRestoreHistorySpan {
@@ -168,6 +177,7 @@ impl ::core::clone::Clone for ChatRestoreHistorySpan {
     }
 }
 pub type ChatSearchReader = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatStoreChangedEventKind(pub i32);
 impl ChatStoreChangedEventKind {
@@ -188,6 +198,7 @@ impl ::core::clone::Clone for ChatStoreChangedEventKind {
 }
 pub type ChatSyncConfiguration = *mut ::core::ffi::c_void;
 pub type ChatSyncManager = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatTransportErrorCodeCategory(pub i32);
 impl ChatTransportErrorCodeCategory {
@@ -202,6 +213,7 @@ impl ::core::clone::Clone for ChatTransportErrorCodeCategory {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatTransportInterpretedErrorCode(pub i32);
 impl ChatTransportInterpretedErrorCode {
@@ -224,6 +236,7 @@ pub type RcsEndUserMessageAction = *mut ::core::ffi::c_void;
 pub type RcsEndUserMessageAvailableEventArgs = *mut ::core::ffi::c_void;
 pub type RcsEndUserMessageAvailableTriggerDetails = *mut ::core::ffi::c_void;
 pub type RcsEndUserMessageManager = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct RcsServiceKind(pub i32);
 impl RcsServiceKind {

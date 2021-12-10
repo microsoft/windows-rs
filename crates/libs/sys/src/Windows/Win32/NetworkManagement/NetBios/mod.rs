@@ -1,10 +1,12 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_NetworkManagement_NetBios', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn Netbios(pncb: *mut NCB) -> u8;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub struct ACTION_HEADER {
     pub transport_id: u32,
     pub action_code: u16,
@@ -17,6 +19,7 @@ impl ::core::clone::Clone for ACTION_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub struct ADAPTER_STATUS {
     pub adapter_address: [u8; 6],
     pub rev_major: u8,
@@ -58,6 +61,7 @@ pub const DEREGISTERED: u32 = 5u32;
 pub const DUPLICATE: u32 = 6u32;
 pub const DUPLICATE_DEREG: u32 = 7u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub struct FIND_NAME_BUFFER {
     pub length: u8,
     pub access_control: u8,
@@ -73,6 +77,7 @@ impl ::core::clone::Clone for FIND_NAME_BUFFER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub struct FIND_NAME_HEADER {
     pub node_count: u16,
     pub reserved: u8,
@@ -88,6 +93,7 @@ pub const GROUP_NAME: u32 = 128u32;
 pub const HANGUP_COMPLETE: u32 = 5u32;
 pub const HANGUP_PENDING: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub struct LANA_ENUM {
     pub length: u8,
     pub lana: [u8; 255],
@@ -101,6 +107,7 @@ impl ::core::clone::Clone for LANA_ENUM {
 pub const LISTEN_OUTSTANDING: u32 = 1u32;
 pub const MAX_LANA: u32 = 254u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub struct NAME_BUFFER {
     pub name: [u8; 16],
     pub name_num: u8,
@@ -114,7 +121,8 @@ impl ::core::clone::Clone for NAME_BUFFER {
 }
 pub const NAME_FLAGS_MASK: u32 = 135u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios', 'Win32_Foundation'*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NCB {
     pub ncb_command: u8,
@@ -133,10 +141,10 @@ pub struct NCB {
     pub ncb_reserve: [u8; 18],
     pub ncb_event: super::super::Foundation::HANDLE,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NCB {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NCB {
     fn clone(&self) -> Self {
@@ -144,7 +152,8 @@ impl ::core::clone::Clone for NCB {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios', 'Win32_Foundation'*"]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NCB {
     pub ncb_command: u8,
@@ -163,10 +172,10 @@ pub struct NCB {
     pub ncb_reserve: [u8; 10],
     pub ncb_event: super::super::Foundation::HANDLE,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NCB {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NCB {
     fn clone(&self) -> Self {
@@ -243,6 +252,7 @@ pub const REGISTERED: u32 = 4u32;
 pub const REGISTERING: u32 = 0u32;
 pub const SESSION_ABORTED: u32 = 6u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub struct SESSION_BUFFER {
     pub lsn: u8,
     pub state: u8,
@@ -259,6 +269,7 @@ impl ::core::clone::Clone for SESSION_BUFFER {
 }
 pub const SESSION_ESTABLISHED: u32 = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub struct SESSION_HEADER {
     pub sess_name: u8,
     pub num_sess: u8,

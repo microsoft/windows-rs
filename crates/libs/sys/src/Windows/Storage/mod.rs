@@ -22,6 +22,7 @@ pub type ApplicationData = *mut ::core::ffi::c_void;
 pub type ApplicationDataCompositeValue = *mut ::core::ffi::c_void;
 pub type ApplicationDataContainer = *mut ::core::ffi::c_void;
 pub type ApplicationDataContainerSettings = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct ApplicationDataCreateDisposition(pub i32);
 impl ApplicationDataCreateDisposition {
@@ -34,6 +35,7 @@ impl ::core::clone::Clone for ApplicationDataCreateDisposition {
         *self
     }
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct ApplicationDataLocality(pub i32);
 impl ApplicationDataLocality {
@@ -50,6 +52,7 @@ impl ::core::clone::Clone for ApplicationDataLocality {
     }
 }
 pub type ApplicationDataSetVersionHandler = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct CreationCollisionOption(pub i32);
 impl CreationCollisionOption {
@@ -64,6 +67,7 @@ impl ::core::clone::Clone for CreationCollisionOption {
         *self
     }
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct FileAccessMode(pub i32);
 impl FileAccessMode {
@@ -76,6 +80,7 @@ impl ::core::clone::Clone for FileAccessMode {
         *self
     }
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct FileAttributes(pub u32);
 impl FileAttributes {
@@ -103,6 +108,7 @@ pub type IStorageItemProperties = *mut ::core::ffi::c_void;
 pub type IStorageItemProperties2 = *mut ::core::ffi::c_void;
 pub type IStorageItemPropertiesWithProvider = *mut ::core::ffi::c_void;
 pub type IStreamedFileDataRequest = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct KnownFolderId(pub i32);
 impl KnownFolderId {
@@ -130,6 +136,7 @@ impl ::core::clone::Clone for KnownFolderId {
         *self
     }
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct KnownFoldersAccessStatus(pub i32);
 impl KnownFoldersAccessStatus {
@@ -146,6 +153,7 @@ impl ::core::clone::Clone for KnownFoldersAccessStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct KnownLibraryId(pub i32);
 impl KnownLibraryId {
@@ -160,6 +168,7 @@ impl ::core::clone::Clone for KnownLibraryId {
         *self
     }
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct NameCollisionOption(pub i32);
 impl NameCollisionOption {
@@ -175,6 +184,7 @@ impl ::core::clone::Clone for NameCollisionOption {
 }
 pub type SetVersionDeferral = *mut ::core::ffi::c_void;
 pub type SetVersionRequest = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StorageDeleteOption(pub i32);
 impl StorageDeleteOption {
@@ -189,6 +199,7 @@ impl ::core::clone::Clone for StorageDeleteOption {
 }
 pub type StorageFile = *mut ::core::ffi::c_void;
 pub type StorageFolder = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StorageItemTypes(pub u32);
 impl StorageItemTypes {
@@ -207,6 +218,7 @@ pub type StorageLibraryChange = *mut ::core::ffi::c_void;
 pub type StorageLibraryChangeReader = *mut ::core::ffi::c_void;
 pub type StorageLibraryChangeTracker = *mut ::core::ffi::c_void;
 pub type StorageLibraryChangeTrackerOptions = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StorageLibraryChangeType(pub i32);
 impl StorageLibraryChangeType {
@@ -228,6 +240,7 @@ impl ::core::clone::Clone for StorageLibraryChangeType {
     }
 }
 pub type StorageLibraryLastChangeId = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StorageOpenOptions(pub u32);
 impl StorageOpenOptions {
@@ -245,6 +258,7 @@ pub type StorageProvider = *mut ::core::ffi::c_void;
 pub type StorageStreamTransaction = *mut ::core::ffi::c_void;
 pub type StreamedFileDataRequest = *mut ::core::ffi::c_void;
 pub type StreamedFileDataRequestedHandler = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StreamedFileFailureMode(pub i32);
 impl StreamedFileFailureMode {

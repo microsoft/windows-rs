@@ -9,6 +9,7 @@ pub const EVCF_REMOVEFROMLIST: u32 = 4u32;
 pub const EVCF_SETTINGSMODE: u32 = 32u32;
 pub const EVCF_SYSTEMAUTORUN: u32 = 256u32;
 pub const EVCF_USERCONSENTOBTAINED: u32 = 128u32;
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 #[repr(transparent)]
 pub struct IADesktopP2(::windows::core::IUnknown);
 impl IADesktopP2 {
@@ -73,6 +74,7 @@ pub struct IADesktopP2Vtbl(
     #[cfg(feature = "Win32_System_Ole")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poleobj: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 #[repr(transparent)]
 pub struct IActiveDesktopP(::windows::core::IUnknown);
 impl IActiveDesktopP {
@@ -139,6 +141,7 @@ pub struct IActiveDesktopPVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszschemename: super::super::Foundation::PWSTR, pdwcchbuffer: *mut u32, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 #[repr(transparent)]
 pub struct IBriefcaseInitiator(::windows::core::IUnknown);
 impl IBriefcaseInitiator {
@@ -191,6 +194,7 @@ pub struct IBriefcaseInitiatorVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmk: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 #[repr(transparent)]
 pub struct IEmptyVolumeCache(::windows::core::IUnknown);
 impl IEmptyVolumeCache {
@@ -262,6 +266,7 @@ pub struct IEmptyVolumeCacheVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 #[repr(transparent)]
 pub struct IEmptyVolumeCache2(::windows::core::IUnknown);
 impl IEmptyVolumeCache2 {
@@ -359,6 +364,7 @@ pub struct IEmptyVolumeCache2Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkregkey: super::super::System::Registry::HKEY, pcwszvolume: super::super::Foundation::PWSTR, pcwszkeyname: super::super::Foundation::PWSTR, ppwszdisplayname: *mut super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, ppwszbtntext: *mut super::super::Foundation::PWSTR, pdwflags: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Registry")))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 #[repr(transparent)]
 pub struct IEmptyVolumeCacheCallBack(::windows::core::IUnknown);
 impl IEmptyVolumeCacheCallBack {
@@ -417,6 +423,7 @@ pub struct IEmptyVolumeCacheCallBackVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlspacefreed: u64, dwlspacetofree: u64, dwflags: u32, pcwszstatus: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 #[repr(transparent)]
 pub struct IReconcilableObject(::windows::core::IUnknown);
 impl IReconcilableObject {
@@ -474,6 +481,7 @@ pub struct IReconcilableObjectVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulprogressmax: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 #[repr(transparent)]
 pub struct IReconcileInitiator(::windows::core::IUnknown);
 impl IReconcileInitiator {
@@ -528,21 +536,38 @@ pub struct IReconcileInitiatorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkforabort: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulprogress: u32, ulprogressmax: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const REC_E_ABORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217408i32);
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const REC_E_INEEDTODOTHEUPDATES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217404i32);
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const REC_E_NOCALLBACK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217407i32);
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const REC_E_NORESIDUES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217406i32);
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const REC_E_TOODIFFERENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217405i32);
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const REC_S_IDIDTHEUPDATES: ::windows::core::HRESULT = ::windows::core::HRESULT(266240i32);
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const REC_S_NOTCOMPLETE: ::windows::core::HRESULT = ::windows::core::HRESULT(266241i32);
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const REC_S_NOTCOMPLETEBUTPROPAGATE: ::windows::core::HRESULT = ::windows::core::HRESULT(266242i32);
 pub const STATEBITS_FLAT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub type _reconcilef = i32;
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const RECONCILEF_MAYBOTHERUSER: _reconcilef = 1i32;
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const RECONCILEF_FEEDBACKWINDOWVALID: _reconcilef = 2i32;
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const RECONCILEF_NORESIDUESOK: _reconcilef = 4i32;
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const RECONCILEF_OMITSELFRESIDUE: _reconcilef = 8i32;
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const RECONCILEF_RESUMERECONCILIATION: _reconcilef = 16i32;
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const RECONCILEF_YOUMAYDOTHEUPDATES: _reconcilef = 32i32;
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const RECONCILEF_ONLYYOUWERECHANGED: _reconcilef = 64i32;
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const ALL_RECONCILE_FLAGS: _reconcilef = 127i32;

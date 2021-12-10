@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Security_Isolation', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct HostMessageReceivedCallback(pub ::windows::core::IUnknown);
@@ -622,6 +623,7 @@ pub struct IIsolatedWindowsHostMessengerStatics2Vtbl(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiverid: ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironment(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironment {
@@ -839,6 +841,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironment {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironment {}
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentActivator(pub i32);
 impl IsolatedWindowsEnvironmentActivator {
@@ -866,6 +869,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentActivator
 impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentActivator {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentAllowedClipboardFormats(pub u32);
 impl IsolatedWindowsEnvironmentAllowedClipboardFormats {
@@ -894,6 +898,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentAllowedCl
 impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentAvailablePrinters(pub u32);
 impl IsolatedWindowsEnvironmentAvailablePrinters {
@@ -924,6 +929,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentAvailable
 impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentAvailablePrinters {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentClipboardCopyPasteDirections(pub u32);
 impl IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
@@ -953,6 +959,7 @@ impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentClipboardCopyPas
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Security_Isolation'*"]
 pub struct IsolatedWindowsEnvironmentCreateProgress {
     pub State: IsolatedWindowsEnvironmentProgressState,
     pub PercentComplete: u32,
@@ -983,6 +990,7 @@ impl ::core::default::Default for IsolatedWindowsEnvironmentCreateProgress {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentCreateResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentCreateResult {
@@ -1071,6 +1079,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentCreateResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentCreateResult {}
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentCreateStatus(pub i32);
 impl IsolatedWindowsEnvironmentCreateStatus {
@@ -1099,6 +1108,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreateSta
 impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentCreateStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentFile(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentFile {
@@ -1221,6 +1231,7 @@ impl IsolatedWindowsEnvironmentHost {
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentHost {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentHost";
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentHostError(pub i32);
 impl IsolatedWindowsEnvironmentHostError {
@@ -1251,6 +1262,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentHostError
 impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentHostError {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentLaunchFileResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentLaunchFileResult {
@@ -1339,6 +1351,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentLaunchFileResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentLaunchFileResult {}
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentLaunchFileStatus(pub i32);
 impl IsolatedWindowsEnvironmentLaunchFileStatus {
@@ -1370,6 +1383,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentLaunchFil
 impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentLaunchFileStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentOptions(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentOptions {
@@ -1569,6 +1583,7 @@ impl IsolatedWindowsEnvironmentOwnerRegistration {
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistration {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistration";
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationData(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentOwnerRegistrationData {
@@ -1675,6 +1690,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOwnerRegistrationData {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOwnerRegistrationData {}
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentOwnerRegistrationResult {
@@ -1756,6 +1772,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationStatus(pub i32);
 impl IsolatedWindowsEnvironmentOwnerRegistrationStatus {
@@ -1786,6 +1803,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegi
 impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentPostMessageResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentPostMessageResult {
@@ -1867,6 +1885,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentPostMessageResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentPostMessageResult {}
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentPostMessageStatus(pub i32);
 impl IsolatedWindowsEnvironmentPostMessageStatus {
@@ -1895,6 +1914,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentPostMessa
 impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentPostMessageStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentProcess(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentProcess {
@@ -1992,6 +2012,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentProcess {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentProcess {}
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentProcessState(pub i32);
 impl IsolatedWindowsEnvironmentProcessState {
@@ -2020,6 +2041,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProcessSt
 impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentProcessState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentProgressState(pub i32);
 impl IsolatedWindowsEnvironmentProgressState {
@@ -2048,6 +2070,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProgressS
 impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentProgressState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFileRequestOptions(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentShareFileRequestOptions {
@@ -2133,6 +2156,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFileRequestOptions {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFileRequestOptions {}
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFileResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentShareFileResult {
@@ -2221,6 +2245,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFileResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFileResult {}
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFileStatus(pub i32);
 impl IsolatedWindowsEnvironmentShareFileStatus {
@@ -2252,6 +2277,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFile
 impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentShareFileStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFolderRequestOptions(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentShareFolderRequestOptions {
@@ -2337,6 +2363,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFolderRequestOptions {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFolderRequestOptions {}
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFolderResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentShareFolderResult {
@@ -2418,6 +2445,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFolderResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFolderResult {}
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFolderStatus(pub i32);
 impl IsolatedWindowsEnvironmentShareFolderStatus {
@@ -2448,6 +2476,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFold
 impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentShareFolderStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentStartProcessResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentStartProcessResult {
@@ -2536,6 +2565,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentStartProcessResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentStartProcessResult {}
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentStartProcessStatus(pub i32);
 impl IsolatedWindowsEnvironmentStartProcessStatus {
@@ -2566,6 +2596,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentStartProc
 impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentStartProcessStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentTelemetryParameters(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentTelemetryParameters {
@@ -2651,6 +2682,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Isol
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentTelemetryParameters {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentTelemetryParameters {}
+#[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentUserInfo(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentUserInfo {
@@ -2771,6 +2803,7 @@ impl IsolatedWindowsHostMessenger {
 impl ::windows::core::RuntimeName for IsolatedWindowsHostMessenger {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsHostMessenger";
 }
+#[doc = "*Required features: 'Security_Isolation', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct MessageReceivedCallback(pub ::windows::core::IUnknown);

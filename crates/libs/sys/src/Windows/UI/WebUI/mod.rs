@@ -18,6 +18,7 @@ pub type LeavingBackgroundEventArgs = *mut ::core::ffi::c_void;
 pub type LeavingBackgroundEventHandler = *mut ::core::ffi::c_void;
 pub type NavigatedEventHandler = *mut ::core::ffi::c_void;
 pub type NewWebUIViewCreatedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct PrintContent(pub i32);
 impl PrintContent {

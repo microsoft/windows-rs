@@ -6,6 +6,7 @@ pub mod DataProvider;
 #[link(name = "windows")]
 extern "system" {}
 pub type Appointment = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentBusyStatus(pub i32);
 impl AppointmentBusyStatus {
@@ -22,6 +23,7 @@ impl ::core::clone::Clone for AppointmentBusyStatus {
     }
 }
 pub type AppointmentCalendar = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendarOtherAppReadAccess(pub i32);
 impl AppointmentCalendarOtherAppReadAccess {
@@ -36,6 +38,7 @@ impl ::core::clone::Clone for AppointmentCalendarOtherAppReadAccess {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendarOtherAppWriteAccess(pub i32);
 impl AppointmentCalendarOtherAppWriteAccess {
@@ -50,6 +53,7 @@ impl ::core::clone::Clone for AppointmentCalendarOtherAppWriteAccess {
     }
 }
 pub type AppointmentCalendarSyncManager = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendarSyncStatus(pub i32);
 impl AppointmentCalendarSyncStatus {
@@ -68,6 +72,7 @@ impl ::core::clone::Clone for AppointmentCalendarSyncStatus {
     }
 }
 pub type AppointmentConflictResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentConflictType(pub i32);
 impl AppointmentConflictType {
@@ -81,6 +86,7 @@ impl ::core::clone::Clone for AppointmentConflictType {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentDaysOfWeek(pub u32);
 impl AppointmentDaysOfWeek {
@@ -99,6 +105,7 @@ impl ::core::clone::Clone for AppointmentDaysOfWeek {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentDetailsKind(pub i32);
 impl AppointmentDetailsKind {
@@ -115,6 +122,7 @@ pub type AppointmentException = *mut ::core::ffi::c_void;
 pub type AppointmentInvitee = *mut ::core::ffi::c_void;
 pub type AppointmentManagerForUser = *mut ::core::ffi::c_void;
 pub type AppointmentOrganizer = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentParticipantResponse(pub i32);
 impl AppointmentParticipantResponse {
@@ -130,6 +138,7 @@ impl ::core::clone::Clone for AppointmentParticipantResponse {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentParticipantRole(pub i32);
 impl AppointmentParticipantRole {
@@ -144,6 +153,7 @@ impl ::core::clone::Clone for AppointmentParticipantRole {
     }
 }
 pub type AppointmentRecurrence = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentRecurrenceUnit(pub i32);
 impl AppointmentRecurrenceUnit {
@@ -160,6 +170,7 @@ impl ::core::clone::Clone for AppointmentRecurrenceUnit {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentSensitivity(pub i32);
 impl AppointmentSensitivity {
@@ -173,6 +184,7 @@ impl ::core::clone::Clone for AppointmentSensitivity {
     }
 }
 pub type AppointmentStore = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentStoreAccessType(pub i32);
 impl AppointmentStoreAccessType {
@@ -189,6 +201,7 @@ impl ::core::clone::Clone for AppointmentStoreAccessType {
 pub type AppointmentStoreChange = *mut ::core::ffi::c_void;
 pub type AppointmentStoreChangeReader = *mut ::core::ffi::c_void;
 pub type AppointmentStoreChangeTracker = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentStoreChangeType(pub i32);
 impl AppointmentStoreChangeType {
@@ -209,6 +222,7 @@ impl ::core::clone::Clone for AppointmentStoreChangeType {
 pub type AppointmentStoreChangedDeferral = *mut ::core::ffi::c_void;
 pub type AppointmentStoreChangedEventArgs = *mut ::core::ffi::c_void;
 pub type AppointmentStoreNotificationTriggerDetails = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentSummaryCardView(pub i32);
 impl AppointmentSummaryCardView {
@@ -221,6 +235,7 @@ impl ::core::clone::Clone for AppointmentSummaryCardView {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentWeekOfMonth(pub i32);
 impl AppointmentWeekOfMonth {
@@ -236,6 +251,7 @@ impl ::core::clone::Clone for AppointmentWeekOfMonth {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct FindAppointmentCalendarsOptions(pub u32);
 impl FindAppointmentCalendarsOptions {
@@ -250,6 +266,7 @@ impl ::core::clone::Clone for FindAppointmentCalendarsOptions {
 }
 pub type FindAppointmentsOptions = *mut ::core::ffi::c_void;
 pub type IAppointmentParticipant = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct RecurrenceType(pub i32);
 impl RecurrenceType {

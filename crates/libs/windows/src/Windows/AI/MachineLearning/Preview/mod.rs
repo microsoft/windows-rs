@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[repr(transparent)]
 pub struct FeatureElementKindPreview(pub i32);
 impl FeatureElementKindPreview {
@@ -260,6 +261,7 @@ pub struct ILearningModelPreviewStaticsVtbl(
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelstream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated")))] usize,
 );
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[repr(transparent)]
 pub struct ILearningModelVariableDescriptorPreview(::windows::core::IUnknown);
 impl ILearningModelVariableDescriptorPreview {
@@ -449,6 +451,7 @@ pub struct ITensorVariableDescriptorPreviewVtbl(
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation_Collections", feature = "deprecated")))] usize,
 );
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ImageVariableDescriptorPreview(::windows::core::IUnknown);
@@ -612,6 +615,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview>
         ::core::convert::TryInto::<ILearningModelVariableDescriptorPreview>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct InferencingOptionsPreview(::windows::core::IUnknown);
@@ -758,6 +762,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Infe
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct LearningModelBindingPreview(::windows::core::IUnknown);
@@ -970,6 +975,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct LearningModelDescriptionPreview(::windows::core::IUnknown);
@@ -1115,6 +1121,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[repr(transparent)]
 pub struct LearningModelDeviceKindPreview(pub i32);
 impl LearningModelDeviceKindPreview {
@@ -1146,6 +1153,7 @@ unsafe impl ::windows::core::RuntimeType for LearningModelDeviceKindPreview {
 impl ::windows::core::DefaultType for LearningModelDeviceKindPreview {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct LearningModelEvaluationResultPreview(::windows::core::IUnknown);
@@ -1243,6 +1251,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[repr(transparent)]
 pub struct LearningModelFeatureKindPreview(pub i32);
 impl LearningModelFeatureKindPreview {
@@ -1273,6 +1282,7 @@ unsafe impl ::windows::core::RuntimeType for LearningModelFeatureKindPreview {
 impl ::windows::core::DefaultType for LearningModelFeatureKindPreview {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct LearningModelPreview(::windows::core::IUnknown);
@@ -1409,6 +1419,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct LearningModelVariableDescriptorPreview(::windows::core::IUnknown);
@@ -1548,6 +1559,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview>
         ::core::convert::TryInto::<ILearningModelVariableDescriptorPreview>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct MapVariableDescriptorPreview(::windows::core::IUnknown);
@@ -1719,6 +1731,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview>
         ::core::convert::TryInto::<ILearningModelVariableDescriptorPreview>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SequenceVariableDescriptorPreview(::windows::core::IUnknown);
@@ -1866,6 +1879,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview>
         ::core::convert::TryInto::<ILearningModelVariableDescriptorPreview>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct TensorVariableDescriptorPreview(::windows::core::IUnknown);

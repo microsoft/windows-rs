@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'ApplicationModel_ExtendedExecution_Foreground'*"]
 #[repr(transparent)]
 pub struct ExtendedExecutionForegroundReason(pub i32);
 impl ExtendedExecutionForegroundReason {
@@ -28,6 +29,7 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundReason {
 impl ::windows::core::DefaultType for ExtendedExecutionForegroundReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ExtendedExecution_Foreground'*"]
 #[repr(transparent)]
 pub struct ExtendedExecutionForegroundResult(pub i32);
 impl ExtendedExecutionForegroundResult {
@@ -55,6 +57,7 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundResult {
 impl ::windows::core::DefaultType for ExtendedExecutionForegroundResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ExtendedExecution_Foreground'*"]
 #[repr(transparent)]
 pub struct ExtendedExecutionForegroundRevokedEventArgs(::windows::core::IUnknown);
 impl ExtendedExecutionForegroundRevokedEventArgs {
@@ -129,6 +132,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Exte
 }
 unsafe impl ::core::marker::Send for ExtendedExecutionForegroundRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionForegroundRevokedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_ExtendedExecution_Foreground'*"]
 #[repr(transparent)]
 pub struct ExtendedExecutionForegroundRevokedReason(pub i32);
 impl ExtendedExecutionForegroundRevokedReason {
@@ -156,6 +160,7 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundRevokedR
 impl ::windows::core::DefaultType for ExtendedExecutionForegroundRevokedReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ExtendedExecution_Foreground'*"]
 #[repr(transparent)]
 pub struct ExtendedExecutionForegroundSession(::windows::core::IUnknown);
 impl ExtendedExecutionForegroundSession {

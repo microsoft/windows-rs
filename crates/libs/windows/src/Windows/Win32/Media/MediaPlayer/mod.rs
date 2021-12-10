@@ -480,73 +480,138 @@ pub const EFFECT_CANGOFULLSCREEN: u32 = 1u32;
 pub const EFFECT_HASPROPERTYPAGE: u32 = 2u32;
 pub const EFFECT_VARIABLEFREQSTEP: u32 = 4u32;
 pub const EFFECT_WINDOWEDONLY: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type FEEDS_BACKGROUNDSYNC_ACTION = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FBSA_DISABLE: FEEDS_BACKGROUNDSYNC_ACTION = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FBSA_ENABLE: FEEDS_BACKGROUNDSYNC_ACTION = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FBSA_RUNNOW: FEEDS_BACKGROUNDSYNC_ACTION = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type FEEDS_BACKGROUNDSYNC_STATUS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FBSS_DISABLED: FEEDS_BACKGROUNDSYNC_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FBSS_ENABLED: FEEDS_BACKGROUNDSYNC_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type FEEDS_DOWNLOAD_ERROR = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDE_NONE: FEEDS_DOWNLOAD_ERROR = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDE_DOWNLOAD_FAILED: FEEDS_DOWNLOAD_ERROR = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDE_INVALID_FEED_FORMAT: FEEDS_DOWNLOAD_ERROR = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDE_NORMALIZATION_FAILED: FEEDS_DOWNLOAD_ERROR = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDE_PERSISTENCE_FAILED: FEEDS_DOWNLOAD_ERROR = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDE_DOWNLOAD_BLOCKED: FEEDS_DOWNLOAD_ERROR = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDE_CANCELED: FEEDS_DOWNLOAD_ERROR = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDE_UNSUPPORTED_AUTH: FEEDS_DOWNLOAD_ERROR = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDE_BACKGROUND_DOWNLOAD_DISABLED: FEEDS_DOWNLOAD_ERROR = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDE_NOT_EXIST: FEEDS_DOWNLOAD_ERROR = 9i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDE_UNSUPPORTED_MSXML: FEEDS_DOWNLOAD_ERROR = 10i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDE_UNSUPPORTED_DTD: FEEDS_DOWNLOAD_ERROR = 11i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDE_DOWNLOAD_SIZE_LIMIT_EXCEEDED: FEEDS_DOWNLOAD_ERROR = 12i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDE_ACCESS_DENIED: FEEDS_DOWNLOAD_ERROR = 13i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDE_AUTH_FAILED: FEEDS_DOWNLOAD_ERROR = 14i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDE_INVALID_AUTH: FEEDS_DOWNLOAD_ERROR = 15i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type FEEDS_DOWNLOAD_STATUS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDS_NONE: FEEDS_DOWNLOAD_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDS_PENDING: FEEDS_DOWNLOAD_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDS_DOWNLOADING: FEEDS_DOWNLOAD_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDS_DOWNLOADED: FEEDS_DOWNLOAD_STATUS = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FDS_DOWNLOAD_FAILED: FEEDS_DOWNLOAD_STATUS = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type FEEDS_ERROR_CODE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FEC_E_ERRORBASE: FEEDS_ERROR_CODE = -1073479168i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FEC_E_INVALIDMSXMLPROPERTY: FEEDS_ERROR_CODE = -1073479168i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FEC_E_DOWNLOADSIZELIMITEXCEEDED: FEEDS_ERROR_CODE = -1073479167i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type FEEDS_EVENTS_ITEM_COUNT_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FEICF_READ_ITEM_COUNT_CHANGED: FEEDS_EVENTS_ITEM_COUNT_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FEICF_UNREAD_ITEM_COUNT_CHANGED: FEEDS_EVENTS_ITEM_COUNT_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type FEEDS_EVENTS_MASK = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FEM_FOLDEREVENTS: FEEDS_EVENTS_MASK = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FEM_FEEDEVENTS: FEEDS_EVENTS_MASK = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type FEEDS_EVENTS_SCOPE = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FES_ALL: FEEDS_EVENTS_SCOPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FES_SELF_ONLY: FEEDS_EVENTS_SCOPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FES_SELF_AND_CHILDREN_ONLY: FEEDS_EVENTS_SCOPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type FEEDS_SYNC_SETTING = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FSS_DEFAULT: FEEDS_SYNC_SETTING = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FSS_INTERVAL: FEEDS_SYNC_SETTING = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FSS_MANUAL: FEEDS_SYNC_SETTING = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FSS_SUGGESTED: FEEDS_SYNC_SETTING = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type FEEDS_XML_FILTER_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FXFF_ALL: FEEDS_XML_FILTER_FLAGS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FXFF_UNREAD: FEEDS_XML_FILTER_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FXFF_READ: FEEDS_XML_FILTER_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type FEEDS_XML_INCLUDE_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FXIF_NONE: FEEDS_XML_INCLUDE_FLAGS = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FXIF_CF_EXTENSIONS: FEEDS_XML_INCLUDE_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type FEEDS_XML_SORT_ORDER = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FXSO_NONE: FEEDS_XML_SORT_ORDER = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FXSO_ASCENDING: FEEDS_XML_SORT_ORDER = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FXSO_DESCENDING: FEEDS_XML_SORT_ORDER = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type FEEDS_XML_SORT_PROPERTY = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FXSP_NONE: FEEDS_XML_SORT_PROPERTY = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FXSP_PUBDATE: FEEDS_XML_SORT_PROPERTY = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const FXSP_DOWNLOADTIME: FEEDS_XML_SORT_PROPERTY = 2i32;
 pub const FeedFolderWatcher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x281001ed_7765_4cb0_84af_e9b387af01ff);
 pub const FeedWatcher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18a6737b_f433_4687_89bc_a1b4dfb9f123);
 pub const FeedsManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaeb54c4_f66f_4806_83a0_805299f5e3ad);
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IFeed(::windows::core::IUnknown);
 impl IFeed {
@@ -892,6 +957,7 @@ pub struct IFeedVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IFeed2(::windows::core::IUnknown);
 impl IFeed2 {
@@ -1293,6 +1359,7 @@ pub struct IFeed2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IFeedEnclosure(::windows::core::IUnknown);
 impl IFeedEnclosure {
@@ -1464,6 +1531,7 @@ pub struct IFeedEnclosureVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, downloadurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, downloadfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, downloadmimetype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, enclosurefilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IFeedEvents(::windows::core::IUnknown);
 impl IFeedEvents {
@@ -1606,6 +1674,7 @@ pub struct IFeedEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, itemcounttype: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IFeedFolder(::windows::core::IUnknown);
 impl IFeedFolder {
@@ -1817,6 +1886,7 @@ pub struct IFeedFolderVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK, disp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IFeedFolderEvents(::windows::core::IUnknown);
 impl IFeedFolderEvents {
@@ -2007,6 +2077,7 @@ pub struct IFeedFolderEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, itemcounttype: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IFeedItem(::windows::core::IUnknown);
 impl IFeedItem {
@@ -2206,6 +2277,7 @@ pub struct IFeedItemVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lastdownload: *mut f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modified: *mut f64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IFeedItem2(::windows::core::IUnknown);
 impl IFeedItem2 {
@@ -2430,6 +2502,7 @@ pub struct IFeedItem2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modified: *mut f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effectiveid: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IFeedsEnum(::windows::core::IUnknown);
 impl IFeedsEnum {
@@ -2545,6 +2618,7 @@ pub struct IFeedsEnumVtbl(
     #[cfg(feature = "Win32_System_Ole")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumvar: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IFeedsManager(::windows::core::IUnknown);
 impl IFeedsManager {
@@ -2738,6 +2812,7 @@ pub struct IFeedsManagerVtbl(
 );
 pub const IOCTL_WMP_DEVICE_CAN_SYNC: u32 = 844123479u32;
 pub const IOCTL_WMP_METADATA_ROUND_TRIP: u32 = 827346263u32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPAudioRenderConfig(::windows::core::IUnknown);
 impl IWMPAudioRenderConfig {
@@ -2796,6 +2871,7 @@ pub struct IWMPAudioRenderConfigVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstroutputdevice: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPCdrom(::windows::core::IUnknown);
 impl IWMPCdrom {
@@ -2907,6 +2983,7 @@ pub struct IWMPCdromVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppplaylist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPCdromBurn(::windows::core::IUnknown);
 impl IWMPCdromBurn {
@@ -3018,6 +3095,7 @@ pub struct IWMPCdromBurnVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPCdromCollection(::windows::core::IUnknown);
 impl IWMPCdromCollection {
@@ -3130,6 +3208,7 @@ pub struct IWMPCdromCollectionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdrivespecifier: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppcdrom: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPCdromRip(::windows::core::IUnknown);
 impl IWMPCdromRip {
@@ -3192,6 +3271,7 @@ pub struct IWMPCdromRipVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPClosedCaption(::windows::core::IUnknown);
 impl IWMPClosedCaption {
@@ -3336,6 +3416,7 @@ pub struct IWMPClosedCaptionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcaptioningid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPClosedCaption2(::windows::core::IUnknown);
 impl IWMPClosedCaption2 {
@@ -3524,6 +3605,7 @@ pub struct IWMPClosedCaption2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPContentContainer(::windows::core::IUnknown);
 impl IWMPContentContainer {
@@ -3606,6 +3688,7 @@ pub struct IWMPContentContainerVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idxcontent: u32, pcontentid: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPContentContainerList(::windows::core::IUnknown);
 impl IWMPContentContainerList {
@@ -3667,6 +3750,7 @@ pub struct IWMPContentContainerListVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccontainer: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idxcontainer: u32, ppcontent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPContentPartner(::windows::core::IUnknown);
 impl IWMPContentPartner {
@@ -3845,6 +3929,7 @@ pub struct IWMPContentPartnerVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpermission: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPContentPartnerCallback(::windows::core::IUnknown);
 impl IWMPContentPartnerCallback {
@@ -3957,6 +4042,7 @@ pub struct IWMPContentPartnerCallbackVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpermission: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcontext: *const super::super::System::Com::VARIANT, hrpermission: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPControls(::windows::core::IUnknown);
 impl IWMPControls {
@@ -4122,6 +4208,7 @@ pub struct IWMPControlsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmarker: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piwmpmedia: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPControls2(::windows::core::IUnknown);
 impl IWMPControls2 {
@@ -4311,6 +4398,7 @@ pub struct IWMPControls2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piwmpmedia: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lstep: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPControls3(::windows::core::IUnknown);
 impl IWMPControls3 {
@@ -4568,6 +4656,7 @@ pub struct IWMPControls3Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtimecode: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPConvert(::windows::core::IUnknown);
 impl IWMPConvert {
@@ -4626,6 +4715,7 @@ pub struct IWMPConvertVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrurl: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPCore(::windows::core::IUnknown);
 impl IWMPCore {
@@ -4826,6 +4916,7 @@ pub struct IWMPCoreVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstatus: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPCore2(::windows::core::IUnknown);
 impl IWMPCore2 {
@@ -5051,6 +5142,7 @@ pub struct IWMPCore2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdvd: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPCore3(::windows::core::IUnknown);
 impl IWMPCore3 {
@@ -5310,6 +5402,7 @@ pub struct IWMPCore3Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppmedia: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPDVD(::windows::core::IUnknown);
 impl IWMPDVD {
@@ -5434,6 +5527,7 @@ pub struct IWMPDVDVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPDownloadCollection(::windows::core::IUnknown);
 impl IWMPDownloadCollection {
@@ -5558,6 +5652,7 @@ pub struct IWMPDownloadCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, litem: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPDownloadItem(::windows::core::IUnknown);
 impl IWMPDownloadItem {
@@ -5690,6 +5785,7 @@ pub struct IWMPDownloadItemVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPDownloadItem2(::windows::core::IUnknown);
 impl IWMPDownloadItem2 {
@@ -5848,6 +5944,7 @@ pub struct IWMPDownloadItem2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstritemname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPDownloadManager(::windows::core::IUnknown);
 impl IWMPDownloadManager {
@@ -5954,6 +6051,7 @@ pub struct IWMPDownloadManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcollectionid: i32, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPEffects(::windows::core::IUnknown);
 impl IWMPEffects {
@@ -6056,6 +6154,7 @@ pub struct IWMPEffectsVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plevels: *mut TimedLevel) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPEffects2(::windows::core::IUnknown);
 impl IWMPEffects2 {
@@ -6208,6 +6307,7 @@ pub struct IWMPEffects2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut TimedLevel, frequiredrender: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPError(::windows::core::IUnknown);
 impl IWMPError {
@@ -6321,6 +6421,7 @@ pub struct IWMPErrorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: i32, pperroritem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPErrorItem(::windows::core::IUnknown);
 impl IWMPErrorItem {
@@ -6443,6 +6544,7 @@ pub struct IWMPErrorItemVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcustomurl: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPErrorItem2(::windows::core::IUnknown);
 impl IWMPErrorItem2 {
@@ -6589,6 +6691,7 @@ pub struct IWMPErrorItem2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcondition: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPEvents(::windows::core::IUnknown);
 impl IWMPEvents {
@@ -6849,6 +6952,7 @@ pub struct IWMPEventsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32),
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPEvents2(::windows::core::IUnknown);
 impl IWMPEvents2 {
@@ -7155,6 +7259,7 @@ pub struct IWMPEvents2Vtbl(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, hrresult: ::windows::core::HRESULT),
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPEvents3(::windows::core::IUnknown);
 impl IWMPEvents3 {
@@ -7535,6 +7640,7 @@ pub struct IWMPEvents3Vtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdispmedia: ::windows::core::RawPtr),
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPEvents4(::windows::core::IUnknown);
 impl IWMPEvents4 {
@@ -7939,6 +8045,7 @@ pub struct IWMPEvents4Vtbl(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, hrresult: ::windows::core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64),
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPFolderMonitorServices(::windows::core::IUnknown);
 impl IWMPFolderMonitorServices {
@@ -8035,6 +8142,7 @@ pub struct IWMPFolderMonitorServicesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPGraphCreation(::windows::core::IUnknown);
 impl IWMPGraphCreation {
@@ -8093,6 +8201,7 @@ pub struct IWMPGraphCreationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfiltergraph: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPLibrary(::windows::core::IUnknown);
 impl IWMPLibrary {
@@ -8158,6 +8267,7 @@ pub struct IWMPLibraryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiwmpmediacollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piwmplibrary: ::windows::core::RawPtr, pvbool: *mut i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPLibrary2(::windows::core::IUnknown);
 impl IWMPLibrary2 {
@@ -8249,6 +8359,7 @@ pub struct IWMPLibrary2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstritemname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPLibraryServices(::windows::core::IUnknown);
 impl IWMPLibraryServices {
@@ -8304,6 +8415,7 @@ pub struct IWMPLibraryServicesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wmplt: WMPLibraryType, plcount: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wmplt: WMPLibraryType, lindex: i32, ppiwmplibrary: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPLibrarySharingServices(::windows::core::IUnknown);
 impl IWMPLibrarySharingServices {
@@ -8362,6 +8474,7 @@ pub struct IWMPLibrarySharingServicesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbenabled: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPMedia(::windows::core::IUnknown);
 impl IWMPMedia {
@@ -8550,6 +8663,7 @@ pub struct IWMPMediaVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstritemname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvarfisreadonly: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPMedia2(::windows::core::IUnknown);
 impl IWMPMedia2 {
@@ -8763,6 +8877,7 @@ pub struct IWMPMedia2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiwmperroritem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPMedia3(::windows::core::IUnknown);
 impl IWMPMedia3 {
@@ -9008,6 +9123,7 @@ pub struct IWMPMedia3Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrlanguage: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lindex: i32, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPMediaCollection(::windows::core::IUnknown);
 impl IWMPMediaCollection {
@@ -9176,6 +9292,7 @@ pub struct IWMPMediaCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitem: ::windows::core::RawPtr, varfisdeleted: i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitem: ::windows::core::RawPtr, pvarfisdeleted: *mut i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPMediaCollection2(::windows::core::IUnknown);
 impl IWMPMediaCollection2 {
@@ -9390,6 +9507,7 @@ pub struct IWMPMediaCollection2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrattribute: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrvalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrmediatype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppmediaitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPMediaPluginRegistrar(::windows::core::IUnknown);
 impl IWMPMediaPluginRegistrar {
@@ -9446,6 +9564,7 @@ pub struct IWMPMediaPluginRegistrarVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidplugintype: ::windows::core::GUID, clsid: ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPMetadataPicture(::windows::core::IUnknown);
 impl IWMPMetadataPicture {
@@ -9566,6 +9685,7 @@ pub struct IWMPMetadataPictureVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrurl: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPMetadataText(::windows::core::IUnknown);
 impl IWMPMetadataText {
@@ -9674,6 +9794,7 @@ pub struct IWMPMetadataTextVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrtext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPNetwork(::windows::core::IUnknown);
 impl IWMPNetwork {
@@ -9904,6 +10025,7 @@ pub struct IWMPNetworkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plframerate: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plframes: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPNodeRealEstate(::windows::core::IUnknown);
 impl IWMPNodeRealEstate {
@@ -9992,6 +10114,7 @@ pub struct IWMPNodeRealEstateVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pffullscreen: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPNodeRealEstateHost(::windows::core::IUnknown);
 impl IWMPNodeRealEstateHost {
@@ -10050,6 +10173,7 @@ pub struct IWMPNodeRealEstateHostVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ffullscreen: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPNodeWindowed(::windows::core::IUnknown);
 impl IWMPNodeWindowed {
@@ -10104,6 +10228,7 @@ pub struct IWMPNodeWindowedVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: isize) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phwnd: *mut isize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPNodeWindowedHost(::windows::core::IUnknown);
 impl IWMPNodeWindowedHost {
@@ -10156,6 +10281,7 @@ pub struct IWMPNodeWindowedHostVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPNodeWindowless(::windows::core::IUnknown);
 impl IWMPNodeWindowless {
@@ -10234,6 +10360,7 @@ pub struct IWMPNodeWindowlessVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: isize, prcdraw: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPNodeWindowlessHost(::windows::core::IUnknown);
 impl IWMPNodeWindowlessHost {
@@ -10286,6 +10413,7 @@ pub struct IWMPNodeWindowlessHostVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prc: *const super::super::Foundation::RECT, ferase: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPPlayer(::windows::core::IUnknown);
 impl IWMPPlayer {
@@ -10542,6 +10670,7 @@ pub struct IWMPPlayerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrmode: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPPlayer2(::windows::core::IUnknown);
 impl IWMPPlayer2 {
@@ -10814,6 +10943,7 @@ pub struct IWMPPlayer2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbenabled: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benabled: i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPPlayer3(::windows::core::IUnknown);
 impl IWMPPlayer3 {
@@ -11111,6 +11241,7 @@ pub struct IWMPPlayer3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbenabled: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, benabled: i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPPlayer4(::windows::core::IUnknown);
 impl IWMPPlayer4 {
@@ -11457,6 +11588,7 @@ pub struct IWMPPlayer4Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPPlayerApplication(::windows::core::IUnknown);
 impl IWMPPlayerApplication {
@@ -11569,6 +11701,7 @@ pub struct IWMPPlayerApplicationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbplayerdocked: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbhasdisplay: *mut i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPPlayerServices(::windows::core::IUnknown);
 impl IWMPPlayerServices {
@@ -11633,6 +11766,7 @@ pub struct IWMPPlayerServicesVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtaskpane: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrfriendlyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPPlayerServices2(::windows::core::IUnknown);
 impl IWMPPlayerServices2 {
@@ -11723,6 +11857,7 @@ pub struct IWMPPlayerServices2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpriority: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPPlaylist(::windows::core::IUnknown);
 impl IWMPPlaylist {
@@ -11886,6 +12021,7 @@ pub struct IWMPPlaylistVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piwmpmedia: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindexold: i32, lindexnew: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPPlaylistArray(::windows::core::IUnknown);
 impl IWMPPlaylistArray {
@@ -11991,6 +12127,7 @@ pub struct IWMPPlaylistArrayVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPPlaylistCollection(::windows::core::IUnknown);
 impl IWMPPlaylistCollection {
@@ -12123,6 +12260,7 @@ pub struct IWMPPlaylistCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitem: ::windows::core::RawPtr, pvarfisdeleted: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitem: ::windows::core::RawPtr, ppimporteditem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPPlugin(::windows::core::IUnknown);
 impl IWMPPlugin {
@@ -12193,6 +12331,7 @@ pub struct IWMPPluginVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwmpservices: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPPluginEnable(::windows::core::IUnknown);
 impl IWMPPluginEnable {
@@ -12251,6 +12390,7 @@ pub struct IWMPPluginEnableVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPPluginUI(::windows::core::IUnknown);
 impl IWMPPluginUI {
@@ -12335,6 +12475,7 @@ pub struct IWMPPluginUIVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPQuery(::windows::core::IUnknown);
 impl IWMPQuery {
@@ -12441,6 +12582,7 @@ pub struct IWMPQueryVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPRemoteMediaServices(::windows::core::IUnknown);
 impl IWMPRemoteMediaServices {
@@ -12511,6 +12653,7 @@ pub struct IWMPRemoteMediaServicesVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfile: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPRenderConfig(::windows::core::IUnknown);
 impl IWMPRenderConfig {
@@ -12569,6 +12712,7 @@ pub struct IWMPRenderConfigVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfinproc: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPServices(::windows::core::IUnknown);
 impl IWMPServices {
@@ -12623,6 +12767,7 @@ pub struct IWMPServicesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prt: *mut i64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut WMPServices_StreamState) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPSettings(::windows::core::IUnknown);
 impl IWMPSettings {
@@ -12825,6 +12970,7 @@ pub struct IWMPSettingsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfenableerrordialogs: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenableerrordialogs: i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPSettings2(::windows::core::IUnknown);
 impl IWMPSettings2 {
@@ -13063,6 +13209,7 @@ pub struct IWMPSettings2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdesiredaccess: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvbaccepted: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPSkinManager(::windows::core::IUnknown);
 impl IWMPSkinManager {
@@ -13115,6 +13262,7 @@ pub struct IWMPSkinManagerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPStringCollection(::windows::core::IUnknown);
 impl IWMPStringCollection {
@@ -13221,6 +13369,7 @@ pub struct IWMPStringCollectionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pbstrstring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPStringCollection2(::windows::core::IUnknown);
 impl IWMPStringCollection2 {
@@ -13369,6 +13518,7 @@ pub struct IWMPStringCollection2Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcollectionindex: i32, bstrtype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrlanguage: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lattributeindex: i32, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPSubscriptionService(::windows::core::IUnknown);
 impl IWMPSubscriptionService {
@@ -13439,6 +13589,7 @@ pub struct IWMPSubscriptionServiceVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPSubscriptionService2(::windows::core::IUnknown);
 impl IWMPSubscriptionService2 {
@@ -13549,6 +13700,7 @@ pub struct IWMPSubscriptionService2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdevicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcb: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPSubscriptionServiceCallback(::windows::core::IUnknown);
 impl IWMPSubscriptionServiceCallback {
@@ -13594,6 +13746,7 @@ unsafe impl ::windows::core::Interface for IWMPSubscriptionServiceCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPSubscriptionServiceCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPSyncDevice(::windows::core::IUnknown);
 impl IWMPSyncDevice {
@@ -13714,6 +13867,7 @@ pub struct IWMPSyncDeviceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, pvbool: *mut i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPSyncDevice2(::windows::core::IUnknown);
 impl IWMPSyncDevice2 {
@@ -13860,6 +14014,7 @@ pub struct IWMPSyncDevice2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstritemname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPSyncDevice3(::windows::core::IUnknown);
 impl IWMPSyncDevice3 {
@@ -14034,6 +14189,7 @@ pub struct IWMPSyncDevice3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnonruleplaylist: ::windows::core::RawPtr, prulesplaylist: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPSyncServices(::windows::core::IUnknown);
 impl IWMPSyncServices {
@@ -14089,6 +14245,7 @@ pub struct IWMPSyncServicesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPTranscodePolicy(::windows::core::IUnknown);
 impl IWMPTranscodePolicy {
@@ -14134,6 +14291,7 @@ unsafe impl ::windows::core::Interface for IWMPTranscodePolicy {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPTranscodePolicyVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvballow: *mut i16) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPUserEventSink(::windows::core::IUnknown);
 impl IWMPUserEventSink {
@@ -14179,6 +14337,7 @@ unsafe impl ::windows::core::Interface for IWMPUserEventSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMPUserEventSinkVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcode: i32) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPVideoRenderConfig(::windows::core::IUnknown);
 impl IWMPVideoRenderConfig {
@@ -14231,6 +14390,7 @@ pub struct IWMPVideoRenderConfigVtbl(
     #[cfg(feature = "Win32_Media_MediaFoundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pactivate: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Media_MediaFoundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IWMPWindowMessageSink(::windows::core::IUnknown);
 impl IWMPWindowMessageSink {
@@ -14283,6 +14443,7 @@ pub struct IWMPWindowMessageSinkVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IXFeed(::windows::core::IUnknown);
 impl IXFeed {
@@ -14582,6 +14743,7 @@ pub struct IXFeedVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puiunreaditemcount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puiitemcount: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IXFeed2(::windows::core::IUnknown);
 impl IXFeed2 {
@@ -14937,6 +15099,7 @@ pub struct IXFeed2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IXFeedEnclosure(::windows::core::IUnknown);
 impl IXFeedEnclosure {
@@ -15056,6 +15219,7 @@ pub struct IXFeedEnclosureVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdownloadurl: super::super::Foundation::PWSTR, pszdownloadfilepath: super::super::Foundation::PWSTR, pszdownloadmimetype: super::super::Foundation::PWSTR, pszenclosurefilename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IXFeedEvents(::windows::core::IUnknown);
 impl IXFeedEvents {
@@ -15148,6 +15312,7 @@ pub struct IXFeedEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, feicfflags: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IXFeedFolder(::windows::core::IUnknown);
 impl IXFeedFolder {
@@ -15301,6 +15466,7 @@ pub struct IXFeedFolderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puitotalunreaditemcount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puitotalitemcount: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IXFeedFolderEvents(::windows::core::IUnknown);
 impl IXFeedFolderEvents {
@@ -15441,6 +15607,7 @@ pub struct IXFeedFolderEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: super::super::Foundation::PWSTR, feicfflags: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IXFeedItem(::windows::core::IUnknown);
 impl IXFeedItem {
@@ -15596,6 +15763,7 @@ pub struct IXFeedItemVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstmodifiedtime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IXFeedItem2(::windows::core::IUnknown);
 impl IXFeedItem2 {
@@ -15776,6 +15944,7 @@ pub struct IXFeedItem2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puieffectiveid: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IXFeedsEnum(::windows::core::IUnknown);
 impl IXFeedsEnum {
@@ -15832,6 +16001,7 @@ pub struct IXFeedsEnumVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puicount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct IXFeedsManager(::windows::core::IUnknown);
 impl IXFeedsManager {
@@ -15983,9 +16153,13 @@ pub const PLUGIN_TYPE_DISPLAYAREA: u32 = 3u32;
 pub const PLUGIN_TYPE_METADATAAREA: u32 = 5u32;
 pub const PLUGIN_TYPE_SEPARATEWINDOW: u32 = 2u32;
 pub const PLUGIN_TYPE_SETTINGSAREA: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type PlayerState = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const stop_state: PlayerState = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const pause_state: PlayerState = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const play_state: PlayerState = 2i32;
 pub const SA_BUFFER_SIZE: u32 = 1024u32;
 pub const SUBSCRIPTION_CAP_ALLOWCDBURN: u32 = 2u32;
@@ -15999,6 +16173,7 @@ pub const SUBSCRIPTION_CAP_PREPAREFORSYNC: u32 = 32u32;
 pub const SUBSCRIPTION_CAP_UILESSMODE_ALLOWPLAY: u32 = 256u32;
 pub const SUBSCRIPTION_V1_CAPS: u32 = 15u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub struct TimedLevel {
     pub frequency: [u8; 2048],
     pub waveform: [u8; 2048],
@@ -16025,23 +16200,41 @@ impl ::core::default::Default for TimedLevel {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPAccountType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpatBuyOnly: WMPAccountType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpatSubscription: WMPAccountType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpatJanus: WMPAccountType = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPBurnFormat = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpbfAudioCD: WMPBurnFormat = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpbfDataCD: WMPBurnFormat = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPBurnState = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpbsUnknown: WMPBurnState = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpbsBusy: WMPBurnState = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpbsReady: WMPBurnState = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpbsWaitingForDisc: WMPBurnState = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpbsRefreshStatusPending: WMPBurnState = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpbsPreparingToBurn: WMPBurnState = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpbsBurning: WMPBurnState = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpbsStopped: WMPBurnState = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpbsErasing: WMPBurnState = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpbsDownloading: WMPBurnState = 9i32;
 pub const WMPCOREEVENT_BASE: u32 = 5000u32;
 pub const WMPCOREEVENT_CDROM_BASE: u32 = 5700u32;
@@ -16052,14 +16245,22 @@ pub const WMPCOREEVENT_NETWORK_BASE: u32 = 5400u32;
 pub const WMPCOREEVENT_PLAYLIST_BASE: u32 = 5800u32;
 pub const WMPCOREEVENT_SEEK_BASE: u32 = 5200u32;
 pub const WMPCOREEVENT_WARNING_BASE: u32 = 5600u32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPCallbackNotification = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpcnLoginStateChange: WMPCallbackNotification = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpcnAuthResult: WMPCallbackNotification = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpcnLicenseUpdated: WMPCallbackNotification = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpcnNewCatalogAvailable: WMPCallbackNotification = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpcnNewPluginAvailable: WMPCallbackNotification = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpcnDisableRadioSkipping: WMPCallbackNotification = 6i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WMPContextMenuInfo {
     pub dwID: u32,
@@ -16090,18 +16291,31 @@ impl ::core::default::Default for WMPContextMenuInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPDeviceStatus = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpdsUnknown: WMPDeviceStatus = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpdsPartnershipExists: WMPDeviceStatus = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpdsPartnershipDeclined: WMPDeviceStatus = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpdsPartnershipAnother: WMPDeviceStatus = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpdsManualDevice: WMPDeviceStatus = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpdsNewDevice: WMPDeviceStatus = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpdsLast: WMPDeviceStatus = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPFolderScanState = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpfssUnknown: WMPFolderScanState = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpfssScanning: WMPFolderScanState = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpfssUpdating: WMPFolderScanState = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpfssStopped: WMPFolderScanState = 3i32;
 pub const WMPGC_FLAGS_ALLOW_PREROLL: u32 = 1u32;
 pub const WMPGC_FLAGS_DISABLE_PLUGINS: u32 = 8u32;
@@ -16109,122 +16323,237 @@ pub const WMPGC_FLAGS_IGNORE_AV_SYNC: u32 = 4u32;
 pub const WMPGC_FLAGS_SUPPRESS_DIALOGS: u32 = 2u32;
 pub const WMPGC_FLAGS_USE_CUSTOM_GRAPH: u32 = 16u32;
 pub const WMPLib: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf52a50_394a_11d3_b153_00c04f79faa6);
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPLibraryType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpltUnknown: WMPLibraryType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpltAll: WMPLibraryType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpltLocal: WMPLibraryType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpltRemote: WMPLibraryType = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpltDisc: WMPLibraryType = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpltPortableDevice: WMPLibraryType = 5i32;
 pub const WMPOCXEVENT_BASE: u32 = 6500u32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPOpenState = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposUndefined: WMPOpenState = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposPlaylistChanging: WMPOpenState = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposPlaylistLocating: WMPOpenState = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposPlaylistConnecting: WMPOpenState = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposPlaylistLoading: WMPOpenState = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposPlaylistOpening: WMPOpenState = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposPlaylistOpenNoMedia: WMPOpenState = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposPlaylistChanged: WMPOpenState = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposMediaChanging: WMPOpenState = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposMediaLocating: WMPOpenState = 9i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposMediaConnecting: WMPOpenState = 10i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposMediaLoading: WMPOpenState = 11i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposMediaOpening: WMPOpenState = 12i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposMediaOpen: WMPOpenState = 13i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposBeginCodecAcquisition: WMPOpenState = 14i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposEndCodecAcquisition: WMPOpenState = 15i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposBeginLicenseAcquisition: WMPOpenState = 16i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposEndLicenseAcquisition: WMPOpenState = 17i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposBeginIndividualization: WMPOpenState = 18i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposEndIndividualization: WMPOpenState = 19i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposMediaWaiting: WMPOpenState = 20i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmposOpeningUnknownURL: WMPOpenState = 21i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPPartnerNotification = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsnBackgroundProcessingBegin: WMPPartnerNotification = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsnBackgroundProcessingEnd: WMPPartnerNotification = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsnCatalogDownloadFailure: WMPPartnerNotification = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsnCatalogDownloadComplete: WMPPartnerNotification = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPPlayState = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmppsUndefined: WMPPlayState = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmppsStopped: WMPPlayState = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmppsPaused: WMPPlayState = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmppsPlaying: WMPPlayState = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmppsScanForward: WMPPlayState = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmppsScanReverse: WMPPlayState = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmppsBuffering: WMPPlayState = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmppsWaiting: WMPPlayState = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmppsMediaEnded: WMPPlayState = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmppsTransitioning: WMPPlayState = 9i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmppsReady: WMPPlayState = 10i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmppsReconnecting: WMPPlayState = 11i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmppsLast: WMPPlayState = 12i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPPlaylistChangeEventType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmplcUnknown: WMPPlaylistChangeEventType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmplcClear: WMPPlaylistChangeEventType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmplcInfoChange: WMPPlaylistChangeEventType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmplcMove: WMPPlaylistChangeEventType = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmplcDelete: WMPPlaylistChangeEventType = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmplcInsert: WMPPlaylistChangeEventType = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmplcAppend: WMPPlaylistChangeEventType = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmplcPrivate: WMPPlaylistChangeEventType = 7i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmplcNameChange: WMPPlaylistChangeEventType = 8i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmplcMorph: WMPPlaylistChangeEventType = 9i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmplcSort: WMPPlaylistChangeEventType = 10i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmplcLast: WMPPlaylistChangeEventType = 11i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPPlugin_Caps = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const WMPPlugin_Caps_CannotConvertFormats: WMPPlugin_Caps = 1i32;
 pub const WMPRemoteMediaServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf333473_2cf7_4be2_907f_9aad5661364f);
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPRipState = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmprsUnknown: WMPRipState = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmprsRipping: WMPRipState = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmprsStopped: WMPRipState = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPServices_StreamState = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const WMPServices_StreamState_Stop: WMPServices_StreamState = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const WMPServices_StreamState_Pause: WMPServices_StreamState = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const WMPServices_StreamState_Play: WMPServices_StreamState = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPStreamingType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpstUnknown: WMPStreamingType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpstMusic: WMPStreamingType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpstVideo: WMPStreamingType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpstRadio: WMPStreamingType = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPStringCollectionChangeEventType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsccetUnknown: WMPStringCollectionChangeEventType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsccetInsert: WMPStringCollectionChangeEventType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsccetChange: WMPStringCollectionChangeEventType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsccetDelete: WMPStringCollectionChangeEventType = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsccetClear: WMPStringCollectionChangeEventType = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsccetBeginUpdates: WMPStringCollectionChangeEventType = 5i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsccetEndUpdates: WMPStringCollectionChangeEventType = 6i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPSubscriptionDownloadState = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsdlsDownloading: WMPSubscriptionDownloadState = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsdlsPaused: WMPSubscriptionDownloadState = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsdlsProcessing: WMPSubscriptionDownloadState = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsdlsCompleted: WMPSubscriptionDownloadState = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsdlsCancelled: WMPSubscriptionDownloadState = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPSubscriptionServiceEvent = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsseCurrentBegin: WMPSubscriptionServiceEvent = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsseCurrentEnd: WMPSubscriptionServiceEvent = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsseFullBegin: WMPSubscriptionServiceEvent = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpsseFullEnd: WMPSubscriptionServiceEvent = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPSyncState = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpssUnknown: WMPSyncState = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpssSynchronizing: WMPSyncState = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpssStopped: WMPSyncState = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpssEstimating: WMPSyncState = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpssLast: WMPSyncState = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPTaskType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpttBrowse: WMPTaskType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpttSync: WMPTaskType = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpttBurn: WMPTaskType = 3i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpttCurrent: WMPTaskType = 4i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPTemplateSize = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmptsSmall: WMPTemplateSize = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmptsMedium: WMPTemplateSize = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmptsLarge: WMPTemplateSize = 2i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub type WMPTransactionType = i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpttNoTransaction: WMPTransactionType = 0i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpttDownload: WMPTransactionType = 1i32;
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const wmpttBuy: WMPTransactionType = 2i32;
 pub const WMPUE_EC_USER: u32 = 33024u32;
 pub const WMP_MDRT_FLAGS_UNREPORTED_ADDED_ITEMS: u32 = 2u32;
@@ -16233,6 +16562,7 @@ pub const WMP_PLUGINTYPE_DSP: ::windows::core::GUID = ::windows::core::GUID::fro
 pub const WMP_PLUGINTYPE_DSP_OUTOFPROC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef29b174_c347_44cc_9a4f_2399118ff38c);
 pub const WMP_PLUGINTYPE_RENDERING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8554541_115d_406a_a4c7_51111c330183);
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub struct WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
     pub dwCurrentTransactionID: u32,
     pub dwReturnedObjectCount: u32,
@@ -16262,6 +16592,7 @@ impl ::core::default::Default for WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub struct WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE {
     pub dwChangesSinceTransactionID: u32,
     pub dwResultSetStartingIndex: u32,
@@ -16361,6 +16692,7 @@ pub const WMProfile_V80_BESTVBRVideo: ::windows::core::GUID = ::windows::core::G
 pub const WMProfile_V80_FAIRVBRVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3510a862_5850_4886_835f_d78ec6a64042);
 pub const WMProfile_V80_HIGHVBRVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f10d9d3_3b04_4fb0_a3d3_88d4ac854acc);
 pub const WindowsMediaPlayer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf52a52_394a_11d3_b153_00c04f79faa6);
+#[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 #[repr(transparent)]
 pub struct _WMPOCXEvents(::windows::core::IUnknown);
 impl _WMPOCXEvents {

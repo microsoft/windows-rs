@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_Custom'*"]
 #[repr(transparent)]
 pub struct CustomDevice(::windows::core::IUnknown);
 impl CustomDevice {
@@ -115,6 +116,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cust
 }
 unsafe impl ::core::marker::Send for CustomDevice {}
 unsafe impl ::core::marker::Sync for CustomDevice {}
+#[doc = "*Required features: 'Devices_Custom'*"]
 #[repr(transparent)]
 pub struct DeviceAccessMode(pub i32);
 impl DeviceAccessMode {
@@ -143,6 +145,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceAccessMode {
 impl ::windows::core::DefaultType for DeviceAccessMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Custom'*"]
 #[repr(transparent)]
 pub struct DeviceSharingMode(pub i32);
 impl DeviceSharingMode {
@@ -215,6 +218,7 @@ pub struct ICustomDeviceStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, desiredaccess: DeviceAccessMode, sharingmode: DeviceSharingMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Devices_Custom'*"]
 #[repr(transparent)]
 pub struct IIOControlCode(::windows::core::IUnknown);
 impl IIOControlCode {
@@ -363,6 +367,7 @@ pub struct IKnownDeviceTypesStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Custom'*"]
 #[repr(transparent)]
 pub struct IOControlAccessMode(pub i32);
 impl IOControlAccessMode {
@@ -392,6 +397,7 @@ unsafe impl ::windows::core::RuntimeType for IOControlAccessMode {
 impl ::windows::core::DefaultType for IOControlAccessMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Custom'*"]
 #[repr(transparent)]
 pub struct IOControlBufferingMethod(pub i32);
 impl IOControlBufferingMethod {
@@ -421,6 +427,7 @@ unsafe impl ::windows::core::RuntimeType for IOControlBufferingMethod {
 impl ::windows::core::DefaultType for IOControlBufferingMethod {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Custom'*"]
 #[repr(transparent)]
 pub struct IOControlCode(::windows::core::IUnknown);
 impl IOControlCode {

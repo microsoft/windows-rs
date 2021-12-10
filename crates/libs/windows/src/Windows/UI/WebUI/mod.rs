@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "UI_WebUI_Core")]
 pub mod Core;
+#[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct ActivatedDeferral(::windows::core::IUnknown);
 impl ActivatedDeferral {
@@ -70,6 +71,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct ActivatedEventHandler(pub ::windows::core::IUnknown);
@@ -155,6 +157,7 @@ pub struct ActivatedEventHandlerVtbl(
     #[cfg(feature = "ApplicationModel_Activation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, eventargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Activation"))] usize,
 );
+#[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct ActivatedOperation(::windows::core::IUnknown);
 impl ActivatedOperation {
@@ -227,6 +230,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acti
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct BackgroundActivatedEventArgs(::windows::core::IUnknown);
@@ -346,6 +350,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
 unsafe impl ::core::marker::Send for BackgroundActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::core::marker::Sync for BackgroundActivatedEventArgs {}
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct BackgroundActivatedEventHandler(pub ::windows::core::IUnknown);
@@ -431,6 +436,7 @@ pub struct BackgroundActivatedEventHandlerVtbl(
     #[cfg(feature = "ApplicationModel_Activation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, eventargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Activation"))] usize,
 );
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel'*"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 pub struct EnteredBackgroundEventArgs(::windows::core::IUnknown);
@@ -550,6 +556,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::IEntered
 unsafe impl ::core::marker::Send for EnteredBackgroundEventArgs {}
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::core::marker::Sync for EnteredBackgroundEventArgs {}
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel'*"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 pub struct EnteredBackgroundEventHandler(pub ::windows::core::IUnknown);
@@ -635,6 +642,7 @@ pub struct EnteredBackgroundEventHandlerVtbl(
     #[cfg(feature = "ApplicationModel")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel"))] usize,
 );
+#[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct HtmlPrintDocumentSource(::windows::core::IUnknown);
 impl HtmlPrintDocumentSource {
@@ -879,6 +887,7 @@ pub struct IActivatedDeferralVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct IActivatedEventArgsDeferral(::windows::core::IUnknown);
 impl IActivatedEventArgsDeferral {
@@ -1140,6 +1149,7 @@ pub struct IWebUIActivationStatics4Vtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct IWebUIBackgroundTaskInstance(::windows::core::IUnknown);
 impl IWebUIBackgroundTaskInstance {
@@ -1261,6 +1271,7 @@ pub struct IWebUINavigatedDeferralVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct IWebUINavigatedEventArgs(::windows::core::IUnknown);
 impl IWebUINavigatedEventArgs {
@@ -1408,6 +1419,7 @@ pub struct IWebUIViewStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel'*"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 pub struct LeavingBackgroundEventArgs(::windows::core::IUnknown);
@@ -1527,6 +1539,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::ILeaving
 unsafe impl ::core::marker::Send for LeavingBackgroundEventArgs {}
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::core::marker::Sync for LeavingBackgroundEventArgs {}
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel'*"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 pub struct LeavingBackgroundEventHandler(pub ::windows::core::IUnknown);
@@ -1612,6 +1625,7 @@ pub struct LeavingBackgroundEventHandlerVtbl(
     #[cfg(feature = "ApplicationModel")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel"))] usize,
 );
+#[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct NavigatedEventHandler(pub ::windows::core::IUnknown);
 impl NavigatedEventHandler {
@@ -1680,6 +1694,7 @@ unsafe impl ::windows::core::RuntimeType for NavigatedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct NavigatedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct NewWebUIViewCreatedEventArgs(::windows::core::IUnknown);
 impl NewWebUIViewCreatedEventArgs {
@@ -1775,6 +1790,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NewW
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct PrintContent(pub i32);
 impl PrintContent {
@@ -1804,6 +1820,7 @@ unsafe impl ::windows::core::RuntimeType for PrintContent {
 impl ::windows::core::DefaultType for PrintContent {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct ResumingEventHandler(pub ::windows::core::IUnknown);
 impl ResumingEventHandler {
@@ -1872,6 +1889,7 @@ unsafe impl ::windows::core::RuntimeType for ResumingEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ResumingEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel'*"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 pub struct SuspendingDeferral(::windows::core::IUnknown);
@@ -1984,6 +2002,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::ISuspend
         ::core::convert::TryInto::<super::super::ApplicationModel::ISuspendingDeferral>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel'*"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 pub struct SuspendingEventArgs(::windows::core::IUnknown);
@@ -2099,6 +2118,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::ISuspend
         ::core::convert::TryInto::<super::super::ApplicationModel::ISuspendingEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel'*"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 pub struct SuspendingEventHandler(pub ::windows::core::IUnknown);
@@ -2184,6 +2204,7 @@ pub struct SuspendingEventHandlerVtbl(
     #[cfg(feature = "ApplicationModel")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel"))] usize,
 );
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel'*"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 pub struct SuspendingOperation(::windows::core::IUnknown);
@@ -2434,6 +2455,7 @@ impl WebUIApplication {
 impl ::windows::core::RuntimeName for WebUIApplication {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIApplication";
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIAppointmentsProviderAddAppointmentActivatedEventArgs(::windows::core::IUnknown);
@@ -2700,6 +2722,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs(::windows::core::IUnknown);
@@ -2966,6 +2989,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs(::windows::core::IUnknown);
@@ -3232,6 +3256,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs(::windows::core::IUnknown);
@@ -3514,6 +3539,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs(::windows::core::IUnknown);
@@ -3804,6 +3830,7 @@ impl WebUIBackgroundTaskInstance {
 impl ::windows::core::RuntimeName for WebUIBackgroundTaskInstance {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIBackgroundTaskInstance";
 }
+#[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct WebUIBackgroundTaskInstanceRuntimeClass(::windows::core::IUnknown);
 impl WebUIBackgroundTaskInstanceRuntimeClass {
@@ -3994,6 +4021,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWebUIBackgroundTaskInstance> for &WebUI
         ::core::convert::TryInto::<IWebUIBackgroundTaskInstance>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIBarcodeScannerPreviewActivatedEventArgs(::windows::core::IUnknown);
@@ -4230,6 +4258,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
 unsafe impl ::core::marker::Send for WebUIBarcodeScannerPreviewActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::core::marker::Sync for WebUIBarcodeScannerPreviewActivatedEventArgs {}
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUICachedFileUpdaterActivatedEventArgs(::windows::core::IUnknown);
@@ -4462,6 +4491,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUICameraSettingsActivatedEventArgs(::windows::core::IUnknown);
@@ -4668,6 +4698,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUICommandLineActivatedEventArgs(::windows::core::IUnknown);
@@ -4904,6 +4935,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
 unsafe impl ::core::marker::Send for WebUICommandLineActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::core::marker::Sync for WebUICommandLineActivatedEventArgs {}
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIContactCallActivatedEventArgs(::windows::core::IUnknown);
@@ -5152,6 +5184,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIContactMapActivatedEventArgs(::windows::core::IUnknown);
@@ -5392,6 +5425,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIContactMessageActivatedEventArgs(::windows::core::IUnknown);
@@ -5640,6 +5674,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIContactPanelActivatedEventArgs(::windows::core::IUnknown);
@@ -5884,6 +5919,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
 unsafe impl ::core::marker::Send for WebUIContactPanelActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::core::marker::Sync for WebUIContactPanelActivatedEventArgs {}
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIContactPickerActivatedEventArgs(::windows::core::IUnknown);
@@ -6082,6 +6118,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIContactPostActivatedEventArgs(::windows::core::IUnknown);
@@ -6330,6 +6367,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIContactVideoCallActivatedEventArgs(::windows::core::IUnknown);
@@ -6578,6 +6616,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIDeviceActivatedEventArgs(::windows::core::IUnknown);
@@ -6852,6 +6891,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIDevicePairingActivatedEventArgs(::windows::core::IUnknown);
@@ -7084,6 +7124,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIDialReceiverActivatedEventArgs(::windows::core::IUnknown);
@@ -7392,6 +7433,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIFileActivatedEventArgs(::windows::core::IUnknown);
@@ -7700,6 +7742,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IFileActivatedEventArgsWithNeighboringFiles>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIFileOpenPickerActivatedEventArgs(::windows::core::IUnknown);
@@ -7966,6 +8009,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs2>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'deprecated'*"]
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 #[repr(transparent)]
 pub struct WebUIFileOpenPickerContinuationEventArgs(::windows::core::IUnknown);
@@ -8232,6 +8276,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIFileSavePickerActivatedEventArgs(::windows::core::IUnknown);
@@ -8506,6 +8551,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs2>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'deprecated'*"]
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 #[repr(transparent)]
 pub struct WebUIFileSavePickerContinuationEventArgs(::windows::core::IUnknown);
@@ -8772,6 +8818,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation', 'deprecated'*"]
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 #[repr(transparent)]
 pub struct WebUIFolderPickerContinuationEventArgs(::windows::core::IUnknown);
@@ -9038,6 +9085,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUILaunchActivatedEventArgs(::windows::core::IUnknown);
@@ -9380,6 +9428,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IPrelaunchActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUILockScreenActivatedEventArgs(::windows::core::IUnknown);
@@ -9646,6 +9695,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUILockScreenCallActivatedEventArgs(::windows::core::IUnknown);
@@ -9920,6 +9970,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUILockScreenComponentActivatedEventArgs(::windows::core::IUnknown);
@@ -10084,6 +10135,7 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIL
         ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct WebUINavigatedDeferral(::windows::core::IUnknown);
 impl WebUINavigatedDeferral {
@@ -10153,6 +10205,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebU
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct WebUINavigatedEventArgs(::windows::core::IUnknown);
 impl WebUINavigatedEventArgs {
@@ -10247,6 +10300,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWebUINavigatedEventArgs> for &WebUINavi
         ::core::convert::TryInto::<IWebUINavigatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct WebUINavigatedOperation(::windows::core::IUnknown);
 impl WebUINavigatedOperation {
@@ -10319,6 +10373,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebU
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIPhoneCallActivatedEventArgs(::windows::core::IUnknown);
@@ -10555,6 +10610,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
 unsafe impl ::core::marker::Send for WebUIPhoneCallActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::core::marker::Sync for WebUIPhoneCallActivatedEventArgs {}
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIPrint3DWorkflowActivatedEventArgs(::windows::core::IUnknown);
@@ -10753,6 +10809,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIPrintTaskSettingsActivatedEventArgs(::windows::core::IUnknown);
@@ -10951,6 +11008,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIPrintWorkflowForegroundTaskActivatedEventArgs(::windows::core::IUnknown);
@@ -11115,6 +11173,7 @@ impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsDeferral> for &WebUIP
         ::core::convert::TryInto::<IActivatedEventArgsDeferral>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIProtocolActivatedEventArgs(::windows::core::IUnknown);
@@ -11423,6 +11482,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIProtocolForResultsActivatedEventArgs(::windows::core::IUnknown);
@@ -11765,6 +11825,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIRestrictedLaunchActivatedEventArgs(::windows::core::IUnknown);
@@ -11997,6 +12058,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUISearchActivatedEventArgs(::windows::core::IUnknown);
@@ -12271,6 +12333,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::ISearchActivatedEventArgsWithLinguisticDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIShareTargetActivatedEventArgs(::windows::core::IUnknown);
@@ -12503,6 +12566,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIStartupTaskActivatedEventArgs(::windows::core::IUnknown);
@@ -12739,6 +12803,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
 unsafe impl ::core::marker::Send for WebUIStartupTaskActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::core::marker::Sync for WebUIStartupTaskActivatedEventArgs {}
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIToastNotificationActivatedEventArgs(::windows::core::IUnknown);
@@ -12979,6 +13044,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIUserDataAccountProviderActivatedEventArgs(::windows::core::IUnknown);
@@ -13177,6 +13243,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct WebUIView(::windows::core::IUnknown);
 impl WebUIView {
@@ -13733,6 +13800,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Web::UI::IWebViewControl2>
         ::core::convert::TryInto::<super::super::Web::UI::IWebViewControl2>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIVoiceCommandActivatedEventArgs(::windows::core::IUnknown);
@@ -13965,6 +14033,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIWalletActionActivatedEventArgs(::windows::core::IUnknown);
@@ -14179,6 +14248,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIWebAccountProviderActivatedEventArgs(::windows::core::IUnknown);
@@ -14411,6 +14481,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
         ::core::convert::TryInto::<super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_WebUI', 'ApplicationModel_Activation'*"]
 #[cfg(feature = "ApplicationModel_Activation")]
 #[repr(transparent)]
 pub struct WebUIWebAuthenticationBrokerContinuationEventArgs(::windows::core::IUnknown);

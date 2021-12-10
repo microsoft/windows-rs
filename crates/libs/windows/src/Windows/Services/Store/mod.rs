@@ -956,6 +956,7 @@ pub struct IStoreVideoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreAcquireLicenseResult(::windows::core::IUnknown);
 impl StoreAcquireLicenseResult {
@@ -1037,6 +1038,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreAcquireLicenseResult {}
 unsafe impl ::core::marker::Sync for StoreAcquireLicenseResult {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreAppLicense(::windows::core::IUnknown);
 impl StoreAppLicense {
@@ -1177,6 +1179,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreAppLicense {}
 unsafe impl ::core::marker::Sync for StoreAppLicense {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreAvailability(::windows::core::IUnknown);
 impl StoreAvailability {
@@ -1289,6 +1292,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreAvailability {}
 unsafe impl ::core::marker::Sync for StoreAvailability {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreCanAcquireLicenseResult(::windows::core::IUnknown);
 impl StoreCanAcquireLicenseResult {
@@ -1377,6 +1381,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreCanAcquireLicenseResult {}
 unsafe impl ::core::marker::Sync for StoreCanAcquireLicenseResult {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreCanLicenseStatus(pub i32);
 impl StoreCanLicenseStatus {
@@ -1407,6 +1412,7 @@ unsafe impl ::windows::core::RuntimeType for StoreCanLicenseStatus {
 impl ::windows::core::DefaultType for StoreCanLicenseStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreCollectionData(::windows::core::IUnknown);
 impl StoreCollectionData {
@@ -1534,6 +1540,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreCollectionData {}
 unsafe impl ::core::marker::Sync for StoreCollectionData {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreConsumableResult(::windows::core::IUnknown);
 impl StoreConsumableResult {
@@ -1629,6 +1636,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreConsumableResult {}
 unsafe impl ::core::marker::Sync for StoreConsumableResult {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreConsumableStatus(pub i32);
 impl StoreConsumableStatus {
@@ -1658,6 +1666,7 @@ unsafe impl ::windows::core::RuntimeType for StoreConsumableStatus {
 impl ::windows::core::DefaultType for StoreConsumableStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreContext(::windows::core::IUnknown);
 impl StoreContext {
@@ -2042,6 +2051,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreContext {}
 unsafe impl ::core::marker::Sync for StoreContext {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreDurationUnit(pub i32);
 impl StoreDurationUnit {
@@ -2073,6 +2083,7 @@ unsafe impl ::windows::core::RuntimeType for StoreDurationUnit {
 impl ::windows::core::DefaultType for StoreDurationUnit {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreImage(::windows::core::IUnknown);
 impl StoreImage {
@@ -2176,6 +2187,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreImage {}
 unsafe impl ::core::marker::Sync for StoreImage {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreLicense(::windows::core::IUnknown);
 impl StoreLicense {
@@ -2279,6 +2291,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreLicense {}
 unsafe impl ::core::marker::Sync for StoreLicense {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StorePackageInstallOptions(::windows::core::IUnknown);
 impl StorePackageInstallOptions {
@@ -2364,6 +2377,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorePackageInstallOptions {}
 unsafe impl ::core::marker::Sync for StorePackageInstallOptions {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StorePackageLicense(::windows::core::IUnknown);
 impl StorePackageLicense {
@@ -2494,6 +2508,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for StorePackageLicense {}
 unsafe impl ::core::marker::Sync for StorePackageLicense {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StorePackageUpdate(::windows::core::IUnknown);
 impl StorePackageUpdate {
@@ -2576,6 +2591,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorePackageUpdate {}
 unsafe impl ::core::marker::Sync for StorePackageUpdate {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StorePackageUpdateResult(::windows::core::IUnknown);
 impl StorePackageUpdateResult {
@@ -2666,6 +2682,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorePackageUpdateResult {}
 unsafe impl ::core::marker::Sync for StorePackageUpdateResult {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StorePackageUpdateState(pub i32);
 impl StorePackageUpdateState {
@@ -2701,6 +2718,7 @@ impl ::windows::core::DefaultType for StorePackageUpdateState {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Services_Store'*"]
 pub struct StorePackageUpdateStatus {
     pub PackageFamilyName: ::windows::core::HSTRING,
     pub PackageDownloadSizeInBytes: u64,
@@ -2741,6 +2759,7 @@ impl ::core::default::Default for StorePackageUpdateStatus {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StorePrice(::windows::core::IUnknown);
 impl StorePrice {
@@ -2851,6 +2870,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorePrice {}
 unsafe impl ::core::marker::Sync for StorePrice {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreProduct(::windows::core::IUnknown);
 impl StoreProduct {
@@ -3052,6 +3072,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreProduct {}
 unsafe impl ::core::marker::Sync for StoreProduct {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreProductOptions(::windows::core::IUnknown);
 impl StoreProductOptions {
@@ -3134,6 +3155,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreProductOptions {}
 unsafe impl ::core::marker::Sync for StoreProductOptions {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreProductPagedQueryResult(::windows::core::IUnknown);
 impl StoreProductPagedQueryResult {
@@ -3231,6 +3253,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreProductPagedQueryResult {}
 unsafe impl ::core::marker::Sync for StoreProductPagedQueryResult {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreProductQueryResult(::windows::core::IUnknown);
 impl StoreProductQueryResult {
@@ -3313,6 +3336,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreProductQueryResult {}
 unsafe impl ::core::marker::Sync for StoreProductQueryResult {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreProductResult(::windows::core::IUnknown);
 impl StoreProductResult {
@@ -3394,6 +3418,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreProductResult {}
 unsafe impl ::core::marker::Sync for StoreProductResult {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StorePurchaseProperties(::windows::core::IUnknown);
 impl StorePurchaseProperties {
@@ -3500,6 +3525,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorePurchaseProperties {}
 unsafe impl ::core::marker::Sync for StorePurchaseProperties {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StorePurchaseResult(::windows::core::IUnknown);
 impl StorePurchaseResult {
@@ -3581,6 +3607,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorePurchaseResult {}
 unsafe impl ::core::marker::Sync for StorePurchaseResult {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StorePurchaseStatus(pub i32);
 impl StorePurchaseStatus {
@@ -3611,6 +3638,7 @@ unsafe impl ::windows::core::RuntimeType for StorePurchaseStatus {
 impl ::windows::core::DefaultType for StorePurchaseStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreQueueItem(::windows::core::IUnknown);
 impl StoreQueueItem {
@@ -3756,6 +3784,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreQueueItem {}
 unsafe impl ::core::marker::Sync for StoreQueueItem {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreQueueItemCompletedEventArgs(::windows::core::IUnknown);
 impl StoreQueueItemCompletedEventArgs {
@@ -3830,6 +3859,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreQueueItemCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for StoreQueueItemCompletedEventArgs {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreQueueItemExtendedState(pub i32);
 impl StoreQueueItemExtendedState {
@@ -3870,6 +3900,7 @@ unsafe impl ::windows::core::RuntimeType for StoreQueueItemExtendedState {
 impl ::windows::core::DefaultType for StoreQueueItemExtendedState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreQueueItemKind(pub i32);
 impl StoreQueueItemKind {
@@ -3898,6 +3929,7 @@ unsafe impl ::windows::core::RuntimeType for StoreQueueItemKind {
 impl ::windows::core::DefaultType for StoreQueueItemKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreQueueItemState(pub i32);
 impl StoreQueueItemState {
@@ -3928,6 +3960,7 @@ unsafe impl ::windows::core::RuntimeType for StoreQueueItemState {
 impl ::windows::core::DefaultType for StoreQueueItemState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreQueueItemStatus(::windows::core::IUnknown);
 impl StoreQueueItemStatus {
@@ -4023,6 +4056,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreQueueItemStatus {}
 unsafe impl ::core::marker::Sync for StoreQueueItemStatus {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreRateAndReviewResult(::windows::core::IUnknown);
 impl StoreRateAndReviewResult {
@@ -4118,6 +4152,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreRateAndReviewResult {}
 unsafe impl ::core::marker::Sync for StoreRateAndReviewResult {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreRateAndReviewStatus(pub i32);
 impl StoreRateAndReviewStatus {
@@ -4164,6 +4199,7 @@ impl StoreRequestHelper {
 impl ::windows::core::RuntimeName for StoreRequestHelper {
     const NAME: &'static str = "Windows.Services.Store.StoreRequestHelper";
 }
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreSendRequestResult(::windows::core::IUnknown);
 impl StoreSendRequestResult {
@@ -4253,6 +4289,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreSendRequestResult {}
 unsafe impl ::core::marker::Sync for StoreSendRequestResult {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreSku(::windows::core::IUnknown);
 impl StoreSku {
@@ -4460,6 +4497,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreSku {}
 unsafe impl ::core::marker::Sync for StoreSku {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreSubscriptionInfo(::windows::core::IUnknown);
 impl StoreSubscriptionInfo {
@@ -4562,6 +4600,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreSubscriptionInfo {}
 unsafe impl ::core::marker::Sync for StoreSubscriptionInfo {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreUninstallStorePackageResult(::windows::core::IUnknown);
 impl StoreUninstallStorePackageResult {
@@ -4643,6 +4682,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreUninstallStorePackageResult {}
 unsafe impl ::core::marker::Sync for StoreUninstallStorePackageResult {}
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreUninstallStorePackageStatus(pub i32);
 impl StoreUninstallStorePackageStatus {
@@ -4673,6 +4713,7 @@ unsafe impl ::windows::core::RuntimeType for StoreUninstallStorePackageStatus {
 impl ::windows::core::DefaultType for StoreUninstallStorePackageStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreVideo(::windows::core::IUnknown);
 impl StoreVideo {

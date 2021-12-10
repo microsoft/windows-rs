@@ -1,16 +1,29 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_WinRT_Graphics_Direct2D'*"]
 pub type GRAPHICS_EFFECT_PROPERTY_MAPPING = i32;
+#[doc = "*Required features: 'Win32_System_WinRT_Graphics_Direct2D'*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_UNKNOWN: GRAPHICS_EFFECT_PROPERTY_MAPPING = 0i32;
+#[doc = "*Required features: 'Win32_System_WinRT_Graphics_Direct2D'*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_DIRECT: GRAPHICS_EFFECT_PROPERTY_MAPPING = 1i32;
+#[doc = "*Required features: 'Win32_System_WinRT_Graphics_Direct2D'*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORX: GRAPHICS_EFFECT_PROPERTY_MAPPING = 2i32;
+#[doc = "*Required features: 'Win32_System_WinRT_Graphics_Direct2D'*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORY: GRAPHICS_EFFECT_PROPERTY_MAPPING = 3i32;
+#[doc = "*Required features: 'Win32_System_WinRT_Graphics_Direct2D'*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORZ: GRAPHICS_EFFECT_PROPERTY_MAPPING = 4i32;
+#[doc = "*Required features: 'Win32_System_WinRT_Graphics_Direct2D'*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORW: GRAPHICS_EFFECT_PROPERTY_MAPPING = 5i32;
+#[doc = "*Required features: 'Win32_System_WinRT_Graphics_Direct2D'*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_RECT_TO_VECTOR4: GRAPHICS_EFFECT_PROPERTY_MAPPING = 6i32;
+#[doc = "*Required features: 'Win32_System_WinRT_Graphics_Direct2D'*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_RADIANS_TO_DEGREES: GRAPHICS_EFFECT_PROPERTY_MAPPING = 7i32;
+#[doc = "*Required features: 'Win32_System_WinRT_Graphics_Direct2D'*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_COLORMATRIX_ALPHA_MODE: GRAPHICS_EFFECT_PROPERTY_MAPPING = 8i32;
+#[doc = "*Required features: 'Win32_System_WinRT_Graphics_Direct2D'*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_COLOR_TO_VECTOR3: GRAPHICS_EFFECT_PROPERTY_MAPPING = 9i32;
+#[doc = "*Required features: 'Win32_System_WinRT_Graphics_Direct2D'*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_COLOR_TO_VECTOR4: GRAPHICS_EFFECT_PROPERTY_MAPPING = 10i32;
+#[doc = "*Required features: 'Win32_System_WinRT_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct IGeometrySource2DInterop(::windows::core::IUnknown);
 impl IGeometrySource2DInterop {
@@ -71,6 +84,7 @@ pub struct IGeometrySource2DInteropVtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factory: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_WinRT_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct IGraphicsEffectD2D1Interop(::windows::core::IUnknown);
 impl IGraphicsEffectD2D1Interop {

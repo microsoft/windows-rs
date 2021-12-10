@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 pub type CompositionDebugHeatMaps = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition_Diagnostics'*"]
 #[repr(transparent)]
 pub struct CompositionDebugOverdrawContentKinds(pub u32);
 impl CompositionDebugOverdrawContentKinds {

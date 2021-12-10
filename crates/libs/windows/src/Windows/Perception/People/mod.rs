@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Perception_People'*"]
 #[repr(transparent)]
 pub struct EyesPose(::windows::core::IUnknown);
 impl EyesPose {
@@ -105,6 +106,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Eyes
 }
 unsafe impl ::core::marker::Send for EyesPose {}
 unsafe impl ::core::marker::Sync for EyesPose {}
+#[doc = "*Required features: 'Perception_People'*"]
 #[repr(transparent)]
 pub struct HandJointKind(pub i32);
 impl HandJointKind {
@@ -156,6 +158,7 @@ unsafe impl ::windows::core::RuntimeType for HandJointKind {
 impl ::windows::core::DefaultType for HandJointKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Perception_People'*"]
 #[repr(transparent)]
 pub struct HandMeshObserver(::windows::core::IUnknown);
 impl HandMeshObserver {
@@ -278,6 +281,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hand
 unsafe impl ::core::marker::Send for HandMeshObserver {}
 unsafe impl ::core::marker::Sync for HandMeshObserver {}
 #[repr(C)]
+#[doc = "*Required features: 'Perception_People', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct HandMeshVertex {
     pub Position: super::super::Foundation::Numerics::Vector3,
@@ -317,6 +321,7 @@ impl ::core::default::Default for HandMeshVertex {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Perception_People'*"]
 #[repr(transparent)]
 pub struct HandMeshVertexState(::windows::core::IUnknown);
 impl HandMeshVertexState {
@@ -404,6 +409,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hand
 }
 unsafe impl ::core::marker::Send for HandMeshVertexState {}
 unsafe impl ::core::marker::Sync for HandMeshVertexState {}
+#[doc = "*Required features: 'Perception_People'*"]
 #[repr(transparent)]
 pub struct HandPose(::windows::core::IUnknown);
 impl HandPose {
@@ -500,6 +506,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hand
 }
 unsafe impl ::core::marker::Send for HandPose {}
 unsafe impl ::core::marker::Sync for HandPose {}
+#[doc = "*Required features: 'Perception_People'*"]
 #[repr(transparent)]
 pub struct HeadPose(::windows::core::IUnknown);
 impl HeadPose {
@@ -729,6 +736,7 @@ pub struct IHeadPoseVtbl(
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
 #[repr(C)]
+#[doc = "*Required features: 'Perception_People', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct JointPose {
     pub Orientation: super::super::Foundation::Numerics::Quaternion,
@@ -770,6 +778,7 @@ impl ::core::default::Default for JointPose {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Perception_People'*"]
 #[repr(transparent)]
 pub struct JointPoseAccuracy(pub i32);
 impl JointPoseAccuracy {

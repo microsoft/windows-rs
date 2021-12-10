@@ -375,6 +375,7 @@ pub struct IPrintSchemaVtbl(
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deltaticket: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
+#[doc = "*Required features: 'Devices_Printers'*"]
 #[repr(transparent)]
 pub struct IppAttributeError(::windows::core::IUnknown);
 impl IppAttributeError {
@@ -464,6 +465,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IppA
 }
 unsafe impl ::core::marker::Send for IppAttributeError {}
 unsafe impl ::core::marker::Sync for IppAttributeError {}
+#[doc = "*Required features: 'Devices_Printers'*"]
 #[repr(transparent)]
 pub struct IppAttributeErrorReason(pub i32);
 impl IppAttributeErrorReason {
@@ -494,6 +496,7 @@ unsafe impl ::windows::core::RuntimeType for IppAttributeErrorReason {
 impl ::windows::core::DefaultType for IppAttributeErrorReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Printers'*"]
 #[repr(transparent)]
 pub struct IppAttributeValue(::windows::core::IUnknown);
 impl IppAttributeValue {
@@ -972,6 +975,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IppA
 }
 unsafe impl ::core::marker::Send for IppAttributeValue {}
 unsafe impl ::core::marker::Sync for IppAttributeValue {}
+#[doc = "*Required features: 'Devices_Printers'*"]
 #[repr(transparent)]
 pub struct IppAttributeValueKind(pub i32);
 impl IppAttributeValueKind {
@@ -1018,6 +1022,7 @@ unsafe impl ::windows::core::RuntimeType for IppAttributeValueKind {
 impl ::windows::core::DefaultType for IppAttributeValueKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Printers'*"]
 #[repr(transparent)]
 pub struct IppIntegerRange(::windows::core::IUnknown);
 impl IppIntegerRange {
@@ -1109,6 +1114,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IppI
 }
 unsafe impl ::core::marker::Send for IppIntegerRange {}
 unsafe impl ::core::marker::Sync for IppIntegerRange {}
+#[doc = "*Required features: 'Devices_Printers'*"]
 #[repr(transparent)]
 pub struct IppPrintDevice(::windows::core::IUnknown);
 impl IppPrintDevice {
@@ -1223,6 +1229,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IppP
 }
 unsafe impl ::core::marker::Send for IppPrintDevice {}
 unsafe impl ::core::marker::Sync for IppPrintDevice {}
+#[doc = "*Required features: 'Devices_Printers'*"]
 #[repr(transparent)]
 pub struct IppResolution(::windows::core::IUnknown);
 impl IppResolution {
@@ -1321,6 +1328,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IppR
 }
 unsafe impl ::core::marker::Send for IppResolution {}
 unsafe impl ::core::marker::Sync for IppResolution {}
+#[doc = "*Required features: 'Devices_Printers'*"]
 #[repr(transparent)]
 pub struct IppResolutionUnit(pub i32);
 impl IppResolutionUnit {
@@ -1348,6 +1356,7 @@ unsafe impl ::windows::core::RuntimeType for IppResolutionUnit {
 impl ::windows::core::DefaultType for IppResolutionUnit {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Printers'*"]
 #[repr(transparent)]
 pub struct IppSetAttributesResult(::windows::core::IUnknown);
 impl IppSetAttributesResult {
@@ -1430,6 +1439,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IppS
 }
 unsafe impl ::core::marker::Send for IppSetAttributesResult {}
 unsafe impl ::core::marker::Sync for IppSetAttributesResult {}
+#[doc = "*Required features: 'Devices_Printers'*"]
 #[repr(transparent)]
 pub struct IppTextWithLanguage(::windows::core::IUnknown);
 impl IppTextWithLanguage {
@@ -1521,6 +1531,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IppT
 }
 unsafe impl ::core::marker::Send for IppTextWithLanguage {}
 unsafe impl ::core::marker::Sync for IppTextWithLanguage {}
+#[doc = "*Required features: 'Devices_Printers'*"]
 #[repr(transparent)]
 pub struct Print3DDevice(::windows::core::IUnknown);
 impl Print3DDevice {
@@ -1612,6 +1623,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Print3DDevice {}
 unsafe impl ::core::marker::Sync for Print3DDevice {}
+#[doc = "*Required features: 'Devices_Printers'*"]
 #[repr(transparent)]
 pub struct PrintSchema(::windows::core::IUnknown);
 impl PrintSchema {

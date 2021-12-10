@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Input_Inking_Core'*"]
 #[repr(transparent)]
 pub struct CoreIncrementalInkStroke(::windows::core::IUnknown);
 impl CoreIncrementalInkStroke {
@@ -115,6 +116,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreIncrementalInkStroke {}
 unsafe impl ::core::marker::Sync for CoreIncrementalInkStroke {}
+#[doc = "*Required features: 'UI_Input_Inking_Core'*"]
 #[repr(transparent)]
 pub struct CoreInkIndependentInputSource(::windows::core::IUnknown);
 impl CoreInkIndependentInputSource {
@@ -303,6 +305,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreInkIndependentInputSource {}
 unsafe impl ::core::marker::Sync for CoreInkIndependentInputSource {}
+#[doc = "*Required features: 'UI_Input_Inking_Core'*"]
 #[repr(transparent)]
 pub struct CoreInkPresenterHost(::windows::core::IUnknown);
 impl CoreInkPresenterHost {
@@ -397,6 +400,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreInkPresenterHost {}
 unsafe impl ::core::marker::Sync for CoreInkPresenterHost {}
+#[doc = "*Required features: 'UI_Input_Inking_Core'*"]
 #[repr(transparent)]
 pub struct CoreWetStrokeDisposition(pub i32);
 impl CoreWetStrokeDisposition {
@@ -425,6 +429,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWetStrokeDisposition {
 impl ::windows::core::DefaultType for CoreWetStrokeDisposition {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Inking_Core'*"]
 #[repr(transparent)]
 pub struct CoreWetStrokeUpdateEventArgs(::windows::core::IUnknown);
 impl CoreWetStrokeUpdateEventArgs {
@@ -518,6 +523,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreWetStrokeUpdateEventArgs {}
 unsafe impl ::core::marker::Sync for CoreWetStrokeUpdateEventArgs {}
+#[doc = "*Required features: 'UI_Input_Inking_Core'*"]
 #[repr(transparent)]
 pub struct CoreWetStrokeUpdateSource(::windows::core::IUnknown);
 impl CoreWetStrokeUpdateSource {

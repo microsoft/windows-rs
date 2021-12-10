@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 pub type AppListEntry = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Core'*"]
 #[repr(transparent)]
 pub struct AppRestartFailureReason(pub i32);
 impl AppRestartFailureReason {

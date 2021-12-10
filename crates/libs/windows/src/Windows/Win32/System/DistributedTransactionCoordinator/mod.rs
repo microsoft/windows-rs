@@ -1,12 +1,20 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type APPLICATIONTYPE = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const LOCAL_APPLICATIONTYPE: APPLICATIONTYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const CLUSTERRESOURCE_APPLICATIONTYPE: APPLICATIONTYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type AUTHENTICATION_LEVEL = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const NO_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = 0i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const INCOMING_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = 1i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const MUTUAL_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub struct BOID {
     pub rgb: [u8; 16],
 }
@@ -34,26 +42,42 @@ pub const CLSID_MSDtcTransaction: ::windows::core::GUID = ::windows::core::GUID:
 pub const CLSID_MSDtcTransactionManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b18ab61_091d_11d1_97df_00c04fb9618a);
 pub const DTCINSTALL_E_CLIENT_ALREADY_INSTALLED: i32 = 384i32;
 pub const DTCINSTALL_E_SERVER_ALREADY_INSTALLED: i32 = 385i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DTC_GET_TRANSACTION_MANAGER = ::core::option::Option<unsafe extern "system" fn(pszhost: super::super::Foundation::PSTR, psztmname: super::super::Foundation::PSTR, rid: *const ::windows::core::GUID, dwreserved1: u32, wcbreserved2: u16, pvreserved2: *mut ::core::ffi::c_void, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DTC_GET_TRANSACTION_MANAGER_EX_A = ::core::option::Option<unsafe extern "system" fn(i_pszhost: super::super::Foundation::PSTR, i_psztmname: super::super::Foundation::PSTR, i_riid: *const ::windows::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DTC_GET_TRANSACTION_MANAGER_EX_W = ::core::option::Option<unsafe extern "system" fn(i_pwszhost: super::super::Foundation::PWSTR, i_pwsztmname: super::super::Foundation::PWSTR, i_riid: *const ::windows::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type DTC_INSTALL_CLIENT = ::core::option::Option<unsafe extern "system" fn(i_pszremotetmhostname: *mut i8, i_dwprotocol: u32, i_dwoverwrite: u32) -> ::windows::core::HRESULT>;
 pub const DTC_INSTALL_OVERWRITE_CLIENT: u32 = 1u32;
 pub const DTC_INSTALL_OVERWRITE_SERVER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type DTC_STATUS_ = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTC_STATUS_UNKNOWN: DTC_STATUS_ = 0i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTC_STATUS_STARTING: DTC_STATUS_ = 1i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTC_STATUS_STARTED: DTC_STATUS_ = 2i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTC_STATUS_PAUSING: DTC_STATUS_ = 3i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTC_STATUS_PAUSED: DTC_STATUS_ = 4i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTC_STATUS_CONTINUING: DTC_STATUS_ = 5i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTC_STATUS_STOPPING: DTC_STATUS_ = 6i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTC_STATUS_STOPPED: DTC_STATUS_ = 7i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTC_STATUS_E_CANTCONTROL: DTC_STATUS_ = 8i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTC_STATUS_FAILED: DTC_STATUS_ = 9i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DtcGetTransactionManager<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(i_pszhost: Param0, i_psztmname: Param1, i_riid: *const ::windows::core::GUID, i_dwreserved1: u32, i_wcbreserved2: u16, i_pvreserved2: *const ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -68,6 +92,7 @@ pub unsafe fn DtcGetTransactionManager<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DtcGetTransactionManagerC<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(i_pszhost: Param0, i_psztmname: Param1, i_riid: *const ::windows::core::GUID, i_dwreserved1: u32, i_wcbreserved2: u16, i_pvreserved2: *const ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -82,6 +107,7 @@ pub unsafe fn DtcGetTransactionManagerC<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DtcGetTransactionManagerExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(i_pszhost: Param0, i_psztmname: Param1, i_riid: *const ::windows::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -96,6 +122,7 @@ pub unsafe fn DtcGetTransactionManagerExA<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DtcGetTransactionManagerExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(i_pwszhost: Param0, i_pwsztmname: Param1, i_riid: *const ::windows::core::GUID, i_grfoptions: u32, i_pvconfigparams: *mut ::core::ffi::c_void, o_ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -110,6 +137,7 @@ pub unsafe fn DtcGetTransactionManagerExW<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcLuConfigure(::windows::core::IUnknown);
 impl IDtcLuConfigure {
@@ -164,6 +192,7 @@ pub struct IDtcLuConfigureVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puclupair: *const u8, cblupair: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puclupair: *const u8, cblupair: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcLuRecovery(::windows::core::IUnknown);
 impl IDtcLuRecovery {}
@@ -205,6 +234,7 @@ unsafe impl ::windows::core::Interface for IDtcLuRecovery {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDtcLuRecoveryVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcLuRecoveryFactory(::windows::core::IUnknown);
 impl IDtcLuRecoveryFactory {
@@ -251,6 +281,7 @@ unsafe impl ::windows::core::Interface for IDtcLuRecoveryFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDtcLuRecoveryFactoryVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puclupair: *const u8, cblupair: u32, pprecovery: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcLuRecoveryInitiatedByDtc(::windows::core::IUnknown);
 impl IDtcLuRecoveryInitiatedByDtc {
@@ -296,6 +327,7 @@ unsafe impl ::windows::core::Interface for IDtcLuRecoveryInitiatedByDtc {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDtcLuRecoveryInitiatedByDtcVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwork: *mut _DtcLu_LocalRecovery_Work, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcLuRecoveryInitiatedByDtcStatusWork(::windows::core::IUnknown);
 impl IDtcLuRecoveryInitiatedByDtcStatusWork {
@@ -341,6 +373,7 @@ unsafe impl ::windows::core::Interface for IDtcLuRecoveryInitiatedByDtcStatusWor
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDtcLuRecoveryInitiatedByDtcStatusWorkVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lrecoveryseqnum: i32) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcLuRecoveryInitiatedByDtcTransWork(::windows::core::IUnknown);
 impl IDtcLuRecoveryInitiatedByDtcTransWork {
@@ -441,6 +474,7 @@ pub struct IDtcLuRecoveryInitiatedByDtcTransWorkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plrecoveryseqnum: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnewrecoveryseqnum: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcLuRecoveryInitiatedByLu(::windows::core::IUnknown);
 impl IDtcLuRecoveryInitiatedByLu {
@@ -487,6 +521,7 @@ unsafe impl ::windows::core::Interface for IDtcLuRecoveryInitiatedByLu {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDtcLuRecoveryInitiatedByLuVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwork: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcLuRecoveryInitiatedByLuWork(::windows::core::IUnknown);
 impl IDtcLuRecoveryInitiatedByLuWork {
@@ -565,6 +600,7 @@ pub struct IDtcLuRecoveryInitiatedByLuWorkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, error: _DtcLu_CompareStates_Error) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcLuRmEnlistment(::windows::core::IUnknown);
 impl IDtcLuRmEnlistment {
@@ -637,6 +673,7 @@ pub struct IDtcLuRmEnlistmentVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcLuRmEnlistmentFactory(::windows::core::IUnknown);
 impl IDtcLuRmEnlistmentFactory {
@@ -687,6 +724,7 @@ pub struct IDtcLuRmEnlistmentFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puclupair: *mut u8, cblupair: u32, pitransaction: ::windows::core::RawPtr, ptransid: *mut u8, cbtransid: u32, prmenlistmentsink: ::windows::core::RawPtr, pprmenlistment: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcLuRmEnlistmentSink(::windows::core::IUnknown);
 impl IDtcLuRmEnlistmentSink {
@@ -769,6 +807,7 @@ pub struct IDtcLuRmEnlistmentSinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcLuSubordinateDtc(::windows::core::IUnknown);
 impl IDtcLuSubordinateDtc {
@@ -845,6 +884,7 @@ pub struct IDtcLuSubordinateDtcVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcLuSubordinateDtcFactory(::windows::core::IUnknown);
 impl IDtcLuSubordinateDtcFactory {
@@ -895,6 +935,7 @@ pub struct IDtcLuSubordinateDtcFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puclupair: *mut u8, cblupair: u32, punktransactionouter: *mut ::core::ffi::c_void, isolevel: i32, isoflags: u32, poptions: ::windows::core::RawPtr, pptransaction: *mut ::windows::core::RawPtr, ptransid: *mut u8, cbtransid: u32, psubordinatedtcsink: ::windows::core::RawPtr, ppsubordinatedtc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcLuSubordinateDtcSink(::windows::core::IUnknown);
 impl IDtcLuSubordinateDtcSink {
@@ -973,6 +1014,7 @@ pub struct IDtcLuSubordinateDtcSinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcNetworkAccessConfig(::windows::core::IUnknown);
 impl IDtcNetworkAccessConfig {
@@ -1101,6 +1143,7 @@ pub struct IDtcNetworkAccessConfigVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcNetworkAccessConfig2(::windows::core::IUnknown);
 impl IDtcNetworkAccessConfig2 {
@@ -1284,6 +1327,7 @@ pub struct IDtcNetworkAccessConfig2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pauthlevel: *mut AUTHENTICATION_LEVEL) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, authlevel: AUTHENTICATION_LEVEL) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcNetworkAccessConfig3(::windows::core::IUnknown);
 impl IDtcNetworkAccessConfig3 {
@@ -1500,6 +1544,7 @@ pub struct IDtcNetworkAccessConfig3Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bluaccess: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcToXaHelper(::windows::core::IUnknown);
 impl IDtcToXaHelper {
@@ -1559,6 +1604,7 @@ pub struct IDtcToXaHelperVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitransaction: ::windows::core::RawPtr, pguidbqual: *const ::windows::core::GUID, pxid: *mut xid_t) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcToXaHelperFactory(::windows::core::IUnknown);
 impl IDtcToXaHelperFactory {
@@ -1611,6 +1657,7 @@ pub struct IDtcToXaHelperFactoryVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdsn: super::super::Foundation::PSTR, pszclientdllname: super::super::Foundation::PSTR, pguidrm: *mut ::windows::core::GUID, ppxahelper: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcToXaHelperSinglePipe(::windows::core::IUnknown);
 impl IDtcToXaHelperSinglePipe {
@@ -1680,6 +1727,7 @@ pub struct IDtcToXaHelperSinglePipeVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i_dwrmcookie: u32, i_fnormal: super::super::Foundation::BOOL),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IDtcToXaMapper(::windows::core::IUnknown);
 impl IDtcToXaMapper {
@@ -1746,6 +1794,7 @@ pub struct IDtcToXaMapperVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrmcookie: u32, pdwitransaction: *const u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrmcookie: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IGetDispenser(::windows::core::IUnknown);
 impl IGetDispenser {
@@ -1791,6 +1840,7 @@ unsafe impl ::windows::core::Interface for IGetDispenser {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetDispenserVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IKernelTransaction(::windows::core::IUnknown);
 impl IKernelTransaction {
@@ -1844,6 +1894,7 @@ pub struct IKernelTransactionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ILastResourceManager(::windows::core::IUnknown);
 impl ILastResourceManager {
@@ -1898,6 +1949,7 @@ pub struct ILastResourceManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprepinfo: *const u8, cbprepinfo: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IPrepareInfo(::windows::core::IUnknown);
 impl IPrepareInfo {
@@ -1952,6 +2004,7 @@ pub struct IPrepareInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbprepinfo: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprepinfo: *mut u8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IPrepareInfo2(::windows::core::IUnknown);
 impl IPrepareInfo2 {
@@ -2007,6 +2060,7 @@ pub struct IPrepareInfo2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbprepinfo: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbprepareinfo: u32, pprepinfo: *mut u8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IRMHelper(::windows::core::IUnknown);
 impl IRMHelper {
@@ -2063,6 +2117,7 @@ pub struct IRMHelperVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxa_switch: *mut xa_switch_t, fcdeclcallingconv: super::super::Foundation::BOOL, pszopenstring: super::super::Foundation::PSTR, pszclosestring: super::super::Foundation::PSTR, guidrmrecovery: ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IResourceManager(::windows::core::IUnknown);
 impl IResourceManager {
@@ -2126,6 +2181,7 @@ pub struct IResourceManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IResourceManager2(::windows::core::IUnknown);
 impl IResourceManager2 {
@@ -2222,6 +2278,7 @@ pub struct IResourceManager2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pxid: *const xid_t, dwtimeout: u32, pxactstat: *mut XACTSTAT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IResourceManagerFactory(::windows::core::IUnknown);
 impl IResourceManagerFactory {
@@ -2275,6 +2332,7 @@ pub struct IResourceManagerFactoryVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidrm: *const ::windows::core::GUID, pszrmname: super::super::Foundation::PSTR, piresmgrsink: ::windows::core::RawPtr, ppresmgr: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IResourceManagerFactory2(::windows::core::IUnknown);
 impl IResourceManagerFactory2 {
@@ -2354,6 +2412,7 @@ pub struct IResourceManagerFactory2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidrm: *const ::windows::core::GUID, pszrmname: super::super::Foundation::PSTR, piresmgrsink: ::windows::core::RawPtr, riidrequested: *const ::windows::core::GUID, ppvresmgr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IResourceManagerRejoinable(::windows::core::IUnknown);
 impl IResourceManagerRejoinable {
@@ -2475,6 +2534,7 @@ pub struct IResourceManagerRejoinableVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32, pxactstat: *mut XACTSTAT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IResourceManagerSink(::windows::core::IUnknown);
 impl IResourceManagerSink {
@@ -2520,28 +2580,51 @@ unsafe impl ::windows::core::Interface for IResourceManagerSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IResourceManagerSinkVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type ISOFLAG = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOFLAG_RETAIN_COMMIT_DC: ISOFLAG = 1i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOFLAG_RETAIN_COMMIT: ISOFLAG = 2i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOFLAG_RETAIN_COMMIT_NO: ISOFLAG = 3i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOFLAG_RETAIN_ABORT_DC: ISOFLAG = 4i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOFLAG_RETAIN_ABORT: ISOFLAG = 8i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOFLAG_RETAIN_ABORT_NO: ISOFLAG = 12i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOFLAG_RETAIN_DONTCARE: ISOFLAG = 5i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOFLAG_RETAIN_BOTH: ISOFLAG = 10i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOFLAG_RETAIN_NONE: ISOFLAG = 15i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOFLAG_OPTIMISTIC: ISOFLAG = 16i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOFLAG_READONLY: ISOFLAG = 32i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type ISOLATIONLEVEL = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOLATIONLEVEL_UNSPECIFIED: ISOLATIONLEVEL = -1i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOLATIONLEVEL_CHAOS: ISOLATIONLEVEL = 16i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOLATIONLEVEL_READUNCOMMITTED: ISOLATIONLEVEL = 256i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOLATIONLEVEL_BROWSE: ISOLATIONLEVEL = 256i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOLATIONLEVEL_CURSORSTABILITY: ISOLATIONLEVEL = 4096i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOLATIONLEVEL_READCOMMITTED: ISOLATIONLEVEL = 4096i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOLATIONLEVEL_REPEATABLEREAD: ISOLATIONLEVEL = 65536i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOLATIONLEVEL_SERIALIZABLE: ISOLATIONLEVEL = 1048576i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const ISOLATIONLEVEL_ISOLATED: ISOLATIONLEVEL = 1048576i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITipHelper(::windows::core::IUnknown);
 impl ITipHelper {
@@ -2603,6 +2686,7 @@ pub struct ITipHelperVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i_psztxurl: *const u8, i_ptippullsink: ::windows::core::RawPtr, o_ppitransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, o_ppszlocaltmurl: *mut *mut u8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITipPullSink(::windows::core::IUnknown);
 impl ITipPullSink {
@@ -2648,6 +2732,7 @@ unsafe impl ::windows::core::Interface for ITipPullSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITipPullSinkVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i_hrpull: ::windows::core::HRESULT) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITipTransaction(::windows::core::IUnknown);
 impl ITipTransaction {
@@ -2708,6 +2793,7 @@ pub struct ITipTransactionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, o_ppszlocaltxurl: *mut super::super::Foundation::PSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITmNodeName(::windows::core::IUnknown);
 impl ITmNodeName {
@@ -2765,6 +2851,7 @@ pub struct ITmNodeNameVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbnodenamebuffersize: u32, pnodenamebuffer: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransaction(::windows::core::IUnknown);
 impl ITransaction {
@@ -2828,6 +2915,7 @@ pub struct ITransactionVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *mut XACTTRANSINFO) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransaction2(::windows::core::IUnknown);
 impl ITransaction2 {
@@ -2941,6 +3029,7 @@ pub struct ITransaction2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppitransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *mut XACTTRANSINFO) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionCloner(::windows::core::IUnknown);
 impl ITransactionCloner {
@@ -3029,6 +3118,7 @@ pub struct ITransactionClonerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *mut XACTTRANSINFO) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppitransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionDispenser(::windows::core::IUnknown);
 impl ITransactionDispenser {
@@ -3085,6 +3175,7 @@ pub struct ITransactionDispenserVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppoptions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, isolevel: i32, isoflags: u32, poptions: ::windows::core::RawPtr, pptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionEnlistmentAsync(::windows::core::IUnknown);
 impl ITransactionEnlistmentAsync {
@@ -3145,6 +3236,7 @@ pub struct ITransactionEnlistmentAsyncVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionExport(::windows::core::IUnknown);
 impl ITransactionExport {
@@ -3200,6 +3292,7 @@ pub struct ITransactionExportVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punktransaction: *mut ::core::ffi::c_void, pcbtransactioncookie: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punktransaction: *mut ::core::ffi::c_void, cbtransactioncookie: u32, rgbtransactioncookie: *mut u8, pcbused: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionExportFactory(::windows::core::IUnknown);
 impl ITransactionExportFactory {
@@ -3256,6 +3349,7 @@ pub struct ITransactionExportFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbwhereabouts: u32, rgbwhereabouts: *const u8, ppexport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionImport(::windows::core::IUnknown);
 impl ITransactionImport {
@@ -3307,6 +3401,7 @@ pub struct ITransactionImportVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbtransactioncookie: u32, rgbtransactioncookie: *const u8, piid: *const ::windows::core::GUID, ppvtransaction: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionImportWhereabouts(::windows::core::IUnknown);
 impl ITransactionImportWhereabouts {
@@ -3362,6 +3457,7 @@ pub struct ITransactionImportWhereaboutsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbwhereabouts: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbwhereabouts: u32, rgbwhereabouts: *mut u8, pcbused: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionLastEnlistmentAsync(::windows::core::IUnknown);
 impl ITransactionLastEnlistmentAsync {
@@ -3407,6 +3503,7 @@ unsafe impl ::windows::core::Interface for ITransactionLastEnlistmentAsync {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransactionLastEnlistmentAsyncVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xactstat: XACTSTAT, pboidreason: *const BOID) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionLastResourceAsync(::windows::core::IUnknown);
 impl ITransactionLastResourceAsync {
@@ -3461,6 +3558,7 @@ pub struct ITransactionLastResourceAsyncVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfrm: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnewuow: *const BOID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionOptions(::windows::core::IUnknown);
 impl ITransactionOptions {
@@ -3515,6 +3613,7 @@ pub struct ITransactionOptionsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poptions: *const XACTOPT) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poptions: *mut XACTOPT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionOutcomeEvents(::windows::core::IUnknown);
 impl ITransactionOutcomeEvents {
@@ -3581,6 +3680,7 @@ pub struct ITransactionOutcomeEventsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdecision: u32, pboidreason: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionPhase0EnlistmentAsync(::windows::core::IUnknown);
 impl ITransactionPhase0EnlistmentAsync {
@@ -3648,6 +3748,7 @@ pub struct ITransactionPhase0EnlistmentAsyncVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppitransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionPhase0Factory(::windows::core::IUnknown);
 impl ITransactionPhase0Factory {
@@ -3699,6 +3800,7 @@ pub struct ITransactionPhase0FactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pphase0notify: ::windows::core::RawPtr, ppphase0enlistment: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionPhase0NotifyAsync(::windows::core::IUnknown);
 impl ITransactionPhase0NotifyAsync {
@@ -3755,6 +3857,7 @@ pub struct ITransactionPhase0NotifyAsyncVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionReceiver(::windows::core::IUnknown);
 impl ITransactionReceiver {
@@ -3819,6 +3922,7 @@ pub struct ITransactionReceiverVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbreturntoken: u32, rgbreturntoken: *mut u8, pcbused: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionReceiverFactory(::windows::core::IUnknown);
 impl ITransactionReceiverFactory {
@@ -3865,6 +3969,7 @@ unsafe impl ::windows::core::Interface for ITransactionReceiverFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransactionReceiverFactoryVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppreceiver: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionResource(::windows::core::IUnknown);
 impl ITransactionResource {
@@ -3931,6 +4036,7 @@ pub struct ITransactionResourceVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionResourceAsync(::windows::core::IUnknown);
 impl ITransactionResourceAsync {
@@ -3997,6 +4103,7 @@ pub struct ITransactionResourceAsyncVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionTransmitter(::windows::core::IUnknown);
 impl ITransactionTransmitter {
@@ -4064,6 +4171,7 @@ pub struct ITransactionTransmitterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbreturntoken: u32, rgbreturntoken: *const u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionTransmitterFactory(::windows::core::IUnknown);
 impl ITransactionTransmitterFactory {
@@ -4110,6 +4218,7 @@ unsafe impl ::windows::core::Interface for ITransactionTransmitterFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransactionTransmitterFactoryVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptransmitter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionVoterBallotAsync2(::windows::core::IUnknown);
 impl ITransactionVoterBallotAsync2 {
@@ -4155,6 +4264,7 @@ unsafe impl ::windows::core::Interface for ITransactionVoterBallotAsync2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITransactionVoterBallotAsync2Vtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT, pboidreason: *const BOID) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionVoterFactory2(::windows::core::IUnknown);
 impl ITransactionVoterFactory2 {
@@ -4206,6 +4316,7 @@ pub struct ITransactionVoterFactory2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: ::windows::core::RawPtr, pvoternotify: ::windows::core::RawPtr, ppvoterballot: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITransactionVoterNotifyAsync2(::windows::core::IUnknown);
 impl ITransactionVoterNotifyAsync2 {
@@ -4296,6 +4407,7 @@ pub struct ITransactionVoterNotifyAsync2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IXAConfig(::windows::core::IUnknown);
 impl IXAConfig {
@@ -4350,6 +4462,7 @@ pub struct IXAConfigVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsidhelperdll: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IXAObtainRMInfo(::windows::core::IUnknown);
 impl IXAObtainRMInfo {
@@ -4395,6 +4508,7 @@ unsafe impl ::windows::core::Interface for IXAObtainRMInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXAObtainRMInfoVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirmhelper: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IXATransLookup(::windows::core::IUnknown);
 impl IXATransLookup {
@@ -4441,6 +4555,7 @@ unsafe impl ::windows::core::Interface for IXATransLookup {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXATransLookupVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptransaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct IXATransLookup2(::windows::core::IUnknown);
 impl IXATransLookup2 {
@@ -4498,6 +4613,7 @@ pub const MAXBQUALSIZE: u32 = 64u32;
 pub const MAXGTRIDSIZE: u32 = 64u32;
 pub const MAXINFOSIZE: u32 = 256u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub struct OLE_TM_CONFIG_PARAMS_V1 {
     pub dwVersion: u32,
     pub dwcConcurrencyHint: u32,
@@ -4523,6 +4639,7 @@ impl ::core::default::Default for OLE_TM_CONFIG_PARAMS_V1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub struct OLE_TM_CONFIG_PARAMS_V2 {
     pub dwVersion: u32,
     pub dwcConcurrencyHint: u32,
@@ -4579,16 +4696,26 @@ pub const TMUSEASYNC: i32 = 4i32;
 pub const TM_JOIN: u32 = 2u32;
 pub const TM_OK: u32 = 0u32;
 pub const TM_RESUME: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type TX_MISC_CONSTANTS = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const MAX_TRAN_DESC: TX_MISC_CONSTANTS = 40i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type XACTCONST = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTCONST_TIMEOUTINFINITE: XACTCONST = 0i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type XACTHEURISTIC = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTHEURISTIC_ABORT: XACTHEURISTIC = 1i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTHEURISTIC_COMMIT: XACTHEURISTIC = 2i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTHEURISTIC_DAMAGE: XACTHEURISTIC = 3i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTHEURISTIC_DANGER: XACTHEURISTIC = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub struct XACTOPT {
     pub ulTimeout: u32,
     pub szDescription: [u8; 40],
@@ -4613,34 +4740,62 @@ impl ::core::default::Default for XACTOPT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type XACTRM = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTRM_OPTIMISTICLASTWINS: XACTRM = 1i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTRM_NOREADONLYPREPARES: XACTRM = 2i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type XACTSTAT = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_NONE: XACTSTAT = 0i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_OPENNORMAL: XACTSTAT = 1i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_OPENREFUSED: XACTSTAT = 2i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_PREPARING: XACTSTAT = 4i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_PREPARED: XACTSTAT = 8i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_PREPARERETAINING: XACTSTAT = 16i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_PREPARERETAINED: XACTSTAT = 32i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_COMMITTING: XACTSTAT = 64i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_COMMITRETAINING: XACTSTAT = 128i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_ABORTING: XACTSTAT = 256i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_ABORTED: XACTSTAT = 512i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_COMMITTED: XACTSTAT = 1024i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_HEURISTIC_ABORT: XACTSTAT = 2048i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_HEURISTIC_COMMIT: XACTSTAT = 4096i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_HEURISTIC_DAMAGE: XACTSTAT = 8192i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_HEURISTIC_DANGER: XACTSTAT = 16384i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_FORCED_ABORT: XACTSTAT = 32768i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_FORCED_COMMIT: XACTSTAT = 65536i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_INDOUBT: XACTSTAT = 131072i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_CLOSED: XACTSTAT = 262144i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_OPEN: XACTSTAT = 3i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_NOTPREPARED: XACTSTAT = 524227i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTSTAT_ALL: XACTSTAT = 524287i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct XACTSTATS {
     pub cOpen: u32,
@@ -4678,14 +4833,22 @@ impl ::core::default::Default for XACTSTATS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type XACTTC = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTTC_NONE: XACTTC = 0i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTTC_SYNC_PHASEONE: XACTTC = 1i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTTC_SYNC_PHASETWO: XACTTC = 2i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTTC_SYNC: XACTTC = 2i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTTC_ASYNC_PHASEONE: XACTTC = 4i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACTTC_ASYNC: XACTTC = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub struct XACTTRANSINFO {
     pub uow: BOID,
     pub isoLevel: i32,
@@ -4715,29 +4878,53 @@ impl ::core::default::Default for XACTTRANSINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type XACT_DTC_CONSTANTS = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_CONNECTION_REQUEST_DENIED: XACT_DTC_CONSTANTS = -2147168000i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_TOOMANY_ENLISTMENTS: XACT_DTC_CONSTANTS = -2147167999i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_DUPLICATE_GUID: XACT_DTC_CONSTANTS = -2147167998i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_NOTSINGLEPHASE: XACT_DTC_CONSTANTS = -2147167997i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_RECOVERYALREADYDONE: XACT_DTC_CONSTANTS = -2147167996i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_PROTOCOL: XACT_DTC_CONSTANTS = -2147167995i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_RM_FAILURE: XACT_DTC_CONSTANTS = -2147167994i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_RECOVERY_FAILED: XACT_DTC_CONSTANTS = -2147167993i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_LU_NOT_FOUND: XACT_DTC_CONSTANTS = -2147167992i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_DUPLICATE_LU: XACT_DTC_CONSTANTS = -2147167991i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_LU_NOT_CONNECTED: XACT_DTC_CONSTANTS = -2147167990i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_DUPLICATE_TRANSID: XACT_DTC_CONSTANTS = -2147167989i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_LU_BUSY: XACT_DTC_CONSTANTS = -2147167988i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_LU_NO_RECOVERY_PROCESS: XACT_DTC_CONSTANTS = -2147167987i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_LU_DOWN: XACT_DTC_CONSTANTS = -2147167986i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_LU_RECOVERING: XACT_DTC_CONSTANTS = -2147167985i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_LU_RECOVERY_MISMATCH: XACT_DTC_CONSTANTS = -2147167984i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_RM_UNAVAILABLE: XACT_DTC_CONSTANTS = -2147167983i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_LRMRECOVERYALREADYDONE: XACT_DTC_CONSTANTS = -2147167982i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_E_NOLASTRESOURCEINTERFACE: XACT_DTC_CONSTANTS = -2147167981i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_S_NONOTIFY: XACT_DTC_CONSTANTS = 315648i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XACT_OK_NONOTIFY: XACT_DTC_CONSTANTS = 315649i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const dwUSER_MS_SQLSERVER: XACT_DTC_CONSTANTS = 65535i32;
 pub const XAER_ASYNC: i32 = -2i32;
 pub const XAER_DUPID: i32 = -8i32;
@@ -4747,15 +4934,20 @@ pub const XAER_OUTSIDE: i32 = -9i32;
 pub const XAER_PROTO: i32 = -6i32;
 pub const XAER_RMERR: i32 = -3i32;
 pub const XAER_RMFAIL: i32 = -7i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type XA_CLOSE_EPT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: i32, param2: i32) -> i32>;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type XA_COMMIT_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32>;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type XA_COMPLETE_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut i32, param1: *mut i32, param2: i32, param3: i32) -> i32>;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type XA_END_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32>;
 pub const XA_FMTID_DTC: u32 = 4478019u32;
 pub const XA_FMTID_DTC_VER1: u32 = 21255235u32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type XA_FORGET_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32>;
 pub const XA_HEURCOM: u32 = 7u32;
@@ -4764,8 +4956,10 @@ pub const XA_HEURMIX: u32 = 5u32;
 pub const XA_HEURRB: u32 = 6u32;
 pub const XA_NOMIGRATE: u32 = 9u32;
 pub const XA_OK: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type XA_OPEN_EPT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: i32, param2: i32) -> i32>;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type XA_PREPARE_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32>;
 pub const XA_RBBASE: u32 = 100u32;
@@ -4779,52 +4973,92 @@ pub const XA_RBROLLBACK: u32 = 100u32;
 pub const XA_RBTIMEOUT: u32 = 106u32;
 pub const XA_RBTRANSIENT: u32 = 107u32;
 pub const XA_RDONLY: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type XA_RECOVER_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32, param3: i32) -> i32>;
 pub const XA_RETRY: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type XA_ROLLBACK_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32>;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type XA_START_EPT = ::core::option::Option<unsafe extern "system" fn(param0: *mut xid_t, param1: i32, param2: i32) -> i32>;
 pub const XA_SWITCH_F_DTC: u32 = 1u32;
 pub const XIDDATASIZE: u32 = 128u32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type _DtcLu_CompareState = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUCOMPARESTATE_COMMITTED: _DtcLu_CompareState = 1i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUCOMPARESTATE_HEURISTICCOMMITTED: _DtcLu_CompareState = 2i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUCOMPARESTATE_HEURISTICMIXED: _DtcLu_CompareState = 3i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUCOMPARESTATE_HEURISTICRESET: _DtcLu_CompareState = 4i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUCOMPARESTATE_INDOUBT: _DtcLu_CompareState = 5i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUCOMPARESTATE_RESET: _DtcLu_CompareState = 6i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type _DtcLu_CompareStates_Confirmation = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUCOMPARESTATESCONFIRMATION_CONFIRM: _DtcLu_CompareStates_Confirmation = 1i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUCOMPARESTATESCONFIRMATION_PROTOCOL: _DtcLu_CompareStates_Confirmation = 2i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type _DtcLu_CompareStates_Error = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUCOMPARESTATESERROR_PROTOCOL: _DtcLu_CompareStates_Error = 1i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type _DtcLu_CompareStates_Response = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUCOMPARESTATESRESPONSE_OK: _DtcLu_CompareStates_Response = 1i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUCOMPARESTATESRESPONSE_PROTOCOL: _DtcLu_CompareStates_Response = 2i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type _DtcLu_LocalRecovery_Work = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCINITIATEDRECOVERYWORK_CHECKLUSTATUS: _DtcLu_LocalRecovery_Work = 1i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCINITIATEDRECOVERYWORK_TRANS: _DtcLu_LocalRecovery_Work = 2i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCINITIATEDRECOVERYWORK_TMDOWN: _DtcLu_LocalRecovery_Work = 3i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type _DtcLu_Xln = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUXLN_COLD: _DtcLu_Xln = 1i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUXLN_WARM: _DtcLu_Xln = 2i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type _DtcLu_Xln_Confirmation = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUXLNCONFIRMATION_CONFIRM: _DtcLu_Xln_Confirmation = 1i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUXLNCONFIRMATION_LOGNAMEMISMATCH: _DtcLu_Xln_Confirmation = 2i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUXLNCONFIRMATION_COLDWARMMISMATCH: _DtcLu_Xln_Confirmation = 3i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUXLNCONFIRMATION_OBSOLETE: _DtcLu_Xln_Confirmation = 4i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type _DtcLu_Xln_Error = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUXLNERROR_PROTOCOL: _DtcLu_Xln_Error = 1i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUXLNERROR_LOGNAMEMISMATCH: _DtcLu_Xln_Error = 2i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUXLNERROR_COLDWARMMISMATCH: _DtcLu_Xln_Error = 3i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub type _DtcLu_Xln_Response = i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUXLNRESPONSE_OK_SENDOURXLNBACK: _DtcLu_Xln_Response = 1i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUXLNRESPONSE_OK_SENDCONFIRMATION: _DtcLu_Xln_Response = 2i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUXLNRESPONSE_LOGNAMEMISMATCH: _DtcLu_Xln_Response = 3i32;
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTCLUXLNRESPONSE_COLDWARMMISMATCH: _DtcLu_Xln_Response = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub struct _ProxyConfigParams {
     pub wcThreadsMax: u16,
 }
@@ -4849,6 +5083,7 @@ impl ::core::default::Default for _ProxyConfigParams {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct xa_switch_t {
     pub name: [super::super::Foundation::CHAR; 32],
@@ -4892,6 +5127,7 @@ impl ::core::default::Default for xa_switch_t {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct xid_t {
     pub formatID: i32,

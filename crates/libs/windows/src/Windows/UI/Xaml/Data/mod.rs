@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct Binding(::windows::core::IUnknown);
 impl Binding {
@@ -237,6 +238,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Binding {
 }
 unsafe impl ::core::marker::Send for Binding {}
 unsafe impl ::core::marker::Sync for Binding {}
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct BindingBase(::windows::core::IUnknown);
 impl BindingBase {
@@ -334,6 +336,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &BindingBas
 }
 unsafe impl ::core::marker::Send for BindingBase {}
 unsafe impl ::core::marker::Sync for BindingBase {}
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct BindingExpression(::windows::core::IUnknown);
 impl BindingExpression {
@@ -439,6 +442,7 @@ impl<'a> ::windows::core::IntoParam<'a, BindingExpressionBase> for &BindingExpre
 }
 unsafe impl ::core::marker::Send for BindingExpression {}
 unsafe impl ::core::marker::Sync for BindingExpression {}
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct BindingExpressionBase(::windows::core::IUnknown);
 impl BindingExpressionBase {}
@@ -505,6 +509,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Bind
 }
 unsafe impl ::core::marker::Send for BindingExpressionBase {}
 unsafe impl ::core::marker::Sync for BindingExpressionBase {}
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct BindingMode(pub i32);
 impl BindingMode {
@@ -533,6 +538,7 @@ unsafe impl ::windows::core::RuntimeType for BindingMode {
 impl ::windows::core::DefaultType for BindingMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct BindingOperations(::windows::core::IUnknown);
 impl BindingOperations {
@@ -607,6 +613,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Bind
 }
 unsafe impl ::core::marker::Send for BindingOperations {}
 unsafe impl ::core::marker::Sync for BindingOperations {}
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct CollectionViewSource(::windows::core::IUnknown);
 impl CollectionViewSource {
@@ -769,6 +776,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Collection
 }
 unsafe impl ::core::marker::Send for CollectionViewSource {}
 unsafe impl ::core::marker::Sync for CollectionViewSource {}
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct CurrentChangingEventArgs(::windows::core::IUnknown);
 impl CurrentChangingEventArgs {
@@ -870,6 +878,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Curr
 }
 unsafe impl ::core::marker::Send for CurrentChangingEventArgs {}
 unsafe impl ::core::marker::Sync for CurrentChangingEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct CurrentChangingEventHandler(pub ::windows::core::IUnknown);
 impl CurrentChangingEventHandler {
@@ -1153,6 +1162,7 @@ pub struct IBindingOperationsStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, dp: ::windows::core::RawPtr, binding: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct ICollectionView(::windows::core::IUnknown);
 impl ICollectionView {
@@ -1557,6 +1567,7 @@ pub struct ICollectionViewVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct ICollectionViewFactory(::windows::core::IUnknown);
 impl ICollectionViewFactory {
@@ -1637,6 +1648,7 @@ pub struct ICollectionViewFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct ICollectionViewGroup(::windows::core::IUnknown);
 impl ICollectionViewGroup {
@@ -1811,6 +1823,7 @@ pub struct ICurrentChangingEventArgsFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iscancelable: bool, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct ICustomProperty(::windows::core::IUnknown);
 impl ICustomProperty {
@@ -1943,6 +1956,7 @@ pub struct ICustomPropertyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct ICustomPropertyProvider(::windows::core::IUnknown);
 impl ICustomPropertyProvider {
@@ -2089,6 +2103,7 @@ pub struct IItemIndexRangeFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, firstindex: i32, length: u32, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct IItemsRangeInfo(::windows::core::IUnknown);
 impl IItemsRangeInfo {
@@ -2199,6 +2214,7 @@ pub struct IItemsRangeInfoVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visiblerange: ::windows::core::RawPtr, trackeditems: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct INotifyPropertyChanged(::windows::core::IUnknown);
 impl INotifyPropertyChanged {
@@ -2361,6 +2377,7 @@ pub struct IRelativeSourceFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct ISelectionInfo(::windows::core::IUnknown);
 impl ISelectionInfo {
@@ -2461,6 +2478,7 @@ pub struct ISelectionInfoVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct ISupportIncrementalLoading(::windows::core::IUnknown);
 impl ISupportIncrementalLoading {
@@ -2551,6 +2569,7 @@ pub struct ISupportIncrementalLoadingVtbl(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct IValueConverter(::windows::core::IUnknown);
 impl IValueConverter {
@@ -2643,6 +2662,7 @@ pub struct IValueConverterVtbl(
     #[cfg(feature = "UI_Xaml_Interop")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, targettype: ::core::mem::ManuallyDrop<super::Interop::TypeName>, parameter: *mut ::core::ffi::c_void, language: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Interop"))] usize,
 );
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct ItemIndexRange(::windows::core::IUnknown);
 impl ItemIndexRange {
@@ -2742,6 +2762,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Item
 unsafe impl ::core::marker::Send for ItemIndexRange {}
 unsafe impl ::core::marker::Sync for ItemIndexRange {}
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 pub struct LoadMoreItemsResult {
     pub Count: u32,
 }
@@ -2771,6 +2792,7 @@ impl ::core::default::Default for LoadMoreItemsResult {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct PropertyChangedEventArgs(::windows::core::IUnknown);
 impl PropertyChangedEventArgs {
@@ -2855,6 +2877,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prop
 }
 unsafe impl ::core::marker::Send for PropertyChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PropertyChangedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct PropertyChangedEventHandler(pub ::windows::core::IUnknown);
 impl PropertyChangedEventHandler {
@@ -2923,6 +2946,7 @@ unsafe impl ::windows::core::RuntimeType for PropertyChangedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct PropertyChangedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct RelativeSource(::windows::core::IUnknown);
 impl RelativeSource {
@@ -3031,6 +3055,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &RelativeSo
 }
 unsafe impl ::core::marker::Send for RelativeSource {}
 unsafe impl ::core::marker::Sync for RelativeSource {}
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct RelativeSourceMode(pub i32);
 impl RelativeSourceMode {
@@ -3059,6 +3084,7 @@ unsafe impl ::windows::core::RuntimeType for RelativeSourceMode {
 impl ::windows::core::DefaultType for RelativeSourceMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct UpdateSourceTrigger(pub i32);
 impl UpdateSourceTrigger {

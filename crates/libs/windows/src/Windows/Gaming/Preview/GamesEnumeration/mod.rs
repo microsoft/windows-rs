@@ -74,6 +74,7 @@ impl GameList {
 impl ::windows::core::RuntimeName for GameList {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameList";
 }
+#[doc = "*Required features: 'Gaming_Preview_GamesEnumeration'*"]
 #[repr(transparent)]
 pub struct GameListCategory(pub i32);
 impl GameListCategory {
@@ -102,6 +103,7 @@ unsafe impl ::windows::core::RuntimeType for GameListCategory {
 impl ::windows::core::DefaultType for GameListCategory {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Gaming_Preview_GamesEnumeration'*"]
 #[repr(transparent)]
 pub struct GameListChangedEventHandler(pub ::windows::core::IUnknown);
 impl GameListChangedEventHandler {
@@ -170,6 +172,7 @@ unsafe impl ::windows::core::RuntimeType for GameListChangedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct GameListChangedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, game: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Gaming_Preview_GamesEnumeration'*"]
 #[repr(transparent)]
 pub struct GameListEntry(::windows::core::IUnknown);
 impl GameListEntry {
@@ -358,6 +361,7 @@ impl<'a> ::windows::core::IntoParam<'a, IGameListEntry> for &GameListEntry {
 }
 unsafe impl ::core::marker::Send for GameListEntry {}
 unsafe impl ::core::marker::Sync for GameListEntry {}
+#[doc = "*Required features: 'Gaming_Preview_GamesEnumeration'*"]
 #[repr(transparent)]
 pub struct GameListEntryLaunchableState(pub i32);
 impl GameListEntryLaunchableState {
@@ -387,6 +391,7 @@ unsafe impl ::windows::core::RuntimeType for GameListEntryLaunchableState {
 impl ::windows::core::DefaultType for GameListEntryLaunchableState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Gaming_Preview_GamesEnumeration'*"]
 #[repr(transparent)]
 pub struct GameListRemovedEventHandler(pub ::windows::core::IUnknown);
 impl GameListRemovedEventHandler {
@@ -455,6 +460,7 @@ unsafe impl ::windows::core::RuntimeType for GameListRemovedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct GameListRemovedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, identifier: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Gaming_Preview_GamesEnumeration'*"]
 #[repr(transparent)]
 pub struct GameModeConfiguration(::windows::core::IUnknown);
 impl GameModeConfiguration {
@@ -638,6 +644,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameModeConfiguration {}
 unsafe impl ::core::marker::Sync for GameModeConfiguration {}
+#[doc = "*Required features: 'Gaming_Preview_GamesEnumeration'*"]
 #[repr(transparent)]
 pub struct GameModeUserConfiguration(::windows::core::IUnknown);
 impl GameModeUserConfiguration {
@@ -731,6 +738,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameModeUserConfiguration {}
 unsafe impl ::core::marker::Sync for GameModeUserConfiguration {}
+#[doc = "*Required features: 'Gaming_Preview_GamesEnumeration'*"]
 #[repr(transparent)]
 pub struct IGameListEntry(::windows::core::IUnknown);
 impl IGameListEntry {

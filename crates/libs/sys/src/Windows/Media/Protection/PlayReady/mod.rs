@@ -24,6 +24,7 @@ pub type IPlayReadyLicenseSession = *mut ::core::ffi::c_void;
 pub type IPlayReadyLicenseSession2 = *mut ::core::ffi::c_void;
 pub type IPlayReadySecureStopServiceRequest = *mut ::core::ffi::c_void;
 pub type IPlayReadyServiceRequest = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct NDCertificateFeature(pub i32);
 impl NDCertificateFeature {
@@ -41,6 +42,7 @@ impl ::core::clone::Clone for NDCertificateFeature {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct NDCertificatePlatformID(pub i32);
 impl NDCertificatePlatformID {
@@ -63,6 +65,7 @@ impl ::core::clone::Clone for NDCertificatePlatformID {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct NDCertificateType(pub i32);
 impl NDCertificateType {
@@ -87,6 +90,7 @@ impl ::core::clone::Clone for NDCertificateType {
     }
 }
 pub type NDClient = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct NDClosedCaptionFormat(pub i32);
 impl NDClosedCaptionFormat {
@@ -100,6 +104,7 @@ impl ::core::clone::Clone for NDClosedCaptionFormat {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct NDContentIDType(pub i32);
 impl NDContentIDType {
@@ -116,6 +121,7 @@ impl ::core::clone::Clone for NDContentIDType {
 pub type NDCustomData = *mut ::core::ffi::c_void;
 pub type NDDownloadEngineNotifier = *mut ::core::ffi::c_void;
 pub type NDLicenseFetchDescriptor = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct NDMediaStreamType(pub i32);
 impl NDMediaStreamType {
@@ -128,6 +134,7 @@ impl ::core::clone::Clone for NDMediaStreamType {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct NDProximityDetectionType(pub i32);
 impl NDProximityDetectionType {
@@ -141,6 +148,7 @@ impl ::core::clone::Clone for NDProximityDetectionType {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct NDStartAsyncOptions(pub i32);
 impl NDStartAsyncOptions {
@@ -157,6 +165,7 @@ pub type NDStorageFileHelper = *mut ::core::ffi::c_void;
 pub type NDStreamParserNotifier = *mut ::core::ffi::c_void;
 pub type NDTCPMessenger = *mut ::core::ffi::c_void;
 pub type PlayReadyContentHeader = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadyDecryptorSetup(pub i32);
 impl PlayReadyDecryptorSetup {
@@ -174,6 +183,7 @@ pub type PlayReadyDomainIterable = *mut ::core::ffi::c_void;
 pub type PlayReadyDomainIterator = *mut ::core::ffi::c_void;
 pub type PlayReadyDomainJoinServiceRequest = *mut ::core::ffi::c_void;
 pub type PlayReadyDomainLeaveServiceRequest = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadyEncryptionAlgorithm(pub i32);
 impl PlayReadyEncryptionAlgorithm {
@@ -190,6 +200,7 @@ impl ::core::clone::Clone for PlayReadyEncryptionAlgorithm {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadyHardwareDRMFeatures(pub i32);
 impl PlayReadyHardwareDRMFeatures {
@@ -203,6 +214,7 @@ impl ::core::clone::Clone for PlayReadyHardwareDRMFeatures {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadyITADataFormat(pub i32);
 impl PlayReadyITADataFormat {

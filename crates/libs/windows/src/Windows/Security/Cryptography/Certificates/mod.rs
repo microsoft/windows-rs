@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct Certificate(::windows::core::IUnknown);
 impl Certificate {
@@ -248,6 +249,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cert
 }
 unsafe impl ::core::marker::Send for Certificate {}
 unsafe impl ::core::marker::Sync for Certificate {}
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct CertificateChain(::windows::core::IUnknown);
 impl CertificateChain {
@@ -337,6 +339,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cert
 }
 unsafe impl ::core::marker::Send for CertificateChain {}
 unsafe impl ::core::marker::Sync for CertificateChain {}
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct CertificateChainPolicy(pub i32);
 impl CertificateChainPolicy {
@@ -425,6 +428,7 @@ impl CertificateEnrollmentManager {
 impl ::windows::core::RuntimeName for CertificateEnrollmentManager {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateEnrollmentManager";
 }
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct CertificateExtension(::windows::core::IUnknown);
 impl CertificateExtension {
@@ -536,6 +540,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cert
 }
 unsafe impl ::core::marker::Send for CertificateExtension {}
 unsafe impl ::core::marker::Sync for CertificateExtension {}
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct CertificateKeyUsages(::windows::core::IUnknown);
 impl CertificateKeyUsages {
@@ -698,6 +703,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cert
 }
 unsafe impl ::core::marker::Send for CertificateKeyUsages {}
 unsafe impl ::core::marker::Sync for CertificateKeyUsages {}
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct CertificateQuery(::windows::core::IUnknown);
 impl CertificateQuery {
@@ -857,6 +863,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cert
 }
 unsafe impl ::core::marker::Send for CertificateQuery {}
 unsafe impl ::core::marker::Sync for CertificateQuery {}
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct CertificateRequestProperties(::windows::core::IUnknown);
 impl CertificateRequestProperties {
@@ -1141,6 +1148,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cert
 }
 unsafe impl ::core::marker::Send for CertificateRequestProperties {}
 unsafe impl ::core::marker::Sync for CertificateRequestProperties {}
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct CertificateStore(::windows::core::IUnknown);
 impl CertificateStore {
@@ -1275,6 +1283,7 @@ impl CertificateStores {
 impl ::windows::core::RuntimeName for CertificateStores {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateStores";
 }
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct ChainBuildingParameters(::windows::core::IUnknown);
 impl ChainBuildingParameters {
@@ -1422,6 +1431,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chai
 }
 unsafe impl ::core::marker::Send for ChainBuildingParameters {}
 unsafe impl ::core::marker::Sync for ChainBuildingParameters {}
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct ChainValidationParameters(::windows::core::IUnknown);
 impl ChainValidationParameters {
@@ -1520,6 +1530,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chai
 }
 unsafe impl ::core::marker::Send for ChainValidationParameters {}
 unsafe impl ::core::marker::Sync for ChainValidationParameters {}
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct ChainValidationResult(pub i32);
 impl ChainValidationResult {
@@ -1559,6 +1570,7 @@ unsafe impl ::windows::core::RuntimeType for ChainValidationResult {
 impl ::windows::core::DefaultType for ChainValidationResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct CmsAttachedSignature(::windows::core::IUnknown);
 impl CmsAttachedSignature {
@@ -1678,6 +1690,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CmsA
 }
 unsafe impl ::core::marker::Send for CmsAttachedSignature {}
 unsafe impl ::core::marker::Sync for CmsAttachedSignature {}
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct CmsDetachedSignature(::windows::core::IUnknown);
 impl CmsDetachedSignature {
@@ -1791,6 +1804,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CmsD
 }
 unsafe impl ::core::marker::Send for CmsDetachedSignature {}
 unsafe impl ::core::marker::Sync for CmsDetachedSignature {}
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct CmsSignerInfo(::windows::core::IUnknown);
 impl CmsSignerInfo {
@@ -1894,6 +1908,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CmsS
 }
 unsafe impl ::core::marker::Send for CmsSignerInfo {}
 unsafe impl ::core::marker::Sync for CmsSignerInfo {}
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct CmsTimestampInfo(::windows::core::IUnknown);
 impl CmsTimestampInfo {
@@ -1984,6 +1999,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CmsT
 }
 unsafe impl ::core::marker::Send for CmsTimestampInfo {}
 unsafe impl ::core::marker::Sync for CmsTimestampInfo {}
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct EnrollKeyUsages(pub u32);
 impl EnrollKeyUsages {
@@ -2014,6 +2030,7 @@ unsafe impl ::windows::core::RuntimeType for EnrollKeyUsages {
 impl ::windows::core::DefaultType for EnrollKeyUsages {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct ExportOption(pub i32);
 impl ExportOption {
@@ -3036,6 +3053,7 @@ pub struct IUserCertificateStoreVtbl(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct InstallOptions(pub u32);
 impl InstallOptions {
@@ -3171,6 +3189,7 @@ impl KeyAttestationHelper {
 impl ::windows::core::RuntimeName for KeyAttestationHelper {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.KeyAttestationHelper";
 }
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct KeyProtectionLevel(pub i32);
 impl KeyProtectionLevel {
@@ -3200,6 +3219,7 @@ unsafe impl ::windows::core::RuntimeType for KeyProtectionLevel {
 impl ::windows::core::DefaultType for KeyProtectionLevel {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct KeySize(pub i32);
 impl KeySize {
@@ -3266,6 +3286,7 @@ impl KeyStorageProviderNames {
 impl ::windows::core::RuntimeName for KeyStorageProviderNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.KeyStorageProviderNames";
 }
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct PfxImportParameters(::windows::core::IUnknown);
 impl PfxImportParameters {
@@ -3417,6 +3438,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PfxI
 }
 unsafe impl ::core::marker::Send for PfxImportParameters {}
 unsafe impl ::core::marker::Sync for PfxImportParameters {}
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct SignatureValidationResult(pub i32);
 impl SignatureValidationResult {
@@ -3475,6 +3497,7 @@ impl StandardCertificateStoreNames {
 impl ::windows::core::RuntimeName for StandardCertificateStoreNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.StandardCertificateStoreNames";
 }
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct SubjectAlternativeNameInfo(::windows::core::IUnknown);
 impl SubjectAlternativeNameInfo {
@@ -3652,6 +3675,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Subj
 }
 unsafe impl ::core::marker::Send for SubjectAlternativeNameInfo {}
 unsafe impl ::core::marker::Sync for SubjectAlternativeNameInfo {}
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct UserCertificateEnrollmentManager(::windows::core::IUnknown);
 impl UserCertificateEnrollmentManager {
@@ -3759,6 +3783,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserCertificateEnrollmentManager {}
 unsafe impl ::core::marker::Sync for UserCertificateEnrollmentManager {}
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct UserCertificateStore(::windows::core::IUnknown);
 impl UserCertificateStore {

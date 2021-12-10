@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
 pub struct AppInstallItem(::windows::core::IUnknown);
 impl AppInstallItem {
@@ -232,6 +233,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppI
 }
 unsafe impl ::core::marker::Send for AppInstallItem {}
 unsafe impl ::core::marker::Sync for AppInstallItem {}
+#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
 pub struct AppInstallManager(::windows::core::IUnknown);
 impl AppInstallManager {
@@ -666,6 +668,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppI
 }
 unsafe impl ::core::marker::Send for AppInstallManager {}
 unsafe impl ::core::marker::Sync for AppInstallManager {}
+#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
 pub struct AppInstallManagerItemEventArgs(::windows::core::IUnknown);
 impl AppInstallManagerItemEventArgs {
@@ -740,6 +743,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppI
 }
 unsafe impl ::core::marker::Send for AppInstallManagerItemEventArgs {}
 unsafe impl ::core::marker::Sync for AppInstallManagerItemEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
 pub struct AppInstallOptions(::windows::core::IUnknown);
 impl AppInstallOptions {
@@ -981,6 +985,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppI
 }
 unsafe impl ::core::marker::Send for AppInstallOptions {}
 unsafe impl ::core::marker::Sync for AppInstallOptions {}
+#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
 pub struct AppInstallState(pub i32);
 impl AppInstallState {
@@ -1020,6 +1025,7 @@ unsafe impl ::windows::core::RuntimeType for AppInstallState {
 impl ::windows::core::DefaultType for AppInstallState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
 pub struct AppInstallStatus(::windows::core::IUnknown);
 impl AppInstallStatus {
@@ -1144,6 +1150,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppI
 }
 unsafe impl ::core::marker::Send for AppInstallStatus {}
 unsafe impl ::core::marker::Sync for AppInstallStatus {}
+#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
 pub struct AppInstallType(pub i32);
 impl AppInstallType {
@@ -1172,6 +1179,7 @@ unsafe impl ::windows::core::RuntimeType for AppInstallType {
 impl ::windows::core::DefaultType for AppInstallType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
 pub struct AppInstallationToastNotificationMode(pub i32);
 impl AppInstallationToastNotificationMode {
@@ -1201,6 +1209,7 @@ unsafe impl ::windows::core::RuntimeType for AppInstallationToastNotificationMod
 impl ::windows::core::DefaultType for AppInstallationToastNotificationMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
 pub struct AppUpdateOptions(::windows::core::IUnknown);
 impl AppUpdateOptions {
@@ -1308,6 +1317,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppU
 }
 unsafe impl ::core::marker::Send for AppUpdateOptions {}
 unsafe impl ::core::marker::Sync for AppUpdateOptions {}
+#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
 pub struct AutoUpdateSetting(pub i32);
 impl AutoUpdateSetting {
@@ -1337,6 +1347,7 @@ unsafe impl ::windows::core::RuntimeType for AutoUpdateSetting {
 impl ::windows::core::DefaultType for AutoUpdateSetting {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
 pub struct GetEntitlementResult(::windows::core::IUnknown);
 impl GetEntitlementResult {
@@ -1411,6 +1422,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GetE
 }
 unsafe impl ::core::marker::Send for GetEntitlementResult {}
 unsafe impl ::core::marker::Sync for GetEntitlementResult {}
+#[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
 pub struct GetEntitlementStatus(pub i32);
 impl GetEntitlementStatus {

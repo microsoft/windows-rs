@@ -1,71 +1,103 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub fn QOSAddSocketToFlow(qoshandle: super::super::Foundation::HANDLE, socket: super::super::Networking::WinSock::SOCKET, destaddr: *const super::super::Networking::WinSock::SOCKADDR, traffictype: QOS_TRAFFIC_TYPE, flags: u32, flowid: *mut u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn QOSCancel(qoshandle: super::super::Foundation::HANDLE, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn QOSCloseHandle(qoshandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn QOSEnumerateFlows(qoshandle: super::super::Foundation::HANDLE, size: *mut u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn QOSNotifyFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_NOTIFY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn QOSQueryFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub fn QOSRemoveSocketFromFlow(qoshandle: super::super::Foundation::HANDLE, socket: super::super::Networking::WinSock::SOCKET, flowid: u32, flags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation', 'Win32_System_IO'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub fn QOSSetFlow(qoshandle: super::super::Foundation::HANDLE, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const ::core::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub fn QOSStartTrackingClient(qoshandle: super::super::Foundation::HANDLE, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub fn QOSStopTrackingClient(qoshandle: super::super::Foundation::HANDLE, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcAddFilter(flowhandle: super::super::Foundation::HANDLE, pgenericfilter: *const TC_GEN_FILTER, pfilterhandle: *mut super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcAddFlow(ifchandle: super::super::Foundation::HANDLE, clflowctx: super::super::Foundation::HANDLE, flags: u32, pgenericflow: *const TC_GEN_FLOW, pflowhandle: *mut super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcCloseInterface(ifchandle: super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcDeleteFilter(filterhandle: super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcDeleteFlow(flowhandle: super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcDeregisterClient(clienthandle: super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcEnumerateFlows(ifchandle: super::super::Foundation::HANDLE, penumhandle: *mut super::super::Foundation::HANDLE, pflowcount: *mut u32, pbufsize: *mut u32, buffer: *mut ENUMERATION_BUFFER) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
     pub fn TcEnumerateInterfaces(clienthandle: super::super::Foundation::HANDLE, pbuffersize: *mut u32, interfacebuffer: *mut TC_IFC_DESCRIPTOR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcGetFlowNameA(flowhandle: super::super::Foundation::HANDLE, strsize: u32, pflowname: super::super::Foundation::PSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcGetFlowNameW(flowhandle: super::super::Foundation::HANDLE, strsize: u32, pflowname: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcModifyFlow(flowhandle: super::super::Foundation::HANDLE, pgenericflow: *const TC_GEN_FLOW) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcOpenInterfaceA(pinterfacename: super::super::Foundation::PSTR, clienthandle: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, pifchandle: *mut super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcOpenInterfaceW(pinterfacename: super::super::Foundation::PWSTR, clienthandle: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, pifchandle: *mut super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcQueryFlowA(pflowname: super::super::Foundation::PSTR, pguidparam: *const ::windows_sys::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcQueryFlowW(pflowname: super::super::Foundation::PWSTR, pguidparam: *const ::windows_sys::core::GUID, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcQueryInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const ::windows_sys::core::GUID, notifychange: super::super::Foundation::BOOLEAN, pbuffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcRegisterClient(tciversion: u32, clregctx: super::super::Foundation::HANDLE, clienthandlerlist: *const TCI_CLIENT_FUNC_LIST, pclienthandle: *mut super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcSetFlowA(pflowname: super::super::Foundation::PSTR, pguidparam: *const ::windows_sys::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcSetFlowW(pflowname: super::super::Foundation::PWSTR, pguidparam: *const ::windows_sys::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcSetInterface(ifchandle: super::super::Foundation::HANDLE, pguidparam: *const ::windows_sys::core::GUID, buffersize: u32, buffer: *const ::core::ffi::c_void) -> u32;
 }
 pub const ABLE_TO_RECV_RSVP: u32 = 50002u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct ADDRESS_LIST_DESCRIPTOR {
     pub MediaType: u32,
@@ -81,6 +113,7 @@ impl ::core::clone::Clone for ADDRESS_LIST_DESCRIPTOR {
 }
 pub const ADM_CTRL_FAILED: u32 = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct ADSPEC {
     pub adspec_header: RsvpObjHdr,
     pub adspec_body: IS_ADSPEC_BODY,
@@ -93,6 +126,7 @@ impl ::core::clone::Clone for ADSPEC {
 }
 pub const AD_FLAG_BREAK_BIT: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct AD_GENERAL_PARAMS {
     pub IntServAwareHopCount: u32,
     pub PathBandwidthEstimate: u32,
@@ -107,6 +141,7 @@ impl ::core::clone::Clone for AD_GENERAL_PARAMS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct AD_GUARANTEED {
     pub CTotal: u32,
     pub DTotal: u32,
@@ -121,11 +156,14 @@ impl ::core::clone::Clone for AD_GUARANTEED {
 }
 pub const ALLOWED_TO_SEND_DATA: u32 = 50001u32;
 pub const ANY_DEST_ADDR: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub type CBADMITRESULT = ::core::option::Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, ulpcmactionflags: u32, lpmerror: i32, policydecisionscount: i32, ppolicydecisions: *mut policy_decision) -> *mut u32>;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub type CBGETRSVPOBJECTS = ::core::option::Option<unsafe extern "system" fn(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, lpmerror: i32, rsvpobjectscount: i32, pprsvpobjects: *mut *mut RsvpObjHdr) -> *mut u32>;
 pub const CONTROLLED_DELAY_SERV: u32 = 4u32;
 pub const CONTROLLED_LOAD_SERV: u32 = 5u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct CONTROL_SERVICE {
     pub Length: u32,
     pub Service: u32,
@@ -139,6 +177,7 @@ impl ::core::clone::Clone for CONTROL_SERVICE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub union CONTROL_SERVICE_0 {
     pub Guaranteed: AD_GUARANTEED,
     pub ParamBuffer: [PARAM_BUFFER; 1],
@@ -156,6 +195,7 @@ pub const CREDENTIAL_SUB_TYPE_UNICODE_ID: u32 = 2u32;
 pub const CREDENTIAL_SUB_TYPE_X509_V3_CERT: u32 = 4u32;
 pub const CURRENT_TCI_VERSION: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct CtrlLoadFlowspec {
     pub CL_spec_serv_hdr: IntServServiceHdr,
     pub CL_spec_parm_hdr: IntServParmHdr,
@@ -170,6 +210,7 @@ impl ::core::clone::Clone for CtrlLoadFlowspec {
 pub const DUP_RESULTS: u32 = 4u32;
 pub const END_TO_END_QOSABILITY: u32 = 50006u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct ENUMERATION_BUFFER {
     pub Length: u32,
     pub OwnerProcessId: u32,
@@ -204,6 +245,7 @@ pub const ERROR_INVALID_TOKEN_RATE: u32 = 7503u32;
 pub const ERROR_INVALID_TRAFFIC_CLASS: u32 = 7507u32;
 pub const ERROR_NO_MORE_INFO: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct ERROR_SPEC {
     pub errs_header: RsvpObjHdr,
@@ -218,6 +260,7 @@ impl ::core::clone::Clone for ERROR_SPEC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union ERROR_SPEC_0 {
     pub errs_ipv4: Error_Spec_IPv4,
@@ -243,6 +286,7 @@ pub const ERR_Usage_serv: u32 = 17u32;
 pub const ERR_global_mask: u32 = 4095u32;
 pub const EXPIRED_CREDENTIAL: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct Error_Spec_IPv4 {
     pub errs_errnode: super::super::Networking::WinSock::IN_ADDR,
@@ -259,6 +303,7 @@ impl ::core::clone::Clone for Error_Spec_IPv4 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct FILTER_SPEC {
     pub filt_header: RsvpObjHdr,
@@ -273,6 +318,7 @@ impl ::core::clone::Clone for FILTER_SPEC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union FILTER_SPEC_0 {
     pub filt_ipv4: Filter_Spec_IPv4,
@@ -287,6 +333,7 @@ impl ::core::clone::Clone for FILTER_SPEC_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct FLOWDESCRIPTOR {
     pub FlowSpec: FLOWSPEC,
     pub NumFilters: u32,
@@ -299,6 +346,7 @@ impl ::core::clone::Clone for FLOWDESCRIPTOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct FLOWSPEC {
     pub TokenRate: u32,
     pub TokenBucketSize: u32,
@@ -328,14 +376,22 @@ pub const FVEB_UNLOCK_FLAG_PASSPHRASE: u32 = 128u32;
 pub const FVEB_UNLOCK_FLAG_PIN: u32 = 16u32;
 pub const FVEB_UNLOCK_FLAG_RECOVERY: u32 = 64u32;
 pub const FVEB_UNLOCK_FLAG_TPM: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub type FilterType = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const FILTERSPECV4: FilterType = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const FILTERSPECV6: FilterType = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const FILTERSPECV6_FLOW: FilterType = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const FILTERSPECV4_GPI: FilterType = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const FILTERSPECV6_GPI: FilterType = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const FILTERSPEC_END: FilterType = 6i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct Filter_Spec_IPv4 {
     pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
@@ -351,6 +407,7 @@ impl ::core::clone::Clone for Filter_Spec_IPv4 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct Filter_Spec_IPv4GPI {
     pub filt_ipaddr: super::super::Networking::WinSock::IN_ADDR,
@@ -400,6 +457,7 @@ pub const GUID_QOS_REMAINING_BANDWIDTH: ::windows_sys::core::GUID = ::windows_sy
 pub const GUID_QOS_STATISTICS_BUFFER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3140225408, data2: 59648, data3: 4561, data4: [176, 126, 0, 128, 199, 19, 130, 191] };
 pub const GUID_QOS_TIMER_RESOLUTION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3121663112, data2: 61758, data3: 4562, data4: [190, 27, 0, 160, 201, 158, 230, 59] };
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct Gads_parms_t {
     pub Gads_serv_hdr: IntServServiceHdr,
     pub Gads_Ctot_hdr: IntServParmHdr,
@@ -418,6 +476,7 @@ impl ::core::clone::Clone for Gads_parms_t {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct GenAdspecParams {
     pub gen_parm_hdr: IntServServiceHdr,
     pub gen_parm_hopcnt_hdr: IntServParmHdr,
@@ -436,6 +495,7 @@ impl ::core::clone::Clone for GenAdspecParams {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct GenTspec {
     pub gen_Tspec_serv_hdr: IntServServiceHdr,
     pub gen_Tspec_parm_hdr: IntServParmHdr,
@@ -448,6 +508,7 @@ impl ::core::clone::Clone for GenTspec {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct GenTspecParms {
     pub TB_Tspec_r: f32,
     pub TB_Tspec_b: f32,
@@ -462,6 +523,7 @@ impl ::core::clone::Clone for GenTspecParms {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct GuarFlowSpec {
     pub Guar_serv_hdr: IntServServiceHdr,
     pub Guar_Tspec_hdr: IntServParmHdr,
@@ -476,6 +538,7 @@ impl ::core::clone::Clone for GuarFlowSpec {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct GuarRspec {
     pub Guar_R: f32,
     pub Guar_S: u32,
@@ -489,6 +552,7 @@ impl ::core::clone::Clone for GuarRspec {
 pub const HIGHLY_DELAY_SENSITIVE: u32 = 4294967294u32;
 pub const IDENTITY_CHANGED: u32 = 5u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct IDPE_ATTR {
     pub PeAttribLength: u16,
     pub PeAttribType: u8,
@@ -502,6 +566,7 @@ impl ::core::clone::Clone for IDPE_ATTR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct ID_ERROR_OBJECT {
     pub usIdErrLength: u16,
     pub ucAType: u8,
@@ -525,6 +590,7 @@ pub const INV_LPM_HANDLE: u32 = 1u32;
 pub const INV_REQ_HANDLE: u32 = 3u32;
 pub const INV_RESULTS: u32 = 5u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub union IN_ADDR_IPV4 {
     pub Addr: u32,
     pub AddrBytes: [u8; 4],
@@ -536,6 +602,7 @@ impl ::core::clone::Clone for IN_ADDR_IPV4 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct IN_ADDR_IPV6 {
     pub Addr: [u8; 16],
 }
@@ -546,6 +613,7 @@ impl ::core::clone::Clone for IN_ADDR_IPV6 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct IPX_PATTERN {
     pub Src: IPX_PATTERN_0,
     pub Dest: IPX_PATTERN_0,
@@ -557,6 +625,7 @@ impl ::core::clone::Clone for IPX_PATTERN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct IPX_PATTERN_0 {
     pub NetworkAddress: u32,
     pub NodeAddress: [u8; 6],
@@ -572,6 +641,7 @@ pub const IP_INTFC_INFO_ID: u32 = 259u32;
 pub const IP_MIB_ADDRTABLE_ENTRY_ID: u32 = 258u32;
 pub const IP_MIB_STATS_ID: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct IP_PATTERN {
     pub Reserved1: u32,
     pub Reserved2: u32,
@@ -588,6 +658,7 @@ impl ::core::clone::Clone for IP_PATTERN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub union IP_PATTERN_0 {
     pub S_un_ports: IP_PATTERN_0_1,
     pub S_un_icmp: IP_PATTERN_0_0,
@@ -600,6 +671,7 @@ impl ::core::clone::Clone for IP_PATTERN_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct IP_PATTERN_0_0 {
     pub s_type: u8,
     pub s_code: u8,
@@ -612,6 +684,7 @@ impl ::core::clone::Clone for IP_PATTERN_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct IP_PATTERN_0_1 {
     pub s_srcport: u16,
     pub s_dstport: u16,
@@ -625,6 +698,7 @@ impl ::core::clone::Clone for IP_PATTERN_0_1 {
 pub const ISPH_FLG_INV: u32 = 128u32;
 pub const ISSH_BREAK_BIT: u32 = 128u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct IS_ADSPEC_BODY {
     pub adspec_mh: IntServMainHdr,
     pub adspec_genparms: GenAdspecParams,
@@ -636,6 +710,7 @@ impl ::core::clone::Clone for IS_ADSPEC_BODY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct IS_FLOWSPEC {
     pub flow_header: RsvpObjHdr,
     pub flow_body: IntServFlowSpec,
@@ -648,6 +723,7 @@ impl ::core::clone::Clone for IS_FLOWSPEC {
 }
 pub const IS_GUAR_RSPEC: i32 = 130i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct IntServFlowSpec {
     pub spec_mh: IntServMainHdr,
     pub spec_u: IntServFlowSpec_0,
@@ -659,6 +735,7 @@ impl ::core::clone::Clone for IntServFlowSpec {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub union IntServFlowSpec_0 {
     pub CL_spec: CtrlLoadFlowspec,
     pub G_spec: GuarFlowSpec,
@@ -671,6 +748,7 @@ impl ::core::clone::Clone for IntServFlowSpec_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct IntServMainHdr {
     pub ismh_version: u8,
     pub ismh_unused: u8,
@@ -683,6 +761,7 @@ impl ::core::clone::Clone for IntServMainHdr {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct IntServParmHdr {
     pub isph_parm_num: u8,
     pub isph_flags: u8,
@@ -695,6 +774,7 @@ impl ::core::clone::Clone for IntServParmHdr {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct IntServServiceHdr {
     pub issh_service: u8,
     pub issh_flags: u8,
@@ -707,6 +787,7 @@ impl ::core::clone::Clone for IntServServiceHdr {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct IntServTspecBody {
     pub st_mh: IntServMainHdr,
     pub tspec_u: IntServTspecBody_0,
@@ -718,6 +799,7 @@ impl ::core::clone::Clone for IntServTspecBody {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub union IntServTspecBody_0 {
     pub gen_stspec: GenTspec,
     pub qual_stspec: QualTspec,
@@ -734,6 +816,7 @@ pub const LOCAL_TRAFFIC_CONTROL: u32 = 50004u32;
 pub const LPM_API_VERSION_1: u32 = 1u32;
 pub type LPM_HANDLE = isize;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct LPM_INIT_INFO {
     pub PcmVersionNumber: u32,
     pub ResultTimeLimit: u32,
@@ -783,8 +866,10 @@ pub const Opt_Share_mask: u32 = 24u32;
 pub const Opt_Shared: u32 = 16u32;
 pub const Opt_SndSel_mask: u32 = 7u32;
 pub const Opt_Wildcard: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub type PALLOCMEM = ::core::option::Option<unsafe extern "system" fn(size: u32) -> *mut ::core::ffi::c_void>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct PARAM_BUFFER {
     pub ParameterId: u32,
     pub Length: u32,
@@ -800,8 +885,10 @@ pub const PCM_VERSION_1: u32 = 1u32;
 pub const PE_ATTRIB_TYPE_CREDENTIAL: u32 = 2u32;
 pub const PE_ATTRIB_TYPE_POLICY_LOCATOR: u32 = 1u32;
 pub const PE_TYPE_APPID: u32 = 3u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub type PFREEMEM = ::core::option::Option<unsafe extern "system" fn(pv: *mut ::core::ffi::c_void)>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct POLICY_DATA {
     pub PolicyObjHdr: RsvpObjHdr,
     pub usPeOffset: u16,
@@ -814,6 +901,7 @@ impl ::core::clone::Clone for POLICY_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct POLICY_ELEMENT {
     pub usPeLength: u16,
     pub usPeType: u16,
@@ -895,6 +983,7 @@ pub const POLICY_LOCATOR_SUB_TYPE_UNICODE_DN_ENC: u32 = 4u32;
 pub const POSITIVE_INFINITY_RATE: u32 = 4294967294u32;
 pub const PREDICTIVE_SERV: u32 = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct QOS {
     pub SendingFlowspec: FLOWSPEC,
@@ -912,6 +1001,7 @@ impl ::core::clone::Clone for QOS {
 pub const QOSSPBASE: u32 = 50000u32;
 pub const QOSSP_ERR_BASE: u32 = 56000u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct QOS_DESTADDR {
     pub ObjectHdr: QOS_OBJECT_HDR,
@@ -927,6 +1017,7 @@ impl ::core::clone::Clone for QOS_DESTADDR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct QOS_DIFFSERV {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub DSFieldCount: u32,
@@ -939,6 +1030,7 @@ impl ::core::clone::Clone for QOS_DIFFSERV {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct QOS_DIFFSERV_RULE {
     pub InboundDSField: u8,
     pub ConformingOutboundDSField: u8,
@@ -953,6 +1045,7 @@ impl ::core::clone::Clone for QOS_DIFFSERV_RULE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct QOS_DS_CLASS {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub DSField: u32,
@@ -964,6 +1057,7 @@ impl ::core::clone::Clone for QOS_DS_CLASS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct QOS_FLOWRATE_OUTGOING {
     pub Bandwidth: u64,
     pub ShapingBehavior: QOS_SHAPING,
@@ -975,13 +1069,20 @@ impl ::core::clone::Clone for QOS_FLOWRATE_OUTGOING {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub type QOS_FLOWRATE_REASON = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSFlowRateNotApplicable: QOS_FLOWRATE_REASON = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSFlowRateContentChange: QOS_FLOWRATE_REASON = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSFlowRateCongestion: QOS_FLOWRATE_REASON = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSFlowRateHigherContentEncoding: QOS_FLOWRATE_REASON = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSFlowRateUserCaused: QOS_FLOWRATE_REASON = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct QOS_FLOW_FUNDAMENTALS {
     pub BottleneckBandwidthSet: super::super::Foundation::BOOL,
@@ -1000,6 +1101,7 @@ impl ::core::clone::Clone for QOS_FLOW_FUNDAMENTALS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct QOS_FRIENDLY_NAME {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub FriendlyName: [u16; 256],
@@ -1013,12 +1115,17 @@ impl ::core::clone::Clone for QOS_FRIENDLY_NAME {
 pub const QOS_GENERAL_ID_BASE: u32 = 2000u32;
 pub const QOS_MAX_OBJECT_STRING_LENGTH: u32 = 256u32;
 pub const QOS_NON_ADAPTIVE_FLOW: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub type QOS_NOTIFY_FLOW = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSNotifyCongested: QOS_NOTIFY_FLOW = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSNotifyUncongested: QOS_NOTIFY_FLOW = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSNotifyAvailable: QOS_NOTIFY_FLOW = 2i32;
 pub const QOS_NOT_SPECIFIED: u32 = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct QOS_OBJECT_HDR {
     pub ObjectType: u32,
     pub ObjectLength: u32,
@@ -1031,6 +1138,7 @@ impl ::core::clone::Clone for QOS_OBJECT_HDR {
 }
 pub const QOS_OUTGOING_DEFAULT_MINIMUM_BANDWIDTH: u32 = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct QOS_PACKET_PRIORITY {
     pub ConformantDSCPValue: u32,
     pub NonConformantDSCPValue: u32,
@@ -1044,11 +1152,16 @@ impl ::core::clone::Clone for QOS_PACKET_PRIORITY {
     }
 }
 pub const QOS_QUERYFLOW_FRESH: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub type QOS_QUERY_FLOW = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSQueryFlowFundamentals: QOS_QUERY_FLOW = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSQueryPacketPriority: QOS_QUERY_FLOW = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSQueryOutgoingRate: QOS_QUERY_FLOW = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct QOS_SD_MODE {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub ShapeDiscardMode: u32,
@@ -1059,15 +1172,24 @@ impl ::core::clone::Clone for QOS_SD_MODE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub type QOS_SET_FLOW = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSSetTrafficType: QOS_SET_FLOW = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSSetOutgoingRate: QOS_SET_FLOW = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSSetOutgoingDSCPValue: QOS_SET_FLOW = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub type QOS_SHAPING = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSShapeOnly: QOS_SHAPING = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSShapeAndMark: QOS_SHAPING = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSUseNonConformantMarkings: QOS_SHAPING = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct QOS_SHAPING_RATE {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub ShapingRate: u32,
@@ -1079,6 +1201,7 @@ impl ::core::clone::Clone for QOS_SHAPING_RATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct QOS_TCP_TRAFFIC {
     pub ObjectHdr: QOS_OBJECT_HDR,
 }
@@ -1089,6 +1212,7 @@ impl ::core::clone::Clone for QOS_TCP_TRAFFIC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct QOS_TRAFFIC_CLASS {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub TrafficClass: u32,
@@ -1100,14 +1224,22 @@ impl ::core::clone::Clone for QOS_TRAFFIC_CLASS {
     }
 }
 pub const QOS_TRAFFIC_GENERAL_ID_BASE: u32 = 4000u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub type QOS_TRAFFIC_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSTrafficTypeBestEffort: QOS_TRAFFIC_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSTrafficTypeBackground: QOS_TRAFFIC_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSTrafficTypeExcellentEffort: QOS_TRAFFIC_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSTrafficTypeAudioVideo: QOS_TRAFFIC_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSTrafficTypeVoice: QOS_TRAFFIC_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const QOSTrafficTypeControl: QOS_TRAFFIC_TYPE = 5i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct QOS_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -1120,6 +1252,7 @@ impl ::core::clone::Clone for QOS_VERSION {
 }
 pub const QUALITATIVE_SERV: u32 = 6u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct QualAppFlowSpec {
     pub Q_spec_serv_hdr: IntServServiceHdr,
     pub Q_spec_parm_hdr: IntServParmHdr,
@@ -1132,6 +1265,7 @@ impl ::core::clone::Clone for QualAppFlowSpec {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct QualTspec {
     pub qual_Tspec_serv_hdr: IntServServiceHdr,
     pub qual_Tspec_parm_hdr: IntServParmHdr,
@@ -1144,6 +1278,7 @@ impl ::core::clone::Clone for QualTspec {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct QualTspecParms {
     pub TB_Tspec_M: u32,
 }
@@ -1158,6 +1293,7 @@ pub const RCVD_RESV_TEAR: u32 = 2u32;
 pub const RESOURCES_ALLOCATED: u32 = 1u32;
 pub const RESOURCES_MODIFIED: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct RESV_STYLE {
     pub style_header: RsvpObjHdr,
     pub style_word: u32,
@@ -1170,6 +1306,7 @@ impl ::core::clone::Clone for RESV_STYLE {
 }
 pub type RHANDLE = isize;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct RSVP_ADSPEC {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub GeneralParams: AD_GENERAL_PARAMS,
@@ -1216,6 +1353,7 @@ pub const RSVP_Erv_Nonev: u32 = 0u32;
 pub const RSVP_Erv_Other: u32 = 0u32;
 pub const RSVP_Erv_Peak_Rate: u32 = 32771u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct RSVP_FILTERSPEC {
     pub Type: FilterType,
     pub Anonymous: RSVP_FILTERSPEC_0,
@@ -1227,6 +1365,7 @@ impl ::core::clone::Clone for RSVP_FILTERSPEC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub union RSVP_FILTERSPEC_0 {
     pub FilterSpecV4: RSVP_FILTERSPEC_V4,
     pub FilterSpecV6: RSVP_FILTERSPEC_V6,
@@ -1241,6 +1380,7 @@ impl ::core::clone::Clone for RSVP_FILTERSPEC_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct RSVP_FILTERSPEC_V4 {
     pub Address: IN_ADDR_IPV4,
     pub Unused: u16,
@@ -1253,6 +1393,7 @@ impl ::core::clone::Clone for RSVP_FILTERSPEC_V4 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct RSVP_FILTERSPEC_V4_GPI {
     pub Address: IN_ADDR_IPV4,
     pub GeneralPortId: u32,
@@ -1264,6 +1405,7 @@ impl ::core::clone::Clone for RSVP_FILTERSPEC_V4_GPI {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct RSVP_FILTERSPEC_V6 {
     pub Address: IN_ADDR_IPV6,
     pub UnUsed: u16,
@@ -1276,6 +1418,7 @@ impl ::core::clone::Clone for RSVP_FILTERSPEC_V6 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct RSVP_FILTERSPEC_V6_FLOW {
     pub Address: IN_ADDR_IPV6,
     pub UnUsed: u8,
@@ -1288,6 +1431,7 @@ impl ::core::clone::Clone for RSVP_FILTERSPEC_V6_FLOW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct RSVP_FILTERSPEC_V6_GPI {
     pub Address: IN_ADDR_IPV6,
     pub GeneralPortId: u32,
@@ -1300,6 +1444,7 @@ impl ::core::clone::Clone for RSVP_FILTERSPEC_V6_GPI {
 }
 pub const RSVP_FIXED_FILTER_STYLE: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RSVP_HOP {
     pub hop_header: RsvpObjHdr,
@@ -1314,6 +1459,7 @@ impl ::core::clone::Clone for RSVP_HOP {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union RSVP_HOP_0 {
     pub hop_ipv4: Rsvp_Hop_IPv4,
@@ -1327,6 +1473,7 @@ impl ::core::clone::Clone for RSVP_HOP_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RSVP_MSG_OBJS {
     pub RsvpMsgType: i32,
@@ -1355,6 +1502,7 @@ pub const RSVP_PATH: u32 = 1u32;
 pub const RSVP_PATH_ERR: u32 = 3u32;
 pub const RSVP_PATH_TEAR: u32 = 5u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct RSVP_POLICY {
     pub Len: u16,
     pub Type: u16,
@@ -1367,6 +1515,7 @@ impl ::core::clone::Clone for RSVP_POLICY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct RSVP_POLICY_INFO {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub NumPolicyElement: u32,
@@ -1379,6 +1528,7 @@ impl ::core::clone::Clone for RSVP_POLICY_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct RSVP_RESERVE_INFO {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub Style: u32,
@@ -1397,6 +1547,7 @@ pub const RSVP_RESV: u32 = 2u32;
 pub const RSVP_RESV_ERR: u32 = 4u32;
 pub const RSVP_RESV_TEAR: u32 = 6u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RSVP_SCOPE {
     pub scopl_header: RsvpObjHdr,
@@ -1411,6 +1562,7 @@ impl ::core::clone::Clone for RSVP_SCOPE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union RSVP_SCOPE_0 {
     pub scopl_ipv4: Scope_list_ipv4,
@@ -1424,6 +1576,7 @@ impl ::core::clone::Clone for RSVP_SCOPE_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RSVP_SESSION {
     pub sess_header: RsvpObjHdr,
@@ -1438,6 +1591,7 @@ impl ::core::clone::Clone for RSVP_SESSION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union RSVP_SESSION_0 {
     pub sess_ipv4: Session_IPv4,
@@ -1452,6 +1606,7 @@ impl ::core::clone::Clone for RSVP_SESSION_0 {
 }
 pub const RSVP_SHARED_EXPLICIT_STYLE: u32 = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct RSVP_STATUS_INFO {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub StatusCode: u32,
@@ -1466,6 +1621,7 @@ impl ::core::clone::Clone for RSVP_STATUS_INFO {
 }
 pub const RSVP_WILDCARD_STYLE: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct RsvpObjHdr {
     pub obj_length: u16,
     pub obj_class: u8,
@@ -1478,6 +1634,7 @@ impl ::core::clone::Clone for RsvpObjHdr {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct Rsvp_Hop_IPv4 {
     pub hop_ipaddr: super::super::Networking::WinSock::IN_ADDR,
@@ -1492,6 +1649,7 @@ impl ::core::clone::Clone for Rsvp_Hop_IPv4 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct SENDER_TSPEC {
     pub stspec_header: RsvpObjHdr,
     pub stspec_body: IntServTspecBody,
@@ -1683,6 +1841,7 @@ pub const SIPAKSRHDRSIGNATURE: u32 = 1297240907u32;
 pub const SIPALOGVERSION: u32 = 1u32;
 pub const STATE_TIMEOUT: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct Scope_list_ipv4 {
     pub scopl_ipaddr: [super::super::Networking::WinSock::IN_ADDR; 1],
@@ -1696,6 +1855,7 @@ impl ::core::clone::Clone for Scope_list_ipv4 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct Session_IPv4 {
     pub sess_destaddr: super::super::Networking::WinSock::IN_ADDR,
@@ -1713,6 +1873,7 @@ impl ::core::clone::Clone for Session_IPv4 {
 }
 pub const TCBASE: u32 = 7500u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct TCG_PCClientPCREventStruct {
     pub pcrIndex: u32,
     pub eventType: u32,
@@ -1727,6 +1888,7 @@ impl ::core::clone::Clone for TCG_PCClientPCREventStruct {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct TCG_PCClientTaggedEventStruct {
     pub EventID: u32,
     pub EventDataSize: u32,
@@ -1738,9 +1900,11 @@ impl ::core::clone::Clone for TCG_PCClientTaggedEventStruct {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TCI_ADD_FLOW_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TCI_CLIENT_FUNC_LIST {
     pub ClNotifyHandler: TCI_NOTIFY_HANDLER,
@@ -1756,13 +1920,17 @@ impl ::core::clone::Clone for TCI_CLIENT_FUNC_LIST {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TCI_DEL_FLOW_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TCI_MOD_FLOW_COMPLETE_HANDLER = ::core::option::Option<unsafe extern "system" fn(clflowctx: super::super::Foundation::HANDLE, status: u32)>;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TCI_NOTIFY_HANDLER = ::core::option::Option<unsafe extern "system" fn(clregctx: super::super::Foundation::HANDLE, clifcctx: super::super::Foundation::HANDLE, event: u32, subcode: super::super::Foundation::HANDLE, bufsize: u32, buffer: *const ::core::ffi::c_void)>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct TC_GEN_FILTER {
     pub AddressType: u16,
     pub PatternSize: u32,
@@ -1776,6 +1944,7 @@ impl ::core::clone::Clone for TC_GEN_FILTER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct TC_GEN_FLOW {
     pub SendingFlowspec: FLOWSPEC,
     pub ReceivingFlowspec: FLOWSPEC,
@@ -1789,6 +1958,7 @@ impl ::core::clone::Clone for TC_GEN_FLOW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct TC_IFC_DESCRIPTOR {
     pub Length: u32,
@@ -1814,6 +1984,7 @@ pub const TC_NOTIFY_IFC_CLOSE: u32 = 2u32;
 pub const TC_NOTIFY_IFC_UP: u32 = 1u32;
 pub const TC_NOTIFY_PARAM_CHANGED: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct TC_SUPPORTED_INFO_BUFFER {
     pub InstanceIDLength: u16,
@@ -1848,6 +2019,7 @@ pub const WBCL_DIGEST_ALG_ID_SHA_2_512: u32 = 13u32;
 pub const WBCL_DIGEST_ALG_ID_SM3_256: u32 = 18u32;
 pub const WBCL_HASH_LEN_SHA1: u32 = 20u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct WBCL_Iterator {
     pub firstElementPtr: *mut ::core::ffi::c_void,
     pub logSize: u32,
@@ -1867,6 +2039,7 @@ impl ::core::clone::Clone for WBCL_Iterator {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct WBCL_LogHdr {
     pub signature: u32,
     pub version: u32,
@@ -1880,6 +2053,7 @@ impl ::core::clone::Clone for WBCL_LogHdr {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct flow_desc {
     pub u1: flow_desc_0,
@@ -1894,6 +2068,7 @@ impl ::core::clone::Clone for flow_desc {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union flow_desc_0 {
     pub stspec: *mut SENDER_TSPEC,
@@ -1908,6 +2083,7 @@ impl ::core::clone::Clone for flow_desc_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union flow_desc_1 {
     pub stemp: *mut FILTER_SPEC,
@@ -1921,14 +2097,22 @@ impl ::core::clone::Clone for flow_desc_1 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub type int_serv_wkp = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const IS_WKP_HOP_CNT: int_serv_wkp = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const IS_WKP_PATH_BW: int_serv_wkp = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const IS_WKP_MIN_LATENCY: int_serv_wkp = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const IS_WKP_COMPOSED_MTU: int_serv_wkp = 10i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const IS_WKP_TB_TSPEC: int_serv_wkp = 127i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub const IS_WKP_Q_TSPEC: int_serv_wkp = 128i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct lpmiptable {
     pub ulIfIndex: u32,
@@ -1945,6 +2129,7 @@ impl ::core::clone::Clone for lpmiptable {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct policy_decision {
     pub lpvResult: u32,
     pub wPolicyErrCode: u16,
@@ -1957,6 +2142,7 @@ impl ::core::clone::Clone for policy_decision {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
     pub SignAlgID: u32,
     pub SignatureLength: u32,
@@ -1969,6 +2155,7 @@ impl ::core::clone::Clone for tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
     pub CreationTime: i64,
     pub DigestLength: u32,
@@ -1982,6 +2169,7 @@ impl ::core::clone::Clone for tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
     pub PayloadVersion: u32,
     pub VarDataOffset: u32,
@@ -1998,6 +2186,7 @@ impl ::core::clone::Clone for tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct tag_SIPAEVENT_SI_POLICY_PAYLOAD {
     pub PolicyVersion: u64,
     pub PolicyNameLength: u16,
@@ -2012,6 +2201,7 @@ impl ::core::clone::Clone for tag_SIPAEVENT_SI_POLICY_PAYLOAD {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
     pub KeyAlgID: u32,
     pub Anonymous: tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0,
@@ -2023,6 +2213,7 @@ impl ::core::clone::Clone for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub union tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
     pub RsaKeyInfo: tag_SIPAEVENT_VSM_IDK_RSA_INFO,
 }
@@ -2033,6 +2224,7 @@ impl ::core::clone::Clone for tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
 pub struct tag_SIPAEVENT_VSM_IDK_RSA_INFO {
     pub KeyBitLength: u32,
     pub PublicExpLengthBytes: u32,

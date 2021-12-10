@@ -662,6 +662,7 @@ pub struct IPrintWorkflowXpsDataAvailableEventArgsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowBackgroundSession(::windows::core::IUnknown);
 impl PrintWorkflowBackgroundSession {
@@ -766,6 +767,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowBackgroundSession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowBackgroundSession {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowBackgroundSetupRequestedEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowBackgroundSetupRequestedEventArgs {
@@ -860,6 +862,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowBackgroundSetupRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowBackgroundSetupRequestedEventArgs {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowConfiguration(::windows::core::IUnknown);
 impl PrintWorkflowConfiguration {
@@ -952,6 +955,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowConfiguration {}
 unsafe impl ::core::marker::Sync for PrintWorkflowConfiguration {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowForegroundSession(::windows::core::IUnknown);
 impl PrintWorkflowForegroundSession {
@@ -1056,6 +1060,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowForegroundSession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowForegroundSession {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowForegroundSetupRequestedEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowForegroundSetupRequestedEventArgs {
@@ -1146,6 +1151,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowForegroundSetupRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowForegroundSetupRequestedEventArgs {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowJobAbortReason(pub i32);
 impl PrintWorkflowJobAbortReason {
@@ -1173,6 +1179,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobAbortReason {
 impl ::windows::core::DefaultType for PrintWorkflowJobAbortReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowJobActivatedEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowJobActivatedEventArgs {
@@ -1331,6 +1338,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::ApplicationModel::A
 }
 unsafe impl ::core::marker::Send for PrintWorkflowJobActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobActivatedEventArgs {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowJobBackgroundSession(::windows::core::IUnknown);
 impl PrintWorkflowJobBackgroundSession {
@@ -1435,6 +1443,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowJobBackgroundSession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobBackgroundSession {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowJobNotificationEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowJobNotificationEventArgs {
@@ -1524,6 +1533,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowJobNotificationEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobNotificationEventArgs {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowJobStartingEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowJobStartingEventArgs {
@@ -1618,6 +1628,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowJobStartingEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobStartingEventArgs {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowJobTriggerDetails(::windows::core::IUnknown);
 impl PrintWorkflowJobTriggerDetails {
@@ -1692,6 +1703,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowJobTriggerDetails {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobTriggerDetails {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowJobUISession(::windows::core::IUnknown);
 impl PrintWorkflowJobUISession {
@@ -1796,6 +1808,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowJobUISession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobUISession {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowObjectModelSourceFileContent(::windows::core::IUnknown);
 impl PrintWorkflowObjectModelSourceFileContent {
@@ -1874,6 +1887,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowObjectModelSourceFileContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowObjectModelSourceFileContent {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowObjectModelTargetPackage(::windows::core::IUnknown);
 impl PrintWorkflowObjectModelTargetPackage {}
@@ -1940,6 +1954,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowObjectModelTargetPackage {}
 unsafe impl ::core::marker::Sync for PrintWorkflowObjectModelTargetPackage {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowPdlConversionType(pub i32);
 impl PrintWorkflowPdlConversionType {
@@ -1968,6 +1983,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlConversionType {
 impl ::windows::core::DefaultType for PrintWorkflowPdlConversionType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowPdlConverter(::windows::core::IUnknown);
 impl PrintWorkflowPdlConverter {
@@ -2043,6 +2059,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowPdlConverter {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlConverter {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowPdlDataAvailableEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowPdlDataAvailableEventArgs {
@@ -2139,6 +2156,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowPdlDataAvailableEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlDataAvailableEventArgs {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowPdlModificationRequestedEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowPdlModificationRequestedEventArgs {
@@ -2272,6 +2290,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowPdlModificationRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlModificationRequestedEventArgs {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowPdlSourceContent(::windows::core::IUnknown);
 impl PrintWorkflowPdlSourceContent {
@@ -2362,6 +2381,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowPdlSourceContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlSourceContent {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowPdlTargetStream(::windows::core::IUnknown);
 impl PrintWorkflowPdlTargetStream {
@@ -2441,6 +2461,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowPdlTargetStream {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlTargetStream {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowPrinterJob(::windows::core::IUnknown);
 impl PrintWorkflowPrinterJob {
@@ -2570,6 +2591,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowPrinterJob {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPrinterJob {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowPrinterJobStatus(pub i32);
 impl PrintWorkflowPrinterJobStatus {
@@ -2599,6 +2621,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowPrinterJobStatus {
 impl ::windows::core::DefaultType for PrintWorkflowPrinterJobStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowSessionStatus(pub i32);
 impl PrintWorkflowSessionStatus {
@@ -2629,6 +2652,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowSessionStatus {
 impl ::windows::core::DefaultType for PrintWorkflowSessionStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowSourceContent(::windows::core::IUnknown);
 impl PrintWorkflowSourceContent {
@@ -2718,6 +2742,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowSourceContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSourceContent {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowSpoolStreamContent(::windows::core::IUnknown);
 impl PrintWorkflowSpoolStreamContent {
@@ -2793,6 +2818,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowSpoolStreamContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSpoolStreamContent {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowStreamTarget(::windows::core::IUnknown);
 impl PrintWorkflowStreamTarget {
@@ -2868,6 +2894,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowStreamTarget {}
 unsafe impl ::core::marker::Sync for PrintWorkflowStreamTarget {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowSubmittedEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowSubmittedEventArgs {
@@ -2958,6 +2985,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowSubmittedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSubmittedEventArgs {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowSubmittedOperation(::windows::core::IUnknown);
 impl PrintWorkflowSubmittedOperation {
@@ -3043,6 +3071,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowSubmittedOperation {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSubmittedOperation {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowSubmittedStatus(pub i32);
 impl PrintWorkflowSubmittedStatus {
@@ -3071,6 +3100,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowSubmittedStatus {
 impl ::windows::core::DefaultType for PrintWorkflowSubmittedStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowTarget(::windows::core::IUnknown);
 impl PrintWorkflowTarget {
@@ -3152,6 +3182,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowTarget {}
 unsafe impl ::core::marker::Sync for PrintWorkflowTarget {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowTriggerDetails(::windows::core::IUnknown);
 impl PrintWorkflowTriggerDetails {
@@ -3226,6 +3257,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowTriggerDetails {}
 unsafe impl ::core::marker::Sync for PrintWorkflowTriggerDetails {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowUIActivatedEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowUIActivatedEventArgs {
@@ -3384,6 +3416,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::ApplicationModel::A
 }
 unsafe impl ::core::marker::Send for PrintWorkflowUIActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowUIActivatedEventArgs {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowUICompletionStatus(pub i32);
 impl PrintWorkflowUICompletionStatus {
@@ -3413,6 +3446,7 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowUICompletionStatus {
 impl ::windows::core::DefaultType for PrintWorkflowUICompletionStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowUILauncher(::windows::core::IUnknown);
 impl PrintWorkflowUILauncher {
@@ -3495,6 +3529,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintWorkflowUILauncher {}
 unsafe impl ::core::marker::Sync for PrintWorkflowUILauncher {}
+#[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
 pub struct PrintWorkflowXpsDataAvailableEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowXpsDataAvailableEventArgs {

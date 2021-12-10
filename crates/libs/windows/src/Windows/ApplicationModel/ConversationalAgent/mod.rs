@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ActivationSignalDetectionConfiguration(::windows::core::IUnknown);
 impl ActivationSignalDetectionConfiguration {
@@ -300,6 +301,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for ActivationSignalDetectionConfiguration {}
 unsafe impl ::core::marker::Sync for ActivationSignalDetectionConfiguration {}
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ActivationSignalDetectionConfigurationCreationResult(::windows::core::IUnknown);
 impl ActivationSignalDetectionConfigurationCreationResult {
@@ -381,6 +383,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acti
 }
 unsafe impl ::core::marker::Send for ActivationSignalDetectionConfigurationCreationResult {}
 unsafe impl ::core::marker::Sync for ActivationSignalDetectionConfigurationCreationResult {}
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ActivationSignalDetectionConfigurationCreationStatus(pub i32);
 impl ActivationSignalDetectionConfigurationCreationStatus {
@@ -414,6 +417,7 @@ unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurat
 impl ::windows::core::DefaultType for ActivationSignalDetectionConfigurationCreationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ActivationSignalDetectionConfigurationRemovalResult(pub i32);
 impl ActivationSignalDetectionConfigurationRemovalResult {
@@ -443,6 +447,7 @@ unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurat
 impl ::windows::core::DefaultType for ActivationSignalDetectionConfigurationRemovalResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ActivationSignalDetectionConfigurationSetModelDataResult(pub i32);
 impl ActivationSignalDetectionConfigurationSetModelDataResult {
@@ -476,6 +481,7 @@ unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurat
 impl ::windows::core::DefaultType for ActivationSignalDetectionConfigurationSetModelDataResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ActivationSignalDetectionConfigurationStateChangeResult(pub i32);
 impl ActivationSignalDetectionConfigurationStateChangeResult {
@@ -504,6 +510,7 @@ unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurat
 impl ::windows::core::DefaultType for ActivationSignalDetectionConfigurationStateChangeResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ActivationSignalDetectionTrainingDataFormat(pub i32);
 impl ActivationSignalDetectionTrainingDataFormat {
@@ -540,6 +547,7 @@ unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionTrainingDa
 impl ::windows::core::DefaultType for ActivationSignalDetectionTrainingDataFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ActivationSignalDetector(::windows::core::IUnknown);
 impl ActivationSignalDetector {
@@ -776,6 +784,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acti
 }
 unsafe impl ::core::marker::Send for ActivationSignalDetector {}
 unsafe impl ::core::marker::Sync for ActivationSignalDetector {}
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ActivationSignalDetectorKind(pub i32);
 impl ActivationSignalDetectorKind {
@@ -804,6 +813,7 @@ unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectorKind {
 impl ::windows::core::DefaultType for ActivationSignalDetectorKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ActivationSignalDetectorPowerState(pub i32);
 impl ActivationSignalDetectorPowerState {
@@ -832,6 +842,7 @@ unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectorPowerState 
 impl ::windows::core::DefaultType for ActivationSignalDetectorPowerState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ConversationalAgentActivationKind(pub i32);
 impl ConversationalAgentActivationKind {
@@ -859,6 +870,7 @@ unsafe impl ::windows::core::RuntimeType for ConversationalAgentActivationKind {
 impl ::windows::core::DefaultType for ConversationalAgentActivationKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ConversationalAgentActivationResult(pub i32);
 impl ConversationalAgentActivationResult {
@@ -888,6 +900,7 @@ unsafe impl ::windows::core::RuntimeType for ConversationalAgentActivationResult
 impl ::windows::core::DefaultType for ConversationalAgentActivationResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ConversationalAgentDetectorManager(::windows::core::IUnknown);
 impl ConversationalAgentDetectorManager {
@@ -1012,6 +1025,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conv
 }
 unsafe impl ::core::marker::Send for ConversationalAgentDetectorManager {}
 unsafe impl ::core::marker::Sync for ConversationalAgentDetectorManager {}
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ConversationalAgentSession(::windows::core::IUnknown);
 impl ConversationalAgentSession {
@@ -1417,6 +1431,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for ConversationalAgentSession {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSession {}
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ConversationalAgentSessionInterruptedEventArgs(::windows::core::IUnknown);
 impl ConversationalAgentSessionInterruptedEventArgs {}
@@ -1483,6 +1498,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conv
 }
 unsafe impl ::core::marker::Send for ConversationalAgentSessionInterruptedEventArgs {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSessionInterruptedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ConversationalAgentSessionUpdateResponse(pub i32);
 impl ConversationalAgentSessionUpdateResponse {
@@ -1510,6 +1526,7 @@ unsafe impl ::windows::core::RuntimeType for ConversationalAgentSessionUpdateRes
 impl ::windows::core::DefaultType for ConversationalAgentSessionUpdateResponse {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ConversationalAgentSignal(::windows::core::IUnknown);
 impl ConversationalAgentSignal {
@@ -1661,6 +1678,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conv
 }
 unsafe impl ::core::marker::Send for ConversationalAgentSignal {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSignal {}
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ConversationalAgentSignalDetectedEventArgs(::windows::core::IUnknown);
 impl ConversationalAgentSignalDetectedEventArgs {}
@@ -1727,6 +1745,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conv
 }
 unsafe impl ::core::marker::Send for ConversationalAgentSignalDetectedEventArgs {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSignalDetectedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ConversationalAgentState(pub i32);
 impl ConversationalAgentState {
@@ -1758,6 +1777,7 @@ unsafe impl ::windows::core::RuntimeType for ConversationalAgentState {
 impl ::windows::core::DefaultType for ConversationalAgentState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ConversationalAgentSystemStateChangeType(pub i32);
 impl ConversationalAgentSystemStateChangeType {
@@ -1787,6 +1807,7 @@ unsafe impl ::windows::core::RuntimeType for ConversationalAgentSystemStateChang
 impl ::windows::core::DefaultType for ConversationalAgentSystemStateChangeType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ConversationalAgentSystemStateChangedEventArgs(::windows::core::IUnknown);
 impl ConversationalAgentSystemStateChangedEventArgs {
@@ -1861,6 +1882,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conv
 }
 unsafe impl ::core::marker::Send for ConversationalAgentSystemStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSystemStateChangedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct ConversationalAgentVoiceActivationPrerequisiteKind(pub i32);
 impl ConversationalAgentVoiceActivationPrerequisiteKind {
@@ -1892,6 +1914,7 @@ unsafe impl ::windows::core::RuntimeType for ConversationalAgentVoiceActivationP
 impl ::windows::core::DefaultType for ConversationalAgentVoiceActivationPrerequisiteKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct DetectionConfigurationAvailabilityChangeKind(pub i32);
 impl DetectionConfigurationAvailabilityChangeKind {
@@ -1920,6 +1943,7 @@ unsafe impl ::windows::core::RuntimeType for DetectionConfigurationAvailabilityC
 impl ::windows::core::DefaultType for DetectionConfigurationAvailabilityChangeKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct DetectionConfigurationAvailabilityChangedEventArgs(::windows::core::IUnknown);
 impl DetectionConfigurationAvailabilityChangedEventArgs {
@@ -1994,6 +2018,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dete
 }
 unsafe impl ::core::marker::Send for DetectionConfigurationAvailabilityChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DetectionConfigurationAvailabilityChangedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct DetectionConfigurationAvailabilityInfo(::windows::core::IUnknown);
 impl DetectionConfigurationAvailabilityInfo {
@@ -2097,6 +2122,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dete
 }
 unsafe impl ::core::marker::Send for DetectionConfigurationAvailabilityInfo {}
 unsafe impl ::core::marker::Sync for DetectionConfigurationAvailabilityInfo {}
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct DetectionConfigurationTrainingStatus(pub i32);
 impl DetectionConfigurationTrainingStatus {
@@ -2641,6 +2667,7 @@ pub struct IDetectionConfigurationAvailabilityInfo2Vtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
 pub struct SignalDetectorResourceKind(pub i32);
 impl SignalDetectorResourceKind {

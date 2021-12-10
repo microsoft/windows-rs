@@ -6,6 +6,7 @@ extern "system" {}
 pub type IWebAccount = *mut ::core::ffi::c_void;
 pub type KeyCredential = *mut ::core::ffi::c_void;
 pub type KeyCredentialAttestationResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
 pub struct KeyCredentialAttestationStatus(pub i32);
 impl KeyCredentialAttestationStatus {
@@ -20,6 +21,7 @@ impl ::core::clone::Clone for KeyCredentialAttestationStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
 pub struct KeyCredentialCreationOption(pub i32);
 impl KeyCredentialCreationOption {
@@ -34,6 +36,7 @@ impl ::core::clone::Clone for KeyCredentialCreationOption {
 }
 pub type KeyCredentialOperationResult = *mut ::core::ffi::c_void;
 pub type KeyCredentialRetrievalResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
 pub struct KeyCredentialStatus(pub i32);
 impl KeyCredentialStatus {
@@ -55,6 +58,7 @@ pub type PasswordCredential = *mut ::core::ffi::c_void;
 pub type PasswordCredentialPropertyStore = *mut ::core::ffi::c_void;
 pub type PasswordVault = *mut ::core::ffi::c_void;
 pub type WebAccount = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
 pub struct WebAccountPictureSize(pub i32);
 impl WebAccountPictureSize {
@@ -70,6 +74,7 @@ impl ::core::clone::Clone for WebAccountPictureSize {
     }
 }
 pub type WebAccountProvider = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
 pub struct WebAccountState(pub i32);
 impl WebAccountState {

@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapAlphaMode(pub i32);
 impl BitmapAlphaMode {
@@ -28,6 +29,7 @@ impl ::windows::core::DefaultType for BitmapAlphaMode {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 pub struct BitmapBounds {
     pub X: u32,
     pub Y: u32,
@@ -60,6 +62,7 @@ impl ::core::default::Default for BitmapBounds {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapBuffer(::windows::core::IUnknown);
 impl BitmapBuffer {
@@ -206,6 +209,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer>
 }
 unsafe impl ::core::marker::Send for BitmapBuffer {}
 unsafe impl ::core::marker::Sync for BitmapBuffer {}
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapBufferAccessMode(pub i32);
 impl BitmapBufferAccessMode {
@@ -234,6 +238,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapBufferAccessMode {
 impl ::windows::core::DefaultType for BitmapBufferAccessMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapCodecInformation(::windows::core::IUnknown);
 impl BitmapCodecInformation {
@@ -331,6 +336,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Bitm
 }
 unsafe impl ::core::marker::Send for BitmapCodecInformation {}
 unsafe impl ::core::marker::Sync for BitmapCodecInformation {}
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapDecoder(::windows::core::IUnknown);
 impl BitmapDecoder {
@@ -673,6 +679,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBitmapFrameWithSoftwareBitmap> for &Bit
 }
 unsafe impl ::core::marker::Send for BitmapDecoder {}
 unsafe impl ::core::marker::Sync for BitmapDecoder {}
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapEncoder(::windows::core::IUnknown);
 impl BitmapEncoder {
@@ -918,6 +925,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Bitm
 }
 unsafe impl ::core::marker::Send for BitmapEncoder {}
 unsafe impl ::core::marker::Sync for BitmapEncoder {}
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapFlip(pub i32);
 impl BitmapFlip {
@@ -946,6 +954,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapFlip {
 impl ::windows::core::DefaultType for BitmapFlip {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapFrame(::windows::core::IUnknown);
 impl BitmapFrame {
@@ -1168,6 +1177,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBitmapFrameWithSoftwareBitmap> for &Bit
 }
 unsafe impl ::core::marker::Send for BitmapFrame {}
 unsafe impl ::core::marker::Sync for BitmapFrame {}
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapInterpolationMode(pub i32);
 impl BitmapInterpolationMode {
@@ -1197,6 +1207,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapInterpolationMode {
 impl ::windows::core::DefaultType for BitmapInterpolationMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapPixelFormat(pub i32);
 impl BitmapPixelFormat {
@@ -1232,6 +1243,7 @@ impl ::windows::core::DefaultType for BitmapPixelFormat {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 pub struct BitmapPlaneDescription {
     pub StartIndex: i32,
     pub Width: i32,
@@ -1264,6 +1276,7 @@ impl ::core::default::Default for BitmapPlaneDescription {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapProperties(::windows::core::IUnknown);
 impl BitmapProperties {
@@ -1369,6 +1382,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBitmapPropertiesView> for &BitmapProper
 }
 unsafe impl ::core::marker::Send for BitmapProperties {}
 unsafe impl ::core::marker::Sync for BitmapProperties {}
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapPropertiesView(::windows::core::IUnknown);
 impl BitmapPropertiesView {
@@ -1466,6 +1480,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBitmapPropertiesView> for &BitmapProper
 }
 unsafe impl ::core::marker::Send for BitmapPropertiesView {}
 unsafe impl ::core::marker::Sync for BitmapPropertiesView {}
+#[doc = "*Required features: 'Graphics_Imaging', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct BitmapPropertySet(::windows::core::IUnknown);
@@ -1684,6 +1699,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 unsafe impl ::core::marker::Send for BitmapPropertySet {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for BitmapPropertySet {}
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapRotation(pub i32);
 impl BitmapRotation {
@@ -1714,6 +1730,7 @@ impl ::windows::core::DefaultType for BitmapRotation {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 pub struct BitmapSize {
     pub Width: u32,
     pub Height: u32,
@@ -1744,6 +1761,7 @@ impl ::core::default::Default for BitmapSize {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapTransform(::windows::core::IUnknown);
 impl BitmapTransform {
@@ -1884,6 +1902,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Bitm
 }
 unsafe impl ::core::marker::Send for BitmapTransform {}
 unsafe impl ::core::marker::Sync for BitmapTransform {}
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapTypedValue(::windows::core::IUnknown);
 impl BitmapTypedValue {
@@ -1977,6 +1996,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Bitm
 }
 unsafe impl ::core::marker::Send for BitmapTypedValue {}
 unsafe impl ::core::marker::Sync for BitmapTypedValue {}
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct ColorManagementMode(pub i32);
 impl ColorManagementMode {
@@ -2004,6 +2024,7 @@ unsafe impl ::windows::core::RuntimeType for ColorManagementMode {
 impl ::windows::core::DefaultType for ColorManagementMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct ExifOrientationMode(pub i32);
 impl ExifOrientationMode {
@@ -2249,6 +2270,7 @@ pub struct IBitmapEncoderWithSoftwareBitmapVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IBitmapFrame(::windows::core::IUnknown);
 impl IBitmapFrame {
@@ -2423,6 +2445,7 @@ pub struct IBitmapFrameVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pixelformat: BitmapPixelFormat, alphamode: BitmapAlphaMode, transform: ::windows::core::RawPtr, exiforientationmode: ExifOrientationMode, colormanagementmode: ColorManagementMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IBitmapFrameWithSoftwareBitmap(::windows::core::IUnknown);
 impl IBitmapFrameWithSoftwareBitmap {
@@ -2653,6 +2676,7 @@ pub struct IBitmapPropertiesVtbl(
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertiestoset: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IBitmapPropertiesView(::windows::core::IUnknown);
 impl IBitmapPropertiesView {
@@ -2901,6 +2925,7 @@ pub struct ISoftwareBitmapStaticsVtbl(
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, surface: ::windows::core::RawPtr, alpha: BitmapAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11")))] usize,
 );
+#[doc = "*Required features: 'Graphics_Imaging', 'Storage_Streams'*"]
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 pub struct ImageStream(::windows::core::IUnknown);
@@ -3245,6 +3270,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomA
 unsafe impl ::core::marker::Send for ImageStream {}
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::core::marker::Sync for ImageStream {}
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct JpegSubsamplingMode(pub i32);
 impl JpegSubsamplingMode {
@@ -3274,6 +3300,7 @@ unsafe impl ::windows::core::RuntimeType for JpegSubsamplingMode {
 impl ::windows::core::DefaultType for JpegSubsamplingMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct PixelDataProvider(::windows::core::IUnknown);
 impl PixelDataProvider {
@@ -3348,6 +3375,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pixe
 }
 unsafe impl ::core::marker::Send for PixelDataProvider {}
 unsafe impl ::core::marker::Sync for PixelDataProvider {}
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct PngFilterMode(pub i32);
 impl PngFilterMode {
@@ -3380,6 +3408,7 @@ unsafe impl ::windows::core::RuntimeType for PngFilterMode {
 impl ::windows::core::DefaultType for PngFilterMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct SoftwareBitmap(::windows::core::IUnknown);
 impl SoftwareBitmap {
@@ -3629,6 +3658,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for SoftwareBitmap {}
 unsafe impl ::core::marker::Sync for SoftwareBitmap {}
+#[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct TiffCompressionMode(pub i32);
 impl TiffCompressionMode {

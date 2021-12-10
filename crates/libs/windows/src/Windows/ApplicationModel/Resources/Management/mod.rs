@@ -109,6 +109,7 @@ pub struct IResourceIndexerFactory2Vtbl(
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, projectroot: ::windows::core::RawPtr, extensiondllpath: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
 );
+#[doc = "*Required features: 'ApplicationModel_Resources_Management'*"]
 #[repr(transparent)]
 pub struct IndexedResourceCandidate(::windows::core::IUnknown);
 impl IndexedResourceCandidate {
@@ -221,6 +222,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inde
 }
 unsafe impl ::core::marker::Send for IndexedResourceCandidate {}
 unsafe impl ::core::marker::Sync for IndexedResourceCandidate {}
+#[doc = "*Required features: 'ApplicationModel_Resources_Management'*"]
 #[repr(transparent)]
 pub struct IndexedResourceQualifier(::windows::core::IUnknown);
 impl IndexedResourceQualifier {
@@ -302,6 +304,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inde
 }
 unsafe impl ::core::marker::Send for IndexedResourceQualifier {}
 unsafe impl ::core::marker::Sync for IndexedResourceQualifier {}
+#[doc = "*Required features: 'ApplicationModel_Resources_Management'*"]
 #[repr(transparent)]
 pub struct IndexedResourceType(pub i32);
 impl IndexedResourceType {
@@ -330,6 +333,7 @@ unsafe impl ::windows::core::RuntimeType for IndexedResourceType {
 impl ::windows::core::DefaultType for IndexedResourceType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Resources_Management', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ResourceIndexer(::windows::core::IUnknown);

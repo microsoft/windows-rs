@@ -1,25 +1,44 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_System_Search_Common")]
 pub mod Common;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type ACCESS_MASKENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PERM_EXCLUSIVE: ACCESS_MASKENUM = 512i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PERM_READDESIGN: ACCESS_MASKENUM = 1024i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PERM_WRITEDESIGN: ACCESS_MASKENUM = 2048i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PERM_WITHGRANT: ACCESS_MASKENUM = 4096i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PERM_REFERENCE: ACCESS_MASKENUM = 8192i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PERM_CREATE: ACCESS_MASKENUM = 16384i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PERM_INSERT: ACCESS_MASKENUM = 32768i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PERM_DELETE: ACCESS_MASKENUM = 65536i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PERM_READCONTROL: ACCESS_MASKENUM = 131072i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PERM_WRITEPERMISSIONS: ACCESS_MASKENUM = 262144i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PERM_WRITEOWNER: ACCESS_MASKENUM = 524288i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PERM_MAXIMUM_ALLOWED: ACCESS_MASKENUM = 33554432i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PERM_ALL: ACCESS_MASKENUM = 268435456i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PERM_EXECUTE: ACCESS_MASKENUM = 536870912i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PERM_READ: ACCESS_MASKENUM = -2147483648i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PERM_UPDATE: ACCESS_MASKENUM = 1073741824i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PERM_DROP: ACCESS_MASKENUM = 256i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AUTHENTICATION_INFO {
     pub dwSize: u32,
@@ -53,9 +72,13 @@ impl ::core::default::Default for AUTHENTICATION_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type AUTH_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const eAUTH_TYPE_ANONYMOUS: AUTH_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const eAUTH_TYPE_NTLM: AUTH_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const eAUTH_TYPE_BASIC: AUTH_TYPE = 2i32;
 pub const BCP6xFILEFMT: u32 = 9u32;
 pub const BCPABORT: u32 = 6u32;
@@ -88,6 +111,7 @@ pub const BMK_DURABILITY_REORGANIZATION: i32 = 3i32;
 pub const BMK_DURABILITY_ROWSET: i32 = 0i32;
 pub const BMK_DURABILITY_XTRANSACTION: i32 = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct BUCKETCATEGORIZE {
     pub cBuckets: u32,
     pub Distribution: u32,
@@ -114,10 +138,14 @@ impl ::core::default::Default for BUCKETCATEGORIZE {
 }
 pub const BUCKET_EXPONENTIAL: u32 = 1u32;
 pub const BUCKET_LINEAR: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type CASE_REQUIREMENT = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CASE_REQUIREMENT_ANY: CASE_REQUIREMENT = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CASE_REQUIREMENT_UPPER_IF_AQS: CASE_REQUIREMENT = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct CATEGORIZATION {
     pub ulCatType: u32,
@@ -151,6 +179,7 @@ impl ::core::default::Default for CATEGORIZATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub union CATEGORIZATION_0 {
     pub cClusters: u32,
@@ -184,6 +213,7 @@ impl ::core::default::Default for CATEGORIZATION_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct CATEGORIZATIONSET {
     pub cCat: u32,
@@ -227,25 +257,45 @@ pub const CDBBMKDISPIDS: u32 = 8u32;
 pub const CDBCOLDISPIDS: u32 = 28u32;
 pub const CDBSELFDISPIDS: u32 = 8u32;
 pub const CERT_E_NOT_FOUND_OR_NO_PERMISSSION: i32 = -2147211263i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type CHANNEL_AGENT_FLAGS = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CHANNEL_AGENT_DYNAMIC_SCHEDULE: CHANNEL_AGENT_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CHANNEL_AGENT_PRECACHE_SOME: CHANNEL_AGENT_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CHANNEL_AGENT_PRECACHE_ALL: CHANNEL_AGENT_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CHANNEL_AGENT_PRECACHE_SCRNSAVER: CHANNEL_AGENT_FLAGS = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CI_E_CORRUPT_FWIDX: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473491i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CI_E_DIACRITIC_SETTINGS_DIFFER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473490i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CI_E_INCONSISTENT_TRANSACTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473486i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CI_E_INVALID_CATALOG_LIST_VERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215313i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CI_E_MULTIPLE_PROTECTED_USERS_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473483i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CI_E_NO_AUXMETADATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215318i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CI_E_NO_CATALOG_MANAGER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473487i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CI_E_NO_PROTECTED_USER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473484i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CI_E_PROTECTED_CATALOG_NON_INTERACTIVE_USER: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473481i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CI_E_PROTECTED_CATALOG_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473485i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CI_E_PROTECTED_CATALOG_SID_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473482i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CI_S_CATALOG_RESET: ::windows::core::HRESULT = ::windows::core::HRESULT(268336i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CI_S_CLIENT_REQUESTED_ABORT: ::windows::core::HRESULT = ::windows::core::HRESULT(268331i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CI_S_NEW_AUXMETADATA: ::windows::core::HRESULT = ::windows::core::HRESULT(268329i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CI_S_RETRY_DOCUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(268332i32);
 pub const CLSID_DataShapeProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3449a1c8_c56c_11d0_ad72_00c04fc29863);
 pub const CLSID_MSDASQL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8b522cb_5cf3_11ce_ade5_00aa0044773d);
@@ -254,10 +304,15 @@ pub const CLSID_MSPersist: ::windows::core::GUID = ::windows::core::GUID::from_u
 pub const CLSID_SQLOLEDB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c7ff16c_38e3_11d0_97ab_00c04fc2ad98);
 pub const CLSID_SQLOLEDB_ENUMERATOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfa22b8e_e68d_11d0_97e4_00c04fc2ad98);
 pub const CLSID_SQLOLEDB_ERROR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0932c62_38e5_11d0_97ab_00c04fc2ad98);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type CLUSION_REASON = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CLUSIONREASON_UNKNOWNSCOPE: CLUSION_REASON = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CLUSIONREASON_DEFAULT: CLUSION_REASON = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CLUSIONREASON_USER: CLUSION_REASON = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CLUSIONREASON_GROUPPOLICY: CLUSION_REASON = 3i32;
 pub const CMDLINE_E_ALREADY_INIT: i32 = -2147216123i32;
 pub const CMDLINE_E_NOT_INIT: i32 = -2147216124i32;
@@ -287,6 +342,7 @@ pub const COLL_E_NOMOREDATA: i32 = -2147220222i32;
 pub const COLL_E_NOSORTCOLUMN: i32 = -2147220217i32;
 pub const COLL_E_TOOMANYMERGECOLUMNS: i32 = -2147220215i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct COLUMNSET {
     pub cCol: u32,
@@ -318,15 +374,24 @@ impl ::core::default::Default for COLUMNSET {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type CONDITION_CREATION_OPTIONS = u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CONDITION_CREATION_DEFAULT: CONDITION_CREATION_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CONDITION_CREATION_NONE: CONDITION_CREATION_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CONDITION_CREATION_SIMPLIFY: CONDITION_CREATION_OPTIONS = 1u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CONDITION_CREATION_VECTOR_AND: CONDITION_CREATION_OPTIONS = 2u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CONDITION_CREATION_VECTOR_OR: CONDITION_CREATION_OPTIONS = 4u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CONDITION_CREATION_VECTOR_LEAF: CONDITION_CREATION_OPTIONS = 8u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CONDITION_CREATION_USE_CONTENT_LOCALE: CONDITION_CREATION_OPTIONS = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct CONTENTRESTRICTION {
     pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
@@ -372,11 +437,17 @@ pub const CONTENT_SOURCE_E_UNEXPECTED_NULL_POINTER: i32 = -2147208190i32;
 pub const CQUERYDISPIDS: u32 = 11u32;
 pub const CQUERYMETADISPIDS: u32 = 10u32;
 pub const CQUERYPROPERTY: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type CREATESUBSCRIPTIONFLAGS = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CREATESUBS_ADDTOFAVORITES: CREATESUBSCRIPTIONFLAGS = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CREATESUBS_FROMFAVORITES: CREATESUBSCRIPTIONFLAGS = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CREATESUBS_NOUI: CREATESUBSCRIPTIONFLAGS = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CREATESUBS_NOSAVE: CREATESUBSCRIPTIONFLAGS = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CREATESUBS_SOFTWAREUPDATE: CREATESUBSCRIPTIONFLAGS = 16i32;
 pub const CRESTRICTIONS_DBSCHEMA_ASSERTIONS: u32 = 3u32;
 pub const CRESTRICTIONS_DBSCHEMA_CATALOGS: u32 = 1u32;
@@ -431,29 +502,50 @@ pub const CSearchLanguageSupport: ::windows::core::GUID = ::windows::core::GUID:
 pub const CSearchManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d096c5f_ac08_4f1f_beb7_5c22c517ce39);
 pub const CSearchRoot: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30766bd2_ea1c_4f28_bf27_0b44e2f68db7);
 pub const CSearchScopeRule: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe63de750_3bd7_4be5_9c84_6b4281988c44);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type CatalogPausedReason = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CATALOG_PAUSED_REASON_NONE: CatalogPausedReason = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CATALOG_PAUSED_REASON_HIGH_IO: CatalogPausedReason = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CATALOG_PAUSED_REASON_HIGH_CPU: CatalogPausedReason = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CATALOG_PAUSED_REASON_HIGH_NTF_RATE: CatalogPausedReason = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CATALOG_PAUSED_REASON_LOW_BATTERY: CatalogPausedReason = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CATALOG_PAUSED_REASON_LOW_MEMORY: CatalogPausedReason = 5i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CATALOG_PAUSED_REASON_LOW_DISK: CatalogPausedReason = 6i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CATALOG_PAUSED_REASON_DELAYED_RECOVERY: CatalogPausedReason = 7i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CATALOG_PAUSED_REASON_USER_ACTIVE: CatalogPausedReason = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CATALOG_PAUSED_REASON_EXTERNAL: CatalogPausedReason = 9i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CATALOG_PAUSED_REASON_UPGRADING: CatalogPausedReason = 10i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type CatalogStatus = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CATALOG_STATUS_IDLE: CatalogStatus = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CATALOG_STATUS_PAUSED: CatalogStatus = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CATALOG_STATUS_RECOVERING: CatalogStatus = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CATALOG_STATUS_FULL_CRAWL: CatalogStatus = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CATALOG_STATUS_INCREMENTAL_CRAWL: CatalogStatus = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CATALOG_STATUS_PROCESSING_NOTIFICATIONS: CatalogStatus = 5i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CATALOG_STATUS_SHUTTING_DOWN: CatalogStatus = 6i32;
 pub const CompoundCondition: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x116f8d13_101e_4fa5_84d4_ff8279381935);
 pub const ConditionFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe03e85b0_7be3_4000_ba98_6c13de9fa486);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct DATE_STRUCT {
     pub year: i16,
     pub month: u16,
@@ -479,21 +571,36 @@ impl ::core::default::Default for DATE_STRUCT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBACCESSORFLAGSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBACCESSOR_INVALID: DBACCESSORFLAGSENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBACCESSOR_PASSBYREF: DBACCESSORFLAGSENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBACCESSOR_ROWDATA: DBACCESSORFLAGSENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBACCESSOR_PARAMETERDATA: DBACCESSORFLAGSENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBACCESSOR_OPTIMIZED: DBACCESSORFLAGSENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBACCESSOR_INHERITED: DBACCESSORFLAGSENUM = 16i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBASYNCHOPENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBASYNCHOP_OPEN: DBASYNCHOPENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBASYNCHPHASEENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBASYNCHPHASE_INITIALIZATION: DBASYNCHPHASEENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBASYNCHPHASE_POPULATION: DBASYNCHPHASEENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBASYNCHPHASE_COMPLETE: DBASYNCHPHASEENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBASYNCHPHASE_CANCELED: DBASYNCHPHASEENUM = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBBINDEXT {
     pub pExtension: *mut u8,
@@ -526,6 +633,7 @@ impl ::core::default::Default for DBBINDEXT {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 pub struct DBBINDEXT {
     pub pExtension: *mut u8,
@@ -557,9 +665,12 @@ impl ::core::default::Default for DBBINDEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBBINDFLAGENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDFLAG_HTML: DBBINDFLAGENUM = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_System_Com'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Com")]
 pub struct DBBINDING {
@@ -625,6 +736,7 @@ impl ::core::default::Default for DBBINDING {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_System_Com'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Com")]
 pub struct DBBINDING {
@@ -666,42 +778,78 @@ impl ::core::default::Default for DBBINDING {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBBINDSTATUSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDSTATUS_OK: DBBINDSTATUSENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDSTATUS_BADORDINAL: DBBINDSTATUSENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDSTATUS_UNSUPPORTEDCONVERSION: DBBINDSTATUSENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDSTATUS_BADBINDINFO: DBBINDSTATUSENUM = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDSTATUS_BADSTORAGEFLAGS: DBBINDSTATUSENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDSTATUS_NOINTERFACE: DBBINDSTATUSENUM = 5i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDSTATUS_MULTIPLESTORAGE: DBBINDSTATUSENUM = 6i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBBINDURLFLAGENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLFLAG_READ: DBBINDURLFLAGENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLFLAG_WRITE: DBBINDURLFLAGENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLFLAG_READWRITE: DBBINDURLFLAGENUM = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLFLAG_SHARE_DENY_READ: DBBINDURLFLAGENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLFLAG_SHARE_DENY_WRITE: DBBINDURLFLAGENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLFLAG_SHARE_EXCLUSIVE: DBBINDURLFLAGENUM = 12i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLFLAG_SHARE_DENY_NONE: DBBINDURLFLAGENUM = 16i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLFLAG_ASYNCHRONOUS: DBBINDURLFLAGENUM = 4096i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLFLAG_COLLECTION: DBBINDURLFLAGENUM = 8192i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLFLAG_DELAYFETCHSTREAM: DBBINDURLFLAGENUM = 16384i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLFLAG_DELAYFETCHCOLUMNS: DBBINDURLFLAGENUM = 32768i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLFLAG_RECURSIVE: DBBINDURLFLAGENUM = 4194304i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLFLAG_OUTPUT: DBBINDURLFLAGENUM = 8388608i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLFLAG_WAITFORINIT: DBBINDURLFLAGENUM = 16777216i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLFLAG_OPENIFEXISTS: DBBINDURLFLAGENUM = 33554432i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLFLAG_OVERWRITE: DBBINDURLFLAGENUM = 67108864i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLFLAG_ISSTRUCTUREDDOCUMENT: DBBINDURLFLAGENUM = 134217728i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBBINDURLSTATUSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLSTATUS_S_OK: DBBINDURLSTATUSENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLSTATUS_S_DENYNOTSUPPORTED: DBBINDURLSTATUSENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLSTATUS_S_DENYTYPENOTSUPPORTED: DBBINDURLSTATUSENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBINDURLSTATUS_S_REDIRECTED: DBBINDURLSTATUSENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBBOOKMARK = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBMK_INVALID: DBBOOKMARK = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBMK_FIRST: DBBOOKMARK = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBBMK_LAST: DBBOOKMARK = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 pub struct DBCOLUMNACCESS {
@@ -748,6 +896,7 @@ impl ::core::default::Default for DBCOLUMNACCESS {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 pub struct DBCOLUMNACCESS {
@@ -794,6 +943,7 @@ impl ::core::default::Default for DBCOLUMNACCESS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBCOLUMNDESC {
@@ -849,6 +999,7 @@ impl ::core::default::Default for DBCOLUMNDESC {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBCOLUMNDESC {
@@ -885,43 +1036,80 @@ impl ::core::default::Default for DBCOLUMNDESC {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBCOLUMNDESCFLAGSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNDESCFLAGS_TYPENAME: DBCOLUMNDESCFLAGSENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNDESCFLAGS_ITYPEINFO: DBCOLUMNDESCFLAGSENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNDESCFLAGS_PROPERTIES: DBCOLUMNDESCFLAGSENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNDESCFLAGS_CLSID: DBCOLUMNDESCFLAGSENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNDESCFLAGS_COLSIZE: DBCOLUMNDESCFLAGSENUM = 16i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNDESCFLAGS_DBCID: DBCOLUMNDESCFLAGSENUM = 32i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNDESCFLAGS_WTYPE: DBCOLUMNDESCFLAGSENUM = 64i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNDESCFLAGS_PRECISION: DBCOLUMNDESCFLAGSENUM = 128i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNDESCFLAGS_SCALE: DBCOLUMNDESCFLAGSENUM = 256i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBCOLUMNFLAGS15ENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_ISCHAPTER: DBCOLUMNFLAGS15ENUM = 8192i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBCOLUMNFLAGSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_ISBOOKMARK: DBCOLUMNFLAGSENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_MAYDEFER: DBCOLUMNFLAGSENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_WRITE: DBCOLUMNFLAGSENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_WRITEUNKNOWN: DBCOLUMNFLAGSENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_ISFIXEDLENGTH: DBCOLUMNFLAGSENUM = 16i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_ISNULLABLE: DBCOLUMNFLAGSENUM = 32i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_MAYBENULL: DBCOLUMNFLAGSENUM = 64i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_ISLONG: DBCOLUMNFLAGSENUM = 128i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_ISROWID: DBCOLUMNFLAGSENUM = 256i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_ISROWVER: DBCOLUMNFLAGSENUM = 512i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_CACHEDEFERRED: DBCOLUMNFLAGSENUM = 4096i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBCOLUMNFLAGSENUM20 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_SCALEISNEGATIVE: DBCOLUMNFLAGSENUM20 = 16384i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_RESERVED: DBCOLUMNFLAGSENUM20 = 32768i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBCOLUMNFLAGSENUM21 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_ISROWURL: DBCOLUMNFLAGSENUM21 = 65536i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_ISDEFAULTSTREAM: DBCOLUMNFLAGSENUM21 = 131072i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_ISCOLLECTION: DBCOLUMNFLAGSENUM21 = 262144i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBCOLUMNFLAGSENUM26 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_ISSTREAM: DBCOLUMNFLAGSENUM26 = 524288i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_ISROWSET: DBCOLUMNFLAGSENUM26 = 1048576i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_ISROW: DBCOLUMNFLAGSENUM26 = 2097152i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOLUMNFLAGS_ROWSPECIFICCOLUMN: DBCOLUMNFLAGSENUM26 = 4194304i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub struct DBCOLUMNINFO {
@@ -975,6 +1163,7 @@ impl ::core::default::Default for DBCOLUMNINFO {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
 pub struct DBCOLUMNINFO {
@@ -1010,37 +1199,65 @@ impl ::core::default::Default for DBCOLUMNINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBCOMMANDPERSISTFLAGENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMMANDPERSISTFLAG_NOSAVE: DBCOMMANDPERSISTFLAGENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBCOMMANDPERSISTFLAGENUM21 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMMANDPERSISTFLAG_DEFAULT: DBCOMMANDPERSISTFLAGENUM21 = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMMANDPERSISTFLAG_PERSISTVIEW: DBCOMMANDPERSISTFLAGENUM21 = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMMANDPERSISTFLAG_PERSISTPROCEDURE: DBCOMMANDPERSISTFLAGENUM21 = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBCOMPAREENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMPARE_LT: DBCOMPAREENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMPARE_EQ: DBCOMPAREENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMPARE_GT: DBCOMPAREENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMPARE_NE: DBCOMPAREENUM = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMPARE_NOTCOMPARABLE: DBCOMPAREENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBCOMPAREOPSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMPAREOPS_LT: DBCOMPAREOPSENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMPAREOPS_LE: DBCOMPAREOPSENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMPAREOPS_EQ: DBCOMPAREOPSENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMPAREOPS_GE: DBCOMPAREOPSENUM = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMPAREOPS_GT: DBCOMPAREOPSENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMPAREOPS_BEGINSWITH: DBCOMPAREOPSENUM = 5i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMPAREOPS_CONTAINS: DBCOMPAREOPSENUM = 6i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMPAREOPS_NE: DBCOMPAREOPSENUM = 7i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMPAREOPS_IGNORE: DBCOMPAREOPSENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMPAREOPS_CASESENSITIVE: DBCOMPAREOPSENUM = 4096i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMPAREOPS_CASEINSENSITIVE: DBCOMPAREOPSENUM = 8192i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBCOMPAREOPSENUM20 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMPAREOPS_NOTBEGINSWITH: DBCOMPAREOPSENUM20 = 9i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMPAREOPS_NOTCONTAINS: DBCOMPAREOPSENUM20 = 10i32;
 pub const DBCOMPUTEMODE_COMPUTED: u32 = 1u32;
 pub const DBCOMPUTEMODE_DYNAMIC: u32 = 2u32;
 pub const DBCOMPUTEMODE_NOTCOMPUTED: u32 = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBCONSTRAINTDESC {
@@ -1092,6 +1309,7 @@ impl ::core::default::Default for DBCONSTRAINTDESC {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBCONSTRAINTDESC {
@@ -1142,25 +1360,44 @@ impl ::core::default::Default for DBCONSTRAINTDESC {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBCONSTRAINTTYPEENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCONSTRAINTTYPE_UNIQUE: DBCONSTRAINTTYPEENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCONSTRAINTTYPE_FOREIGNKEY: DBCONSTRAINTTYPEENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCONSTRAINTTYPE_PRIMARYKEY: DBCONSTRAINTTYPEENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCONSTRAINTTYPE_CHECK: DBCONSTRAINTTYPEENUM = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBCONVERTFLAGSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCONVERTFLAGS_COLUMN: DBCONVERTFLAGSENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCONVERTFLAGS_PARAMETER: DBCONVERTFLAGSENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBCONVERTFLAGSENUM20 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCONVERTFLAGS_ISLONG: DBCONVERTFLAGSENUM20 = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCONVERTFLAGS_ISFIXEDLENGTH: DBCONVERTFLAGSENUM20 = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCONVERTFLAGS_FROMVARIANT: DBCONVERTFLAGSENUM20 = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBCOPYFLAGSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOPY_ASYNC: DBCOPYFLAGSENUM = 256i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOPY_REPLACE_EXISTING: DBCOPYFLAGSENUM = 512i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOPY_ALLOW_EMULATION: DBCOPYFLAGSENUM = 1024i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOPY_NON_RECURSIVE: DBCOPYFLAGSENUM = 2048i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOPY_ATOMIC: DBCOPYFLAGSENUM = 4096i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBCOST {
     pub eKind: u32,
@@ -1194,6 +1431,7 @@ impl ::core::default::Default for DBCOST {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 pub struct DBCOST {
     pub eKind: u32,
@@ -1226,32 +1464,58 @@ impl ::core::default::Default for DBCOST {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBCOSTUNITENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUNIT_INVALID: DBCOSTUNITENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUNIT_WEIGHT: DBCOSTUNITENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUNIT_PERCENT: DBCOSTUNITENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUNIT_MAXIMUM: DBCOSTUNITENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUNIT_MINIMUM: DBCOSTUNITENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUNIT_MICRO_SECOND: DBCOSTUNITENUM = 16i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUNIT_MILLI_SECOND: DBCOSTUNITENUM = 32i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUNIT_SECOND: DBCOSTUNITENUM = 64i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUNIT_MINUTE: DBCOSTUNITENUM = 128i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUNIT_HOUR: DBCOSTUNITENUM = 256i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUNIT_BYTE: DBCOSTUNITENUM = 512i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUNIT_KILO_BYTE: DBCOSTUNITENUM = 1024i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUNIT_MEGA_BYTE: DBCOSTUNITENUM = 2048i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUNIT_GIGA_BYTE: DBCOSTUNITENUM = 4096i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUNIT_NUM_MSGS: DBCOSTUNITENUM = 8192i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUNIT_NUM_LOCKS: DBCOSTUNITENUM = 16384i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUNIT_NUM_ROWS: DBCOSTUNITENUM = 32768i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUNIT_OTHER: DBCOSTUNITENUM = 65536i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBDATACONVERTENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBDATACONVERT_DEFAULT: DBDATACONVERTENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBDATACONVERT_SETDATABEHAVIOR: DBDATACONVERTENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBDATACONVERT_LENGTHFROMNTS: DBDATACONVERTENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBDATACONVERT_DSTISFIXEDLENGTH: DBDATACONVERTENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBDATACONVERT_DECIMALSCALE: DBDATACONVERTENUM = 8i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct DBDATE {
     pub year: i16,
     pub month: u16,
@@ -1277,23 +1541,40 @@ impl ::core::default::Default for DBDATE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBDEFERRABILITYENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBDEFERRABILITY_DEFERRED: DBDEFERRABILITYENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBDEFERRABILITY_DEFERRABLE: DBDEFERRABILITYENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBDELETEFLAGSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBDELETE_ASYNC: DBDELETEFLAGSENUM = 256i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBDELETE_ATOMIC: DBDELETEFLAGSENUM = 4096i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBEVENTPHASEENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBEVENTPHASE_OKTODO: DBEVENTPHASEENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBEVENTPHASE_ABOUTTODO: DBEVENTPHASEENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBEVENTPHASE_SYNCHAFTER: DBEVENTPHASEENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBEVENTPHASE_FAILEDTODO: DBEVENTPHASEENUM = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBEVENTPHASE_DIDEVENT: DBEVENTPHASEENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBEXECLIMITSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBEXECLIMITS_ABORT: DBEXECLIMITSENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBEXECLIMITS_STOP: DBEXECLIMITSENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBEXECLIMITS_SUSPEND: DBEXECLIMITSENUM = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBFAILUREINFO {
     pub hRow: usize,
@@ -1327,6 +1608,7 @@ impl ::core::default::Default for DBFAILUREINFO {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 pub struct DBFAILUREINFO {
     pub hRow: usize,
@@ -1362,6 +1644,7 @@ impl ::core::default::Default for DBFAILUREINFO {
 pub const DBGUID_MSSQLXML: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d531cb2_e6ed_11d2_b252_00c04f681b71);
 pub const DBGUID_XPATH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec2a4293_e898_11d2_b1b7_00c04f680c56);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBIMPLICITSESSION {
     pub pUnkOuter: ::core::option::Option<::windows::core::IUnknown>,
@@ -1393,6 +1676,7 @@ impl ::core::default::Default for DBIMPLICITSESSION {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 pub struct DBIMPLICITSESSION {
     pub pUnkOuter: ::core::option::Option<::windows::core::IUnknown>,
@@ -1418,6 +1702,7 @@ impl ::core::default::Default for DBIMPLICITSESSION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 pub struct DBINDEXCOLUMNDESC {
@@ -1457,6 +1742,7 @@ impl ::core::default::Default for DBINDEXCOLUMNDESC {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 pub struct DBINDEXCOLUMNDESC {
@@ -1495,44 +1781,82 @@ impl ::core::default::Default for DBINDEXCOLUMNDESC {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBINDEX_COL_ORDERENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBINDEX_COL_ORDER_ASC: DBINDEX_COL_ORDERENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBINDEX_COL_ORDER_DESC: DBINDEX_COL_ORDERENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBLITERALENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_INVALID: DBLITERALENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_BINARY_LITERAL: DBLITERALENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_CATALOG_NAME: DBLITERALENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_CATALOG_SEPARATOR: DBLITERALENUM = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_CHAR_LITERAL: DBLITERALENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_COLUMN_ALIAS: DBLITERALENUM = 5i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_COLUMN_NAME: DBLITERALENUM = 6i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_CORRELATION_NAME: DBLITERALENUM = 7i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_CURSOR_NAME: DBLITERALENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_ESCAPE_PERCENT: DBLITERALENUM = 9i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_ESCAPE_UNDERSCORE: DBLITERALENUM = 10i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_INDEX_NAME: DBLITERALENUM = 11i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_LIKE_PERCENT: DBLITERALENUM = 12i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_LIKE_UNDERSCORE: DBLITERALENUM = 13i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_PROCEDURE_NAME: DBLITERALENUM = 14i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_QUOTE: DBLITERALENUM = 15i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_SCHEMA_NAME: DBLITERALENUM = 16i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_TABLE_NAME: DBLITERALENUM = 17i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_TEXT_COMMAND: DBLITERALENUM = 18i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_USER_NAME: DBLITERALENUM = 19i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_VIEW_NAME: DBLITERALENUM = 20i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBLITERALENUM20 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_CUBE_NAME: DBLITERALENUM20 = 21i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_DIMENSION_NAME: DBLITERALENUM20 = 22i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_HIERARCHY_NAME: DBLITERALENUM20 = 23i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_LEVEL_NAME: DBLITERALENUM20 = 24i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_MEMBER_NAME: DBLITERALENUM20 = 25i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_PROPERTY_NAME: DBLITERALENUM20 = 26i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_SCHEMA_SEPARATOR: DBLITERALENUM20 = 27i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_QUOTE_SUFFIX: DBLITERALENUM20 = 28i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBLITERALENUM21 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_ESCAPE_PERCENT_SUFFIX: DBLITERALENUM21 = 29i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBLITERAL_ESCAPE_UNDERSCORE_SUFFIX: DBLITERALENUM21 = 30i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DBLITERALINFO {
@@ -1576,6 +1900,7 @@ impl ::core::default::Default for DBLITERALINFO {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DBLITERALINFO {
@@ -1618,21 +1943,35 @@ impl ::core::default::Default for DBLITERALINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBMATCHTYPEENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBMATCHTYPE_FULL: DBMATCHTYPEENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBMATCHTYPE_NONE: DBMATCHTYPEENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBMATCHTYPE_PARTIAL: DBMATCHTYPEENUM = 2i32;
 pub const DBMAXCHAR: u32 = 8001u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBMEMOWNERENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBMEMOWNER_CLIENTOWNED: DBMEMOWNERENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBMEMOWNER_PROVIDEROWNED: DBMEMOWNERENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBMOVEFLAGSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBMOVE_REPLACE_EXISTING: DBMOVEFLAGSENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBMOVE_ASYNC: DBMOVEFLAGSENUM = 256i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBMOVE_DONT_UPDATE_LINKS: DBMOVEFLAGSENUM = 512i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBMOVE_ALLOW_EMULATION: DBMOVEFLAGSENUM = 1024i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBMOVE_ATOMIC: DBMOVEFLAGSENUM = 4096i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBOBJECT {
     pub dwFlags: u32,
@@ -1665,6 +2004,7 @@ impl ::core::default::Default for DBOBJECT {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 pub struct DBOBJECT {
     pub dwFlags: u32,
@@ -1697,6 +2037,7 @@ impl ::core::default::Default for DBOBJECT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DBPARAMBINDINFO {
@@ -1740,6 +2081,7 @@ impl ::core::default::Default for DBPARAMBINDINFO {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DBPARAMBINDINFO {
@@ -1782,15 +2124,24 @@ impl ::core::default::Default for DBPARAMBINDINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPARAMFLAGSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPARAMFLAGS_ISINPUT: DBPARAMFLAGSENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPARAMFLAGS_ISOUTPUT: DBPARAMFLAGSENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPARAMFLAGS_ISSIGNED: DBPARAMFLAGSENUM = 16i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPARAMFLAGS_ISNULLABLE: DBPARAMFLAGSENUM = 64i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPARAMFLAGS_ISLONG: DBPARAMFLAGSENUM = 128i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPARAMFLAGSENUM20 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPARAMFLAGS_SCALEISNEGATIVE: DBPARAMFLAGSENUM20 = 256i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct DBPARAMINFO {
@@ -1842,6 +2193,7 @@ impl ::core::default::Default for DBPARAMINFO {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct DBPARAMINFO {
@@ -1876,11 +2228,16 @@ impl ::core::default::Default for DBPARAMINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPARAMIOENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPARAMIO_NOTPARAM: DBPARAMIOENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPARAMIO_INPUT: DBPARAMIOENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPARAMIO_OUTPUT: DBPARAMIOENUM = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBPARAMS {
     pub pData: *mut ::core::ffi::c_void,
@@ -1914,6 +2271,7 @@ impl ::core::default::Default for DBPARAMS {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 pub struct DBPARAMS {
     pub pData: *mut ::core::ffi::c_void,
@@ -1950,34 +2308,58 @@ pub const DBPARAMTYPE_INPUT: u32 = 1u32;
 pub const DBPARAMTYPE_INPUTOUTPUT: u32 = 2u32;
 pub const DBPARAMTYPE_OUTPUT: u32 = 3u32;
 pub const DBPARAMTYPE_RETURNVALUE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPARTENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPART_INVALID: DBPARTENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPART_VALUE: DBPARTENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPART_LENGTH: DBPARTENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPART_STATUS: DBPARTENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPENDINGSTATUSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPENDINGSTATUS_NEW: DBPENDINGSTATUSENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPENDINGSTATUS_CHANGED: DBPENDINGSTATUSENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPENDINGSTATUS_DELETED: DBPENDINGSTATUSENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPENDINGSTATUS_UNCHANGED: DBPENDINGSTATUSENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPENDINGSTATUS_INVALIDROW: DBPENDINGSTATUSENUM = 16i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPOSITIONFLAGSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPOSITION_OK: DBPOSITIONFLAGSENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPOSITION_NOROW: DBPOSITIONFLAGSENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPOSITION_BOF: DBPOSITIONFLAGSENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPOSITION_EOF: DBPOSITIONFLAGSENUM = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPROMPTOPTIONSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROMPTOPTIONS_NONE: DBPROMPTOPTIONSENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROMPTOPTIONS_WIZARDSHEET: DBPROMPTOPTIONSENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROMPTOPTIONS_PROPERTYSHEET: DBPROMPTOPTIONSENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROMPTOPTIONS_BROWSEONLY: DBPROMPTOPTIONSENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROMPTOPTIONS_DISABLE_PROVIDER_SELECTION: DBPROMPTOPTIONSENUM = 16i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROMPTOPTIONS_DISABLESAVEPASSWORD: DBPROMPTOPTIONSENUM = 32i32;
 pub const DBPROMPT_COMPLETE: u32 = 2u32;
 pub const DBPROMPT_COMPLETEREQUIRED: u32 = 3u32;
 pub const DBPROMPT_NOPROMPT: u32 = 4u32;
 pub const DBPROMPT_PROMPT: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBPROP {
@@ -2017,6 +2399,7 @@ impl ::core::default::Default for DBPROP {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBPROP {
@@ -2048,302 +2431,597 @@ impl ::core::default::Default for DBPROP {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPROPENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ABORTPRESERVE: DBPROPENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ACTIVESESSIONS: DBPROPENUM = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_APPENDONLY: DBPROPENUM = 187i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ASYNCTXNABORT: DBPROPENUM = 168i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ASYNCTXNCOMMIT: DBPROPENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_AUTH_CACHE_AUTHINFO: DBPROPENUM = 5i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_AUTH_ENCRYPT_PASSWORD: DBPROPENUM = 6i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_AUTH_INTEGRATED: DBPROPENUM = 7i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_AUTH_MASK_PASSWORD: DBPROPENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_AUTH_PASSWORD: DBPROPENUM = 9i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_AUTH_PERSIST_ENCRYPTED: DBPROPENUM = 10i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_AUTH_PERSIST_SENSITIVE_AUTHINFO: DBPROPENUM = 11i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_AUTH_USERID: DBPROPENUM = 12i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_BLOCKINGSTORAGEOBJECTS: DBPROPENUM = 13i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_BOOKMARKS: DBPROPENUM = 14i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_BOOKMARKSKIPPED: DBPROPENUM = 15i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_BOOKMARKTYPE: DBPROPENUM = 16i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_BYREFACCESSORS: DBPROPENUM = 120i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_CACHEDEFERRED: DBPROPENUM = 17i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_CANFETCHBACKWARDS: DBPROPENUM = 18i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_CANHOLDROWS: DBPROPENUM = 19i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_CANSCROLLBACKWARDS: DBPROPENUM = 21i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_CATALOGLOCATION: DBPROPENUM = 22i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_CATALOGTERM: DBPROPENUM = 23i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_CATALOGUSAGE: DBPROPENUM = 24i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_CHANGEINSERTEDROWS: DBPROPENUM = 188i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_COL_AUTOINCREMENT: DBPROPENUM = 26i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_COL_DEFAULT: DBPROPENUM = 27i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_COL_DESCRIPTION: DBPROPENUM = 28i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_COL_FIXEDLENGTH: DBPROPENUM = 167i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_COL_NULLABLE: DBPROPENUM = 29i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_COL_PRIMARYKEY: DBPROPENUM = 30i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_COL_UNIQUE: DBPROPENUM = 31i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_COLUMNDEFINITION: DBPROPENUM = 32i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_COLUMNRESTRICT: DBPROPENUM = 33i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_COMMANDTIMEOUT: DBPROPENUM = 34i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_COMMITPRESERVE: DBPROPENUM = 35i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_CONCATNULLBEHAVIOR: DBPROPENUM = 36i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_CURRENTCATALOG: DBPROPENUM = 37i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_DATASOURCENAME: DBPROPENUM = 38i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_DATASOURCEREADONLY: DBPROPENUM = 39i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_DBMSNAME: DBPROPENUM = 40i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_DBMSVER: DBPROPENUM = 41i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_DEFERRED: DBPROPENUM = 42i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_DELAYSTORAGEOBJECTS: DBPROPENUM = 43i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_DSOTHREADMODEL: DBPROPENUM = 169i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_GROUPBY: DBPROPENUM = 44i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_HETEROGENEOUSTABLES: DBPROPENUM = 45i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IAccessor: DBPROPENUM = 121i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IColumnsInfo: DBPROPENUM = 122i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IColumnsRowset: DBPROPENUM = 123i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IConnectionPointContainer: DBPROPENUM = 124i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IConvertType: DBPROPENUM = 194i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowset: DBPROPENUM = 126i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetChange: DBPROPENUM = 127i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetIdentity: DBPROPENUM = 128i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetIndex: DBPROPENUM = 159i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetInfo: DBPROPENUM = 129i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetLocate: DBPROPENUM = 130i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetResynch: DBPROPENUM = 132i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetScroll: DBPROPENUM = 133i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetUpdate: DBPROPENUM = 134i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ISupportErrorInfo: DBPROPENUM = 135i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ILockBytes: DBPROPENUM = 136i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ISequentialStream: DBPROPENUM = 137i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IStorage: DBPROPENUM = 138i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IStream: DBPROPENUM = 139i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IDENTIFIERCASE: DBPROPENUM = 46i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IMMOBILEROWS: DBPROPENUM = 47i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INDEX_AUTOUPDATE: DBPROPENUM = 48i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INDEX_CLUSTERED: DBPROPENUM = 49i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INDEX_FILLFACTOR: DBPROPENUM = 50i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INDEX_INITIALSIZE: DBPROPENUM = 51i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INDEX_NULLCOLLATION: DBPROPENUM = 52i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INDEX_NULLS: DBPROPENUM = 53i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INDEX_PRIMARYKEY: DBPROPENUM = 54i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INDEX_SORTBOOKMARKS: DBPROPENUM = 55i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INDEX_TEMPINDEX: DBPROPENUM = 163i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INDEX_TYPE: DBPROPENUM = 56i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INDEX_UNIQUE: DBPROPENUM = 57i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INIT_DATASOURCE: DBPROPENUM = 59i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INIT_HWND: DBPROPENUM = 60i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INIT_IMPERSONATION_LEVEL: DBPROPENUM = 61i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INIT_LCID: DBPROPENUM = 186i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INIT_LOCATION: DBPROPENUM = 62i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INIT_MODE: DBPROPENUM = 63i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INIT_PROMPT: DBPROPENUM = 64i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INIT_PROTECTION_LEVEL: DBPROPENUM = 65i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INIT_PROVIDERSTRING: DBPROPENUM = 160i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INIT_TIMEOUT: DBPROPENUM = 66i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_LITERALBOOKMARKS: DBPROPENUM = 67i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_LITERALIDENTITY: DBPROPENUM = 68i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_MAXINDEXSIZE: DBPROPENUM = 70i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_MAXOPENROWS: DBPROPENUM = 71i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_MAXPENDINGROWS: DBPROPENUM = 72i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_MAXROWS: DBPROPENUM = 73i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_MAXROWSIZE: DBPROPENUM = 74i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_MAXROWSIZEINCLUDESBLOB: DBPROPENUM = 75i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_MAXTABLESINSELECT: DBPROPENUM = 76i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_MAYWRITECOLUMN: DBPROPENUM = 77i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_MEMORYUSAGE: DBPROPENUM = 78i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_MULTIPLEPARAMSETS: DBPROPENUM = 191i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_MULTIPLERESULTS: DBPROPENUM = 196i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_MULTIPLESTORAGEOBJECTS: DBPROPENUM = 80i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_MULTITABLEUPDATE: DBPROPENUM = 81i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_NOTIFICATIONGRANULARITY: DBPROPENUM = 198i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_NOTIFICATIONPHASES: DBPROPENUM = 82i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_NOTIFYCOLUMNSET: DBPROPENUM = 171i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_NOTIFYROWDELETE: DBPROPENUM = 173i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_NOTIFYROWFIRSTCHANGE: DBPROPENUM = 174i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_NOTIFYROWINSERT: DBPROPENUM = 175i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_NOTIFYROWRESYNCH: DBPROPENUM = 177i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_NOTIFYROWSETCHANGED: DBPROPENUM = 211i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_NOTIFYROWSETRELEASE: DBPROPENUM = 178i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_NOTIFYROWSETFETCHPOSITIONCHANGE: DBPROPENUM = 179i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_NOTIFYROWUNDOCHANGE: DBPROPENUM = 180i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_NOTIFYROWUNDODELETE: DBPROPENUM = 181i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_NOTIFYROWUNDOINSERT: DBPROPENUM = 182i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_NOTIFYROWUPDATE: DBPROPENUM = 183i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_NULLCOLLATION: DBPROPENUM = 83i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_OLEOBJECTS: DBPROPENUM = 84i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ORDERBYCOLUMNSINSELECT: DBPROPENUM = 85i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ORDEREDBOOKMARKS: DBPROPENUM = 86i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_OTHERINSERT: DBPROPENUM = 87i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_OTHERUPDATEDELETE: DBPROPENUM = 88i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_OUTPUTPARAMETERAVAILABILITY: DBPROPENUM = 184i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_OWNINSERT: DBPROPENUM = 89i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_OWNUPDATEDELETE: DBPROPENUM = 90i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_PERSISTENTIDTYPE: DBPROPENUM = 185i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_PREPAREABORTBEHAVIOR: DBPROPENUM = 91i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_PREPARECOMMITBEHAVIOR: DBPROPENUM = 92i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_PROCEDURETERM: DBPROPENUM = 93i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_PROVIDERNAME: DBPROPENUM = 96i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_PROVIDEROLEDBVER: DBPROPENUM = 97i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_PROVIDERVER: DBPROPENUM = 98i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_QUICKRESTART: DBPROPENUM = 99i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_QUOTEDIDENTIFIERCASE: DBPROPENUM = 100i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_REENTRANTEVENTS: DBPROPENUM = 101i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_REMOVEDELETED: DBPROPENUM = 102i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_REPORTMULTIPLECHANGES: DBPROPENUM = 103i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_RETURNPENDINGINSERTS: DBPROPENUM = 189i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ROWRESTRICT: DBPROPENUM = 104i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ROWSETCONVERSIONSONCOMMAND: DBPROPENUM = 192i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ROWTHREADMODEL: DBPROPENUM = 105i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_SCHEMATERM: DBPROPENUM = 106i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_SCHEMAUSAGE: DBPROPENUM = 107i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_SERVERCURSOR: DBPROPENUM = 108i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_SESS_AUTOCOMMITISOLEVELS: DBPROPENUM = 190i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_SQLSUPPORT: DBPROPENUM = 109i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_STRONGIDENTITY: DBPROPENUM = 119i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_STRUCTUREDSTORAGE: DBPROPENUM = 111i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_SUBQUERIES: DBPROPENUM = 112i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_SUPPORTEDTXNDDL: DBPROPENUM = 161i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_SUPPORTEDTXNISOLEVELS: DBPROPENUM = 113i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_SUPPORTEDTXNISORETAIN: DBPROPENUM = 114i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_TABLETERM: DBPROPENUM = 115i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_TBL_TEMPTABLE: DBPROPENUM = 140i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_TRANSACTEDOBJECT: DBPROPENUM = 116i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_UPDATABILITY: DBPROPENUM = 117i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_USERNAME: DBPROPENUM = 118i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPROPENUM15 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_FILTERCOMPAREOPS: DBPROPENUM15 = 209i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_FINDCOMPAREOPS: DBPROPENUM15 = 210i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IChapteredRowset: DBPROPENUM15 = 202i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IDBAsynchStatus: DBPROPENUM15 = 203i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetFind: DBPROPENUM15 = 204i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetView: DBPROPENUM15 = 212i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IViewChapter: DBPROPENUM15 = 213i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IViewFilter: DBPROPENUM15 = 214i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IViewRowset: DBPROPENUM15 = 215i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IViewSort: DBPROPENUM15 = 216i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INIT_ASYNCH: DBPROPENUM15 = 200i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_MAXOPENCHAPTERS: DBPROPENUM15 = 199i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_MAXORSINFILTER: DBPROPENUM15 = 205i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_MAXSORTCOLUMNS: DBPROPENUM15 = 206i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ROWSET_ASYNCH: DBPROPENUM15 = 201i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_SORTONINDEX: DBPROPENUM15 = 207i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPROPENUM20 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IMultipleResults: DBPROPENUM20 = 217i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_DATASOURCE_TYPE: DBPROPENUM20 = 251i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_AXES: DBPROPENUM20 = 252i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_FLATTENING_SUPPORT: DBPROPENUM20 = 253i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_MDX_JOINCUBES: DBPROPENUM20 = 254i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_NAMED_LEVELS: DBPROPENUM20 = 255i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_RANGEROWSET: DBPROPENUM20 = 256i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_MDX_SLICER: DBPROPENUM20 = 218i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_MDX_CUBEQUALIFICATION: DBPROPENUM20 = 219i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_MDX_OUTERREFERENCE: DBPROPENUM20 = 220i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_MDX_QUERYBYPROPERTY: DBPROPENUM20 = 221i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_MDX_CASESUPPORT: DBPROPENUM20 = 222i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_MDX_STRING_COMPOP: DBPROPENUM20 = 224i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_MDX_DESCFLAGS: DBPROPENUM20 = 225i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_MDX_SET_FUNCTIONS: DBPROPENUM20 = 226i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_MDX_MEMBER_FUNCTIONS: DBPROPENUM20 = 227i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_MDX_NUMERIC_FUNCTIONS: DBPROPENUM20 = 228i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_MDX_FORMULAS: DBPROPENUM20 = 229i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_AGGREGATECELL_UPDATE: DBPROPENUM20 = 230i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_MDX_AGGREGATECELL_UPDATE: DBPROPENUM20 = 230i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_MDX_OBJQUALIFICATION: DBPROPENUM20 = 261i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_MDX_NONMEASURE_EXPRESSIONS: DBPROPENUM20 = 262i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ACCESSORDER: DBPROPENUM20 = 231i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_BOOKMARKINFO: DBPROPENUM20 = 232i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INIT_CATALOG: DBPROPENUM20 = 233i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ROW_BULKOPS: DBPROPENUM20 = 234i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_PROVIDERFRIENDLYNAME: DBPROPENUM20 = 235i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_LOCKMODE: DBPROPENUM20 = 236i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_MULTIPLECONNECTIONS: DBPROPENUM20 = 237i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_UNIQUEROWS: DBPROPENUM20 = 238i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_SERVERDATAONINSERT: DBPROPENUM20 = 239i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_STORAGEFLAGS: DBPROPENUM20 = 240i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_CONNECTIONSTATUS: DBPROPENUM20 = 244i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ALTERCOLUMN: DBPROPENUM20 = 245i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_COLUMNLCID: DBPROPENUM20 = 246i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_RESETDATASOURCE: DBPROPENUM20 = 247i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INIT_OLEDBSERVICES: DBPROPENUM20 = 248i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetRefresh: DBPROPENUM20 = 249i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_SERVERNAME: DBPROPENUM20 = 250i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IParentRowset: DBPROPENUM20 = 257i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_HIDDENCOLUMNS: DBPROPENUM20 = 258i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_PROVIDERMEMORY: DBPROPENUM20 = 259i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_CLIENTCURSOR: DBPROPENUM20 = 260i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPROPENUM21 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_TRUSTEE_USERNAME: DBPROPENUM21 = 241i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_TRUSTEE_AUTHENTICATION: DBPROPENUM21 = 242i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_TRUSTEE_NEWAUTHENTICATION: DBPROPENUM21 = 243i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRow: DBPROPENUM21 = 263i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowChange: DBPROPENUM21 = 264i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowSchemaChange: DBPROPENUM21 = 265i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IGetRow: DBPROPENUM21 = 266i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IScopedOperations: DBPROPENUM21 = 267i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IBindResource: DBPROPENUM21 = 268i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ICreateRow: DBPROPENUM21 = 269i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INIT_BINDFLAGS: DBPROPENUM21 = 270i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INIT_LOCKOWNER: DBPROPENUM21 = 271i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_GENERATEURL: DBPROPENUM21 = 273i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IDBBinderProperties: DBPROPENUM21 = 274i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IColumnsInfo2: DBPROPENUM21 = 275i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRegisterProvider: DBPROPENUM21 = 276i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IGetSession: DBPROPENUM21 = 277i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IGetSourceRow: DBPROPENUM21 = 278i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetCurrentIndex: DBPROPENUM21 = 279i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_OPENROWSETSUPPORT: DBPROPENUM21 = 280i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_COL_ISLONG: DBPROPENUM21 = 281i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPROPENUM25 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_COL_SEED: DBPROPENUM25 = 282i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_COL_INCREMENT: DBPROPENUM25 = 283i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_INIT_GENERALTIMEOUT: DBPROPENUM25 = 284i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_COMSERVICES: DBPROPENUM25 = 285i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPROPENUM25_DEPRECATED = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ICommandCost: DBPROPENUM25_DEPRECATED = 141i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ICommandTree: DBPROPENUM25_DEPRECATED = 142i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_ICommandValidate: DBPROPENUM25_DEPRECATED = 143i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IDBSchemaCommand: DBPROPENUM25_DEPRECATED = 144i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IProvideMoniker: DBPROPENUM25_DEPRECATED = 125i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IQuery: DBPROPENUM25_DEPRECATED = 146i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IReadData: DBPROPENUM25_DEPRECATED = 147i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetAsynch: DBPROPENUM25_DEPRECATED = 148i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetCopyRows: DBPROPENUM25_DEPRECATED = 149i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetKeys: DBPROPENUM25_DEPRECATED = 151i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetNewRowAfter: DBPROPENUM25_DEPRECATED = 152i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetNextRowset: DBPROPENUM25_DEPRECATED = 153i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetWatchAll: DBPROPENUM25_DEPRECATED = 155i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetWatchNotify: DBPROPENUM25_DEPRECATED = 156i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetWatchRegion: DBPROPENUM25_DEPRECATED = 157i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetWithParameters: DBPROPENUM25_DEPRECATED = 158i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPROPENUM26 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_OUTPUTSTREAM: DBPROPENUM26 = 286i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_OUTPUTENCODING: DBPROPENUM26 = 287i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_TABLESTATISTICS: DBPROPENUM26 = 288i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_SKIPROWCOUNTRESULTS: DBPROPENUM26 = 291i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_IRowsetBookmark: DBPROPENUM26 = 292i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDPROP_VISUALMODE: DBPROPENUM26 = 293i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPROPFLAGSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPFLAGS_NOTSUPPORTED: DBPROPFLAGSENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPFLAGS_COLUMN: DBPROPFLAGSENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPFLAGS_DATASOURCE: DBPROPFLAGSENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPFLAGS_DATASOURCECREATE: DBPROPFLAGSENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPFLAGS_DATASOURCEINFO: DBPROPFLAGSENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPFLAGS_DBINIT: DBPROPFLAGSENUM = 16i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPFLAGS_INDEX: DBPROPFLAGSENUM = 32i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPFLAGS_ROWSET: DBPROPFLAGSENUM = 64i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPFLAGS_TABLE: DBPROPFLAGSENUM = 128i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPFLAGS_COLUMNOK: DBPROPFLAGSENUM = 256i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPFLAGS_READ: DBPROPFLAGSENUM = 512i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPFLAGS_WRITE: DBPROPFLAGSENUM = 1024i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPFLAGS_REQUIRED: DBPROPFLAGSENUM = 2048i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPFLAGS_SESSION: DBPROPFLAGSENUM = 4096i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPROPFLAGSENUM21 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPFLAGS_TRUSTEE: DBPROPFLAGSENUM21 = 8192i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPROPFLAGSENUM25 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPFLAGS_VIEW: DBPROPFLAGSENUM25 = 16384i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPROPFLAGSENUM26 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPFLAGS_STREAM: DBPROPFLAGSENUM26 = 32768i32;
 pub const DBPROPFLAGS_PERSIST: u32 = 8192u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBPROPIDSET {
     pub rgPropertyIDs: *mut u32,
@@ -2377,6 +3055,7 @@ impl ::core::default::Default for DBPROPIDSET {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 pub struct DBPROPIDSET {
     pub rgPropertyIDs: *mut u32,
@@ -2410,6 +3089,7 @@ impl ::core::default::Default for DBPROPIDSET {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBPROPINFO {
@@ -2455,6 +3135,7 @@ impl ::core::default::Default for DBPROPINFO {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBPROPINFO {
@@ -2487,6 +3168,7 @@ impl ::core::default::Default for DBPROPINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBPROPINFOSET {
@@ -2527,6 +3209,7 @@ impl ::core::default::Default for DBPROPINFOSET {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBPROPINFOSET {
@@ -2566,11 +3249,16 @@ impl ::core::default::Default for DBPROPINFOSET {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPROPOPTIONSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPOPTIONS_REQUIRED: DBPROPOPTIONSENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPOPTIONS_SETIFCHEAP: DBPROPOPTIONSENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPOPTIONS_OPTIONAL: DBPROPOPTIONSENUM = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBPROPSET {
@@ -2611,6 +3299,7 @@ impl ::core::default::Default for DBPROPSET {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DBPROPSET {
@@ -2667,17 +3356,29 @@ pub const DBPROPSET_SQLSERVERDBINIT: ::windows::core::GUID = ::windows::core::GU
 pub const DBPROPSET_SQLSERVERROWSET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cf4ca11_ef21_11d0_97e7_00c04fc2ad98);
 pub const DBPROPSET_SQLSERVERSESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28efaee5_2d2c_11d1_9807_00c04fc2ad98);
 pub const DBPROPSET_SQLSERVERSTREAM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f79c073_8a6d_4bca_a8a8_c9b79a9b962d);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPROPSTATUSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPSTATUS_OK: DBPROPSTATUSENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPSTATUS_NOTSUPPORTED: DBPROPSTATUSENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPSTATUS_BADVALUE: DBPROPSTATUSENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPSTATUS_BADOPTION: DBPROPSTATUSENUM = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPSTATUS_BADCOLUMN: DBPROPSTATUSENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPSTATUS_NOTALLSETTABLE: DBPROPSTATUSENUM = 5i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPSTATUS_NOTSETTABLE: DBPROPSTATUSENUM = 6i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPSTATUS_NOTSET: DBPROPSTATUSENUM = 7i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPSTATUS_CONFLICTING: DBPROPSTATUSENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBPROPSTATUSENUM21 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPSTATUS_NOTAVAILABLE: DBPROPSTATUSENUM21 = 9i32;
 pub const DBPROPVAL_AO_RANDOM: i32 = 2i32;
 pub const DBPROPVAL_AO_SEQUENTIAL: i32 = 0i32;
@@ -2874,142 +3575,277 @@ pub const DBPROP_MSDAORA_DETERMINEKEYCOLUMNS: u32 = 1u32;
 pub const DBPROP_PersistFormat: u32 = 2u32;
 pub const DBPROP_PersistSchema: u32 = 3u32;
 pub const DBPROP_Unicode: u32 = 6u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBRANGEENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRANGE_INCLUSIVESTART: DBRANGEENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRANGE_INCLUSIVEEND: DBRANGEENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRANGE_EXCLUSIVESTART: DBRANGEENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRANGE_EXCLUSIVEEND: DBRANGEENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRANGE_EXCLUDENULLS: DBRANGEENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRANGE_PREFIX: DBRANGEENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRANGE_MATCH: DBRANGEENUM = 16i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBRANGEENUM20 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRANGE_MATCH_N_SHIFT: DBRANGEENUM20 = 24i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRANGE_MATCH_N_MASK: DBRANGEENUM20 = 255i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBREASONENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROWSET_FETCHPOSITIONCHANGE: DBREASONENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROWSET_RELEASE: DBREASONENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_COLUMN_SET: DBREASONENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_COLUMN_RECALCULATED: DBREASONENUM = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROW_ACTIVATE: DBREASONENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROW_RELEASE: DBREASONENUM = 5i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROW_DELETE: DBREASONENUM = 6i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROW_FIRSTCHANGE: DBREASONENUM = 7i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROW_INSERT: DBREASONENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROW_RESYNCH: DBREASONENUM = 9i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROW_UNDOCHANGE: DBREASONENUM = 10i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROW_UNDOINSERT: DBREASONENUM = 11i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROW_UNDODELETE: DBREASONENUM = 12i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROW_UPDATE: DBREASONENUM = 13i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROWSET_CHANGED: DBREASONENUM = 14i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBREASONENUM15 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROWPOSITION_CHANGED: DBREASONENUM15 = 15i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROWPOSITION_CHAPTERCHANGED: DBREASONENUM15 = 16i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROWPOSITION_CLEARED: DBREASONENUM15 = 17i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROW_ASYNCHINSERT: DBREASONENUM15 = 18i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBREASONENUM25 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROWSET_ROWSADDED: DBREASONENUM25 = 19i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROWSET_POPULATIONCOMPLETE: DBREASONENUM25 = 20i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBREASON_ROWSET_POPULATIONSTOPPED: DBREASONENUM25 = 21i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBRESOURCEKINDENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRESOURCE_INVALID: DBRESOURCEKINDENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRESOURCE_TOTAL: DBRESOURCEKINDENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRESOURCE_CPU: DBRESOURCEKINDENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRESOURCE_MEMORY: DBRESOURCEKINDENUM = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRESOURCE_DISK: DBRESOURCEKINDENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRESOURCE_NETWORK: DBRESOURCEKINDENUM = 5i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRESOURCE_RESPONSE: DBRESOURCEKINDENUM = 6i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRESOURCE_ROWS: DBRESOURCEKINDENUM = 7i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRESOURCE_OTHER: DBRESOURCEKINDENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBRESULTFLAGENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRESULTFLAG_DEFAULT: DBRESULTFLAGENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRESULTFLAG_ROWSET: DBRESULTFLAGENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBRESULTFLAG_ROW: DBRESULTFLAGENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBROWCHANGEKINDENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWCHANGEKIND_INSERT: DBROWCHANGEKINDENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWCHANGEKIND_DELETE: DBROWCHANGEKINDENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWCHANGEKIND_UPDATE: DBROWCHANGEKINDENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWCHANGEKIND_COUNT: DBROWCHANGEKINDENUM = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBROWSTATUSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_S_OK: DBROWSTATUSENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_S_MULTIPLECHANGES: DBROWSTATUSENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_S_PENDINGCHANGES: DBROWSTATUSENUM = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_E_CANCELED: DBROWSTATUSENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_E_CANTRELEASE: DBROWSTATUSENUM = 6i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_E_CONCURRENCYVIOLATION: DBROWSTATUSENUM = 7i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_E_DELETED: DBROWSTATUSENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_E_PENDINGINSERT: DBROWSTATUSENUM = 9i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_E_NEWLYINSERTED: DBROWSTATUSENUM = 10i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_E_INTEGRITYVIOLATION: DBROWSTATUSENUM = 11i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_E_INVALID: DBROWSTATUSENUM = 12i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_E_MAXPENDCHANGESEXCEEDED: DBROWSTATUSENUM = 13i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_E_OBJECTOPEN: DBROWSTATUSENUM = 14i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_E_OUTOFMEMORY: DBROWSTATUSENUM = 15i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_E_PERMISSIONDENIED: DBROWSTATUSENUM = 16i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_E_LIMITREACHED: DBROWSTATUSENUM = 17i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_E_SCHEMAVIOLATION: DBROWSTATUSENUM = 18i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_E_FAIL: DBROWSTATUSENUM = 19i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBROWSTATUSENUM20 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBROWSTATUS_S_NOCHANGE: DBROWSTATUSENUM20 = 20i32;
 pub const DBSCHEMA_LINKEDSERVERS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9093caf4_2eac_11d1_9809_00c04fc2ad98);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBSEEKENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSEEK_INVALID: DBSEEKENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSEEK_FIRSTEQ: DBSEEKENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSEEK_LASTEQ: DBSEEKENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSEEK_AFTEREQ: DBSEEKENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSEEK_AFTER: DBSEEKENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSEEK_BEFOREEQ: DBSEEKENUM = 16i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSEEK_BEFORE: DBSEEKENUM = 32i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBSORTENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSORT_ASCENDING: DBSORTENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSORT_DESCENDING: DBSORTENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBSOURCETYPEENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSOURCETYPE_DATASOURCE: DBSOURCETYPEENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSOURCETYPE_ENUMERATOR: DBSOURCETYPEENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBSOURCETYPEENUM20 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSOURCETYPE_DATASOURCE_TDP: DBSOURCETYPEENUM20 = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSOURCETYPE_DATASOURCE_MDP: DBSOURCETYPEENUM20 = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBSOURCETYPEENUM25 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSOURCETYPE_BINDER: DBSOURCETYPEENUM25 = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBSTATUSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_S_OK: DBSTATUSENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_BADACCESSOR: DBSTATUSENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_CANTCONVERTVALUE: DBSTATUSENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_S_ISNULL: DBSTATUSENUM = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_S_TRUNCATED: DBSTATUSENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_SIGNMISMATCH: DBSTATUSENUM = 5i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_DATAOVERFLOW: DBSTATUSENUM = 6i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_CANTCREATE: DBSTATUSENUM = 7i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_UNAVAILABLE: DBSTATUSENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_PERMISSIONDENIED: DBSTATUSENUM = 9i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_INTEGRITYVIOLATION: DBSTATUSENUM = 10i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_SCHEMAVIOLATION: DBSTATUSENUM = 11i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_BADSTATUS: DBSTATUSENUM = 12i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_S_DEFAULT: DBSTATUSENUM = 13i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBSTATUSENUM20 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MDSTATUS_S_CELLEMPTY: DBSTATUSENUM20 = 14i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_S_IGNORE: DBSTATUSENUM20 = 15i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBSTATUSENUM21 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_DOESNOTEXIST: DBSTATUSENUM21 = 16i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_INVALIDURL: DBSTATUSENUM21 = 17i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_RESOURCELOCKED: DBSTATUSENUM21 = 18i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_RESOURCEEXISTS: DBSTATUSENUM21 = 19i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_CANNOTCOMPLETE: DBSTATUSENUM21 = 20i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_VOLUMENOTFOUND: DBSTATUSENUM21 = 21i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_OUTOFSPACE: DBSTATUSENUM21 = 22i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_S_CANNOTDELETESOURCE: DBSTATUSENUM21 = 23i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_READONLY: DBSTATUSENUM21 = 24i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_RESOURCEOUTOFSCOPE: DBSTATUSENUM21 = 25i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_S_ALREADYEXISTS: DBSTATUSENUM21 = 26i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBSTATUSENUM25 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_CANCELED: DBSTATUSENUM25 = 27i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_E_NOTCOLLECTION: DBSTATUSENUM25 = 28i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBSTATUSENUM26 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTATUS_S_ROWSETCOLUMN: DBSTATUSENUM26 = 29i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBTABLESTATISTICSTYPE26 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTAT_HISTOGRAM: DBTABLESTATISTICSTYPE26 = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTAT_COLUMN_CARDINALITY: DBTABLESTATISTICSTYPE26 = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBSTAT_TUPLE_CARDINALITY: DBTABLESTATISTICSTYPE26 = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct DBTIME {
     pub hour: u16,
     pub minute: u16,
@@ -3036,6 +3872,7 @@ impl ::core::default::Default for DBTIME {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBTIMESTAMP {
     pub year: i16,
@@ -3073,6 +3910,7 @@ impl ::core::default::Default for DBTIMESTAMP {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 pub struct DBTIMESTAMP {
     pub year: i16,
@@ -3109,54 +3947,101 @@ impl ::core::default::Default for DBTIMESTAMP {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBTYPEENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_EMPTY: DBTYPEENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_NULL: DBTYPEENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_I2: DBTYPEENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_I4: DBTYPEENUM = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_R4: DBTYPEENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_R8: DBTYPEENUM = 5i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_CY: DBTYPEENUM = 6i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_DATE: DBTYPEENUM = 7i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_BSTR: DBTYPEENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_IDISPATCH: DBTYPEENUM = 9i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_ERROR: DBTYPEENUM = 10i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_BOOL: DBTYPEENUM = 11i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_VARIANT: DBTYPEENUM = 12i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_IUNKNOWN: DBTYPEENUM = 13i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_DECIMAL: DBTYPEENUM = 14i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_UI1: DBTYPEENUM = 17i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_ARRAY: DBTYPEENUM = 8192i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_BYREF: DBTYPEENUM = 16384i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_I1: DBTYPEENUM = 16i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_UI2: DBTYPEENUM = 18i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_UI4: DBTYPEENUM = 19i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_I8: DBTYPEENUM = 20i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_UI8: DBTYPEENUM = 21i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_GUID: DBTYPEENUM = 72i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_VECTOR: DBTYPEENUM = 4096i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_RESERVED: DBTYPEENUM = 32768i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_BYTES: DBTYPEENUM = 128i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_STR: DBTYPEENUM = 129i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_WSTR: DBTYPEENUM = 130i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_NUMERIC: DBTYPEENUM = 131i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_UDT: DBTYPEENUM = 132i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_DBDATE: DBTYPEENUM = 133i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_DBTIME: DBTYPEENUM = 134i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_DBTIMESTAMP: DBTYPEENUM = 135i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBTYPEENUM15 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_HCHAPTER: DBTYPEENUM15 = 136i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBTYPEENUM20 = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_FILETIME: DBTYPEENUM20 = 64i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_PROPVARIANT: DBTYPEENUM20 = 138i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_VARNUMERIC: DBTYPEENUM20 = 139i32;
 pub const DBTYPE_SQLVARIANT: u32 = 144u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBUPDELRULEENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUPDELRULE_NOACTION: DBUPDELRULEENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUPDELRULE_CASCADE: DBUPDELRULEENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUPDELRULE_SETNULL: DBUPDELRULEENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBUPDELRULE_SETDEFAULT: DBUPDELRULEENUM = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DBVECTOR {
     pub size: usize,
@@ -3189,6 +4074,7 @@ impl ::core::default::Default for DBVECTOR {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 pub struct DBVECTOR {
     pub size: usize,
@@ -3220,14 +4106,23 @@ impl ::core::default::Default for DBVECTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBWATCHMODEENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBWATCHMODE_ALL: DBWATCHMODEENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBWATCHMODE_EXTEND: DBWATCHMODEENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBWATCHMODE_MOVE: DBWATCHMODEENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBWATCHMODE_COUNT: DBWATCHMODEENUM = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DBWATCHNOTIFYENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBWATCHNOTIFY_ROWSCHANGED: DBWATCHNOTIFYENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBWATCHNOTIFY_QUERYDONE: DBWATCHNOTIFYENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBWATCHNOTIFY_QUERYREEXECUTED: DBWATCHNOTIFYENUM = 3i32;
 pub const DB_ALL_EXCEPT_LIKE: u32 = 3u32;
 pub const DB_BINDFLAGS_COLLECTION: i32 = 16i32;
@@ -3241,136 +4136,266 @@ pub const DB_BINDFLAGS_RECURSIVE: i32 = 4i32;
 pub const DB_COLLATION_ASC: u32 = 1u32;
 pub const DB_COLLATION_DESC: u32 = 2u32;
 pub const DB_COUNTUNAVAILABLE: i32 = -1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_ABORTLIMITREACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217871i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_ALREADYINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217838i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_ALTERRESTRICTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217763i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_ASYNCNOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217771i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADACCESSORFLAGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217850i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADACCESSORHANDLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217920i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADACCESSORTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217845i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADBINDINFO: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217912i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADBOOKMARK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217906i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADCHAPTER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217914i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADCOLUMNID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217903i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADCOMMANDFLAGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217780i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADCOMMANDID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217802i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADCOMPAREOP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217881i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADCONSTRAINTFORM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217800i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADCONSTRAINTID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217781i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADCONSTRAINTTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217801i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADCONVERTFLAG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217828i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADCOPY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217863i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADDEFERRABILITY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217799i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADDYNAMICERRORID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217830i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADHRESULT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217832i32);
 pub const DB_E_BADID: i32 = -2147217860i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADINDEXID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217806i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADINITSTRING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217805i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADLOCKMODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217905i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADLOOKUPID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217831i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADMATCHTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217792i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADORDINAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217835i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADPARAMETERNAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217827i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADPRECISION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217862i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADPROPERTYVALUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217852i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADRATIO: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217902i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADRECORDNUM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217854i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADREGIONHANDLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217878i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADROWHANDLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217916i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADSCALE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217861i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADSOURCEHANDLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217840i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADSTARTPOSITION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217890i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADSTATUSVALUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217880i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADSTORAGEFLAG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217882i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADSTORAGEFLAGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217849i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADTABLEID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217860i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217859i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADTYPENAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217872i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADUPDATEDELETERULE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217782i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BADVALUES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217901i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BOGUS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217665i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BOOKMARKSKIPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217853i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_BYREFACCESSORNOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217848i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_CANCELED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217842i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_CANNOTCONNECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217770i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_CANNOTFREE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217894i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_CANNOTRESTART: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217896i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_CANTCANCEL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217899i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_CANTCONVERTVALUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217913i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_CANTFETCHBACKWARDS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217884i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_CANTFILTER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217825i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_CANTORDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217824i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_CANTSCROLLBACKWARDS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217879i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_CANTTRANSLATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217869i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_CHAPTERNOTRELEASED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217841i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_COLUMNUNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217760i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_COMMANDNOTPERSISTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217817i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_CONCURRENCYVIOLATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217864i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_COSTLIMIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217907i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_DATAOVERFLOW: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217833i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_DELETEDROW: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217885i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_DIALECTNOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217898i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_DROPRESTRICTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217776i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_DUPLICATECOLUMNID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217858i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_DUPLICATECONSTRAINTID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217767i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_DUPLICATEDATASOURCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217897i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_DUPLICATEID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217816i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_DUPLICATEINDEXID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217868i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_DUPLICATETABLEID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217857i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_ERRORSINCOMMAND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217900i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_ERRORSOCCURRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217887i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_GOALREJECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217892i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_INDEXINUSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217866i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_INTEGRITYVIOLATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217873i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_INVALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217851i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_INVALIDTRANSITION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217876i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_LIMITREJECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217909i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_MAXPENDCHANGESEXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217836i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_MISMATCHEDPROVIDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217803i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_MULTIPLESTATEMENTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217874i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_MULTIPLESTORAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217826i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NEWLYINSERTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217893i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NOAGGREGATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217886i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NOCOLUMN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217819i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NOCOMMAND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217908i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NOCONSTRAINT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217761i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NOINDEX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217867i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NOLOCALE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217855i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NONCONTIGUOUSRANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217877i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NOPROVIDERSREGISTERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217804i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NOQUERY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217889i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NOSOURCEOBJECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217775i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NOSTATISTIC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217764i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NOTABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217865i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NOTAREFERENCECOLUMN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217910i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NOTASUBREGION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217875i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NOTCOLLECTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217773i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217895i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NOTPREPARED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217846i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NOTREENTRANT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217888i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217837i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_NULLACCESSORNOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217847i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_OBJECTCREATIONLIMITREACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217815i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_OBJECTMISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217779i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_OBJECTOPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217915i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_OUTOFSPACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217766i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_PARAMNOTOPTIONAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217904i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_PARAMUNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217839i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_PENDINGCHANGES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217834i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_PENDINGINSERT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217829i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217772i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_READONLYACCESSOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217918i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_RESOURCEEXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217768i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_RESOURCELOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217774i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_RESOURCENOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217762i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_RESOURCEOUTOFSCOPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217778i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_ROWLIMITEXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217919i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_ROWSETINCOMMAND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217870i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_ROWSNOTRELEASED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217883i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_SCHEMAVIOLATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217917i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_TABLEINUSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217856i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217769i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_UNSUPPORTEDCONVERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217891i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_E_WRITEONLYACCESSOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217844i32);
 pub const DB_IMP_LEVEL_ANONYMOUS: u32 = 0u32;
 pub const DB_IMP_LEVEL_DELEGATE: u32 = 3u32;
@@ -3393,6 +4418,7 @@ pub const DB_NULL_HACCESSOR: u32 = 0u32;
 pub const DB_NULL_HCHAPTER: u32 = 0u32;
 pub const DB_NULL_HROW: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct DB_NUMERIC {
     pub precision: u8,
     pub scale: u8,
@@ -3431,40 +4457,73 @@ pub const DB_PT_PROCEDURE: u32 = 2u32;
 pub const DB_PT_UNKNOWN: u32 = 1u32;
 pub const DB_REMOTE: u32 = 1u32;
 pub const DB_SEARCHABLE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_SEC_E_AUTH_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217843i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_SEC_E_PERMISSIONDENIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217911i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_SEC_E_SAFEMODE_DENIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217765i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_ASYNCHRONOUS: ::windows::core::HRESULT = ::windows::core::HRESULT(265936i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_BADROWHANDLE: ::windows::core::HRESULT = ::windows::core::HRESULT(265939i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_BOOKMARKSKIPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(265923i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_BUFFERFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(265928i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_CANTRELEASE: ::windows::core::HRESULT = ::windows::core::HRESULT(265930i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_COLUMNSCHANGED: ::windows::core::HRESULT = ::windows::core::HRESULT(265937i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_COLUMNTYPEMISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(265921i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_COMMANDREEXECUTED: ::windows::core::HRESULT = ::windows::core::HRESULT(265927i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_DELETEDROW: ::windows::core::HRESULT = ::windows::core::HRESULT(265940i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_DIALECTIGNORED: ::windows::core::HRESULT = ::windows::core::HRESULT(265933i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_ENDOFROWSET: ::windows::core::HRESULT = ::windows::core::HRESULT(265926i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_ERRORSOCCURRED: ::windows::core::HRESULT = ::windows::core::HRESULT(265946i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_ERRORSRETURNED: ::windows::core::HRESULT = ::windows::core::HRESULT(265938i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_GOALCHANGED: ::windows::core::HRESULT = ::windows::core::HRESULT(265931i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_LOCKUPGRADED: ::windows::core::HRESULT = ::windows::core::HRESULT(265944i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_MULTIPLECHANGES: ::windows::core::HRESULT = ::windows::core::HRESULT(265948i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_NONEXTROWSET: ::windows::core::HRESULT = ::windows::core::HRESULT(265925i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_NORESULT: ::windows::core::HRESULT = ::windows::core::HRESULT(265929i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_NOROWSPECIFICCOLUMNS: ::windows::core::HRESULT = ::windows::core::HRESULT(265949i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_NOTSINGLETON: ::windows::core::HRESULT = ::windows::core::HRESULT(265943i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_PARAMUNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(265947i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_PROPERTIESCHANGED: ::windows::core::HRESULT = ::windows::core::HRESULT(265945i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_ROWLIMITEXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(265920i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_STOPLIMITREACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(265942i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_TOOMANYCHANGES: ::windows::core::HRESULT = ::windows::core::HRESULT(265941i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_TYPEINFOOVERRIDDEN: ::windows::core::HRESULT = ::windows::core::HRESULT(265922i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_UNWANTEDOPERATION: ::windows::core::HRESULT = ::windows::core::HRESULT(265932i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_UNWANTEDPHASE: ::windows::core::HRESULT = ::windows::core::HRESULT(265934i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_S_UNWANTEDREASON: ::windows::core::HRESULT = ::windows::core::HRESULT(265935i32);
 pub const DB_UNSEARCHABLE: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct DB_VARNUMERIC {
     pub precision: u8,
     pub scale: i8,
@@ -3492,6 +4551,7 @@ impl ::core::default::Default for DB_VARNUMERIC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct DCINFO {
     pub eInfoType: u32,
@@ -3521,11 +4581,17 @@ impl ::core::default::Default for DCINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DCINFOTYPEENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DCINFOTYPE_VERSION: DCINFOTYPEENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type DELIVERY_AGENT_FLAGS = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DELIVERY_AGENT_FLAG_NO_BROADCAST: DELIVERY_AGENT_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DELIVERY_AGENT_FLAG_NO_RESTRICTIONS: DELIVERY_AGENT_FLAGS = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DELIVERY_AGENT_FLAG_SILENT_DIAL: DELIVERY_AGENT_FLAGS = 16i32;
 pub const DISPID_QUERY_ALL: u32 = 6u32;
 pub const DISPID_QUERY_HITCOUNT: u32 = 4u32;
@@ -3580,6 +4646,7 @@ pub const DS_E_UNKNOWNPARAM: i32 = -2147220450i32;
 pub const DS_E_UNKNOWNREQUEST: i32 = -2147220476i32;
 pub const DS_E_VALUETOOLARGE: i32 = -2147220451i32;
 pub const DataLinks: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2206cdb2_19c1_11d1_89e0_00c04fd7a829);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct DataSource(::windows::core::IUnknown);
 impl DataSource {
@@ -3649,6 +4716,7 @@ pub struct DataSourceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsl: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsl: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct DataSourceListener(::windows::core::IUnknown);
 impl DataSourceListener {
@@ -3707,6 +4775,7 @@ pub struct DataSourceListenerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdm: *const u16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdm: *const u16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct DataSourceObject(::windows::core::IUnknown);
 impl DataSourceObject {
@@ -3803,9 +4872,12 @@ pub struct DataSourceObjectVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type EBindInfoOptions = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const BIO_BINDER: EBindInfoOptions = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct ERRORINFO {
     pub hrError: ::windows::core::HRESULT,
@@ -3841,6 +4913,7 @@ impl ::core::default::Default for ERRORINFO {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 pub struct ERRORINFO {
     pub hrError: ::windows::core::HRESULT,
@@ -4097,6 +5170,7 @@ pub const EX_TYPE: u32 = 12u32;
 pub const EX_USER: u32 = 16u32;
 pub const FAIL: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILTERED_DATA_SOURCES {
     pub pwcsExtension: super::super::Foundation::PWSTR,
@@ -4135,8 +5209,11 @@ pub const FLTRDMN_E_ENCRYPTED_DOCUMENT: i32 = -2147212283i32;
 pub const FLTRDMN_E_FILTER_INIT_FAILED: i32 = -2147212284i32;
 pub const FLTRDMN_E_QI_FILTER_FAILED: i32 = -2147212286i32;
 pub const FLTRDMN_E_UNEXPECTED: i32 = -2147212287i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type FOLLOW_FLAGS = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const FF_INDEXCOMPLEXURLS: FOLLOW_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const FF_SUPPRESSINDEXING: FOLLOW_FLAGS = 2i32;
 pub const FTE_E_ADMIN_BLOB_CORRUPT: i32 = -2147207676i32;
 pub const FTE_E_AFFINITY_MASK: i32 = -2147207651i32;
@@ -4378,6 +5455,7 @@ pub const GTHR_S_STATUS_THROTTLE: i32 = 265503i32;
 pub const GTHR_S_TRANSACTION_IGNORED: i32 = 265577i32;
 pub const GTHR_S_USE_MIME_FILTER: i32 = 265639i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct HITRANGE {
     pub iPosition: u32,
     pub cLength: u32,
@@ -4402,6 +5480,7 @@ impl ::core::default::Default for HITRANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IAccessor(::windows::core::IUnknown);
 impl IAccessor {
@@ -4470,6 +5549,7 @@ pub struct IAccessorVtbl(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: usize, pcrefcount: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IAlterIndex(::windows::core::IUnknown);
 impl IAlterIndex {
@@ -4522,6 +5602,7 @@ pub struct IAlterIndexVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, pindexid: *mut super::super::Storage::IndexServer::DBID, pnewindexid: *mut super::super::Storage::IndexServer::DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IAlterTable(::windows::core::IUnknown);
 impl IAlterTable {
@@ -4580,6 +5661,7 @@ pub struct IAlterTableVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, pnewtableid: *mut super::super::Storage::IndexServer::DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IBindResource(::windows::core::IUnknown);
 impl IBindResource {
@@ -4632,6 +5714,7 @@ pub struct IBindResourceVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: ::windows::core::RawPtr, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IChapteredRowset(::windows::core::IUnknown);
 impl IChapteredRowset {
@@ -4688,6 +5771,7 @@ pub struct IChapteredRowsetVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, pcrefcount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, pcrefcount: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IColumnMapper(::windows::core::IUnknown);
 impl IColumnMapper {
@@ -4756,6 +5840,7 @@ pub struct IColumnMapperVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IColumnMapperCreator(::windows::core::IUnknown);
 impl IColumnMapperCreator {
@@ -4809,6 +5894,7 @@ pub struct IColumnMapperCreatorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wcsmachinename: super::super::Foundation::PWSTR, wcscatalogname: super::super::Foundation::PWSTR, ppcolumnmapper: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IColumnsInfo(::windows::core::IUnknown);
 impl IColumnsInfo {
@@ -4867,6 +5953,7 @@ pub struct IColumnsInfoVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolumnids: usize, rgcolumnids: *const super::super::Storage::IndexServer::DBID, rgcolumns: *mut usize) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IColumnsInfo2(::windows::core::IUnknown);
 impl IColumnsInfo2 {
@@ -4951,6 +6038,7 @@ pub struct IColumnsInfo2Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolumnidmasks: usize, rgcolumnidmasks: *const super::super::Storage::IndexServer::DBID, dwflags: u32, pccolumns: *mut usize, prgcolumnids: *mut *mut super::super::Storage::IndexServer::DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IColumnsRowset(::windows::core::IUnknown);
 impl IColumnsRowset {
@@ -5009,6 +6097,7 @@ pub struct IColumnsRowsetVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, coptcolumns: usize, rgoptcolumns: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, ppcolrowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ICommand(::windows::core::IUnknown);
 impl ICommand {
@@ -5068,6 +6157,7 @@ pub struct ICommandVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pparams: *mut DBPARAMS, pcrowsaffected: *mut isize, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ICommandCost(::windows::core::IUnknown);
 impl ICommandCost {
@@ -5150,6 +6240,7 @@ pub struct ICommandCostVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszrowsetname: super::super::Foundation::PWSTR, ccostlimits: u32, prgcostlimits: *mut DBCOST, dwexecutionflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ICommandPersist(::windows::core::IUnknown);
 impl ICommandPersist {
@@ -5220,6 +6311,7 @@ pub struct ICommandPersistVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcommandid: *mut super::super::Storage::IndexServer::DBID, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ICommandPrepare(::windows::core::IUnknown);
 impl ICommandPrepare {
@@ -5274,6 +6366,7 @@ pub struct ICommandPrepareVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cexpectedruns: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ICommandProperties(::windows::core::IUnknown);
 impl ICommandProperties {
@@ -5332,6 +6425,7 @@ pub struct ICommandPropertiesVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertysets: u32, rgpropertysets: *const DBPROPSET) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ICommandStream(::windows::core::IUnknown);
 impl ICommandStream {
@@ -5386,6 +6480,7 @@ pub struct ICommandStreamVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piid: *mut ::windows::core::GUID, pguiddialect: *mut ::windows::core::GUID, ppcommandstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, rguiddialect: *const ::windows::core::GUID, pcommandstream: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ICommandText(::windows::core::IUnknown);
 impl ICommandText {
@@ -5477,6 +6572,7 @@ pub struct ICommandTextVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguiddialect: *const ::windows::core::GUID, pwszcommand: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ICommandValidate(::windows::core::IUnknown);
 impl ICommandValidate {
@@ -5531,6 +6627,7 @@ pub struct ICommandValidateVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ICommandWithParameters(::windows::core::IUnknown);
 impl ICommandWithParameters {
@@ -5595,6 +6692,7 @@ pub struct ICommandWithParametersVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cparams: usize, rgparamordinals: *const usize, rgparambindinfo: *const DBPARAMBINDINFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ICondition(::windows::core::IUnknown);
 impl ICondition {
@@ -5762,6 +6860,7 @@ pub struct IConditionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertyterm: *mut ::windows::core::RawPtr, ppoperationterm: *mut ::windows::core::RawPtr, ppvalueterm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ICondition2(::windows::core::IUnknown);
 impl ICondition2 {
@@ -5962,6 +7061,7 @@ pub struct ICondition2Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pcop: *mut Common::CONDITION_OPERATION, ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IConditionFactory(::windows::core::IUnknown);
 impl IConditionFactory {
@@ -6036,6 +7136,7 @@ pub struct IConditionFactoryVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pc: ::windows::core::RawPtr, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::super::Foundation::SYSTEMTIME, ppcresolved: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IConditionFactory2(::windows::core::IUnknown);
 impl IConditionFactory2 {
@@ -6191,6 +7292,7 @@ pub struct IConditionFactory2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pc: ::windows::core::RawPtr, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::super::Foundation::SYSTEMTIME, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IConditionGenerator(::windows::core::IUnknown);
 impl IConditionGenerator {
@@ -6274,6 +7376,7 @@ pub struct IConditionGeneratorVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszvaluetype: super::super::Foundation::PWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, fuseenglish: super::super::Foundation::BOOL, ppszphrase: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IConvertType(::windows::core::IUnknown);
 impl IConvertType {
@@ -6319,6 +7422,7 @@ unsafe impl ::windows::core::Interface for IConvertType {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IConvertTypeVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wfromtype: u16, wtotype: u16, dwconvertflags: u32) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ICreateRow(::windows::core::IUnknown);
 impl ICreateRow {
@@ -6371,6 +7475,7 @@ pub struct ICreateRowVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: ::windows::core::RawPtr, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppwsznewurl: *mut super::super::Foundation::PWSTR, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IDBAsynchNotify(::windows::core::IUnknown);
 impl IDBAsynchNotify {
@@ -6433,6 +7538,7 @@ pub struct IDBAsynchNotifyVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, eoperation: u32, hrstatus: ::windows::core::HRESULT, pwszstatustext: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IDBAsynchStatus(::windows::core::IUnknown);
 impl IDBAsynchStatus {
@@ -6489,6 +7595,7 @@ pub struct IDBAsynchStatusVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, eoperation: u32, pulprogress: *mut usize, pulprogressmax: *mut usize, peasynchphase: *mut u32, ppwszstatustext: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IDBBinderProperties(::windows::core::IUnknown);
 impl IDBBinderProperties {
@@ -6577,6 +7684,7 @@ pub struct IDBBinderPropertiesVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IDBCreateCommand(::windows::core::IUnknown);
 impl IDBCreateCommand {
@@ -6628,6 +7736,7 @@ pub struct IDBCreateCommandVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppcommand: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IDBCreateSession(::windows::core::IUnknown);
 impl IDBCreateSession {
@@ -6679,6 +7788,7 @@ pub struct IDBCreateSessionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppdbsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IDBDataSourceAdmin(::windows::core::IUnknown);
 impl IDBDataSourceAdmin {
@@ -6747,6 +7857,7 @@ pub struct IDBDataSourceAdminVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IDBInfo(::windows::core::IUnknown);
 impl IDBInfo {
@@ -6806,6 +7917,7 @@ pub struct IDBInfoVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cliterals: u32, rgliterals: *const u32, pcliteralinfo: *mut u32, prgliteralinfo: *mut *mut DBLITERALINFO, ppcharbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IDBInitialize(::windows::core::IUnknown);
 impl IDBInitialize {
@@ -6860,6 +7972,7 @@ pub struct IDBInitializeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IDBPromptInitialize(::windows::core::IUnknown);
 impl IDBPromptInitialize {
@@ -6919,6 +8032,7 @@ pub struct IDBPromptInitializeVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, pwszinitialdirectory: super::super::Foundation::PWSTR, pwszinitialfile: super::super::Foundation::PWSTR, ppwszselectedfile: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IDBProperties(::windows::core::IUnknown);
 impl IDBProperties {
@@ -6983,6 +8097,7 @@ pub struct IDBPropertiesVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IDBSchemaCommand(::windows::core::IUnknown);
 impl IDBSchemaCommand {
@@ -7038,6 +8153,7 @@ pub struct IDBSchemaCommandVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, rguidschema: *const ::windows::core::GUID, ppcommand: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcschemas: *mut u32, prgschemas: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IDBSchemaRowset(::windows::core::IUnknown);
 impl IDBSchemaRowset {
@@ -7094,6 +8210,7 @@ pub struct IDBSchemaRowsetVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcschemas: *mut u32, prgschemas: *mut *mut ::windows::core::GUID, prgrestrictionsupport: *mut *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IDCInfo(::windows::core::IUnknown);
 impl IDCInfo {
@@ -7154,31 +8271,57 @@ pub struct IDCInfoVtbl(
 );
 pub const IDENTIFIER_SDK_ERROR: u32 = 268435456u32;
 pub const IDENTIFIER_SDK_MASK: u32 = 4026531840u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_BUILTIN_PROPERTY: ::windows::core::HRESULT = ::windows::core::HRESULT(264511i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_BUILTIN_VIEW: ::windows::core::HRESULT = ::windows::core::HRESULT(264503i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_CANNOT_CAST: ::windows::core::HRESULT = ::windows::core::HRESULT(264518i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_CANNOT_CONVERT: ::windows::core::HRESULT = ::windows::core::HRESULT(264507i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_COLUMN_NOT_DEFINED: ::windows::core::HRESULT = ::windows::core::HRESULT(264502i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_DATE_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(264519i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_DEFAULT_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(264495i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_ILLEGAL_PASSTHROUGH: ::windows::core::HRESULT = ::windows::core::HRESULT(264496i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_INVALIDSELECT_COALESCE: ::windows::core::HRESULT = ::windows::core::HRESULT(264517i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_INVALID_CATALOG: ::windows::core::HRESULT = ::windows::core::HRESULT(264516i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_INVALID_IN_GROUP_CLAUSE: ::windows::core::HRESULT = ::windows::core::HRESULT(264520i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_MATCH_STRING: ::windows::core::HRESULT = ::windows::core::HRESULT(264513i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_NOT_COLUMN_OF_VIEW: ::windows::core::HRESULT = ::windows::core::HRESULT(264510i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_ORDINAL_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(264500i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_OR_NOT: ::windows::core::HRESULT = ::windows::core::HRESULT(264506i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_OUT_OF_MEMORY: ::windows::core::HRESULT = ::windows::core::HRESULT(264504i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(264508i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_PARSE_ERR_1_PARAM: ::windows::core::HRESULT = ::windows::core::HRESULT(264497i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_PARSE_ERR_2_PARAM: ::windows::core::HRESULT = ::windows::core::HRESULT(264498i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_PROPERTY_NAME_IN_VIEW: ::windows::core::HRESULT = ::windows::core::HRESULT(264514i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_RELATIVE_INTERVAL: ::windows::core::HRESULT = ::windows::core::HRESULT(264509i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_SELECT_STAR: ::windows::core::HRESULT = ::windows::core::HRESULT(264505i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_SEMI_COLON: ::windows::core::HRESULT = ::windows::core::HRESULT(264499i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_VIEW_ALREADY_DEFINED: ::windows::core::HRESULT = ::windows::core::HRESULT(264515i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_VIEW_NOT_DEFINED: ::windows::core::HRESULT = ::windows::core::HRESULT(264501i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const IDS_MON_WEIGHT_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(264512i32);
 pub const IDX_E_BUILD_IN_PROGRESS: i32 = -2147217147i32;
 pub const IDX_E_CATALOG_DISMOUNTED: i32 = -2147217124i32;
@@ -7210,6 +8353,7 @@ pub const IDX_S_DSS_NOT_AVAILABLE: i32 = 266525i32;
 pub const IDX_S_NO_BUILD_IN_PROGRESS: i32 = 266516i32;
 pub const IDX_S_SEARCH_SERVER_ALREADY_EXISTS: i32 = 266517i32;
 pub const IDX_S_SEARCH_SERVER_DOES_NOT_EXIST: i32 = 266518i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IDataConvert(::windows::core::IUnknown);
 impl IDataConvert {
@@ -7268,6 +8412,7 @@ pub struct IDataConvertVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wsrctype: u16, wdsttype: u16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wsrctype: u16, wdsttype: u16, pcbsrclength: *const usize, pcbdstlength: *mut usize, psrc: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IDataInitialize(::windows::core::IUnknown);
 impl IDataInitialize {
@@ -7353,6 +8498,7 @@ pub struct IDataInitializeVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszfilename: super::super::Foundation::PWSTR, pwszinitializationstring: super::super::Foundation::PWSTR, dwcreationdisposition: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IDataSourceLocator(::windows::core::IUnknown);
 impl IDataSourceLocator {
@@ -7471,6 +8617,7 @@ pub struct IDataSourceLocatorVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppadoconnection: *mut ::windows::core::RawPtr, pbsuccess: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IEntity(::windows::core::IUnknown);
 impl IEntity {
@@ -7565,6 +8712,7 @@ pub struct IEntityVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszphrase: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IEnumItemProperties(::windows::core::IUnknown);
 impl IEnumItemProperties {
@@ -7635,6 +8783,7 @@ pub struct IEnumItemPropertiesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pncount: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IEnumSearchRoots(::windows::core::IUnknown);
 impl IEnumSearchRoots {
@@ -7698,6 +8847,7 @@ pub struct IEnumSearchRootsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IEnumSearchScopeRules(::windows::core::IUnknown);
 impl IEnumSearchScopeRules {
@@ -7761,6 +8911,7 @@ pub struct IEnumSearchScopeRulesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IEnumSubscription(::windows::core::IUnknown);
 impl IEnumSubscription {
@@ -7829,6 +8980,7 @@ pub struct IEnumSubscriptionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pncount: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IErrorLookup(::windows::core::IUnknown);
 impl IErrorLookup {
@@ -7891,6 +9043,7 @@ pub struct IErrorLookupVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdynamicerrorid: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IErrorRecords(::windows::core::IUnknown);
 impl IErrorRecords {
@@ -7972,6 +9125,7 @@ pub struct IErrorRecordsVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcrecords: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IGetDataSource(::windows::core::IUnknown);
 impl IGetDataSource {
@@ -8018,6 +9172,7 @@ unsafe impl ::windows::core::Interface for IGetDataSource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetDataSourceVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppdatasource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IGetRow(::windows::core::IUnknown);
 impl IGetRow {
@@ -8076,6 +9231,7 @@ pub struct IGetRowVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrow: usize, ppwszurl: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IGetSession(::windows::core::IUnknown);
 impl IGetSession {
@@ -8122,6 +9278,7 @@ unsafe impl ::windows::core::Interface for IGetSession {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetSessionVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IGetSourceRow(::windows::core::IUnknown);
 impl IGetSourceRow {
@@ -8168,6 +9325,7 @@ unsafe impl ::windows::core::Interface for IGetSourceRow {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IGetSourceRowVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pprow: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IIndexDefinition(::windows::core::IUnknown);
 impl IIndexDefinition {
@@ -8226,6 +9384,7 @@ pub struct IIndexDefinitionVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IInterval(::windows::core::IUnknown);
 impl IInterval {
@@ -8278,6 +9437,7 @@ pub struct IIntervalVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pilklower: *mut INTERVAL_LIMIT_KIND, ppropvarlower: *mut super::Com::StructuredStorage::PROPVARIANT, pilkupper: *mut INTERVAL_LIMIT_KIND, ppropvarupper: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ILoadFilter(::windows::core::IUnknown);
 impl ILoadFilter {
@@ -8342,6 +9502,7 @@ pub struct ILoadFilterVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstm: ::windows::core::RawPtr, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: *mut ::core::ffi::c_void, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ILoadFilterWithPrivateComActivation(::windows::core::IUnknown);
 impl ILoadFilterWithPrivateComActivation {
@@ -8432,6 +9593,7 @@ pub struct ILoadFilterWithPrivateComActivationVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filteredsources: *const FILTERED_DATA_SOURCES, usedefault: super::super::Foundation::BOOL, filterclsid: *mut ::windows::core::GUID, isfilterprivatecomactivated: *mut super::super::Foundation::BOOL, filterobj: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IMDDataset(::windows::core::IUnknown);
 impl IMDDataset {
@@ -8505,6 +9667,7 @@ pub struct IMDDatasetVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: usize, ulstartcell: usize, ulendcell: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppspecification: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IMDFind(::windows::core::IUnknown);
 impl IMDFind {
@@ -8563,6 +9726,7 @@ pub struct IMDFindVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulaxisidentifier: u32, ulstartingordinal: usize, cmembers: usize, rgpwszmember: *mut super::super::Foundation::PWSTR, pultupleordinal: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IMDRangeRowset(::windows::core::IUnknown);
 impl IMDRangeRowset {
@@ -8615,6 +9779,7 @@ pub struct IMDRangeRowsetVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ulstartcell: usize, ulendcell: usize, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IMetaData(::windows::core::IUnknown);
 impl IMetaData {
@@ -8667,6 +9832,7 @@ pub struct IMetaDataVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszkey: *mut super::super::Foundation::PWSTR, ppszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IMultipleResults(::windows::core::IUnknown);
 impl IMultipleResults {
@@ -8718,6 +9884,7 @@ pub struct IMultipleResultsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, lresultflag: isize, riid: *const ::windows::core::GUID, pcrowsaffected: *mut isize, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INCREMENTAL_ACCESS_INFO {
     pub dwSize: u32,
@@ -8749,21 +9916,37 @@ impl ::core::default::Default for INCREMENTAL_ACCESS_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const INET_E_AGENT_CACHE_SIZE_EXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693246i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const INET_E_AGENT_CONNECTION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693245i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const INET_E_AGENT_EXCEEDING_CACHE_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693232i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const INET_E_AGENT_MAX_SIZE_EXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693248i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const INET_E_SCHEDULED_EXCLUDE_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693241i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const INET_E_SCHEDULED_UPDATES_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693244i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const INET_E_SCHEDULED_UPDATES_RESTRICTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693243i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const INET_E_SCHEDULED_UPDATE_INTERVAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146693242i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const INET_S_AGENT_INCREASED_CACHE_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(790416i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const INET_S_AGENT_PART_FAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(790401i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type INTERVAL_LIMIT_KIND = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const ILK_EXPLICIT_INCLUDED: INTERVAL_LIMIT_KIND = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const ILK_EXPLICIT_EXCLUDED: INTERVAL_LIMIT_KIND = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const ILK_NEGATIVE_INFINITY: INTERVAL_LIMIT_KIND = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const ILK_POSITIVE_INFINITY: INTERVAL_LIMIT_KIND = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct INamedEntity(::windows::core::IUnknown);
 impl INamedEntity {
@@ -8824,6 +10007,7 @@ pub struct INamedEntityVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszphrase: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct INamedEntityCollector(::windows::core::IUnknown);
 impl INamedEntityCollector {
@@ -8876,6 +10060,7 @@ pub struct INamedEntityCollectorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, beginspan: u32, endspan: u32, beginactual: u32, endactual: u32, ptype: ::windows::core::RawPtr, pszvalue: super::super::Foundation::PWSTR, certainty: NAMED_ENTITY_CERTAINTY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IObjectAccessControl(::windows::core::IUnknown);
 impl IObjectAccessControl {
@@ -8952,6 +10137,7 @@ pub struct IObjectAccessControlVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobject: *mut SEC_OBJECT, powner: *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IOpLockStatus(::windows::core::IUnknown);
 impl IOpLockStatus {
@@ -9019,6 +10205,7 @@ pub struct IOpLockStatusVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phoplockev: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IOpenRowset(::windows::core::IUnknown);
 impl IOpenRowset {
@@ -9071,6 +10258,7 @@ pub struct IOpenRowsetVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IParentRowset(::windows::core::IUnknown);
 impl IParentRowset {
@@ -9122,6 +10310,7 @@ pub struct IParentRowsetVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, iordinal: usize, riid: *const ::windows::core::GUID, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IProtocolHandlerSite(::windows::core::IUnknown);
 impl IProtocolHandlerSite {
@@ -9174,6 +10363,7 @@ pub struct IProtocolHandlerSiteVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsidobj: *mut ::windows::core::GUID, pcwszcontenttype: super::super::Foundation::PWSTR, pcwszextension: super::super::Foundation::PWSTR, ppfilter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IProvideMoniker(::windows::core::IUnknown);
 impl IProvideMoniker {
@@ -9227,6 +10417,7 @@ pub struct IProvideMonikerVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppimoniker: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IQueryParser(::windows::core::IUnknown);
 impl IQueryParser {
@@ -9324,6 +10515,7 @@ pub struct IQueryParserVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcondition: ::windows::core::RawPtr, fuseenglish: super::super::Foundation::BOOL, ppszpropertyname: *mut super::super::Foundation::PWSTR, ppszquerystring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IQueryParserManager(::windows::core::IUnknown);
 impl IQueryParserManager {
@@ -9389,6 +10581,7 @@ pub struct IQueryParserManagerVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, option: QUERY_PARSER_MANAGER_OPTION, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IQuerySolution(::windows::core::IUnknown);
 impl IQuerySolution {
@@ -9498,6 +10691,7 @@ pub struct IQuerySolutionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszinputstring: *mut super::super::Foundation::PWSTR, pptokens: *mut ::windows::core::RawPtr, plcid: *mut u32, ppwordbreaker: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IReadData(::windows::core::IUnknown);
 impl IReadData {
@@ -9552,6 +10746,7 @@ pub struct IReadDataVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, haccessor: usize, crows: isize, pcrowsobtained: *mut usize, ppfixeddata: *mut *mut u8, pcbvariabletotal: *mut usize, ppvariabledata: *mut *mut u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRegisterProvider(::windows::core::IUnknown);
 impl IRegisterProvider {
@@ -9617,6 +10812,7 @@ pub struct IRegisterProviderVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, dwreserved: usize, rclsidprovider: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRelationship(::windows::core::IUnknown);
 impl IRelationship {
@@ -9694,6 +10890,7 @@ pub struct IRelationshipVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszphrase: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRichChunk(::windows::core::IUnknown);
 impl IRichChunk {
@@ -9746,6 +10943,7 @@ pub struct IRichChunkVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfirstpos: *mut u32, plength: *mut u32, ppsz: *mut super::super::Foundation::PWSTR, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRow(::windows::core::IUnknown);
 impl IRow {
@@ -9809,6 +11007,7 @@ pub struct IRowVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, pcolumnid: *const super::super::Storage::IndexServer::DBID, rguidcolumntype: *const ::windows::core::GUID, dwbindflags: u32, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowChange(::windows::core::IUnknown);
 impl IRowChange {
@@ -9861,6 +11060,7 @@ pub struct IRowChangeVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolumns: usize, rgcolumns: *const DBCOLUMNACCESS) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowPosition(::windows::core::IUnknown);
 impl IRowPosition {
@@ -9928,6 +11128,7 @@ pub struct IRowPositionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prowset: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, hrow: usize, dwpositionflags: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowPositionChange(::windows::core::IUnknown);
 impl IRowPositionChange {
@@ -9980,6 +11181,7 @@ pub struct IRowPositionChangeVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ereason: u32, ephase: u32, fcantdeny: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowSchemaChange(::windows::core::IUnknown);
 impl IRowSchemaChange {
@@ -10064,6 +11266,7 @@ pub struct IRowSchemaChangeVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolumns: usize, rgnewcolumninfo: *const DBCOLUMNINFO, rgcolumns: *mut DBCOLUMNACCESS) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowset(::windows::core::IUnknown);
 impl IRowset {
@@ -10130,6 +11333,7 @@ pub struct IRowsetVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crows: usize, rghrows: *const usize, rgrowoptions: *mut u32, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetAsynch(::windows::core::IUnknown);
 impl IRowsetAsynch {
@@ -10186,6 +11390,7 @@ pub struct IRowsetAsynchVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetBookmark(::windows::core::IUnknown);
 impl IRowsetBookmark {
@@ -10231,6 +11436,7 @@ unsafe impl ::windows::core::Interface for IRowsetBookmark {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetBookmarkVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, cbbookmark: usize, pbookmark: *const u8) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetChange(::windows::core::IUnknown);
 impl IRowsetChange {
@@ -10289,6 +11495,7 @@ pub struct IRowsetChangeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void, phrow: *mut usize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetChangeExtInfo(::windows::core::IUnknown);
 impl IRowsetChangeExtInfo {
@@ -10343,6 +11550,7 @@ pub struct IRowsetChangeExtInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, hrow: usize, phroworiginal: *mut usize) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, hrow: usize, ccolumnordinals: u32, rgiordinals: *const u32, rgcolumnstatus: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetChapterMember(::windows::core::IUnknown);
 impl IRowsetChapterMember {
@@ -10388,6 +11596,7 @@ unsafe impl ::windows::core::Interface for IRowsetChapterMember {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetChapterMemberVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, hrow: usize) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetCopyRows(::windows::core::IUnknown);
 impl IRowsetCopyRows {
@@ -10450,6 +11659,7 @@ pub struct IRowsetCopyRowsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsourceid: u16, hreserved: usize, crows: isize, bflags: u32, pcrowscopied: *mut usize) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prowsetsource: ::windows::core::RawPtr, ccolids: usize, rgsourcecolumns: *const isize, rgtargetcolumns: *const isize, phsourceid: *mut u16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetCurrentIndex(::windows::core::IUnknown);
 impl IRowsetCurrentIndex {
@@ -10542,6 +11752,7 @@ pub struct IRowsetCurrentIndexVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pindexid: *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetEvents(::windows::core::IUnknown);
 impl IRowsetEvents {
@@ -10614,6 +11825,7 @@ pub struct IRowsetEventsVtbl(
 );
 #[repr(C)]
 pub struct IRowsetExactScroll(pub u8);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetFastLoad(::windows::core::IUnknown);
 impl IRowsetFastLoad {
@@ -10670,6 +11882,7 @@ pub struct IRowsetFastLoadVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fdone: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetFind(::windows::core::IUnknown);
 impl IRowsetFind {
@@ -10720,6 +11933,7 @@ pub struct IRowsetFindVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, haccessor: usize, pfindvalue: *mut ::core::ffi::c_void, compareop: u32, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetIdentity(::windows::core::IUnknown);
 impl IRowsetIdentity {
@@ -10765,6 +11979,7 @@ unsafe impl ::windows::core::Interface for IRowsetIdentity {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetIdentityVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hthisrow: usize, hthatrow: usize) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetIndex(::windows::core::IUnknown);
 impl IRowsetIndex {
@@ -10825,6 +12040,7 @@ pub struct IRowsetIndexVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: usize, ckeyvalues: usize, pdata: *mut ::core::ffi::c_void, dwseekoptions: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: usize, cstartkeycolumns: usize, pstartdata: *mut ::core::ffi::c_void, cendkeycolumns: usize, penddata: *mut ::core::ffi::c_void, dwrangeoptions: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetInfo(::windows::core::IUnknown);
 impl IRowsetInfo {
@@ -10887,6 +12103,7 @@ pub struct IRowsetInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iordinal: usize, riid: *const ::windows::core::GUID, ppreferencedrowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppspecification: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetKeys(::windows::core::IUnknown);
 impl IRowsetKeys {
@@ -10932,6 +12149,7 @@ unsafe impl ::windows::core::Interface for IRowsetKeys {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetKeysVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccolumns: *mut usize, prgcolumns: *mut *mut usize) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetLocate(::windows::core::IUnknown);
 impl IRowsetLocate {
@@ -11034,6 +12252,7 @@ pub struct IRowsetLocateVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, crows: usize, rgcbbookmarks: *const usize, rgpbookmarks: *const *const u8, rghrows: *mut usize, rgrowstatus: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, cbookmarks: usize, rgcbbookmarks: *const usize, rgpbookmarks: *const *const u8, rghashedvalues: *mut usize, rgbookmarkstatus: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetNewRowAfter(::windows::core::IUnknown);
 impl IRowsetNewRowAfter {
@@ -11084,6 +12303,7 @@ pub struct IRowsetNewRowAfterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, cbbmprevious: u32, pbmprevious: *const u8, haccessor: usize, pdata: *mut u8, phrow: *mut usize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetNextRowset(::windows::core::IUnknown);
 impl IRowsetNextRowset {
@@ -11135,6 +12355,7 @@ pub struct IRowsetNextRowsetVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppnextrowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetNotify(::windows::core::IUnknown);
 impl IRowsetNotify {
@@ -11199,6 +12420,7 @@ pub struct IRowsetNotifyVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prowset: ::windows::core::RawPtr, ereason: u32, ephase: u32, fcantdeny: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetPrioritization(::windows::core::IUnknown);
 impl IRowsetPrioritization {
@@ -11257,6 +12479,7 @@ pub struct IRowsetPrioritizationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, priority: *mut PRIORITY_LEVEL, scopestatisticseventfrequency: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexeddocumentcount: *mut u32, oustandingaddcount: *mut u32, oustandingmodifycount: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetQueryStatus(::windows::core::IUnknown);
 impl IRowsetQueryStatus {
@@ -11311,6 +12534,7 @@ pub struct IRowsetQueryStatusVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32, pcfiltereddocuments: *mut u32, pcdocumentstofilter: *mut u32, pdwratiofinisheddenominator: *mut usize, pdwratiofinishednumerator: *mut usize, cbbmk: usize, pbmk: *const u8, pirowbmk: *mut usize, pcrowstotal: *mut usize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetRefresh(::windows::core::IUnknown);
 impl IRowsetRefresh {
@@ -11367,6 +12591,7 @@ pub struct IRowsetRefreshVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetResynch(::windows::core::IUnknown);
 impl IRowsetResynch {
@@ -11421,6 +12646,7 @@ pub struct IRowsetResynchVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crows: usize, rghrows: *const usize, pcrowsresynched: *mut usize, prghrowsresynched: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetScroll(::windows::core::IUnknown);
 impl IRowsetScroll {
@@ -11551,6 +12777,7 @@ pub struct IRowsetScrollVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, cbbookmark: usize, pbookmark: *const u8, pulposition: *mut usize, pcrows: *mut usize) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved1: usize, hreserved2: usize, ulnumerator: usize, uldenominator: usize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetUpdate(::windows::core::IUnknown);
 impl IRowsetUpdate {
@@ -11649,6 +12876,7 @@ pub struct IRowsetUpdateVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, crows: usize, rghrows: *const usize, pcrowsundone: *mut usize, prgrowsundone: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hreserved: usize, crows: usize, rghrows: *const usize, pcrows: *mut usize, prgrows: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetView(::windows::core::IUnknown);
 impl IRowsetView {
@@ -11704,6 +12932,7 @@ pub struct IRowsetViewVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hchapter: usize, riid: *const ::windows::core::GUID, phchaptersource: *mut usize, ppview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetWatchAll(::windows::core::IUnknown);
 impl IRowsetWatchAll {
@@ -11762,6 +12991,7 @@ pub struct IRowsetWatchAllVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetWatchNotify(::windows::core::IUnknown);
 impl IRowsetWatchNotify {
@@ -11807,6 +13037,7 @@ unsafe impl ::windows::core::Interface for IRowsetWatchNotify {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRowsetWatchNotifyVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prowset: ::windows::core::RawPtr, echangereason: u32) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetWatchRegion(::windows::core::IUnknown);
 impl IRowsetWatchRegion {
@@ -11909,6 +13140,7 @@ pub struct IRowsetWatchRegionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcchangesobtained: *mut usize, prgchanges: *mut *mut tagDBROWWATCHRANGE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hregion: usize, hchapter: usize, cbbookmark: usize, pbookmark: *mut u8, crows: isize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IRowsetWithParameters(::windows::core::IUnknown);
 impl IRowsetWithParameters {
@@ -11965,6 +13197,7 @@ pub struct IRowsetWithParametersVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparams: *mut DBPARAMS, pulerrorparam: *mut u32, phreserved: *mut usize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISQLErrorInfo(::windows::core::IUnknown);
 impl ISQLErrorInfo {
@@ -12017,6 +13250,7 @@ pub struct ISQLErrorInfoVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsqlstate: *mut super::super::Foundation::BSTR, plnativeerror: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISQLGetDiagField(::windows::core::IUnknown);
 impl ISQLGetDiagField {
@@ -12069,6 +13303,7 @@ pub struct ISQLGetDiagFieldVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdiaginfo: *mut KAGGETDIAG) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISQLRequestDiagFields(::windows::core::IUnknown);
 impl ISQLRequestDiagFields {
@@ -12114,6 +13349,7 @@ unsafe impl ::windows::core::Interface for ISQLRequestDiagFields {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISQLRequestDiagFieldsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cdiagfields: u32, rgdiagfields: *const KAGREQDIAG) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISQLServerErrorInfo(::windows::core::IUnknown);
 impl ISQLServerErrorInfo {
@@ -12166,6 +13402,7 @@ pub struct ISQLServerErrorInfoVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pperrorinfo: *mut *mut tagSSErrorInfo, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISchemaLocalizerSupport(::windows::core::IUnknown);
 impl ISchemaLocalizerSupport {
@@ -12219,6 +13456,7 @@ pub struct ISchemaLocalizerSupportVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszglobalstring: super::super::Foundation::PWSTR, ppszlocalstring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISchemaLock(::windows::core::IUnknown);
 impl ISchemaLock {
@@ -12277,6 +13515,7 @@ pub struct ISchemaLockVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hlockhandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISchemaProvider(::windows::core::IUnknown);
 impl ISchemaProvider {
@@ -12361,6 +13600,7 @@ pub struct ISchemaProviderVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pentity: ::windows::core::RawPtr, pszinputstring: super::super::Foundation::PWSTR, ptokencollection: ::windows::core::RawPtr, ctokensbegin: u32, pctokenslength: *mut u32, ppszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IScopedOperations(::windows::core::IUnknown);
 impl IScopedOperations {
@@ -12457,6 +13697,7 @@ pub struct IScopedOperationsVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISearchCatalogManager(::windows::core::IUnknown);
 impl ISearchCatalogManager {
@@ -12644,6 +13885,7 @@ pub struct ISearchCatalogManagerVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcrawlscopemanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISearchCatalogManager2(::windows::core::IUnknown);
 impl ISearchCatalogManager2 {
@@ -12857,6 +14099,7 @@ pub struct ISearchCatalogManager2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpattern: super::super::Foundation::PWSTR, dwprioritizeflags: PRIORITIZE_FLAGS) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISearchCrawlScopeManager(::windows::core::IUnknown);
 impl ISearchCrawlScopeManager {
@@ -12995,6 +14238,7 @@ pub struct ISearchCrawlScopeManagerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISearchCrawlScopeManager2(::windows::core::IUnknown);
 impl ISearchCrawlScopeManager2 {
@@ -13159,6 +14403,7 @@ pub struct ISearchCrawlScopeManager2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plversion: *mut *mut i32, phfilemapping: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISearchItemsChangedSink(::windows::core::IUnknown);
 impl ISearchItemsChangedSink {
@@ -13223,6 +14468,7 @@ pub struct ISearchItemsChangedSinkVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwnumberofchanges: u32, rgdatachangeentries: *const SEARCH_ITEM_CHANGE, rgdwdocids: *mut u32, rghrcompletioncodes: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISearchLanguageSupport(::windows::core::IUnknown);
 impl ISearchLanguageSupport {
@@ -13297,6 +14543,7 @@ pub struct ISearchLanguageSupportVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsquerytoken: super::super::Foundation::PWSTR, cwcquerytoken: u32, pwcsdocumenttoken: super::super::Foundation::PWSTR, cwcdocumenttoken: u32, pulprefixlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISearchManager(::windows::core::IUnknown);
 impl ISearchManager {
@@ -13424,6 +14671,7 @@ pub struct ISearchManagerVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwportnumber: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISearchManager2(::windows::core::IUnknown);
 impl ISearchManager2 {
@@ -13584,6 +14832,7 @@ pub struct ISearchManager2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcatalog: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISearchNotifyInlineSite(::windows::core::IUnknown);
 impl ISearchNotifyInlineSite {
@@ -13638,6 +14887,7 @@ pub struct ISearchNotifyInlineSiteVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sipstatus: SEARCH_INDEXING_PHASE, dwnumentries: u32, rgitemstatusentries: *const SEARCH_ITEM_INDEXING_STATUS) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidcatalogresetsignature: *const ::windows::core::GUID, guidcheckpointsignature: *const ::windows::core::GUID, dwlastcheckpointnumber: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISearchPersistentItemsChangedSink(::windows::core::IUnknown);
 impl ISearchPersistentItemsChangedSink {
@@ -13702,6 +14952,7 @@ pub struct ISearchPersistentItemsChangedSinkVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwnumberofchanges: u32, datachangeentries: *const SEARCH_ITEM_PERSISTENT_CHANGE, hrcompletioncodes: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISearchProtocol(::windows::core::IUnknown);
 impl ISearchProtocol {
@@ -13768,6 +15019,7 @@ pub struct ISearchProtocolVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paccessor: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISearchProtocol2(::windows::core::IUnknown);
 impl ISearchProtocol2 {
@@ -13860,6 +15112,7 @@ pub struct ISearchProtocol2Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pauthenticationinfo: *mut AUTHENTICATION_INFO, pincrementalaccessinfo: *mut INCREMENTAL_ACCESS_INFO, piteminfo: *mut ITEM_INFO, puserdata: *const super::Com::BLOB, ppaccessor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISearchProtocolThreadContext(::windows::core::IUnknown);
 impl ISearchProtocolThreadContext {
@@ -13918,6 +15171,7 @@ pub struct ISearchProtocolThreadContextVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtimeelaspedsincelastcallinms: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISearchQueryHelper(::windows::core::IUnknown);
 impl ISearchQueryHelper {
@@ -14081,6 +15335,7 @@ pub struct ISearchQueryHelperVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cmaxresults: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcmaxresults: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISearchQueryHits(::windows::core::IUnknown);
 impl ISearchQueryHits {
@@ -14145,6 +15400,7 @@ pub struct ISearchQueryHitsVtbl(
     #[cfg(feature = "Win32_Storage_IndexServer")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcregion: *mut u32, paregion: *mut *mut super::super::Storage::IndexServer::FILTERREGION) -> i32,
     #[cfg(not(feature = "Win32_Storage_IndexServer"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISearchRoot(::windows::core::IUnknown);
 impl ISearchRoot {
@@ -14322,6 +15578,7 @@ pub struct ISearchRootVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszpassword: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISearchScopeRule(::windows::core::IUnknown);
 impl ISearchScopeRule {
@@ -14394,6 +15651,7 @@ pub struct ISearchScopeRuleVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfollowflags: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISearchViewChangedSink(::windows::core::IUnknown);
 impl ISearchViewChangedSink {
@@ -14446,6 +15704,7 @@ pub struct ISearchViewChangedSinkVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwdocid: *const i32, pchange: *const SEARCH_ITEM_CHANGE, pfinview: *const super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISecurityInfo(::windows::core::IUnknown);
 impl ISecurityInfo {
@@ -14506,6 +15765,7 @@ pub struct ISecurityInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cobjecttypes: *mut u32, rgobjecttypes: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objecttype: ::windows::core::GUID, ppermissions: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IService(::windows::core::IUnknown);
 impl IService {
@@ -14551,6 +15811,7 @@ unsafe impl ::windows::core::Interface for IService {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServiceVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkinner: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISessionProperties(::windows::core::IUnknown);
 impl ISessionProperties {
@@ -14609,6 +15870,7 @@ pub struct ISessionPropertiesVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISimpleCommandCreator(::windows::core::IUnknown);
 impl ISimpleCommandCreator {
@@ -14671,6 +15933,7 @@ pub struct ISimpleCommandCreatorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszcatalogname: super::super::Foundation::PWSTR, cwcin: u32, pcwcout: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISourcesRowset(::windows::core::IUnknown);
 impl ISourcesRowset {
@@ -14723,6 +15986,7 @@ pub struct ISourcesRowsetVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, cpropertysets: u32, rgproperties: *mut DBPROPSET, ppsourcesrowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IStemmer(::windows::core::IUnknown);
 impl IStemmer {
@@ -14785,6 +16049,7 @@ pub struct IStemmerVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwcslicense: *const *const u16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISubscriptionItem(::windows::core::IUnknown);
 impl ISubscriptionItem {
@@ -14866,6 +16131,7 @@ pub struct ISubscriptionItemVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumitemproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISubscriptionMgr(::windows::core::IUnknown);
 impl ISubscriptionMgr {
@@ -14961,6 +16227,7 @@ pub struct ISubscriptionMgrVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pwszurl: super::super::Foundation::PWSTR, pwszfriendlyname: super::super::Foundation::PWSTR, dwflags: u32, substype: SUBSCRIPTIONTYPE, pinfo: *mut SUBSCRIPTIONINFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ISubscriptionMgr2(::windows::core::IUnknown);
 impl ISubscriptionMgr2 {
@@ -15110,6 +16377,7 @@ pub struct ISubscriptionMgr2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct ITEMPROP {
     pub variantValue: super::Com::VARIANT,
@@ -15140,6 +16408,7 @@ impl ::core::default::Default for ITEMPROP {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ITEM_INFO {
     pub dwSize: u32,
@@ -15174,6 +16443,7 @@ impl ::core::default::Default for ITEM_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ITableCreation(::windows::core::IUnknown);
 impl ITableCreation {
@@ -15271,6 +16541,7 @@ pub struct ITableCreationVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pccolumndescs: *mut usize, prgcolumndescs: *mut *mut DBCOLUMNDESC, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut u32, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ITableDefinition(::windows::core::IUnknown);
 impl ITableDefinition {
@@ -15342,6 +16613,7 @@ pub struct ITableDefinitionVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumnid: *const super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ITableDefinitionWithConstraints(::windows::core::IUnknown);
 impl ITableDefinitionWithConstraints {
@@ -15477,6 +16749,7 @@ pub struct ITableDefinitionWithConstraintsVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, pconstraintid: *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ITableRename(::windows::core::IUnknown);
 impl ITableRename {
@@ -15535,6 +16808,7 @@ pub struct ITableRenameVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poldtableid: *mut super::super::Storage::IndexServer::DBID, poldindexid: *mut super::super::Storage::IndexServer::DBID, pnewtableid: *mut super::super::Storage::IndexServer::DBID, pnewindexid: *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ITokenCollection(::windows::core::IUnknown);
 impl ITokenCollection {
@@ -15591,6 +16865,7 @@ pub struct ITokenCollectionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: u32, pbegin: *mut u32, plength: *mut u32, ppsz: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ITransactionJoin(::windows::core::IUnknown);
 impl ITransactionJoin {
@@ -15650,6 +16925,7 @@ pub struct ITransactionJoinVtbl(
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punktransactioncoord: *mut ::core::ffi::c_void, isolevel: i32, isoflags: u32, potheroptions: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_DistributedTransactionCoordinator"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ITransactionLocal(::windows::core::IUnknown);
 impl ITransactionLocal {
@@ -15753,6 +17029,7 @@ pub struct ITransactionLocalVtbl(
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isolevel: i32, isoflags: u32, potheroptions: ::windows::core::RawPtr, pultransactionlevel: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_DistributedTransactionCoordinator"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ITransactionObject(::windows::core::IUnknown);
 impl ITransactionObject {
@@ -15806,6 +17083,7 @@ pub struct ITransactionObjectVtbl(
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ultransactionlevel: u32, pptransactionobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_DistributedTransactionCoordinator"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ITrusteeAdmin(::windows::core::IUnknown);
 impl ITrusteeAdmin {
@@ -15882,6 +17160,7 @@ pub struct ITrusteeAdminVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct ITrusteeGroupAdmin(::windows::core::IUnknown);
 impl ITrusteeGroupAdmin {
@@ -15958,6 +17237,7 @@ pub struct ITrusteeGroupAdminVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, pcmemberships: *mut u32, prgmemberships: *mut *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Security_Authorization")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IUMS(::windows::core::IUnknown);
 impl IUMS {
@@ -15996,6 +17276,7 @@ unsafe impl ::windows::core::Interface for IUMS {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUMSVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ticks: u32), pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ticks: u32), pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void), pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void), #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL, #[cfg(not(feature = "Win32_Foundation"))] usize);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IUMSInitialize(::windows::core::IUnknown);
 impl IUMSInitialize {
@@ -16041,6 +17322,7 @@ unsafe impl ::windows::core::Interface for IUMSInitialize {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUMSInitializeVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pums: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IUrlAccessor(::windows::core::IUnknown);
 impl IUrlAccessor {
@@ -16161,6 +17443,7 @@ pub struct IUrlAccessorVtbl(
     #[cfg(feature = "Win32_Storage_IndexServer")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppfilter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_IndexServer"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IUrlAccessor2(::windows::core::IUnknown);
 impl IUrlAccessor2 {
@@ -16317,6 +17600,7 @@ pub struct IUrlAccessor2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszcodepage: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IUrlAccessor3(::windows::core::IUnknown);
 impl IUrlAccessor3 {
@@ -16499,6 +17783,7 @@ pub struct IUrlAccessor3Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pcsidcount: *mut u32, ppsidblobs: *mut *mut super::Com::BLOB) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IUrlAccessor4(::windows::core::IUnknown);
 impl IUrlAccessor4 {
@@ -16715,6 +18000,7 @@ pub struct IUrlAccessor4Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfindexproperty: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IViewChapter(::windows::core::IUnknown);
 impl IViewChapter {
@@ -16771,6 +18057,7 @@ pub struct IViewChapterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsource: usize, phviewchapter: *mut usize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IViewFilter(::windows::core::IUnknown);
 impl IViewFilter {
@@ -16831,6 +18118,7 @@ pub struct IViewFilterVtbl(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, haccessor: usize, crows: usize, compareops: *const u32, pcriteriadata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IViewRowset(::windows::core::IUnknown);
 impl IViewRowset {
@@ -16887,6 +18175,7 @@ pub struct IViewRowsetVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IViewSort(::windows::core::IUnknown);
 impl IViewSort {
@@ -16941,6 +18230,7 @@ pub struct IViewSortVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcvalues: *mut usize, prgcolumns: *mut *mut usize, prgorders: *mut *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cvalues: usize, rgcolumns: *const usize, rgorders: *const u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IWordBreaker(::windows::core::IUnknown);
 impl IWordBreaker {
@@ -17009,6 +18299,7 @@ pub struct IWordBreakerVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwcslicense: *const *const u16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IWordFormSink(::windows::core::IUnknown);
 impl IWordFormSink {
@@ -17067,6 +18358,7 @@ pub struct IWordFormSinkVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct IWordSink(::windows::core::IUnknown);
 impl IWordSink {
@@ -17157,6 +18449,7 @@ pub const JPS_E_SCHEMA_ERROR: i32 = -2147217018i32;
 pub const JPS_E_SHARING_VIOLATION: i32 = -2147217014i32;
 pub const JPS_S_DUPLICATE_DOC_DETECTED: i32 = 266624i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct KAGGETDIAG {
     pub ulSize: u32,
@@ -17229,6 +18522,7 @@ pub const KAGPROP_STRINGFUNCTIONS: u32 = 20u32;
 pub const KAGPROP_SYSTEMFUNCTIONS: u32 = 21u32;
 pub const KAGPROP_TIMEDATEFUNCTIONS: u32 = 22u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct KAGREQDIAG {
     pub ulDiagFlags: u32,
     pub vt: u16,
@@ -17254,12 +18548,19 @@ impl ::core::default::Default for KAGREQDIAG {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type KAGREQDIAGFLAGSENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const KAGREQDIAGFLAGS_HEADER: KAGREQDIAGFLAGSENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const KAGREQDIAGFLAGS_RECORD: KAGREQDIAGFLAGSENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type LOCKMODEENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const LOCKMODE_INVALID: LOCKMODEENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const LOCKMODE_EXCLUSIVE: LOCKMODEENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const LOCKMODE_SHARED: LOCKMODEENUM = 2i32;
 pub const LeafCondition: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52f15c89_5a17_48e1_bbcd_46a3f89c7cc2);
 pub const MAXNAME: u32 = 129u32;
@@ -17267,6 +18568,7 @@ pub const MAXNUMERICLEN: u32 = 16u32;
 pub const MAXUSEVERITY: u32 = 18u32;
 pub const MAX_QUERY_RANK: u32 = 1000u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MDAXISINFO {
@@ -17310,6 +18612,7 @@ impl ::core::default::Default for MDAXISINFO {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MDAXISINFO {
@@ -17499,9 +18802,13 @@ pub const MD_DIMTYPE_MEASURE: u32 = 2u32;
 pub const MD_DIMTYPE_OTHER: u32 = 3u32;
 pub const MD_DIMTYPE_TIME: u32 = 1u32;
 pub const MD_DIMTYPE_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MD_E_BADCOORDINATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217822i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MD_E_BADTUPLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217823i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MD_E_INVALIDAXIS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217821i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MD_E_INVALIDCELLRANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217820i32);
 pub const MINFATALERR: u32 = 20u32;
 pub const MIN_USER_DATATYPE: u32 = 256u32;
@@ -17510,22 +18817,39 @@ pub const MSDAORA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8
 pub const MSDAORA8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f06a373_dd6a_43db_b4e0_1fc121e5e62b);
 pub const MSDAORA8_ERROR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f06a374_dd6a_43db_b4e0_1fc121e5e62b);
 pub const MSDAORA_ERROR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8cc4cbf_fdff_11d0_b865_00a0c9081c1d);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type MSDSDBINITPROPENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_MSDS_DBINIT_DATAPROVIDER: MSDSDBINITPROPENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type MSDSSESSIONPROPENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_MSDS_SESS_UNIQUENAMES: MSDSSESSIONPROPENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MSG_CI_CORRUPT_INDEX_COMPONENT: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745962i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MSG_CI_CREATE_SEVER_ITEM_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147479480i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MSG_CI_MASTER_MERGE_ABORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745928i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MSG_CI_MASTER_MERGE_ABORTED_LOW_DISK: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745987i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MSG_CI_MASTER_MERGE_CANT_RESTART: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073737718i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MSG_CI_MASTER_MERGE_CANT_START: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073737719i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MSG_CI_MASTER_MERGE_COMPLETED: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745927i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MSG_CI_MASTER_MERGE_REASON_EXPECTED_DOCS: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745990i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MSG_CI_MASTER_MERGE_REASON_EXTERNAL: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745988i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MSG_CI_MASTER_MERGE_REASON_INDEX_LIMIT: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745989i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MSG_CI_MASTER_MERGE_REASON_NUMBER: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745991i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MSG_CI_MASTER_MERGE_RESTARTED: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745945i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MSG_CI_MASTER_MERGE_STARTED: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745926i32);
 pub const MSG_TEST_MESSAGE: i32 = 1074008064i32;
 pub const MSS_E_APPALREADYEXISTS: i32 = -2147213054i32;
@@ -17535,11 +18859,16 @@ pub const MSS_E_CATALOGNOTFOUND: i32 = -2147213053i32;
 pub const MSS_E_CATALOGSTOPPING: i32 = -2147213052i32;
 pub const MSS_E_INVALIDAPPNAME: i32 = -2147213056i32;
 pub const MSS_E_UNICODEFILEHEADERMISSING: i32 = -2147213051i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type NAMED_ENTITY_CERTAINTY = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const NEC_LOW: NAMED_ENTITY_CERTAINTY = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const NEC_MEDIUM: NAMED_ENTITY_CERTAINTY = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const NEC_HIGH: NAMED_ENTITY_CERTAINTY = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct NATLANGUAGERESTRICTION {
     pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
@@ -17581,6 +18910,7 @@ pub const NLADMIN_E_DUPLICATE_CATALOG: i32 = -2147215103i32;
 pub const NLADMIN_E_FAILED_TO_GIVE_ACCOUNT_PRIVILEGE: i32 = -2147215101i32;
 pub const NLADMIN_S_NOT_ALL_BUILD_CATALOGS_INITIALIZED: i32 = 268546i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct NODERESTRICTION {
     pub cRes: u32,
@@ -17625,6 +18955,7 @@ pub const NOTESPH_E_UNSUPPORTED_CONTENT_FIELD_TYPE: i32 = -2147211773i32;
 pub const NOTESPH_S_IGNORE_ID: i32 = 271874i32;
 pub const NOTESPH_S_LISTKNOWNFIELDS: i32 = 271888i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct NOTRESTRICTION {
     pub pRes: *mut RESTRICTION,
@@ -17655,9 +18986,11 @@ impl ::core::default::Default for NOTRESTRICTION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const NOT_N_PARSE_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(526638i32);
 pub const NegationCondition: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8de9c74c_605a_4acd_bee3_2b222aa2d23d);
 pub const OCC_INVALID: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn ODBCGetTryWaitValue() -> u32 {
     #[cfg(windows)]
@@ -17671,6 +19004,7 @@ pub unsafe fn ODBCGetTryWaitValue() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ODBCSetTryWaitValue(dwvalue: u32) -> super::super::Foundation::BOOL {
@@ -17727,6 +19061,7 @@ pub const ODBC_REMOVE_SYS_DSN: u32 = 6u32;
 pub const ODBC_SYSTEM_DSN: u32 = 2u32;
 pub const ODBC_USER_DSN: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ODBC_VS_ARGS {
     pub pguidEvent: *mut ::windows::core::GUID,
@@ -17762,6 +19097,7 @@ impl ::core::default::Default for ODBC_VS_ARGS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union ODBC_VS_ARGS_0 {
     pub wszArg: super::super::Foundation::PWSTR,
@@ -17794,6 +19130,7 @@ impl ::core::default::Default for ODBC_VS_ARGS_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union ODBC_VS_ARGS_1 {
     pub wszCorrelation: super::super::Foundation::PWSTR,
@@ -17829,6 +19166,7 @@ pub const ODBC_VS_FLAG_RETCODE: i32 = 4i32;
 pub const ODBC_VS_FLAG_STOP: i32 = 8i32;
 pub const ODBC_VS_FLAG_UNICODE_ARG: i32 = 1i32;
 pub const ODBC_VS_FLAG_UNICODE_COR: i32 = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct OLEDBSimpleProvider(::windows::core::IUnknown);
 impl OLEDBSimpleProvider {
@@ -17951,6 +19289,7 @@ pub struct OLEDBSimpleProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirows: *mut isize) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct OLEDBSimpleProviderListener(::windows::core::IUnknown);
 impl OLEDBSimpleProviderListener {
@@ -18031,32 +19370,59 @@ pub struct OLEDBSimpleProviderListenerVtbl(
 );
 pub const OLEDBVER: u32 = 624u32;
 pub const OLEDB_BINDER_CUSTOM_ERROR: i32 = -2147212032i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type OSPCOMP = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPCOMP_EQ: OSPCOMP = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPCOMP_DEFAULT: OSPCOMP = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPCOMP_LT: OSPCOMP = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPCOMP_LE: OSPCOMP = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPCOMP_GE: OSPCOMP = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPCOMP_GT: OSPCOMP = 5i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPCOMP_NE: OSPCOMP = 6i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type OSPFIND = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPFIND_DEFAULT: OSPFIND = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPFIND_UP: OSPFIND = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPFIND_CASESENSITIVE: OSPFIND = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPFIND_UPCASESENSITIVE: OSPFIND = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type OSPFORMAT = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPFORMAT_RAW: OSPFORMAT = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPFORMAT_DEFAULT: OSPFORMAT = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPFORMAT_FORMATTED: OSPFORMAT = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPFORMAT_HTML: OSPFORMAT = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type OSPRW = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPRW_DEFAULT: OSPRW = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPRW_READONLY: OSPRW = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPRW_READWRITE: OSPRW = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPRW_MIXED: OSPRW = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type OSPXFER = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPXFER_COMPLETE: OSPXFER = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPXFER_ABORT: OSPXFER = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSPXFER_ERROR: OSPXFER = 2i32;
 pub const OSP_IndexLabel: u32 = 0u32;
 pub const PDPO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccb4ec60_b9dc_11d1_ac80_00a0c9034873);
@@ -18078,22 +19444,32 @@ pub const PEOPLE_IMPORT_E_UPDATE_DIRSYNC_COOKIE: i32 = -2147205113i32;
 pub const PEOPLE_IMPORT_E_USERNAME_NOTRESOLVED: i32 = -2147205109i32;
 pub const PEOPLE_IMPORT_NODSDEFINED: i32 = -2147205119i32;
 pub const PEOPLE_IMPORT_NOMAPPINGDEFINED: i32 = -2147205117i32;
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNFILLTEXTBUFFER = ::core::option::Option<unsafe extern "system" fn(ptextsource: *mut TEXT_SOURCE) -> ::windows::core::HRESULT>;
 pub const PRAll: u32 = 256u32;
 pub const PRAllBits: u32 = 7u32;
 pub const PRAny: u32 = 512u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type PRIORITIZE_FLAGS = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PRIORITIZE_FLAG_RETRYFAILEDITEMS: PRIORITIZE_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PRIORITIZE_FLAG_IGNOREFAILURECOUNT: PRIORITIZE_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type PRIORITY_LEVEL = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PRIORITY_LEVEL_FOREGROUND: PRIORITY_LEVEL = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PRIORITY_LEVEL_HIGH: PRIORITY_LEVEL = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PRIORITY_LEVEL_LOW: PRIORITY_LEVEL = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PRIORITY_LEVEL_DEFAULT: PRIORITY_LEVEL = 3i32;
 pub const PROGID_MSPersist_Version_W: &'static str = "MSPersist.1";
 pub const PROGID_MSPersist_W: &'static str = "MSPersist";
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct PROPERTYRESTRICTION {
     pub rel: u32,
@@ -18127,11 +19503,16 @@ impl ::core::default::Default for PROPERTYRESTRICTION {
 pub const PROPID_DBBMK_BOOKMARK: u32 = 2u32;
 pub const PROPID_DBBMK_CHAPTER: u32 = 3u32;
 pub const PROPID_DBSELF_SELF: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type PROXY_ACCESS = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PROXY_ACCESS_PRECONFIG: PROXY_ACCESS = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PROXY_ACCESS_DIRECT: PROXY_ACCESS = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PROXY_ACCESS_PROXY: PROXY_ACCESS = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROXY_INFO {
     pub dwSize: u32,
@@ -18221,27 +19602,49 @@ pub const QRY_E_WILDCARDPREFIXLENGTH: i32 = -2147219695i32;
 pub const QRY_S_INEXACTRESULTS: i32 = 263958i32;
 pub const QRY_S_NOROWSFOUND: i32 = 263940i32;
 pub const QRY_S_TERMIGNORED: i32 = 263954i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QUERY_E_AGGREGATE_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215847i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QUERY_E_ALLNOISE_AND_NO_RELDOC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215859i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QUERY_E_ALLNOISE_AND_NO_RELPROP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215857i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QUERY_E_DUPLICATE_RANGE_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215845i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QUERY_E_INCORRECT_VERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215852i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QUERY_E_INVALIDCOALESCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215849i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QUERY_E_INVALIDSCOPE_COALESCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215851i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QUERY_E_INVALIDSORT_COALESCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215850i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QUERY_E_INVALID_DOCUMENT_IDENTIFIER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215853i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QUERY_E_NO_RELDOC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215858i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QUERY_E_NO_RELPROP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215856i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QUERY_E_RELDOC_SYNTAX_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215854i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QUERY_E_REPEATED_RELDOC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215855i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QUERY_E_TOP_LEVEL_IN_GROUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215846i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QUERY_E_UPGRADEINPROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215848i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type QUERY_PARSER_MANAGER_OPTION = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QPMO_SCHEMA_BINARY_NAME: QUERY_PARSER_MANAGER_OPTION = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QPMO_PRELOCALIZED_SCHEMA_BINARY_PATH: QUERY_PARSER_MANAGER_OPTION = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QPMO_UNLOCALIZED_SCHEMA_BINARY_PATH: QUERY_PARSER_MANAGER_OPTION = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QPMO_LOCALIZED_SCHEMA_BINARY_PATH: QUERY_PARSER_MANAGER_OPTION = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QPMO_APPEND_LCID_TO_LOCALIZED_PATH: QUERY_PARSER_MANAGER_OPTION = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QPMO_LOCALIZER_SUPPORT: QUERY_PARSER_MANAGER_OPTION = 5i32;
 pub const QUERY_SORTDEFAULT: u32 = 4u32;
 pub const QUERY_SORTXASCEND: u32 = 2u32;
@@ -18250,6 +19653,7 @@ pub const QUERY_VALIDBITS: u32 = 3u32;
 pub const QueryParser: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb72f8fd8_0fab_4dd9_bdbf_245a6ce1485b);
 pub const QueryParserManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5088b39a_29b4_4d9d_8245_4ee289222f66);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct RANGECATEGORIZE {
     pub cRange: u32,
@@ -18282,6 +19686,7 @@ impl ::core::default::Default for RANGECATEGORIZE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct RESTRICTION {
     pub rt: u32,
@@ -18313,6 +19718,7 @@ impl ::core::default::Default for RESTRICTION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub union RESTRICTION_0 {
     pub ar: NODERESTRICTION,
@@ -18359,6 +19765,7 @@ pub const REXSPH_E_UNEXPECTED_FILTER_STATE: i32 = -2147207928i32;
 pub const REXSPH_E_UNKNOWN_DATA_TYPE: i32 = -2147207929i32;
 pub const REXSPH_S_REDIRECTED: i32 = 275713i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage', 'Win32_System_Ole'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub struct RMTPACK {
@@ -18422,6 +19829,7 @@ impl ::core::default::Default for RMTPACK {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage', 'Win32_System_Ole'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub struct RMTPACK {
@@ -18462,13 +19870,21 @@ impl ::core::default::Default for RMTPACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type ROWSETEVENT_ITEMSTATE = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const ROWSETEVENT_ITEMSTATE_NOTINROWSET: ROWSETEVENT_ITEMSTATE = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const ROWSETEVENT_ITEMSTATE_INROWSET: ROWSETEVENT_ITEMSTATE = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const ROWSETEVENT_ITEMSTATE_UNKNOWN: ROWSETEVENT_ITEMSTATE = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type ROWSETEVENT_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const ROWSETEVENT_TYPE_DATAEXPIRED: ROWSETEVENT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const ROWSETEVENT_TYPE_FOREGROUNDLOST: ROWSETEVENT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const ROWSETEVENT_TYPE_SCOPESTATISTICS: ROWSETEVENT_TYPE = 2i32;
 pub const RS_COMPLETED: u32 = 2147483648u32;
 pub const RS_MAYBOTHERUSER: u32 = 131072u32;
@@ -18516,6 +19932,7 @@ pub const SCRIPTPI_E_CHUNK_NOT_VALUE: i32 = -2147213309i32;
 pub const SCRIPTPI_E_PID_NOT_NAME: i32 = -2147213311i32;
 pub const SCRIPTPI_E_PID_NOT_NUMERIC: i32 = -2147213310i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct SEARCH_COLUMN_PROPERTIES {
     pub Value: super::Com::StructuredStorage::PROPVARIANT,
@@ -18545,11 +19962,16 @@ impl ::core::default::Default for SEARCH_COLUMN_PROPERTIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type SEARCH_INDEXING_PHASE = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEARCH_INDEXING_PHASE_GATHERER: SEARCH_INDEXING_PHASE = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEARCH_INDEXING_PHASE_QUERYABLE: SEARCH_INDEXING_PHASE = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEARCH_INDEXING_PHASE_PERSISTED: SEARCH_INDEXING_PHASE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SEARCH_ITEM_CHANGE {
     pub Change: SEARCH_KIND_OF_CHANGE,
@@ -18585,6 +20007,7 @@ impl ::core::default::Default for SEARCH_ITEM_CHANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct SEARCH_ITEM_INDEXING_STATUS {
     pub dwDocID: u32,
     pub hrIndexingStatus: ::windows::core::HRESULT,
@@ -18610,6 +20033,7 @@ impl ::core::default::Default for SEARCH_ITEM_INDEXING_STATUS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SEARCH_ITEM_PERSISTENT_CHANGE {
     pub Change: SEARCH_KIND_OF_CHANGE,
@@ -18643,39 +20067,67 @@ impl ::core::default::Default for SEARCH_ITEM_PERSISTENT_CHANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type SEARCH_KIND_OF_CHANGE = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEARCH_CHANGE_ADD: SEARCH_KIND_OF_CHANGE = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEARCH_CHANGE_DELETE: SEARCH_KIND_OF_CHANGE = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEARCH_CHANGE_MODIFY: SEARCH_KIND_OF_CHANGE = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEARCH_CHANGE_MOVE_RENAME: SEARCH_KIND_OF_CHANGE = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEARCH_CHANGE_SEMANTICS_DIRECTORY: SEARCH_KIND_OF_CHANGE = 262144i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEARCH_CHANGE_SEMANTICS_SHALLOW: SEARCH_KIND_OF_CHANGE = 524288i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEARCH_CHANGE_SEMANTICS_UPDATE_SECURITY: SEARCH_KIND_OF_CHANGE = 4194304i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type SEARCH_NOTIFICATION_PRIORITY = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEARCH_NORMAL_PRIORITY: SEARCH_NOTIFICATION_PRIORITY = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEARCH_HIGH_PRIORITY: SEARCH_NOTIFICATION_PRIORITY = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type SEARCH_QUERY_SYNTAX = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEARCH_NO_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEARCH_ADVANCED_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEARCH_NATURAL_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type SEARCH_TERM_EXPANSION = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEARCH_TERM_NO_EXPANSION: SEARCH_TERM_EXPANSION = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEARCH_TERM_PREFIX_ALL: SEARCH_TERM_EXPANSION = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEARCH_TERM_STEM_ALL: SEARCH_TERM_EXPANSION = 2i32;
 pub const SEC_E_ACCESSDENIED: i32 = -2147216129i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEC_E_BADTRUSTEEID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217814i32);
 pub const SEC_E_INITFAILED: i32 = -2147216383i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEC_E_INVALIDACCESSENTRY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217807i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEC_E_INVALIDACCESSENTRYLIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217809i32);
 pub const SEC_E_INVALIDCONTEXT: i32 = -2147216381i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEC_E_INVALIDOBJECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217811i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEC_E_INVALIDOWNER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217808i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEC_E_NOMEMBERSHIPSUPPORT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217812i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEC_E_NOOWNER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217810i32);
 pub const SEC_E_NOTINITIALIZED: i32 = -2147216382i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEC_E_NOTRUSTEEID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217813i32);
 pub const SEC_E_PERMISSIONDENIED: i32 = -2147217911i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 pub struct SEC_OBJECT {
@@ -18715,6 +20167,7 @@ impl ::core::default::Default for SEC_OBJECT {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 pub struct SEC_OBJECT {
@@ -18754,6 +20207,7 @@ impl ::core::default::Default for SEC_OBJECT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 pub struct SEC_OBJECT_ELEMENT {
@@ -18793,6 +20247,7 @@ impl ::core::default::Default for SEC_OBJECT_ELEMENT {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 pub struct SEC_OBJECT_ELEMENT {
@@ -18833,6 +20288,7 @@ impl ::core::default::Default for SEC_OBJECT_ELEMENT {
 }
 pub const SI_TEMPORARY: u32 = 2147483648u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct SORTKEY {
     pub propColumn: super::super::Storage::IndexServer::FULLPROPSPEC,
@@ -18866,6 +20322,7 @@ impl ::core::default::Default for SORTKEY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct SORTSET {
     pub cCol: u32,
@@ -18909,6 +20366,7 @@ pub const SQLAOPSTDEVP: u32 = 49u32;
 pub const SQLAOPSUM: u32 = 77u32;
 pub const SQLAOPVAR: u32 = 50u32;
 pub const SQLAOPVARP: u32 = 51u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLAllocConnect(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -18922,6 +20380,7 @@ pub unsafe fn SQLAllocConnect(environmenthandle: *mut ::core::ffi::c_void, conne
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLAllocEnv(environmenthandle: *mut *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -18935,6 +20394,7 @@ pub unsafe fn SQLAllocEnv(environmenthandle: *mut *mut ::core::ffi::c_void) -> i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLAllocHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_void, outputhandle: *mut *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -18948,6 +20408,7 @@ pub unsafe fn SQLAllocHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_v
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLAllocHandleStd(fhandletype: i16, hinput: *mut ::core::ffi::c_void, phoutput: *mut *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -18961,6 +20422,7 @@ pub unsafe fn SQLAllocHandleStd(fhandletype: i16, hinput: *mut ::core::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLAllocStmt(connectionhandle: *mut ::core::ffi::c_void, statementhandle: *mut *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -18981,6 +20443,7 @@ pub const SQLBIGVARCHAR: u32 = 167u32;
 pub const SQLBINARY: u32 = 45u32;
 pub const SQLBIT: u32 = 50u32;
 pub const SQLBITN: u32 = 104u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i64, strlen_or_ind: *mut i64) -> i16 {
@@ -18995,6 +20458,7 @@ pub unsafe fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i32, strlen_or_ind: *mut i32) -> i16 {
@@ -19009,6 +20473,7 @@ pub unsafe fn SQLBindCol(statementhandle: *mut ::core::ffi::c_void, columnnumber
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *mut ::core::ffi::c_void, strlen_or_ind: *mut i64) -> i16 {
@@ -19023,6 +20488,7 @@ pub unsafe fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parametern
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *mut ::core::ffi::c_void, strlen_or_ind: *mut i32) -> i16 {
@@ -19037,6 +20503,7 @@ pub unsafe fn SQLBindParam(statementhandle: *mut ::core::ffi::c_void, parametern
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u64, ibscale: i16, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i64, pcbvalue: *mut i64) -> i16 {
@@ -19051,6 +20518,7 @@ pub unsafe fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fpara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u32, ibscale: i16, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
@@ -19065,6 +20533,7 @@ pub unsafe fn SQLBindParameter(hstmt: *mut ::core::ffi::c_void, ipar: u16, fpara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLBrowseConnect(hdbc: *mut ::core::ffi::c_void, szconnstrin: *const u8, cchconnstrin: i16, szconnstrout: *mut u8, cchconnstroutmax: i16, pcchconnstrout: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -19078,6 +20547,7 @@ pub unsafe fn SQLBrowseConnect(hdbc: *mut ::core::ffi::c_void, szconnstrin: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLBrowseConnectA(hdbc: *mut ::core::ffi::c_void, szconnstrin: *const u8, cbconnstrin: i16, szconnstrout: *mut u8, cbconnstroutmax: i16, pcbconnstrout: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -19091,6 +20561,7 @@ pub unsafe fn SQLBrowseConnectA(hdbc: *mut ::core::ffi::c_void, szconnstrin: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLBrowseConnectW(hdbc: *mut ::core::ffi::c_void, szconnstrin: *const u16, cchconnstrin: i16, szconnstrout: *mut u16, cchconnstroutmax: i16, pcchconnstrout: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -19104,6 +20575,7 @@ pub unsafe fn SQLBrowseConnectW(hdbc: *mut ::core::ffi::c_void, szconnstrin: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLBulkOperations(statementhandle: *mut ::core::ffi::c_void, operation: i16) -> i16 {
     #[cfg(windows)]
@@ -19118,6 +20590,7 @@ pub unsafe fn SQLBulkOperations(statementhandle: *mut ::core::ffi::c_void, opera
     unimplemented!("Unsupported target OS");
 }
 pub const SQLCHARACTER: u32 = 47u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLCancel(statementhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -19131,6 +20604,7 @@ pub unsafe fn SQLCancel(statementhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLCancelHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -19144,6 +20618,7 @@ pub unsafe fn SQLCancelHandle(handletype: i16, inputhandle: *mut ::core::ffi::c_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLCloseCursor(statementhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -19157,6 +20632,7 @@ pub unsafe fn SQLCloseCursor(statementhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SQLCloseEnumServers<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0) -> i16 {
@@ -19171,6 +20647,7 @@ pub unsafe fn SQLCloseEnumServers<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut i64) -> i16 {
@@ -19185,6 +20662,7 @@ pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnn
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut ::core::ffi::c_void) -> i16 {
@@ -19199,6 +20677,7 @@ pub unsafe fn SQLColAttribute(statementhandle: *mut ::core::ffi::c_void, columnn
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::core::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16 {
@@ -19213,6 +20692,7 @@ pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifiel
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::core::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::core::ffi::c_void) -> i16 {
@@ -19227,6 +20707,7 @@ pub unsafe fn SQLColAttributeA(hstmt: *mut ::core::ffi::c_void, icol: i16, ifiel
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::core::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16 {
@@ -19241,6 +20722,7 @@ pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifiel
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::core::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::core::ffi::c_void) -> i16 {
@@ -19255,6 +20737,7 @@ pub unsafe fn SQLColAttributeW(hstmt: *mut ::core::ffi::c_void, icol: u16, ifiel
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
@@ -19269,6 +20752,7 @@ pub unsafe fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
@@ -19283,6 +20767,7 @@ pub unsafe fn SQLColAttributes(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
@@ -19297,6 +20782,7 @@ pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdes
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
@@ -19311,6 +20797,7 @@ pub unsafe fn SQLColAttributesA(hstmt: *mut ::core::ffi::c_void, icol: u16, fdes
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
@@ -19325,6 +20812,7 @@ pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdes
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::core::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
@@ -19339,6 +20827,7 @@ pub unsafe fn SQLColAttributesW(hstmt: *mut ::core::ffi::c_void, icol: u16, fdes
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLColumnPrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, sztablename: *const u8, cchtablename: i16, szcolumnname: *const u8, cchcolumnname: i16) -> i16 {
     #[cfg(windows)]
@@ -19352,6 +20841,7 @@ pub unsafe fn SQLColumnPrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLColumnPrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, szcolumnname: *const u8, cbcolumnname: i16) -> i16 {
     #[cfg(windows)]
@@ -19365,6 +20855,7 @@ pub unsafe fn SQLColumnPrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalognam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLColumnPrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, szcolumnname: *const u16, cchcolumnname: i16) -> i16 {
     #[cfg(windows)]
@@ -19378,6 +20869,7 @@ pub unsafe fn SQLColumnPrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalognam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLColumns(statementhandle: *mut ::core::ffi::c_void, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, columnname: *const u8, namelength4: i16) -> i16 {
     #[cfg(windows)]
@@ -19391,6 +20883,7 @@ pub unsafe fn SQLColumns(statementhandle: *mut ::core::ffi::c_void, catalogname:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, szcolumnname: *const u8, cbcolumnname: i16) -> i16 {
     #[cfg(windows)]
@@ -19404,6 +20897,7 @@ pub unsafe fn SQLColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, szcolumnname: *const u16, cchcolumnname: i16) -> i16 {
     #[cfg(windows)]
@@ -19417,6 +20911,7 @@ pub unsafe fn SQLColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLCompleteAsync(handletype: i16, handle: *mut ::core::ffi::c_void, asyncretcodeptr: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -19430,6 +20925,7 @@ pub unsafe fn SQLCompleteAsync(handletype: i16, handle: *mut ::core::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLConnect(connectionhandle: *mut ::core::ffi::c_void, servername: *const u8, namelength1: i16, username: *const u8, namelength2: i16, authentication: *const u8, namelength3: i16) -> i16 {
     #[cfg(windows)]
@@ -19443,6 +20939,7 @@ pub unsafe fn SQLConnect(connectionhandle: *mut ::core::ffi::c_void, servername:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLConnectA(hdbc: *mut ::core::ffi::c_void, szdsn: *const u8, cbdsn: i16, szuid: *const u8, cbuid: i16, szauthstr: *const u8, cbauthstr: i16) -> i16 {
     #[cfg(windows)]
@@ -19456,6 +20953,7 @@ pub unsafe fn SQLConnectA(hdbc: *mut ::core::ffi::c_void, szdsn: *const u8, cbds
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLConnectW(hdbc: *mut ::core::ffi::c_void, szdsn: *const u16, cchdsn: i16, szuid: *const u16, cchuid: i16, szauthstr: *const u16, cchauthstr: i16) -> i16 {
     #[cfg(windows)]
@@ -19469,6 +20967,7 @@ pub unsafe fn SQLConnectW(hdbc: *mut ::core::ffi::c_void, szdsn: *const u16, cch
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLCopyDesc(sourcedeschandle: *mut ::core::ffi::c_void, targetdeschandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -19487,6 +20986,7 @@ pub const SQLDATETIME: u32 = 61u32;
 pub const SQLDATETIMN: u32 = 111u32;
 pub const SQLDECIMAL: u32 = 106u32;
 pub const SQLDECIMALN: u32 = 106u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLDataSources(environmenthandle: *mut ::core::ffi::c_void, direction: u16, servername: *mut u8, bufferlength1: i16, namelength1ptr: *mut i16, description: *mut u8, bufferlength2: i16, namelength2ptr: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -19500,6 +21000,7 @@ pub unsafe fn SQLDataSources(environmenthandle: *mut ::core::ffi::c_void, direct
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLDataSourcesA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdsn: *mut u8, cbdsnmax: i16, pcbdsn: *mut i16, szdescription: *mut u8, cbdescriptionmax: i16, pcbdescription: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -19513,6 +21014,7 @@ pub unsafe fn SQLDataSourcesA(henv: *mut ::core::ffi::c_void, fdirection: u16, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLDataSourcesW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdsn: *mut u16, cchdsnmax: i16, pcchdsn: *mut i16, wszdescription: *mut u16, cchdescriptionmax: i16, pcchdescription: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -19526,6 +21028,7 @@ pub unsafe fn SQLDataSourcesW(henv: *mut ::core::ffi::c_void, fdirection: u16, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, columnname: *mut u8, bufferlength: i16, namelength: *mut i16, datatype: *mut i16, columnsize: *mut u64, decimaldigits: *mut i16, nullable: *mut i16) -> i16 {
@@ -19540,6 +21043,7 @@ pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, columnname: *mut u8, bufferlength: i16, namelength: *mut i16, datatype: *mut i16, columnsize: *mut u32, decimaldigits: *mut i16, nullable: *mut i16) -> i16 {
@@ -19554,6 +21058,7 @@ pub unsafe fn SQLDescribeCol(statementhandle: *mut ::core::ffi::c_void, columnnu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u8, cbcolnamemax: i16, pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
@@ -19568,6 +21073,7 @@ pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u8, cbcolnamemax: i16, pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
@@ -19582,6 +21088,7 @@ pub unsafe fn SQLDescribeColA(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u16, cchcolnamemax: i16, pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
@@ -19596,6 +21103,7 @@ pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcolname: *mut u16, cchcolnamemax: i16, pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
@@ -19610,6 +21118,7 @@ pub unsafe fn SQLDescribeColW(hstmt: *mut ::core::ffi::c_void, icol: u16, szcoln
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
@@ -19624,6 +21133,7 @@ pub unsafe fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsql
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
@@ -19638,6 +21148,7 @@ pub unsafe fn SQLDescribeParam(hstmt: *mut ::core::ffi::c_void, ipar: u16, pfsql
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLDisconnect(connectionhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -19651,6 +21162,7 @@ pub unsafe fn SQLDisconnect(connectionhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLDriverConnect(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: *const u8, cchconnstrin: i16, szconnstrout: *mut u8, cchconnstroutmax: i16, pcchconnstrout: *mut i16, fdrivercompletion: u16) -> i16 {
     #[cfg(windows)]
@@ -19664,6 +21176,7 @@ pub unsafe fn SQLDriverConnect(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szco
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLDriverConnectA(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: *const u8, cbconnstrin: i16, szconnstrout: *mut u8, cbconnstroutmax: i16, pcbconnstrout: *mut i16, fdrivercompletion: u16) -> i16 {
     #[cfg(windows)]
@@ -19677,6 +21190,7 @@ pub unsafe fn SQLDriverConnectA(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLDriverConnectW(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szconnstrin: *const u16, cchconnstrin: i16, szconnstrout: *mut u16, cchconnstroutmax: i16, pcchconnstrout: *mut i16, fdrivercompletion: u16) -> i16 {
     #[cfg(windows)]
@@ -19690,6 +21204,7 @@ pub unsafe fn SQLDriverConnectW(hdbc: *mut ::core::ffi::c_void, hwnd: isize, szc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLDrivers(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u8, cchdriverdescmax: i16, pcchdriverdesc: *mut i16, szdriverattributes: *mut u8, cchdrvrattrmax: i16, pcchdrvrattr: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -19703,6 +21218,7 @@ pub unsafe fn SQLDrivers(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriv
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLDriversA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u8, cbdriverdescmax: i16, pcbdriverdesc: *mut i16, szdriverattributes: *mut u8, cbdrvrattrmax: i16, pcbdrvrattr: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -19716,6 +21232,7 @@ pub unsafe fn SQLDriversA(henv: *mut ::core::ffi::c_void, fdirection: u16, szdri
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLDriversW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdriverdesc: *mut u16, cchdriverdescmax: i16, pcchdriverdesc: *mut i16, szdriverattributes: *mut u16, cchdrvrattrmax: i16, pcchdrvrattr: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -19729,6 +21246,7 @@ pub unsafe fn SQLDriversW(henv: *mut ::core::ffi::c_void, fdirection: u16, szdri
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLEndTran(handletype: i16, handle: *mut ::core::ffi::c_void, completiontype: i16) -> i16 {
     #[cfg(windows)]
@@ -19742,6 +21260,7 @@ pub unsafe fn SQLEndTran(handletype: i16, handle: *mut ::core::ffi::c_void, comp
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLError(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, statementhandle: *mut ::core::ffi::c_void, sqlstate: *mut u8, nativeerror: *mut i32, messagetext: *mut u8, bufferlength: i16, textlength: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -19755,6 +21274,7 @@ pub unsafe fn SQLError(environmenthandle: *mut ::core::ffi::c_void, connectionha
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLErrorA(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::c_void, hstmt: *mut ::core::ffi::c_void, szsqlstate: *mut u8, pfnativeerror: *mut i32, szerrormsg: *mut u8, cberrormsgmax: i16, pcberrormsg: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -19768,6 +21288,7 @@ pub unsafe fn SQLErrorA(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLErrorW(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::c_void, hstmt: *mut ::core::ffi::c_void, wszsqlstate: *mut u16, pfnativeerror: *mut i32, wszerrormsg: *mut u16, ccherrormsgmax: i16, pccherrormsg: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -19781,6 +21302,7 @@ pub unsafe fn SQLErrorW(henv: *mut ::core::ffi::c_void, hdbc: *mut ::core::ffi::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLExecDirect(statementhandle: *mut ::core::ffi::c_void, statementtext: *const u8, textlength: i32) -> i16 {
     #[cfg(windows)]
@@ -19794,6 +21316,7 @@ pub unsafe fn SQLExecDirect(statementhandle: *mut ::core::ffi::c_void, statement
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLExecDirectA(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u8, cbsqlstr: i32) -> i16 {
     #[cfg(windows)]
@@ -19807,6 +21330,7 @@ pub unsafe fn SQLExecDirectA(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLExecDirectW(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u16, textlength: i32) -> i16 {
     #[cfg(windows)]
@@ -19820,6 +21344,7 @@ pub unsafe fn SQLExecDirectW(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLExecute(statementhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -19833,6 +21358,7 @@ pub unsafe fn SQLExecute(statementhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16, irow: i64, pcrow: *mut u64, rgfrowstatus: *mut u16) -> i16 {
@@ -19847,6 +21373,7 @@ pub unsafe fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16, irow: i32, pcrow: *mut u32, rgfrowstatus: *mut u16) -> i16 {
@@ -19864,6 +21391,7 @@ pub unsafe fn SQLExtendedFetch(hstmt: *mut ::core::ffi::c_void, ffetchtype: u16,
 pub const SQLFLT4: u32 = 59u32;
 pub const SQLFLT8: u32 = 62u32;
 pub const SQLFLTN: u32 = 109u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLFetch(statementhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -19877,6 +21405,7 @@ pub unsafe fn SQLFetch(statementhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchorientation: i16, fetchoffset: i64) -> i16 {
@@ -19891,6 +21420,7 @@ pub unsafe fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchori
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchorientation: i16, fetchoffset: i32) -> i16 {
@@ -19905,6 +21435,7 @@ pub unsafe fn SQLFetchScroll(statementhandle: *mut ::core::ffi::c_void, fetchori
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLForeignKeys(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: *const u8, cchpkcatalogname: i16, szpkschemaname: *const u8, cchpkschemaname: i16, szpktablename: *const u8, cchpktablename: i16, szfkcatalogname: *const u8, cchfkcatalogname: i16, szfkschemaname: *const u8, cchfkschemaname: i16, szfktablename: *const u8, cchfktablename: i16) -> i16 {
     #[cfg(windows)]
@@ -19932,6 +21463,7 @@ pub unsafe fn SQLForeignKeys(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLForeignKeysA(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: *const u8, cbpkcatalogname: i16, szpkschemaname: *const u8, cbpkschemaname: i16, szpktablename: *const u8, cbpktablename: i16, szfkcatalogname: *const u8, cbfkcatalogname: i16, szfkschemaname: *const u8, cbfkschemaname: i16, szfktablename: *const u8, cbfktablename: i16) -> i16 {
     #[cfg(windows)]
@@ -19959,6 +21491,7 @@ pub unsafe fn SQLForeignKeysA(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLForeignKeysW(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: *const u16, cchpkcatalogname: i16, szpkschemaname: *const u16, cchpkschemaname: i16, szpktablename: *const u16, cchpktablename: i16, szfkcatalogname: *const u16, cchfkcatalogname: i16, szfkschemaname: *const u16, cchfkschemaname: i16, szfktablename: *const u16, cchfktablename: i16) -> i16 {
     #[cfg(windows)]
@@ -19986,6 +21519,7 @@ pub unsafe fn SQLForeignKeysW(hstmt: *mut ::core::ffi::c_void, szpkcatalogname: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLFreeConnect(connectionhandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -19999,6 +21533,7 @@ pub unsafe fn SQLFreeConnect(connectionhandle: *mut ::core::ffi::c_void) -> i16 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLFreeEnv(environmenthandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -20012,6 +21547,7 @@ pub unsafe fn SQLFreeEnv(environmenthandle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLFreeHandle(handletype: i16, handle: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -20025,6 +21561,7 @@ pub unsafe fn SQLFreeHandle(handletype: i16, handle: *mut ::core::ffi::c_void) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLFreeStmt(statementhandle: *mut ::core::ffi::c_void, option: u16) -> i16 {
     #[cfg(windows)]
@@ -20038,6 +21575,7 @@ pub unsafe fn SQLFreeStmt(statementhandle: *mut ::core::ffi::c_void, option: u16
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlengthptr: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -20051,6 +21589,7 @@ pub unsafe fn SQLGetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -20064,6 +21603,7 @@ pub unsafe fn SQLGetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -20077,6 +21617,7 @@ pub unsafe fn SQLGetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -20090,6 +21631,7 @@ pub unsafe fn SQLGetConnectOption(connectionhandle: *mut ::core::ffi::c_void, op
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, pvparam: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -20103,6 +21645,7 @@ pub unsafe fn SQLGetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, pvparam: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -20116,6 +21659,7 @@ pub unsafe fn SQLGetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetCursorName(statementhandle: *mut ::core::ffi::c_void, cursorname: *mut u8, bufferlength: i16, namelengthptr: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -20129,6 +21673,7 @@ pub unsafe fn SQLGetCursorName(statementhandle: *mut ::core::ffi::c_void, cursor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: *mut u8, cbcursormax: i16, pcbcursor: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -20142,6 +21687,7 @@ pub unsafe fn SQLGetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: *mut u16, cchcursormax: i16, pcchcursor: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -20155,6 +21701,7 @@ pub unsafe fn SQLGetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i64, strlen_or_indptr: *mut i64) -> i16 {
@@ -20169,6 +21716,7 @@ pub unsafe fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::core::ffi::c_void, bufferlength: i32, strlen_or_indptr: *mut i32) -> i16 {
@@ -20183,6 +21731,7 @@ pub unsafe fn SQLGetData(statementhandle: *mut ::core::ffi::c_void, columnnumber
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -20196,6 +21745,7 @@ pub unsafe fn SQLGetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnum
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetDescFieldA(hdesc: *mut ::core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: *mut ::core::ffi::c_void, cbbufferlength: i32, stringlength: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -20209,6 +21759,7 @@ pub unsafe fn SQLGetDescFieldA(hdesc: *mut ::core::ffi::c_void, irecord: i16, if
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetDescFieldW(hdesc: *mut ::core::ffi::c_void, irecord: i16, ifield: i16, rgbvalue: *mut ::core::ffi::c_void, cbbufferlength: i32, stringlength: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -20222,6 +21773,7 @@ pub unsafe fn SQLGetDescFieldW(hdesc: *mut ::core::ffi::c_void, irecord: i16, if
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, name: *mut u8, bufferlength: i16, stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i64, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16 {
@@ -20236,6 +21788,7 @@ pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumbe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, name: *mut u8, bufferlength: i16, stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i32, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16 {
@@ -20250,6 +21803,7 @@ pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumbe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u8, cbnamemax: i16, pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
@@ -20264,6 +21818,7 @@ pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u8, cbnamemax: i16, pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
@@ -20278,6 +21833,7 @@ pub unsafe fn SQLGetDescRecA(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
@@ -20292,6 +21848,7 @@ pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
@@ -20306,6 +21863,7 @@ pub unsafe fn SQLGetDescRecW(hdesc: *mut ::core::ffi::c_void, irecord: i16, szna
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetDiagField(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, diagidentifier: i16, diaginfo: *mut ::core::ffi::c_void, bufferlength: i16, stringlength: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -20319,6 +21877,7 @@ pub unsafe fn SQLGetDiagField(handletype: i16, handle: *mut ::core::ffi::c_void,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetDiagFieldA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: *mut ::core::ffi::c_void, cbdiaginfomax: i16, pcbdiaginfo: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -20332,6 +21891,7 @@ pub unsafe fn SQLGetDiagFieldA(fhandletype: i16, handle: *mut ::core::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetDiagFieldW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, fdiagfield: i16, rgbdiaginfo: *mut ::core::ffi::c_void, cbbufferlength: i16, pcbstringlength: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -20345,6 +21905,7 @@ pub unsafe fn SQLGetDiagFieldW(fhandletype: i16, handle: *mut ::core::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetDiagRec(handletype: i16, handle: *mut ::core::ffi::c_void, recnumber: i16, sqlstate: *mut u8, nativeerror: *mut i32, messagetext: *mut u8, bufferlength: i16, textlength: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -20358,6 +21919,7 @@ pub unsafe fn SQLGetDiagRec(handletype: i16, handle: *mut ::core::ffi::c_void, r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetDiagRecA(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: *mut u8, pfnativeerror: *mut i32, szerrormsg: *mut u8, cberrormsgmax: i16, pcberrormsg: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -20371,6 +21933,7 @@ pub unsafe fn SQLGetDiagRecA(fhandletype: i16, handle: *mut ::core::ffi::c_void,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetDiagRecW(fhandletype: i16, handle: *mut ::core::ffi::c_void, irecord: i16, szsqlstate: *mut u16, pfnativeerror: *mut i32, szerrormsg: *mut u16, ccherrormsgmax: i16, pccherrormsg: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -20384,6 +21947,7 @@ pub unsafe fn SQLGetDiagRecW(fhandletype: i16, handle: *mut ::core::ffi::c_void,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -20397,6 +21961,7 @@ pub unsafe fn SQLGetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetFunctions(connectionhandle: *mut ::core::ffi::c_void, functionid: u16, supported: *mut u16) -> i16 {
     #[cfg(windows)]
@@ -20410,6 +21975,7 @@ pub unsafe fn SQLGetFunctions(connectionhandle: *mut ::core::ffi::c_void, functi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetInfo(connectionhandle: *mut ::core::ffi::c_void, infotype: u16, infovalue: *mut ::core::ffi::c_void, bufferlength: i16, stringlengthptr: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -20423,6 +21989,7 @@ pub unsafe fn SQLGetInfo(connectionhandle: *mut ::core::ffi::c_void, infotype: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetInfoA(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -20436,6 +22003,7 @@ pub unsafe fn SQLGetInfoA(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinf
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetInfoW(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinfovalue: *mut ::core::ffi::c_void, cbinfovaluemax: i16, pcbinfovalue: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -20449,6 +22017,7 @@ pub unsafe fn SQLGetInfoW(hdbc: *mut ::core::ffi::c_void, finfotype: u16, rgbinf
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SQLGetNextEnumeration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0, prgenumdata: *mut u8, pienumlength: *mut i32) -> i16 {
@@ -20463,6 +22032,7 @@ pub unsafe fn SQLGetNextEnumeration<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribute: i32, value: *mut ::core::ffi::c_void, bufferlength: i32, stringlength: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -20476,6 +22046,7 @@ pub unsafe fn SQLGetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetStmtAttrA(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -20489,6 +22060,7 @@ pub unsafe fn SQLGetStmtAttrA(hstmt: *mut ::core::ffi::c_void, fattribute: i32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -20502,6 +22074,7 @@ pub unsafe fn SQLGetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -20515,6 +22088,7 @@ pub unsafe fn SQLGetStmtOption(statementhandle: *mut ::core::ffi::c_void, option
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetTypeInfo(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16 {
     #[cfg(windows)]
@@ -20528,6 +22102,7 @@ pub unsafe fn SQLGetTypeInfo(statementhandle: *mut ::core::ffi::c_void, datatype
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetTypeInfoA(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16 {
     #[cfg(windows)]
@@ -20541,6 +22116,7 @@ pub unsafe fn SQLGetTypeInfoA(statementhandle: *mut ::core::ffi::c_void, datatyp
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLGetTypeInfoW(statementhandle: *mut ::core::ffi::c_void, datatype: i16) -> i16 {
     #[cfg(windows)]
@@ -20559,21 +22135,36 @@ pub const SQLINT1: u32 = 48u32;
 pub const SQLINT2: u32 = 52u32;
 pub const SQLINT4: u32 = 56u32;
 pub const SQLINT8: u32 = 127u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type SQLINTERVAL = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQL_IS_YEAR: SQLINTERVAL = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQL_IS_MONTH: SQLINTERVAL = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQL_IS_DAY: SQLINTERVAL = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQL_IS_HOUR: SQLINTERVAL = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQL_IS_MINUTE: SQLINTERVAL = 5i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQL_IS_SECOND: SQLINTERVAL = 6i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQL_IS_YEAR_TO_MONTH: SQLINTERVAL = 7i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQL_IS_DAY_TO_HOUR: SQLINTERVAL = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQL_IS_DAY_TO_MINUTE: SQLINTERVAL = 9i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQL_IS_DAY_TO_SECOND: SQLINTERVAL = 10i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQL_IS_HOUR_TO_MINUTE: SQLINTERVAL = 11i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQL_IS_HOUR_TO_SECOND: SQLINTERVAL = 12i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQL_IS_MINUTE_TO_SECOND: SQLINTERVAL = 13i32;
 pub const SQLINTN: u32 = 38u32;
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SQLInitEnumServers<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwchservername: Param0, pwchinstancename: Param1) -> super::super::Foundation::HANDLE {
@@ -20588,6 +22179,7 @@ pub unsafe fn SQLInitEnumServers<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SQLLinkedCatalogsA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1, param2: i16) -> i16 {
@@ -20602,6 +22194,7 @@ pub unsafe fn SQLLinkedCatalogsA<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SQLLinkedCatalogsW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1, param2: i16) -> i16 {
@@ -20616,6 +22209,7 @@ pub unsafe fn SQLLinkedCatalogsW<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLLinkedServers(param0: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -20632,6 +22226,7 @@ pub unsafe fn SQLLinkedServers(param0: *mut ::core::ffi::c_void) -> i16 {
 pub const SQLMONEY: u32 = 60u32;
 pub const SQLMONEY4: u32 = 122u32;
 pub const SQLMONEYN: u32 = 110u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLMoreResults(hstmt: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -20650,6 +22245,7 @@ pub const SQLNTEXT: u32 = 99u32;
 pub const SQLNUMERIC: u32 = 108u32;
 pub const SQLNUMERICN: u32 = 108u32;
 pub const SQLNVARCHAR: u32 = 231u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLNativeSql(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u8, cchsqlstrin: i32, szsqlstr: *mut u8, cchsqlstrmax: i32, pcbsqlstr: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -20663,6 +22259,7 @@ pub unsafe fn SQLNativeSql(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u8
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLNativeSqlA(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u8, cbsqlstrin: i32, szsqlstr: *mut u8, cbsqlstrmax: i32, pcbsqlstr: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -20676,6 +22273,7 @@ pub unsafe fn SQLNativeSqlA(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLNativeSqlW(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u16, cchsqlstrin: i32, szsqlstr: *mut u16, cchsqlstrmax: i32, pcchsqlstr: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -20689,6 +22287,7 @@ pub unsafe fn SQLNativeSqlW(hdbc: *mut ::core::ffi::c_void, szsqlstrin: *const u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLNumParams(hstmt: *mut ::core::ffi::c_void, pcpar: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -20702,6 +22301,7 @@ pub unsafe fn SQLNumParams(hstmt: *mut ::core::ffi::c_void, pcpar: *mut i16) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLNumResultCols(statementhandle: *mut ::core::ffi::c_void, columncount: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -20715,6 +22315,7 @@ pub unsafe fn SQLNumResultCols(statementhandle: *mut ::core::ffi::c_void, column
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLParamData(statementhandle: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -20728,6 +22329,7 @@ pub unsafe fn SQLParamData(statementhandle: *mut ::core::ffi::c_void, value: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u64, pirow: *mut u64) -> i16 {
@@ -20742,6 +22344,7 @@ pub unsafe fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u64, pirow:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u32, pirow: *mut u32) -> i16 {
@@ -20756,6 +22359,7 @@ pub unsafe fn SQLParamOptions(hstmt: *mut ::core::ffi::c_void, crow: u32, pirow:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLPrepare(statementhandle: *mut ::core::ffi::c_void, statementtext: *const u8, textlength: i32) -> i16 {
     #[cfg(windows)]
@@ -20769,6 +22373,7 @@ pub unsafe fn SQLPrepare(statementhandle: *mut ::core::ffi::c_void, statementtex
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLPrepareA(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u8, cbsqlstr: i32) -> i16 {
     #[cfg(windows)]
@@ -20782,6 +22387,7 @@ pub unsafe fn SQLPrepareA(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u8, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLPrepareW(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u16, cchsqlstr: i32) -> i16 {
     #[cfg(windows)]
@@ -20795,6 +22401,7 @@ pub unsafe fn SQLPrepareW(hstmt: *mut ::core::ffi::c_void, szsqlstr: *const u16,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLPrimaryKeys(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, sztablename: *const u8, cchtablename: i16) -> i16 {
     #[cfg(windows)]
@@ -20808,6 +22415,7 @@ pub unsafe fn SQLPrimaryKeys(hstmt: *mut ::core::ffi::c_void, szcatalogname: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLPrimaryKeysA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16) -> i16 {
     #[cfg(windows)]
@@ -20821,6 +22429,7 @@ pub unsafe fn SQLPrimaryKeysA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLPrimaryKeysW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16) -> i16 {
     #[cfg(windows)]
@@ -20834,6 +22443,7 @@ pub unsafe fn SQLPrimaryKeysW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLProcedureColumns(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, szprocname: *const u8, cchprocname: i16, szcolumnname: *const u8, cchcolumnname: i16) -> i16 {
     #[cfg(windows)]
@@ -20847,6 +22457,7 @@ pub unsafe fn SQLProcedureColumns(hstmt: *mut ::core::ffi::c_void, szcatalogname
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLProcedureColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, szprocname: *const u8, cbprocname: i16, szcolumnname: *const u8, cbcolumnname: i16) -> i16 {
     #[cfg(windows)]
@@ -20860,6 +22471,7 @@ pub unsafe fn SQLProcedureColumnsA(hstmt: *mut ::core::ffi::c_void, szcatalognam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLProcedureColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, szprocname: *const u16, cchprocname: i16, szcolumnname: *const u16, cchcolumnname: i16) -> i16 {
     #[cfg(windows)]
@@ -20873,6 +22485,7 @@ pub unsafe fn SQLProcedureColumnsW(hstmt: *mut ::core::ffi::c_void, szcatalognam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLProcedures(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, szprocname: *const u8, cchprocname: i16) -> i16 {
     #[cfg(windows)]
@@ -20886,6 +22499,7 @@ pub unsafe fn SQLProcedures(hstmt: *mut ::core::ffi::c_void, szcatalogname: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLProceduresA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, szprocname: *const u8, cbprocname: i16) -> i16 {
     #[cfg(windows)]
@@ -20899,6 +22513,7 @@ pub unsafe fn SQLProceduresA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLProceduresW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, szprocname: *const u16, cchprocname: i16) -> i16 {
     #[cfg(windows)]
@@ -20912,6 +22527,7 @@ pub unsafe fn SQLProceduresW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void, strlen_or_ind: i64) -> i16 {
@@ -20926,6 +22542,7 @@ pub unsafe fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const ::core::ffi::c_void, strlen_or_ind: i32) -> i16 {
@@ -20940,6 +22557,7 @@ pub unsafe fn SQLPutData(statementhandle: *mut ::core::ffi::c_void, data: *const
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount: *mut i64) -> i16 {
@@ -20954,6 +22572,7 @@ pub unsafe fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount: *mut i32) -> i16 {
@@ -20968,6 +22587,7 @@ pub unsafe fn SQLRowCount(statementhandle: *const ::core::ffi::c_void, rowcount:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLSetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16 {
     #[cfg(windows)]
@@ -20981,6 +22601,7 @@ pub unsafe fn SQLSetConnectAttr(connectionhandle: *mut ::core::ffi::c_void, attr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLSetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *const ::core::ffi::c_void, cbvalue: i32) -> i16 {
     #[cfg(windows)]
@@ -20994,6 +22615,7 @@ pub unsafe fn SQLSetConnectAttrA(hdbc: *mut ::core::ffi::c_void, fattribute: i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLSetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *const ::core::ffi::c_void, cbvalue: i32) -> i16 {
     #[cfg(windows)]
@@ -21007,6 +22629,7 @@ pub unsafe fn SQLSetConnectAttrW(hdbc: *mut ::core::ffi::c_void, fattribute: i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: u64) -> i16 {
@@ -21021,6 +22644,7 @@ pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, op
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, option: u16, value: u32) -> i16 {
@@ -21035,6 +22659,7 @@ pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::core::ffi::c_void, op
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u64) -> i16 {
@@ -21049,6 +22674,7 @@ pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u32) -> i16 {
@@ -21063,6 +22689,7 @@ pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::core::ffi::c_void, foption: u16,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u64) -> i16 {
@@ -21077,6 +22704,7 @@ pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16, vparam: u32) -> i16 {
@@ -21091,6 +22719,7 @@ pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::core::ffi::c_void, foption: u16,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLSetCursorName(statementhandle: *mut ::core::ffi::c_void, cursorname: *const u8, namelength: i16) -> i16 {
     #[cfg(windows)]
@@ -21104,6 +22733,7 @@ pub unsafe fn SQLSetCursorName(statementhandle: *mut ::core::ffi::c_void, cursor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLSetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: *const u8, cbcursor: i16) -> i16 {
     #[cfg(windows)]
@@ -21117,6 +22747,7 @@ pub unsafe fn SQLSetCursorNameA(hstmt: *mut ::core::ffi::c_void, szcursor: *cons
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLSetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: *const u16, cchcursor: i16) -> i16 {
     #[cfg(windows)]
@@ -21130,6 +22761,7 @@ pub unsafe fn SQLSetCursorNameW(hstmt: *mut ::core::ffi::c_void, szcursor: *cons
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLSetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *const ::core::ffi::c_void, bufferlength: i32) -> i16 {
     #[cfg(windows)]
@@ -21143,6 +22775,7 @@ pub unsafe fn SQLSetDescField(descriptorhandle: *mut ::core::ffi::c_void, recnum
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLSetDescFieldW(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, fieldidentifier: i16, value: *mut ::core::ffi::c_void, bufferlength: i32) -> i16 {
     #[cfg(windows)]
@@ -21156,6 +22789,7 @@ pub unsafe fn SQLSetDescFieldW(descriptorhandle: *mut ::core::ffi::c_void, recnu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i64, precision: i16, scale: i16, data: *mut ::core::ffi::c_void, stringlength: *mut i64, indicator: *mut i64) -> i16 {
@@ -21170,6 +22804,7 @@ pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumbe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i32, precision: i16, scale: i16, data: *mut ::core::ffi::c_void, stringlength: *mut i32, indicator: *mut i32) -> i16 {
@@ -21184,6 +22819,7 @@ pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::core::ffi::c_void, recnumbe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLSetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16 {
     #[cfg(windows)]
@@ -21197,6 +22833,7 @@ pub unsafe fn SQLSetEnvAttr(environmenthandle: *mut ::core::ffi::c_void, attribu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *const ::core::ffi::c_void, strlen_or_ind: *mut i64) -> i16 {
@@ -21211,6 +22848,7 @@ pub unsafe fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *const ::core::ffi::c_void, strlen_or_ind: *mut i32) -> i16 {
@@ -21225,6 +22863,7 @@ pub unsafe fn SQLSetParam(statementhandle: *mut ::core::ffi::c_void, parameternu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u64, foption: u16, flock: u16) -> i16 {
@@ -21239,6 +22878,7 @@ pub unsafe fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u64, foption: u16
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u16, foption: u16, flock: u16) -> i16 {
@@ -21253,6 +22893,7 @@ pub unsafe fn SQLSetPos(hstmt: *mut ::core::ffi::c_void, irow: u16, foption: u16
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency: u16, crowkeyset: i64, crowrowset: u16) -> i16 {
@@ -21267,6 +22908,7 @@ pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency: u16, crowkeyset: i32, crowrowset: u16) -> i16 {
@@ -21281,6 +22923,7 @@ pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::core::ffi::c_void, fconcurrency:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLSetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribute: i32, value: *const ::core::ffi::c_void, stringlength: i32) -> i16 {
     #[cfg(windows)]
@@ -21294,6 +22937,7 @@ pub unsafe fn SQLSetStmtAttr(statementhandle: *mut ::core::ffi::c_void, attribut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLSetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, rgbvalue: *mut ::core::ffi::c_void, cbvaluemax: i32) -> i16 {
     #[cfg(windows)]
@@ -21307,6 +22951,7 @@ pub unsafe fn SQLSetStmtAttrW(hstmt: *mut ::core::ffi::c_void, fattribute: i32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: u64) -> i16 {
@@ -21321,6 +22966,7 @@ pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option: u16, value: u32) -> i16 {
@@ -21335,6 +22981,7 @@ pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::core::ffi::c_void, option
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLSpecialColumns(statementhandle: *mut ::core::ffi::c_void, identifiertype: u16, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, scope: u16, nullable: u16) -> i16 {
     #[cfg(windows)]
@@ -21348,6 +22995,7 @@ pub unsafe fn SQLSpecialColumns(statementhandle: *mut ::core::ffi::c_void, ident
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLSpecialColumnsA(hstmt: *mut ::core::ffi::c_void, fcoltype: u16, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, fscope: u16, fnullable: u16) -> i16 {
     #[cfg(windows)]
@@ -21361,6 +23009,7 @@ pub unsafe fn SQLSpecialColumnsA(hstmt: *mut ::core::ffi::c_void, fcoltype: u16,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLSpecialColumnsW(hstmt: *mut ::core::ffi::c_void, fcoltype: u16, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, fscope: u16, fnullable: u16) -> i16 {
     #[cfg(windows)]
@@ -21374,6 +23023,7 @@ pub unsafe fn SQLSpecialColumnsW(hstmt: *mut ::core::ffi::c_void, fcoltype: u16,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLStatistics(statementhandle: *mut ::core::ffi::c_void, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, unique: u16, reserved: u16) -> i16 {
     #[cfg(windows)]
@@ -21387,6 +23037,7 @@ pub unsafe fn SQLStatistics(statementhandle: *mut ::core::ffi::c_void, catalogna
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLStatisticsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, funique: u16, faccuracy: u16) -> i16 {
     #[cfg(windows)]
@@ -21400,6 +23051,7 @@ pub unsafe fn SQLStatisticsA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLStatisticsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, funique: u16, faccuracy: u16) -> i16 {
     #[cfg(windows)]
@@ -21414,6 +23066,7 @@ pub unsafe fn SQLStatisticsW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *co
     unimplemented!("Unsupported target OS");
 }
 pub const SQLTEXT: u32 = 35u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLTablePrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cchcatalogname: i16, szschemaname: *const u8, cchschemaname: i16, sztablename: *const u8, cchtablename: i16) -> i16 {
     #[cfg(windows)]
@@ -21427,6 +23080,7 @@ pub unsafe fn SQLTablePrivileges(hstmt: *mut ::core::ffi::c_void, szcatalogname:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLTablePrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16) -> i16 {
     #[cfg(windows)]
@@ -21440,6 +23094,7 @@ pub unsafe fn SQLTablePrivilegesA(hstmt: *mut ::core::ffi::c_void, szcatalogname
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLTablePrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16) -> i16 {
     #[cfg(windows)]
@@ -21453,6 +23108,7 @@ pub unsafe fn SQLTablePrivilegesW(hstmt: *mut ::core::ffi::c_void, szcatalogname
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLTables(statementhandle: *mut ::core::ffi::c_void, catalogname: *const u8, namelength1: i16, schemaname: *const u8, namelength2: i16, tablename: *const u8, namelength3: i16, tabletype: *const u8, namelength4: i16) -> i16 {
     #[cfg(windows)]
@@ -21466,6 +23122,7 @@ pub unsafe fn SQLTables(statementhandle: *mut ::core::ffi::c_void, catalogname: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLTablesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u8, cbcatalogname: i16, szschemaname: *const u8, cbschemaname: i16, sztablename: *const u8, cbtablename: i16, sztabletype: *const u8, cbtabletype: i16) -> i16 {
     #[cfg(windows)]
@@ -21479,6 +23136,7 @@ pub unsafe fn SQLTablesA(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLTablesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const u16, cchcatalogname: i16, szschemaname: *const u16, cchschemaname: i16, sztablename: *const u16, cchtablename: i16, sztabletype: *const u16, cchtabletype: i16) -> i16 {
     #[cfg(windows)]
@@ -21492,6 +23150,7 @@ pub unsafe fn SQLTablesW(hstmt: *mut ::core::ffi::c_void, szcatalogname: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn SQLTransact(environmenthandle: *mut ::core::ffi::c_void, connectionhandle: *mut ::core::ffi::c_void, completiontype: u16) -> i16 {
     #[cfg(windows)]
@@ -21508,29 +23167,53 @@ pub unsafe fn SQLTransact(environmenthandle: *mut ::core::ffi::c_void, connectio
 pub const SQLUNIQUEID: u32 = 36u32;
 pub const SQLVARBINARY: u32 = 37u32;
 pub const SQLVARCHAR: u32 = 39u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type SQLVARENUM = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_EMPTY: SQLVARENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_NULL: SQLVARENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_UI1: SQLVARENUM = 17i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_I2: SQLVARENUM = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_I4: SQLVARENUM = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_I8: SQLVARENUM = 20i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_R4: SQLVARENUM = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_R8: SQLVARENUM = 5i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_MONEY: SQLVARENUM = 6i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_SMALLMONEY: SQLVARENUM = 200i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_WSTRING: SQLVARENUM = 201i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_WVARSTRING: SQLVARENUM = 202i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_STRING: SQLVARENUM = 203i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_VARSTRING: SQLVARENUM = 204i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_BIT: SQLVARENUM = 11i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_GUID: SQLVARENUM = 72i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_NUMERIC: SQLVARENUM = 131i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_DECIMAL: SQLVARENUM = 205i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_DATETIME: SQLVARENUM = 135i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_SMALLDATETIME: SQLVARENUM = 206i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_BINARY: SQLVARENUM = 207i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_VARBINARY: SQLVARENUM = 208i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const VT_SS_UNKNOWN: SQLVARENUM = 209i32;
 pub const SQLVARIANT: u32 = 98u32;
 pub const SQL_AA_FALSE: i32 = 0i32;
@@ -21671,6 +23354,7 @@ pub const SQL_ASYNC_ENABLE_OFF: u32 = 0u32;
 pub const SQL_ASYNC_ENABLE_ON: u32 = 1u32;
 pub const SQL_ASYNC_MODE: u32 = 10021u32;
 pub const SQL_ASYNC_NOTIFICATION: u32 = 10025u32;
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SQL_ASYNC_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pcontext: *const ::core::ffi::c_void, flast: super::super::Foundation::BOOL) -> i16>;
 pub const SQL_ASYNC_NOTIFICATION_CAPABLE: i32 = 1i32;
@@ -22511,6 +24195,7 @@ pub const SQL_INTERVAL_MINUTE_TO_SECOND: i32 = -92i32;
 pub const SQL_INTERVAL_MONTH: i32 = -81i32;
 pub const SQL_INTERVAL_SECOND: i32 = -86i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct SQL_INTERVAL_STRUCT {
     pub interval_type: SQLINTERVAL,
     pub interval_sign: i16,
@@ -22537,6 +24222,7 @@ impl ::core::default::Default for SQL_INTERVAL_STRUCT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub union SQL_INTERVAL_STRUCT_0 {
     pub year_month: tagSQL_YEAR_MONTH,
     pub day_second: tagSQL_DAY_SECOND,
@@ -22720,6 +24406,7 @@ pub const SQL_NULL_HSTMT: u32 = 0u32;
 pub const SQL_NUMERIC: u32 = 2u32;
 pub const SQL_NUMERIC_FUNCTIONS: u32 = 49u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct SQL_NUMERIC_STRUCT {
     pub precision: u8,
     pub scale: i8,
@@ -23240,6 +24927,7 @@ pub const SSPROP_STREAM_XSL: u32 = 16u32;
 pub const SSPROP_UNICODECOMPARISONSTYLE: u32 = 3u32;
 pub const SSPROP_UNICODELCID: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT {
     pub vt: u16,
@@ -23272,6 +24960,7 @@ impl ::core::default::Default for SSVARIANT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub union SSVARIANT_0 {
     pub bTinyIntVal: u8,
@@ -23316,6 +25005,7 @@ impl ::core::default::Default for SSVARIANT_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT_0_0 {
     pub dbobj: DBOBJECT,
@@ -23346,6 +25036,7 @@ impl ::core::default::Default for SSVARIANT_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT_0_1 {
     pub sActualLength: i16,
@@ -23380,6 +25071,7 @@ impl ::core::default::Default for SSVARIANT_0_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT_0_2 {
     pub sActualLength: i16,
@@ -23416,6 +25108,7 @@ impl ::core::default::Default for SSVARIANT_0_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT_0_3 {
     pub sActualLength: i16,
@@ -23452,6 +25145,7 @@ impl ::core::default::Default for SSVARIANT_0_3 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT_0_4 {
     pub dwActualLength: u32,
@@ -23498,50 +25192,92 @@ pub const STREAM_FLAGS_DONTCACHEMAPPINGSCHEMA: u32 = 8u32;
 pub const STREAM_FLAGS_DONTCACHETEMPLATE: u32 = 16u32;
 pub const STREAM_FLAGS_DONTCACHEXSL: u32 = 32u32;
 pub const STREAM_FLAGS_RESERVED: u32 = 4294901760u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type STRUCTURED_QUERY_MULTIOPTION = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQMO_VIRTUAL_PROPERTY: STRUCTURED_QUERY_MULTIOPTION = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQMO_DEFAULT_PROPERTY: STRUCTURED_QUERY_MULTIOPTION = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQMO_GENERATOR_FOR_TYPE: STRUCTURED_QUERY_MULTIOPTION = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQMO_MAP_PROPERTY: STRUCTURED_QUERY_MULTIOPTION = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type STRUCTURED_QUERY_PARSE_ERROR = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQPE_NONE: STRUCTURED_QUERY_PARSE_ERROR = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQPE_EXTRA_OPENING_PARENTHESIS: STRUCTURED_QUERY_PARSE_ERROR = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQPE_EXTRA_CLOSING_PARENTHESIS: STRUCTURED_QUERY_PARSE_ERROR = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQPE_IGNORED_MODIFIER: STRUCTURED_QUERY_PARSE_ERROR = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQPE_IGNORED_CONNECTOR: STRUCTURED_QUERY_PARSE_ERROR = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQPE_IGNORED_KEYWORD: STRUCTURED_QUERY_PARSE_ERROR = 5i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQPE_UNHANDLED: STRUCTURED_QUERY_PARSE_ERROR = 6i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type STRUCTURED_QUERY_RESOLVE_OPTION = u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQRO_DEFAULT: STRUCTURED_QUERY_RESOLVE_OPTION = 0u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQRO_DONT_RESOLVE_DATETIME: STRUCTURED_QUERY_RESOLVE_OPTION = 1u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQRO_ALWAYS_ONE_INTERVAL: STRUCTURED_QUERY_RESOLVE_OPTION = 2u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQRO_DONT_SIMPLIFY_CONDITION_TREES: STRUCTURED_QUERY_RESOLVE_OPTION = 4u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQRO_DONT_MAP_RELATIONS: STRUCTURED_QUERY_RESOLVE_OPTION = 8u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQRO_DONT_RESOLVE_RANGES: STRUCTURED_QUERY_RESOLVE_OPTION = 16u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQRO_DONT_REMOVE_UNRESTRICTED_KEYWORDS: STRUCTURED_QUERY_RESOLVE_OPTION = 32u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQRO_DONT_SPLIT_WORDS: STRUCTURED_QUERY_RESOLVE_OPTION = 64u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQRO_IGNORE_PHRASE_ORDER: STRUCTURED_QUERY_RESOLVE_OPTION = 128u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQRO_ADD_VALUE_TYPE_FOR_PLAIN_VALUES: STRUCTURED_QUERY_RESOLVE_OPTION = 256u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQRO_ADD_ROBUST_ITEM_NAME: STRUCTURED_QUERY_RESOLVE_OPTION = 512u32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type STRUCTURED_QUERY_SINGLE_OPTION = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQSO_SCHEMA: STRUCTURED_QUERY_SINGLE_OPTION = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQSO_LOCALE_WORD_BREAKING: STRUCTURED_QUERY_SINGLE_OPTION = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQSO_WORD_BREAKER: STRUCTURED_QUERY_SINGLE_OPTION = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQSO_NATURAL_SYNTAX: STRUCTURED_QUERY_SINGLE_OPTION = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQSO_AUTOMATIC_WILDCARD: STRUCTURED_QUERY_SINGLE_OPTION = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQSO_TRACE_LEVEL: STRUCTURED_QUERY_SINGLE_OPTION = 5i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQSO_LANGUAGE_KEYWORDS: STRUCTURED_QUERY_SINGLE_OPTION = 6i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQSO_SYNTAX: STRUCTURED_QUERY_SINGLE_OPTION = 7i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQSO_TIME_ZONE: STRUCTURED_QUERY_SINGLE_OPTION = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQSO_IMPLICIT_CONNECTOR: STRUCTURED_QUERY_SINGLE_OPTION = 9i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQSO_CONNECTOR_CASE: STRUCTURED_QUERY_SINGLE_OPTION = 10i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type STRUCTURED_QUERY_SYNTAX = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQS_NO_SYNTAX: STRUCTURED_QUERY_SYNTAX = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQS_ADVANCED_QUERY_SYNTAX: STRUCTURED_QUERY_SYNTAX = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQS_NATURAL_QUERY_SYNTAX: STRUCTURED_QUERY_SYNTAX = 2i32;
 pub const STS_ABORTXMLPARSE: i32 = -2147211756i32;
 pub const STS_WS_ERROR: i32 = -2147211754i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SUBSCRIPTIONINFO {
     pub cbSize: u32,
@@ -23626,22 +25362,38 @@ impl ::core::default::Default for SUBSCRIPTIONINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type SUBSCRIPTIONINFOFLAGS = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSINFO_SCHEDULE: SUBSCRIPTIONINFOFLAGS = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSINFO_RECURSE: SUBSCRIPTIONINFOFLAGS = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSINFO_WEBCRAWL: SUBSCRIPTIONINFOFLAGS = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSINFO_MAILNOT: SUBSCRIPTIONINFOFLAGS = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSINFO_MAXSIZEKB: SUBSCRIPTIONINFOFLAGS = 16i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSINFO_USER: SUBSCRIPTIONINFOFLAGS = 32i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSINFO_PASSWORD: SUBSCRIPTIONINFOFLAGS = 64i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSINFO_TASKFLAGS: SUBSCRIPTIONINFOFLAGS = 256i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSINFO_GLEAM: SUBSCRIPTIONINFOFLAGS = 512i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSINFO_CHANGESONLY: SUBSCRIPTIONINFOFLAGS = 1024i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSINFO_CHANNELFLAGS: SUBSCRIPTIONINFOFLAGS = 2048i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSINFO_FRIENDLYNAME: SUBSCRIPTIONINFOFLAGS = 8192i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSINFO_NEEDPASSWORD: SUBSCRIPTIONINFOFLAGS = 16384i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSINFO_TYPE: SUBSCRIPTIONINFOFLAGS = 32768i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct SUBSCRIPTIONITEMINFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -23669,17 +25421,29 @@ impl ::core::default::Default for SUBSCRIPTIONITEMINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type SUBSCRIPTIONSCHEDULE = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSSCHED_AUTO: SUBSCRIPTIONSCHEDULE = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSSCHED_DAILY: SUBSCRIPTIONSCHEDULE = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSSCHED_WEEKLY: SUBSCRIPTIONSCHEDULE = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSSCHED_CUSTOM: SUBSCRIPTIONSCHEDULE = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSSCHED_MANUAL: SUBSCRIPTIONSCHEDULE = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type SUBSCRIPTIONTYPE = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSTYPE_URL: SUBSCRIPTIONTYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSTYPE_CHANNEL: SUBSCRIPTIONTYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSTYPE_DESKTOPURL: SUBSCRIPTIONTYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSTYPE_EXTERNAL: SUBSCRIPTIONTYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSTYPE_DESKTOPCHANNEL: SUBSCRIPTIONTYPE = 4i32;
 pub const SUBSINFO_ALLFLAGS: u32 = 61311u32;
 pub const SUBSMGRENUM_MASK: u32 = 1u32;
@@ -23691,6 +25455,7 @@ pub const SUCCEED_ABORT: u32 = 2u32;
 pub const SUCCEED_ASYNC: u32 = 3u32;
 pub const SubscriptionMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabbe31d0_6dae_11d0_beca_00c04fd940be);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TEXT_SOURCE {
     pub pfnFillTextBuffer: PFNFILLTEXTBUFFER,
@@ -23725,6 +25490,7 @@ impl ::core::default::Default for TEXT_SOURCE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct TIMEOUT_INFO {
     pub dwSize: u32,
     pub dwConnectTimeout: u32,
@@ -23751,6 +25517,7 @@ impl ::core::default::Default for TIMEOUT_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct TIMESTAMP_STRUCT {
     pub year: i16,
     pub month: u16,
@@ -23781,6 +25548,7 @@ impl ::core::default::Default for TIMESTAMP_STRUCT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct TIME_STRUCT {
     pub hour: u16,
     pub minute: u16,
@@ -23810,6 +25578,7 @@ pub const TRACE_ON: i32 = 1i32;
 pub const TRACE_VERSION: u32 = 1000u32;
 pub const TRACE_VS_EVENT_ON: i32 = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct VECTORRESTRICTION {
     pub Node: NODERESTRICTION,
@@ -23841,14 +25610,23 @@ impl ::core::default::Default for VECTORRESTRICTION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub type WEBCRAWL_RECURSEFLAGS = i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const WEBCRAWL_DONT_MAKE_STICKY: WEBCRAWL_RECURSEFLAGS = 1i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const WEBCRAWL_GET_IMAGES: WEBCRAWL_RECURSEFLAGS = 2i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const WEBCRAWL_GET_VIDEOS: WEBCRAWL_RECURSEFLAGS = 4i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const WEBCRAWL_GET_BGSOUNDS: WEBCRAWL_RECURSEFLAGS = 8i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const WEBCRAWL_GET_CONTROLS: WEBCRAWL_RECURSEFLAGS = 16i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const WEBCRAWL_LINKS_ELSEWHERE: WEBCRAWL_RECURSEFLAGS = 32i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const WEBCRAWL_IGNORE_ROBOTSTXT: WEBCRAWL_RECURSEFLAGS = 128i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub const WEBCRAWL_ONLY_LINKS_TO_HTML: WEBCRAWL_RECURSEFLAGS = 256i32;
 pub const XML_E_BADSXQL: i32 = -2147212799i32;
 pub const XML_E_NODEFAULTNS: i32 = -2147212800i32;
@@ -23889,6 +25667,7 @@ pub const _MAPI_E_UNKNOWN_LCID: i32 = -2147221217i32;
 pub const _MAPI_E_USER_CANCEL: i32 = -2147221229i32;
 pub const _MAPI_E_VERSION: i32 = -2147221232i32;
 pub const _MAPI_W_NO_SERVICE: i32 = 262659i32;
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn bcp_batch(param0: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
@@ -23902,6 +25681,7 @@ pub unsafe fn bcp_batch(param0: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn bcp_bind(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2: i32, param3: i32, param4: *mut u8, param5: i32, param6: i32, param7: i32) -> i16 {
     #[cfg(windows)]
@@ -23915,6 +25695,7 @@ pub unsafe fn bcp_bind(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn bcp_colfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: u8, param3: i32, param4: i32, param5: *mut u8, param6: i32, param7: i32) -> i16 {
     #[cfg(windows)]
@@ -23928,6 +25709,7 @@ pub unsafe fn bcp_colfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn bcp_collen(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32) -> i16 {
     #[cfg(windows)]
@@ -23941,6 +25723,7 @@ pub unsafe fn bcp_collen(param0: *mut ::core::ffi::c_void, param1: i32, param2: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn bcp_colptr(param0: *mut ::core::ffi::c_void, param1: *mut u8, param2: i32) -> i16 {
     #[cfg(windows)]
@@ -23954,6 +25737,7 @@ pub unsafe fn bcp_colptr(param0: *mut ::core::ffi::c_void, param1: *mut u8, para
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn bcp_columns(param0: *mut ::core::ffi::c_void, param1: i32) -> i16 {
     #[cfg(windows)]
@@ -23967,6 +25751,7 @@ pub unsafe fn bcp_columns(param0: *mut ::core::ffi::c_void, param1: i32) -> i16 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn bcp_control(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -23980,6 +25765,7 @@ pub unsafe fn bcp_control(param0: *mut ::core::ffi::c_void, param1: i32, param2:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn bcp_done(param0: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
@@ -23993,6 +25779,7 @@ pub unsafe fn bcp_done(param0: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn bcp_exec(param0: *mut ::core::ffi::c_void, param1: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -24006,6 +25793,7 @@ pub unsafe fn bcp_exec(param0: *mut ::core::ffi::c_void, param1: *mut i32) -> i1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn bcp_getcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32, param3: *mut ::core::ffi::c_void, param4: i32, param5: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -24019,6 +25807,7 @@ pub unsafe fn bcp_getcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn bcp_initA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1, param2: Param2, param3: Param3, param4: i32) -> i16 {
@@ -24033,6 +25822,7 @@ pub unsafe fn bcp_initA<'a, Param1: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn bcp_initW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1, param2: Param2, param3: Param3, param4: i32) -> i16 {
@@ -24047,6 +25837,7 @@ pub unsafe fn bcp_initW<'a, Param1: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn bcp_moretext(param0: *mut ::core::ffi::c_void, param1: i32, param2: *mut u8) -> i16 {
     #[cfg(windows)]
@@ -24060,6 +25851,7 @@ pub unsafe fn bcp_moretext(param0: *mut ::core::ffi::c_void, param1: i32, param2
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn bcp_readfmtA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1) -> i16 {
@@ -24074,6 +25866,7 @@ pub unsafe fn bcp_readfmtA<'a, Param1: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn bcp_readfmtW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1) -> i16 {
@@ -24088,6 +25881,7 @@ pub unsafe fn bcp_readfmtW<'a, Param1: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn bcp_sendrow(param0: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -24101,6 +25895,7 @@ pub unsafe fn bcp_sendrow(param0: *mut ::core::ffi::c_void) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[inline]
 pub unsafe fn bcp_setcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param2: i32, param3: *mut ::core::ffi::c_void, param4: i32) -> i16 {
     #[cfg(windows)]
@@ -24114,6 +25909,7 @@ pub unsafe fn bcp_setcolfmt(param0: *mut ::core::ffi::c_void, param1: i32, param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn bcp_writefmtA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1) -> i16 {
@@ -24128,6 +25924,7 @@ pub unsafe fn bcp_writefmtA<'a, Param1: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn bcp_writefmtW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: *mut ::core::ffi::c_void, param1: Param1) -> i16 {
@@ -24143,6 +25940,7 @@ pub unsafe fn bcp_writefmtW<'a, Param1: ::windows::core::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct dbdatetime {
     pub dtdays: i32,
     pub dttime: u32,
@@ -24168,6 +25966,7 @@ impl ::core::default::Default for dbdatetime {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct dbdatetime4 {
     pub numdays: u16,
     pub nummins: u16,
@@ -24193,6 +25992,7 @@ impl ::core::default::Default for dbdatetime4 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct dbmoney {
     pub mnyhigh: i32,
     pub mnylow: u32,
@@ -24217,6 +26017,7 @@ impl ::core::default::Default for dbmoney {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn dbprtypeA(param0: i32) -> super::super::Foundation::PSTR {
@@ -24231,6 +26032,7 @@ pub unsafe fn dbprtypeA(param0: i32) -> super::super::Foundation::PSTR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn dbprtypeW(param0: i32) -> super::super::Foundation::PWSTR {
@@ -24246,6 +26048,7 @@ pub unsafe fn dbprtypeW(param0: i32) -> super::super::Foundation::PWSTR {
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct dbvarybin {
     pub len: i16,
     pub array: [u8; 8001],
@@ -24271,6 +26074,7 @@ impl ::core::default::Default for dbvarybin {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct dbvarychar {
     pub len: i16,
     pub str: [i8; 8001],
@@ -24296,6 +26100,7 @@ impl ::core::default::Default for dbvarychar {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct sqlperf {
     pub TimerResolution: u32,
     pub SQLidu: u32,
@@ -24352,6 +26157,7 @@ impl ::core::default::Default for sqlperf {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct tagDBROWWATCHRANGE {
     pub hRegion: usize,
@@ -24386,6 +26192,7 @@ impl ::core::default::Default for tagDBROWWATCHRANGE {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(target_arch = "x86")]
 pub struct tagDBROWWATCHRANGE {
     pub hRegion: usize,
@@ -24420,6 +26227,7 @@ impl ::core::default::Default for tagDBROWWATCHRANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct tagSQL_DAY_SECOND {
     pub day: u32,
     pub hour: u32,
@@ -24448,6 +26256,7 @@ impl ::core::default::Default for tagSQL_DAY_SECOND {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct tagSQL_YEAR_MONTH {
     pub year: u32,
     pub month: u32,
@@ -24473,6 +26282,7 @@ impl ::core::default::Default for tagSQL_YEAR_MONTH {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct tagSSErrorInfo {
     pub pwszMessage: super::super::Foundation::PWSTR,

@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub struct FindSimilarFileIndexResults {
     pub m_FileIndex: u32,
     pub m_MatchCount: u32,
@@ -25,9 +26,13 @@ impl ::core::default::Default for FindSimilarFileIndexResults {
     }
 }
 pub const FindSimilarResults: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a93_9dbc_11da_9e3f_0011114ae311);
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub type GeneratorParametersType = i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDCGENTYPE_Unused: GeneratorParametersType = 0i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDCGENTYPE_FilterMax: GeneratorParametersType = 1i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 #[repr(transparent)]
 pub struct IFindSimilarResults(::windows::core::IUnknown);
 impl IFindSimilarResults {
@@ -83,6 +88,7 @@ pub struct IFindSimilarResultsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numtraitsmatched: *mut u32, similarityfileid: *mut SimilarityFileId) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 #[repr(transparent)]
 pub struct IRdcComparator(::windows::core::IUnknown);
 impl IRdcComparator {
@@ -135,6 +141,7 @@ pub struct IRdcComparatorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endofinput: super::super::Foundation::BOOL, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffer: *mut RdcNeedPointer, rdc_errorcode: *mut RDC_ErrorCode) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 #[repr(transparent)]
 pub struct IRdcFileReader(::windows::core::IUnknown);
 impl IRdcFileReader {
@@ -197,6 +204,7 @@ pub struct IRdcFileReaderVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetfromstart: *mut u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 #[repr(transparent)]
 pub struct IRdcFileWriter(::windows::core::IUnknown);
 impl IRdcFileWriter {
@@ -292,6 +300,7 @@ pub struct IRdcFileWriterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 #[repr(transparent)]
 pub struct IRdcGenerator(::windows::core::IUnknown);
 impl IRdcGenerator {
@@ -349,6 +358,7 @@ pub struct IRdcGeneratorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endofinput: super::super::Foundation::BOOL, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, depth: u32, outputbuffers: *mut *mut RdcBufferPointer, rdc_errorcode: *mut RDC_ErrorCode) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 #[repr(transparent)]
 pub struct IRdcGeneratorFilterMaxParameters(::windows::core::IUnknown);
 impl IRdcGeneratorFilterMaxParameters {
@@ -413,6 +423,7 @@ pub struct IRdcGeneratorFilterMaxParametersVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hashwindowsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hashwindowsize: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 #[repr(transparent)]
 pub struct IRdcGeneratorParameters(::windows::core::IUnknown);
 impl IRdcGeneratorParameters {
@@ -477,6 +488,7 @@ pub struct IRdcGeneratorParametersVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: u32, parametersblob: *mut u8, byteswritten: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 #[repr(transparent)]
 pub struct IRdcLibrary(::windows::core::IUnknown);
 impl IRdcLibrary {
@@ -557,6 +569,7 @@ pub struct IRdcLibraryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ifilereader: ::windows::core::RawPtr, isignaturereader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 #[repr(transparent)]
 pub struct IRdcSignatureReader(::windows::core::IUnknown);
 impl IRdcSignatureReader {
@@ -614,6 +627,7 @@ pub struct IRdcSignatureReaderVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rdcsignaturepointer: *mut RdcSignaturePointer, endofoutput: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 #[repr(transparent)]
 pub struct IRdcSimilarityGenerator(::windows::core::IUnknown);
 impl IRdcSimilarityGenerator {
@@ -669,6 +683,7 @@ pub struct IRdcSimilarityGeneratorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, similaritydata: *mut SimilarityData) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 #[repr(transparent)]
 pub struct ISimilarity(::windows::core::IUnknown);
 impl ISimilarity {
@@ -753,6 +768,7 @@ pub struct ISimilarityVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newsimilaritytables: ::windows::core::RawPtr, reportprogress: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recordcount: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 #[repr(transparent)]
 pub struct ISimilarityFileIdTable(::windows::core::IUnknown);
 impl ISimilarityFileIdTable {
@@ -838,6 +854,7 @@ pub struct ISimilarityFileIdTableVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, similarityfileindex: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recordcount: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 #[repr(transparent)]
 pub struct ISimilarityReportProgress(::windows::core::IUnknown);
 impl ISimilarityReportProgress {
@@ -883,6 +900,7 @@ unsafe impl ::windows::core::Interface for ISimilarityReportProgress {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISimilarityReportProgressVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, percentcompleted: u32) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 #[repr(transparent)]
 pub struct ISimilarityTableDumpState(::windows::core::IUnknown);
 impl ISimilarityTableDumpState {
@@ -935,6 +953,7 @@ pub struct ISimilarityTableDumpStateVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resultssize: u32, resultsused: *mut u32, eof: *mut super::super::Foundation::BOOL, results: *mut SimilarityDumpData) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 #[repr(transparent)]
 pub struct ISimilarityTraitsMappedView(::windows::core::IUnknown);
 impl ISimilarityTraitsMappedView {
@@ -1000,6 +1019,7 @@ pub struct ISimilarityTraitsMappedViewVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mappedpagebegin: *mut *mut u8, mappedpageend: *mut *mut u8),
 );
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 #[repr(transparent)]
 pub struct ISimilarityTraitsMapping(::windows::core::IUnknown);
 impl ISimilarityTraitsMapping {
@@ -1078,6 +1098,7 @@ pub struct ISimilarityTraitsMappingVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pagesize: *mut u32),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minimummappedpages: u32, accessmode: RdcMappingAccessMode, mappedview: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 #[repr(transparent)]
 pub struct ISimilarityTraitsTable(::windows::core::IUnknown);
 impl ISimilarityTraitsTable {
@@ -1184,19 +1205,32 @@ pub const MSRDC_SIGNATURE_HASHSIZE: u32 = 16u32;
 pub const MSRDC_VERSION: u32 = 65536u32;
 pub const RDCE_TABLE_CORRUPT: u32 = 2147745794u32;
 pub const RDCE_TABLE_FULL: u32 = 2147745793u32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub type RDC_ErrorCode = i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDC_NoError: RDC_ErrorCode = 0i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDC_HeaderVersionNewer: RDC_ErrorCode = 1i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDC_HeaderVersionOlder: RDC_ErrorCode = 2i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDC_HeaderMissingOrCorrupt: RDC_ErrorCode = 3i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDC_HeaderWrongType: RDC_ErrorCode = 4i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDC_DataMissingOrCorrupt: RDC_ErrorCode = 5i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDC_DataTooManyRecords: RDC_ErrorCode = 6i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDC_FileChecksumMismatch: RDC_ErrorCode = 7i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDC_ApplicationError: RDC_ErrorCode = 8i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDC_Aborted: RDC_ErrorCode = 9i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDC_Win32Error: RDC_ErrorCode = 10i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub struct RdcBufferPointer {
     pub m_Size: u32,
     pub m_Used: u32,
@@ -1223,20 +1257,29 @@ impl ::core::default::Default for RdcBufferPointer {
     }
 }
 pub const RdcComparator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a8b_9dbc_11da_9e3f_0011114ae311);
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub type RdcCreatedTables = i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDCTABLE_InvalidOrUnknown: RdcCreatedTables = 0i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDCTABLE_Existing: RdcCreatedTables = 1i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDCTABLE_New: RdcCreatedTables = 2i32;
 pub const RdcFileReader: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a89_9dbc_11da_9e3f_0011114ae311);
 pub const RdcGenerator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a88_9dbc_11da_9e3f_0011114ae311);
 pub const RdcGeneratorFilterMaxParameters: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a87_9dbc_11da_9e3f_0011114ae311);
 pub const RdcGeneratorParameters: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a86_9dbc_11da_9e3f_0011114ae311);
 pub const RdcLibrary: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a85_9dbc_11da_9e3f_0011114ae311);
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub type RdcMappingAccessMode = i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDCMAPPING_Undefined: RdcMappingAccessMode = 0i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDCMAPPING_ReadOnly: RdcMappingAccessMode = 1i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDCMAPPING_ReadWrite: RdcMappingAccessMode = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub struct RdcNeed {
     pub m_BlockType: RdcNeedType,
     pub m_FileOffset: u64,
@@ -1263,6 +1306,7 @@ impl ::core::default::Default for RdcNeed {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub struct RdcNeedPointer {
     pub m_Size: u32,
     pub m_Used: u32,
@@ -1288,12 +1332,18 @@ impl ::core::default::Default for RdcNeedPointer {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub type RdcNeedType = i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDCNEED_SOURCE: RdcNeedType = 0i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDCNEED_TARGET: RdcNeedType = 1i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDCNEED_SEED: RdcNeedType = 2i32;
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub const RDCNEED_SEED_MAX: RdcNeedType = 255i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub struct RdcSignature {
     pub m_Signature: [u8; 16],
     pub m_BlockLength: u16,
@@ -1319,6 +1369,7 @@ impl ::core::default::Default for RdcSignature {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub struct RdcSignaturePointer {
     pub m_Size: u32,
     pub m_Used: u32,
@@ -1348,6 +1399,7 @@ pub const RdcSignatureReader: ::windows::core::GUID = ::windows::core::GUID::fro
 pub const RdcSimilarityGenerator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a92_9dbc_11da_9e3f_0011114ae311);
 pub const Similarity: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a91_9dbc_11da_9e3f_0011114ae311);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub struct SimilarityData {
     pub m_Data: [u8; 16],
 }
@@ -1372,6 +1424,7 @@ impl ::core::default::Default for SimilarityData {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub struct SimilarityDumpData {
     pub m_FileIndex: u32,
     pub m_Data: SimilarityData,
@@ -1397,6 +1450,7 @@ impl ::core::default::Default for SimilarityDumpData {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub struct SimilarityFileId {
     pub m_FileId: [u8; 32],
 }
@@ -1424,6 +1478,7 @@ pub const SimilarityFileIdMaxSize: u32 = 32u32;
 pub const SimilarityFileIdMinSize: u32 = 4u32;
 pub const SimilarityFileIdTable: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a90_9dbc_11da_9e3f_0011114ae311);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
 pub struct SimilarityMappedViewInfo {
     pub m_Data: *mut u8,
     pub m_Length: u32,

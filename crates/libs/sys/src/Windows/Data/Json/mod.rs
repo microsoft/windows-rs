@@ -3,6 +3,7 @@
 extern "system" {}
 pub type IJsonValue = *mut ::core::ffi::c_void;
 pub type JsonArray = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Data_Json'*"]
 #[repr(transparent)]
 pub struct JsonErrorStatus(pub i32);
 impl JsonErrorStatus {
@@ -20,6 +21,7 @@ impl ::core::clone::Clone for JsonErrorStatus {
 }
 pub type JsonObject = *mut ::core::ffi::c_void;
 pub type JsonValue = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Data_Json'*"]
 #[repr(transparent)]
 pub struct JsonValueType(pub i32);
 impl JsonValueType {

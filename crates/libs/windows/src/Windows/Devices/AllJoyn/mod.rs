@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynAboutData(::windows::core::IUnknown);
@@ -225,6 +226,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
 unsafe impl ::core::marker::Send for AllJoynAboutData {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynAboutData {}
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynAboutDataView(::windows::core::IUnknown);
@@ -456,6 +458,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
 unsafe impl ::core::marker::Send for AllJoynAboutDataView {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynAboutDataView {}
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynAcceptSessionJoinerEventArgs(::windows::core::IUnknown);
@@ -597,6 +600,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
 unsafe impl ::core::marker::Send for AllJoynAcceptSessionJoinerEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynAcceptSessionJoinerEventArgs {}
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynAuthenticationCompleteEventArgs(::windows::core::IUnknown);
@@ -706,6 +710,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
 unsafe impl ::core::marker::Send for AllJoynAuthenticationCompleteEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynAuthenticationCompleteEventArgs {}
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[repr(transparent)]
 pub struct AllJoynAuthenticationMechanism(pub i32);
 impl AllJoynAuthenticationMechanism {
@@ -738,6 +743,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynAuthenticationMechanism {
 impl ::windows::core::DefaultType for AllJoynAuthenticationMechanism {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynBusAttachment(::windows::core::IUnknown);
@@ -1011,6 +1017,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
 unsafe impl ::core::marker::Send for AllJoynBusAttachment {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynBusAttachment {}
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[repr(transparent)]
 pub struct AllJoynBusAttachmentState(pub i32);
 impl AllJoynBusAttachmentState {
@@ -1040,6 +1047,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynBusAttachmentState {
 impl ::windows::core::DefaultType for AllJoynBusAttachmentState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynBusAttachmentStateChangedEventArgs(::windows::core::IUnknown);
@@ -1141,6 +1149,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
 unsafe impl ::core::marker::Send for AllJoynBusAttachmentStateChangedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynBusAttachmentStateChangedEventArgs {}
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynBusObject(::windows::core::IUnknown);
@@ -1295,6 +1304,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
 unsafe impl ::core::marker::Send for AllJoynBusObject {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynBusObject {}
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynBusObjectStoppedEventArgs(::windows::core::IUnknown);
@@ -1399,6 +1409,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
 unsafe impl ::core::marker::Send for AllJoynBusObjectStoppedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynBusObjectStoppedEventArgs {}
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynCredentials(::windows::core::IUnknown);
@@ -1531,6 +1542,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
 unsafe impl ::core::marker::Send for AllJoynCredentials {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynCredentials {}
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynCredentialsRequestedEventArgs(::windows::core::IUnknown);
@@ -1656,6 +1668,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
 unsafe impl ::core::marker::Send for AllJoynCredentialsRequestedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynCredentialsRequestedEventArgs {}
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynCredentialsVerificationRequestedEventArgs(::windows::core::IUnknown);
@@ -1802,6 +1815,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
 unsafe impl ::core::marker::Send for AllJoynCredentialsVerificationRequestedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynCredentialsVerificationRequestedEventArgs {}
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynMessageInfo(::windows::core::IUnknown);
@@ -1906,6 +1920,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
 unsafe impl ::core::marker::Send for AllJoynMessageInfo {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynMessageInfo {}
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynProducerStoppedEventArgs(::windows::core::IUnknown);
@@ -2010,6 +2025,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
 unsafe impl ::core::marker::Send for AllJoynProducerStoppedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynProducerStoppedEventArgs {}
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynServiceInfo(::windows::core::IUnknown);
@@ -2141,6 +2157,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
 unsafe impl ::core::marker::Send for AllJoynServiceInfo {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynServiceInfo {}
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynServiceInfoRemovedEventArgs(::windows::core::IUnknown);
@@ -2245,6 +2262,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
 unsafe impl ::core::marker::Send for AllJoynServiceInfoRemovedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynServiceInfoRemovedEventArgs {}
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynSession(::windows::core::IUnknown);
@@ -2411,6 +2429,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
 unsafe impl ::core::marker::Send for AllJoynSession {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynSession {}
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynSessionJoinedEventArgs(::windows::core::IUnknown);
@@ -2515,6 +2534,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
 unsafe impl ::core::marker::Send for AllJoynSessionJoinedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynSessionJoinedEventArgs {}
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynSessionLostEventArgs(::windows::core::IUnknown);
@@ -2619,6 +2639,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
 unsafe impl ::core::marker::Send for AllJoynSessionLostEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynSessionLostEventArgs {}
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[repr(transparent)]
 pub struct AllJoynSessionLostReason(pub i32);
 impl AllJoynSessionLostReason {
@@ -2650,6 +2671,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynSessionLostReason {
 impl ::windows::core::DefaultType for AllJoynSessionLostReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynSessionMemberAddedEventArgs(::windows::core::IUnknown);
@@ -2754,6 +2776,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AllJ
 unsafe impl ::core::marker::Send for AllJoynSessionMemberAddedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynSessionMemberAddedEventArgs {}
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynSessionMemberRemovedEventArgs(::windows::core::IUnknown);
@@ -2994,6 +3017,7 @@ impl AllJoynStatus {
 impl ::windows::core::RuntimeName for AllJoynStatus {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynStatus";
 }
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[repr(transparent)]
 pub struct AllJoynTrafficType(pub i32);
 impl AllJoynTrafficType {
@@ -3023,6 +3047,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynTrafficType {
 impl ::windows::core::DefaultType for AllJoynTrafficType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynWatcherStoppedEventArgs(::windows::core::IUnknown);
@@ -3262,6 +3287,7 @@ pub struct IAllJoynAboutDataViewStaticsVtbl(
     #[cfg(all(feature = "Foundation", feature = "Globalization", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, busattachment: ::windows::core::RawPtr, sessionport: u16, language: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "Globalization", feature = "deprecated")))] usize,
 );
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[repr(transparent)]
 pub struct IAllJoynAcceptSessionJoiner(::windows::core::IUnknown);
 impl IAllJoynAcceptSessionJoiner {
@@ -3810,6 +3836,7 @@ pub struct IAllJoynMessageInfoFactoryVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, senderuniquename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
 #[repr(transparent)]
 pub struct IAllJoynProducer(::windows::core::IUnknown);
 impl IAllJoynProducer {

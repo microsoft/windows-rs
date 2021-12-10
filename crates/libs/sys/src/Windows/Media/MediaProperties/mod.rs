@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 pub type AudioEncodingProperties = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct AudioEncodingQuality(pub i32);
 impl AudioEncodingQuality {
@@ -20,6 +21,7 @@ pub type ContainerEncodingProperties = *mut ::core::ffi::c_void;
 pub type IMediaEncodingProperties = *mut ::core::ffi::c_void;
 pub type ImageEncodingProperties = *mut ::core::ffi::c_void;
 pub type MediaEncodingProfile = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct MediaMirroringOptions(pub u32);
 impl MediaMirroringOptions {
@@ -33,6 +35,7 @@ impl ::core::clone::Clone for MediaMirroringOptions {
         *self
     }
 }
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct MediaPixelFormat(pub i32);
 impl MediaPixelFormat {
@@ -48,6 +51,7 @@ impl ::core::clone::Clone for MediaPixelFormat {
 }
 pub type MediaPropertySet = *mut ::core::ffi::c_void;
 pub type MediaRatio = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct MediaRotation(pub i32);
 impl MediaRotation {
@@ -62,6 +66,7 @@ impl ::core::clone::Clone for MediaRotation {
         *self
     }
 }
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct MediaThumbnailFormat(pub i32);
 impl MediaThumbnailFormat {
@@ -74,6 +79,7 @@ impl ::core::clone::Clone for MediaThumbnailFormat {
         *self
     }
 }
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct SphericalVideoFrameFormat(pub i32);
 impl SphericalVideoFrameFormat {
@@ -87,6 +93,7 @@ impl ::core::clone::Clone for SphericalVideoFrameFormat {
         *self
     }
 }
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct StereoscopicVideoPackingMode(pub i32);
 impl StereoscopicVideoPackingMode {
@@ -102,6 +109,7 @@ impl ::core::clone::Clone for StereoscopicVideoPackingMode {
 }
 pub type TimedMetadataEncodingProperties = *mut ::core::ffi::c_void;
 pub type VideoEncodingProperties = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct VideoEncodingQuality(pub i32);
 impl VideoEncodingQuality {

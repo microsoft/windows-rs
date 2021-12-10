@@ -130,6 +130,7 @@ pub struct ISpiDeviceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Spi'*"]
 #[repr(transparent)]
 pub struct ISpiDeviceStatics(::windows::core::IUnknown);
 impl ISpiDeviceStatics {
@@ -236,6 +237,7 @@ pub struct ISpiDeviceStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, busid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Devices_Spi'*"]
 #[repr(transparent)]
 pub struct SpiBusInfo(::windows::core::IUnknown);
 impl SpiBusInfo {
@@ -332,6 +334,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpiB
 }
 unsafe impl ::core::marker::Send for SpiBusInfo {}
 unsafe impl ::core::marker::Sync for SpiBusInfo {}
+#[doc = "*Required features: 'Devices_Spi'*"]
 #[repr(transparent)]
 pub struct SpiConnectionSettings(::windows::core::IUnknown);
 impl SpiConnectionSettings {
@@ -464,6 +467,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpiC
 }
 unsafe impl ::core::marker::Send for SpiConnectionSettings {}
 unsafe impl ::core::marker::Sync for SpiConnectionSettings {}
+#[doc = "*Required features: 'Devices_Spi'*"]
 #[repr(transparent)]
 pub struct SpiController(::windows::core::IUnknown);
 impl SpiController {
@@ -556,6 +560,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SpiC
 }
 unsafe impl ::core::marker::Send for SpiController {}
 unsafe impl ::core::marker::Sync for SpiController {}
+#[doc = "*Required features: 'Devices_Spi'*"]
 #[repr(transparent)]
 pub struct SpiDevice(::windows::core::IUnknown);
 impl SpiDevice {
@@ -713,6 +718,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for SpiDevice {}
 unsafe impl ::core::marker::Sync for SpiDevice {}
+#[doc = "*Required features: 'Devices_Spi'*"]
 #[repr(transparent)]
 pub struct SpiMode(pub i32);
 impl SpiMode {
@@ -742,6 +748,7 @@ unsafe impl ::windows::core::RuntimeType for SpiMode {
 impl ::windows::core::DefaultType for SpiMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Spi'*"]
 #[repr(transparent)]
 pub struct SpiSharingMode(pub i32);
 impl SpiSharingMode {

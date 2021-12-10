@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'ApplicationModel_AppExtensions'*"]
 #[repr(transparent)]
 pub struct AppExtension(::windows::core::IUnknown);
 impl AppExtension {
@@ -124,6 +125,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppE
 }
 unsafe impl ::core::marker::Send for AppExtension {}
 unsafe impl ::core::marker::Sync for AppExtension {}
+#[doc = "*Required features: 'ApplicationModel_AppExtensions'*"]
 #[repr(transparent)]
 pub struct AppExtensionCatalog(::windows::core::IUnknown);
 impl AppExtensionCatalog {
@@ -280,6 +282,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppE
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'ApplicationModel_AppExtensions'*"]
 #[repr(transparent)]
 pub struct AppExtensionPackageInstalledEventArgs(::windows::core::IUnknown);
 impl AppExtensionPackageInstalledEventArgs {
@@ -369,6 +372,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppE
 }
 unsafe impl ::core::marker::Send for AppExtensionPackageInstalledEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageInstalledEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_AppExtensions'*"]
 #[repr(transparent)]
 pub struct AppExtensionPackageStatusChangedEventArgs(::windows::core::IUnknown);
 impl AppExtensionPackageStatusChangedEventArgs {
@@ -450,6 +454,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppE
 }
 unsafe impl ::core::marker::Send for AppExtensionPackageStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageStatusChangedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_AppExtensions'*"]
 #[repr(transparent)]
 pub struct AppExtensionPackageUninstallingEventArgs(::windows::core::IUnknown);
 impl AppExtensionPackageUninstallingEventArgs {
@@ -531,6 +536,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppE
 }
 unsafe impl ::core::marker::Send for AppExtensionPackageUninstallingEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageUninstallingEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_AppExtensions'*"]
 #[repr(transparent)]
 pub struct AppExtensionPackageUpdatedEventArgs(::windows::core::IUnknown);
 impl AppExtensionPackageUpdatedEventArgs {
@@ -620,6 +626,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppE
 }
 unsafe impl ::core::marker::Send for AppExtensionPackageUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for AppExtensionPackageUpdatedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_AppExtensions'*"]
 #[repr(transparent)]
 pub struct AppExtensionPackageUpdatingEventArgs(::windows::core::IUnknown);
 impl AppExtensionPackageUpdatingEventArgs {

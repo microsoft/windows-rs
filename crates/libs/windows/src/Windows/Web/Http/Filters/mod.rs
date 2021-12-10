@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Web_Http_Filters'*"]
 #[repr(transparent)]
 pub struct HttpBaseProtocolFilter(::windows::core::IUnknown);
 impl HttpBaseProtocolFilter {
@@ -308,6 +309,7 @@ impl<'a> ::windows::core::IntoParam<'a, IHttpFilter> for &HttpBaseProtocolFilter
 }
 unsafe impl ::core::marker::Send for HttpBaseProtocolFilter {}
 unsafe impl ::core::marker::Sync for HttpBaseProtocolFilter {}
+#[doc = "*Required features: 'Web_Http_Filters'*"]
 #[repr(transparent)]
 pub struct HttpCacheControl(::windows::core::IUnknown);
 impl HttpCacheControl {
@@ -397,6 +399,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Http
 }
 unsafe impl ::core::marker::Send for HttpCacheControl {}
 unsafe impl ::core::marker::Sync for HttpCacheControl {}
+#[doc = "*Required features: 'Web_Http_Filters'*"]
 #[repr(transparent)]
 pub struct HttpCacheReadBehavior(pub i32);
 impl HttpCacheReadBehavior {
@@ -426,6 +429,7 @@ unsafe impl ::windows::core::RuntimeType for HttpCacheReadBehavior {
 impl ::windows::core::DefaultType for HttpCacheReadBehavior {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Web_Http_Filters'*"]
 #[repr(transparent)]
 pub struct HttpCacheWriteBehavior(pub i32);
 impl HttpCacheWriteBehavior {
@@ -453,6 +457,7 @@ unsafe impl ::windows::core::RuntimeType for HttpCacheWriteBehavior {
 impl ::windows::core::DefaultType for HttpCacheWriteBehavior {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Web_Http_Filters'*"]
 #[repr(transparent)]
 pub struct HttpCookieUsageBehavior(pub i32);
 impl HttpCookieUsageBehavior {
@@ -480,6 +485,7 @@ unsafe impl ::windows::core::RuntimeType for HttpCookieUsageBehavior {
 impl ::windows::core::DefaultType for HttpCookieUsageBehavior {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Web_Http_Filters'*"]
 #[repr(transparent)]
 pub struct HttpServerCustomValidationRequestedEventArgs(::windows::core::IUnknown);
 impl HttpServerCustomValidationRequestedEventArgs {
@@ -760,6 +766,7 @@ pub struct IHttpCacheControlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HttpCacheWriteBehavior) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: HttpCacheWriteBehavior) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Web_Http_Filters'*"]
 #[repr(transparent)]
 pub struct IHttpFilter(::windows::core::IUnknown);
 impl IHttpFilter {

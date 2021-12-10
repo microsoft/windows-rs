@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Storage_AccessCache'*"]
 #[repr(transparent)]
 pub struct AccessCacheOptions(pub u32);
 impl AccessCacheOptions {
@@ -30,6 +31,7 @@ impl ::windows::core::DefaultType for AccessCacheOptions {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Storage_AccessCache'*"]
 pub struct AccessListEntry {
     pub Token: ::windows::core::HSTRING,
     pub Metadata: ::windows::core::HSTRING,
@@ -59,6 +61,7 @@ impl ::core::default::Default for AccessListEntry {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Storage_AccessCache', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct AccessListEntryView(::windows::core::IUnknown);
@@ -306,6 +309,7 @@ pub struct IStorageApplicationPermissionsStatics2Vtbl(
     #[cfg(feature = "System")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))] usize,
 );
+#[doc = "*Required features: 'Storage_AccessCache'*"]
 #[repr(transparent)]
 pub struct IStorageItemAccessList(::windows::core::IUnknown);
 impl IStorageItemAccessList {
@@ -548,6 +552,7 @@ pub struct IStorageItemMostRecentlyUsedList2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, metadata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, visibility: RecentStorageItemVisibility, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, file: ::windows::core::RawPtr, metadata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, visibility: RecentStorageItemVisibility) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage_AccessCache'*"]
 #[repr(transparent)]
 pub struct ItemRemovedEventArgs(::windows::core::IUnknown);
 impl ItemRemovedEventArgs {
@@ -620,6 +625,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Item
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_AccessCache'*"]
 #[repr(transparent)]
 pub struct RecentStorageItemVisibility(pub i32);
 impl RecentStorageItemVisibility {
@@ -687,6 +693,7 @@ impl StorageApplicationPermissions {
 impl ::windows::core::RuntimeName for StorageApplicationPermissions {
     const NAME: &'static str = "Windows.Storage.AccessCache.StorageApplicationPermissions";
 }
+#[doc = "*Required features: 'Storage_AccessCache'*"]
 #[repr(transparent)]
 pub struct StorageItemAccessList(::windows::core::IUnknown);
 impl StorageItemAccessList {
@@ -881,6 +888,7 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageItemAccessList> for &StorageItem
         ::core::convert::TryInto::<IStorageItemAccessList>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage_AccessCache'*"]
 #[repr(transparent)]
 pub struct StorageItemMostRecentlyUsedList(::windows::core::IUnknown);
 impl StorageItemMostRecentlyUsedList {

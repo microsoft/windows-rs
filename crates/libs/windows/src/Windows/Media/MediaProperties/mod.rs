@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct AudioEncodingProperties(::windows::core::IUnknown);
 impl AudioEncodingProperties {
@@ -237,6 +238,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for &AudioEnco
 }
 unsafe impl ::core::marker::Send for AudioEncodingProperties {}
 unsafe impl ::core::marker::Sync for AudioEncodingProperties {}
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct AudioEncodingQuality(pub i32);
 impl AudioEncodingQuality {
@@ -266,6 +268,7 @@ unsafe impl ::windows::core::RuntimeType for AudioEncodingQuality {
 impl ::windows::core::DefaultType for AudioEncodingQuality {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct ContainerEncodingProperties(::windows::core::IUnknown);
 impl ContainerEncodingProperties {
@@ -878,6 +881,7 @@ pub struct IMediaEncodingProfileStatics3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, quality: AudioEncodingQuality, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, quality: VideoEncodingQuality, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct IMediaEncodingProperties(::windows::core::IUnknown);
 impl IMediaEncodingProperties {
@@ -1357,6 +1361,7 @@ pub struct IVideoEncodingPropertiesStatics2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct ImageEncodingProperties(::windows::core::IUnknown);
 impl ImageEncodingProperties {
@@ -1556,6 +1561,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for &ImageEnco
 }
 unsafe impl ::core::marker::Send for ImageEncodingProperties {}
 unsafe impl ::core::marker::Sync for ImageEncodingProperties {}
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct MediaEncodingProfile(::windows::core::IUnknown);
 impl MediaEncodingProfile {
@@ -2130,6 +2136,7 @@ impl MediaEncodingSubtypes {
 impl ::windows::core::RuntimeName for MediaEncodingSubtypes {
     const NAME: &'static str = "Windows.Media.MediaProperties.MediaEncodingSubtypes";
 }
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct MediaMirroringOptions(pub u32);
 impl MediaMirroringOptions {
@@ -2158,6 +2165,7 @@ unsafe impl ::windows::core::RuntimeType for MediaMirroringOptions {
 impl ::windows::core::DefaultType for MediaMirroringOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct MediaPixelFormat(pub i32);
 impl MediaPixelFormat {
@@ -2186,6 +2194,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPixelFormat {
 impl ::windows::core::DefaultType for MediaPixelFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_MediaProperties', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct MediaPropertySet(::windows::core::IUnknown);
@@ -2404,6 +2413,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 unsafe impl ::core::marker::Send for MediaPropertySet {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for MediaPropertySet {}
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct MediaRatio(::windows::core::IUnknown);
 impl MediaRatio {
@@ -2493,6 +2503,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaRatio {}
 unsafe impl ::core::marker::Sync for MediaRatio {}
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct MediaRotation(pub i32);
 impl MediaRotation {
@@ -2522,6 +2533,7 @@ unsafe impl ::windows::core::RuntimeType for MediaRotation {
 impl ::windows::core::DefaultType for MediaRotation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct MediaThumbnailFormat(pub i32);
 impl MediaThumbnailFormat {
@@ -2589,6 +2601,7 @@ impl Mpeg2ProfileIds {
 impl ::windows::core::RuntimeName for Mpeg2ProfileIds {
     const NAME: &'static str = "Windows.Media.MediaProperties.Mpeg2ProfileIds";
 }
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct SphericalVideoFrameFormat(pub i32);
 impl SphericalVideoFrameFormat {
@@ -2617,6 +2630,7 @@ unsafe impl ::windows::core::RuntimeType for SphericalVideoFrameFormat {
 impl ::windows::core::DefaultType for SphericalVideoFrameFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct StereoscopicVideoPackingMode(pub i32);
 impl StereoscopicVideoPackingMode {
@@ -2645,6 +2659,7 @@ unsafe impl ::windows::core::RuntimeType for StereoscopicVideoPackingMode {
 impl ::windows::core::DefaultType for StereoscopicVideoPackingMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct TimedMetadataEncodingProperties(::windows::core::IUnknown);
 impl TimedMetadataEncodingProperties {
@@ -2810,6 +2825,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for &TimedMeta
 }
 unsafe impl ::core::marker::Send for TimedMetadataEncodingProperties {}
 unsafe impl ::core::marker::Sync for TimedMetadataEncodingProperties {}
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct VideoEncodingProperties(::windows::core::IUnknown);
 impl VideoEncodingProperties {
@@ -3051,6 +3067,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for &VideoEnco
 }
 unsafe impl ::core::marker::Send for VideoEncodingProperties {}
 unsafe impl ::core::marker::Sync for VideoEncodingProperties {}
+#[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
 pub struct VideoEncodingQuality(pub i32);
 impl VideoEncodingQuality {

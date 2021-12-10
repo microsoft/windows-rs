@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcCertificateEnumerator(::windows::core::IUnknown);
 impl IOpcCertificateEnumerator {
@@ -68,6 +69,7 @@ pub struct IOpcCertificateEnumeratorVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcCertificateSet(::windows::core::IUnknown);
 impl IOpcCertificateSet {
@@ -131,6 +133,7 @@ pub struct IOpcCertificateSetVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certificateenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcDigitalSignature(::windows::core::IUnknown);
 impl IOpcDigitalSignature {
@@ -255,6 +258,7 @@ pub struct IOpcDigitalSignatureVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customobjectenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signaturexml: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcDigitalSignatureEnumerator(::windows::core::IUnknown);
 impl IOpcDigitalSignatureEnumerator {
@@ -325,6 +329,7 @@ pub struct IOpcDigitalSignatureEnumeratorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, digitalsignature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcDigitalSignatureManager(::windows::core::IUnknown);
 impl IOpcDigitalSignatureManager {
@@ -412,6 +417,7 @@ pub struct IOpcDigitalSignatureManagerVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signaturepartname: ::windows::core::RawPtr, newsignaturexml: *const u8, count: u32, digitalsignature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcFactory(::windows::core::IUnknown);
 impl IOpcFactory {
@@ -500,6 +506,7 @@ pub struct IOpcFactoryVtbl(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, package: ::windows::core::RawPtr, signaturemanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcPackage(::windows::core::IUnknown);
 impl IOpcPackage {
@@ -556,6 +563,7 @@ pub struct IOpcPackageVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcPart(::windows::core::IUnknown);
 impl IOpcPart {
@@ -631,6 +639,7 @@ pub struct IOpcPartVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compressionoptions: *mut OPC_COMPRESSION_OPTIONS) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcPartEnumerator(::windows::core::IUnknown);
 impl IOpcPartEnumerator {
@@ -701,6 +710,7 @@ pub struct IOpcPartEnumeratorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, part: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcPartSet(::windows::core::IUnknown);
 impl IOpcPartSet {
@@ -775,6 +785,7 @@ pub struct IOpcPartSetVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcPartUri(::windows::core::IUnknown);
 impl IOpcPartUri {
@@ -1073,6 +1084,7 @@ pub struct IOpcPartUriVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isrelationshipuri: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcRelationship(::windows::core::IUnknown);
 impl IOpcRelationship {
@@ -1150,6 +1162,7 @@ pub struct IOpcRelationshipVtbl(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetmode: *mut OPC_URI_TARGET_MODE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcRelationshipEnumerator(::windows::core::IUnknown);
 impl IOpcRelationshipEnumerator {
@@ -1220,6 +1233,7 @@ pub struct IOpcRelationshipEnumeratorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationship: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcRelationshipSelector(::windows::core::IUnknown);
 impl IOpcRelationshipSelector {
@@ -1278,6 +1292,7 @@ pub struct IOpcRelationshipSelectorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selectioncriterion: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcRelationshipSelectorEnumerator(::windows::core::IUnknown);
 impl IOpcRelationshipSelectorEnumerator {
@@ -1348,6 +1363,7 @@ pub struct IOpcRelationshipSelectorEnumeratorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipselector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcRelationshipSelectorSet(::windows::core::IUnknown);
 impl IOpcRelationshipSelectorSet {
@@ -1410,6 +1426,7 @@ pub struct IOpcRelationshipSelectorSetVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipselector: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipselectorenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcRelationshipSet(::windows::core::IUnknown);
 impl IOpcRelationshipSet {
@@ -1502,6 +1519,7 @@ pub struct IOpcRelationshipSetVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contents: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcSignatureCustomObject(::windows::core::IUnknown);
 impl IOpcSignatureCustomObject {
@@ -1547,6 +1565,7 @@ unsafe impl ::windows::core::Interface for IOpcSignatureCustomObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpcSignatureCustomObjectVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xmlmarkup: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcSignatureCustomObjectEnumerator(::windows::core::IUnknown);
 impl IOpcSignatureCustomObjectEnumerator {
@@ -1617,6 +1636,7 @@ pub struct IOpcSignatureCustomObjectEnumeratorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcSignatureCustomObjectSet(::windows::core::IUnknown);
 impl IOpcSignatureCustomObjectSet {
@@ -1677,6 +1697,7 @@ pub struct IOpcSignatureCustomObjectSetVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customobjectenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcSignaturePartReference(::windows::core::IUnknown);
 impl IOpcSignaturePartReference {
@@ -1751,6 +1772,7 @@ pub struct IOpcSignaturePartReferenceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transformmethod: *mut OPC_CANONICALIZATION_METHOD) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcSignaturePartReferenceEnumerator(::windows::core::IUnknown);
 impl IOpcSignaturePartReferenceEnumerator {
@@ -1821,6 +1843,7 @@ pub struct IOpcSignaturePartReferenceEnumeratorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcSignaturePartReferenceSet(::windows::core::IUnknown);
 impl IOpcSignaturePartReferenceSet {
@@ -1883,6 +1906,7 @@ pub struct IOpcSignaturePartReferenceSetVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partreference: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partreferenceenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcSignatureReference(::windows::core::IUnknown);
 impl IOpcSignatureReference {
@@ -1966,6 +1990,7 @@ pub struct IOpcSignatureReferenceVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, digestvalue: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcSignatureReferenceEnumerator(::windows::core::IUnknown);
 impl IOpcSignatureReferenceEnumerator {
@@ -2036,6 +2061,7 @@ pub struct IOpcSignatureReferenceEnumeratorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcSignatureReferenceSet(::windows::core::IUnknown);
 impl IOpcSignatureReferenceSet {
@@ -2098,6 +2124,7 @@ pub struct IOpcSignatureReferenceSetVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reference: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, referenceenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcSignatureRelationshipReference(::windows::core::IUnknown);
 impl IOpcSignatureRelationshipReference {
@@ -2175,6 +2202,7 @@ pub struct IOpcSignatureRelationshipReferenceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipsigningoption: *mut OPC_RELATIONSHIPS_SIGNING_OPTION) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selectorenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcSignatureRelationshipReferenceEnumerator(::windows::core::IUnknown);
 impl IOpcSignatureRelationshipReferenceEnumerator {
@@ -2245,6 +2273,7 @@ pub struct IOpcSignatureRelationshipReferenceEnumeratorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipreference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, copy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcSignatureRelationshipReferenceSet(::windows::core::IUnknown);
 impl IOpcSignatureRelationshipReferenceSet {
@@ -2312,6 +2341,7 @@ pub struct IOpcSignatureRelationshipReferenceSetVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipreference: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relationshipreferenceenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcSigningOptions(::windows::core::IUnknown);
 impl IOpcSigningOptions {
@@ -2449,6 +2479,7 @@ pub struct IOpcSigningOptionsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signaturepartname: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signaturepartname: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 #[repr(transparent)]
 pub struct IOpcUri(::windows::core::IUnknown);
 impl IOpcUri {
@@ -2710,149 +2741,294 @@ pub struct IOpcUriVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relativeuri: ::windows::core::RawPtr, combineduri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub type OPC_CANONICALIZATION_METHOD = i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_CANONICALIZATION_NONE: OPC_CANONICALIZATION_METHOD = 0i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_CANONICALIZATION_C14N: OPC_CANONICALIZATION_METHOD = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_CANONICALIZATION_C14N_WITH_COMMENTS: OPC_CANONICALIZATION_METHOD = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub type OPC_CERTIFICATE_EMBEDDING_OPTION = i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_CERTIFICATE_IN_CERTIFICATE_PART: OPC_CERTIFICATE_EMBEDDING_OPTION = 0i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_CERTIFICATE_IN_SIGNATURE_PART: OPC_CERTIFICATE_EMBEDDING_OPTION = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_CERTIFICATE_NOT_EMBEDDED: OPC_CERTIFICATE_EMBEDDING_OPTION = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub type OPC_COMPRESSION_OPTIONS = i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_COMPRESSION_NONE: OPC_COMPRESSION_OPTIONS = -1i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_COMPRESSION_NORMAL: OPC_COMPRESSION_OPTIONS = 0i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_COMPRESSION_MAXIMUM: OPC_COMPRESSION_OPTIONS = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_COMPRESSION_FAST: OPC_COMPRESSION_OPTIONS = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_COMPRESSION_SUPERFAST: OPC_COMPRESSION_OPTIONS = 3i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_CONFLICTING_SETTINGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175212i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_COULD_NOT_RECOVER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175154i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_DEFAULT_DIGEST_METHOD_NOT_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175161i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_DIGEST_VALUE_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175206i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_DUPLICATE_PACKAGE_OBJECT_REFERENCES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175187i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_DUPLICATE_SIGNATURE_ORIGIN_RELATIONSHIP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175205i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_DUPLICATE_SIGNATURE_PROPERTY_ELEMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175192i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_EXTERNAL_SIGNATURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175202i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_EXTERNAL_SIGNATURE_REFERENCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175185i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_INVALID_CANONICALIZATION_METHOD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175198i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_INVALID_CERTIFICATE_RELATIONSHIP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175203i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_INVALID_OPC_SIGNATURE_TIME_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175196i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_INVALID_RELATIONSHIPS_SIGNING_OPTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175197i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_INVALID_RELATIONSHIP_TRANSFORM_XML: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175199i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_INVALID_SIGNATURE_COUNT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175189i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_INVALID_SIGNATURE_ORIGIN_RELATIONSHIP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175204i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_INVALID_SIGNATURE_XML: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175190i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_MISSING_CANONICALIZATION_TRANSFORM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175182i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_MISSING_CERTIFICATE_PART: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175146i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_MISSING_PACKAGE_OBJECT_REFERENCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175186i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_MISSING_SIGNATURE_ALGORITHM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175188i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_MISSING_SIGNATURE_ORIGIN_PART: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175201i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_MISSING_SIGNATURE_PART: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175200i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_MISSING_SIGNATURE_PROPERTIES_ELEMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175194i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_MISSING_SIGNATURE_PROPERTY_ELEMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175193i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_MISSING_SIGNATURE_TIME_PROPERTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175191i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_MULTIPLE_RELATIONSHIP_TRANSFORMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175183i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_PACKAGE_REFERENCE_URI_RESERVED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175195i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_REFERENCE_MISSING_CONTENT_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175184i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_SIGNATURE_CORRUPT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175207i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_SIGNATURE_METHOD_NOT_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175162i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_SIGNATURE_ORIGIN_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175148i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_SIGNATURE_PROPERTY_MISSING_TARGET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175163i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_SIGNATURE_REFERENCE_MISSING_URI: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175165i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DS_UNSIGNED_PACKAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175147i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DUPLICATE_DEFAULT_EXTENSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175217i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DUPLICATE_OVERRIDE_PART: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175219i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DUPLICATE_PART: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175221i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DUPLICATE_PIECE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175211i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_DUPLICATE_RELATIONSHIP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175213i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ENUM_CANNOT_MOVE_NEXT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175151i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ENUM_CANNOT_MOVE_PREVIOUS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175150i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ENUM_COLLECTION_CHANGED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175152i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ENUM_INVALID_POSITION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175149i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_INVALID_CONTENT_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175164i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_INVALID_CONTENT_TYPE_XML: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175226i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_INVALID_DEFAULT_EXTENSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175218i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_INVALID_OVERRIDE_PART_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175220i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_INVALID_PIECE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175210i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_INVALID_RELATIONSHIP_ID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175216i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_INVALID_RELATIONSHIP_TARGET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175214i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_INVALID_RELATIONSHIP_TARGET_MODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175155i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_INVALID_RELATIONSHIP_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175215i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_INVALID_RELS_XML: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175222i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_INVALID_XML_ENCODING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175166i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MC_INCONSISTENT_PRESERVE_ATTRIBUTES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175157i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MC_INCONSISTENT_PRESERVE_ELEMENTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175156i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MC_INCONSISTENT_PROCESS_CONTENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175158i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MC_INVALID_ATTRIBUTES_ON_IGNORABLE_ELEMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175168i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MC_INVALID_ENUM_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175172i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MC_INVALID_PREFIX_LIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175177i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MC_INVALID_QNAME_LIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175176i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MC_INVALID_XMLNS_ATTRIBUTE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175167i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MC_MISSING_CHOICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175173i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MC_MISSING_REQUIRES_ATTR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175179i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MC_MULTIPLE_FALLBACK_ELEMENTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175159i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MC_NESTED_ALTERNATE_CONTENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175175i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MC_UNEXPECTED_ATTR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175178i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MC_UNEXPECTED_CHOICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175174i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MC_UNEXPECTED_ELEMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175181i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MC_UNEXPECTED_REQUIRES_ATTR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175180i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MC_UNKNOWN_NAMESPACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175170i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MC_UNKNOWN_PREFIX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175169i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MISSING_CONTENT_TYPES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175225i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_MISSING_PIECE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175209i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_NONCONFORMING_CONTENT_TYPES_XML: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175224i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_NONCONFORMING_RELS_XML: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175223i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_NONCONFORMING_URI: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175231i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_NO_SUCH_PART: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175208i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_NO_SUCH_RELATIONSHIP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175160i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_NO_SUCH_SETTINGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175145i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_PART_CANNOT_BE_DIRECTORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175228i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_RELATIONSHIP_URI_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175229i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_RELATIVE_URI_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175230i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_UNEXPECTED_CONTENT_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175227i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_UNSUPPORTED_PACKAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175153i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ZIP_CENTRAL_DIRECTORY_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171127i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ZIP_COMMENT_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171124i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ZIP_COMPRESSION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171133i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ZIP_CORRUPTED_ARCHIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171134i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ZIP_DECOMPRESSION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171132i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ZIP_DUPLICATE_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171125i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ZIP_EXTRA_FIELDS_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171123i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ZIP_FILE_HEADER_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171122i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ZIP_INCONSISTENT_DIRECTORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171130i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ZIP_INCONSISTENT_FILEITEM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171131i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ZIP_INCORRECT_DATA_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171135i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ZIP_MISSING_DATA_DESCRIPTOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171129i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ZIP_MISSING_END_OF_CENTRAL_DIRECTORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171121i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ZIP_NAME_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171126i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ZIP_REQUIRES_64_BIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171120i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ZIP_UNSUPPORTEDARCHIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171128i32);
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub type OPC_READ_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_READ_DEFAULT: OPC_READ_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_VALIDATE_ON_LOAD: OPC_READ_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_CACHE_ON_ACCESS: OPC_READ_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub type OPC_RELATIONSHIPS_SIGNING_OPTION = i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_RELATIONSHIP_SIGN_USING_SELECTORS: OPC_RELATIONSHIPS_SIGNING_OPTION = 0i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_RELATIONSHIP_SIGN_PART: OPC_RELATIONSHIPS_SIGNING_OPTION = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub type OPC_RELATIONSHIP_SELECTOR = i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_RELATIONSHIP_SELECT_BY_ID: OPC_RELATIONSHIP_SELECTOR = 0i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_RELATIONSHIP_SELECT_BY_TYPE: OPC_RELATIONSHIP_SELECTOR = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub type OPC_SIGNATURE_TIME_FORMAT = i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_SIGNATURE_TIME_FORMAT_MILLISECONDS: OPC_SIGNATURE_TIME_FORMAT = 0i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_SIGNATURE_TIME_FORMAT_SECONDS: OPC_SIGNATURE_TIME_FORMAT = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_SIGNATURE_TIME_FORMAT_MINUTES: OPC_SIGNATURE_TIME_FORMAT = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_SIGNATURE_TIME_FORMAT_DAYS: OPC_SIGNATURE_TIME_FORMAT = 3i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_SIGNATURE_TIME_FORMAT_MONTHS: OPC_SIGNATURE_TIME_FORMAT = 4i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_SIGNATURE_TIME_FORMAT_YEARS: OPC_SIGNATURE_TIME_FORMAT = 5i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub type OPC_SIGNATURE_VALIDATION_RESULT = i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_SIGNATURE_VALID: OPC_SIGNATURE_VALIDATION_RESULT = 0i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_SIGNATURE_INVALID: OPC_SIGNATURE_VALIDATION_RESULT = -1i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub type OPC_STREAM_IO_MODE = i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_STREAM_IO_READ: OPC_STREAM_IO_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_STREAM_IO_WRITE: OPC_STREAM_IO_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub type OPC_URI_TARGET_MODE = i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_URI_TARGET_MODE_INTERNAL: OPC_URI_TARGET_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_URI_TARGET_MODE_EXTERNAL: OPC_URI_TARGET_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub type OPC_WRITE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_WRITE_DEFAULT: OPC_WRITE_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_WRITE_FORCE_ZIP32: OPC_WRITE_FLAGS = 1u32;
 pub const OpcFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b2d6ba0_9f3e_4f27_920b_313cc426a39e);

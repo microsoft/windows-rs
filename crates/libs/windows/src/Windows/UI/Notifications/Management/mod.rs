@@ -46,6 +46,7 @@ pub struct IUserNotificationListenerStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Notifications_Management'*"]
 #[repr(transparent)]
 pub struct UserNotificationListener(::windows::core::IUnknown);
 impl UserNotificationListener {
@@ -174,6 +175,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserNotificationListener {}
 unsafe impl ::core::marker::Sync for UserNotificationListener {}
+#[doc = "*Required features: 'UI_Notifications_Management'*"]
 #[repr(transparent)]
 pub struct UserNotificationListenerAccessStatus(pub i32);
 impl UserNotificationListenerAccessStatus {

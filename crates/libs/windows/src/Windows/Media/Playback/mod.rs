@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct AutoLoadedDisplayPropertyKind(pub i32);
 impl AutoLoadedDisplayPropertyKind {
@@ -86,6 +87,7 @@ impl BackgroundMediaPlayer {
 impl ::windows::core::RuntimeName for BackgroundMediaPlayer {
     const NAME: &'static str = "Windows.Media.Playback.BackgroundMediaPlayer";
 }
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct CurrentMediaPlaybackItemChangedEventArgs(::windows::core::IUnknown);
 impl CurrentMediaPlaybackItemChangedEventArgs {
@@ -174,6 +176,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Curr
 }
 unsafe impl ::core::marker::Send for CurrentMediaPlaybackItemChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CurrentMediaPlaybackItemChangedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct FailedMediaStreamKind(pub i32);
 impl FailedMediaStreamKind {
@@ -465,6 +468,7 @@ pub struct IMediaBreakStartedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Playback', 'deprecated'*"]
 #[repr(transparent)]
 pub struct IMediaEnginePlaybackSource(::windows::core::IUnknown);
 impl IMediaEnginePlaybackSource {
@@ -1367,6 +1371,7 @@ pub struct IMediaPlaybackSessionOutputDegradationPolicyStateVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaPlaybackSessionVideoConstrictionReason) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct IMediaPlaybackSource(::windows::core::IUnknown);
 impl IMediaPlaybackSource {}
@@ -2012,6 +2017,7 @@ pub struct ITimedMetadataPresentationModeChangedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TimedMetadataTrackPresentationMode) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut TimedMetadataTrackPresentationMode) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaBreak(::windows::core::IUnknown);
 impl MediaBreak {
@@ -2137,6 +2143,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaBreak {}
 unsafe impl ::core::marker::Sync for MediaBreak {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaBreakEndedEventArgs(::windows::core::IUnknown);
 impl MediaBreakEndedEventArgs {
@@ -2211,6 +2218,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaBreakEndedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaBreakEndedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaBreakInsertionMethod(pub i32);
 impl MediaBreakInsertionMethod {
@@ -2238,6 +2246,7 @@ unsafe impl ::windows::core::RuntimeType for MediaBreakInsertionMethod {
 impl ::windows::core::DefaultType for MediaBreakInsertionMethod {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaBreakManager(::windows::core::IUnknown);
 impl MediaBreakManager {
@@ -2379,6 +2388,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaBreakManager {}
 unsafe impl ::core::marker::Sync for MediaBreakManager {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaBreakSchedule(::windows::core::IUnknown);
 impl MediaBreakSchedule {
@@ -2504,6 +2514,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaBreakSchedule {}
 unsafe impl ::core::marker::Sync for MediaBreakSchedule {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaBreakSeekedOverEventArgs(::windows::core::IUnknown);
 impl MediaBreakSeekedOverEventArgs {
@@ -2595,6 +2606,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaBreakSeekedOverEventArgs {}
 unsafe impl ::core::marker::Sync for MediaBreakSeekedOverEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaBreakSkippedEventArgs(::windows::core::IUnknown);
 impl MediaBreakSkippedEventArgs {
@@ -2669,6 +2681,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaBreakSkippedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaBreakSkippedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaBreakStartedEventArgs(::windows::core::IUnknown);
 impl MediaBreakStartedEventArgs {
@@ -2743,6 +2756,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaBreakStartedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaBreakStartedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaCommandEnablingRule(pub i32);
 impl MediaCommandEnablingRule {
@@ -2771,6 +2785,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCommandEnablingRule {
 impl ::windows::core::DefaultType for MediaCommandEnablingRule {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaItemDisplayProperties(::windows::core::IUnknown);
 impl MediaItemDisplayProperties {
@@ -2880,6 +2895,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaItemDisplayProperties {}
 unsafe impl ::core::marker::Sync for MediaItemDisplayProperties {}
+#[doc = "*Required features: 'Media_Playback', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct MediaPlaybackAudioTrackList(::windows::core::IUnknown);
@@ -3125,6 +3141,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 unsafe impl ::core::marker::Send for MediaPlaybackAudioTrackList {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for MediaPlaybackAudioTrackList {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManager(::windows::core::IUnknown);
 impl MediaPlaybackCommandManager {
@@ -3410,6 +3427,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManager {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManager {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
@@ -3503,6 +3521,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerCommandBehavior(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerCommandBehavior {
@@ -3608,6 +3627,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerCommandBehavior {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerCommandBehavior {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerFastForwardReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
@@ -3694,6 +3714,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerNextReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerNextReceivedEventArgs {
@@ -3780,6 +3801,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerNextReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerNextReceivedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerPauseReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerPauseReceivedEventArgs {
@@ -3866,6 +3888,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPauseReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPauseReceivedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerPlayReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerPlayReceivedEventArgs {
@@ -3952,6 +3975,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPlayReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPlayReceivedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerPositionReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerPositionReceivedEventArgs {
@@ -4046,6 +4070,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPositionReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPositionReceivedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerPreviousReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerPreviousReceivedEventArgs {
@@ -4132,6 +4157,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPreviousReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPreviousReceivedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerRateReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerRateReceivedEventArgs {
@@ -4225,6 +4251,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerRateReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerRateReceivedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerRewindReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerRewindReceivedEventArgs {
@@ -4311,6 +4338,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerRewindReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerRewindReceivedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackCommandManagerShuffleReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackCommandManagerShuffleReceivedEventArgs {
@@ -4404,6 +4432,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerShuffleReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerShuffleReceivedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackItem(::windows::core::IUnknown);
 impl MediaPlaybackItem {
@@ -4678,6 +4707,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaPlaybackSource> for &MediaPlayback
 }
 unsafe impl ::core::marker::Send for MediaPlaybackItem {}
 unsafe impl ::core::marker::Sync for MediaPlaybackItem {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackItemChangedReason(pub i32);
 impl MediaPlaybackItemChangedReason {
@@ -4707,6 +4737,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackItemChangedReason {
 impl ::windows::core::DefaultType for MediaPlaybackItemChangedReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackItemError(::windows::core::IUnknown);
 impl MediaPlaybackItemError {
@@ -4788,6 +4819,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlaybackItemError {}
 unsafe impl ::core::marker::Sync for MediaPlaybackItemError {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackItemErrorCode(pub i32);
 impl MediaPlaybackItemErrorCode {
@@ -4819,6 +4851,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackItemErrorCode {
 impl ::windows::core::DefaultType for MediaPlaybackItemErrorCode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackItemFailedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackItemFailedEventArgs {
@@ -4900,6 +4933,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlaybackItemFailedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackItemFailedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackItemOpenedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackItemOpenedEventArgs {
@@ -4974,6 +5008,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlaybackItemOpenedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackItemOpenedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackList(::windows::core::IUnknown);
 impl MediaPlaybackList {
@@ -5224,6 +5259,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaPlaybackSource> for &MediaPlayback
 }
 unsafe impl ::core::marker::Send for MediaPlaybackList {}
 unsafe impl ::core::marker::Sync for MediaPlaybackList {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackSession(::windows::core::IUnknown);
 impl MediaPlaybackSession {
@@ -5663,6 +5699,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlaybackSession {}
 unsafe impl ::core::marker::Sync for MediaPlaybackSession {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackSessionBufferingStartedEventArgs(::windows::core::IUnknown);
 impl MediaPlaybackSessionBufferingStartedEventArgs {
@@ -5737,6 +5774,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlaybackSessionBufferingStartedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackSessionBufferingStartedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackSessionOutputDegradationPolicyState(::windows::core::IUnknown);
 impl MediaPlaybackSessionOutputDegradationPolicyState {
@@ -5811,6 +5849,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlaybackSessionOutputDegradationPolicyState {}
 unsafe impl ::core::marker::Sync for MediaPlaybackSessionOutputDegradationPolicyState {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackSessionVideoConstrictionReason(pub i32);
 impl MediaPlaybackSessionVideoConstrictionReason {
@@ -5843,6 +5882,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackSessionVideoConstricti
 impl ::windows::core::DefaultType for MediaPlaybackSessionVideoConstrictionReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackSphericalVideoProjection(::windows::core::IUnknown);
 impl MediaPlaybackSphericalVideoProjection {
@@ -5969,6 +6009,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlaybackSphericalVideoProjection {}
 unsafe impl ::core::marker::Sync for MediaPlaybackSphericalVideoProjection {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackState(pub i32);
 impl MediaPlaybackState {
@@ -5999,6 +6040,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackState {
 impl ::windows::core::DefaultType for MediaPlaybackState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Playback', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct MediaPlaybackTimedMetadataTrackList(::windows::core::IUnknown);
@@ -6216,6 +6258,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 unsafe impl ::core::marker::Send for MediaPlaybackTimedMetadataTrackList {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for MediaPlaybackTimedMetadataTrackList {}
+#[doc = "*Required features: 'Media_Playback', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct MediaPlaybackVideoTrackList(::windows::core::IUnknown);
@@ -6461,6 +6504,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 unsafe impl ::core::marker::Send for MediaPlaybackVideoTrackList {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for MediaPlaybackVideoTrackList {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlayer(::windows::core::IUnknown);
 impl MediaPlayer {
@@ -7139,6 +7183,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for MediaPlayer {}
 unsafe impl ::core::marker::Sync for MediaPlayer {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlayerAudioCategory(pub i32);
 impl MediaPlayerAudioCategory {
@@ -7174,6 +7219,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlayerAudioCategory {
 impl ::windows::core::DefaultType for MediaPlayerAudioCategory {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlayerAudioDeviceType(pub i32);
 impl MediaPlayerAudioDeviceType {
@@ -7202,6 +7248,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlayerAudioDeviceType {
 impl ::windows::core::DefaultType for MediaPlayerAudioDeviceType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlayerDataReceivedEventArgs(::windows::core::IUnknown);
 impl MediaPlayerDataReceivedEventArgs {
@@ -7277,6 +7324,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlayerDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlayerDataReceivedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlayerError(pub i32);
 impl MediaPlayerError {
@@ -7307,6 +7355,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlayerError {
 impl ::windows::core::DefaultType for MediaPlayerError {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlayerFailedEventArgs(::windows::core::IUnknown);
 impl MediaPlayerFailedEventArgs {
@@ -7395,6 +7444,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlayerFailedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlayerFailedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlayerRateChangedEventArgs(::windows::core::IUnknown);
 impl MediaPlayerRateChangedEventArgs {
@@ -7469,6 +7519,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPlayerRateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlayerRateChangedEventArgs {}
+#[doc = "*Required features: 'Media_Playback', 'deprecated'*"]
 #[repr(transparent)]
 pub struct MediaPlayerState(pub i32);
 impl MediaPlayerState {
@@ -7500,6 +7551,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlayerState {
 impl ::windows::core::DefaultType for MediaPlayerState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct MediaPlayerSurface(::windows::core::IUnknown);
 impl MediaPlayerSurface {
@@ -7621,6 +7673,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for MediaPlayerSurface {}
 unsafe impl ::core::marker::Sync for MediaPlayerSurface {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct PlaybackMediaMarker(::windows::core::IUnknown);
 impl PlaybackMediaMarker {
@@ -7728,6 +7781,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
 }
 unsafe impl ::core::marker::Send for PlaybackMediaMarker {}
 unsafe impl ::core::marker::Sync for PlaybackMediaMarker {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct PlaybackMediaMarkerReachedEventArgs(::windows::core::IUnknown);
 impl PlaybackMediaMarkerReachedEventArgs {
@@ -7802,6 +7856,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
 }
 unsafe impl ::core::marker::Send for PlaybackMediaMarkerReachedEventArgs {}
 unsafe impl ::core::marker::Sync for PlaybackMediaMarkerReachedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct PlaybackMediaMarkerSequence(::windows::core::IUnknown);
 impl PlaybackMediaMarkerSequence {
@@ -7934,6 +7989,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 }
 unsafe impl ::core::marker::Send for PlaybackMediaMarkerSequence {}
 unsafe impl ::core::marker::Sync for PlaybackMediaMarkerSequence {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct SphericalVideoProjectionMode(pub i32);
 impl SphericalVideoProjectionMode {
@@ -7961,6 +8017,7 @@ unsafe impl ::windows::core::RuntimeType for SphericalVideoProjectionMode {
 impl ::windows::core::DefaultType for SphericalVideoProjectionMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct StereoscopicVideoRenderMode(pub i32);
 impl StereoscopicVideoRenderMode {
@@ -7988,6 +8045,7 @@ unsafe impl ::windows::core::RuntimeType for StereoscopicVideoRenderMode {
 impl ::windows::core::DefaultType for StereoscopicVideoRenderMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct TimedMetadataPresentationModeChangedEventArgs(::windows::core::IUnknown);
 impl TimedMetadataPresentationModeChangedEventArgs {
@@ -8077,6 +8135,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Time
 }
 unsafe impl ::core::marker::Send for TimedMetadataPresentationModeChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TimedMetadataPresentationModeChangedEventArgs {}
+#[doc = "*Required features: 'Media_Playback'*"]
 #[repr(transparent)]
 pub struct TimedMetadataTrackPresentationMode(pub i32);
 impl TimedMetadataTrackPresentationMode {

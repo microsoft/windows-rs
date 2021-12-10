@@ -74,6 +74,7 @@ pub struct IPopupMenuVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, preferredplacement: Placement, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'UI_Popups'*"]
 #[repr(transparent)]
 pub struct IUICommand(::windows::core::IUnknown);
 impl IUICommand {
@@ -205,6 +206,7 @@ pub struct IUICommandFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, action: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, action: ::windows::core::RawPtr, commandid: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Popups'*"]
 #[repr(transparent)]
 pub struct MessageDialog(::windows::core::IUnknown);
 impl MessageDialog {
@@ -357,6 +359,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mess
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Popups'*"]
 #[repr(transparent)]
 pub struct MessageDialogOptions(pub u32);
 impl MessageDialogOptions {
@@ -384,6 +387,7 @@ unsafe impl ::windows::core::RuntimeType for MessageDialogOptions {
 impl ::windows::core::DefaultType for MessageDialogOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Popups'*"]
 #[repr(transparent)]
 pub struct Placement(pub i32);
 impl Placement {
@@ -414,6 +418,7 @@ unsafe impl ::windows::core::RuntimeType for Placement {
 impl ::windows::core::DefaultType for Placement {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Popups'*"]
 #[repr(transparent)]
 pub struct PopupMenu(::windows::core::IUnknown);
 impl PopupMenu {
@@ -518,6 +523,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Popu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Popups'*"]
 #[repr(transparent)]
 pub struct UICommand(::windows::core::IUnknown);
 impl UICommand {
@@ -669,6 +675,7 @@ impl<'a> ::windows::core::IntoParam<'a, IUICommand> for &UICommand {
 }
 unsafe impl ::core::marker::Send for UICommand {}
 unsafe impl ::core::marker::Sync for UICommand {}
+#[doc = "*Required features: 'UI_Popups'*"]
 #[repr(transparent)]
 pub struct UICommandInvokedHandler(pub ::windows::core::IUnknown);
 impl UICommandInvokedHandler {
@@ -737,6 +744,7 @@ unsafe impl ::windows::core::RuntimeType for UICommandInvokedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct UICommandInvokedHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Popups'*"]
 #[repr(transparent)]
 pub struct UICommandSeparator(::windows::core::IUnknown);
 impl UICommandSeparator {

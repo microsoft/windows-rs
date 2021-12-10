@@ -2,6 +2,7 @@
 pub const CLSID_CTask: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148bd520_a2ab_11ce_b11f_00aa00530503);
 pub const CLSID_CTaskScheduler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148bd52a_a2ab_11ce_b11f_00aa00530503);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub struct DAILY {
     pub DaysInterval: u16,
 }
@@ -25,6 +26,7 @@ impl ::core::default::Default for DAILY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IAction(::windows::core::IUnknown);
 impl IAction {
@@ -137,6 +139,7 @@ pub struct IActionVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IActionCollection(::windows::core::IUnknown);
 impl IActionCollection {
@@ -286,6 +289,7 @@ pub struct IActionCollectionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IBootTrigger(::windows::core::IUnknown);
 impl IBootTrigger {
@@ -483,6 +487,7 @@ pub struct IBootTriggerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, delay: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IComHandlerAction(::windows::core::IUnknown);
 impl IComHandlerAction {
@@ -639,6 +644,7 @@ pub struct IComHandlerActionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IDailyTrigger(::windows::core::IUnknown);
 impl IDailyTrigger {
@@ -844,6 +850,7 @@ pub struct IDailyTriggerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, randomdelay: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IEmailAction(::windows::core::IUnknown);
 impl IEmailAction {
@@ -1093,6 +1100,7 @@ pub struct IEmailActionVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pattachements: *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IEnumWorkItems(::windows::core::IUnknown);
 impl IEnumWorkItems {
@@ -1158,6 +1166,7 @@ pub struct IEnumWorkItemsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumworkitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IEventTrigger(::windows::core::IUnknown);
 impl IEventTrigger {
@@ -1376,6 +1385,7 @@ pub struct IEventTriggerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnamedxpaths: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnamedxpaths: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IExecAction(::windows::core::IUnknown);
 impl IExecAction {
@@ -1544,6 +1554,7 @@ pub struct IExecActionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, workingdirectory: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IExecAction2(::windows::core::IUnknown);
 impl IExecAction2 {
@@ -1740,6 +1751,7 @@ pub struct IExecAction2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phideappwindow: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hideappwindow: i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IIdleSettings(::windows::core::IUnknown);
 impl IIdleSettings {
@@ -1876,6 +1888,7 @@ pub struct IIdleSettingsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prestart: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, restart: i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IIdleTrigger(::windows::core::IUnknown);
 impl IIdleTrigger {
@@ -2061,6 +2074,7 @@ pub struct IIdleTriggerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penabled: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ILogonTrigger(::windows::core::IUnknown);
 impl ILogonTrigger {
@@ -2270,6 +2284,7 @@ pub struct ILogonTriggerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IMaintenanceSettings(::windows::core::IUnknown);
 impl IMaintenanceSettings {
@@ -2398,6 +2413,7 @@ pub struct IMaintenanceSettingsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: *mut i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IMonthlyDOWTrigger(::windows::core::IUnknown);
 impl IMonthlyDOWTrigger {
@@ -2627,6 +2643,7 @@ pub struct IMonthlyDOWTriggerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, randomdelay: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IMonthlyTrigger(::windows::core::IUnknown);
 impl IMonthlyTrigger {
@@ -2848,6 +2865,7 @@ pub struct IMonthlyTriggerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, randomdelay: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct INetworkSettings(::windows::core::IUnknown);
 impl INetworkSettings {
@@ -2968,6 +2986,7 @@ pub struct INetworkSettingsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IPrincipal(::windows::core::IUnknown);
 impl IPrincipal {
@@ -3128,6 +3147,7 @@ pub struct IPrincipalVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prunlevel: *mut TASK_RUNLEVEL_TYPE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, runlevel: TASK_RUNLEVEL_TYPE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IPrincipal2(::windows::core::IUnknown);
 impl IPrincipal2 {
@@ -3248,6 +3268,7 @@ pub struct IPrincipal2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, privilege: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IProvideTaskPage(::windows::core::IUnknown);
 impl IProvideTaskPage {
@@ -3301,6 +3322,7 @@ pub struct IProvideTaskPageVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tptype: TASKPAGE, fpersistchanges: super::super::Foundation::BOOL, phpage: *mut super::super::UI::Controls::HPROPSHEETPAGE) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_UI_Controls")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IRegisteredTask(::windows::core::IUnknown);
 impl IRegisteredTask {
@@ -3499,6 +3521,7 @@ pub struct IRegisteredTaskVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pststart: *const super::super::Foundation::SYSTEMTIME, pstend: *const super::super::Foundation::SYSTEMTIME, pcount: *mut u32, pruntimes: *mut *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IRegisteredTaskCollection(::windows::core::IUnknown);
 impl IRegisteredTaskCollection {
@@ -3612,6 +3635,7 @@ pub struct IRegisteredTaskCollectionVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IRegistrationInfo(::windows::core::IUnknown);
 impl IRegistrationInfo {
@@ -3816,6 +3840,7 @@ pub struct IRegistrationInfoVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IRegistrationTrigger(::windows::core::IUnknown);
 impl IRegistrationTrigger {
@@ -4013,6 +4038,7 @@ pub struct IRegistrationTriggerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, delay: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IRepetitionPattern(::windows::core::IUnknown);
 impl IRepetitionPattern {
@@ -4141,6 +4167,7 @@ pub struct IRepetitionPatternVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstop: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stop: i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IRunningTask(::windows::core::IUnknown);
 impl IRunningTask {
@@ -4283,6 +4310,7 @@ pub struct IRunningTaskVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppid: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IRunningTaskCollection(::windows::core::IUnknown);
 impl IRunningTaskCollection {
@@ -4396,6 +4424,7 @@ pub struct IRunningTaskCollectionVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IScheduledWorkItem(::windows::core::IUnknown);
 impl IScheduledWorkItem {
@@ -4592,6 +4621,7 @@ pub struct IScheduledWorkItemVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszaccountname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ISessionStateChangeTrigger(::windows::core::IUnknown);
 impl ISessionStateChangeTrigger {
@@ -4809,6 +4839,7 @@ pub struct ISessionStateChangeTriggerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut TASK_SESSION_STATE_CHANGE_TYPE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: TASK_SESSION_STATE_CHANGE_TYPE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IShowMessageAction(::windows::core::IUnknown);
 impl IShowMessageAction {
@@ -4965,6 +4996,7 @@ pub struct IShowMessageActionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, messagebody: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ITask(::windows::core::IUnknown);
 impl ITask {
@@ -5247,6 +5279,7 @@ pub struct ITaskVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxruntimems: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmaxruntimems: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ITaskDefinition(::windows::core::IUnknown);
 impl ITaskDefinition {
@@ -5412,6 +5445,7 @@ pub struct ITaskDefinitionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xml: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ITaskFolder(::windows::core::IUnknown);
 impl ITaskFolder {
@@ -5592,6 +5626,7 @@ pub struct ITaskFolderVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sddl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ITaskFolderCollection(::windows::core::IUnknown);
 impl ITaskFolderCollection {
@@ -5705,6 +5740,7 @@ pub struct ITaskFolderCollectionVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ITaskHandler(::windows::core::IUnknown);
 impl ITaskHandler {
@@ -5770,6 +5806,7 @@ pub struct ITaskHandlerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ITaskHandlerStatus(::windows::core::IUnknown);
 impl ITaskHandlerStatus {
@@ -5826,6 +5863,7 @@ pub struct ITaskHandlerStatusVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, taskerrcode: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ITaskNamedValueCollection(::windows::core::IUnknown);
 impl ITaskNamedValueCollection {
@@ -5951,6 +5989,7 @@ pub struct ITaskNamedValueCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ITaskNamedValuePair(::windows::core::IUnknown);
 impl ITaskNamedValuePair {
@@ -6071,6 +6110,7 @@ pub struct ITaskNamedValuePairVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ITaskScheduler(::windows::core::IUnknown);
 impl ITaskScheduler {
@@ -6167,6 +6207,7 @@ pub struct ITaskSchedulerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ITaskService(::windows::core::IUnknown);
 impl ITaskService {
@@ -6317,6 +6358,7 @@ pub struct ITaskServiceVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pversion: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ITaskSettings(::windows::core::IUnknown);
 impl ITaskSettings {
@@ -6591,6 +6633,7 @@ pub struct ITaskSettingsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnetworksettings: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnetworksettings: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ITaskSettings2(::windows::core::IUnknown);
 impl ITaskSettings2 {
@@ -6703,6 +6746,7 @@ pub struct ITaskSettings2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puseunifiedengine: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, useunifiedengine: i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ITaskSettings3(::windows::core::IUnknown);
 impl ITaskSettings3 {
@@ -7035,6 +7079,7 @@ pub struct ITaskSettings3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvolatile: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, volatile: i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ITaskTrigger(::windows::core::IUnknown);
 impl ITaskTrigger {
@@ -7097,6 +7142,7 @@ pub struct ITaskTriggerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwsztrigger: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ITaskVariables(::windows::core::IUnknown);
 impl ITaskVariables {
@@ -7163,6 +7209,7 @@ pub struct ITaskVariablesVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ITimeTrigger(::windows::core::IUnknown);
 impl ITimeTrigger {
@@ -7360,6 +7407,7 @@ pub struct ITimeTriggerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, randomdelay: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ITrigger(::windows::core::IUnknown);
 impl ITrigger {
@@ -7525,6 +7573,7 @@ pub struct ITriggerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penabled: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct ITriggerCollection(::windows::core::IUnknown);
 impl ITriggerCollection {
@@ -7650,6 +7699,7 @@ pub struct ITriggerCollectionVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 #[repr(transparent)]
 pub struct IWeeklyTrigger(::windows::core::IUnknown);
 impl IWeeklyTrigger {
@@ -7864,6 +7914,7 @@ pub struct IWeeklyTriggerVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub struct MONTHLYDATE {
     pub rgfDays: u32,
     pub rgfMonths: u16,
@@ -7889,6 +7940,7 @@ impl ::core::default::Default for MONTHLYDATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub struct MONTHLYDOW {
     pub wWhichWeek: u16,
     pub rgfDaysOfTheWeek: u16,
@@ -7914,35 +7966,62 @@ impl ::core::default::Default for MONTHLYDOW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub type TASKPAGE = i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASKPAGE_TASK: TASKPAGE = 0i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASKPAGE_SCHEDULE: TASKPAGE = 1i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASKPAGE_SETTINGS: TASKPAGE = 2i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub type TASK_ACTION_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_ACTION_EXEC: TASK_ACTION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_ACTION_COM_HANDLER: TASK_ACTION_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_ACTION_SEND_EMAIL: TASK_ACTION_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_ACTION_SHOW_MESSAGE: TASK_ACTION_TYPE = 7i32;
 pub const TASK_APRIL: u32 = 8u32;
 pub const TASK_AUGUST: u32 = 128u32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub type TASK_COMPATIBILITY = i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_COMPATIBILITY_AT: TASK_COMPATIBILITY = 0i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_COMPATIBILITY_V1: TASK_COMPATIBILITY = 1i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_COMPATIBILITY_V2: TASK_COMPATIBILITY = 2i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_COMPATIBILITY_V2_1: TASK_COMPATIBILITY = 3i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_COMPATIBILITY_V2_2: TASK_COMPATIBILITY = 4i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_COMPATIBILITY_V2_3: TASK_COMPATIBILITY = 5i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_COMPATIBILITY_V2_4: TASK_COMPATIBILITY = 6i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub type TASK_CREATION = i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_VALIDATE_ONLY: TASK_CREATION = 1i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_CREATE: TASK_CREATION = 2i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_UPDATE: TASK_CREATION = 4i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_CREATE_OR_UPDATE: TASK_CREATION = 6i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_DISABLE: TASK_CREATION = 8i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_DONT_ADD_PRINCIPAL_ACE: TASK_CREATION = 16i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_IGNORE_REGISTRATION_TRIGGERS: TASK_CREATION = 32i32;
 pub const TASK_DECEMBER: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub type TASK_ENUM_FLAGS = i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_ENUM_HIDDEN: TASK_ENUM_FLAGS = 1i32;
 pub const TASK_FEBRUARY: u32 = 2u32;
 pub const TASK_FIRST_WEEK: u32 = 1u32;
@@ -7961,22 +8040,35 @@ pub const TASK_FLAG_START_ONLY_IF_IDLE: u32 = 16u32;
 pub const TASK_FLAG_SYSTEM_REQUIRED: u32 = 4096u32;
 pub const TASK_FOURTH_WEEK: u32 = 4u32;
 pub const TASK_FRIDAY: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub type TASK_INSTANCES_POLICY = i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_INSTANCES_PARALLEL: TASK_INSTANCES_POLICY = 0i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_INSTANCES_QUEUE: TASK_INSTANCES_POLICY = 1i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_INSTANCES_IGNORE_NEW: TASK_INSTANCES_POLICY = 2i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_INSTANCES_STOP_EXISTING: TASK_INSTANCES_POLICY = 3i32;
 pub const TASK_JANUARY: u32 = 1u32;
 pub const TASK_JULY: u32 = 64u32;
 pub const TASK_JUNE: u32 = 32u32;
 pub const TASK_LAST_WEEK: u32 = 5u32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub type TASK_LOGON_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_LOGON_NONE: TASK_LOGON_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_LOGON_PASSWORD: TASK_LOGON_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_LOGON_S4U: TASK_LOGON_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_LOGON_INTERACTIVE_TOKEN: TASK_LOGON_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_LOGON_GROUP: TASK_LOGON_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_LOGON_SERVICE_ACCOUNT: TASK_LOGON_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_LOGON_INTERACTIVE_TOKEN_OR_PASSWORD: TASK_LOGON_TYPE = 6i32;
 pub const TASK_MARCH: u32 = 4u32;
 pub const TASK_MAX_RUN_TIMES: u32 = 1440u32;
@@ -7984,39 +8076,66 @@ pub const TASK_MAY: u32 = 16u32;
 pub const TASK_MONDAY: u32 = 2u32;
 pub const TASK_NOVEMBER: u32 = 1024u32;
 pub const TASK_OCTOBER: u32 = 512u32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub type TASK_PROCESSTOKENSID_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_PROCESSTOKENSID_NONE: TASK_PROCESSTOKENSID_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_PROCESSTOKENSID_UNRESTRICTED: TASK_PROCESSTOKENSID_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_PROCESSTOKENSID_DEFAULT: TASK_PROCESSTOKENSID_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub type TASK_RUNLEVEL_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_RUNLEVEL_LUA: TASK_RUNLEVEL_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_RUNLEVEL_HIGHEST: TASK_RUNLEVEL_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub type TASK_RUN_FLAGS = i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_RUN_NO_FLAGS: TASK_RUN_FLAGS = 0i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_RUN_AS_SELF: TASK_RUN_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_RUN_IGNORE_CONSTRAINTS: TASK_RUN_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_RUN_USE_SESSION_ID: TASK_RUN_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_RUN_USER_SID: TASK_RUN_FLAGS = 8i32;
 pub const TASK_SATURDAY: u32 = 64u32;
 pub const TASK_SECOND_WEEK: u32 = 2u32;
 pub const TASK_SEPTEMBER: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub type TASK_SESSION_STATE_CHANGE_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_CONSOLE_CONNECT: TASK_SESSION_STATE_CHANGE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_CONSOLE_DISCONNECT: TASK_SESSION_STATE_CHANGE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_REMOTE_CONNECT: TASK_SESSION_STATE_CHANGE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_REMOTE_DISCONNECT: TASK_SESSION_STATE_CHANGE_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_SESSION_LOCK: TASK_SESSION_STATE_CHANGE_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_SESSION_UNLOCK: TASK_SESSION_STATE_CHANGE_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub type TASK_STATE = i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_STATE_UNKNOWN: TASK_STATE = 0i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_STATE_DISABLED: TASK_STATE = 1i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_STATE_QUEUED: TASK_STATE = 2i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_STATE_READY: TASK_STATE = 3i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_STATE_RUNNING: TASK_STATE = 4i32;
 pub const TASK_SUNDAY: u32 = 1u32;
 pub const TASK_THIRD_WEEK: u32 = 3u32;
 pub const TASK_THURSDAY: u32 = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub struct TASK_TRIGGER {
     pub cbTriggerSize: u16,
     pub Reserved1: u16,
@@ -8059,31 +8178,54 @@ impl ::core::default::Default for TASK_TRIGGER {
 pub const TASK_TRIGGER_FLAG_DISABLED: u32 = 4u32;
 pub const TASK_TRIGGER_FLAG_HAS_END_DATE: u32 = 1u32;
 pub const TASK_TRIGGER_FLAG_KILL_AT_DURATION_END: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub type TASK_TRIGGER_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_TIME_TRIGGER_ONCE: TASK_TRIGGER_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_TIME_TRIGGER_DAILY: TASK_TRIGGER_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_TIME_TRIGGER_WEEKLY: TASK_TRIGGER_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_TIME_TRIGGER_MONTHLYDATE: TASK_TRIGGER_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_TIME_TRIGGER_MONTHLYDOW: TASK_TRIGGER_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_EVENT_TRIGGER_ON_IDLE: TASK_TRIGGER_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_EVENT_TRIGGER_AT_SYSTEMSTART: TASK_TRIGGER_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_EVENT_TRIGGER_AT_LOGON: TASK_TRIGGER_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub type TASK_TRIGGER_TYPE2 = i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_TRIGGER_EVENT: TASK_TRIGGER_TYPE2 = 0i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_TRIGGER_TIME: TASK_TRIGGER_TYPE2 = 1i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_TRIGGER_DAILY: TASK_TRIGGER_TYPE2 = 2i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_TRIGGER_WEEKLY: TASK_TRIGGER_TYPE2 = 3i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_TRIGGER_MONTHLY: TASK_TRIGGER_TYPE2 = 4i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_TRIGGER_MONTHLYDOW: TASK_TRIGGER_TYPE2 = 5i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_TRIGGER_IDLE: TASK_TRIGGER_TYPE2 = 6i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_TRIGGER_REGISTRATION: TASK_TRIGGER_TYPE2 = 7i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_TRIGGER_BOOT: TASK_TRIGGER_TYPE2 = 8i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_TRIGGER_LOGON: TASK_TRIGGER_TYPE2 = 9i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_TRIGGER_SESSION_STATE_CHANGE: TASK_TRIGGER_TYPE2 = 11i32;
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_TRIGGER_CUSTOM_TRIGGER_01: TASK_TRIGGER_TYPE2 = 12i32;
 pub const TASK_TUESDAY: u32 = 4u32;
 pub const TASK_WEDNESDAY: u32 = 8u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub union TRIGGER_TYPE_UNION {
     pub Daily: DAILY,
     pub Weekly: WEEKLY,
@@ -8114,6 +8256,7 @@ pub const TaskHandlerPS: ::windows::core::GUID = ::windows::core::GUID::from_u12
 pub const TaskHandlerStatusPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f15266d_d7ba_48f0_93c1_e6895f6fe5ac);
 pub const TaskScheduler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f87369f_a4e5_4cfc_bd3e_73e6154572dd);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub struct WEEKLY {
     pub WeeksInterval: u16,
     pub rgfDaysOfTheWeek: u16,

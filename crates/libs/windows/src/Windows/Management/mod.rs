@@ -90,6 +90,7 @@ pub struct IMdmSessionManagerStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Management'*"]
 #[repr(transparent)]
 pub struct MdmAlert(::windows::core::IUnknown);
 impl MdmAlert {
@@ -235,6 +236,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MdmA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Management'*"]
 #[repr(transparent)]
 pub struct MdmAlertDataType(pub i32);
 impl MdmAlertDataType {
@@ -264,6 +266,7 @@ unsafe impl ::windows::core::RuntimeType for MdmAlertDataType {
 impl ::windows::core::DefaultType for MdmAlertDataType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Management'*"]
 #[repr(transparent)]
 pub struct MdmAlertMark(pub i32);
 impl MdmAlertMark {
@@ -294,6 +297,7 @@ unsafe impl ::windows::core::RuntimeType for MdmAlertMark {
 impl ::windows::core::DefaultType for MdmAlertMark {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Management'*"]
 #[repr(transparent)]
 pub struct MdmSession(::windows::core::IUnknown);
 impl MdmSession {
@@ -448,6 +452,7 @@ impl MdmSessionManager {
 impl ::windows::core::RuntimeName for MdmSessionManager {
     const NAME: &'static str = "Windows.Management.MdmSessionManager";
 }
+#[doc = "*Required features: 'Management'*"]
 #[repr(transparent)]
 pub struct MdmSessionState(pub i32);
 impl MdmSessionState {

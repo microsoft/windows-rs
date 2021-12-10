@@ -67,6 +67,7 @@ pub struct IImageScannerFeederConfigurationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
 pub struct IImageScannerFormatConfiguration(::windows::core::IUnknown);
 impl IImageScannerFormatConfiguration {
@@ -206,6 +207,7 @@ pub struct IImageScannerScanResultVtbl(
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation_Collections", feature = "Storage")))] usize,
 );
+#[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
 pub struct IImageScannerSourceConfiguration(::windows::core::IUnknown);
 impl IImageScannerSourceConfiguration {
@@ -567,6 +569,7 @@ pub struct IImageScannerStaticsVtbl(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
 pub struct ImageScanner(::windows::core::IUnknown);
 impl ImageScanner {
@@ -716,6 +719,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Imag
 }
 unsafe impl ::core::marker::Send for ImageScanner {}
 unsafe impl ::core::marker::Sync for ImageScanner {}
+#[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
 pub struct ImageScannerAutoConfiguration(::windows::core::IUnknown);
 impl ImageScannerAutoConfiguration {
@@ -830,6 +834,7 @@ impl<'a> ::windows::core::IntoParam<'a, IImageScannerFormatConfiguration> for &I
 }
 unsafe impl ::core::marker::Send for ImageScannerAutoConfiguration {}
 unsafe impl ::core::marker::Sync for ImageScannerAutoConfiguration {}
+#[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
 pub struct ImageScannerAutoCroppingMode(pub i32);
 impl ImageScannerAutoCroppingMode {
@@ -858,6 +863,7 @@ unsafe impl ::windows::core::RuntimeType for ImageScannerAutoCroppingMode {
 impl ::windows::core::DefaultType for ImageScannerAutoCroppingMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
 pub struct ImageScannerColorMode(pub i32);
 impl ImageScannerColorMode {
@@ -887,6 +893,7 @@ unsafe impl ::windows::core::RuntimeType for ImageScannerColorMode {
 impl ::windows::core::DefaultType for ImageScannerColorMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
 pub struct ImageScannerFeederConfiguration(::windows::core::IUnknown);
 impl ImageScannerFeederConfiguration {
@@ -1319,6 +1326,7 @@ impl<'a> ::windows::core::IntoParam<'a, IImageScannerSourceConfiguration> for &I
 }
 unsafe impl ::core::marker::Send for ImageScannerFeederConfiguration {}
 unsafe impl ::core::marker::Sync for ImageScannerFeederConfiguration {}
+#[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
 pub struct ImageScannerFlatbedConfiguration(::windows::core::IUnknown);
 impl ImageScannerFlatbedConfiguration {
@@ -1644,6 +1652,7 @@ impl<'a> ::windows::core::IntoParam<'a, IImageScannerSourceConfiguration> for &I
 }
 unsafe impl ::core::marker::Send for ImageScannerFlatbedConfiguration {}
 unsafe impl ::core::marker::Sync for ImageScannerFlatbedConfiguration {}
+#[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
 pub struct ImageScannerFormat(pub i32);
 impl ImageScannerFormat {
@@ -1676,6 +1685,7 @@ unsafe impl ::windows::core::RuntimeType for ImageScannerFormat {
 impl ::windows::core::DefaultType for ImageScannerFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
 pub struct ImageScannerPreviewResult(::windows::core::IUnknown);
 impl ImageScannerPreviewResult {
@@ -1758,6 +1768,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Imag
 unsafe impl ::core::marker::Send for ImageScannerPreviewResult {}
 unsafe impl ::core::marker::Sync for ImageScannerPreviewResult {}
 #[repr(C)]
+#[doc = "*Required features: 'Devices_Scanners'*"]
 pub struct ImageScannerResolution {
     pub DpiX: f32,
     pub DpiY: f32,
@@ -1788,6 +1799,7 @@ impl ::core::default::Default for ImageScannerResolution {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
 pub struct ImageScannerScanResult(::windows::core::IUnknown);
 impl ImageScannerScanResult {
@@ -1863,6 +1875,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Imag
 }
 unsafe impl ::core::marker::Send for ImageScannerScanResult {}
 unsafe impl ::core::marker::Sync for ImageScannerScanResult {}
+#[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
 pub struct ImageScannerScanSource(pub i32);
 impl ImageScannerScanSource {

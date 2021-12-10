@@ -2,6 +2,7 @@
 pub const FACILITY_PINT_STATUS_CODE: u32 = 240u32;
 pub const FACILITY_RTC_INTERFACE: u32 = 238u32;
 pub const FACILITY_SIP_STATUS_CODE: u32 = 239u32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct INetworkTransportSettings(::windows::core::IUnknown);
 impl INetworkTransportSettings {
@@ -60,6 +61,7 @@ pub struct INetworkTransportSettingsVtbl(
     #[cfg(feature = "Win32_Networking_WinSock")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Networking_WinSock"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct INotificationTransportSync(::windows::core::IUnknown);
 impl INotificationTransportSync {
@@ -114,6 +116,7 @@ pub struct INotificationTransportSyncVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCBuddy(::windows::core::IUnknown);
 impl IRTCBuddy {
@@ -240,6 +243,7 @@ pub struct IRTCBuddyVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrnotes: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCBuddy2(::windows::core::IUnknown);
 impl IRTCBuddy2 {
@@ -427,6 +431,7 @@ pub struct IRTCBuddy2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevicescollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pensubscriptiontype: *mut RTC_BUDDY_SUBSCRIPTION_TYPE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCBuddyEvent(::windows::core::IUnknown);
 impl IRTCBuddyEvent {
@@ -528,6 +533,7 @@ pub struct IRTCBuddyEventVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbuddy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCBuddyEvent2(::windows::core::IUnknown);
 impl IRTCBuddyEvent2 {
@@ -666,6 +672,7 @@ pub struct IRTCBuddyEvent2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCBuddyGroup(::windows::core::IUnknown);
 impl IRTCBuddyGroup {
@@ -761,6 +768,7 @@ pub struct IRTCBuddyGroupVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCBuddyGroupEvent(::windows::core::IUnknown);
 impl IRTCBuddyGroupEvent {
@@ -877,6 +885,7 @@ pub struct IRTCBuddyGroupEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbuddy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCClient(::windows::core::IUnknown);
 impl IRTCClient {
@@ -1134,6 +1143,7 @@ pub struct IRTCClientVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: isize) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pftuned: *mut i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCClient2(::windows::core::IUnknown);
 impl IRTCClient2 {
@@ -1474,6 +1484,7 @@ pub struct IRTCClient2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ltransport: i32, penlistenmode: *mut RTC_LISTEN_MODE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCClientEvent(::windows::core::IUnknown);
 impl IRTCClientEvent {
@@ -1580,6 +1591,7 @@ pub struct IRTCClientEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peneventtype: *mut RTC_CLIENT_EVENT_TYPE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppclient: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCClientPortManagement(::windows::core::IUnknown);
 impl IRTCClientPortManagement {
@@ -1642,6 +1654,7 @@ pub struct IRTCClientPortManagementVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enporttype: RTC_PORT_TYPE, plminvalue: *mut i32, plmaxvalue: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCClientPresence(::windows::core::IUnknown);
 impl IRTCClientPresence {
@@ -1786,6 +1799,7 @@ pub struct IRTCClientPresenceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penmode: *mut RTC_PRIVACY_MODE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enmode: RTC_PRIVACY_MODE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCClientPresence2(::windows::core::IUnknown);
 impl IRTCClientPresence2 {
@@ -2040,6 +2054,7 @@ pub struct IRTCClientPresence2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpresentityuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrusername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrdata: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fpersistent: i16, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: ::windows::core::RawPtr, lflags: i32, ppbuddy: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCClientProvisioning(::windows::core::IUnknown);
 impl IRTCClientProvisioning {
@@ -2122,6 +2137,7 @@ pub struct IRTCClientProvisioningVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsupportedsessions: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCClientProvisioning2(::windows::core::IUnknown);
 impl IRTCClientProvisioning2 {
@@ -2228,6 +2244,7 @@ pub struct IRTCClientProvisioning2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsupportedsessions: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprofile: ::windows::core::RawPtr, lregisterflags: i32, lroamingflags: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCCollection(::windows::core::IUnknown);
 impl IRTCCollection {
@@ -2341,6 +2358,7 @@ pub struct IRTCCollectionVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnewenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCDispatchEventNotification(::windows::core::IUnknown);
 impl IRTCDispatchEventNotification {
@@ -2437,6 +2455,7 @@ pub struct IRTCDispatchEventNotificationVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCEnumBuddies(::windows::core::IUnknown);
 impl IRTCEnumBuddies {
@@ -2500,6 +2519,7 @@ pub struct IRTCEnumBuddiesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCEnumGroups(::windows::core::IUnknown);
 impl IRTCEnumGroups {
@@ -2563,6 +2583,7 @@ pub struct IRTCEnumGroupsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCEnumParticipants(::windows::core::IUnknown);
 impl IRTCEnumParticipants {
@@ -2626,6 +2647,7 @@ pub struct IRTCEnumParticipantsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCEnumPresenceDevices(::windows::core::IUnknown);
 impl IRTCEnumPresenceDevices {
@@ -2689,6 +2711,7 @@ pub struct IRTCEnumPresenceDevicesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCEnumProfiles(::windows::core::IUnknown);
 impl IRTCEnumProfiles {
@@ -2752,6 +2775,7 @@ pub struct IRTCEnumProfilesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCEnumUserSearchResults(::windows::core::IUnknown);
 impl IRTCEnumUserSearchResults {
@@ -2815,6 +2839,7 @@ pub struct IRTCEnumUserSearchResultsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCEnumWatchers(::windows::core::IUnknown);
 impl IRTCEnumWatchers {
@@ -2878,6 +2903,7 @@ pub struct IRTCEnumWatchersVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCEventNotification(::windows::core::IUnknown);
 impl IRTCEventNotification {
@@ -2930,6 +2956,7 @@ pub struct IRTCEventNotificationVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rtcevent: RTC_EVENT, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCInfoEvent(::windows::core::IUnknown);
 impl IRTCInfoEvent {
@@ -3050,6 +3077,7 @@ pub struct IRTCInfoEventVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrinfoheader: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCIntensityEvent(::windows::core::IUnknown);
 impl IRTCIntensityEvent {
@@ -3166,6 +3194,7 @@ pub struct IRTCIntensityEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmax: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pendirection: *mut RTC_AUDIO_DEVICE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCMediaEvent(::windows::core::IUnknown);
 impl IRTCMediaEvent {
@@ -3277,6 +3306,7 @@ pub struct IRTCMediaEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peneventtype: *mut RTC_MEDIA_EVENT_TYPE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peneventreason: *mut RTC_MEDIA_EVENT_REASON) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCMediaRequestEvent(::windows::core::IUnknown);
 impl IRTCMediaRequestEvent {
@@ -3406,6 +3436,7 @@ pub struct IRTCMediaRequestEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut RTC_REINVITE_STATE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCMessagingEvent(::windows::core::IUnknown);
 impl IRTCMessagingEvent {
@@ -3536,6 +3567,7 @@ pub struct IRTCMessagingEventVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penuserstatus: *mut RTC_MESSAGING_USER_STATUS) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCParticipant(::windows::core::IUnknown);
 impl IRTCParticipant {
@@ -3611,6 +3643,7 @@ pub struct IRTCParticipantVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penstate: *mut RTC_PARTICIPANT_STATE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCParticipantStateChangeEvent(::windows::core::IUnknown);
 impl IRTCParticipantStateChangeEvent {
@@ -3722,6 +3755,7 @@ pub struct IRTCParticipantStateChangeEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penstate: *mut RTC_PARTICIPANT_STATE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCPortManager(::windows::core::IUnknown);
 impl IRTCPortManager {
@@ -3786,6 +3820,7 @@ pub struct IRTCPortManagerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinternallocaladdress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, linternallocalport: i32, bstrexternallocaladdress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lexternallocaladdress: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCPresenceContact(::windows::core::IUnknown);
 impl IRTCPresenceContact {
@@ -3880,6 +3915,7 @@ pub struct IRTCPresenceContactVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfpersistent: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fpersistent: i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCPresenceDataEvent(::windows::core::IUnknown);
 impl IRTCPresenceDataEvent {
@@ -3994,6 +4030,7 @@ pub struct IRTCPresenceDataEventVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrnamespace: *mut super::super::Foundation::BSTR, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCPresenceDevice(::windows::core::IUnknown);
 impl IRTCPresenceDevice {
@@ -4065,6 +4102,7 @@ pub struct IRTCPresenceDeviceVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrnamespace: *mut super::super::Foundation::BSTR, pbstrdata: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCPresencePropertyEvent(::windows::core::IUnknown);
 impl IRTCPresencePropertyEvent {
@@ -4185,6 +4223,7 @@ pub struct IRTCPresencePropertyEventVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCPresenceStatusEvent(::windows::core::IUnknown);
 impl IRTCPresenceStatusEvent {
@@ -4299,6 +4338,7 @@ pub struct IRTCPresenceStatusEventVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCProfile(::windows::core::IUnknown);
 impl IRTCProfile {
@@ -4464,6 +4504,7 @@ pub struct IRTCProfileVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plsupportedsessions: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penstate: *mut RTC_REGISTRATION_STATE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCProfile2(::windows::core::IUnknown);
 impl IRTCProfile2 {
@@ -4671,6 +4712,7 @@ pub struct IRTCProfile2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plallowedauth: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lallowedauth: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCProfileEvent(::windows::core::IUnknown);
 impl IRTCProfileEvent {
@@ -4782,6 +4824,7 @@ pub struct IRTCProfileEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcookie: *mut isize) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCProfileEvent2(::windows::core::IUnknown);
 impl IRTCProfileEvent2 {
@@ -4918,6 +4961,7 @@ pub struct IRTCProfileEvent2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventtype: *mut RTC_PROFILE_EVENT_TYPE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCReInviteEvent(::windows::core::IUnknown);
 impl IRTCReInviteEvent {
@@ -5040,6 +5084,7 @@ pub struct IRTCReInviteEventVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcontenttype: *mut super::super::Foundation::BSTR, pbstrsessiondescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCRegistrationStateChangeEvent(::windows::core::IUnknown);
 impl IRTCRegistrationStateChangeEvent {
@@ -5158,6 +5203,7 @@ pub struct IRTCRegistrationStateChangeEventVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCRoamingEvent(::windows::core::IUnknown);
 impl IRTCRoamingEvent {
@@ -5276,6 +5322,7 @@ pub struct IRTCRoamingEventVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCSession(::windows::core::IUnknown);
 impl IRTCSession {
@@ -5424,6 +5471,7 @@ pub struct IRTCSessionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmediatype: i32, encryptionkey: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCSession2(::windows::core::IUnknown);
 impl IRTCSession2 {
@@ -5624,6 +5672,7 @@ pub struct IRTCSession2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcontenttype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrsessiondescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lcookie: isize) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCSessionCallControl(::windows::core::IUnknown);
 impl IRTCSessionCallControl {
@@ -5721,6 +5770,7 @@ pub struct IRTCSessionCallControlVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisreferred: *mut i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCSessionDescriptionManager(::windows::core::IUnknown);
 impl IRTCSessionDescriptionManager {
@@ -5773,6 +5823,7 @@ pub struct IRTCSessionDescriptionManagerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcontenttype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrsessiondescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfapplicationsession: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCSessionOperationCompleteEvent(::windows::core::IUnknown);
 impl IRTCSessionOperationCompleteEvent {
@@ -5891,6 +5942,7 @@ pub struct IRTCSessionOperationCompleteEventVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCSessionOperationCompleteEvent2(::windows::core::IUnknown);
 impl IRTCSessionOperationCompleteEvent2 {
@@ -6040,6 +6092,7 @@ pub struct IRTCSessionOperationCompleteEvent2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcontenttype: *mut super::super::Foundation::BSTR, pbstrsessiondescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCSessionPortManagement(::windows::core::IUnknown);
 impl IRTCSessionPortManagement {
@@ -6085,6 +6138,7 @@ unsafe impl ::windows::core::Interface for IRTCSessionPortManagement {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRTCSessionPortManagementVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pportmanager: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCSessionReferStatusEvent(::windows::core::IUnknown);
 impl IRTCSessionReferStatusEvent {
@@ -6203,6 +6257,7 @@ pub struct IRTCSessionReferStatusEventVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCSessionReferredEvent(::windows::core::IUnknown);
 impl IRTCSessionReferredEvent {
@@ -6337,6 +6392,7 @@ pub struct IRTCSessionReferredEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enstate: RTC_SESSION_STATE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCSessionStateChangeEvent(::windows::core::IUnknown);
 impl IRTCSessionStateChangeEvent {
@@ -6455,6 +6511,7 @@ pub struct IRTCSessionStateChangeEventVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrstatustext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCSessionStateChangeEvent2(::windows::core::IUnknown);
 impl IRTCSessionStateChangeEvent2 {
@@ -6614,6 +6671,7 @@ pub struct IRTCSessionStateChangeEvent2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrcontenttype: *mut super::super::Foundation::BSTR, pbstrsessiondescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCUserSearch(::windows::core::IUnknown);
 impl IRTCUserSearch {
@@ -6669,6 +6727,7 @@ pub struct IRTCUserSearchVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppquery: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pquery: ::windows::core::RawPtr, pprofile: ::windows::core::RawPtr, lcookie: isize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCUserSearchQuery(::windows::core::IUnknown);
 impl IRTCUserSearchQuery {
@@ -6757,6 +6816,7 @@ pub struct IRTCUserSearchQueryVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrdomain: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCUserSearchResult(::windows::core::IUnknown);
 impl IRTCUserSearchResult {
@@ -6810,6 +6870,7 @@ pub struct IRTCUserSearchResultVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encolumn: RTC_USER_SEARCH_COLUMN, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCUserSearchResultsEvent(::windows::core::IUnknown);
 impl IRTCUserSearchResultsEvent {
@@ -6941,6 +7002,7 @@ pub struct IRTCUserSearchResultsEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfmoreavailable: *mut i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCWatcher(::windows::core::IUnknown);
 impl IRTCWatcher {
@@ -7064,6 +7126,7 @@ pub struct IRTCWatcherVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penstate: *mut RTC_WATCHER_STATE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enstate: RTC_WATCHER_STATE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCWatcher2(::windows::core::IUnknown);
 impl IRTCWatcher2 {
@@ -7217,6 +7280,7 @@ pub struct IRTCWatcher2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppprofile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penscope: *mut RTC_ACE_SCOPE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCWatcherEvent(::windows::core::IUnknown);
 impl IRTCWatcherEvent {
@@ -7318,6 +7382,7 @@ pub struct IRTCWatcherEventVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwatcher: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct IRTCWatcherEvent2(::windows::core::IUnknown);
 impl IRTCWatcherEvent2 {
@@ -7449,6 +7514,7 @@ pub struct IRTCWatcherEvent2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventtype: *mut RTC_WATCHER_EVENT_TYPE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plstatuscode: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 #[repr(transparent)]
 pub struct ITransportSettingsInternal(::windows::core::IUnknown);
 impl ITransportSettingsInternal {
@@ -7568,440 +7634,873 @@ pub const RTCSI_PHONE_TO_PHONE: u32 = 4u32;
 pub const RTCTR_TCP: u32 = 2u32;
 pub const RTCTR_TLS: u32 = 4u32;
 pub const RTCTR_UDP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_ACE_SCOPE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCAS_SCOPE_USER: RTC_ACE_SCOPE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCAS_SCOPE_DOMAIN: RTC_ACE_SCOPE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCAS_SCOPE_ALL: RTC_ACE_SCOPE = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_ANSWER_MODE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCAM_OFFER_SESSION_EVENT: RTC_ANSWER_MODE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCAM_AUTOMATICALLY_ACCEPT: RTC_ANSWER_MODE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCAM_AUTOMATICALLY_REJECT: RTC_ANSWER_MODE = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCAM_NOT_SUPPORTED: RTC_ANSWER_MODE = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_AUDIO_DEVICE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCAD_SPEAKER: RTC_AUDIO_DEVICE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCAD_MICROPHONE: RTC_AUDIO_DEVICE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_BUDDY_EVENT_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCBET_BUDDY_ADD: RTC_BUDDY_EVENT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCBET_BUDDY_REMOVE: RTC_BUDDY_EVENT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCBET_BUDDY_UPDATE: RTC_BUDDY_EVENT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCBET_BUDDY_STATE_CHANGE: RTC_BUDDY_EVENT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCBET_BUDDY_ROAMED: RTC_BUDDY_EVENT_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCBET_BUDDY_SUBSCRIBED: RTC_BUDDY_EVENT_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_BUDDY_SUBSCRIPTION_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCBT_SUBSCRIBED: RTC_BUDDY_SUBSCRIPTION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCBT_ALWAYS_OFFLINE: RTC_BUDDY_SUBSCRIPTION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCBT_ALWAYS_ONLINE: RTC_BUDDY_SUBSCRIPTION_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCBT_POLL: RTC_BUDDY_SUBSCRIPTION_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_CLIENT_EVENT_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCCET_VOLUME_CHANGE: RTC_CLIENT_EVENT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCCET_DEVICE_CHANGE: RTC_CLIENT_EVENT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCCET_NETWORK_QUALITY_CHANGE: RTC_CLIENT_EVENT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCCET_ASYNC_CLEANUP_DONE: RTC_CLIENT_EVENT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_DTMF = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_DTMF_0: RTC_DTMF = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_DTMF_1: RTC_DTMF = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_DTMF_2: RTC_DTMF = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_DTMF_3: RTC_DTMF = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_DTMF_4: RTC_DTMF = 4i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_DTMF_5: RTC_DTMF = 5i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_DTMF_6: RTC_DTMF = 6i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_DTMF_7: RTC_DTMF = 7i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_DTMF_8: RTC_DTMF = 8i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_DTMF_9: RTC_DTMF = 9i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_DTMF_STAR: RTC_DTMF = 10i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_DTMF_POUND: RTC_DTMF = 11i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_DTMF_A: RTC_DTMF = 12i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_DTMF_B: RTC_DTMF = 13i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_DTMF_C: RTC_DTMF = 14i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_DTMF_D: RTC_DTMF = 15i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_DTMF_FLASH: RTC_DTMF = 16i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_EVENT = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_CLIENT: RTC_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_REGISTRATION_STATE_CHANGE: RTC_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_SESSION_STATE_CHANGE: RTC_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_SESSION_OPERATION_COMPLETE: RTC_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_PARTICIPANT_STATE_CHANGE: RTC_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_MEDIA: RTC_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_INTENSITY: RTC_EVENT = 6i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_MESSAGING: RTC_EVENT = 7i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_BUDDY: RTC_EVENT = 8i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_WATCHER: RTC_EVENT = 9i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_PROFILE: RTC_EVENT = 10i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_USERSEARCH: RTC_EVENT = 11i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_INFO: RTC_EVENT = 12i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_GROUP: RTC_EVENT = 13i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_MEDIA_REQUEST: RTC_EVENT = 14i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_ROAMING: RTC_EVENT = 15i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_PRESENCE_PROPERTY: RTC_EVENT = 16i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_PRESENCE_DATA: RTC_EVENT = 17i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_PRESENCE_STATUS: RTC_EVENT = 18i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_SESSION_REFER_STATUS: RTC_EVENT = 19i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_SESSION_REFERRED: RTC_EVENT = 20i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCE_REINVITE: RTC_EVENT = 21i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_ANOTHER_MEDIA_SESSION_ACTIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885961i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_BASIC_AUTH_SET_TLS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886017i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_CLIENT_ALREADY_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886042i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_CLIENT_ALREADY_SHUT_DOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886041i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_CLIENT_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886043i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_DESTINATION_ADDRESS_LOCAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886061i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_DESTINATION_ADDRESS_MULTICAST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886059i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_DUPLICATE_BUDDY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886006i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_DUPLICATE_GROUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885998i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_DUPLICATE_REALM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886013i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_DUPLICATE_WATCHER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886005i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_INVALID_ACL_LIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886000i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_INVALID_ADDRESS_LOCAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886060i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_INVALID_BUDDY_LIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886001i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_INVALID_LISTEN_SOCKET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885957i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_INVALID_OBJECT_STATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885983i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_INVALID_PORTRANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885988i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_INVALID_PREFERENCE_LIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885991i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_INVALID_PROFILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886034i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_INVALID_PROXY_ADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886058i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_INVALID_REGISTRATION_STATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885971i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_INVALID_SESSION_STATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886038i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_INVALID_SESSION_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886039i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_INVALID_SIP_URL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886062i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_LISTENING_SOCKET_NOT_EXIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885958i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_LOCAL_PHONE_NEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886036i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_MALFORMED_XML: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886004i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_MAX_PENDING_OPERATIONS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885990i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_MAX_REDIRECTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885960i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_MEDIA_AEC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886044i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_MEDIA_AUDIO_DEVICE_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886047i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_MEDIA_CONTROLLER_STATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886049i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_MEDIA_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885970i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_MEDIA_ENABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885969i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_MEDIA_NEED_TERMINAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886048i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_MEDIA_SESSION_IN_HOLD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885962i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_MEDIA_SESSION_NOT_EXIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885963i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_MEDIA_VIDEO_DEVICE_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886046i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885950i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_NOT_EXIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885992i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_NOT_PRESENCE_PROFILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885974i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_NO_BUDDY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885996i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_NO_DEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886035i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_NO_GROUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885999i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_NO_PROFILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886037i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_NO_REALM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885994i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_NO_TRANSPORT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885993i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_NO_WATCHER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885995i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_OPERATION_WITH_TOO_MANY_PARTICIPANTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886018i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PINT_STATUS_REJECTED_ALL_BUSY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131755001i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PINT_STATUS_REJECTED_BADNUMBER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131754997i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PINT_STATUS_REJECTED_BUSY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131755003i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PINT_STATUS_REJECTED_CANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131754998i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PINT_STATUS_REJECTED_NO_ANSWER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131755002i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PINT_STATUS_REJECTED_PL_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131755000i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PINT_STATUS_REJECTED_SW_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131754999i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PLATFORM_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885952i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_POLICY_NOT_ALLOW: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886012i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PORT_MANAGER_ALREADY_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885956i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PORT_MAPPING_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886010i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PORT_MAPPING_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886011i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PRESENCE_ENABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885982i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PRESENCE_NOT_ENABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886040i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PROFILE_INVALID_SERVER_AUTHMETHOD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886024i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PROFILE_INVALID_SERVER_PROTOCOL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886025i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PROFILE_INVALID_SERVER_ROLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886023i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PROFILE_INVALID_SESSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886021i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PROFILE_INVALID_SESSION_PARTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886020i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PROFILE_INVALID_SESSION_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886019i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PROFILE_MULTIPLE_REGISTRARS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886022i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PROFILE_NO_KEY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886032i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PROFILE_NO_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886031i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PROFILE_NO_PROVISION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886033i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PROFILE_NO_SERVER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886028i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PROFILE_NO_SERVER_ADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886027i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PROFILE_NO_SERVER_PROTOCOL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886026i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PROFILE_NO_USER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886030i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PROFILE_NO_USER_URI: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886029i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_PROFILE_SERVER_UNAUTHORIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886014i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_REDIRECT_PROCESSING_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885959i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_REFER_NOT_ACCEPTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885968i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_REFER_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885967i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_REFER_NOT_EXIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885966i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_REGISTRATION_DEACTIVATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885949i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_REGISTRATION_REJECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885948i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_REGISTRATION_UNREGISTERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885947i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_ROAMING_ENABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885981i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_ROAMING_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886002i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_ROAMING_OPERATION_INTERRUPTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886003i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SDP_CONNECTION_ADDR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886070i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SDP_FAILED_TO_BUILD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886067i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SDP_MULTICAST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886071i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SDP_NOT_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886074i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SDP_NO_MEDIA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886069i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SDP_PARSE_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886073i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SDP_UPDATE_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886072i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SECURITY_LEVEL_ALREADY_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885955i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SECURITY_LEVEL_NOT_COMPATIBLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886009i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SECURITY_LEVEL_NOT_DEFINED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886008i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SECURITY_LEVEL_NOT_SUPPORTED_BY_PARTICIPANT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886007i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_ADDITIONAL_PARTY_IN_TWO_PARTY_SESSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885986i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_AUTH_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886063i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_AUTH_HEADER_SENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886065i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_AUTH_TIME_SKEW: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885972i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_AUTH_TYPE_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886064i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_CALL_CONNECTION_NOT_ESTABLISHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885987i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_CALL_DISCONNECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886055i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_CODECS_DO_NOT_MATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886080i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_DNS_FAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885978i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_HEADER_NOT_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886075i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_HIGH_SECURITY_SET_TLS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886016i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_HOLD_OPERATION_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885965i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_INVALID_CERTIFICATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885979i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_INVITEE_PARTY_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885973i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_INVITE_TRANSACTION_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886066i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_NEED_MORE_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886056i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_NO_STREAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886077i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_OTHER_PARTY_JOIN_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885984i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_PARSE_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886076i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_PARTY_ALREADY_IN_SESSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885985i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_PEER_PARTICIPANT_IN_MULTIPARTY_SESSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885951i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_REFER_OPERATION_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885953i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_REQUEST_DESTINATION_ADDR_NOT_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886054i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_SSL_NEGOTIATION_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886051i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_SSL_TUNNEL_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886052i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_STACK_SHUTDOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886050i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_STREAM_NOT_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886078i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_STREAM_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886079i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_TCP_FAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885977i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886068i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_TLS_FAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885975i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_TLS_INCOMPATIBLE_ENCRYPTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885980i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_TRANSPORT_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886057i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_UDP_SIZE_EXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886053i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_SIP_UNHOLD_OPERATION_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885964i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_START_STREAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131886045i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_ADDRESS_INCOMPLETE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820060i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_AMBIGUOUS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820059i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_BAD_EXTENSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820124i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_BAD_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820144i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_BUSY_HERE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820058i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_CONFLICT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820135i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_FORBIDDEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820141i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_GONE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820134i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_LENGTH_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820133i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_LOOP_DETECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820062i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_METHOD_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820139i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_NOT_ACCEPTABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820138i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820140i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_PAYMENT_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820142i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_PROXY_AUTHENTICATION_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820137i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_REQUEST_ENTITY_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820131i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_REQUEST_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820136i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_REQUEST_URI_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820130i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_TEMPORARILY_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820064i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_TOO_MANY_HOPS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820061i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_TRANSACTION_DOES_NOT_EXIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820063i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_UNAUTHORIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820143i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_CLIENT_UNSUPPORTED_MEDIA_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820129i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_GLOBAL_BUSY_EVERYWHERE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131819944i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_GLOBAL_DECLINE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131819941i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_GLOBAL_DOES_NOT_EXIST_ANYWHERE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131819940i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_GLOBAL_NOT_ACCEPTABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131819938i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_INFO_CALL_FORWARDING: ::windows::core::HRESULT = ::windows::core::HRESULT(15663285i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_INFO_QUEUED: ::windows::core::HRESULT = ::windows::core::HRESULT(15663286i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_INFO_RINGING: ::windows::core::HRESULT = ::windows::core::HRESULT(15663284i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_INFO_TRYING: ::windows::core::HRESULT = ::windows::core::HRESULT(15663204i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_NOT_ACCEPTABLE_HERE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820056i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_REDIRECT_ALTERNATIVE_SERVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820164i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_REDIRECT_MOVED_PERMANENTLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820243i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_REDIRECT_MOVED_TEMPORARILY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820242i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_REDIRECT_MULTIPLE_CHOICES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820244i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_REDIRECT_SEE_OTHER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820241i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_REDIRECT_USE_PROXY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820239i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_REQUEST_TERMINATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820057i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_SERVER_BAD_GATEWAY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820042i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_SERVER_INTERNAL_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820044i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_SERVER_NOT_IMPLEMENTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820043i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_SERVER_SERVER_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820040i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_SERVER_SERVICE_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820041i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_SERVER_VERSION_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131820039i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_SESSION_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(15663287i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_STATUS_SUCCESS: ::windows::core::HRESULT = ::windows::core::HRESULT(15663304i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_TOO_MANY_GROUPS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885997i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_TOO_MANY_RETRIES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885989i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_TOO_SMALL_EXPIRES_VALUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885976i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_UDP_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885954i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_GROUP_EVENT_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCGET_GROUP_ADD: RTC_GROUP_EVENT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCGET_GROUP_REMOVE: RTC_GROUP_EVENT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCGET_GROUP_UPDATE: RTC_GROUP_EVENT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCGET_GROUP_BUDDY_ADD: RTC_GROUP_EVENT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCGET_GROUP_BUDDY_REMOVE: RTC_GROUP_EVENT_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCGET_GROUP_ROAMED: RTC_GROUP_EVENT_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_LISTEN_MODE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCLM_NONE: RTC_LISTEN_MODE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCLM_DYNAMIC: RTC_LISTEN_MODE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCLM_BOTH: RTC_LISTEN_MODE = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_MEDIA_EVENT_REASON = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCMER_NORMAL: RTC_MEDIA_EVENT_REASON = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCMER_HOLD: RTC_MEDIA_EVENT_REASON = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCMER_TIMEOUT: RTC_MEDIA_EVENT_REASON = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCMER_BAD_DEVICE: RTC_MEDIA_EVENT_REASON = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCMER_NO_PORT: RTC_MEDIA_EVENT_REASON = 4i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCMER_PORT_MAPPING_FAILED: RTC_MEDIA_EVENT_REASON = 5i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCMER_REMOTE_REQUEST: RTC_MEDIA_EVENT_REASON = 6i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_MEDIA_EVENT_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCMET_STOPPED: RTC_MEDIA_EVENT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCMET_STARTED: RTC_MEDIA_EVENT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCMET_FAILED: RTC_MEDIA_EVENT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_MESSAGING_EVENT_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCMSET_MESSAGE: RTC_MESSAGING_EVENT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCMSET_STATUS: RTC_MESSAGING_EVENT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_MESSAGING_USER_STATUS = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCMUS_IDLE: RTC_MESSAGING_USER_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCMUS_TYPING: RTC_MESSAGING_USER_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_OFFER_WATCHER_MODE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCOWM_OFFER_WATCHER_EVENT: RTC_OFFER_WATCHER_MODE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCOWM_AUTOMATICALLY_ADD_WATCHER: RTC_OFFER_WATCHER_MODE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_PARTICIPANT_STATE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPS_IDLE: RTC_PARTICIPANT_STATE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPS_PENDING: RTC_PARTICIPANT_STATE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPS_INCOMING: RTC_PARTICIPANT_STATE = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPS_ANSWERING: RTC_PARTICIPANT_STATE = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPS_INPROGRESS: RTC_PARTICIPANT_STATE = 4i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPS_ALERTING: RTC_PARTICIPANT_STATE = 5i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPS_CONNECTED: RTC_PARTICIPANT_STATE = 6i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPS_DISCONNECTING: RTC_PARTICIPANT_STATE = 7i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPS_DISCONNECTED: RTC_PARTICIPANT_STATE = 8i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_PORT_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPT_AUDIO_RTP: RTC_PORT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPT_AUDIO_RTCP: RTC_PORT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPT_VIDEO_RTP: RTC_PORT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPT_VIDEO_RTCP: RTC_PORT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPT_SIP: RTC_PORT_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_PRESENCE_PROPERTY = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPP_PHONENUMBER: RTC_PRESENCE_PROPERTY = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPP_DISPLAYNAME: RTC_PRESENCE_PROPERTY = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPP_EMAIL: RTC_PRESENCE_PROPERTY = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPP_DEVICE_NAME: RTC_PRESENCE_PROPERTY = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPP_MULTIPLE: RTC_PRESENCE_PROPERTY = 4i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_PRESENCE_STATUS = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCXS_PRESENCE_OFFLINE: RTC_PRESENCE_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCXS_PRESENCE_ONLINE: RTC_PRESENCE_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCXS_PRESENCE_AWAY: RTC_PRESENCE_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCXS_PRESENCE_IDLE: RTC_PRESENCE_STATUS = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCXS_PRESENCE_BUSY: RTC_PRESENCE_STATUS = 4i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCXS_PRESENCE_BE_RIGHT_BACK: RTC_PRESENCE_STATUS = 5i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCXS_PRESENCE_ON_THE_PHONE: RTC_PRESENCE_STATUS = 6i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCXS_PRESENCE_OUT_TO_LUNCH: RTC_PRESENCE_STATUS = 7i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_PRIVACY_MODE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPM_BLOCK_LIST_EXCLUDED: RTC_PRIVACY_MODE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPM_ALLOW_LIST_ONLY: RTC_PRIVACY_MODE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_PROFILE_EVENT_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPFET_PROFILE_GET: RTC_PROFILE_EVENT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPFET_PROFILE_UPDATE: RTC_PROFILE_EVENT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_PROVIDER_URI = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPU_URIHOMEPAGE: RTC_PROVIDER_URI = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPU_URIHELPDESK: RTC_PROVIDER_URI = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPU_URIPERSONALACCOUNT: RTC_PROVIDER_URI = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPU_URIDISPLAYDURINGCALL: RTC_PROVIDER_URI = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCPU_URIDISPLAYDURINGIDLE: RTC_PROVIDER_URI = 4i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_REGISTRATION_STATE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRS_NOT_REGISTERED: RTC_REGISTRATION_STATE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRS_REGISTERING: RTC_REGISTRATION_STATE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRS_REGISTERED: RTC_REGISTRATION_STATE = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRS_REJECTED: RTC_REGISTRATION_STATE = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRS_UNREGISTERING: RTC_REGISTRATION_STATE = 4i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRS_ERROR: RTC_REGISTRATION_STATE = 5i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRS_LOGGED_OFF: RTC_REGISTRATION_STATE = 6i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRS_LOCAL_PA_LOGGED_OFF: RTC_REGISTRATION_STATE = 7i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRS_REMOTE_PA_LOGGED_OFF: RTC_REGISTRATION_STATE = 8i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_REINVITE_STATE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRIN_INCOMING: RTC_REINVITE_STATE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRIN_SUCCEEDED: RTC_REINVITE_STATE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRIN_FAIL: RTC_REINVITE_STATE = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_RING_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRT_PHONE: RTC_RING_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRT_MESSAGE: RTC_RING_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRT_RINGBACK: RTC_RING_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_ROAMING_EVENT_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRET_BUDDY_ROAMING: RTC_ROAMING_EVENT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRET_WATCHER_ROAMING: RTC_ROAMING_EVENT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRET_PRESENCE_ROAMING: RTC_ROAMING_EVENT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRET_PROFILE_ROAMING: RTC_ROAMING_EVENT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCRET_WPENDING_ROAMING: RTC_ROAMING_EVENT_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_SECURITY_LEVEL = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCSECL_UNSUPPORTED: RTC_SECURITY_LEVEL = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCSECL_SUPPORTED: RTC_SECURITY_LEVEL = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCSECL_REQUIRED: RTC_SECURITY_LEVEL = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_SECURITY_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCSECT_AUDIO_VIDEO_MEDIA_ENCRYPTION: RTC_SECURITY_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCSECT_T120_MEDIA_ENCRYPTION: RTC_SECURITY_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_SESSION_REFER_STATUS = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCSRS_REFERRING: RTC_SESSION_REFER_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCSRS_ACCEPTED: RTC_SESSION_REFER_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCSRS_ERROR: RTC_SESSION_REFER_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCSRS_REJECTED: RTC_SESSION_REFER_STATUS = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCSRS_DROPPED: RTC_SESSION_REFER_STATUS = 4i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCSRS_DONE: RTC_SESSION_REFER_STATUS = 5i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_SESSION_STATE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCSS_IDLE: RTC_SESSION_STATE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCSS_INCOMING: RTC_SESSION_STATE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCSS_ANSWERING: RTC_SESSION_STATE = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCSS_INPROGRESS: RTC_SESSION_STATE = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCSS_CONNECTED: RTC_SESSION_STATE = 4i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCSS_DISCONNECTED: RTC_SESSION_STATE = 5i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCSS_HOLD: RTC_SESSION_STATE = 6i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCSS_REFER: RTC_SESSION_STATE = 7i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_SESSION_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCST_PC_TO_PC: RTC_SESSION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCST_PC_TO_PHONE: RTC_SESSION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCST_PHONE_TO_PHONE: RTC_SESSION_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCST_IM: RTC_SESSION_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCST_MULTIPARTY_IM: RTC_SESSION_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCST_APPLICATION: RTC_SESSION_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_S_ROAMING_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(15597633i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_T120_APPLET = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCTA_WHITEBOARD: RTC_T120_APPLET = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCTA_APPSHARING: RTC_T120_APPLET = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_TERMINATE_REASON = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCTR_NORMAL: RTC_TERMINATE_REASON = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCTR_DND: RTC_TERMINATE_REASON = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCTR_BUSY: RTC_TERMINATE_REASON = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCTR_REJECT: RTC_TERMINATE_REASON = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCTR_TIMEOUT: RTC_TERMINATE_REASON = 4i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCTR_SHUTDOWN: RTC_TERMINATE_REASON = 5i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCTR_INSUFFICIENT_SECURITY_LEVEL: RTC_TERMINATE_REASON = 6i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCTR_NOT_SUPPORTED: RTC_TERMINATE_REASON = 7i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_USER_SEARCH_COLUMN = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCUSC_URI: RTC_USER_SEARCH_COLUMN = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCUSC_DISPLAYNAME: RTC_USER_SEARCH_COLUMN = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCUSC_TITLE: RTC_USER_SEARCH_COLUMN = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCUSC_OFFICE: RTC_USER_SEARCH_COLUMN = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCUSC_PHONE: RTC_USER_SEARCH_COLUMN = 4i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCUSC_COMPANY: RTC_USER_SEARCH_COLUMN = 5i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCUSC_CITY: RTC_USER_SEARCH_COLUMN = 6i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCUSC_STATE: RTC_USER_SEARCH_COLUMN = 7i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCUSC_COUNTRY: RTC_USER_SEARCH_COLUMN = 8i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCUSC_EMAIL: RTC_USER_SEARCH_COLUMN = 9i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_USER_SEARCH_PREFERENCE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCUSP_MAX_MATCHES: RTC_USER_SEARCH_PREFERENCE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCUSP_TIME_LIMIT: RTC_USER_SEARCH_PREFERENCE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_VIDEO_DEVICE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCVD_RECEIVE: RTC_VIDEO_DEVICE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCVD_PREVIEW: RTC_VIDEO_DEVICE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_WATCHER_EVENT_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCWET_WATCHER_ADD: RTC_WATCHER_EVENT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCWET_WATCHER_REMOVE: RTC_WATCHER_EVENT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCWET_WATCHER_UPDATE: RTC_WATCHER_EVENT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCWET_WATCHER_OFFERING: RTC_WATCHER_EVENT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCWET_WATCHER_ROAMED: RTC_WATCHER_EVENT_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_WATCHER_MATCH_MODE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCWMM_EXACT_MATCH: RTC_WATCHER_MATCH_MODE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCWMM_BEST_ACE_MATCH: RTC_WATCHER_MATCH_MODE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub type RTC_WATCHER_STATE = i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCWS_UNKNOWN: RTC_WATCHER_STATE = 0i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCWS_OFFERING: RTC_WATCHER_STATE = 1i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCWS_ALLOWED: RTC_WATCHER_STATE = 2i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCWS_BLOCKED: RTC_WATCHER_STATE = 3i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCWS_DENIED: RTC_WATCHER_STATE = 4i32;
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCWS_PROMPT: RTC_WATCHER_STATE = 5i32;
 pub const STATUS_SEVERITY_RTC_ERROR: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications', 'Win32_Networking_WinSock'*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct TRANSPORT_SETTING {
     pub SettingId: super::super::Networking::WinSock::TRANSPORT_SETTING_ID,

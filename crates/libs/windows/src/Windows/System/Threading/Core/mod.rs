@@ -83,6 +83,7 @@ pub struct ISignalNotifierStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, handler: ::windows::core::RawPtr, timeout: super::super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'System_Threading_Core'*"]
 #[repr(transparent)]
 pub struct PreallocatedWorkItem(::windows::core::IUnknown);
 impl PreallocatedWorkItem {
@@ -183,6 +184,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prea
 }
 unsafe impl ::core::marker::Send for PreallocatedWorkItem {}
 unsafe impl ::core::marker::Sync for PreallocatedWorkItem {}
+#[doc = "*Required features: 'System_Threading_Core'*"]
 #[repr(transparent)]
 pub struct SignalHandler(pub ::windows::core::IUnknown);
 impl SignalHandler {
@@ -251,6 +253,7 @@ unsafe impl ::windows::core::RuntimeType for SignalHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct SignalHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signalnotifier: ::windows::core::RawPtr, timedout: bool) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'System_Threading_Core'*"]
 #[repr(transparent)]
 pub struct SignalNotifier(::windows::core::IUnknown);
 impl SignalNotifier {

@@ -3,6 +3,7 @@
 pub mod AnimationMetrics;
 #[cfg(feature = "UI_Core_Preview")]
 pub mod Preview;
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct AcceleratorKeyEventArgs(::windows::core::IUnknown);
 impl AcceleratorKeyEventArgs {
@@ -132,6 +133,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &AcceleratorKe
 }
 unsafe impl ::core::marker::Send for AcceleratorKeyEventArgs {}
 unsafe impl ::core::marker::Sync for AcceleratorKeyEventArgs {}
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct AppViewBackButtonVisibility(pub i32);
 impl AppViewBackButtonVisibility {
@@ -160,6 +162,7 @@ unsafe impl ::windows::core::RuntimeType for AppViewBackButtonVisibility {
 impl ::windows::core::DefaultType for AppViewBackButtonVisibility {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct AutomationProviderRequestedEventArgs(::windows::core::IUnknown);
 impl AutomationProviderRequestedEventArgs {
@@ -269,6 +272,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &AutomationPro
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct BackRequestedEventArgs(::windows::core::IUnknown);
 impl BackRequestedEventArgs {
@@ -347,6 +351,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
 }
 unsafe impl ::core::marker::Send for BackRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for BackRequestedEventArgs {}
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CharacterReceivedEventArgs(::windows::core::IUnknown);
 impl CharacterReceivedEventArgs {
@@ -459,6 +464,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &CharacterRece
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct ClosestInteractiveBoundsRequestedEventArgs(::windows::core::IUnknown);
 impl ClosestInteractiveBoundsRequestedEventArgs {
@@ -553,6 +559,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clos
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreAcceleratorKeyEventType(pub i32);
 impl CoreAcceleratorKeyEventType {
@@ -587,6 +594,7 @@ unsafe impl ::windows::core::RuntimeType for CoreAcceleratorKeyEventType {
 impl ::windows::core::DefaultType for CoreAcceleratorKeyEventType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreAcceleratorKeys(::windows::core::IUnknown);
 impl CoreAcceleratorKeys {
@@ -689,6 +697,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreAcceleratorKeys> for &CoreAccelerat
 }
 unsafe impl ::core::marker::Send for CoreAcceleratorKeys {}
 unsafe impl ::core::marker::Sync for CoreAcceleratorKeys {}
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreComponentInputSource(::windows::core::IUnknown);
 impl CoreComponentInputSource {
@@ -1099,6 +1108,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICorePointerInputSource2> for &CoreCompo
 }
 unsafe impl ::core::marker::Send for CoreComponentInputSource {}
 unsafe impl ::core::marker::Sync for CoreComponentInputSource {}
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreCursor(::windows::core::IUnknown);
 impl CoreCursor {
@@ -1190,6 +1200,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreCursor {}
 unsafe impl ::core::marker::Sync for CoreCursor {}
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreCursorType(pub i32);
 impl CoreCursorType {
@@ -1231,6 +1242,7 @@ unsafe impl ::windows::core::RuntimeType for CoreCursorType {
 impl ::windows::core::DefaultType for CoreCursorType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreDispatcher(::windows::core::IUnknown);
 impl CoreDispatcher {
@@ -1405,6 +1417,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreAcceleratorKeys> for &CoreDispatche
 }
 unsafe impl ::core::marker::Send for CoreDispatcher {}
 unsafe impl ::core::marker::Sync for CoreDispatcher {}
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreDispatcherPriority(pub i32);
 impl CoreDispatcherPriority {
@@ -1434,6 +1447,7 @@ unsafe impl ::windows::core::RuntimeType for CoreDispatcherPriority {
 impl ::windows::core::DefaultType for CoreDispatcherPriority {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreIndependentInputFilters(pub u32);
 impl CoreIndependentInputFilters {
@@ -1465,6 +1479,7 @@ unsafe impl ::windows::core::RuntimeType for CoreIndependentInputFilters {
 impl ::windows::core::DefaultType for CoreIndependentInputFilters {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreIndependentInputSource(::windows::core::IUnknown);
 impl CoreIndependentInputSource {
@@ -1823,6 +1838,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICorePointerRedirector> for &CoreIndepen
 }
 unsafe impl ::core::marker::Send for CoreIndependentInputSource {}
 unsafe impl ::core::marker::Sync for CoreIndependentInputSource {}
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreIndependentInputSourceController(::windows::core::IUnknown);
 impl CoreIndependentInputSourceController {
@@ -1976,6 +1992,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for CoreIndependentInputSourceController {}
 unsafe impl ::core::marker::Sync for CoreIndependentInputSourceController {}
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreInputDeviceTypes(pub u32);
 impl CoreInputDeviceTypes {
@@ -2006,6 +2023,7 @@ impl ::windows::core::DefaultType for CoreInputDeviceTypes {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'UI_Core'*"]
 pub struct CorePhysicalKeyStatus {
     pub RepeatCount: u32,
     pub ScanCode: u32,
@@ -2040,6 +2058,7 @@ impl ::core::default::Default for CorePhysicalKeyStatus {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreProcessEventsOption(pub i32);
 impl CoreProcessEventsOption {
@@ -2070,6 +2089,7 @@ impl ::windows::core::DefaultType for CoreProcessEventsOption {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'UI_Core', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct CoreProximityEvaluation {
     pub Score: i32,
@@ -2109,6 +2129,7 @@ impl ::core::default::Default for CoreProximityEvaluation {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreProximityEvaluationScore(pub i32);
 impl CoreProximityEvaluationScore {
@@ -2136,6 +2157,7 @@ unsafe impl ::windows::core::RuntimeType for CoreProximityEvaluationScore {
 impl ::windows::core::DefaultType for CoreProximityEvaluationScore {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreVirtualKeyStates(pub u32);
 impl CoreVirtualKeyStates {
@@ -2164,6 +2186,7 @@ unsafe impl ::windows::core::RuntimeType for CoreVirtualKeyStates {
 impl ::windows::core::DefaultType for CoreVirtualKeyStates {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreWindow(::windows::core::IUnknown);
 impl CoreWindow {
@@ -2726,6 +2749,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindow> for &CoreWindow {
         ::core::convert::TryInto::<ICoreWindow>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreWindowActivationMode(pub i32);
 impl CoreWindowActivationMode {
@@ -2755,6 +2779,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWindowActivationMode {
 impl ::windows::core::DefaultType for CoreWindowActivationMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreWindowActivationState(pub i32);
 impl CoreWindowActivationState {
@@ -2783,6 +2808,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWindowActivationState {
 impl ::windows::core::DefaultType for CoreWindowActivationState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreWindowDialog(::windows::core::IUnknown);
 impl CoreWindowDialog {
@@ -2967,6 +2993,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreWindowEventArgs(::windows::core::IUnknown);
 impl CoreWindowEventArgs {
@@ -3065,6 +3092,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &CoreWindowEve
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreWindowFlowDirection(pub i32);
 impl CoreWindowFlowDirection {
@@ -3092,6 +3120,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWindowFlowDirection {
 impl ::windows::core::DefaultType for CoreWindowFlowDirection {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreWindowFlyout(::windows::core::IUnknown);
 impl CoreWindowFlyout {
@@ -3266,6 +3295,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreWindowPopupShowingEventArgs(::windows::core::IUnknown);
 impl CoreWindowPopupShowingEventArgs {
@@ -3336,6 +3366,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreWindowResizeManager(::windows::core::IUnknown);
 impl CoreWindowResizeManager {
@@ -3428,6 +3459,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreWindowResizeManager {}
 unsafe impl ::core::marker::Sync for CoreWindowResizeManager {}
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct DispatchedHandler(pub ::windows::core::IUnknown);
 impl DispatchedHandler {
@@ -3617,6 +3649,7 @@ pub struct IClosestInteractiveBoundsRequestedEventArgsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct ICoreAcceleratorKeys(::windows::core::IUnknown);
 impl ICoreAcceleratorKeys {
@@ -3901,6 +3934,7 @@ pub struct ICoreIndependentInputSourceControllerStaticsVtbl(
     #[cfg(feature = "UI_Composition")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visualelement: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Composition"))] usize,
 );
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct ICoreInputSourceBase(::windows::core::IUnknown);
 impl ICoreInputSourceBase {
@@ -4060,6 +4094,7 @@ pub struct ICoreKeyboardInputSource2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct ICorePointerInputSource(::windows::core::IUnknown);
 impl ICorePointerInputSource {
@@ -4292,6 +4327,7 @@ pub struct ICorePointerInputSourceVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct ICorePointerInputSource2(::windows::core::IUnknown);
 impl ICorePointerInputSource2 {
@@ -4521,6 +4557,7 @@ pub struct ICorePointerInputSource2Vtbl(
     #[cfg(feature = "System")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))] usize,
 );
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct ICorePointerRedirector(::windows::core::IUnknown);
 impl ICorePointerRedirector {
@@ -4665,6 +4702,7 @@ pub struct ICoreTouchHitTestingVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct ICoreWindow(::windows::core::IUnknown);
 impl ICoreWindow {
@@ -5304,6 +5342,7 @@ pub struct ICoreWindowDialogFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct ICoreWindowEventArgs(::windows::core::IUnknown);
 impl ICoreWindowEventArgs {
@@ -5577,6 +5616,7 @@ pub struct IIdleDispatchedHandlerArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct IInitializeWithCoreWindow(::windows::core::IUnknown);
 impl IInitializeWithCoreWindow {
@@ -5875,6 +5915,7 @@ pub struct IWindowSizeChangedEventArgsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct IdleDispatchedHandler(pub ::windows::core::IUnknown);
 impl IdleDispatchedHandler {
@@ -5943,6 +5984,7 @@ unsafe impl ::windows::core::RuntimeType for IdleDispatchedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IdleDispatchedHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct IdleDispatchedHandlerArgs(::windows::core::IUnknown);
 impl IdleDispatchedHandlerArgs {
@@ -6015,6 +6057,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Idle
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct InputEnabledEventArgs(::windows::core::IUnknown);
 impl InputEnabledEventArgs {
@@ -6120,6 +6163,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &InputEnabledE
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct KeyEventArgs(::windows::core::IUnknown);
 impl KeyEventArgs {
@@ -6240,6 +6284,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &KeyEventArgs 
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct PointerEventArgs(::windows::core::IUnknown);
 impl PointerEventArgs {
@@ -6362,6 +6407,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &PointerEventA
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct SystemNavigationManager(::windows::core::IUnknown);
 impl SystemNavigationManager {
@@ -6463,6 +6509,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemNavigationManager {}
 unsafe impl ::core::marker::Sync for SystemNavigationManager {}
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct TouchHitTestingEventArgs(::windows::core::IUnknown);
 impl TouchHitTestingEventArgs {
@@ -6606,6 +6653,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &TouchHitTesti
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct VisibilityChangedEventArgs(::windows::core::IUnknown);
 impl VisibilityChangedEventArgs {
@@ -6711,6 +6759,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &VisibilityCha
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct WindowActivatedEventArgs(::windows::core::IUnknown);
 impl WindowActivatedEventArgs {
@@ -6816,6 +6865,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &WindowActivat
         ::core::convert::TryInto::<ICoreWindowEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct WindowSizeChangedEventArgs(::windows::core::IUnknown);
 impl WindowSizeChangedEventArgs {

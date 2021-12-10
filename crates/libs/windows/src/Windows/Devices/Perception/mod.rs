@@ -1520,6 +1520,7 @@ impl KnownPerceptionVideoProfileProperties {
 impl ::windows::core::RuntimeName for KnownPerceptionVideoProfileProperties {
     const NAME: &'static str = "Windows.Devices.Perception.KnownPerceptionVideoProfileProperties";
 }
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionColorFrame(::windows::core::IUnknown);
@@ -1644,6 +1645,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 unsafe impl ::core::marker::Send for PerceptionColorFrame {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionColorFrame {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionColorFrameArrivedEventArgs(::windows::core::IUnknown);
@@ -1745,6 +1747,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionColorFrameArrivedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionColorFrameArrivedEventArgs {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionColorFrameReader(::windows::core::IUnknown);
@@ -1903,6 +1906,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 unsafe impl ::core::marker::Send for PerceptionColorFrameReader {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionColorFrameReader {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionColorFrameSource(::windows::core::IUnknown);
@@ -2245,6 +2249,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionColorFrameSource {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionColorFrameSource {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionColorFrameSourceAddedEventArgs(::windows::core::IUnknown);
@@ -2338,6 +2343,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionColorFrameSourceAddedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionColorFrameSourceAddedEventArgs {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionColorFrameSourceRemovedEventArgs(::windows::core::IUnknown);
@@ -2431,6 +2437,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionColorFrameSourceRemovedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionColorFrameSourceRemovedEventArgs {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionColorFrameSourceWatcher(::windows::core::IUnknown);
@@ -2586,6 +2593,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionColorFrameSourceWatcher {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionColorFrameSourceWatcher {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionControlSession(::windows::core::IUnknown);
@@ -2723,6 +2731,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 unsafe impl ::core::marker::Send for PerceptionControlSession {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionControlSession {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionDepthCorrelatedCameraIntrinsics(::windows::core::IUnknown);
@@ -2837,6 +2846,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionDepthCorrelatedCameraIntrinsics {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionDepthCorrelatedCameraIntrinsics {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionDepthCorrelatedCoordinateMapper(::windows::core::IUnknown);
@@ -2951,6 +2961,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionDepthCorrelatedCoordinateMapper {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionDepthCorrelatedCoordinateMapper {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionDepthFrame(::windows::core::IUnknown);
@@ -3075,6 +3086,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 unsafe impl ::core::marker::Send for PerceptionDepthFrame {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionDepthFrame {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionDepthFrameArrivedEventArgs(::windows::core::IUnknown);
@@ -3176,6 +3188,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionDepthFrameArrivedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionDepthFrameArrivedEventArgs {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionDepthFrameReader(::windows::core::IUnknown);
@@ -3334,6 +3347,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 unsafe impl ::core::marker::Send for PerceptionDepthFrameReader {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionDepthFrameReader {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionDepthFrameSource(::windows::core::IUnknown);
@@ -3676,6 +3690,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionDepthFrameSource {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionDepthFrameSource {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionDepthFrameSourceAddedEventArgs(::windows::core::IUnknown);
@@ -3769,6 +3784,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionDepthFrameSourceAddedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionDepthFrameSourceAddedEventArgs {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionDepthFrameSourceRemovedEventArgs(::windows::core::IUnknown);
@@ -3862,6 +3878,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionDepthFrameSourceRemovedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionDepthFrameSourceRemovedEventArgs {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionDepthFrameSourceWatcher(::windows::core::IUnknown);
@@ -4017,6 +4034,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionDepthFrameSourceWatcher {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionDepthFrameSourceWatcher {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[repr(transparent)]
 pub struct PerceptionFrameSourceAccessStatus(pub i32);
 impl PerceptionFrameSourceAccessStatus {
@@ -4046,6 +4064,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionFrameSourceAccessStatus {
 impl ::windows::core::DefaultType for PerceptionFrameSourceAccessStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionFrameSourcePropertiesChangedEventArgs(::windows::core::IUnknown);
@@ -4147,6 +4166,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionFrameSourcePropertiesChangedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionFrameSourcePropertiesChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionFrameSourcePropertyChangeResult(::windows::core::IUnknown);
@@ -4248,6 +4268,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionFrameSourcePropertyChangeResult {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionFrameSourcePropertyChangeResult {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[repr(transparent)]
 pub struct PerceptionFrameSourcePropertyChangeStatus(pub i32);
 impl PerceptionFrameSourcePropertyChangeStatus {
@@ -4279,6 +4300,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionFrameSourcePropertyChange
 impl ::windows::core::DefaultType for PerceptionFrameSourcePropertyChangeStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionInfraredFrame(::windows::core::IUnknown);
@@ -4403,6 +4425,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 unsafe impl ::core::marker::Send for PerceptionInfraredFrame {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionInfraredFrame {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionInfraredFrameArrivedEventArgs(::windows::core::IUnknown);
@@ -4504,6 +4527,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionInfraredFrameArrivedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionInfraredFrameArrivedEventArgs {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionInfraredFrameReader(::windows::core::IUnknown);
@@ -4662,6 +4686,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 unsafe impl ::core::marker::Send for PerceptionInfraredFrameReader {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionInfraredFrameReader {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionInfraredFrameSource(::windows::core::IUnknown);
@@ -5004,6 +5029,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionInfraredFrameSource {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionInfraredFrameSource {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionInfraredFrameSourceAddedEventArgs(::windows::core::IUnknown);
@@ -5097,6 +5123,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionInfraredFrameSourceAddedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionInfraredFrameSourceAddedEventArgs {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionInfraredFrameSourceRemovedEventArgs(::windows::core::IUnknown);
@@ -5190,6 +5217,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionInfraredFrameSourceRemovedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionInfraredFrameSourceRemovedEventArgs {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionInfraredFrameSourceWatcher(::windows::core::IUnknown);
@@ -5345,6 +5373,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionInfraredFrameSourceWatcher {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionInfraredFrameSourceWatcher {}
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionVideoProfile(::windows::core::IUnknown);

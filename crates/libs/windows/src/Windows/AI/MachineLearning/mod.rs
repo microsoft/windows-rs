@@ -227,6 +227,7 @@ pub struct ILearningModelEvaluationResultVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct ILearningModelFeatureDescriptor(::windows::core::IUnknown);
 impl ILearningModelFeatureDescriptor {
@@ -331,6 +332,7 @@ pub struct ILearningModelFeatureDescriptorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LearningModelFeatureKind) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct ILearningModelFeatureValue(::windows::core::IUnknown);
 impl ILearningModelFeatureValue {
@@ -411,6 +413,7 @@ pub struct ILearningModelFeatureValueVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut LearningModelFeatureKind) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct ILearningModelOperatorProvider(::windows::core::IUnknown);
 impl ILearningModelOperatorProvider {}
@@ -671,6 +674,7 @@ pub struct ISequenceFeatureDescriptorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct ITensor(::windows::core::IUnknown);
 impl ITensor {
@@ -1627,6 +1631,7 @@ pub struct ITensorUInt8BitStatics2Vtbl(
     #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shape_array_size: u32, shape: *const i64, buffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct ImageFeatureDescriptor(::windows::core::IUnknown);
 impl ImageFeatureDescriptor {
@@ -1781,6 +1786,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for &Im
 }
 unsafe impl ::core::marker::Send for ImageFeatureDescriptor {}
 unsafe impl ::core::marker::Sync for ImageFeatureDescriptor {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct ImageFeatureValue(::windows::core::IUnknown);
 impl ImageFeatureValue {
@@ -1896,6 +1902,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureValue> for &ImageFe
 }
 unsafe impl ::core::marker::Send for ImageFeatureValue {}
 unsafe impl ::core::marker::Sync for ImageFeatureValue {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct LearningModel(::windows::core::IUnknown);
 impl LearningModel {
@@ -2111,6 +2118,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for LearningModel {}
 unsafe impl ::core::marker::Sync for LearningModel {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct LearningModelBinding(::windows::core::IUnknown);
 impl LearningModelBinding {
@@ -2306,6 +2314,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 }
 unsafe impl ::core::marker::Send for LearningModelBinding {}
 unsafe impl ::core::marker::Sync for LearningModelBinding {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct LearningModelDevice(::windows::core::IUnknown);
 impl LearningModelDevice {
@@ -2410,6 +2419,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lear
 }
 unsafe impl ::core::marker::Send for LearningModelDevice {}
 unsafe impl ::core::marker::Sync for LearningModelDevice {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct LearningModelDeviceKind(pub i32);
 impl LearningModelDeviceKind {
@@ -2440,6 +2450,7 @@ unsafe impl ::windows::core::RuntimeType for LearningModelDeviceKind {
 impl ::windows::core::DefaultType for LearningModelDeviceKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct LearningModelEvaluationResult(::windows::core::IUnknown);
 impl LearningModelEvaluationResult {
@@ -2536,6 +2547,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lear
 }
 unsafe impl ::core::marker::Send for LearningModelEvaluationResult {}
 unsafe impl ::core::marker::Sync for LearningModelEvaluationResult {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct LearningModelFeatureKind(pub i32);
 impl LearningModelFeatureKind {
@@ -2565,6 +2577,7 @@ unsafe impl ::windows::core::RuntimeType for LearningModelFeatureKind {
 impl ::windows::core::DefaultType for LearningModelFeatureKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct LearningModelPixelRange(pub i32);
 impl LearningModelPixelRange {
@@ -2593,6 +2606,7 @@ unsafe impl ::windows::core::RuntimeType for LearningModelPixelRange {
 impl ::windows::core::DefaultType for LearningModelPixelRange {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct LearningModelSession(::windows::core::IUnknown);
 impl LearningModelSession {
@@ -2770,6 +2784,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for LearningModelSession {}
 unsafe impl ::core::marker::Sync for LearningModelSession {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct LearningModelSessionOptions(::windows::core::IUnknown);
 impl LearningModelSessionOptions {
@@ -2870,6 +2885,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lear
 }
 unsafe impl ::core::marker::Send for LearningModelSessionOptions {}
 unsafe impl ::core::marker::Sync for LearningModelSessionOptions {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct MapFeatureDescriptor(::windows::core::IUnknown);
 impl MapFeatureDescriptor {
@@ -3001,6 +3017,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for &Ma
 }
 unsafe impl ::core::marker::Send for MapFeatureDescriptor {}
 unsafe impl ::core::marker::Sync for MapFeatureDescriptor {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct SequenceFeatureDescriptor(::windows::core::IUnknown);
 impl SequenceFeatureDescriptor {
@@ -3125,6 +3142,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for &Se
 }
 unsafe impl ::core::marker::Send for SequenceFeatureDescriptor {}
 unsafe impl ::core::marker::Sync for SequenceFeatureDescriptor {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct TensorBoolean(::windows::core::IUnknown);
 impl TensorBoolean {
@@ -3379,6 +3397,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorBoolean {
 }
 unsafe impl ::core::marker::Send for TensorBoolean {}
 unsafe impl ::core::marker::Sync for TensorBoolean {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct TensorDouble(::windows::core::IUnknown);
 impl TensorDouble {
@@ -3633,6 +3652,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorDouble {
 }
 unsafe impl ::core::marker::Send for TensorDouble {}
 unsafe impl ::core::marker::Sync for TensorDouble {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct TensorFeatureDescriptor(::windows::core::IUnknown);
 impl TensorFeatureDescriptor {
@@ -3765,6 +3785,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILearningModelFeatureDescriptor> for &Te
 }
 unsafe impl ::core::marker::Send for TensorFeatureDescriptor {}
 unsafe impl ::core::marker::Sync for TensorFeatureDescriptor {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct TensorFloat(::windows::core::IUnknown);
 impl TensorFloat {
@@ -4019,6 +4040,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorFloat {
 }
 unsafe impl ::core::marker::Send for TensorFloat {}
 unsafe impl ::core::marker::Sync for TensorFloat {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct TensorFloat16Bit(::windows::core::IUnknown);
 impl TensorFloat16Bit {
@@ -4273,6 +4295,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorFloat16Bit {
 }
 unsafe impl ::core::marker::Send for TensorFloat16Bit {}
 unsafe impl ::core::marker::Sync for TensorFloat16Bit {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct TensorInt16Bit(::windows::core::IUnknown);
 impl TensorInt16Bit {
@@ -4527,6 +4550,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorInt16Bit {
 }
 unsafe impl ::core::marker::Send for TensorInt16Bit {}
 unsafe impl ::core::marker::Sync for TensorInt16Bit {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct TensorInt32Bit(::windows::core::IUnknown);
 impl TensorInt32Bit {
@@ -4781,6 +4805,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorInt32Bit {
 }
 unsafe impl ::core::marker::Send for TensorInt32Bit {}
 unsafe impl ::core::marker::Sync for TensorInt32Bit {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct TensorInt64Bit(::windows::core::IUnknown);
 impl TensorInt64Bit {
@@ -5035,6 +5060,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorInt64Bit {
 }
 unsafe impl ::core::marker::Send for TensorInt64Bit {}
 unsafe impl ::core::marker::Sync for TensorInt64Bit {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct TensorInt8Bit(::windows::core::IUnknown);
 impl TensorInt8Bit {
@@ -5289,6 +5315,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorInt8Bit {
 }
 unsafe impl ::core::marker::Send for TensorInt8Bit {}
 unsafe impl ::core::marker::Sync for TensorInt8Bit {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct TensorKind(pub i32);
 impl TensorKind {
@@ -5330,6 +5357,7 @@ unsafe impl ::windows::core::RuntimeType for TensorKind {
 impl ::windows::core::DefaultType for TensorKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct TensorString(::windows::core::IUnknown);
 impl TensorString {
@@ -5577,6 +5605,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorString {
 }
 unsafe impl ::core::marker::Send for TensorString {}
 unsafe impl ::core::marker::Sync for TensorString {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct TensorUInt16Bit(::windows::core::IUnknown);
 impl TensorUInt16Bit {
@@ -5831,6 +5860,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorUInt16Bit {
 }
 unsafe impl ::core::marker::Send for TensorUInt16Bit {}
 unsafe impl ::core::marker::Sync for TensorUInt16Bit {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct TensorUInt32Bit(::windows::core::IUnknown);
 impl TensorUInt32Bit {
@@ -6085,6 +6115,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorUInt32Bit {
 }
 unsafe impl ::core::marker::Send for TensorUInt32Bit {}
 unsafe impl ::core::marker::Sync for TensorUInt32Bit {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct TensorUInt64Bit(::windows::core::IUnknown);
 impl TensorUInt64Bit {
@@ -6339,6 +6370,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITensor> for &TensorUInt64Bit {
 }
 unsafe impl ::core::marker::Send for TensorUInt64Bit {}
 unsafe impl ::core::marker::Sync for TensorUInt64Bit {}
+#[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
 pub struct TensorUInt8Bit(::windows::core::IUnknown);
 impl TensorUInt8Bit {

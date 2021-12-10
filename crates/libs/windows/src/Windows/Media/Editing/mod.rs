@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Media_Editing'*"]
 #[repr(transparent)]
 pub struct BackgroundAudioTrack(::windows::core::IUnknown);
 impl BackgroundAudioTrack {
@@ -180,6 +181,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
 }
 unsafe impl ::core::marker::Send for BackgroundAudioTrack {}
 unsafe impl ::core::marker::Sync for BackgroundAudioTrack {}
+#[doc = "*Required features: 'Media_Editing'*"]
 #[repr(transparent)]
 pub struct EmbeddedAudioTrack(::windows::core::IUnknown);
 impl EmbeddedAudioTrack {
@@ -602,6 +604,7 @@ pub struct IMediaOverlayLayerFactoryVtbl(
     #[cfg(feature = "Media_Effects")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositordefinition: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Effects"))] usize,
 );
+#[doc = "*Required features: 'Media_Editing'*"]
 #[repr(transparent)]
 pub struct MediaClip(::windows::core::IUnknown);
 impl MediaClip {
@@ -832,6 +835,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaClip {}
 unsafe impl ::core::marker::Sync for MediaClip {}
+#[doc = "*Required features: 'Media_Editing'*"]
 #[repr(transparent)]
 pub struct MediaComposition(::windows::core::IUnknown);
 impl MediaComposition {
@@ -1044,6 +1048,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaComposition {}
 unsafe impl ::core::marker::Sync for MediaComposition {}
+#[doc = "*Required features: 'Media_Editing'*"]
 #[repr(transparent)]
 pub struct MediaOverlay(::windows::core::IUnknown);
 impl MediaOverlay {
@@ -1190,6 +1195,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaOverlay {}
 unsafe impl ::core::marker::Sync for MediaOverlay {}
+#[doc = "*Required features: 'Media_Editing'*"]
 #[repr(transparent)]
 pub struct MediaOverlayLayer(::windows::core::IUnknown);
 impl MediaOverlayLayer {
@@ -1298,6 +1304,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaOverlayLayer {}
 unsafe impl ::core::marker::Sync for MediaOverlayLayer {}
+#[doc = "*Required features: 'Media_Editing'*"]
 #[repr(transparent)]
 pub struct MediaTrimmingPreference(pub i32);
 impl MediaTrimmingPreference {
@@ -1325,6 +1332,7 @@ unsafe impl ::windows::core::RuntimeType for MediaTrimmingPreference {
 impl ::windows::core::DefaultType for MediaTrimmingPreference {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Editing'*"]
 #[repr(transparent)]
 pub struct VideoFramePrecision(pub i32);
 impl VideoFramePrecision {

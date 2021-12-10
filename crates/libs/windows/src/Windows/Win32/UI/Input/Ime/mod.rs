@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct APPLETIDLIST {
     pub count: i32,
     pub pIIDList: *mut ::windows::core::GUID,
@@ -25,6 +26,7 @@ impl ::core::default::Default for APPLETIDLIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct APPLYCANDEXPARAM {
     pub dwSize: u32,
@@ -65,6 +67,7 @@ pub const ATTR_INPUT_ERROR: u32 = 4u32;
 pub const ATTR_TARGET_CONVERTED: u32 = 1u32;
 pub const ATTR_TARGET_NOTCONVERTED: u32 = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CANDIDATEFORM {
     pub dwIndex: u32,
@@ -99,6 +102,7 @@ impl ::core::default::Default for CANDIDATEFORM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct CANDIDATEINFO {
     pub dwSize: u32,
     pub dwCount: u32,
@@ -127,6 +131,7 @@ impl ::core::default::Default for CANDIDATEINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct CANDIDATELIST {
     pub dwSize: u32,
     pub dwStyle: u32,
@@ -177,6 +182,7 @@ pub const CLSID_ImePlugInDictDictionaryList_CHS: ::windows::core::GUID = ::windo
 pub const CLSID_ImePlugInDictDictionaryList_JPN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fe2776b_b0f9_4396_b5fc_e9d4cf1ec195);
 pub const CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a91029e_aa49_471b_aee7_7d332785660d);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COMPOSITIONFORM {
     pub dwStyle: u32,
@@ -210,6 +216,7 @@ impl ::core::default::Default for COMPOSITIONFORM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct COMPOSITIONSTRING {
     pub dwSize: u32,
     pub dwCompReadAttrLen: u32,
@@ -331,14 +338,23 @@ pub const GCS_RESULTCLAUSE: u32 = 4096u32;
 pub const GCS_RESULTREADCLAUSE: u32 = 1024u32;
 pub const GCS_RESULTREADSTR: u32 = 512u32;
 pub const GCS_RESULTSTR: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub type GET_CONVERSION_LIST_FLAG = u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const GCL_CONVERSION: GET_CONVERSION_LIST_FLAG = 1u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const GCL_REVERSECONVERSION: GET_CONVERSION_LIST_FLAG = 2u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const GCL_REVERSE_LENGTH: GET_CONVERSION_LIST_FLAG = 3u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub type GET_GUIDE_LINE_TYPE = u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const GGL_LEVEL: GET_GUIDE_LINE_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const GGL_INDEX: GET_GUIDE_LINE_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const GGL_STRING: GET_GUIDE_LINE_TYPE = 3u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const GGL_PRIVATE: GET_GUIDE_LINE_TYPE = 4u32;
 pub const GL_ID_CANNOTSAVE: u32 = 17u32;
 pub const GL_ID_CHOOSECANDIDATE: u32 = 40u32;
@@ -362,6 +378,7 @@ pub const GL_LEVEL_INFORMATION: u32 = 4u32;
 pub const GL_LEVEL_NOGUIDELINE: u32 = 0u32;
 pub const GL_LEVEL_WARNING: u32 = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct GUIDELINE {
     pub dwSize: u32,
     pub dwLevel: u32,
@@ -394,6 +411,7 @@ impl ::core::default::Default for GUIDELINE {
 pub const IACE_CHILDREN: u32 = 1u32;
 pub const IACE_DEFAULT: u32 = 16u32;
 pub const IACE_IGNORENOCONTEXT: u32 = 32u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IActiveIME(::windows::core::IUnknown);
 impl IActiveIME {
@@ -537,6 +555,7 @@ pub struct IActiveIMEVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ucodepage: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plid: *mut u16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IActiveIME2(::windows::core::IUnknown);
 impl IActiveIME2 {
@@ -710,6 +729,7 @@ pub struct IActiveIME2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fdead: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IActiveIMMApp(::windows::core::IUnknown);
 impl IActiveIMMApp {
@@ -1175,6 +1195,7 @@ pub struct IActiveIMMAppVtbl(
     #[cfg(not(any(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idthread: u32, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IActiveIMMIME(::windows::core::IUnknown);
 impl IActiveIMMIME {
@@ -1766,6 +1787,7 @@ pub struct IActiveIMMIMEVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IActiveIMMMessagePumpOwner(::windows::core::IUnknown);
 impl IActiveIMMMessagePumpOwner {
@@ -1835,6 +1857,7 @@ pub struct IActiveIMMMessagePumpOwnerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IActiveIMMRegistrar(::windows::core::IUnknown);
 impl IActiveIMMRegistrar {
@@ -1891,6 +1914,7 @@ pub struct IActiveIMMRegistrarVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IEnumInputContext(::windows::core::IUnknown);
 impl IEnumInputContext {
@@ -1956,6 +1980,7 @@ pub struct IEnumInputContextVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IEnumRegisterWordA(::windows::core::IUnknown);
 impl IEnumRegisterWordA {
@@ -2021,6 +2046,7 @@ pub struct IEnumRegisterWordAVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IEnumRegisterWordW(::windows::core::IUnknown);
 impl IEnumRegisterWordW {
@@ -2086,7 +2112,9 @@ pub struct IEnumRegisterWordWVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFEC_S_ALREADY_DEFAULT: ::windows::core::HRESULT = ::windows::core::HRESULT(291840i32);
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IFEClassFactory(::windows::core::IUnknown);
 impl IFEClassFactory {
@@ -2170,6 +2198,7 @@ pub struct IFEClassFactoryVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flock: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IFECommon(::windows::core::IUnknown);
 impl IFECommon {
@@ -2238,17 +2267,29 @@ pub struct IFECommonVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimedlg: *mut IMEDLG) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_E_INVALID_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192063i32);
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_E_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192064i32);
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_E_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192057i32);
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_E_NOT_USER_DIC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192058i32);
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_E_NO_ENTRY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192060i32);
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_E_OPEN_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192062i32);
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_E_REGISTER_DISCONNECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192053i32);
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_E_REGISTER_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192059i32);
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_E_REGISTER_ILLEGAL_POS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192055i32);
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_E_REGISTER_IMPROPER_WORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192054i32);
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_E_USER_COMMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192056i32);
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_E_WRITE_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147192061i32);
 pub const IFED_POS_ADJECTIVE: u32 = 4u32;
 pub const IFED_POS_ADJECTIVE_VERB: u32 = 8u32;
@@ -2283,9 +2324,13 @@ pub const IFED_SELECT_DISPLAY: u32 = 2u32;
 pub const IFED_SELECT_NONE: u32 = 0u32;
 pub const IFED_SELECT_POS: u32 = 4u32;
 pub const IFED_SELECT_READING: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_S_COMMENT_CHANGED: ::windows::core::HRESULT = ::windows::core::HRESULT(291331i32);
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_S_EMPTY_DICTIONARY: ::windows::core::HRESULT = ::windows::core::HRESULT(291329i32);
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_S_MORE_ENTRIES: ::windows::core::HRESULT = ::windows::core::HRESULT(291328i32);
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_S_WORD_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(291330i32);
 pub const IFED_TYPE_ALL: u32 = 31u32;
 pub const IFED_TYPE_ENGLISH: u32 = 16u32;
@@ -2294,6 +2339,7 @@ pub const IFED_TYPE_NAMEPLACE: u32 = 2u32;
 pub const IFED_TYPE_NONE: u32 = 0u32;
 pub const IFED_TYPE_REVERSE: u32 = 8u32;
 pub const IFED_TYPE_SPEECH: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IFEDictionary(::windows::core::IUnknown);
 impl IFEDictionary {
@@ -2432,6 +2478,7 @@ pub struct IFEDictionaryVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IFELanguage(::windows::core::IUnknown);
 impl IFELanguage {
@@ -2516,6 +2563,7 @@ pub const IGIMII_INPUTTOOLS: u32 = 64u32;
 pub const IGIMII_OTHER: u32 = 32u32;
 pub const IGIMII_SMODE: u32 = 2u32;
 pub const IGIMII_TOOLS: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IImePad(::windows::core::IUnknown);
 impl IImePad {
@@ -2568,6 +2616,7 @@ pub struct IImePadVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piimepadapplet: ::windows::core::RawPtr, reqid: IME_PAD_REQUEST_FLAGS, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IImePadApplet(::windows::core::IUnknown);
 impl IImePadApplet {
@@ -2640,6 +2689,7 @@ pub struct IImePadAppletVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpimepad: *mut ::core::ffi::c_void, notify: i32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IImePlugInDictDictionaryList(::windows::core::IUnknown);
 impl IImePlugInDictDictionaryList {
@@ -2698,6 +2748,7 @@ pub struct IImePlugInDictDictionaryListVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdictionaryguid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]
 pub struct IImeSpecifyApplets(::windows::core::IUnknown);
 impl IImeSpecifyApplets {
@@ -2743,6 +2794,7 @@ unsafe impl ::windows::core::Interface for IImeSpecifyApplets {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IImeSpecifyAppletsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, refiid: *const ::windows::core::GUID, lpiidlist: *mut APPLETIDLIST) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 pub type IMCENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL>;
 pub const IMC_CLOSESTATUSWINDOW: u32 = 33u32;
@@ -2766,6 +2818,7 @@ pub const IMC_SETSOFTKBDPOS: u32 = 20u32;
 pub const IMC_SETSOFTKBDSUBTYPE: u32 = 22u32;
 pub const IMC_SETSTATUSWINDOWPOS: u32 = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct IMEAPPLETCFG {
     pub dwConfig: u32,
@@ -2805,6 +2858,7 @@ impl ::core::default::Default for IMEAPPLETCFG {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMEAPPLETUI {
     pub hwnd: super::super::super::Foundation::HWND,
@@ -2845,6 +2899,7 @@ impl ::core::default::Default for IMEAPPLETUI {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct IMECHARINFO {
     pub wch: u16,
     pub dwCharInfo: u32,
@@ -2870,6 +2925,7 @@ impl ::core::default::Default for IMECHARINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMECHARPOSITION {
     pub dwSize: u32,
@@ -2905,6 +2961,7 @@ impl ::core::default::Default for IMECHARPOSITION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct IMECOMPOSITIONSTRINGINFO {
     pub iCompStrLen: i32,
     pub iCaretPos: i32,
@@ -2934,6 +2991,7 @@ impl ::core::default::Default for IMECOMPOSITIONSTRINGINFO {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMEDLG {
     pub cbIMEDLG: i32,
@@ -2968,6 +3026,7 @@ impl ::core::default::Default for IMEDLG {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMEDP {
     pub wrdModifier: IMEWRD,
@@ -3004,35 +3063,64 @@ pub const IMEFAREASTINFO_TYPE_COMMENT: u32 = 2u32;
 pub const IMEFAREASTINFO_TYPE_COSTTIME: u32 = 3u32;
 pub const IMEFAREASTINFO_TYPE_DEFAULT: u32 = 0u32;
 pub const IMEFAREASTINFO_TYPE_READING: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub type IMEFMT = i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_UNKNOWN: IMEFMT = 0i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_MSIME2_BIN_SYSTEM: IMEFMT = 1i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_MSIME2_BIN_USER: IMEFMT = 2i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_MSIME2_TEXT_USER: IMEFMT = 3i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_MSIME95_BIN_SYSTEM: IMEFMT = 4i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_MSIME95_BIN_USER: IMEFMT = 5i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_MSIME95_TEXT_USER: IMEFMT = 6i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_MSIME97_BIN_SYSTEM: IMEFMT = 7i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_MSIME97_BIN_USER: IMEFMT = 8i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_MSIME97_TEXT_USER: IMEFMT = 9i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_MSIME98_BIN_SYSTEM: IMEFMT = 10i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_MSIME98_BIN_USER: IMEFMT = 11i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_MSIME98_TEXT_USER: IMEFMT = 12i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_ACTIVE_DICT: IMEFMT = 13i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_ATOK9: IMEFMT = 14i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_ATOK10: IMEFMT = 15i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_NEC_AI_: IMEFMT = 16i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_WX_II: IMEFMT = 17i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_WX_III: IMEFMT = 18i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_VJE_20: IMEFMT = 19i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_MSIME98_SYSTEM_CE: IMEFMT = 20i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_MSIME_BIN_SYSTEM: IMEFMT = 21i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_MSIME_BIN_USER: IMEFMT = 22i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_MSIME_TEXT_USER: IMEFMT = 23i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_PIME2_BIN_USER: IMEFMT = 24i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_PIME2_BIN_SYSTEM: IMEFMT = 25i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_PIME2_BIN_STANDARD_SYSTEM: IMEFMT = 26i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct IMEINFO {
     pub dwPrivateDataSize: u32,
     pub fdwProperty: u32,
@@ -3063,6 +3151,7 @@ impl ::core::default::Default for IMEINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct IMEITEM {
     pub cbSize: i32,
     pub iType: i32,
@@ -3089,6 +3178,7 @@ impl ::core::default::Default for IMEITEM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct IMEITEMCANDIDATE {
     pub uCount: u32,
     pub imeItem: [IMEITEM; 1],
@@ -3119,6 +3209,7 @@ pub const IMEKEYCTRLMASK_SHIFT: u32 = 4u32;
 pub const IMEKEYCTRL_DOWN: u32 = 0u32;
 pub const IMEKEYCTRL_UP: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
 #[cfg(feature = "Win32_Globalization")]
 pub struct IMEKMS {
     pub cbSize: i32,
@@ -3153,6 +3244,7 @@ impl ::core::default::Default for IMEKMS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct IMEKMSFUNCDESC {
     pub cbSize: i32,
     pub idLang: u16,
@@ -3180,6 +3272,7 @@ impl ::core::default::Default for IMEKMSFUNCDESC {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMEKMSINIT {
     pub cbSize: i32,
@@ -3212,6 +3305,7 @@ impl ::core::default::Default for IMEKMSINIT {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
 #[cfg(feature = "Win32_Globalization")]
 pub struct IMEKMSINVK {
     pub cbSize: i32,
@@ -3245,6 +3339,7 @@ impl ::core::default::Default for IMEKMSINVK {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct IMEKMSKEY {
     pub dwStatus: u32,
     pub dwCompStatus: u32,
@@ -3273,6 +3368,7 @@ impl ::core::default::Default for IMEKMSKEY {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub union IMEKMSKEY_0 {
     pub dwControl: u32,
     pub dwNotUsed: u32,
@@ -3298,6 +3394,7 @@ impl ::core::default::Default for IMEKMSKEY_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub union IMEKMSKEY_1 {
     pub pwszDscr: [u16; 31],
     pub pwszNoUse: [u16; 31],
@@ -3323,6 +3420,7 @@ impl ::core::default::Default for IMEKMSKEY_1 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
 #[cfg(feature = "Win32_Globalization")]
 pub struct IMEKMSKMP {
     pub cbSize: i32,
@@ -3360,6 +3458,7 @@ impl ::core::default::Default for IMEKMSKMP {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 pub struct IMEKMSNTFY {
     pub cbSize: i32,
@@ -3401,6 +3500,7 @@ pub const IMEKMS_NOCOMPOSITION: u32 = 0u32;
 pub const IMEKMS_SELECTION: u32 = 2u32;
 pub const IMEKMS_TYPECAND: u32 = 7u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct IMEMENUITEMINFOA {
     pub cbSize: u32,
@@ -3440,6 +3540,7 @@ impl ::core::default::Default for IMEMENUITEMINFOA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct IMEMENUITEMINFOW {
     pub cbSize: u32,
@@ -3535,37 +3636,68 @@ pub const IMEPN_SHOW: u32 = 260u32;
 pub const IMEPN_SIZECHANGED: u32 = 263u32;
 pub const IMEPN_SIZECHANGING: u32 = 262u32;
 pub const IMEPN_USER: u32 = 356u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub type IMEREG = i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REG_HEAD: IMEREG = 0i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REG_TAIL: IMEREG = 1i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REG_DEL: IMEREG = 2i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub type IMEREL = i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_NONE: IMEREL = 0i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_NO: IMEREL = 1i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_GA: IMEREL = 2i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_WO: IMEREL = 3i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_NI: IMEREL = 4i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_DE: IMEREL = 5i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_YORI: IMEREL = 6i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_KARA: IMEREL = 7i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_MADE: IMEREL = 8i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_HE: IMEREL = 9i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_TO: IMEREL = 10i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_IDEOM: IMEREL = 11i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_FUKU_YOUGEN: IMEREL = 12i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_KEIYOU_YOUGEN: IMEREL = 13i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_KEIDOU1_YOUGEN: IMEREL = 14i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_KEIDOU2_YOUGEN: IMEREL = 15i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_TAIGEN: IMEREL = 16i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_YOUGEN: IMEREL = 17i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_RENTAI_MEI: IMEREL = 18i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_RENSOU: IMEREL = 19i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_KEIYOU_TO_YOUGEN: IMEREL = 20i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_KEIYOU_TARU_YOUGEN: IMEREL = 21i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_UNKNOWN1: IMEREL = 22i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_UNKNOWN2: IMEREL = 23i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_REL_ALL: IMEREL = 24i32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMESHF {
     pub cbShf: u16,
@@ -3601,6 +3733,7 @@ impl ::core::default::Default for IMESHF {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMESTRINGCANDIDATE {
     pub uCount: u32,
@@ -3633,6 +3766,7 @@ impl ::core::default::Default for IMESTRINGCANDIDATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMESTRINGCANDIDATEINFO {
     pub dwFarEastId: u32,
@@ -3668,15 +3802,22 @@ impl ::core::default::Default for IMESTRINGCANDIDATEINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub type IMEUCT = i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_UCT_NONE: IMEUCT = 0i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_UCT_STRING_SJIS: IMEUCT = 1i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_UCT_STRING_UNICODE: IMEUCT = 2i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_UCT_USER_DEFINED: IMEUCT = 3i32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IFED_UCT_MAX: IMEUCT = 4i32;
 pub const IMEVER_0310: u32 = 196618u32;
 pub const IMEVER_0400: u32 = 262144u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMEWRD {
     pub pwchReading: super::super::super::Foundation::PWSTR,
@@ -3714,6 +3855,7 @@ impl ::core::default::Default for IMEWRD {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union IMEWRD_0 {
     pub ulPos: u32,
@@ -3746,6 +3888,7 @@ impl ::core::default::Default for IMEWRD_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMEWRD_0_0 {
     pub nPos1: u16,
@@ -3823,25 +3966,45 @@ pub const IME_JHOTKEY_CLOSE_OPEN: u32 = 48u32;
 pub const IME_KHOTKEY_ENGLISH: u32 = 82u32;
 pub const IME_KHOTKEY_HANJACONVERT: u32 = 81u32;
 pub const IME_KHOTKEY_SHAPE_TOGGLE: u32 = 80u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub type IME_PAD_REQUEST_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPADREQ_INSERTSTRING: IME_PAD_REQUEST_FLAGS = 4097u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPADREQ_SENDCONTROL: IME_PAD_REQUEST_FLAGS = 4100u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPADREQ_SETAPPLETSIZE: IME_PAD_REQUEST_FLAGS = 4104u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPADREQ_GETCOMPOSITIONSTRING: IME_PAD_REQUEST_FLAGS = 4102u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPADREQ_GETCOMPOSITIONSTRINGINFO: IME_PAD_REQUEST_FLAGS = 4108u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPADREQ_DELETESTRING: IME_PAD_REQUEST_FLAGS = 4112u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPADREQ_CHANGESTRING: IME_PAD_REQUEST_FLAGS = 4113u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPADREQ_GETAPPLHWND: IME_PAD_REQUEST_FLAGS = 4116u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPADREQ_FORCEIMEPADWINDOWSHOW: IME_PAD_REQUEST_FLAGS = 4117u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPADREQ_POSTMODALNOTIFY: IME_PAD_REQUEST_FLAGS = 4118u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPADREQ_GETDEFAULTUILANGID: IME_PAD_REQUEST_FLAGS = 4119u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPADREQ_GETAPPLETUISTYLE: IME_PAD_REQUEST_FLAGS = 4121u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPADREQ_SETAPPLETUISTYLE: IME_PAD_REQUEST_FLAGS = 4122u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPADREQ_ISAPPLETACTIVE: IME_PAD_REQUEST_FLAGS = 4123u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPADREQ_ISIMEPADWINDOWVISIBLE: IME_PAD_REQUEST_FLAGS = 4124u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPADREQ_SETAPPLETMINMAXSIZE: IME_PAD_REQUEST_FLAGS = 4125u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPADREQ_GETCONVERSIONSTATUS: IME_PAD_REQUEST_FLAGS = 4126u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPADREQ_GETVERSION: IME_PAD_REQUEST_FLAGS = 4127u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPADREQ_GETCURRENTIMEINFO: IME_PAD_REQUEST_FLAGS = 4128u32;
 pub const IME_PROP_ACCEPT_WIDE_VKEY: u32 = 32u32;
 pub const IME_PROP_AT_CARET: u32 = 65536u32;
@@ -3913,6 +4076,7 @@ pub const INIT_SENTENCE: u32 = 4u32;
 pub const INIT_SOFTKBDPOS: u32 = 32u32;
 pub const INIT_STATUSWNDPOS: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 pub struct INPUTCONTEXT {
     pub hWnd: super::super::super::Foundation::HWND,
@@ -3960,6 +4124,7 @@ impl ::core::default::Default for INPUTCONTEXT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 pub union INPUTCONTEXT_0 {
     pub A: super::super::super::Graphics::Gdi::LOGFONTA,
@@ -4025,6 +4190,7 @@ pub const ISC_SHOWUIALLCANDIDATEWINDOW: u32 = 15u32;
 pub const ISC_SHOWUICANDIDATEWINDOW: u32 = 1u32;
 pub const ISC_SHOWUICOMPOSITIONWINDOW: u32 = 2147483648u32;
 pub const ISC_SHOWUIGUIDELINE: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmAssociateContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: Param1) -> super::super::super::Globalization::HIMC {
@@ -4039,6 +4205,7 @@ pub unsafe fn ImmAssociateContext<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmAssociateContextEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: Param1, param2: u32) -> super::super::super::Foundation::BOOL {
@@ -4053,6 +4220,7 @@ pub unsafe fn ImmAssociateContextEx<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmConfigureIMEA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0, param1: Param1, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -4067,6 +4235,7 @@ pub unsafe fn ImmConfigureIMEA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmConfigureIMEW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0, param1: Param1, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -4081,6 +4250,7 @@ pub unsafe fn ImmConfigureIMEW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmCreateContext() -> super::super::super::Globalization::HIMC {
@@ -4095,6 +4265,7 @@ pub unsafe fn ImmCreateContext() -> super::super::super::Globalization::HIMC {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmCreateIMCC(param0: u32) -> super::super::super::Globalization::HIMCC {
@@ -4109,6 +4280,7 @@ pub unsafe fn ImmCreateIMCC(param0: u32) -> super::super::super::Globalization::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmCreateSoftKeyboard<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: u32, param1: Param1, param2: i32, param3: i32) -> super::super::super::Foundation::HWND {
@@ -4123,6 +4295,7 @@ pub unsafe fn ImmCreateSoftKeyboard<'a, Param1: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmDestroyContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0) -> super::super::super::Foundation::BOOL {
@@ -4137,6 +4310,7 @@ pub unsafe fn ImmDestroyContext<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmDestroyIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMCC>>(param0: Param0) -> super::super::super::Globalization::HIMCC {
@@ -4151,6 +4325,7 @@ pub unsafe fn ImmDestroyIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmDestroySoftKeyboard<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0) -> super::super::super::Foundation::BOOL {
@@ -4165,6 +4340,7 @@ pub unsafe fn ImmDestroySoftKeyboard<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmDisableIME(param0: u32) -> super::super::super::Foundation::BOOL {
@@ -4179,6 +4355,7 @@ pub unsafe fn ImmDisableIME(param0: u32) -> super::super::super::Foundation::BOO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmDisableLegacyIME() -> super::super::super::Foundation::BOOL {
@@ -4193,6 +4370,7 @@ pub unsafe fn ImmDisableLegacyIME() -> super::super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmDisableTextFrameService(idthread: u32) -> super::super::super::Foundation::BOOL {
@@ -4207,6 +4385,7 @@ pub unsafe fn ImmDisableTextFrameService(idthread: u32) -> super::super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmEnumInputContext<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(idthread: u32, lpfn: IMCENUMPROC, lparam: Param2) -> super::super::super::Foundation::BOOL {
@@ -4221,6 +4400,7 @@ pub unsafe fn ImmEnumInputContext<'a, Param2: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmEnumRegisterWordA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, param1: REGISTERWORDENUMPROCA, lpszreading: Param2, param3: u32, lpszregister: Param4, param5: *mut ::core::ffi::c_void) -> u32 {
@@ -4235,6 +4415,7 @@ pub unsafe fn ImmEnumRegisterWordA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmEnumRegisterWordW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, param1: REGISTERWORDENUMPROCW, lpszreading: Param2, param3: u32, lpszregister: Param4, param5: *mut ::core::ffi::c_void) -> u32 {
@@ -4249,6 +4430,7 @@ pub unsafe fn ImmEnumRegisterWordW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmEscapeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: Param1, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::LRESULT {
@@ -4263,6 +4445,7 @@ pub unsafe fn ImmEscapeA<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmEscapeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: Param1, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::LRESULT {
@@ -4277,6 +4460,7 @@ pub unsafe fn ImmEscapeW<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmGenerateMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0) -> super::super::super::Foundation::BOOL {
@@ -4291,6 +4475,7 @@ pub unsafe fn ImmGenerateMessage<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmGetCandidateListA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, deindex: u32, lpcandlist: *mut CANDIDATELIST, dwbuflen: u32) -> u32 {
@@ -4305,6 +4490,7 @@ pub unsafe fn ImmGetCandidateListA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmGetCandidateListCountA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpdwlistcount: *mut u32) -> u32 {
@@ -4319,6 +4505,7 @@ pub unsafe fn ImmGetCandidateListCountA<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmGetCandidateListCountW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpdwlistcount: *mut u32) -> u32 {
@@ -4333,6 +4520,7 @@ pub unsafe fn ImmGetCandidateListCountW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmGetCandidateListW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, deindex: u32, lpcandlist: *mut CANDIDATELIST, dwbuflen: u32) -> u32 {
@@ -4347,6 +4535,7 @@ pub unsafe fn ImmGetCandidateListW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmGetCandidateWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: u32, lpcandidate: *mut CANDIDATEFORM) -> super::super::super::Foundation::BOOL {
@@ -4361,6 +4550,7 @@ pub unsafe fn ImmGetCandidateWindow<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ImmGetCompositionFontA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> super::super::super::Foundation::BOOL {
@@ -4375,6 +4565,7 @@ pub unsafe fn ImmGetCompositionFontA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ImmGetCompositionFontW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> super::super::super::Foundation::BOOL {
@@ -4389,6 +4580,7 @@ pub unsafe fn ImmGetCompositionFontW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmGetCompositionStringA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: u32, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32 {
@@ -4403,6 +4595,7 @@ pub unsafe fn ImmGetCompositionStringA<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmGetCompositionStringW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: u32, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32 {
@@ -4417,6 +4610,7 @@ pub unsafe fn ImmGetCompositionStringW<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmGetCompositionWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpcompform: *mut COMPOSITIONFORM) -> super::super::super::Foundation::BOOL {
@@ -4431,6 +4625,7 @@ pub unsafe fn ImmGetCompositionWindow<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmGetContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0) -> super::super::super::Globalization::HIMC {
@@ -4445,6 +4640,7 @@ pub unsafe fn ImmGetContext<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmGetConversionListA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, lpsrc: Param2, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: GET_CONVERSION_LIST_FLAG) -> u32 {
@@ -4459,6 +4655,7 @@ pub unsafe fn ImmGetConversionListA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmGetConversionListW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1, lpsrc: Param2, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: GET_CONVERSION_LIST_FLAG) -> u32 {
@@ -4473,6 +4670,7 @@ pub unsafe fn ImmGetConversionListW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmGetConversionStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpfdwconversion: *mut u32, lpfdwsentence: *mut u32) -> super::super::super::Foundation::BOOL {
@@ -4487,6 +4685,7 @@ pub unsafe fn ImmGetConversionStatus<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmGetDefaultIMEWnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0) -> super::super::super::Foundation::HWND {
@@ -4501,6 +4700,7 @@ pub unsafe fn ImmGetDefaultIMEWnd<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmGetDescriptionA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszdescription: super::super::super::Foundation::PSTR, ubuflen: u32) -> u32 {
@@ -4515,6 +4715,7 @@ pub unsafe fn ImmGetDescriptionA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmGetDescriptionW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszdescription: super::super::super::Foundation::PWSTR, ubuflen: u32) -> u32 {
@@ -4529,6 +4730,7 @@ pub unsafe fn ImmGetDescriptionW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmGetGuideLineA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: super::super::super::Foundation::PSTR, dwbuflen: u32) -> u32 {
@@ -4543,6 +4745,7 @@ pub unsafe fn ImmGetGuideLineA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmGetGuideLineW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: super::super::super::Foundation::PWSTR, dwbuflen: u32) -> u32 {
@@ -4557,6 +4760,7 @@ pub unsafe fn ImmGetGuideLineW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmGetHotKey(param0: u32, lpumodifiers: *mut u32, lpuvkey: *mut u32, phkl: *mut isize) -> super::super::super::Foundation::BOOL {
@@ -4571,6 +4775,7 @@ pub unsafe fn ImmGetHotKey(param0: u32, lpumodifiers: *mut u32, lpuvkey: *mut u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmGetIMCCLockCount<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMCC>>(param0: Param0) -> u32 {
@@ -4585,6 +4790,7 @@ pub unsafe fn ImmGetIMCCLockCount<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmGetIMCCSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMCC>>(param0: Param0) -> u32 {
@@ -4599,6 +4805,7 @@ pub unsafe fn ImmGetIMCCSize<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmGetIMCLockCount<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0) -> u32 {
@@ -4613,6 +4820,7 @@ pub unsafe fn ImmGetIMCLockCount<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmGetIMEFileNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszfilename: super::super::super::Foundation::PSTR, ubuflen: u32) -> u32 {
@@ -4627,6 +4835,7 @@ pub unsafe fn ImmGetIMEFileNameA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmGetIMEFileNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszfilename: super::super::super::Foundation::PWSTR, ubuflen: u32) -> u32 {
@@ -4641,6 +4850,7 @@ pub unsafe fn ImmGetIMEFileNameW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ImmGetImeMenuItemsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: u32, param2: u32, lpimeparentmenu: *mut IMEMENUITEMINFOA, lpimemenu: *mut IMEMENUITEMINFOA, dwsize: u32) -> u32 {
@@ -4655,6 +4865,7 @@ pub unsafe fn ImmGetImeMenuItemsA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ImmGetImeMenuItemsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: u32, param2: u32, lpimeparentmenu: *mut IMEMENUITEMINFOW, lpimemenu: *mut IMEMENUITEMINFOW, dwsize: u32) -> u32 {
@@ -4669,6 +4880,7 @@ pub unsafe fn ImmGetImeMenuItemsW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmGetOpenStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0) -> super::super::super::Foundation::BOOL {
@@ -4683,6 +4895,7 @@ pub unsafe fn ImmGetOpenStatus<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_UI_TextServices'*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn ImmGetProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, param1: u32) -> u32 {
@@ -4697,6 +4910,7 @@ pub unsafe fn ImmGetProperty<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmGetRegisterWordStyleA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, nitem: u32, lpstylebuf: *mut STYLEBUFA) -> u32 {
@@ -4711,6 +4925,7 @@ pub unsafe fn ImmGetRegisterWordStyleA<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_UI_TextServices'*"]
 #[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn ImmGetRegisterWordStyleW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, nitem: u32, lpstylebuf: *mut STYLEBUFW) -> u32 {
@@ -4725,6 +4940,7 @@ pub unsafe fn ImmGetRegisterWordStyleW<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmGetStatusWindowPos<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpptpos: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
@@ -4739,6 +4955,7 @@ pub unsafe fn ImmGetStatusWindowPos<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmGetVirtualKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0) -> u32 {
@@ -4753,6 +4970,7 @@ pub unsafe fn ImmGetVirtualKey<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmInstallIMEA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(lpszimefilename: Param0, lpszlayouttext: Param1) -> super::super::TextServices::HKL {
@@ -4767,6 +4985,7 @@ pub unsafe fn ImmInstallIMEA<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmInstallIMEW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(lpszimefilename: Param0, lpszlayouttext: Param1) -> super::super::TextServices::HKL {
@@ -4781,6 +5000,7 @@ pub unsafe fn ImmInstallIMEW<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmIsIME<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0) -> super::super::super::Foundation::BOOL {
@@ -4795,6 +5015,7 @@ pub unsafe fn ImmIsIME<'a, Param0: ::windows::core::IntoParam<'a, super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmIsUIMessageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(param0: Param0, param1: u32, param2: Param2, param3: Param3) -> super::super::super::Foundation::BOOL {
@@ -4809,6 +5030,7 @@ pub unsafe fn ImmIsUIMessageA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmIsUIMessageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(param0: Param0, param1: u32, param2: Param2, param3: Param3) -> super::super::super::Foundation::BOOL {
@@ -4823,6 +5045,7 @@ pub unsafe fn ImmIsUIMessageW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ImmLockIMC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0) -> *mut INPUTCONTEXT {
@@ -4837,6 +5060,7 @@ pub unsafe fn ImmLockIMC<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmLockIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMCC>>(param0: Param0) -> *mut ::core::ffi::c_void {
@@ -4851,6 +5075,7 @@ pub unsafe fn ImmLockIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmNotifyIME<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, dwaction: NOTIFY_IME_ACTION, dwindex: NOTIFY_IME_INDEX, dwvalue: u32) -> super::super::super::Foundation::BOOL {
@@ -4865,6 +5090,7 @@ pub unsafe fn ImmNotifyIME<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
 #[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmReSizeIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMCC>>(param0: Param0, param1: u32) -> super::super::super::Globalization::HIMCC {
@@ -4879,6 +5105,7 @@ pub unsafe fn ImmReSizeIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmRegisterWordA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, lpszreading: Param1, param2: u32, lpszregister: Param3) -> super::super::super::Foundation::BOOL {
@@ -4893,6 +5120,7 @@ pub unsafe fn ImmRegisterWordA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmRegisterWordW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, lpszreading: Param1, param2: u32, lpszregister: Param3) -> super::super::super::Foundation::BOOL {
@@ -4907,6 +5135,7 @@ pub unsafe fn ImmRegisterWordW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmReleaseContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: Param1) -> super::super::super::Foundation::BOOL {
@@ -4921,6 +5150,7 @@ pub unsafe fn ImmReleaseContext<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmRequestMessageA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(param0: Param0, param1: Param1, param2: Param2) -> super::super::super::Foundation::LRESULT {
@@ -4935,6 +5165,7 @@ pub unsafe fn ImmRequestMessageA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmRequestMessageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::LPARAM>>(param0: Param0, param1: Param1, param2: Param2) -> super::super::super::Foundation::LRESULT {
@@ -4949,6 +5180,7 @@ pub unsafe fn ImmRequestMessageW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmSetCandidateWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpcandidate: *const CANDIDATEFORM) -> super::super::super::Foundation::BOOL {
@@ -4963,6 +5195,7 @@ pub unsafe fn ImmSetCandidateWindow<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ImmSetCompositionFontA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lplf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> super::super::super::Foundation::BOOL {
@@ -4977,6 +5210,7 @@ pub unsafe fn ImmSetCompositionFontA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ImmSetCompositionFontW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lplf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> super::super::super::Foundation::BOOL {
@@ -4991,6 +5225,7 @@ pub unsafe fn ImmSetCompositionFontW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmSetCompositionStringA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::core::ffi::c_void, dwcomplen: u32, lpread: *const ::core::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL {
@@ -5005,6 +5240,7 @@ pub unsafe fn ImmSetCompositionStringA<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmSetCompositionStringW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::core::ffi::c_void, dwcomplen: u32, lpread: *const ::core::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL {
@@ -5019,6 +5255,7 @@ pub unsafe fn ImmSetCompositionStringW<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmSetCompositionWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpcompform: *const COMPOSITIONFORM) -> super::super::super::Foundation::BOOL {
@@ -5033,6 +5270,7 @@ pub unsafe fn ImmSetCompositionWindow<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmSetConversionStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: u32, param2: u32) -> super::super::super::Foundation::BOOL {
@@ -5047,6 +5285,7 @@ pub unsafe fn ImmSetConversionStatus<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmSetHotKey<'a, Param3: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>>(param0: u32, param1: u32, param2: u32, param3: Param3) -> super::super::super::Foundation::BOOL {
@@ -5061,6 +5300,7 @@ pub unsafe fn ImmSetHotKey<'a, Param3: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmSetOpenStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(param0: Param0, param1: Param1) -> super::super::super::Foundation::BOOL {
@@ -5075,6 +5315,7 @@ pub unsafe fn ImmSetOpenStatus<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmSetStatusWindowPos<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpptpos: *const super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
@@ -5089,6 +5330,7 @@ pub unsafe fn ImmSetStatusWindowPos<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmShowSoftKeyboard<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0, param1: i32) -> super::super::super::Foundation::BOOL {
@@ -5103,6 +5345,7 @@ pub unsafe fn ImmShowSoftKeyboard<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmSimulateHotKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0, param1: u32) -> super::super::super::Foundation::BOOL {
@@ -5117,6 +5360,7 @@ pub unsafe fn ImmSimulateHotKey<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmUnlockIMC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0) -> super::super::super::Foundation::BOOL {
@@ -5131,6 +5375,7 @@ pub unsafe fn ImmUnlockIMC<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmUnlockIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMCC>>(param0: Param0) -> super::super::super::Foundation::BOOL {
@@ -5145,6 +5390,7 @@ pub unsafe fn ImmUnlockIMCC<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmUnregisterWordA<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, lpszreading: Param1, param2: u32, lpszunregister: Param3) -> super::super::super::Foundation::BOOL {
@@ -5159,6 +5405,7 @@ pub unsafe fn ImmUnregisterWordA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmUnregisterWordW<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, lpszreading: Param1, param2: u32, lpszunregister: Param3) -> super::super::super::Foundation::BOOL {
@@ -5347,6 +5594,7 @@ pub const MOD_LEFT: u32 = 32768u32;
 pub const MOD_ON_KEYUP: u32 = 2048u32;
 pub const MOD_RIGHT: u32 = 16384u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MORRSLT {
     pub dwSize: u32,
@@ -5390,6 +5638,7 @@ impl ::core::default::Default for MORRSLT {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union MORRSLT_0 {
     pub pwchRead: super::super::super::Foundation::PWSTR,
@@ -5422,6 +5671,7 @@ impl ::core::default::Default for MORRSLT_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union MORRSLT_1 {
     pub cchRead: u16,
@@ -5454,6 +5704,7 @@ impl ::core::default::Default for MORRSLT_1 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union MORRSLT_2 {
     pub pchReadIdxWDD: *mut u16,
@@ -5487,23 +5738,39 @@ impl ::core::default::Default for MORRSLT_2 {
 }
 pub const NI_CONTEXTUPDATED: u32 = 3u32;
 pub const NI_FINALIZECONVERSIONRESULT: u32 = 20u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub type NOTIFY_IME_ACTION = u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const NI_CHANGECANDIDATELIST: NOTIFY_IME_ACTION = 19u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const NI_CLOSECANDIDATE: NOTIFY_IME_ACTION = 17u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const NI_COMPOSITIONSTR: NOTIFY_IME_ACTION = 21u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const NI_IMEMENUSELECTED: NOTIFY_IME_ACTION = 24u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const NI_OPENCANDIDATE: NOTIFY_IME_ACTION = 16u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const NI_SELECTCANDIDATESTR: NOTIFY_IME_ACTION = 18u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const NI_SETCANDIDATE_PAGESIZE: NOTIFY_IME_ACTION = 23u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const NI_SETCANDIDATE_PAGESTART: NOTIFY_IME_ACTION = 22u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub type NOTIFY_IME_INDEX = u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const CPS_CANCEL: NOTIFY_IME_INDEX = 4u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const CPS_COMPLETE: NOTIFY_IME_INDEX = 1u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const CPS_CONVERT: NOTIFY_IME_INDEX = 2u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const CPS_REVERT: NOTIFY_IME_INDEX = 3u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNLOG = ::core::option::Option<unsafe extern "system" fn(param0: *mut IMEDP, param1: ::windows::core::HRESULT) -> super::super::super::Foundation::BOOL>;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct POSTBL {
     pub nPos: u16,
     pub szName: *mut u8,
@@ -5530,6 +5797,7 @@ impl ::core::default::Default for POSTBL {
 }
 pub const POS_UNDEFINED: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct RECONVERTSTRING {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -5563,6 +5831,7 @@ impl ::core::default::Default for RECONVERTSTRING {
 pub const RECONVOPT_NONE: u32 = 0u32;
 pub const RECONVOPT_USECANCELNOTIFY: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REGISTERWORDA {
     pub lpReading: super::super::super::Foundation::PSTR,
@@ -5594,11 +5863,14 @@ impl ::core::default::Default for REGISTERWORDA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type REGISTERWORDENUMPROCA = ::core::option::Option<unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PSTR, param1: u32, lpszstring: super::super::super::Foundation::PSTR, param3: *mut ::core::ffi::c_void) -> i32>;
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type REGISTERWORDENUMPROCW = ::core::option::Option<unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PWSTR, param1: u32, lpszstring: super::super::super::Foundation::PWSTR, param3: *mut ::core::ffi::c_void) -> i32>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REGISTERWORDW {
     pub lpReading: super::super::super::Foundation::PWSTR,
@@ -5635,16 +5907,23 @@ pub const SCS_CAP_MAKEREAD: u32 = 2u32;
 pub const SCS_CAP_SETRECONVERTSTRING: u32 = 4u32;
 pub const SELECT_CAP_CONVERSION: u32 = 1u32;
 pub const SELECT_CAP_SENTENCE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub type SET_COMPOSITION_STRING_TYPE = u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const SCS_SETSTR: SET_COMPOSITION_STRING_TYPE = 9u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const SCS_CHANGEATTR: SET_COMPOSITION_STRING_TYPE = 18u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const SCS_CHANGECLAUSE: SET_COMPOSITION_STRING_TYPE = 36u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const SCS_SETRECONVERTSTRING: SET_COMPOSITION_STRING_TYPE = 65536u32;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const SCS_QUERYRECONVERTSTRING: SET_COMPOSITION_STRING_TYPE = 131072u32;
 pub const SHOWIMEPAD_CATEGORY: u32 = 1u32;
 pub const SHOWIMEPAD_DEFAULT: u32 = 0u32;
 pub const SHOWIMEPAD_GUID: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct SOFTKBDDATA {
     pub uCount: u32,
     pub wCode: [u16; 256],
@@ -5672,6 +5951,7 @@ impl ::core::default::Default for SOFTKBDDATA {
 pub const SOFTKEYBOARD_TYPE_C1: u32 = 2u32;
 pub const SOFTKEYBOARD_TYPE_T1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STYLEBUFA {
     pub dwStyle: u32,
@@ -5704,6 +5984,7 @@ impl ::core::default::Default for STYLEBUFA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct STYLEBUFW {
     pub dwStyle: u32,
     pub szDescription: [u16; 32],
@@ -5730,6 +6011,7 @@ impl ::core::default::Default for STYLEBUFW {
 }
 pub const STYLE_DESCRIPTION_SIZE: u32 = 32u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TRANSMSG {
     pub message: u32,
@@ -5763,6 +6045,7 @@ impl ::core::default::Default for TRANSMSG {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TRANSMSGLIST {
     pub uMsgCount: u32,
@@ -5808,6 +6091,7 @@ pub const VERSION_MOUSE_OPERATION: u32 = 1u32;
 pub const VERSION_QUERYPOSITION: u32 = 1u32;
 pub const VERSION_RECONVERSION: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct WDD {
     pub wDispPos: u16,
     pub Anonymous1: WDD_0,
@@ -5839,6 +6123,7 @@ impl ::core::default::Default for WDD {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub union WDD_0 {
     pub wReadPos: u16,
     pub wCompPos: u16,
@@ -5864,6 +6149,7 @@ impl ::core::default::Default for WDD_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub union WDD_1 {
     pub cchRead: u16,
     pub cchComp: u16,
@@ -5888,10 +6174,14 @@ impl ::core::default::Default for WDD_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub type fpCreateIFECommonInstanceType = ::core::option::Option<unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub type fpCreateIFEDictionaryInstanceType = ::core::option::Option<unsafe extern "system" fn(ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub type fpCreateIFELanguageInstanceType = ::core::option::Option<unsafe extern "system" fn(clsid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct tabIMEFAREASTINFO {
     pub dwSize: u32,
     pub dwType: u32,
@@ -5918,6 +6208,7 @@ impl ::core::default::Default for tabIMEFAREASTINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct tabIMESTRINGINFO {
     pub dwFarEastId: u32,

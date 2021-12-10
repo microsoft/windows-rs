@@ -1,20 +1,35 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub type CONFLICT_RESOLUTION_POLICY = i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const CRP_NONE: CONFLICT_RESOLUTION_POLICY = 0i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const CRP_DESTINATION_PROVIDER_WINS: CONFLICT_RESOLUTION_POLICY = 1i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const CRP_SOURCE_PROVIDER_WINS: CONFLICT_RESOLUTION_POLICY = 2i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const CRP_LAST: CONFLICT_RESOLUTION_POLICY = 3i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub type CONSTRAINT_CONFLICT_REASON = i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const CCR_OTHER: CONSTRAINT_CONFLICT_REASON = 0i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const CCR_COLLISION: CONSTRAINT_CONFLICT_REASON = 1i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const CCR_NOPARENT: CONSTRAINT_CONFLICT_REASON = 2i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const CCR_IDENTITY: CONSTRAINT_CONFLICT_REASON = 3i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub type FILTERING_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const FT_CURRENT_ITEMS_ONLY: FILTERING_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const FT_CURRENT_ITEMS_AND_VERSIONS_FOR_MOVED_OUT_ITEMS: FILTERING_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub type FILTER_COMBINATION_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const FCT_INTERSECTION: FILTER_COMBINATION_TYPE = 0i32;
 pub type IAsynchronousDataRetriever = *mut ::core::ffi::c_void;
 pub type IChangeConflict = *mut ::core::ffi::c_void;
@@ -29,6 +44,7 @@ pub type ICoreFragment = *mut ::core::ffi::c_void;
 pub type ICoreFragmentInspector = *mut ::core::ffi::c_void;
 pub type ICustomFilterInfo = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ID_PARAMETERS {
     pub dwSize: u32,
@@ -45,6 +61,7 @@ impl ::core::clone::Clone for ID_PARAMETERS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ID_PARAMETER_PAIR {
     pub fIsVariable: super::super::Foundation::BOOL,
@@ -125,67 +142,103 @@ pub type ISyncSessionExtendedErrorInfo = *mut ::core::ffi::c_void;
 pub type ISyncSessionState = *mut ::core::ffi::c_void;
 pub type ISyncSessionState2 = *mut ::core::ffi::c_void;
 pub type ISynchronousDataRetriever = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub type KNOWLEDGE_COOKIE_COMPARISON_RESULT = i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const KCCR_COOKIE_KNOWLEDGE_EQUAL: KNOWLEDGE_COOKIE_COMPARISON_RESULT = 0i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const KCCR_COOKIE_KNOWLEDGE_CONTAINED: KNOWLEDGE_COOKIE_COMPARISON_RESULT = 1i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const KCCR_COOKIE_KNOWLEDGE_CONTAINS: KNOWLEDGE_COOKIE_COMPARISON_RESULT = 2i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const KCCR_COOKIE_KNOWLEDGE_NOT_COMPARABLE: KNOWLEDGE_COOKIE_COMPARISON_RESULT = 3i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1430988010, data2: 59619, data3: 17850, data4: [147, 82, 223, 181, 97, 225, 113, 228] }, pid: 5u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_CLSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1430988010, data2: 59619, data3: 17850, data4: [147, 82, 223, 181, 97, 225, 113, 228] }, pid: 3u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_CONTENTTYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1430988010, data2: 59619, data3: 17850, data4: [147, 82, 223, 181, 97, 225, 113, 228] }, pid: 4u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1430988010, data2: 59619, data3: 17850, data4: [147, 82, 223, 181, 97, 225, 113, 228] }, pid: 9u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_ICON: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1430988010, data2: 59619, data3: 17850, data4: [147, 82, 223, 181, 97, 225, 113, 228] }, pid: 11u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_INSTANCEID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1430988010, data2: 59619, data3: 17850, data4: [147, 82, 223, 181, 97, 225, 113, 228] }, pid: 2u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_IS_GLOBAL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1430988010, data2: 59619, data3: 17850, data4: [147, 82, 223, 181, 97, 225, 113, 228] }, pid: 7u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_MENUITEM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1430988010, data2: 59619, data3: 17850, data4: [147, 82, 223, 181, 97, 225, 113, 228] }, pid: 13u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_MENUITEM_NOUI: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1430988010, data2: 59619, data3: 17850, data4: [147, 82, 223, 181, 97, 225, 113, 228] }, pid: 12u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1430988010, data2: 59619, data3: 17850, data4: [147, 82, 223, 181, 97, 225, 113, 228] }, pid: 8u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_SUPPORTED_ARCHITECTURE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1430988010, data2: 59619, data3: 17850, data4: [147, 82, 223, 181, 97, 225, 113, 228] }, pid: 6u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CONFIGUI_TOOLTIPS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 1430988010, data2: 59619, data3: 17850, data4: [147, 82, 223, 181, 97, 225, 113, 228] }, pid: 10u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_CAPABILITIES: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 2216140385, data2: 24822, data3: 19484, data4: [136, 237, 241, 197, 49, 179, 43, 218] }, pid: 6u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_CLSID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 2216140385, data2: 24822, data3: 19484, data4: [136, 237, 241, 197, 49, 179, 43, 218] }, pid: 3u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_CONFIGUI: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 2216140385, data2: 24822, data3: 19484, data4: [136, 237, 241, 197, 49, 179, 43, 218] }, pid: 4u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_CONTENTTYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 2216140385, data2: 24822, data3: 19484, data4: [136, 237, 241, 197, 49, 179, 43, 218] }, pid: 5u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_DESCRIPTION: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 2216140385, data2: 24822, data3: 19484, data4: [136, 237, 241, 197, 49, 179, 43, 218] }, pid: 9u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_ICON: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 2216140385, data2: 24822, data3: 19484, data4: [136, 237, 241, 197, 49, 179, 43, 218] }, pid: 11u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_INSTANCEID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 2216140385, data2: 24822, data3: 19484, data4: [136, 237, 241, 197, 49, 179, 43, 218] }, pid: 2u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 2216140385, data2: 24822, data3: 19484, data4: [136, 237, 241, 197, 49, 179, 43, 218] }, pid: 8u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_SUPPORTED_ARCHITECTURE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 2216140385, data2: 24822, data3: 19484, data4: [136, 237, 241, 197, 49, 179, 43, 218] }, pid: 7u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_TOOLTIPS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 2216140385, data2: 24822, data3: 19484, data4: [136, 237, 241, 197, 49, 179, 43, 218] }, pid: 10u32 };
 pub const SYNC_CHANGE_FLAG_DELETED: u32 = 1u32;
 pub const SYNC_CHANGE_FLAG_DOES_NOT_EXIST: u32 = 2u32;
 pub const SYNC_CHANGE_FLAG_GHOST: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub type SYNC_CONSTRAINT_RESOLVE_ACTION = i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SCRA_DEFER: SYNC_CONSTRAINT_RESOLVE_ACTION = 0i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SCRA_ACCEPT_DESTINATION_PROVIDER: SYNC_CONSTRAINT_RESOLVE_ACTION = 1i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SCRA_ACCEPT_SOURCE_PROVIDER: SYNC_CONSTRAINT_RESOLVE_ACTION = 2i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SCRA_TRANSFER_AND_DEFER: SYNC_CONSTRAINT_RESOLVE_ACTION = 3i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SCRA_MERGE: SYNC_CONSTRAINT_RESOLVE_ACTION = 4i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SCRA_RENAME_SOURCE: SYNC_CONSTRAINT_RESOLVE_ACTION = 5i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SCRA_RENAME_DESTINATION: SYNC_CONSTRAINT_RESOLVE_ACTION = 6i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SYNC_FILTER_CHANGE {
     pub fMoveIn: super::super::Foundation::BOOL,
@@ -203,18 +256,30 @@ pub const SYNC_FILTER_INFO_COMBINED: u32 = 8u32;
 pub const SYNC_FILTER_INFO_FLAG_CHANGE_UNIT_LIST: u32 = 2u32;
 pub const SYNC_FILTER_INFO_FLAG_CUSTOM: u32 = 4u32;
 pub const SYNC_FILTER_INFO_FLAG_ITEM_LIST: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub type SYNC_FULL_ENUMERATION_ACTION = i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SFEA_FULL_ENUMERATION: SYNC_FULL_ENUMERATION_ACTION = 0i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SFEA_PARTIAL_SYNC: SYNC_FULL_ENUMERATION_ACTION = 1i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SFEA_ABORT: SYNC_FULL_ENUMERATION_ACTION = 2i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub type SYNC_PROGRESS_STAGE = i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SPS_CHANGE_DETECTION: SYNC_PROGRESS_STAGE = 0i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SPS_CHANGE_ENUMERATION: SYNC_PROGRESS_STAGE = 1i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SPS_CHANGE_APPLICATION: SYNC_PROGRESS_STAGE = 2i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub type SYNC_PROVIDER_ROLE = i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SPR_SOURCE: SYNC_PROVIDER_ROLE = 0i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SPR_DESTINATION: SYNC_PROVIDER_ROLE = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub struct SYNC_RANGE {
     pub pbClosedLowerBound: *mut u8,
     pub pbClosedUpperBound: *mut u8,
@@ -225,27 +290,47 @@ impl ::core::clone::Clone for SYNC_RANGE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub type SYNC_REGISTRATION_EVENT = i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SRE_PROVIDER_ADDED: SYNC_REGISTRATION_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SRE_PROVIDER_REMOVED: SYNC_REGISTRATION_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SRE_PROVIDER_UPDATED: SYNC_REGISTRATION_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SRE_PROVIDER_STATE_CHANGED: SYNC_REGISTRATION_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SRE_CONFIGUI_ADDED: SYNC_REGISTRATION_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SRE_CONFIGUI_REMOVED: SYNC_REGISTRATION_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SRE_CONFIGUI_UPDATED: SYNC_REGISTRATION_EVENT = 6i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub type SYNC_RESOLVE_ACTION = i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SRA_DEFER: SYNC_RESOLVE_ACTION = 0i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SRA_ACCEPT_DESTINATION_PROVIDER: SYNC_RESOLVE_ACTION = 1i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SRA_ACCEPT_SOURCE_PROVIDER: SYNC_RESOLVE_ACTION = 2i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SRA_MERGE: SYNC_RESOLVE_ACTION = 3i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SRA_TRANSFER_AND_DEFER: SYNC_RESOLVE_ACTION = 4i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SRA_LAST: SYNC_RESOLVE_ACTION = 5i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub type SYNC_SERIALIZATION_VERSION = i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SYNC_SERIALIZATION_VERSION_V1: SYNC_SERIALIZATION_VERSION = 1i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SYNC_SERIALIZATION_VERSION_V2: SYNC_SERIALIZATION_VERSION = 4i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SYNC_SERIALIZATION_VERSION_V3: SYNC_SERIALIZATION_VERSION = 5i32;
 pub const SYNC_SERIALIZE_REPLICA_KEY_MAP: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub struct SYNC_SESSION_STATISTICS {
     pub dwChangesApplied: u32,
     pub dwChangesFailed: u32,
@@ -256,9 +341,12 @@ impl ::core::clone::Clone for SYNC_SESSION_STATISTICS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub type SYNC_STATISTICS = i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SYNC_STATISTICS_RANGE_COUNT: SYNC_STATISTICS = 0i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub struct SYNC_TIME {
     pub dwDate: u32,
     pub dwTime: u32,
@@ -270,6 +358,7 @@ impl ::core::clone::Clone for SYNC_TIME {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub struct SYNC_VERSION {
     pub dwLastUpdatingReplicaKey: u32,
     pub ullTickCount: u64,
@@ -283,6 +372,7 @@ impl ::core::clone::Clone for SYNC_VERSION {
 pub const SYNC_VERSION_FLAG_FROM_FEED: u32 = 1u32;
 pub const SYNC_VERSION_FLAG_HAS_BY: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SyncProviderConfigUIConfiguration {
     pub dwVersion: u32,
@@ -302,6 +392,7 @@ impl ::core::clone::Clone for SyncProviderConfigUIConfiguration {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub struct SyncProviderConfiguration {
     pub dwVersion: u32,
     pub guidInstanceId: ::windows_sys::core::GUID,

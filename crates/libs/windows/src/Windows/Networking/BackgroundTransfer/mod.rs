@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 pub struct BackgroundDownloadProgress {
     pub BytesReceived: u64,
     pub TotalBytesToReceive: u64,
@@ -33,6 +34,7 @@ impl ::core::default::Default for BackgroundDownloadProgress {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundDownloader(::windows::core::IUnknown);
 impl BackgroundDownloader {
@@ -338,6 +340,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTransferBase> for &Background
 }
 unsafe impl ::core::marker::Send for BackgroundDownloader {}
 unsafe impl ::core::marker::Sync for BackgroundDownloader {}
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundTransferBehavior(pub i32);
 impl BackgroundTransferBehavior {
@@ -365,6 +368,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTransferBehavior {
 impl ::windows::core::DefaultType for BackgroundTransferBehavior {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundTransferCompletionGroup(::windows::core::IUnknown);
 impl BackgroundTransferCompletionGroup {
@@ -458,6 +462,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
 }
 unsafe impl ::core::marker::Send for BackgroundTransferCompletionGroup {}
 unsafe impl ::core::marker::Sync for BackgroundTransferCompletionGroup {}
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundTransferCompletionGroupTriggerDetails(::windows::core::IUnknown);
 impl BackgroundTransferCompletionGroupTriggerDetails {
@@ -541,6 +546,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
 }
 unsafe impl ::core::marker::Send for BackgroundTransferCompletionGroupTriggerDetails {}
 unsafe impl ::core::marker::Sync for BackgroundTransferCompletionGroupTriggerDetails {}
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundTransferContentPart(::windows::core::IUnknown);
 impl BackgroundTransferContentPart {
@@ -644,6 +650,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
 }
 unsafe impl ::core::marker::Send for BackgroundTransferContentPart {}
 unsafe impl ::core::marker::Sync for BackgroundTransferContentPart {}
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundTransferCostPolicy(pub i32);
 impl BackgroundTransferCostPolicy {
@@ -690,6 +697,7 @@ impl ::windows::core::RuntimeName for BackgroundTransferError {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferError";
 }
 #[repr(C)]
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 pub struct BackgroundTransferFileRange {
     pub Offset: u64,
     pub Length: u64,
@@ -720,6 +728,7 @@ impl ::core::default::Default for BackgroundTransferFileRange {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundTransferGroup(::windows::core::IUnknown);
 impl BackgroundTransferGroup {
@@ -815,6 +824,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
 }
 unsafe impl ::core::marker::Send for BackgroundTransferGroup {}
 unsafe impl ::core::marker::Sync for BackgroundTransferGroup {}
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundTransferPriority(pub i32);
 impl BackgroundTransferPriority {
@@ -843,6 +853,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTransferPriority {
 impl ::windows::core::DefaultType for BackgroundTransferPriority {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundTransferRangesDownloadedEventArgs(::windows::core::IUnknown);
 impl BackgroundTransferRangesDownloadedEventArgs {
@@ -933,6 +944,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
 }
 unsafe impl ::core::marker::Send for BackgroundTransferRangesDownloadedEventArgs {}
 unsafe impl ::core::marker::Sync for BackgroundTransferRangesDownloadedEventArgs {}
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundTransferStatus(pub i32);
 impl BackgroundTransferStatus {
@@ -969,6 +981,7 @@ impl ::windows::core::DefaultType for BackgroundTransferStatus {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 pub struct BackgroundUploadProgress {
     pub BytesReceived: u64,
     pub BytesSent: u64,
@@ -1004,6 +1017,7 @@ impl ::core::default::Default for BackgroundUploadProgress {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundUploader(::windows::core::IUnknown);
 impl BackgroundUploader {
@@ -1364,6 +1378,7 @@ impl ContentPrefetcher {
 impl ::windows::core::RuntimeName for ContentPrefetcher {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.ContentPrefetcher";
 }
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct DownloadOperation(::windows::core::IUnknown);
 impl DownloadOperation {
@@ -1816,6 +1831,7 @@ pub struct IBackgroundDownloaderUserConsentVtbl(
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated")))] usize,
 );
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct IBackgroundTransferBase(::windows::core::IUnknown);
 impl IBackgroundTransferBase {
@@ -2033,6 +2049,7 @@ pub struct IBackgroundTransferContentPartVtbl(
     #[cfg(feature = "Storage")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage"))] usize,
 );
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct IBackgroundTransferContentPartFactory(::windows::core::IUnknown);
 impl IBackgroundTransferContentPartFactory {
@@ -2178,6 +2195,7 @@ pub struct IBackgroundTransferGroupStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct IBackgroundTransferOperation(::windows::core::IUnknown);
 impl IBackgroundTransferOperation {
@@ -2317,6 +2335,7 @@ pub struct IBackgroundTransferOperationVtbl(
     #[cfg(not(feature = "Storage_Streams"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct IBackgroundTransferOperationPriority(::windows::core::IUnknown);
 impl IBackgroundTransferOperationPriority {
@@ -2862,6 +2881,7 @@ pub struct IUploadOperation4Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, headervalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct ResponseInformation(::windows::core::IUnknown);
 impl ResponseInformation {
@@ -2959,6 +2979,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Resp
 }
 unsafe impl ::core::marker::Send for ResponseInformation {}
 unsafe impl ::core::marker::Sync for ResponseInformation {}
+#[doc = "*Required features: 'Networking_BackgroundTransfer', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct UnconstrainedTransferRequestResult(::windows::core::IUnknown);
@@ -3052,6 +3073,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Unco
 unsafe impl ::core::marker::Send for UnconstrainedTransferRequestResult {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for UnconstrainedTransferRequestResult {}
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct UploadOperation(::windows::core::IUnknown);
 impl UploadOperation {

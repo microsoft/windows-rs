@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct DataClasses(pub u32);
 impl DataClasses {
@@ -41,6 +42,7 @@ unsafe impl ::windows::core::RuntimeType for DataClasses {
 impl ::windows::core::DefaultType for DataClasses {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESim(::windows::core::IUnknown);
 impl ESim {
@@ -226,6 +228,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
 }
 unsafe impl ::core::marker::Send for ESim {}
 unsafe impl ::core::marker::Sync for ESim {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimAddedEventArgs(::windows::core::IUnknown);
 impl ESimAddedEventArgs {
@@ -300,6 +303,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
 }
 unsafe impl ::core::marker::Send for ESimAddedEventArgs {}
 unsafe impl ::core::marker::Sync for ESimAddedEventArgs {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimAuthenticationPreference(pub i32);
 impl ESimAuthenticationPreference {
@@ -328,6 +332,7 @@ unsafe impl ::windows::core::RuntimeType for ESimAuthenticationPreference {
 impl ::windows::core::DefaultType for ESimAuthenticationPreference {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimDiscoverEvent(::windows::core::IUnknown);
 impl ESimDiscoverEvent {
@@ -409,6 +414,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
 }
 unsafe impl ::core::marker::Send for ESimDiscoverEvent {}
 unsafe impl ::core::marker::Sync for ESimDiscoverEvent {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimDiscoverResult(::windows::core::IUnknown);
 impl ESimDiscoverResult {
@@ -505,6 +511,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
 }
 unsafe impl ::core::marker::Send for ESimDiscoverResult {}
 unsafe impl ::core::marker::Sync for ESimDiscoverResult {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimDiscoverResultKind(pub i32);
 impl ESimDiscoverResultKind {
@@ -533,6 +540,7 @@ unsafe impl ::windows::core::RuntimeType for ESimDiscoverResultKind {
 impl ::windows::core::DefaultType for ESimDiscoverResultKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimDownloadProfileMetadataResult(::windows::core::IUnknown);
 impl ESimDownloadProfileMetadataResult {
@@ -647,6 +655,7 @@ impl ESimManager {
 impl ::windows::core::RuntimeName for ESimManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimManager";
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimOperationResult(::windows::core::IUnknown);
 impl ESimOperationResult {
@@ -721,6 +730,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
 }
 unsafe impl ::core::marker::Send for ESimOperationResult {}
 unsafe impl ::core::marker::Sync for ESimOperationResult {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimOperationStatus(pub i32);
 impl ESimOperationStatus {
@@ -775,6 +785,7 @@ unsafe impl ::windows::core::RuntimeType for ESimOperationStatus {
 impl ::windows::core::DefaultType for ESimOperationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimPolicy(::windows::core::IUnknown);
 impl ESimPolicy {
@@ -849,6 +860,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
 }
 unsafe impl ::core::marker::Send for ESimPolicy {}
 unsafe impl ::core::marker::Sync for ESimPolicy {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimProfile(::windows::core::IUnknown);
 impl ESimProfile {
@@ -997,6 +1009,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
 }
 unsafe impl ::core::marker::Send for ESimProfile {}
 unsafe impl ::core::marker::Sync for ESimProfile {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimProfileClass(pub i32);
 impl ESimProfileClass {
@@ -1026,6 +1039,7 @@ impl ::windows::core::DefaultType for ESimProfileClass {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 pub struct ESimProfileInstallProgress {
     pub TotalSizeInBytes: i32,
     pub InstalledSizeInBytes: i32,
@@ -1056,6 +1070,7 @@ impl ::core::default::Default for ESimProfileInstallProgress {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimProfileMetadata(::windows::core::IUnknown);
 impl ESimProfileMetadata {
@@ -1218,6 +1233,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
 }
 unsafe impl ::core::marker::Send for ESimProfileMetadata {}
 unsafe impl ::core::marker::Sync for ESimProfileMetadata {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimProfileMetadataState(pub i32);
 impl ESimProfileMetadataState {
@@ -1251,6 +1267,7 @@ unsafe impl ::windows::core::RuntimeType for ESimProfileMetadataState {
 impl ::windows::core::DefaultType for ESimProfileMetadataState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimProfilePolicy(::windows::core::IUnknown);
 impl ESimProfilePolicy {
@@ -1339,6 +1356,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
 }
 unsafe impl ::core::marker::Send for ESimProfilePolicy {}
 unsafe impl ::core::marker::Sync for ESimProfilePolicy {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimProfileState(pub i32);
 impl ESimProfileState {
@@ -1368,6 +1386,7 @@ unsafe impl ::windows::core::RuntimeType for ESimProfileState {
 impl ::windows::core::DefaultType for ESimProfileState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimRemovedEventArgs(::windows::core::IUnknown);
 impl ESimRemovedEventArgs {
@@ -1442,6 +1461,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
 }
 unsafe impl ::core::marker::Send for ESimRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for ESimRemovedEventArgs {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimServiceInfo(::windows::core::IUnknown);
 impl ESimServiceInfo {
@@ -1523,6 +1543,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
 }
 unsafe impl ::core::marker::Send for ESimServiceInfo {}
 unsafe impl ::core::marker::Sync for ESimServiceInfo {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimState(pub i32);
 impl ESimState {
@@ -1552,6 +1573,7 @@ unsafe impl ::windows::core::RuntimeType for ESimState {
 impl ::windows::core::DefaultType for ESimState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimUpdatedEventArgs(::windows::core::IUnknown);
 impl ESimUpdatedEventArgs {
@@ -1626,6 +1648,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
 }
 unsafe impl ::core::marker::Send for ESimUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for ESimUpdatedEventArgs {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimWatcher(::windows::core::IUnknown);
 impl ESimWatcher {
@@ -1773,6 +1796,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ESim
 }
 unsafe impl ::core::marker::Send for ESimWatcher {}
 unsafe impl ::core::marker::Sync for ESimWatcher {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ESimWatcherStatus(pub i32);
 impl ESimWatcherStatus {
@@ -1820,6 +1844,7 @@ impl FdnAccessManager {
 impl ::windows::core::RuntimeName for FdnAccessManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.FdnAccessManager";
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct HotspotAuthenticationContext(::windows::core::IUnknown);
 impl HotspotAuthenticationContext {
@@ -1958,6 +1983,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hots
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct HotspotAuthenticationEventDetails(::windows::core::IUnknown);
 impl HotspotAuthenticationEventDetails {
@@ -2030,6 +2056,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hots
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct HotspotAuthenticationResponseCode(pub i32);
 impl HotspotAuthenticationResponseCode {
@@ -2062,6 +2089,7 @@ unsafe impl ::windows::core::RuntimeType for HotspotAuthenticationResponseCode {
 impl ::windows::core::DefaultType for HotspotAuthenticationResponseCode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct HotspotCredentialsAuthenticationResult(::windows::core::IUnknown);
 impl HotspotCredentialsAuthenticationResult {
@@ -4782,6 +4810,7 @@ impl KnownUSimFilePaths {
 impl ::windows::core::RuntimeName for KnownUSimFilePaths {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.KnownUSimFilePaths";
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandAccount(::windows::core::IUnknown);
 impl MobileBroadbandAccount {
@@ -4915,6 +4944,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandAccountEventArgs(::windows::core::IUnknown);
 impl MobileBroadbandAccountEventArgs {
@@ -4987,6 +5017,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandAccountUpdatedEventArgs(::windows::core::IUnknown);
 impl MobileBroadbandAccountUpdatedEventArgs {
@@ -5073,6 +5104,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandAccountWatcher(::windows::core::IUnknown);
 impl MobileBroadbandAccountWatcher {
@@ -5225,6 +5257,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandAccountWatcherStatus(pub i32);
 impl MobileBroadbandAccountWatcherStatus {
@@ -5255,6 +5288,7 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandAccountWatcherStatus
 impl ::windows::core::DefaultType for MobileBroadbandAccountWatcherStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandAntennaSar(::windows::core::IUnknown);
 impl MobileBroadbandAntennaSar {
@@ -5346,6 +5380,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandAntennaSar {}
 unsafe impl ::core::marker::Sync for MobileBroadbandAntennaSar {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandCellCdma(::windows::core::IUnknown);
 impl MobileBroadbandCellCdma {
@@ -5477,6 +5512,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandCellCdma {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellCdma {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandCellGsm(::windows::core::IUnknown);
 impl MobileBroadbandCellGsm {
@@ -5599,6 +5635,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandCellGsm {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellGsm {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandCellLte(::windows::core::IUnknown);
 impl MobileBroadbandCellLte {
@@ -5729,6 +5766,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandCellLte {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellLte {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandCellNR(::windows::core::IUnknown);
 impl MobileBroadbandCellNR {
@@ -5867,6 +5905,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandCellNR {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellNR {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandCellTdscdma(::windows::core::IUnknown);
 impl MobileBroadbandCellTdscdma {
@@ -5997,6 +6036,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandCellTdscdma {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellTdscdma {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandCellUmts(::windows::core::IUnknown);
 impl MobileBroadbandCellUmts {
@@ -6127,6 +6167,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandCellUmts {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellUmts {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandCellsInfo(::windows::core::IUnknown);
 impl MobileBroadbandCellsInfo {
@@ -6290,6 +6331,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandCellsInfo {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCellsInfo {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandCurrentSlotIndexChangedEventArgs(::windows::core::IUnknown);
 impl MobileBroadbandCurrentSlotIndexChangedEventArgs {
@@ -6364,6 +6406,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandCurrentSlotIndexChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MobileBroadbandCurrentSlotIndexChangedEventArgs {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceInformation(::windows::core::IUnknown);
 impl MobileBroadbandDeviceInformation {
@@ -6578,6 +6621,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceService(::windows::core::IUnknown);
 impl MobileBroadbandDeviceService {
@@ -6674,6 +6718,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceService {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceService {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceServiceCommandResult(::windows::core::IUnknown);
 impl MobileBroadbandDeviceServiceCommandResult {
@@ -6756,6 +6801,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceCommandResult {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceCommandResult {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceServiceCommandSession(::windows::core::IUnknown);
 impl MobileBroadbandDeviceServiceCommandSession {
@@ -6843,6 +6889,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceCommandSession {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceCommandSession {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceServiceDataReceivedEventArgs(::windows::core::IUnknown);
 impl MobileBroadbandDeviceServiceDataReceivedEventArgs {
@@ -6918,6 +6965,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceDataReceivedEventArgs {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceServiceDataSession(::windows::core::IUnknown);
 impl MobileBroadbandDeviceServiceDataSession {
@@ -7010,6 +7058,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceDataSession {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceDataSession {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceServiceInformation(::windows::core::IUnknown);
 impl MobileBroadbandDeviceServiceInformation {
@@ -7098,6 +7147,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceInformation {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceInformation {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceServiceTriggerDetails(::windows::core::IUnknown);
 impl MobileBroadbandDeviceServiceTriggerDetails {
@@ -7187,6 +7237,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceTriggerDetails {}
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceTriggerDetails {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandDeviceType(pub i32);
 impl MobileBroadbandDeviceType {
@@ -7216,6 +7267,7 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandDeviceType {
 impl ::windows::core::DefaultType for MobileBroadbandDeviceType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandModem(::windows::core::IUnknown);
 impl MobileBroadbandModem {
@@ -7422,6 +7474,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandModem {}
 unsafe impl ::core::marker::Sync for MobileBroadbandModem {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandModemConfiguration(::windows::core::IUnknown);
 impl MobileBroadbandModemConfiguration {
@@ -7515,6 +7568,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandModemIsolation(::windows::core::IUnknown);
 impl MobileBroadbandModemIsolation {
@@ -7616,6 +7670,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandModemIsolation {}
 unsafe impl ::core::marker::Sync for MobileBroadbandModemIsolation {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandModemStatus(pub i32);
 impl MobileBroadbandModemStatus {
@@ -7645,6 +7700,7 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandModemStatus {
 impl ::windows::core::DefaultType for MobileBroadbandModemStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandNetwork(::windows::core::IUnknown);
 impl MobileBroadbandNetwork {
@@ -7802,6 +7858,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandNetworkRegistrationStateChange(::windows::core::IUnknown);
 impl MobileBroadbandNetworkRegistrationStateChange {
@@ -7883,6 +7940,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandNetworkRegistrationStateChange {}
 unsafe impl ::core::marker::Sync for MobileBroadbandNetworkRegistrationStateChange {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandNetworkRegistrationStateChangeTriggerDetails(::windows::core::IUnknown);
 impl MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
@@ -7958,6 +8016,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {}
 unsafe impl ::core::marker::Sync for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandPco(::windows::core::IUnknown);
 impl MobileBroadbandPco {
@@ -8047,6 +8106,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandPco {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPco {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandPcoDataChangeTriggerDetails(::windows::core::IUnknown);
 impl MobileBroadbandPcoDataChangeTriggerDetails {
@@ -8121,6 +8181,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandPcoDataChangeTriggerDetails {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPcoDataChangeTriggerDetails {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandPin(::windows::core::IUnknown);
 impl MobileBroadbandPin {
@@ -8277,6 +8338,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandPin {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPin {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandPinFormat(pub i32);
 impl MobileBroadbandPinFormat {
@@ -8305,6 +8367,7 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandPinFormat {
 impl ::windows::core::DefaultType for MobileBroadbandPinFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandPinLockState(pub i32);
 impl MobileBroadbandPinLockState {
@@ -8334,6 +8397,7 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandPinLockState {
 impl ::windows::core::DefaultType for MobileBroadbandPinLockState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandPinLockStateChange(::windows::core::IUnknown);
 impl MobileBroadbandPinLockStateChange {
@@ -8422,6 +8486,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandPinLockStateChange {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPinLockStateChange {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandPinLockStateChangeTriggerDetails(::windows::core::IUnknown);
 impl MobileBroadbandPinLockStateChangeTriggerDetails {
@@ -8497,6 +8562,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandPinLockStateChangeTriggerDetails {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPinLockStateChangeTriggerDetails {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandPinManager(::windows::core::IUnknown);
 impl MobileBroadbandPinManager {
@@ -8579,6 +8645,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandPinManager {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPinManager {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandPinOperationResult(::windows::core::IUnknown);
 impl MobileBroadbandPinOperationResult {
@@ -8660,6 +8727,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandPinOperationResult {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPinOperationResult {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandPinType(pub i32);
 impl MobileBroadbandPinType {
@@ -8696,6 +8764,7 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandPinType {
 impl ::windows::core::DefaultType for MobileBroadbandPinType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandRadioState(pub i32);
 impl MobileBroadbandRadioState {
@@ -8723,6 +8792,7 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandRadioState {
 impl ::windows::core::DefaultType for MobileBroadbandRadioState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandRadioStateChange(::windows::core::IUnknown);
 impl MobileBroadbandRadioStateChange {
@@ -8804,6 +8874,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandRadioStateChange {}
 unsafe impl ::core::marker::Sync for MobileBroadbandRadioStateChange {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandRadioStateChangeTriggerDetails(::windows::core::IUnknown);
 impl MobileBroadbandRadioStateChangeTriggerDetails {
@@ -8879,6 +8950,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandRadioStateChangeTriggerDetails {}
 unsafe impl ::core::marker::Sync for MobileBroadbandRadioStateChangeTriggerDetails {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandSarManager(::windows::core::IUnknown);
 impl MobileBroadbandSarManager {
@@ -9052,6 +9124,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandSarManager {}
 unsafe impl ::core::marker::Sync for MobileBroadbandSarManager {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandSlotInfo(::windows::core::IUnknown);
 impl MobileBroadbandSlotInfo {
@@ -9133,6 +9206,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandSlotInfo {}
 unsafe impl ::core::marker::Sync for MobileBroadbandSlotInfo {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandSlotInfoChangedEventArgs(::windows::core::IUnknown);
 impl MobileBroadbandSlotInfoChangedEventArgs {
@@ -9207,6 +9281,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandSlotInfoChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MobileBroadbandSlotInfoChangedEventArgs {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandSlotManager(::windows::core::IUnknown);
 impl MobileBroadbandSlotManager {
@@ -9330,6 +9405,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandSlotManager {}
 unsafe impl ::core::marker::Sync for MobileBroadbandSlotManager {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandSlotState(pub i32);
 impl MobileBroadbandSlotState {
@@ -9365,6 +9441,7 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandSlotState {
 impl ::windows::core::DefaultType for MobileBroadbandSlotState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandTransmissionStateChangedEventArgs(::windows::core::IUnknown);
 impl MobileBroadbandTransmissionStateChangedEventArgs {
@@ -9439,6 +9516,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandTransmissionStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MobileBroadbandTransmissionStateChangedEventArgs {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandUicc(::windows::core::IUnknown);
 impl MobileBroadbandUicc {
@@ -9521,6 +9599,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandUicc {}
 unsafe impl ::core::marker::Sync for MobileBroadbandUicc {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandUiccApp(::windows::core::IUnknown);
 impl MobileBroadbandUiccApp {
@@ -9619,6 +9698,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandUiccApp {}
 unsafe impl ::core::marker::Sync for MobileBroadbandUiccApp {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandUiccAppOperationStatus(pub i32);
 impl MobileBroadbandUiccAppOperationStatus {
@@ -9648,6 +9728,7 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandUiccAppOperationStat
 impl ::windows::core::DefaultType for MobileBroadbandUiccAppOperationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandUiccAppReadRecordResult(::windows::core::IUnknown);
 impl MobileBroadbandUiccAppReadRecordResult {
@@ -9730,6 +9811,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandUiccAppReadRecordResult {}
 unsafe impl ::core::marker::Sync for MobileBroadbandUiccAppReadRecordResult {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandUiccAppRecordDetailsResult(::windows::core::IUnknown);
 impl MobileBroadbandUiccAppRecordDetailsResult {
@@ -9839,6 +9921,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandUiccAppRecordDetailsResult {}
 unsafe impl ::core::marker::Sync for MobileBroadbandUiccAppRecordDetailsResult {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct MobileBroadbandUiccAppsResult(::windows::core::IUnknown);
 impl MobileBroadbandUiccAppsResult {
@@ -9921,6 +10004,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mobi
 }
 unsafe impl ::core::marker::Send for MobileBroadbandUiccAppsResult {}
 unsafe impl ::core::marker::Sync for MobileBroadbandUiccAppsResult {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct NetworkDeviceStatus(pub i32);
 impl NetworkDeviceStatus {
@@ -9954,6 +10038,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkDeviceStatus {
 impl ::windows::core::DefaultType for NetworkDeviceStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct NetworkOperatorDataUsageNotificationKind(pub i32);
 impl NetworkOperatorDataUsageNotificationKind {
@@ -9980,6 +10065,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkOperatorDataUsageNotificatio
 impl ::windows::core::DefaultType for NetworkOperatorDataUsageNotificationKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct NetworkOperatorDataUsageTriggerDetails(::windows::core::IUnknown);
 impl NetworkOperatorDataUsageTriggerDetails {
@@ -10054,6 +10140,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
 }
 unsafe impl ::core::marker::Send for NetworkOperatorDataUsageTriggerDetails {}
 unsafe impl ::core::marker::Sync for NetworkOperatorDataUsageTriggerDetails {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct NetworkOperatorEventMessageType(pub i32);
 impl NetworkOperatorEventMessageType {
@@ -10092,6 +10179,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkOperatorEventMessageType {
 impl ::windows::core::DefaultType for NetworkOperatorEventMessageType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct NetworkOperatorNotificationEventDetails(::windows::core::IUnknown);
 impl NetworkOperatorNotificationEventDetails {
@@ -10206,6 +10294,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
 }
 unsafe impl ::core::marker::Send for NetworkOperatorNotificationEventDetails {}
 unsafe impl ::core::marker::Sync for NetworkOperatorNotificationEventDetails {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct NetworkOperatorTetheringAccessPointConfiguration(::windows::core::IUnknown);
 impl NetworkOperatorTetheringAccessPointConfiguration {
@@ -10328,6 +10417,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
 }
 unsafe impl ::core::marker::Send for NetworkOperatorTetheringAccessPointConfiguration {}
 unsafe impl ::core::marker::Sync for NetworkOperatorTetheringAccessPointConfiguration {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct NetworkOperatorTetheringClient(::windows::core::IUnknown);
 impl NetworkOperatorTetheringClient {
@@ -10410,6 +10500,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
 }
 unsafe impl ::core::marker::Send for NetworkOperatorTetheringClient {}
 unsafe impl ::core::marker::Sync for NetworkOperatorTetheringClient {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct NetworkOperatorTetheringManager(::windows::core::IUnknown);
 impl NetworkOperatorTetheringManager {
@@ -10610,6 +10701,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct NetworkOperatorTetheringOperationResult(::windows::core::IUnknown);
 impl NetworkOperatorTetheringOperationResult {
@@ -10689,6 +10781,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct NetworkRegistrationState(pub i32);
 impl NetworkRegistrationState {
@@ -10721,6 +10814,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkRegistrationState {
 impl ::windows::core::DefaultType for NetworkRegistrationState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ProfileMediaType(pub i32);
 impl ProfileMediaType {
@@ -10749,6 +10843,7 @@ impl ::windows::core::DefaultType for ProfileMediaType {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Networking_NetworkOperators', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct ProfileUsage {
     pub UsageInMegabytes: u32,
@@ -10788,6 +10883,7 @@ impl ::core::default::Default for ProfileUsage {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ProvisionFromXmlDocumentResults(::windows::core::IUnknown);
 impl ProvisionFromXmlDocumentResults {
@@ -10867,6 +10963,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prov
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ProvisionedProfile(::windows::core::IUnknown);
 impl ProvisionedProfile {
@@ -10942,6 +11039,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prov
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct ProvisioningAgent(::windows::core::IUnknown);
 impl ProvisioningAgent {
@@ -11039,6 +11137,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prov
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct TetheringCapability(pub i32);
 impl TetheringCapability {
@@ -11072,6 +11171,7 @@ unsafe impl ::windows::core::RuntimeType for TetheringCapability {
 impl ::windows::core::DefaultType for TetheringCapability {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct TetheringEntitlementCheckTriggerDetails(::windows::core::IUnknown);
 impl TetheringEntitlementCheckTriggerDetails {
@@ -11154,6 +11254,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Teth
 }
 unsafe impl ::core::marker::Send for TetheringEntitlementCheckTriggerDetails {}
 unsafe impl ::core::marker::Sync for TetheringEntitlementCheckTriggerDetails {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct TetheringOperationStatus(pub i32);
 impl TetheringOperationStatus {
@@ -11188,6 +11289,7 @@ unsafe impl ::windows::core::RuntimeType for TetheringOperationStatus {
 impl ::windows::core::DefaultType for TetheringOperationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct TetheringOperationalState(pub i32);
 impl TetheringOperationalState {
@@ -11217,6 +11319,7 @@ unsafe impl ::windows::core::RuntimeType for TetheringOperationalState {
 impl ::windows::core::DefaultType for TetheringOperationalState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct TetheringWiFiBand(pub i32);
 impl TetheringWiFiBand {
@@ -11245,6 +11348,7 @@ unsafe impl ::windows::core::RuntimeType for TetheringWiFiBand {
 impl ::windows::core::DefaultType for TetheringWiFiBand {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct UiccAccessCondition(pub i32);
 impl UiccAccessCondition {
@@ -11278,6 +11382,7 @@ unsafe impl ::windows::core::RuntimeType for UiccAccessCondition {
 impl ::windows::core::DefaultType for UiccAccessCondition {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct UiccAppKind(pub i32);
 impl UiccAppKind {
@@ -11310,6 +11415,7 @@ unsafe impl ::windows::core::RuntimeType for UiccAppKind {
 impl ::windows::core::DefaultType for UiccAppKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct UiccAppRecordKind(pub i32);
 impl UiccAppRecordKind {
@@ -11338,6 +11444,7 @@ unsafe impl ::windows::core::RuntimeType for UiccAppRecordKind {
 impl ::windows::core::DefaultType for UiccAppRecordKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct UssdMessage(::windows::core::IUnknown);
 impl UssdMessage {
@@ -11448,6 +11555,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ussd
 }
 unsafe impl ::core::marker::Send for UssdMessage {}
 unsafe impl ::core::marker::Sync for UssdMessage {}
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct UssdReply(::windows::core::IUnknown);
 impl UssdReply {
@@ -11527,6 +11635,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ussd
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct UssdResultCode(pub i32);
 impl UssdResultCode {
@@ -11558,6 +11667,7 @@ unsafe impl ::windows::core::RuntimeType for UssdResultCode {
 impl ::windows::core::DefaultType for UssdResultCode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_NetworkOperators'*"]
 #[repr(transparent)]
 pub struct UssdSession(::windows::core::IUnknown);
 impl UssdSession {

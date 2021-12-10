@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Storage_Pickers_Provider")]
 pub mod Provider;
+#[doc = "*Required features: 'Storage_Pickers', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct FileExtensionVector(::windows::core::IUnknown);
@@ -237,6 +238,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 unsafe impl ::core::marker::Send for FileExtensionVector {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for FileExtensionVector {}
+#[doc = "*Required features: 'Storage_Pickers'*"]
 #[repr(transparent)]
 pub struct FileOpenPicker(::windows::core::IUnknown);
 impl FileOpenPicker {
@@ -435,6 +437,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
 }
 unsafe impl ::core::marker::Send for FileOpenPicker {}
 unsafe impl ::core::marker::Sync for FileOpenPicker {}
+#[doc = "*Required features: 'Storage_Pickers', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct FilePickerFileTypesOrderedMap(::windows::core::IUnknown);
@@ -646,6 +649,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 unsafe impl ::core::marker::Send for FilePickerFileTypesOrderedMap {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for FilePickerFileTypesOrderedMap {}
+#[doc = "*Required features: 'Storage_Pickers', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct FilePickerSelectedFilesArray(::windows::core::IUnknown);
@@ -839,6 +843,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 unsafe impl ::core::marker::Send for FilePickerSelectedFilesArray {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for FilePickerSelectedFilesArray {}
+#[doc = "*Required features: 'Storage_Pickers'*"]
 #[repr(transparent)]
 pub struct FileSavePicker(::windows::core::IUnknown);
 impl FileSavePicker {
@@ -1038,6 +1043,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
 }
 unsafe impl ::core::marker::Send for FileSavePicker {}
 unsafe impl ::core::marker::Sync for FileSavePicker {}
+#[doc = "*Required features: 'Storage_Pickers'*"]
 #[repr(transparent)]
 pub struct FolderPicker(::windows::core::IUnknown);
 impl FolderPicker {
@@ -1533,6 +1539,7 @@ pub struct IFolderPickerStaticsVtbl(
     #[cfg(feature = "System")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))] usize,
 );
+#[doc = "*Required features: 'Storage_Pickers'*"]
 #[repr(transparent)]
 pub struct PickerLocationId(pub i32);
 impl PickerLocationId {
@@ -1568,6 +1575,7 @@ unsafe impl ::windows::core::RuntimeType for PickerLocationId {
 impl ::windows::core::DefaultType for PickerLocationId {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Pickers'*"]
 #[repr(transparent)]
 pub struct PickerViewMode(pub i32);
 impl PickerViewMode {

@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
 pub struct CoreFrameworkInputView(::windows::core::IUnknown);
 impl CoreFrameworkInputView {
@@ -108,6 +109,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreFrameworkInputView {}
 unsafe impl ::core::marker::Sync for CoreFrameworkInputView {}
+#[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
 pub struct CoreFrameworkInputViewAnimationStartingEventArgs(::windows::core::IUnknown);
 impl CoreFrameworkInputViewAnimationStartingEventArgs {
@@ -198,6 +200,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreFrameworkInputViewAnimationStartingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreFrameworkInputViewAnimationStartingEventArgs {}
+#[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
 pub struct CoreFrameworkInputViewOcclusionsChangedEventArgs(::windows::core::IUnknown);
 impl CoreFrameworkInputViewOcclusionsChangedEventArgs {
@@ -280,6 +283,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
+#[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
 pub struct CoreInputView(::windows::core::IUnknown);
 impl CoreInputView {
@@ -516,6 +520,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreInputView {}
 unsafe impl ::core::marker::Sync for CoreInputView {}
+#[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
 pub struct CoreInputViewAnimationStartingEventArgs(::windows::core::IUnknown);
 impl CoreInputViewAnimationStartingEventArgs {
@@ -610,6 +615,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreInputViewAnimationStartingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreInputViewAnimationStartingEventArgs {}
+#[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
 pub struct CoreInputViewHidingEventArgs(::windows::core::IUnknown);
 impl CoreInputViewHidingEventArgs {
@@ -684,6 +690,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreInputViewHidingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreInputViewHidingEventArgs {}
+#[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
 pub struct CoreInputViewKind(pub i32);
 impl CoreInputViewKind {
@@ -716,6 +723,7 @@ unsafe impl ::windows::core::RuntimeType for CoreInputViewKind {
 impl ::windows::core::DefaultType for CoreInputViewKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
 pub struct CoreInputViewOcclusion(::windows::core::IUnknown);
 impl CoreInputViewOcclusion {
@@ -798,6 +806,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreInputViewOcclusion {}
 unsafe impl ::core::marker::Sync for CoreInputViewOcclusion {}
+#[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
 pub struct CoreInputViewOcclusionKind(pub i32);
 impl CoreInputViewOcclusionKind {
@@ -826,6 +835,7 @@ unsafe impl ::windows::core::RuntimeType for CoreInputViewOcclusionKind {
 impl ::windows::core::DefaultType for CoreInputViewOcclusionKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
 pub struct CoreInputViewOcclusionsChangedEventArgs(::windows::core::IUnknown);
 impl CoreInputViewOcclusionsChangedEventArgs {
@@ -912,6 +922,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreInputViewOcclusionsChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreInputViewOcclusionsChangedEventArgs {}
+#[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
 pub struct CoreInputViewShowingEventArgs(::windows::core::IUnknown);
 impl CoreInputViewShowingEventArgs {
@@ -986,6 +997,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreInputViewShowingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreInputViewShowingEventArgs {}
+#[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
 pub struct CoreInputViewTransferringXYFocusEventArgs(::windows::core::IUnknown);
 impl CoreInputViewTransferringXYFocusEventArgs {
@@ -1090,6 +1102,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreInputViewTransferringXYFocusEventArgs {}
 unsafe impl ::core::marker::Sync for CoreInputViewTransferringXYFocusEventArgs {}
+#[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
 pub struct CoreInputViewXYFocusTransferDirection(pub i32);
 impl CoreInputViewXYFocusTransferDirection {
@@ -1529,6 +1542,7 @@ pub struct IUISettingsControllerStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
 pub struct UISettingsController(::windows::core::IUnknown);
 impl UISettingsController {

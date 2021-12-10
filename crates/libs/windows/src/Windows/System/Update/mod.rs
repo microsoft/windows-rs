@@ -96,6 +96,7 @@ pub struct ISystemUpdateManagerStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'System_Update'*"]
 #[repr(transparent)]
 pub struct SystemUpdateAttentionRequiredReason(pub i32);
 impl SystemUpdateAttentionRequiredReason {
@@ -126,6 +127,7 @@ unsafe impl ::windows::core::RuntimeType for SystemUpdateAttentionRequiredReason
 impl ::windows::core::DefaultType for SystemUpdateAttentionRequiredReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_Update'*"]
 #[repr(transparent)]
 pub struct SystemUpdateItem(::windows::core::IUnknown);
 impl SystemUpdateItem {
@@ -249,6 +251,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemUpdateItem {}
 unsafe impl ::core::marker::Sync for SystemUpdateItem {}
+#[doc = "*Required features: 'System_Update'*"]
 #[repr(transparent)]
 pub struct SystemUpdateItemState(pub i32);
 impl SystemUpdateItemState {
@@ -283,6 +286,7 @@ unsafe impl ::windows::core::RuntimeType for SystemUpdateItemState {
 impl ::windows::core::DefaultType for SystemUpdateItemState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_Update'*"]
 #[repr(transparent)]
 pub struct SystemUpdateLastErrorInfo(::windows::core::IUnknown);
 impl SystemUpdateLastErrorInfo {
@@ -524,6 +528,7 @@ impl SystemUpdateManager {
 impl ::windows::core::RuntimeName for SystemUpdateManager {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateManager";
 }
+#[doc = "*Required features: 'System_Update'*"]
 #[repr(transparent)]
 pub struct SystemUpdateManagerState(pub i32);
 impl SystemUpdateManagerState {
@@ -561,6 +566,7 @@ unsafe impl ::windows::core::RuntimeType for SystemUpdateManagerState {
 impl ::windows::core::DefaultType for SystemUpdateManagerState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_Update'*"]
 #[repr(transparent)]
 pub struct SystemUpdateStartInstallAction(pub i32);
 impl SystemUpdateStartInstallAction {

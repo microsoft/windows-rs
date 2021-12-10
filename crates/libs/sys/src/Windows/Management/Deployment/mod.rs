@@ -3,6 +3,7 @@
 pub mod Preview;
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct AddPackageByAppInstallerOptions(pub u32);
 impl AddPackageByAppInstallerOptions {
@@ -25,6 +26,7 @@ pub type CreateSharedPackageContainerOptions = *mut ::core::ffi::c_void;
 pub type CreateSharedPackageContainerResult = *mut ::core::ffi::c_void;
 pub type DeleteSharedPackageContainerOptions = *mut ::core::ffi::c_void;
 pub type DeleteSharedPackageContainerResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct DeploymentOptions(pub u32);
 impl DeploymentOptions {
@@ -45,6 +47,7 @@ impl ::core::clone::Clone for DeploymentOptions {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Management_Deployment'*"]
 pub struct DeploymentProgress {
     pub state: DeploymentProgressState,
     pub percentage: u32,
@@ -55,6 +58,7 @@ impl ::core::clone::Clone for DeploymentProgress {
         *self
     }
 }
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct DeploymentProgressState(pub i32);
 impl DeploymentProgressState {
@@ -70,6 +74,7 @@ impl ::core::clone::Clone for DeploymentProgressState {
 pub type DeploymentResult = *mut ::core::ffi::c_void;
 pub type FindSharedPackageContainerOptions = *mut ::core::ffi::c_void;
 pub type PackageAllUserProvisioningOptions = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct PackageInstallState(pub i32);
 impl PackageInstallState {
@@ -86,6 +91,7 @@ impl ::core::clone::Clone for PackageInstallState {
 }
 pub type PackageManager = *mut ::core::ffi::c_void;
 pub type PackageManagerDebugSettings = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct PackageState(pub i32);
 impl PackageState {
@@ -100,6 +106,7 @@ impl ::core::clone::Clone for PackageState {
         *self
     }
 }
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct PackageStatus(pub u32);
 impl PackageStatus {
@@ -115,6 +122,7 @@ impl ::core::clone::Clone for PackageStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct PackageStubPreference(pub i32);
 impl PackageStubPreference {
@@ -127,6 +135,7 @@ impl ::core::clone::Clone for PackageStubPreference {
         *self
     }
 }
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct PackageTypes(pub u32);
 impl PackageTypes {
@@ -148,6 +157,7 @@ impl ::core::clone::Clone for PackageTypes {
 pub type PackageUserInformation = *mut ::core::ffi::c_void;
 pub type PackageVolume = *mut ::core::ffi::c_void;
 pub type RegisterPackageOptions = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct RemovalOptions(pub u32);
 impl RemovalOptions {
@@ -163,6 +173,7 @@ impl ::core::clone::Clone for RemovalOptions {
     }
 }
 pub type SharedPackageContainer = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct SharedPackageContainerCreationCollisionOptions(pub i32);
 impl SharedPackageContainerCreationCollisionOptions {
@@ -178,6 +189,7 @@ impl ::core::clone::Clone for SharedPackageContainerCreationCollisionOptions {
 }
 pub type SharedPackageContainerManager = *mut ::core::ffi::c_void;
 pub type SharedPackageContainerMember = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct SharedPackageContainerOperationStatus(pub i32);
 impl SharedPackageContainerOperationStatus {
@@ -195,6 +207,7 @@ impl ::core::clone::Clone for SharedPackageContainerOperationStatus {
     }
 }
 pub type StagePackageOptions = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct StubPackageOption(pub i32);
 impl StubPackageOption {

@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 pub type Radio = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Radios'*"]
 #[repr(transparent)]
 pub struct RadioAccessStatus(pub i32);
 impl RadioAccessStatus {
@@ -16,6 +17,7 @@ impl ::core::clone::Clone for RadioAccessStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Radios'*"]
 #[repr(transparent)]
 pub struct RadioKind(pub i32);
 impl RadioKind {
@@ -31,6 +33,7 @@ impl ::core::clone::Clone for RadioKind {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Radios'*"]
 #[repr(transparent)]
 pub struct RadioState(pub i32);
 impl RadioState {

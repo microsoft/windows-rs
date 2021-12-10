@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct AudioMediaFrame(::windows::core::IUnknown);
 impl AudioMediaFrame {
@@ -88,6 +89,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioMediaFrame {}
 unsafe impl ::core::marker::Sync for AudioMediaFrame {}
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct BufferMediaFrame(::windows::core::IUnknown);
 impl BufferMediaFrame {
@@ -170,6 +172,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Buff
 }
 unsafe impl ::core::marker::Send for BufferMediaFrame {}
 unsafe impl ::core::marker::Sync for BufferMediaFrame {}
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct DepthMediaFrame(::windows::core::IUnknown);
 impl DepthMediaFrame {
@@ -280,6 +283,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dept
 }
 unsafe impl ::core::marker::Send for DepthMediaFrame {}
 unsafe impl ::core::marker::Sync for DepthMediaFrame {}
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct DepthMediaFrameFormat(::windows::core::IUnknown);
 impl DepthMediaFrameFormat {
@@ -984,6 +988,7 @@ pub struct IVideoMediaFrameFormatVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct InfraredMediaFrame(::windows::core::IUnknown);
 impl InfraredMediaFrame {
@@ -1072,6 +1077,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Infr
 }
 unsafe impl ::core::marker::Send for InfraredMediaFrame {}
 unsafe impl ::core::marker::Sync for InfraredMediaFrame {}
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct MediaFrameArrivedEventArgs(::windows::core::IUnknown);
 impl MediaFrameArrivedEventArgs {}
@@ -1138,6 +1144,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaFrameArrivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaFrameArrivedEventArgs {}
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct MediaFrameFormat(::windows::core::IUnknown);
 impl MediaFrameFormat {
@@ -1250,6 +1257,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaFrameFormat {}
 unsafe impl ::core::marker::Sync for MediaFrameFormat {}
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct MediaFrameReader(::windows::core::IUnknown);
 impl MediaFrameReader {
@@ -1395,6 +1403,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for MediaFrameReader {}
 unsafe impl ::core::marker::Sync for MediaFrameReader {}
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct MediaFrameReaderAcquisitionMode(pub i32);
 impl MediaFrameReaderAcquisitionMode {
@@ -1422,6 +1431,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameReaderAcquisitionMode {
 impl ::windows::core::DefaultType for MediaFrameReaderAcquisitionMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct MediaFrameReaderStartStatus(pub i32);
 impl MediaFrameReaderStartStatus {
@@ -1452,6 +1462,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameReaderStartStatus {
 impl ::windows::core::DefaultType for MediaFrameReaderStartStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct MediaFrameReference(::windows::core::IUnknown);
 impl MediaFrameReference {
@@ -1617,6 +1628,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for MediaFrameReference {}
 unsafe impl ::core::marker::Sync for MediaFrameReference {}
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct MediaFrameSource(::windows::core::IUnknown);
 impl MediaFrameSource {
@@ -1742,6 +1754,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaFrameSource {}
 unsafe impl ::core::marker::Sync for MediaFrameSource {}
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct MediaFrameSourceController(::windows::core::IUnknown);
 impl MediaFrameSourceController {
@@ -1857,6 +1870,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaFrameSourceController {}
 unsafe impl ::core::marker::Sync for MediaFrameSourceController {}
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct MediaFrameSourceGetPropertyResult(::windows::core::IUnknown);
 impl MediaFrameSourceGetPropertyResult {
@@ -1938,6 +1952,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaFrameSourceGetPropertyResult {}
 unsafe impl ::core::marker::Sync for MediaFrameSourceGetPropertyResult {}
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct MediaFrameSourceGetPropertyStatus(pub i32);
 impl MediaFrameSourceGetPropertyStatus {
@@ -1969,6 +1984,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameSourceGetPropertyStatus {
 impl ::windows::core::DefaultType for MediaFrameSourceGetPropertyStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct MediaFrameSourceGroup(::windows::core::IUnknown);
 impl MediaFrameSourceGroup {
@@ -2082,6 +2098,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaFrameSourceGroup {}
 unsafe impl ::core::marker::Sync for MediaFrameSourceGroup {}
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct MediaFrameSourceInfo(::windows::core::IUnknown);
 impl MediaFrameSourceInfo {
@@ -2224,6 +2241,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaFrameSourceInfo {}
 unsafe impl ::core::marker::Sync for MediaFrameSourceInfo {}
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct MediaFrameSourceKind(pub i32);
 impl MediaFrameSourceKind {
@@ -2256,6 +2274,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameSourceKind {
 impl ::windows::core::DefaultType for MediaFrameSourceKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct MediaFrameSourceSetPropertyStatus(pub i32);
 impl MediaFrameSourceSetPropertyStatus {
@@ -2287,6 +2306,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameSourceSetPropertyStatus {
 impl ::windows::core::DefaultType for MediaFrameSourceSetPropertyStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct MultiSourceMediaFrameArrivedEventArgs(::windows::core::IUnknown);
 impl MultiSourceMediaFrameArrivedEventArgs {}
@@ -2353,6 +2373,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mult
 }
 unsafe impl ::core::marker::Send for MultiSourceMediaFrameArrivedEventArgs {}
 unsafe impl ::core::marker::Sync for MultiSourceMediaFrameArrivedEventArgs {}
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct MultiSourceMediaFrameReader(::windows::core::IUnknown);
 impl MultiSourceMediaFrameReader {
@@ -2498,6 +2519,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for MultiSourceMediaFrameReader {}
 unsafe impl ::core::marker::Sync for MultiSourceMediaFrameReader {}
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct MultiSourceMediaFrameReaderStartStatus(pub i32);
 impl MultiSourceMediaFrameReaderStartStatus {
@@ -2528,6 +2550,7 @@ unsafe impl ::windows::core::RuntimeType for MultiSourceMediaFrameReaderStartSta
 impl ::windows::core::DefaultType for MultiSourceMediaFrameReaderStartStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct MultiSourceMediaFrameReference(::windows::core::IUnknown);
 impl MultiSourceMediaFrameReference {
@@ -2633,6 +2656,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for MultiSourceMediaFrameReference {}
 unsafe impl ::core::marker::Sync for MultiSourceMediaFrameReference {}
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct VideoMediaFrame(::windows::core::IUnknown);
 impl VideoMediaFrame {
@@ -2759,6 +2783,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vide
 }
 unsafe impl ::core::marker::Send for VideoMediaFrame {}
 unsafe impl ::core::marker::Sync for VideoMediaFrame {}
+#[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
 pub struct VideoMediaFrameFormat(::windows::core::IUnknown);
 impl VideoMediaFrameFormat {

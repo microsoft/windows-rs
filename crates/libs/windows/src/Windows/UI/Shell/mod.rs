@@ -15,6 +15,7 @@ impl AdaptiveCardBuilder {
 impl ::windows::core::RuntimeName for AdaptiveCardBuilder {
     const NAME: &'static str = "Windows.UI.Shell.AdaptiveCardBuilder";
 }
+#[doc = "*Required features: 'UI_Shell'*"]
 #[repr(transparent)]
 pub struct IAdaptiveCard(::windows::core::IUnknown);
 impl IAdaptiveCard {
@@ -95,6 +96,7 @@ pub struct IAdaptiveCardVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Shell'*"]
 #[repr(transparent)]
 pub struct IAdaptiveCardBuilderStatics(::windows::core::IUnknown);
 impl IAdaptiveCardBuilderStatics {
@@ -331,6 +333,7 @@ pub struct ITaskbarManagerStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Shell'*"]
 #[repr(transparent)]
 pub struct SecurityAppKind(pub i32);
 impl SecurityAppKind {
@@ -357,6 +360,7 @@ unsafe impl ::windows::core::RuntimeType for SecurityAppKind {
 impl ::windows::core::DefaultType for SecurityAppKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Shell'*"]
 #[repr(transparent)]
 pub struct SecurityAppManager(::windows::core::IUnknown);
 impl SecurityAppManager {
@@ -448,6 +452,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Secu
 }
 unsafe impl ::core::marker::Send for SecurityAppManager {}
 unsafe impl ::core::marker::Sync for SecurityAppManager {}
+#[doc = "*Required features: 'UI_Shell'*"]
 #[repr(transparent)]
 pub struct SecurityAppState(pub i32);
 impl SecurityAppState {
@@ -475,6 +480,7 @@ unsafe impl ::windows::core::RuntimeType for SecurityAppState {
 impl ::windows::core::DefaultType for SecurityAppState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Shell'*"]
 #[repr(transparent)]
 pub struct SecurityAppSubstatus(pub i32);
 impl SecurityAppSubstatus {
@@ -504,6 +510,7 @@ unsafe impl ::windows::core::RuntimeType for SecurityAppSubstatus {
 impl ::windows::core::DefaultType for SecurityAppSubstatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Shell'*"]
 #[repr(transparent)]
 pub struct ShareWindowCommand(pub i32);
 impl ShareWindowCommand {
@@ -532,6 +539,7 @@ unsafe impl ::windows::core::RuntimeType for ShareWindowCommand {
 impl ::windows::core::DefaultType for ShareWindowCommand {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Shell'*"]
 #[repr(transparent)]
 pub struct ShareWindowCommandEventArgs(::windows::core::IUnknown);
 impl ShareWindowCommandEventArgs {
@@ -617,6 +625,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
 }
 unsafe impl ::core::marker::Send for ShareWindowCommandEventArgs {}
 unsafe impl ::core::marker::Sync for ShareWindowCommandEventArgs {}
+#[doc = "*Required features: 'UI_Shell'*"]
 #[repr(transparent)]
 pub struct ShareWindowCommandSource(::windows::core::IUnknown);
 impl ShareWindowCommandSource {
@@ -732,6 +741,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
 }
 unsafe impl ::core::marker::Send for ShareWindowCommandSource {}
 unsafe impl ::core::marker::Sync for ShareWindowCommandSource {}
+#[doc = "*Required features: 'UI_Shell'*"]
 #[repr(transparent)]
 pub struct TaskbarManager(::windows::core::IUnknown);
 impl TaskbarManager {

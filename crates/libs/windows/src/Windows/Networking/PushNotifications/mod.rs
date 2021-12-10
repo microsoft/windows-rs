@@ -252,6 +252,7 @@ pub struct IRawNotification3Vtbl(
     #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
+#[doc = "*Required features: 'Networking_PushNotifications'*"]
 #[repr(transparent)]
 pub struct PushNotificationChannel(::windows::core::IUnknown);
 impl PushNotificationChannel {
@@ -418,6 +419,7 @@ impl PushNotificationChannelManager {
 impl ::windows::core::RuntimeName for PushNotificationChannelManager {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannelManager";
 }
+#[doc = "*Required features: 'Networking_PushNotifications'*"]
 #[repr(transparent)]
 pub struct PushNotificationChannelManagerForUser(::windows::core::IUnknown);
 impl PushNotificationChannelManagerForUser {
@@ -533,6 +535,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Push
 }
 unsafe impl ::core::marker::Send for PushNotificationChannelManagerForUser {}
 unsafe impl ::core::marker::Sync for PushNotificationChannelManagerForUser {}
+#[doc = "*Required features: 'Networking_PushNotifications'*"]
 #[repr(transparent)]
 pub struct PushNotificationChannelsRevokedEventArgs(::windows::core::IUnknown);
 impl PushNotificationChannelsRevokedEventArgs {}
@@ -599,6 +602,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Push
 }
 unsafe impl ::core::marker::Send for PushNotificationChannelsRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for PushNotificationChannelsRevokedEventArgs {}
+#[doc = "*Required features: 'Networking_PushNotifications'*"]
 #[repr(transparent)]
 pub struct PushNotificationReceivedEventArgs(::windows::core::IUnknown);
 impl PushNotificationReceivedEventArgs {
@@ -715,6 +719,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Push
 }
 unsafe impl ::core::marker::Send for PushNotificationReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for PushNotificationReceivedEventArgs {}
+#[doc = "*Required features: 'Networking_PushNotifications'*"]
 #[repr(transparent)]
 pub struct PushNotificationType(pub i32);
 impl PushNotificationType {
@@ -745,6 +750,7 @@ unsafe impl ::windows::core::RuntimeType for PushNotificationType {
 impl ::windows::core::DefaultType for PushNotificationType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_PushNotifications'*"]
 #[repr(transparent)]
 pub struct RawNotification(::windows::core::IUnknown);
 impl RawNotification {

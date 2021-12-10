@@ -3,6 +3,7 @@
 pub mod System;
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
 pub struct WalletActionKind(pub i32);
 impl WalletActionKind {
@@ -19,6 +20,7 @@ impl ::core::clone::Clone for WalletActionKind {
     }
 }
 pub type WalletBarcode = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
 pub struct WalletBarcodeSymbology(pub i32);
 impl WalletBarcodeSymbology {
@@ -41,6 +43,7 @@ impl ::core::clone::Clone for WalletBarcodeSymbology {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
 pub struct WalletDetailViewPosition(pub i32);
 impl WalletDetailViewPosition {
@@ -68,6 +71,7 @@ impl ::core::clone::Clone for WalletDetailViewPosition {
 }
 pub type WalletItem = *mut ::core::ffi::c_void;
 pub type WalletItemCustomProperty = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
 pub struct WalletItemKind(pub i32);
 impl WalletItemKind {
@@ -87,6 +91,7 @@ impl ::core::clone::Clone for WalletItemKind {
 }
 pub type WalletItemStore = *mut ::core::ffi::c_void;
 pub type WalletRelevantLocation = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
 pub struct WalletSummaryViewPosition(pub i32);
 impl WalletSummaryViewPosition {

@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct AddDeleteThemeTransition(::windows::core::IUnknown);
 impl AddDeleteThemeTransition {
@@ -113,6 +114,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Add
 }
 unsafe impl ::core::marker::Send for AddDeleteThemeTransition {}
 unsafe impl ::core::marker::Sync for AddDeleteThemeTransition {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct BackEase(::windows::core::IUnknown);
 impl BackEase {
@@ -248,6 +250,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Bac
 }
 unsafe impl ::core::marker::Send for BackEase {}
 unsafe impl ::core::marker::Sync for BackEase {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct BasicConnectedAnimationConfiguration(::windows::core::IUnknown);
 impl BasicConnectedAnimationConfiguration {
@@ -345,6 +348,7 @@ impl<'a> ::windows::core::IntoParam<'a, ConnectedAnimationConfiguration> for &Ba
 }
 unsafe impl ::core::marker::Send for BasicConnectedAnimationConfiguration {}
 unsafe impl ::core::marker::Sync for BasicConnectedAnimationConfiguration {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct BeginStoryboard(::windows::core::IUnknown);
 impl BeginStoryboard {
@@ -480,6 +484,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Beg
 }
 unsafe impl ::core::marker::Send for BeginStoryboard {}
 unsafe impl ::core::marker::Sync for BeginStoryboard {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct BounceEase(::windows::core::IUnknown);
 impl BounceEase {
@@ -632,6 +637,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Bou
 }
 unsafe impl ::core::marker::Send for BounceEase {}
 unsafe impl ::core::marker::Sync for BounceEase {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct CircleEase(::windows::core::IUnknown);
 impl CircleEase {
@@ -746,6 +752,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Cir
 }
 unsafe impl ::core::marker::Send for CircleEase {}
 unsafe impl ::core::marker::Sync for CircleEase {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct ClockState(pub i32);
 impl ClockState {
@@ -774,6 +781,7 @@ unsafe impl ::windows::core::RuntimeType for ClockState {
 impl ::windows::core::DefaultType for ClockState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct ColorAnimation(::windows::core::IUnknown);
 impl ColorAnimation {
@@ -983,6 +991,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Col
 }
 unsafe impl ::core::marker::Send for ColorAnimation {}
 unsafe impl ::core::marker::Sync for ColorAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct ColorAnimationUsingKeyFrames(::windows::core::IUnknown);
 impl ColorAnimationUsingKeyFrames {
@@ -1126,6 +1135,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Col
 }
 unsafe impl ::core::marker::Send for ColorAnimationUsingKeyFrames {}
 unsafe impl ::core::marker::Sync for ColorAnimationUsingKeyFrames {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct ColorKeyFrame(::windows::core::IUnknown);
 impl ColorKeyFrame {
@@ -1253,6 +1263,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Col
 }
 unsafe impl ::core::marker::Send for ColorKeyFrame {}
 unsafe impl ::core::marker::Sync for ColorKeyFrame {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ColorKeyFrameCollection(::windows::core::IUnknown);
@@ -1496,6 +1507,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::
 unsafe impl ::core::marker::Send for ColorKeyFrameCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for ColorKeyFrameCollection {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct CommonNavigationTransitionInfo(::windows::core::IUnknown);
 impl CommonNavigationTransitionInfo {
@@ -1646,6 +1658,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Com
 }
 unsafe impl ::core::marker::Send for CommonNavigationTransitionInfo {}
 unsafe impl ::core::marker::Sync for CommonNavigationTransitionInfo {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct ConnectedAnimation(::windows::core::IUnknown);
 impl ConnectedAnimation {
@@ -1772,6 +1785,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conn
 }
 unsafe impl ::core::marker::Send for ConnectedAnimation {}
 unsafe impl ::core::marker::Sync for ConnectedAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct ConnectedAnimationComponent(pub i32);
 impl ConnectedAnimationComponent {
@@ -1801,6 +1815,7 @@ unsafe impl ::windows::core::RuntimeType for ConnectedAnimationComponent {
 impl ::windows::core::DefaultType for ConnectedAnimationComponent {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct ConnectedAnimationConfiguration(::windows::core::IUnknown);
 impl ConnectedAnimationConfiguration {}
@@ -1867,6 +1882,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conn
 }
 unsafe impl ::core::marker::Send for ConnectedAnimationConfiguration {}
 unsafe impl ::core::marker::Sync for ConnectedAnimationConfiguration {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct ConnectedAnimationService(::windows::core::IUnknown);
 impl ConnectedAnimationService {
@@ -1984,6 +2000,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conn
 }
 unsafe impl ::core::marker::Send for ConnectedAnimationService {}
 unsafe impl ::core::marker::Sync for ConnectedAnimationService {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct ContentThemeTransition(::windows::core::IUnknown);
 impl ContentThemeTransition {
@@ -2136,6 +2153,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Con
 }
 unsafe impl ::core::marker::Send for ContentThemeTransition {}
 unsafe impl ::core::marker::Sync for ContentThemeTransition {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct ContinuumNavigationTransitionInfo(::windows::core::IUnknown);
 impl ContinuumNavigationTransitionInfo {
@@ -2318,6 +2336,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Con
 }
 unsafe impl ::core::marker::Send for ContinuumNavigationTransitionInfo {}
 unsafe impl ::core::marker::Sync for ContinuumNavigationTransitionInfo {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct CubicEase(::windows::core::IUnknown);
 impl CubicEase {
@@ -2432,6 +2451,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Cub
 }
 unsafe impl ::core::marker::Send for CubicEase {}
 unsafe impl ::core::marker::Sync for CubicEase {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct DirectConnectedAnimationConfiguration(::windows::core::IUnknown);
 impl DirectConnectedAnimationConfiguration {
@@ -2529,6 +2549,7 @@ impl<'a> ::windows::core::IntoParam<'a, ConnectedAnimationConfiguration> for &Di
 }
 unsafe impl ::core::marker::Send for DirectConnectedAnimationConfiguration {}
 unsafe impl ::core::marker::Sync for DirectConnectedAnimationConfiguration {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct DiscreteColorKeyFrame(::windows::core::IUnknown);
 impl DiscreteColorKeyFrame {
@@ -2643,6 +2664,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dis
 }
 unsafe impl ::core::marker::Send for DiscreteColorKeyFrame {}
 unsafe impl ::core::marker::Sync for DiscreteColorKeyFrame {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct DiscreteDoubleKeyFrame(::windows::core::IUnknown);
 impl DiscreteDoubleKeyFrame {
@@ -2757,6 +2779,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dis
 }
 unsafe impl ::core::marker::Send for DiscreteDoubleKeyFrame {}
 unsafe impl ::core::marker::Sync for DiscreteDoubleKeyFrame {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct DiscreteObjectKeyFrame(::windows::core::IUnknown);
 impl DiscreteObjectKeyFrame {
@@ -2871,6 +2894,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dis
 }
 unsafe impl ::core::marker::Send for DiscreteObjectKeyFrame {}
 unsafe impl ::core::marker::Sync for DiscreteObjectKeyFrame {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct DiscretePointKeyFrame(::windows::core::IUnknown);
 impl DiscretePointKeyFrame {
@@ -2985,6 +3009,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dis
 }
 unsafe impl ::core::marker::Send for DiscretePointKeyFrame {}
 unsafe impl ::core::marker::Sync for DiscretePointKeyFrame {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct DoubleAnimation(::windows::core::IUnknown);
 impl DoubleAnimation {
@@ -3194,6 +3219,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dou
 }
 unsafe impl ::core::marker::Send for DoubleAnimation {}
 unsafe impl ::core::marker::Sync for DoubleAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct DoubleAnimationUsingKeyFrames(::windows::core::IUnknown);
 impl DoubleAnimationUsingKeyFrames {
@@ -3337,6 +3363,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dou
 }
 unsafe impl ::core::marker::Send for DoubleAnimationUsingKeyFrames {}
 unsafe impl ::core::marker::Sync for DoubleAnimationUsingKeyFrames {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct DoubleKeyFrame(::windows::core::IUnknown);
 impl DoubleKeyFrame {
@@ -3464,6 +3491,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dou
 }
 unsafe impl ::core::marker::Send for DoubleKeyFrame {}
 unsafe impl ::core::marker::Sync for DoubleKeyFrame {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct DoubleKeyFrameCollection(::windows::core::IUnknown);
@@ -3707,6 +3735,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::
 unsafe impl ::core::marker::Send for DoubleKeyFrameCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for DoubleKeyFrameCollection {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct DragItemThemeAnimation(::windows::core::IUnknown);
 impl DragItemThemeAnimation {
@@ -3842,6 +3871,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dra
 }
 unsafe impl ::core::marker::Send for DragItemThemeAnimation {}
 unsafe impl ::core::marker::Sync for DragItemThemeAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct DragOverThemeAnimation(::windows::core::IUnknown);
 impl DragOverThemeAnimation {
@@ -4013,6 +4043,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dra
 }
 unsafe impl ::core::marker::Send for DragOverThemeAnimation {}
 unsafe impl ::core::marker::Sync for DragOverThemeAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct DrillInNavigationTransitionInfo(::windows::core::IUnknown);
 impl DrillInNavigationTransitionInfo {
@@ -4127,6 +4158,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dri
 }
 unsafe impl ::core::marker::Send for DrillInNavigationTransitionInfo {}
 unsafe impl ::core::marker::Sync for DrillInNavigationTransitionInfo {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct DrillInThemeAnimation(::windows::core::IUnknown);
 impl DrillInThemeAnimation {
@@ -4313,6 +4345,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dri
 }
 unsafe impl ::core::marker::Send for DrillInThemeAnimation {}
 unsafe impl ::core::marker::Sync for DrillInThemeAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct DrillOutThemeAnimation(::windows::core::IUnknown);
 impl DrillOutThemeAnimation {
@@ -4499,6 +4532,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dri
 }
 unsafe impl ::core::marker::Send for DrillOutThemeAnimation {}
 unsafe impl ::core::marker::Sync for DrillOutThemeAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct DropTargetItemThemeAnimation(::windows::core::IUnknown);
 impl DropTargetItemThemeAnimation {
@@ -4634,6 +4668,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Dro
 }
 unsafe impl ::core::marker::Send for DropTargetItemThemeAnimation {}
 unsafe impl ::core::marker::Sync for DropTargetItemThemeAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct EasingColorKeyFrame(::windows::core::IUnknown);
 impl EasingColorKeyFrame {
@@ -4769,6 +4804,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Eas
 }
 unsafe impl ::core::marker::Send for EasingColorKeyFrame {}
 unsafe impl ::core::marker::Sync for EasingColorKeyFrame {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct EasingDoubleKeyFrame(::windows::core::IUnknown);
 impl EasingDoubleKeyFrame {
@@ -4904,6 +4940,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Eas
 }
 unsafe impl ::core::marker::Send for EasingDoubleKeyFrame {}
 unsafe impl ::core::marker::Sync for EasingDoubleKeyFrame {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct EasingFunctionBase(::windows::core::IUnknown);
 impl EasingFunctionBase {
@@ -5019,6 +5056,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Eas
 }
 unsafe impl ::core::marker::Send for EasingFunctionBase {}
 unsafe impl ::core::marker::Sync for EasingFunctionBase {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct EasingMode(pub i32);
 impl EasingMode {
@@ -5047,6 +5085,7 @@ unsafe impl ::windows::core::RuntimeType for EasingMode {
 impl ::windows::core::DefaultType for EasingMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct EasingPointKeyFrame(::windows::core::IUnknown);
 impl EasingPointKeyFrame {
@@ -5182,6 +5221,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Eas
 }
 unsafe impl ::core::marker::Send for EasingPointKeyFrame {}
 unsafe impl ::core::marker::Sync for EasingPointKeyFrame {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct EdgeUIThemeTransition(::windows::core::IUnknown);
 impl EdgeUIThemeTransition {
@@ -5319,6 +5359,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Edg
 }
 unsafe impl ::core::marker::Send for EdgeUIThemeTransition {}
 unsafe impl ::core::marker::Sync for EdgeUIThemeTransition {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct ElasticEase(::windows::core::IUnknown);
 impl ElasticEase {
@@ -5471,6 +5512,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ela
 }
 unsafe impl ::core::marker::Send for ElasticEase {}
 unsafe impl ::core::marker::Sync for ElasticEase {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct EntranceNavigationTransitionInfo(::windows::core::IUnknown);
 impl EntranceNavigationTransitionInfo {
@@ -5604,6 +5646,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ent
 }
 unsafe impl ::core::marker::Send for EntranceNavigationTransitionInfo {}
 unsafe impl ::core::marker::Sync for EntranceNavigationTransitionInfo {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct EntranceThemeTransition(::windows::core::IUnknown);
 impl EntranceThemeTransition {
@@ -5773,6 +5816,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ent
 }
 unsafe impl ::core::marker::Send for EntranceThemeTransition {}
 unsafe impl ::core::marker::Sync for EntranceThemeTransition {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct ExponentialEase(::windows::core::IUnknown);
 impl ExponentialEase {
@@ -5908,6 +5952,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Exp
 }
 unsafe impl ::core::marker::Send for ExponentialEase {}
 unsafe impl ::core::marker::Sync for ExponentialEase {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct FadeInThemeAnimation(::windows::core::IUnknown);
 impl FadeInThemeAnimation {
@@ -6043,6 +6088,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Fad
 }
 unsafe impl ::core::marker::Send for FadeInThemeAnimation {}
 unsafe impl ::core::marker::Sync for FadeInThemeAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct FadeOutThemeAnimation(::windows::core::IUnknown);
 impl FadeOutThemeAnimation {
@@ -6178,6 +6224,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Fad
 }
 unsafe impl ::core::marker::Send for FadeOutThemeAnimation {}
 unsafe impl ::core::marker::Sync for FadeOutThemeAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct FillBehavior(pub i32);
 impl FillBehavior {
@@ -6205,6 +6252,7 @@ unsafe impl ::windows::core::RuntimeType for FillBehavior {
 impl ::windows::core::DefaultType for FillBehavior {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct GravityConnectedAnimationConfiguration(::windows::core::IUnknown);
 impl GravityConnectedAnimationConfiguration {
@@ -9447,6 +9495,7 @@ pub struct ITransitionFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct KeySpline(::windows::core::IUnknown);
 impl KeySpline {
@@ -9568,6 +9617,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Key
 unsafe impl ::core::marker::Send for KeySpline {}
 unsafe impl ::core::marker::Sync for KeySpline {}
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Media_Animation', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct KeyTime {
     pub TimeSpan: super::super::super::super::Foundation::TimeSpan,
@@ -9606,6 +9656,7 @@ impl ::core::default::Default for KeyTime {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct KeyTimeHelper(::windows::core::IUnknown);
 impl KeyTimeHelper {
@@ -9684,6 +9735,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &KeyT
 }
 unsafe impl ::core::marker::Send for KeyTimeHelper {}
 unsafe impl ::core::marker::Sync for KeyTimeHelper {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct LinearColorKeyFrame(::windows::core::IUnknown);
 impl LinearColorKeyFrame {
@@ -9798,6 +9850,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lin
 }
 unsafe impl ::core::marker::Send for LinearColorKeyFrame {}
 unsafe impl ::core::marker::Sync for LinearColorKeyFrame {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct LinearDoubleKeyFrame(::windows::core::IUnknown);
 impl LinearDoubleKeyFrame {
@@ -9912,6 +9965,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lin
 }
 unsafe impl ::core::marker::Send for LinearDoubleKeyFrame {}
 unsafe impl ::core::marker::Sync for LinearDoubleKeyFrame {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct LinearPointKeyFrame(::windows::core::IUnknown);
 impl LinearPointKeyFrame {
@@ -10026,6 +10080,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lin
 }
 unsafe impl ::core::marker::Send for LinearPointKeyFrame {}
 unsafe impl ::core::marker::Sync for LinearPointKeyFrame {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct NavigationThemeTransition(::windows::core::IUnknown);
 impl NavigationThemeTransition {
@@ -10161,6 +10216,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Nav
 }
 unsafe impl ::core::marker::Send for NavigationThemeTransition {}
 unsafe impl ::core::marker::Sync for NavigationThemeTransition {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct NavigationTransitionInfo(::windows::core::IUnknown);
 impl NavigationTransitionInfo {}
@@ -10247,6 +10303,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Nav
 }
 unsafe impl ::core::marker::Send for NavigationTransitionInfo {}
 unsafe impl ::core::marker::Sync for NavigationTransitionInfo {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct ObjectAnimationUsingKeyFrames(::windows::core::IUnknown);
 impl ObjectAnimationUsingKeyFrames {
@@ -10390,6 +10447,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Obj
 }
 unsafe impl ::core::marker::Send for ObjectAnimationUsingKeyFrames {}
 unsafe impl ::core::marker::Sync for ObjectAnimationUsingKeyFrames {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct ObjectKeyFrame(::windows::core::IUnknown);
 impl ObjectKeyFrame {
@@ -10517,6 +10575,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Obj
 }
 unsafe impl ::core::marker::Send for ObjectKeyFrame {}
 unsafe impl ::core::marker::Sync for ObjectKeyFrame {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ObjectKeyFrameCollection(::windows::core::IUnknown);
@@ -10760,6 +10819,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::
 unsafe impl ::core::marker::Send for ObjectKeyFrameCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for ObjectKeyFrameCollection {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct PaneThemeTransition(::windows::core::IUnknown);
 impl PaneThemeTransition {
@@ -10897,6 +10957,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pan
 }
 unsafe impl ::core::marker::Send for PaneThemeTransition {}
 unsafe impl ::core::marker::Sync for PaneThemeTransition {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct PointAnimation(::windows::core::IUnknown);
 impl PointAnimation {
@@ -11106,6 +11167,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Poi
 }
 unsafe impl ::core::marker::Send for PointAnimation {}
 unsafe impl ::core::marker::Sync for PointAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct PointAnimationUsingKeyFrames(::windows::core::IUnknown);
 impl PointAnimationUsingKeyFrames {
@@ -11249,6 +11311,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Poi
 }
 unsafe impl ::core::marker::Send for PointAnimationUsingKeyFrames {}
 unsafe impl ::core::marker::Sync for PointAnimationUsingKeyFrames {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct PointKeyFrame(::windows::core::IUnknown);
 impl PointKeyFrame {
@@ -11378,6 +11441,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Poi
 }
 unsafe impl ::core::marker::Send for PointKeyFrame {}
 unsafe impl ::core::marker::Sync for PointKeyFrame {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PointKeyFrameCollection(::windows::core::IUnknown);
@@ -11621,6 +11685,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::
 unsafe impl ::core::marker::Send for PointKeyFrameCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for PointKeyFrameCollection {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct PointerDownThemeAnimation(::windows::core::IUnknown);
 impl PointerDownThemeAnimation {
@@ -11756,6 +11821,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Poi
 }
 unsafe impl ::core::marker::Send for PointerDownThemeAnimation {}
 unsafe impl ::core::marker::Sync for PointerDownThemeAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct PointerUpThemeAnimation(::windows::core::IUnknown);
 impl PointerUpThemeAnimation {
@@ -11891,6 +11957,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Poi
 }
 unsafe impl ::core::marker::Send for PointerUpThemeAnimation {}
 unsafe impl ::core::marker::Sync for PointerUpThemeAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct PopInThemeAnimation(::windows::core::IUnknown);
 impl PopInThemeAnimation {
@@ -12060,6 +12127,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pop
 }
 unsafe impl ::core::marker::Send for PopInThemeAnimation {}
 unsafe impl ::core::marker::Sync for PopInThemeAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct PopOutThemeAnimation(::windows::core::IUnknown);
 impl PopOutThemeAnimation {
@@ -12195,6 +12263,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pop
 }
 unsafe impl ::core::marker::Send for PopOutThemeAnimation {}
 unsafe impl ::core::marker::Sync for PopOutThemeAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct PopupThemeTransition(::windows::core::IUnknown);
 impl PopupThemeTransition {
@@ -12347,6 +12416,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pop
 }
 unsafe impl ::core::marker::Send for PopupThemeTransition {}
 unsafe impl ::core::marker::Sync for PopupThemeTransition {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct PowerEase(::windows::core::IUnknown);
 impl PowerEase {
@@ -12482,6 +12552,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pow
 }
 unsafe impl ::core::marker::Send for PowerEase {}
 unsafe impl ::core::marker::Sync for PowerEase {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct QuadraticEase(::windows::core::IUnknown);
 impl QuadraticEase {
@@ -12596,6 +12667,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Qua
 }
 unsafe impl ::core::marker::Send for QuadraticEase {}
 unsafe impl ::core::marker::Sync for QuadraticEase {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct QuarticEase(::windows::core::IUnknown);
 impl QuarticEase {
@@ -12710,6 +12782,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Qua
 }
 unsafe impl ::core::marker::Send for QuarticEase {}
 unsafe impl ::core::marker::Sync for QuarticEase {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct QuinticEase(::windows::core::IUnknown);
 impl QuinticEase {
@@ -12824,6 +12897,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Qui
 }
 unsafe impl ::core::marker::Send for QuinticEase {}
 unsafe impl ::core::marker::Sync for QuinticEase {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct ReorderThemeTransition(::windows::core::IUnknown);
 impl ReorderThemeTransition {
@@ -12939,6 +13013,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Reo
 unsafe impl ::core::marker::Send for ReorderThemeTransition {}
 unsafe impl ::core::marker::Sync for ReorderThemeTransition {}
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Media_Animation', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct RepeatBehavior {
     pub Count: f64,
@@ -12979,6 +13054,7 @@ impl ::core::default::Default for RepeatBehavior {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct RepeatBehaviorHelper(::windows::core::IUnknown);
 impl RepeatBehaviorHelper {
@@ -13092,6 +13168,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Repe
 }
 unsafe impl ::core::marker::Send for RepeatBehaviorHelper {}
 unsafe impl ::core::marker::Sync for RepeatBehaviorHelper {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct RepeatBehaviorType(pub i32);
 impl RepeatBehaviorType {
@@ -13120,6 +13197,7 @@ unsafe impl ::windows::core::RuntimeType for RepeatBehaviorType {
 impl ::windows::core::DefaultType for RepeatBehaviorType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct RepositionThemeAnimation(::windows::core::IUnknown);
 impl RepositionThemeAnimation {
@@ -13289,6 +13367,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Rep
 }
 unsafe impl ::core::marker::Send for RepositionThemeAnimation {}
 unsafe impl ::core::marker::Sync for RepositionThemeAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct RepositionThemeTransition(::windows::core::IUnknown);
 impl RepositionThemeTransition {
@@ -13424,6 +13503,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Rep
 }
 unsafe impl ::core::marker::Send for RepositionThemeTransition {}
 unsafe impl ::core::marker::Sync for RepositionThemeTransition {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct SineEase(::windows::core::IUnknown);
 impl SineEase {
@@ -13538,6 +13618,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sin
 }
 unsafe impl ::core::marker::Send for SineEase {}
 unsafe impl ::core::marker::Sync for SineEase {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct SlideNavigationTransitionEffect(pub i32);
 impl SlideNavigationTransitionEffect {
@@ -13566,6 +13647,7 @@ unsafe impl ::windows::core::RuntimeType for SlideNavigationTransitionEffect {
 impl ::windows::core::DefaultType for SlideNavigationTransitionEffect {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct SlideNavigationTransitionInfo(::windows::core::IUnknown);
 impl SlideNavigationTransitionInfo {
@@ -13701,6 +13783,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sli
 }
 unsafe impl ::core::marker::Send for SlideNavigationTransitionInfo {}
 unsafe impl ::core::marker::Sync for SlideNavigationTransitionInfo {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct SplineColorKeyFrame(::windows::core::IUnknown);
 impl SplineColorKeyFrame {
@@ -13836,6 +13919,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Spl
 }
 unsafe impl ::core::marker::Send for SplineColorKeyFrame {}
 unsafe impl ::core::marker::Sync for SplineColorKeyFrame {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct SplineDoubleKeyFrame(::windows::core::IUnknown);
 impl SplineDoubleKeyFrame {
@@ -13971,6 +14055,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Spl
 }
 unsafe impl ::core::marker::Send for SplineDoubleKeyFrame {}
 unsafe impl ::core::marker::Sync for SplineDoubleKeyFrame {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct SplinePointKeyFrame(::windows::core::IUnknown);
 impl SplinePointKeyFrame {
@@ -14106,6 +14191,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Spl
 }
 unsafe impl ::core::marker::Send for SplinePointKeyFrame {}
 unsafe impl ::core::marker::Sync for SplinePointKeyFrame {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct SplitCloseThemeAnimation(::windows::core::IUnknown);
 impl SplitCloseThemeAnimation {
@@ -14413,6 +14499,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Spl
 }
 unsafe impl ::core::marker::Send for SplitCloseThemeAnimation {}
 unsafe impl ::core::marker::Sync for SplitCloseThemeAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct SplitOpenThemeAnimation(::windows::core::IUnknown);
 impl SplitOpenThemeAnimation {
@@ -14720,6 +14807,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Spl
 }
 unsafe impl ::core::marker::Send for SplitOpenThemeAnimation {}
 unsafe impl ::core::marker::Sync for SplitOpenThemeAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct Storyboard(::windows::core::IUnknown);
 impl Storyboard {
@@ -14924,6 +15012,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sto
 }
 unsafe impl ::core::marker::Send for Storyboard {}
 unsafe impl ::core::marker::Sync for Storyboard {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct SuppressNavigationTransitionInfo(::windows::core::IUnknown);
 impl SuppressNavigationTransitionInfo {
@@ -15038,6 +15127,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sup
 }
 unsafe impl ::core::marker::Send for SuppressNavigationTransitionInfo {}
 unsafe impl ::core::marker::Sync for SuppressNavigationTransitionInfo {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct SwipeBackThemeAnimation(::windows::core::IUnknown);
 impl SwipeBackThemeAnimation {
@@ -15207,6 +15297,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Swi
 }
 unsafe impl ::core::marker::Send for SwipeBackThemeAnimation {}
 unsafe impl ::core::marker::Sync for SwipeBackThemeAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct SwipeHintThemeAnimation(::windows::core::IUnknown);
 impl SwipeHintThemeAnimation {
@@ -15376,6 +15467,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Swi
 }
 unsafe impl ::core::marker::Send for SwipeHintThemeAnimation {}
 unsafe impl ::core::marker::Sync for SwipeHintThemeAnimation {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct Timeline(::windows::core::IUnknown);
 impl Timeline {
@@ -15597,6 +15689,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tim
 }
 unsafe impl ::core::marker::Send for Timeline {}
 unsafe impl ::core::marker::Sync for Timeline {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct TimelineCollection(::windows::core::IUnknown);
@@ -15840,6 +15933,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::
 unsafe impl ::core::marker::Send for TimelineCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for TimelineCollection {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct Transition(::windows::core::IUnknown);
 impl Transition {}
@@ -15926,6 +16020,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tra
 }
 unsafe impl ::core::marker::Send for Transition {}
 unsafe impl ::core::marker::Sync for Transition {}
+#[doc = "*Required features: 'UI_Xaml_Media_Animation', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct TransitionCollection(::windows::core::IUnknown);

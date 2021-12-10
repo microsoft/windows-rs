@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayAdapter(::windows::core::IUnknown);
 impl DisplayAdapter {
@@ -135,6 +136,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayAdapter {}
 unsafe impl ::core::marker::Sync for DisplayAdapter {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayBitsPerChannel(pub u32);
 impl DisplayBitsPerChannel {
@@ -167,6 +169,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayBitsPerChannel {
 impl ::windows::core::DefaultType for DisplayBitsPerChannel {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayDevice(::windows::core::IUnknown);
 impl DisplayDevice {
@@ -289,6 +292,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayDevice {}
 unsafe impl ::core::marker::Sync for DisplayDevice {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayDeviceCapability(pub i32);
 impl DisplayDeviceCapability {
@@ -315,6 +319,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayDeviceCapability {
 impl ::windows::core::DefaultType for DisplayDeviceCapability {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayFence(::windows::core::IUnknown);
 impl DisplayFence {}
@@ -381,6 +386,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayFence {}
 unsafe impl ::core::marker::Sync for DisplayFence {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayManager(::windows::core::IUnknown);
 impl DisplayManager {
@@ -614,6 +620,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for DisplayManager {}
 unsafe impl ::core::marker::Sync for DisplayManager {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayManagerChangedEventArgs(::windows::core::IUnknown);
 impl DisplayManagerChangedEventArgs {
@@ -700,6 +707,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayManagerChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayManagerDisabledEventArgs(::windows::core::IUnknown);
 impl DisplayManagerDisabledEventArgs {
@@ -786,6 +794,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayManagerDisabledEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerDisabledEventArgs {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayManagerEnabledEventArgs(::windows::core::IUnknown);
 impl DisplayManagerEnabledEventArgs {
@@ -872,6 +881,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayManagerEnabledEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerEnabledEventArgs {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayManagerOptions(pub u32);
 impl DisplayManagerOptions {
@@ -900,6 +910,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayManagerOptions {
 impl ::windows::core::DefaultType for DisplayManagerOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayManagerPathsFailedOrInvalidatedEventArgs(::windows::core::IUnknown);
 impl DisplayManagerPathsFailedOrInvalidatedEventArgs {
@@ -986,6 +997,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayManagerResult(pub i32);
 impl DisplayManagerResult {
@@ -1016,6 +1028,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayManagerResult {
 impl ::windows::core::DefaultType for DisplayManagerResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayManagerResultWithState(::windows::core::IUnknown);
 impl DisplayManagerResultWithState {
@@ -1104,6 +1117,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayManagerResultWithState {}
 unsafe impl ::core::marker::Sync for DisplayManagerResultWithState {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayModeInfo(::windows::core::IUnknown);
 impl DisplayModeInfo {
@@ -1247,6 +1261,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayModeInfo {}
 unsafe impl ::core::marker::Sync for DisplayModeInfo {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayModeQueryOptions(pub u32);
 impl DisplayModeQueryOptions {
@@ -1274,6 +1289,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayModeQueryOptions {
 impl ::windows::core::DefaultType for DisplayModeQueryOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayPath(::windows::core::IUnknown);
 impl DisplayPath {
@@ -1504,6 +1520,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayPath {}
 unsafe impl ::core::marker::Sync for DisplayPath {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayPathScaling(pub i32);
 impl DisplayPathScaling {
@@ -1535,6 +1552,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayPathScaling {
 impl ::windows::core::DefaultType for DisplayPathScaling {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayPathStatus(pub i32);
 impl DisplayPathStatus {
@@ -1566,6 +1584,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayPathStatus {
 impl ::windows::core::DefaultType for DisplayPathStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayPresentStatus(pub i32);
 impl DisplayPresentStatus {
@@ -1598,6 +1617,7 @@ impl ::windows::core::DefaultType for DisplayPresentStatus {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct DisplayPresentationRate {
     pub VerticalSyncRate: super::super::super::Foundation::Numerics::Rational,
@@ -1637,6 +1657,7 @@ impl ::core::default::Default for DisplayPresentationRate {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayPrimaryDescription(::windows::core::IUnknown);
 impl DisplayPrimaryDescription {
@@ -1779,6 +1800,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayPrimaryDescription {}
 unsafe impl ::core::marker::Sync for DisplayPrimaryDescription {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayRotation(pub i32);
 impl DisplayRotation {
@@ -1808,6 +1830,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayRotation {
 impl ::windows::core::DefaultType for DisplayRotation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayScanout(::windows::core::IUnknown);
 impl DisplayScanout {}
@@ -1874,6 +1897,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayScanout {}
 unsafe impl ::core::marker::Sync for DisplayScanout {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayScanoutOptions(pub u32);
 impl DisplayScanoutOptions {
@@ -1901,6 +1925,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayScanoutOptions {
 impl ::windows::core::DefaultType for DisplayScanoutOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplaySource(::windows::core::IUnknown);
 impl DisplaySource {
@@ -2011,6 +2036,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplaySource {}
 unsafe impl ::core::marker::Sync for DisplaySource {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplaySourceStatus(pub i32);
 impl DisplaySourceStatus {
@@ -2041,6 +2067,7 @@ unsafe impl ::windows::core::RuntimeType for DisplaySourceStatus {
 impl ::windows::core::DefaultType for DisplaySourceStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayState(::windows::core::IUnknown);
 impl DisplayState {
@@ -2206,6 +2233,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayState {}
 unsafe impl ::core::marker::Sync for DisplayState {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayStateApplyOptions(pub u32);
 impl DisplayStateApplyOptions {
@@ -2235,6 +2263,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayStateApplyOptions {
 impl ::windows::core::DefaultType for DisplayStateApplyOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayStateFunctionalizeOptions(pub u32);
 impl DisplayStateFunctionalizeOptions {
@@ -2263,6 +2292,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayStateFunctionalizeOptions {
 impl ::windows::core::DefaultType for DisplayStateFunctionalizeOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayStateOperationResult(::windows::core::IUnknown);
 impl DisplayStateOperationResult {
@@ -2344,6 +2374,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayStateOperationResult {}
 unsafe impl ::core::marker::Sync for DisplayStateOperationResult {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayStateOperationStatus(pub i32);
 impl DisplayStateOperationStatus {
@@ -2377,6 +2408,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayStateOperationStatus {
 impl ::windows::core::DefaultType for DisplayStateOperationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplaySurface(::windows::core::IUnknown);
 impl DisplaySurface {}
@@ -2443,6 +2475,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplaySurface {}
 unsafe impl ::core::marker::Sync for DisplaySurface {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayTarget(::windows::core::IUnknown);
 impl DisplayTarget {
@@ -2609,6 +2642,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayTarget {}
 unsafe impl ::core::marker::Sync for DisplayTarget {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayTargetPersistence(pub i32);
 impl DisplayTargetPersistence {
@@ -2638,6 +2672,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayTargetPersistence {
 impl ::windows::core::DefaultType for DisplayTargetPersistence {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayTask(::windows::core::IUnknown);
 impl DisplayTask {
@@ -2717,6 +2752,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayTask {}
 unsafe impl ::core::marker::Sync for DisplayTask {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayTaskPool(::windows::core::IUnknown);
 impl DisplayTaskPool {
@@ -2803,6 +2839,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayTaskPool {}
 unsafe impl ::core::marker::Sync for DisplayTaskPool {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayTaskResult(::windows::core::IUnknown);
 impl DisplayTaskResult {
@@ -2891,6 +2928,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayTaskResult {}
 unsafe impl ::core::marker::Sync for DisplayTaskResult {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayTaskSignalKind(pub i32);
 impl DisplayTaskSignalKind {
@@ -2918,6 +2956,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayTaskSignalKind {
 impl ::windows::core::DefaultType for DisplayTaskSignalKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayView(::windows::core::IUnknown);
 impl DisplayView {
@@ -3018,6 +3057,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayView {}
 unsafe impl ::core::marker::Sync for DisplayView {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayWireFormat(::windows::core::IUnknown);
 impl DisplayWireFormat {
@@ -3149,6 +3189,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayWireFormat {}
 unsafe impl ::core::marker::Sync for DisplayWireFormat {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayWireFormatColorSpace(pub i32);
 impl DisplayWireFormatColorSpace {
@@ -3177,6 +3218,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayWireFormatColorSpace {
 impl ::windows::core::DefaultType for DisplayWireFormatColorSpace {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayWireFormatEotf(pub i32);
 impl DisplayWireFormatEotf {
@@ -3204,6 +3246,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayWireFormatEotf {
 impl ::windows::core::DefaultType for DisplayWireFormatEotf {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayWireFormatHdrMetadata(pub i32);
 impl DisplayWireFormatHdrMetadata {
@@ -3233,6 +3276,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayWireFormatHdrMetadata {
 impl ::windows::core::DefaultType for DisplayWireFormatHdrMetadata {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayWireFormatPixelEncoding(pub i32);
 impl DisplayWireFormatPixelEncoding {

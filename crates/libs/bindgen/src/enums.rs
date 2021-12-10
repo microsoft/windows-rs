@@ -5,6 +5,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     let underlying_type = def.underlying_type();
     let underlying_type = gen_element_name(&underlying_type, gen);
     let is_scoped = def.is_scoped();
+    let doc = gen.type_cfg(def).gen_doc(gen);
 
     let mut fields: Vec<(TokenStream, TokenStream)> = def
         .fields()
@@ -33,6 +34,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
         });
 
         quote! {
+            #doc
             #[repr(transparent)]
             pub struct #name(pub #underlying_type);
             impl #name {
@@ -48,11 +50,13 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     } else {
         let fields = fields.iter().map(|(field_name, value)| {
             quote! {
+                #doc
                 pub const #field_name: #name = #value;
             }
         });
 
         quote! {
+            #doc
             pub type #name = #underlying_type;
             #(#fields)*
         }

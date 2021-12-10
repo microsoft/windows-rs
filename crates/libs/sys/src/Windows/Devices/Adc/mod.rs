@@ -4,6 +4,7 @@ pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
 pub type AdcChannel = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Adc'*"]
 #[repr(transparent)]
 pub struct AdcChannelMode(pub i32);
 impl AdcChannelMode {

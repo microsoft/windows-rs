@@ -4,6 +4,7 @@ extern "system" {}
 pub type CoreIncrementalInkStroke = *mut ::core::ffi::c_void;
 pub type CoreInkIndependentInputSource = *mut ::core::ffi::c_void;
 pub type CoreInkPresenterHost = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Input_Inking_Core'*"]
 #[repr(transparent)]
 pub struct CoreWetStrokeDisposition(pub i32);
 impl CoreWetStrokeDisposition {

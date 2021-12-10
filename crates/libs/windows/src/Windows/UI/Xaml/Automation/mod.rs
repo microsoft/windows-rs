@@ -5,6 +5,7 @@ pub mod Peers;
 pub mod Provider;
 #[cfg(feature = "UI_Xaml_Automation_Text")]
 pub mod Text;
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct AnnotationPatternIdentifiers(::windows::core::IUnknown);
 impl AnnotationPatternIdentifiers {
@@ -106,6 +107,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Anno
 }
 unsafe impl ::core::marker::Send for AnnotationPatternIdentifiers {}
 unsafe impl ::core::marker::Sync for AnnotationPatternIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct AnnotationType(pub i32);
 impl AnnotationType {
@@ -154,6 +156,7 @@ unsafe impl ::windows::core::RuntimeType for AnnotationType {
 impl ::windows::core::DefaultType for AnnotationType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct AutomationActiveEnd(pub i32);
 impl AutomationActiveEnd {
@@ -182,6 +185,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationActiveEnd {
 impl ::windows::core::DefaultType for AutomationActiveEnd {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct AutomationAnimationStyle(pub i32);
 impl AutomationAnimationStyle {
@@ -215,6 +219,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationAnimationStyle {
 impl ::windows::core::DefaultType for AutomationAnimationStyle {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct AutomationAnnotation(::windows::core::IUnknown);
 impl AutomationAnnotation {
@@ -363,6 +368,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Automation
 }
 unsafe impl ::core::marker::Send for AutomationAnnotation {}
 unsafe impl ::core::marker::Sync for AutomationAnnotation {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct AutomationBulletStyle(pub i32);
 impl AutomationBulletStyle {
@@ -395,6 +401,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationBulletStyle {
 impl ::windows::core::DefaultType for AutomationBulletStyle {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct AutomationCaretBidiMode(pub i32);
 impl AutomationCaretBidiMode {
@@ -422,6 +429,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationCaretBidiMode {
 impl ::windows::core::DefaultType for AutomationCaretBidiMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct AutomationCaretPosition(pub i32);
 impl AutomationCaretPosition {
@@ -450,6 +458,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationCaretPosition {
 impl ::windows::core::DefaultType for AutomationCaretPosition {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct AutomationElementIdentifiers(::windows::core::IUnknown);
 impl AutomationElementIdentifiers {
@@ -783,6 +792,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
 }
 unsafe impl ::core::marker::Send for AutomationElementIdentifiers {}
 unsafe impl ::core::marker::Sync for AutomationElementIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct AutomationFlowDirections(pub i32);
 impl AutomationFlowDirections {
@@ -812,6 +822,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationFlowDirections {
 impl ::windows::core::DefaultType for AutomationFlowDirections {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct AutomationOutlineStyles(pub i32);
 impl AutomationOutlineStyles {
@@ -842,6 +853,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationOutlineStyles {
 impl ::windows::core::DefaultType for AutomationOutlineStyles {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct AutomationProperties(::windows::core::IUnknown);
 impl AutomationProperties {
@@ -1380,6 +1392,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
 }
 unsafe impl ::core::marker::Send for AutomationProperties {}
 unsafe impl ::core::marker::Sync for AutomationProperties {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct AutomationProperty(::windows::core::IUnknown);
 impl AutomationProperty {}
@@ -1446,6 +1459,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
 }
 unsafe impl ::core::marker::Send for AutomationProperty {}
 unsafe impl ::core::marker::Sync for AutomationProperty {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct AutomationStyleId(pub i32);
 impl AutomationStyleId {
@@ -1486,6 +1500,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationStyleId {
 impl ::windows::core::DefaultType for AutomationStyleId {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct AutomationTextDecorationLineStyle(pub i32);
 impl AutomationTextDecorationLineStyle {
@@ -1530,6 +1545,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationTextDecorationLineStyle {
 impl ::windows::core::DefaultType for AutomationTextDecorationLineStyle {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct AutomationTextEditChangeType(pub i32);
 impl AutomationTextEditChangeType {
@@ -1559,6 +1575,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationTextEditChangeType {
 impl ::windows::core::DefaultType for AutomationTextEditChangeType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct DockPatternIdentifiers(::windows::core::IUnknown);
 impl DockPatternIdentifiers {
@@ -1636,6 +1653,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dock
 }
 unsafe impl ::core::marker::Send for DockPatternIdentifiers {}
 unsafe impl ::core::marker::Sync for DockPatternIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct DockPosition(pub i32);
 impl DockPosition {
@@ -1667,6 +1685,7 @@ unsafe impl ::windows::core::RuntimeType for DockPosition {
 impl ::windows::core::DefaultType for DockPosition {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct DragPatternIdentifiers(::windows::core::IUnknown);
 impl DragPatternIdentifiers {
@@ -1762,6 +1781,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Drag
 }
 unsafe impl ::core::marker::Send for DragPatternIdentifiers {}
 unsafe impl ::core::marker::Sync for DragPatternIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct DropTargetPatternIdentifiers(::windows::core::IUnknown);
 impl DropTargetPatternIdentifiers {
@@ -1845,6 +1865,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Drop
 }
 unsafe impl ::core::marker::Send for DropTargetPatternIdentifiers {}
 unsafe impl ::core::marker::Sync for DropTargetPatternIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct ExpandCollapsePatternIdentifiers(::windows::core::IUnknown);
 impl ExpandCollapsePatternIdentifiers {
@@ -1922,6 +1943,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Expa
 }
 unsafe impl ::core::marker::Send for ExpandCollapsePatternIdentifiers {}
 unsafe impl ::core::marker::Sync for ExpandCollapsePatternIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct ExpandCollapseState(pub i32);
 impl ExpandCollapseState {
@@ -1951,6 +1973,7 @@ unsafe impl ::windows::core::RuntimeType for ExpandCollapseState {
 impl ::windows::core::DefaultType for ExpandCollapseState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct GridItemPatternIdentifiers(::windows::core::IUnknown);
 impl GridItemPatternIdentifiers {
@@ -2052,6 +2075,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Grid
 }
 unsafe impl ::core::marker::Send for GridItemPatternIdentifiers {}
 unsafe impl ::core::marker::Sync for GridItemPatternIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct GridPatternIdentifiers(::windows::core::IUnknown);
 impl GridPatternIdentifiers {
@@ -3453,6 +3477,7 @@ pub struct IWindowPatternIdentifiersStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct MultipleViewPatternIdentifiers(::windows::core::IUnknown);
 impl MultipleViewPatternIdentifiers {
@@ -3536,6 +3561,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mult
 }
 unsafe impl ::core::marker::Send for MultipleViewPatternIdentifiers {}
 unsafe impl ::core::marker::Sync for MultipleViewPatternIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct RangeValuePatternIdentifiers(::windows::core::IUnknown);
 impl RangeValuePatternIdentifiers {
@@ -3643,6 +3669,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rang
 }
 unsafe impl ::core::marker::Send for RangeValuePatternIdentifiers {}
 unsafe impl ::core::marker::Sync for RangeValuePatternIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct RowOrColumnMajor(pub i32);
 impl RowOrColumnMajor {
@@ -3671,6 +3698,7 @@ unsafe impl ::windows::core::RuntimeType for RowOrColumnMajor {
 impl ::windows::core::DefaultType for RowOrColumnMajor {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct ScrollAmount(pub i32);
 impl ScrollAmount {
@@ -3701,6 +3729,7 @@ unsafe impl ::windows::core::RuntimeType for ScrollAmount {
 impl ::windows::core::DefaultType for ScrollAmount {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct ScrollPatternIdentifiers(::windows::core::IUnknown);
 impl ScrollPatternIdentifiers {
@@ -3814,6 +3843,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Scro
 }
 unsafe impl ::core::marker::Send for ScrollPatternIdentifiers {}
 unsafe impl ::core::marker::Sync for ScrollPatternIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct SelectionItemPatternIdentifiers(::windows::core::IUnknown);
 impl SelectionItemPatternIdentifiers {
@@ -3897,6 +3927,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sele
 }
 unsafe impl ::core::marker::Send for SelectionItemPatternIdentifiers {}
 unsafe impl ::core::marker::Sync for SelectionItemPatternIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct SelectionPatternIdentifiers(::windows::core::IUnknown);
 impl SelectionPatternIdentifiers {
@@ -3986,6 +4017,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sele
 }
 unsafe impl ::core::marker::Send for SelectionPatternIdentifiers {}
 unsafe impl ::core::marker::Sync for SelectionPatternIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct SpreadsheetItemPatternIdentifiers(::windows::core::IUnknown);
 impl SpreadsheetItemPatternIdentifiers {
@@ -4063,6 +4095,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spre
 }
 unsafe impl ::core::marker::Send for SpreadsheetItemPatternIdentifiers {}
 unsafe impl ::core::marker::Sync for SpreadsheetItemPatternIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct StylesPatternIdentifiers(::windows::core::IUnknown);
 impl StylesPatternIdentifiers {
@@ -4176,6 +4209,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Styl
 }
 unsafe impl ::core::marker::Send for StylesPatternIdentifiers {}
 unsafe impl ::core::marker::Sync for StylesPatternIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct SupportedTextSelection(pub i32);
 impl SupportedTextSelection {
@@ -4204,6 +4238,7 @@ unsafe impl ::windows::core::RuntimeType for SupportedTextSelection {
 impl ::windows::core::DefaultType for SupportedTextSelection {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct SynchronizedInputType(pub i32);
 impl SynchronizedInputType {
@@ -4235,6 +4270,7 @@ unsafe impl ::windows::core::RuntimeType for SynchronizedInputType {
 impl ::windows::core::DefaultType for SynchronizedInputType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct TableItemPatternIdentifiers(::windows::core::IUnknown);
 impl TableItemPatternIdentifiers {
@@ -4318,6 +4354,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tabl
 }
 unsafe impl ::core::marker::Send for TableItemPatternIdentifiers {}
 unsafe impl ::core::marker::Sync for TableItemPatternIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct TablePatternIdentifiers(::windows::core::IUnknown);
 impl TablePatternIdentifiers {
@@ -4407,6 +4444,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tabl
 }
 unsafe impl ::core::marker::Send for TablePatternIdentifiers {}
 unsafe impl ::core::marker::Sync for TablePatternIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct TogglePatternIdentifiers(::windows::core::IUnknown);
 impl TogglePatternIdentifiers {
@@ -4484,6 +4522,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Togg
 }
 unsafe impl ::core::marker::Send for TogglePatternIdentifiers {}
 unsafe impl ::core::marker::Sync for TogglePatternIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct ToggleState(pub i32);
 impl ToggleState {
@@ -4512,6 +4551,7 @@ unsafe impl ::windows::core::RuntimeType for ToggleState {
 impl ::windows::core::DefaultType for ToggleState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct TransformPattern2Identifiers(::windows::core::IUnknown);
 impl TransformPattern2Identifiers {
@@ -4607,6 +4647,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tran
 }
 unsafe impl ::core::marker::Send for TransformPattern2Identifiers {}
 unsafe impl ::core::marker::Sync for TransformPattern2Identifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct TransformPatternIdentifiers(::windows::core::IUnknown);
 impl TransformPatternIdentifiers {
@@ -4696,6 +4737,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tran
 }
 unsafe impl ::core::marker::Send for TransformPatternIdentifiers {}
 unsafe impl ::core::marker::Sync for TransformPatternIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct ValuePatternIdentifiers(::windows::core::IUnknown);
 impl ValuePatternIdentifiers {
@@ -4779,6 +4821,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Valu
 }
 unsafe impl ::core::marker::Send for ValuePatternIdentifiers {}
 unsafe impl ::core::marker::Sync for ValuePatternIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct WindowInteractionState(pub i32);
 impl WindowInteractionState {
@@ -4809,6 +4852,7 @@ unsafe impl ::windows::core::RuntimeType for WindowInteractionState {
 impl ::windows::core::DefaultType for WindowInteractionState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct WindowPatternIdentifiers(::windows::core::IUnknown);
 impl WindowPatternIdentifiers {
@@ -4916,6 +4960,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wind
 }
 unsafe impl ::core::marker::Send for WindowPatternIdentifiers {}
 unsafe impl ::core::marker::Sync for WindowPatternIdentifiers {}
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct WindowVisualState(pub i32);
 impl WindowVisualState {
@@ -4944,6 +4989,7 @@ unsafe impl ::windows::core::RuntimeType for WindowVisualState {
 impl ::windows::core::DefaultType for WindowVisualState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Automation'*"]
 #[repr(transparent)]
 pub struct ZoomUnit(pub i32);
 impl ZoomUnit {

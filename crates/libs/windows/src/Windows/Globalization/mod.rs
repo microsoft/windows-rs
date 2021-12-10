@@ -53,6 +53,7 @@ impl ApplicationLanguages {
 impl ::windows::core::RuntimeName for ApplicationLanguages {
     const NAME: &'static str = "Windows.Globalization.ApplicationLanguages";
 }
+#[doc = "*Required features: 'Globalization'*"]
 #[repr(transparent)]
 pub struct Calendar(::windows::core::IUnknown);
 impl Calendar {
@@ -920,6 +921,7 @@ impl ClockIdentifiers {
 impl ::windows::core::RuntimeName for ClockIdentifiers {
     const NAME: &'static str = "Windows.Globalization.ClockIdentifiers";
 }
+#[doc = "*Required features: 'Globalization'*"]
 #[repr(transparent)]
 pub struct CurrencyAmount(::windows::core::IUnknown);
 impl CurrencyAmount {
@@ -2001,6 +2003,7 @@ impl CurrencyIdentifiers {
 impl ::windows::core::RuntimeName for CurrencyIdentifiers {
     const NAME: &'static str = "Windows.Globalization.CurrencyIdentifiers";
 }
+#[doc = "*Required features: 'Globalization'*"]
 #[repr(transparent)]
 pub struct DayOfWeek(pub i32);
 impl DayOfWeek {
@@ -2033,6 +2036,7 @@ unsafe impl ::windows::core::RuntimeType for DayOfWeek {
 impl ::windows::core::DefaultType for DayOfWeek {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Globalization'*"]
 #[repr(transparent)]
 pub struct GeographicRegion(::windows::core::IUnknown);
 impl GeographicRegion {
@@ -3068,6 +3072,7 @@ pub struct ITimeZoneOnCalendarVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ideallength: i32, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Globalization'*"]
 #[repr(transparent)]
 pub struct JapanesePhoneme(::windows::core::IUnknown);
 impl JapanesePhoneme {
@@ -3178,6 +3183,7 @@ impl JapanesePhoneticAnalyzer {
 impl ::windows::core::RuntimeName for JapanesePhoneticAnalyzer {
     const NAME: &'static str = "Windows.Globalization.JapanesePhoneticAnalyzer";
 }
+#[doc = "*Required features: 'Globalization'*"]
 #[repr(transparent)]
 pub struct Language(::windows::core::IUnknown);
 impl Language {
@@ -3342,6 +3348,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lang
 }
 unsafe impl ::core::marker::Send for Language {}
 unsafe impl ::core::marker::Sync for Language {}
+#[doc = "*Required features: 'Globalization'*"]
 #[repr(transparent)]
 pub struct LanguageLayoutDirection(pub i32);
 impl LanguageLayoutDirection {

@@ -668,6 +668,7 @@ pub struct ISpatialStationaryFrameOfReferenceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialAnchor(::windows::core::IUnknown);
 impl SpatialAnchor {
@@ -793,6 +794,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialAnchor {}
 unsafe impl ::core::marker::Sync for SpatialAnchor {}
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialAnchorExportPurpose(pub i32);
 impl SpatialAnchorExportPurpose {
@@ -820,6 +822,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialAnchorExportPurpose {
 impl ::windows::core::DefaultType for SpatialAnchorExportPurpose {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialAnchorExportSufficiency(::windows::core::IUnknown);
 impl SpatialAnchorExportSufficiency {
@@ -908,6 +911,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialAnchorExportSufficiency {}
 unsafe impl ::core::marker::Sync for SpatialAnchorExportSufficiency {}
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialAnchorExporter(::windows::core::IUnknown);
 impl SpatialAnchorExporter {
@@ -1025,6 +1029,7 @@ impl SpatialAnchorManager {
 impl ::windows::core::RuntimeName for SpatialAnchorManager {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorManager";
 }
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialAnchorRawCoordinateSystemAdjustedEventArgs(::windows::core::IUnknown);
 impl SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
@@ -1100,6 +1105,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {}
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialAnchorStore(::windows::core::IUnknown);
 impl SpatialAnchorStore {
@@ -1222,6 +1228,7 @@ impl ::windows::core::RuntimeName for SpatialAnchorTransferManager {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorTransferManager";
 }
 #[repr(C)]
+#[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingBox {
     pub Center: super::super::Foundation::Numerics::Vector3,
@@ -1262,6 +1269,7 @@ impl ::core::default::Default for SpatialBoundingBox {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingFrustum {
     pub Near: super::super::Foundation::Numerics::Plane,
@@ -1306,6 +1314,7 @@ impl ::core::default::Default for SpatialBoundingFrustum {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingOrientedBox {
     pub Center: super::super::Foundation::Numerics::Vector3,
@@ -1347,6 +1356,7 @@ impl ::core::default::Default for SpatialBoundingOrientedBox {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialBoundingSphere {
     pub Center: super::super::Foundation::Numerics::Vector3,
@@ -1386,6 +1396,7 @@ impl ::core::default::Default for SpatialBoundingSphere {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialBoundingVolume(::windows::core::IUnknown);
 impl SpatialBoundingVolume {
@@ -1485,6 +1496,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialBoundingVolume {}
 unsafe impl ::core::marker::Sync for SpatialBoundingVolume {}
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialCoordinateSystem(::windows::core::IUnknown);
 impl SpatialCoordinateSystem {
@@ -1560,6 +1572,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialCoordinateSystem {}
 unsafe impl ::core::marker::Sync for SpatialCoordinateSystem {}
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialEntity(::windows::core::IUnknown);
 impl SpatialEntity {
@@ -1666,6 +1679,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialEntity {}
 unsafe impl ::core::marker::Sync for SpatialEntity {}
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialEntityAddedEventArgs(::windows::core::IUnknown);
 impl SpatialEntityAddedEventArgs {
@@ -1740,6 +1754,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialEntityAddedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialEntityAddedEventArgs {}
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialEntityRemovedEventArgs(::windows::core::IUnknown);
 impl SpatialEntityRemovedEventArgs {
@@ -1814,6 +1829,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialEntityRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialEntityRemovedEventArgs {}
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialEntityStore(::windows::core::IUnknown);
 impl SpatialEntityStore {
@@ -1921,6 +1937,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialEntityStore {}
 unsafe impl ::core::marker::Sync for SpatialEntityStore {}
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialEntityUpdatedEventArgs(::windows::core::IUnknown);
 impl SpatialEntityUpdatedEventArgs {
@@ -1995,6 +2012,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialEntityUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialEntityUpdatedEventArgs {}
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialEntityWatcher(::windows::core::IUnknown);
 impl SpatialEntityWatcher {
@@ -2129,6 +2147,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialEntityWatcher {}
 unsafe impl ::core::marker::Sync for SpatialEntityWatcher {}
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialEntityWatcherStatus(pub i32);
 impl SpatialEntityWatcherStatus {
@@ -2160,6 +2179,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialEntityWatcherStatus {
 impl ::windows::core::DefaultType for SpatialEntityWatcherStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialLocatability(pub i32);
 impl SpatialLocatability {
@@ -2190,6 +2210,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialLocatability {
 impl ::windows::core::DefaultType for SpatialLocatability {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialLocation(::windows::core::IUnknown);
 impl SpatialLocation {
@@ -2321,6 +2342,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialLocation {}
 unsafe impl ::core::marker::Sync for SpatialLocation {}
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialLocator(::windows::core::IUnknown);
 impl SpatialLocator {
@@ -2500,6 +2522,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialLocator {}
 unsafe impl ::core::marker::Sync for SpatialLocator {}
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialLocatorAttachedFrameOfReference(::windows::core::IUnknown);
 impl SpatialLocatorAttachedFrameOfReference {
@@ -2612,6 +2635,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialLocatorAttachedFrameOfReference {}
 unsafe impl ::core::marker::Sync for SpatialLocatorAttachedFrameOfReference {}
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialLocatorPositionalTrackingDeactivatingEventArgs(::windows::core::IUnknown);
 impl SpatialLocatorPositionalTrackingDeactivatingEventArgs {
@@ -2690,6 +2714,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialLookDirectionRange(pub i32);
 impl SpatialLookDirectionRange {
@@ -2717,6 +2742,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialLookDirectionRange {
 impl ::windows::core::DefaultType for SpatialLookDirectionRange {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialMovementRange(pub i32);
 impl SpatialMovementRange {
@@ -2744,6 +2770,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialMovementRange {
 impl ::windows::core::DefaultType for SpatialMovementRange {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialPerceptionAccessStatus(pub i32);
 impl SpatialPerceptionAccessStatus {
@@ -2774,6 +2801,7 @@ impl ::windows::core::DefaultType for SpatialPerceptionAccessStatus {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Perception_Spatial', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct SpatialRay {
     pub Origin: super::super::Foundation::Numerics::Vector3,
@@ -2813,6 +2841,7 @@ impl ::core::default::Default for SpatialRay {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialStageFrameOfReference(::windows::core::IUnknown);
 impl SpatialStageFrameOfReference {
@@ -2944,6 +2973,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialStageFrameOfReference {}
 unsafe impl ::core::marker::Sync for SpatialStageFrameOfReference {}
+#[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialStationaryFrameOfReference(::windows::core::IUnknown);
 impl SpatialStationaryFrameOfReference {

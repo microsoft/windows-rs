@@ -104,6 +104,7 @@ pub const HTTP_STATUS_USE_PROXY: u32 = 305u32;
 pub const HTTP_STATUS_VERSION_NOT_SUP: u32 = 505u32;
 pub const HTTP_STATUS_WEBDAV_MULTI_STATUS: u32 = 207u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub struct HTTP_VERSION_INFO {
     pub dwMajorVersion: u32,
     pub dwMinorVersion: u32,
@@ -134,10 +135,15 @@ pub const ICU_ENCODE_SPACES_ONLY: u32 = 67108864u32;
 pub const ICU_ESCAPE_AUTHORITY: u32 = 8192u32;
 pub const ICU_NO_ENCODE: u32 = 536870912u32;
 pub const ICU_NO_META: u32 = 134217728u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub type INTERNET_PORT = u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const INTERNET_DEFAULT_HTTP_PORT: INTERNET_PORT = 80u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const INTERNET_DEFAULT_HTTPS_PORT: INTERNET_PORT = 443u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const INTERNET_DEFAULT_PORT: INTERNET_PORT = 0u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub type LPWINHTTP_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn()>;
 pub const NETWORKING_KEY_BUFSIZE: u32 = 128u32;
 pub const SECURITY_FLAG_IGNORE_CERT_CN_INVALID: u32 = 4096u32;
@@ -149,6 +155,7 @@ pub const SECURITY_FLAG_STRENGTH_MEDIUM: u32 = 1073741824u32;
 pub const SECURITY_FLAG_STRENGTH_STRONG: u32 = 536870912u32;
 pub const SECURITY_FLAG_STRENGTH_WEAK: u32 = 268435456u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct URL_COMPONENTS {
     pub dwStructSize: u32,
@@ -193,10 +200,15 @@ impl ::core::default::Default for URL_COMPONENTS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub type WINHTTP_ACCESS_TYPE = u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_ACCESS_TYPE_NO_PROXY: WINHTTP_ACCESS_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_ACCESS_TYPE_DEFAULT_PROXY: WINHTTP_ACCESS_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_ACCESS_TYPE_NAMED_PROXY: WINHTTP_ACCESS_TYPE = 3u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_ACCESS_TYPE_AUTOMATIC_PROXY: WINHTTP_ACCESS_TYPE = 4u32;
 pub const WINHTTP_ADDREQ_FLAGS_MASK: u32 = 4294901760u32;
 pub const WINHTTP_ADDREQ_FLAG_ADD: u32 = 536870912u32;
@@ -207,6 +219,7 @@ pub const WINHTTP_ADDREQ_FLAG_COALESCE_WITH_SEMICOLON: u32 = 16777216u32;
 pub const WINHTTP_ADDREQ_FLAG_REPLACE: u32 = 2147483648u32;
 pub const WINHTTP_ADDREQ_INDEX_MASK: u32 = 65535u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub struct WINHTTP_ASYNC_RESULT {
     pub dwResult: usize,
     pub dwError: u32,
@@ -250,6 +263,7 @@ pub const WINHTTP_AUTOPROXY_NO_CACHE_CLIENT: u32 = 524288u32;
 pub const WINHTTP_AUTOPROXY_NO_CACHE_SVC: u32 = 1048576u32;
 pub const WINHTTP_AUTOPROXY_NO_DIRECTACCESS: u32 = 262144u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_AUTOPROXY_OPTIONS {
     pub dwFlags: u32,
@@ -338,6 +352,7 @@ pub const WINHTTP_CALLBACK_STATUS_SETTINGS_WRITE_COMPLETE: u32 = 268435456u32;
 pub const WINHTTP_CALLBACK_STATUS_SHUTDOWN_COMPLETE: u32 = 67108864u32;
 pub const WINHTTP_CALLBACK_STATUS_WRITE_COMPLETE: u32 = 1048576u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_CERTIFICATE_INFO {
     pub ftExpiry: super::super::Foundation::FILETIME,
@@ -376,6 +391,7 @@ impl ::core::default::Default for WINHTTP_CERTIFICATE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub struct WINHTTP_CONNECTION_GROUP {
     pub cConnections: u32,
     pub guidGroup: ::windows::core::GUID,
@@ -401,6 +417,7 @@ impl ::core::default::Default for WINHTTP_CONNECTION_GROUP {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct WINHTTP_CONNECTION_INFO {
@@ -441,6 +458,7 @@ impl ::core::default::Default for WINHTTP_CONNECTION_INFO {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct WINHTTP_CONNECTION_INFO {
@@ -485,6 +503,7 @@ pub const WINHTTP_CONNECTION_RETRY_CONDITION_SSL_HANDSHAKE: u32 = 2u32;
 pub const WINHTTP_CONNECTION_RETRY_CONDITION_STALE_CONNECTION: u32 = 4u32;
 pub const WINHTTP_CONNS_PER_SERVER_UNLIMITED: u32 = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_CREDS {
     pub lpszUserName: super::super::Foundation::PSTR,
@@ -520,11 +539,16 @@ impl ::core::default::Default for WINHTTP_CREDS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub type WINHTTP_CREDS_AUTHSCHEME = u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_AUTH_SCHEME_BASIC: WINHTTP_CREDS_AUTHSCHEME = 1u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_AUTH_SCHEME_NTLM: WINHTTP_CREDS_AUTHSCHEME = 2u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_AUTH_SCHEME_NEGOTIATE: WINHTTP_CREDS_AUTHSCHEME = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_CREDS_EX {
     pub lpszUserName: super::super::Foundation::PSTR,
@@ -562,6 +586,7 @@ impl ::core::default::Default for WINHTTP_CREDS_EX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_CURRENT_USER_IE_PROXY_CONFIG {
     pub fAutoDetect: super::super::Foundation::BOOL,
@@ -612,6 +637,7 @@ pub const WINHTTP_ENABLE_SSL_REVOCATION: u32 = 1u32;
 pub const WINHTTP_ERROR_BASE: u32 = 12000u32;
 pub const WINHTTP_ERROR_LAST: u32 = 12192u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_EXTENDED_HEADER {
     pub Anonymous1: WINHTTP_EXTENDED_HEADER_0,
@@ -644,6 +670,7 @@ impl ::core::default::Default for WINHTTP_EXTENDED_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union WINHTTP_EXTENDED_HEADER_0 {
     pub pwszName: super::super::Foundation::PWSTR,
@@ -676,6 +703,7 @@ impl ::core::default::Default for WINHTTP_EXTENDED_HEADER_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union WINHTTP_EXTENDED_HEADER_1 {
     pub pwszValue: super::super::Foundation::PWSTR,
@@ -709,6 +737,7 @@ impl ::core::default::Default for WINHTTP_EXTENDED_HEADER_1 {
 }
 pub const WINHTTP_EXTENDED_HEADER_FLAG_UNICODE: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub struct WINHTTP_FAILED_CONNECTION_RETRIES {
     pub dwMaxRetries: u32,
     pub dwAllowedRetryConditions: u32,
@@ -745,6 +774,7 @@ pub const WINHTTP_HANDLE_TYPE_CONNECT: u32 = 2u32;
 pub const WINHTTP_HANDLE_TYPE_REQUEST: u32 = 3u32;
 pub const WINHTTP_HANDLE_TYPE_SESSION: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union WINHTTP_HEADER_NAME {
     pub pwszName: super::super::Foundation::PWSTR,
@@ -777,6 +807,7 @@ impl ::core::default::Default for WINHTTP_HEADER_NAME {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_HOST_CONNECTION_GROUP {
     pub pwszHost: super::super::Foundation::PWSTR,
@@ -810,6 +841,7 @@ impl ::core::default::Default for WINHTTP_HOST_CONNECTION_GROUP {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub struct WINHTTP_HTTP2_RECEIVE_WINDOW {
     pub ulStreamWindow: u32,
     pub ulStreamWindowUpdateDelta: u32,
@@ -835,13 +867,19 @@ impl ::core::default::Default for WINHTTP_HTTP2_RECEIVE_WINDOW {
     }
 }
 pub const WINHTTP_IGNORE_REQUEST_TOTAL_LENGTH: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub type WINHTTP_INTERNET_SCHEME = u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_INTERNET_SCHEME_HTTP: WINHTTP_INTERNET_SCHEME = 1u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_INTERNET_SCHEME_HTTPS: WINHTTP_INTERNET_SCHEME = 2u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_INTERNET_SCHEME_FTP: WINHTTP_INTERNET_SCHEME = 3u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_INTERNET_SCHEME_SOCKS: WINHTTP_INTERNET_SCHEME = 4u32;
 pub const WINHTTP_LAST_OPTION: u32 = 183u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct WINHTTP_MATCH_CONNECTION_GUID {
     pub ConnectionGuid: ::windows::core::GUID,
@@ -874,6 +912,7 @@ impl ::core::default::Default for WINHTTP_MATCH_CONNECTION_GUID {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 #[cfg(target_arch = "x86")]
 pub struct WINHTTP_MATCH_CONNECTION_GUID {
     pub ConnectionGuid: ::windows::core::GUID,
@@ -907,13 +946,21 @@ impl ::core::default::Default for WINHTTP_MATCH_CONNECTION_GUID {
 }
 pub const WINHTTP_MATCH_CONNECTION_GUID_FLAGS_MASK: u32 = 1u32;
 pub const WINHTTP_MATCH_CONNECTION_GUID_FLAG_REQUIRE_MARKED_CONNECTION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub type WINHTTP_OPEN_REQUEST_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_FLAG_BYPASS_PROXY_CACHE: WINHTTP_OPEN_REQUEST_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_FLAG_ESCAPE_DISABLE: WINHTTP_OPEN_REQUEST_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_FLAG_ESCAPE_DISABLE_QUERY: WINHTTP_OPEN_REQUEST_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_FLAG_ESCAPE_PERCENT: WINHTTP_OPEN_REQUEST_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_FLAG_NULL_CODEPAGE: WINHTTP_OPEN_REQUEST_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_FLAG_REFRESH: WINHTTP_OPEN_REQUEST_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_FLAG_SECURE: WINHTTP_OPEN_REQUEST_FLAGS = 8388608u32;
 pub const WINHTTP_OPTION_AGGREGATE_PROXY_CONFIG: u32 = 181u32;
 pub const WINHTTP_OPTION_ASSURED_NON_BLOCKING_CALLBACKS: u32 = 111u32;
@@ -1042,6 +1089,7 @@ pub const WINHTTP_OPTION_WRITE_BUFFER_SIZE: u32 = 13u32;
 pub const WINHTTP_PROTOCOL_FLAG_HTTP2: u32 = 1u32;
 pub const WINHTTP_PROTOCOL_FLAG_HTTP3: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_PROXY_INFO {
     pub dwAccessType: WINHTTP_ACCESS_TYPE,
@@ -1075,6 +1123,7 @@ impl ::core::default::Default for WINHTTP_PROXY_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_PROXY_RESULT {
     pub cEntries: u32,
@@ -1107,6 +1156,7 @@ impl ::core::default::Default for WINHTTP_PROXY_RESULT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_PROXY_RESULT_ENTRY {
     pub fProxy: super::super::Foundation::BOOL,
@@ -1142,6 +1192,7 @@ impl ::core::default::Default for WINHTTP_PROXY_RESULT_ENTRY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_PROXY_RESULT_EX {
     pub cEntries: u32,
@@ -1176,6 +1227,7 @@ impl ::core::default::Default for WINHTTP_PROXY_RESULT_EX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_PROXY_SETTINGS {
     pub dwStructSize: u32,
@@ -1237,6 +1289,7 @@ pub const WINHTTP_QUERY_AUTHORIZATION: u32 = 28u32;
 pub const WINHTTP_QUERY_CACHE_CONTROL: u32 = 49u32;
 pub const WINHTTP_QUERY_CONNECTION: u32 = 23u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINHTTP_QUERY_CONNECTION_GROUP_RESULT {
     pub cHosts: u32,
@@ -1342,6 +1395,7 @@ pub const WINHTTP_QUERY_VIA: u32 = 66u32;
 pub const WINHTTP_QUERY_WARNING: u32 = 67u32;
 pub const WINHTTP_QUERY_WWW_AUTHENTICATE: u32 = 40u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct WINHTTP_REQUEST_STATS {
     pub ullFlags: u64,
@@ -1376,6 +1430,7 @@ impl ::core::default::Default for WINHTTP_REQUEST_STATS {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 #[cfg(target_arch = "x86")]
 pub struct WINHTTP_REQUEST_STATS {
     pub ullFlags: u64,
@@ -1409,24 +1464,43 @@ impl ::core::default::Default for WINHTTP_REQUEST_STATS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub type WINHTTP_REQUEST_STAT_ENTRY = i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpConnectFailureCount: WINHTTP_REQUEST_STAT_ENTRY = 0i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpProxyFailureCount: WINHTTP_REQUEST_STAT_ENTRY = 1i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpTlsHandshakeClientLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = 2i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpTlsHandshakeServerLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = 3i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpTlsHandshakeClientLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = 4i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpTlsHandshakeServerLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = 5i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpRequestHeadersSize: WINHTTP_REQUEST_STAT_ENTRY = 6i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpRequestHeadersCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = 7i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpResponseHeadersSize: WINHTTP_REQUEST_STAT_ENTRY = 8i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpResponseHeadersCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = 9i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpResponseBodySize: WINHTTP_REQUEST_STAT_ENTRY = 10i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpResponseBodyCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = 11i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpProxyTlsHandshakeClientLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = 12i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpProxyTlsHandshakeServerLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = 13i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpProxyTlsHandshakeClientLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = 14i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpProxyTlsHandshakeServerLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = 15i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpRequestStatLast: WINHTTP_REQUEST_STAT_ENTRY = 16i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpRequestStatMax: WINHTTP_REQUEST_STAT_ENTRY = 32i32;
 pub const WINHTTP_REQUEST_STAT_FLAG_FIRST_REQUEST: u32 = 32u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_PROXY_TLS_FALSE_START: u32 = 16u32;
@@ -1435,6 +1509,7 @@ pub const WINHTTP_REQUEST_STAT_FLAG_TCP_FAST_OPEN: u32 = 1u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_TLS_FALSE_START: u32 = 4u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_TLS_SESSION_RESUMPTION: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct WINHTTP_REQUEST_TIMES {
     pub cTimes: u32,
@@ -1467,6 +1542,7 @@ impl ::core::default::Default for WINHTTP_REQUEST_TIMES {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 #[cfg(target_arch = "x86")]
 pub struct WINHTTP_REQUEST_TIMES {
     pub cTimes: u32,
@@ -1498,44 +1574,83 @@ impl ::core::default::Default for WINHTTP_REQUEST_TIMES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub type WINHTTP_REQUEST_TIME_ENTRY = i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpProxyDetectionStart: WINHTTP_REQUEST_TIME_ENTRY = 0i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpProxyDetectionEnd: WINHTTP_REQUEST_TIME_ENTRY = 1i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpConnectionAcquireStart: WINHTTP_REQUEST_TIME_ENTRY = 2i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpConnectionAcquireWaitEnd: WINHTTP_REQUEST_TIME_ENTRY = 3i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpConnectionAcquireEnd: WINHTTP_REQUEST_TIME_ENTRY = 4i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpNameResolutionStart: WINHTTP_REQUEST_TIME_ENTRY = 5i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpNameResolutionEnd: WINHTTP_REQUEST_TIME_ENTRY = 6i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpConnectionEstablishmentStart: WINHTTP_REQUEST_TIME_ENTRY = 7i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpConnectionEstablishmentEnd: WINHTTP_REQUEST_TIME_ENTRY = 8i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpTlsHandshakeClientLeg1Start: WINHTTP_REQUEST_TIME_ENTRY = 9i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpTlsHandshakeClientLeg1End: WINHTTP_REQUEST_TIME_ENTRY = 10i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpTlsHandshakeClientLeg2Start: WINHTTP_REQUEST_TIME_ENTRY = 11i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpTlsHandshakeClientLeg2End: WINHTTP_REQUEST_TIME_ENTRY = 12i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpTlsHandshakeClientLeg3Start: WINHTTP_REQUEST_TIME_ENTRY = 13i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpTlsHandshakeClientLeg3End: WINHTTP_REQUEST_TIME_ENTRY = 14i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpStreamWaitStart: WINHTTP_REQUEST_TIME_ENTRY = 15i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpStreamWaitEnd: WINHTTP_REQUEST_TIME_ENTRY = 16i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpSendRequestStart: WINHTTP_REQUEST_TIME_ENTRY = 17i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpSendRequestHeadersCompressionStart: WINHTTP_REQUEST_TIME_ENTRY = 18i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpSendRequestHeadersCompressionEnd: WINHTTP_REQUEST_TIME_ENTRY = 19i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpSendRequestHeadersEnd: WINHTTP_REQUEST_TIME_ENTRY = 20i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpSendRequestEnd: WINHTTP_REQUEST_TIME_ENTRY = 21i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpReceiveResponseStart: WINHTTP_REQUEST_TIME_ENTRY = 22i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpReceiveResponseHeadersDecompressionStart: WINHTTP_REQUEST_TIME_ENTRY = 23i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpReceiveResponseHeadersDecompressionEnd: WINHTTP_REQUEST_TIME_ENTRY = 24i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpReceiveResponseHeadersEnd: WINHTTP_REQUEST_TIME_ENTRY = 25i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpReceiveResponseBodyDecompressionDelta: WINHTTP_REQUEST_TIME_ENTRY = 26i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpReceiveResponseEnd: WINHTTP_REQUEST_TIME_ENTRY = 27i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpProxyTunnelStart: WINHTTP_REQUEST_TIME_ENTRY = 28i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpProxyTunnelEnd: WINHTTP_REQUEST_TIME_ENTRY = 29i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpProxyTlsHandshakeClientLeg1Start: WINHTTP_REQUEST_TIME_ENTRY = 30i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpProxyTlsHandshakeClientLeg1End: WINHTTP_REQUEST_TIME_ENTRY = 31i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpProxyTlsHandshakeClientLeg2Start: WINHTTP_REQUEST_TIME_ENTRY = 32i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpProxyTlsHandshakeClientLeg2End: WINHTTP_REQUEST_TIME_ENTRY = 33i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpProxyTlsHandshakeClientLeg3Start: WINHTTP_REQUEST_TIME_ENTRY = 34i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpProxyTlsHandshakeClientLeg3End: WINHTTP_REQUEST_TIME_ENTRY = 35i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpRequestTimeLast: WINHTTP_REQUEST_TIME_ENTRY = 36i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpRequestTimeMax: WINHTTP_REQUEST_TIME_ENTRY = 64i32;
 pub const WINHTTP_RESET_ALL: u32 = 65535u32;
 pub const WINHTTP_RESET_DISCARD_RESOLVERS: u32 = 262144u32;
@@ -1546,6 +1661,7 @@ pub const WINHTTP_RESET_STATE: u32 = 1u32;
 pub const WINHTTP_RESET_SWPAD_ALL: u32 = 4u32;
 pub const WINHTTP_RESET_SWPAD_CURRENT_NETWORK: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
     pub ulMaxResolverCacheEntries: u32,
@@ -1582,6 +1698,7 @@ impl ::core::default::Default for WINHTTP_RESOLVER_CACHE_CONFIG {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 #[cfg(target_arch = "x86")]
 pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
     pub ulMaxResolverCacheEntries: u32,
@@ -1621,15 +1738,23 @@ pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_BYPASS_CACHE: u32 = 2u32;
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_CONN_USE_TTL: u32 = 8u32;
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_SOFT_LIMIT: u32 = 1u32;
 pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_USE_DNS_TTL: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub type WINHTTP_SECURE_DNS_SETTING = i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpSecureDnsSettingDefault: WINHTTP_SECURE_DNS_SETTING = 0i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpSecureDnsSettingForcePlaintext: WINHTTP_SECURE_DNS_SETTING = 1i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpSecureDnsSettingRequireEncryption: WINHTTP_SECURE_DNS_SETTING = 2i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpSecureDnsSettingTryEncryptionWithFallback: WINHTTP_SECURE_DNS_SETTING = 3i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WinHttpSecureDnsSettingMax: WINHTTP_SECURE_DNS_SETTING = 4i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub type WINHTTP_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hinternet: *mut ::core::ffi::c_void, dwcontext: usize, dwinternetstatus: u32, lpvstatusinformation: *mut ::core::ffi::c_void, dwstatusinformationlength: u32)>;
 pub const WINHTTP_TIME_FORMAT_BUFSIZE: u32 = 62u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub struct WINHTTP_WEB_SOCKET_ASYNC_RESULT {
     pub AsyncResult: WINHTTP_ASYNC_RESULT,
     pub Operation: WINHTTP_WEB_SOCKET_OPERATION,
@@ -1654,33 +1779,58 @@ impl ::core::default::Default for WINHTTP_WEB_SOCKET_ASYNC_RESULT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub type WINHTTP_WEB_SOCKET_BUFFER_TYPE = i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_BINARY_MESSAGE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_BINARY_FRAGMENT_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_UTF8_FRAGMENT_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_CLOSE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub type WINHTTP_WEB_SOCKET_CLOSE_STATUS = i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1000i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1001i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1002i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1003i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_EMPTY_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1005i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1006i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1007i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1008i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1009i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1010i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1011i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1015i32;
 pub const WINHTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 pub const WINHTTP_WEB_SOCKET_MIN_KEEPALIVE_VALUE: u32 = 15000u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub type WINHTTP_WEB_SOCKET_OPERATION = i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_SEND_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = 0i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_RECEIVE_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = 1i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_CLOSE_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = 2i32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const WINHTTP_WEB_SOCKET_SHUTDOWN_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub struct WINHTTP_WEB_SOCKET_STATUS {
     pub dwBytesTransferred: u32,
     pub eBufferType: WINHTTP_WEB_SOCKET_BUFFER_TYPE,
@@ -1705,10 +1855,15 @@ impl ::core::default::Default for WINHTTP_WEB_SOCKET_STATUS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub type WIN_HTTP_CREATE_URL_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const ICU_ESCAPE: WIN_HTTP_CREATE_URL_FLAGS = 2147483648u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const ICU_REJECT_USERPWD: WIN_HTTP_CREATE_URL_FLAGS = 16384u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub const ICU_DECODE: WIN_HTTP_CREATE_URL_FLAGS = 268435456u32;
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpAddRequestHeaders<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hrequest: *mut ::core::ffi::c_void, lpszheaders: Param1, dwheaderslength: u32, dwmodifiers: u32) -> super::super::Foundation::BOOL {
@@ -1723,6 +1878,7 @@ pub unsafe fn WinHttpAddRequestHeaders<'a, Param1: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpAddRequestHeadersEx(hrequest: *mut ::core::ffi::c_void, dwmodifiers: u32, ullflags: u64, ullextra: u64, cheaders: u32, pheaders: *const WINHTTP_EXTENDED_HEADER) -> u32 {
@@ -1737,6 +1893,7 @@ pub unsafe fn WinHttpAddRequestHeadersEx(hrequest: *mut ::core::ffi::c_void, dwm
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpCheckPlatform() -> super::super::Foundation::BOOL {
@@ -1751,6 +1908,7 @@ pub unsafe fn WinHttpCheckPlatform() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpCloseHandle(hinternet: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -1765,6 +1923,7 @@ pub unsafe fn WinHttpCloseHandle(hinternet: *mut ::core::ffi::c_void) -> super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpConnect<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hsession: *mut ::core::ffi::c_void, pswzservername: Param1, nserverport: INTERNET_PORT, dwreserved: u32) -> *mut ::core::ffi::c_void {
@@ -1779,6 +1938,7 @@ pub unsafe fn WinHttpConnect<'a, Param1: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpCrackUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszurl: Param0, dwurllength: u32, dwflags: u32, lpurlcomponents: *mut URL_COMPONENTS) -> super::super::Foundation::BOOL {
@@ -1793,6 +1953,7 @@ pub unsafe fn WinHttpCrackUrl<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 #[inline]
 pub unsafe fn WinHttpCreateProxyResolver(hsession: *const ::core::ffi::c_void, phresolver: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -1806,6 +1967,7 @@ pub unsafe fn WinHttpCreateProxyResolver(hsession: *const ::core::ffi::c_void, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpCreateUrl(lpurlcomponents: *const URL_COMPONENTS, dwflags: WIN_HTTP_CREATE_URL_FLAGS, pwszurl: super::super::Foundation::PWSTR, pdwurllength: *mut u32) -> super::super::Foundation::BOOL {
@@ -1820,6 +1982,7 @@ pub unsafe fn WinHttpCreateUrl(lpurlcomponents: *const URL_COMPONENTS, dwflags: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpDetectAutoProxyConfigUrl(dwautodetectflags: u32, ppwstrautoconfigurl: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
@@ -1834,6 +1997,7 @@ pub unsafe fn WinHttpDetectAutoProxyConfigUrl(dwautodetectflags: u32, ppwstrauto
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpFreeProxyResult(pproxyresult: *mut WINHTTP_PROXY_RESULT) {
@@ -1848,6 +2012,7 @@ pub unsafe fn WinHttpFreeProxyResult(pproxyresult: *mut WINHTTP_PROXY_RESULT) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpFreeProxyResultEx(pproxyresultex: *mut WINHTTP_PROXY_RESULT_EX) {
@@ -1862,6 +2027,7 @@ pub unsafe fn WinHttpFreeProxyResultEx(pproxyresultex: *mut WINHTTP_PROXY_RESULT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpFreeProxySettings(pwinhttpproxysettings: *const WINHTTP_PROXY_SETTINGS) {
@@ -1876,6 +2042,7 @@ pub unsafe fn WinHttpFreeProxySettings(pwinhttpproxysettings: *const WINHTTP_PRO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpFreeQueryConnectionGroupResult(presult: *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT) {
@@ -1890,6 +2057,7 @@ pub unsafe fn WinHttpFreeQueryConnectionGroupResult(presult: *mut WINHTTP_QUERY_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpGetDefaultProxyConfiguration(pproxyinfo: *mut WINHTTP_PROXY_INFO) -> super::super::Foundation::BOOL {
@@ -1904,6 +2072,7 @@ pub unsafe fn WinHttpGetDefaultProxyConfiguration(pproxyinfo: *mut WINHTTP_PROXY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpGetIEProxyConfigForCurrentUser(pproxyconfig: *mut WINHTTP_CURRENT_USER_IE_PROXY_CONFIG) -> super::super::Foundation::BOOL {
@@ -1918,6 +2087,7 @@ pub unsafe fn WinHttpGetIEProxyConfigForCurrentUser(pproxyconfig: *mut WINHTTP_C
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpGetProxyForUrl<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hsession: *mut ::core::ffi::c_void, lpcwszurl: Param1, pautoproxyoptions: *mut WINHTTP_AUTOPROXY_OPTIONS, pproxyinfo: *mut WINHTTP_PROXY_INFO) -> super::super::Foundation::BOOL {
@@ -1932,6 +2102,7 @@ pub unsafe fn WinHttpGetProxyForUrl<'a, Param1: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpGetProxyForUrlEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hresolver: *const ::core::ffi::c_void, pcwszurl: Param1, pautoproxyoptions: *const WINHTTP_AUTOPROXY_OPTIONS, pcontext: usize) -> u32 {
@@ -1946,6 +2117,7 @@ pub unsafe fn WinHttpGetProxyForUrlEx<'a, Param1: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpGetProxyForUrlEx2<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hresolver: *const ::core::ffi::c_void, pcwszurl: Param1, pautoproxyoptions: *const WINHTTP_AUTOPROXY_OPTIONS, cbinterfaceselectioncontext: u32, pinterfaceselectioncontext: *const u8, pcontext: usize) -> u32 {
@@ -1960,6 +2132,7 @@ pub unsafe fn WinHttpGetProxyForUrlEx2<'a, Param1: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpGetProxyResult(hresolver: *const ::core::ffi::c_void, pproxyresult: *mut WINHTTP_PROXY_RESULT) -> u32 {
@@ -1974,6 +2147,7 @@ pub unsafe fn WinHttpGetProxyResult(hresolver: *const ::core::ffi::c_void, pprox
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpGetProxyResultEx(hresolver: *const ::core::ffi::c_void, pproxyresultex: *mut WINHTTP_PROXY_RESULT_EX) -> u32 {
@@ -1988,6 +2162,7 @@ pub unsafe fn WinHttpGetProxyResultEx(hresolver: *const ::core::ffi::c_void, ppr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 #[inline]
 pub unsafe fn WinHttpGetProxySettingsVersion(hsession: *const ::core::ffi::c_void, pdwproxysettingsversion: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2001,6 +2176,7 @@ pub unsafe fn WinHttpGetProxySettingsVersion(hsession: *const ::core::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpOpen<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszagentw: Param0, dwaccesstype: WINHTTP_ACCESS_TYPE, pszproxyw: Param2, pszproxybypassw: Param3, dwflags: u32) -> *mut ::core::ffi::c_void {
@@ -2015,6 +2191,7 @@ pub unsafe fn WinHttpOpen<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpOpenRequest<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hconnect: *mut ::core::ffi::c_void, pwszverb: Param1, pwszobjectname: Param2, pwszversion: Param3, pwszreferrer: Param4, ppwszaccepttypes: *mut super::super::Foundation::PWSTR, dwflags: WINHTTP_OPEN_REQUEST_FLAGS) -> *mut ::core::ffi::c_void {
@@ -2029,6 +2206,7 @@ pub unsafe fn WinHttpOpenRequest<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpQueryAuthSchemes(hrequest: *mut ::core::ffi::c_void, lpdwsupportedschemes: *mut u32, lpdwfirstscheme: *mut u32, pdwauthtarget: *mut u32) -> super::super::Foundation::BOOL {
@@ -2043,6 +2221,7 @@ pub unsafe fn WinHttpQueryAuthSchemes(hrequest: *mut ::core::ffi::c_void, lpdwsu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpQueryConnectionGroup(hinternet: *const ::core::ffi::c_void, pguidconnection: *const ::windows::core::GUID, ullflags: u64, ppresult: *mut *mut WINHTTP_QUERY_CONNECTION_GROUP_RESULT) -> u32 {
@@ -2057,6 +2236,7 @@ pub unsafe fn WinHttpQueryConnectionGroup(hinternet: *const ::core::ffi::c_void,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpQueryDataAvailable(hrequest: *mut ::core::ffi::c_void, lpdwnumberofbytesavailable: *mut u32) -> super::super::Foundation::BOOL {
@@ -2071,6 +2251,7 @@ pub unsafe fn WinHttpQueryDataAvailable(hrequest: *mut ::core::ffi::c_void, lpdw
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpQueryHeaders<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hrequest: *mut ::core::ffi::c_void, dwinfolevel: u32, pwszname: Param2, lpbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32, lpdwindex: *mut u32) -> super::super::Foundation::BOOL {
@@ -2085,6 +2266,7 @@ pub unsafe fn WinHttpQueryHeaders<'a, Param2: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpQueryHeadersEx(hrequest: *const ::core::ffi::c_void, dwinfolevel: u32, ullflags: u64, uicodepage: u32, pdwindex: *mut u32, pheadername: *const WINHTTP_HEADER_NAME, pbuffer: *mut ::core::ffi::c_void, pdwbufferlength: *mut u32, ppheaders: *mut *mut WINHTTP_EXTENDED_HEADER, pdwheaderscount: *mut u32) -> u32 {
@@ -2099,6 +2281,7 @@ pub unsafe fn WinHttpQueryHeadersEx(hrequest: *const ::core::ffi::c_void, dwinfo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpQueryOption(hinternet: *mut ::core::ffi::c_void, dwoption: u32, lpbuffer: *mut ::core::ffi::c_void, lpdwbufferlength: *mut u32) -> super::super::Foundation::BOOL {
@@ -2113,6 +2296,7 @@ pub unsafe fn WinHttpQueryOption(hinternet: *mut ::core::ffi::c_void, dwoption: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpReadData(hrequest: *mut ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, dwnumberofbytestoread: u32, lpdwnumberofbytesread: *mut u32) -> super::super::Foundation::BOOL {
@@ -2127,6 +2311,7 @@ pub unsafe fn WinHttpReadData(hrequest: *mut ::core::ffi::c_void, lpbuffer: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 #[inline]
 pub unsafe fn WinHttpReadDataEx(hrequest: *mut ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, dwnumberofbytestoread: u32, lpdwnumberofbytesread: *mut u32, ullflags: u64, cbproperty: u32, pvproperty: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -2140,6 +2325,7 @@ pub unsafe fn WinHttpReadDataEx(hrequest: *mut ::core::ffi::c_void, lpbuffer: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpReadProxySettings<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hsession: *const ::core::ffi::c_void, pcwszconnectionname: Param1, ffallbacktodefaultsettings: Param2, fsetautodiscoverfordefaultsettings: Param3, pdwsettingsversion: *mut u32, pfdefaultsettingsarereturned: *mut super::super::Foundation::BOOL, pwinhttpproxysettings: *mut WINHTTP_PROXY_SETTINGS) -> u32 {
@@ -2154,6 +2340,7 @@ pub unsafe fn WinHttpReadProxySettings<'a, Param1: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpReceiveResponse(hrequest: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -2168,6 +2355,7 @@ pub unsafe fn WinHttpReceiveResponse(hrequest: *mut ::core::ffi::c_void, lpreser
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 #[inline]
 pub unsafe fn WinHttpResetAutoProxy(hsession: *const ::core::ffi::c_void, dwflags: u32) -> u32 {
     #[cfg(windows)]
@@ -2181,6 +2369,7 @@ pub unsafe fn WinHttpResetAutoProxy(hsession: *const ::core::ffi::c_void, dwflag
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpSendRequest<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hrequest: *mut ::core::ffi::c_void, lpszheaders: Param1, dwheaderslength: u32, lpoptional: *const ::core::ffi::c_void, dwoptionallength: u32, dwtotallength: u32, dwcontext: usize) -> super::super::Foundation::BOOL {
@@ -2195,6 +2384,7 @@ pub unsafe fn WinHttpSendRequest<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpSetCredentials<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hrequest: *mut ::core::ffi::c_void, authtargets: u32, authscheme: u32, pwszusername: Param3, pwszpassword: Param4, pauthparams: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -2209,6 +2399,7 @@ pub unsafe fn WinHttpSetCredentials<'a, Param3: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpSetDefaultProxyConfiguration(pproxyinfo: *mut WINHTTP_PROXY_INFO) -> super::super::Foundation::BOOL {
@@ -2223,6 +2414,7 @@ pub unsafe fn WinHttpSetDefaultProxyConfiguration(pproxyinfo: *mut WINHTTP_PROXY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpSetOption(hinternet: *const ::core::ffi::c_void, dwoption: u32, lpbuffer: *const ::core::ffi::c_void, dwbufferlength: u32) -> super::super::Foundation::BOOL {
@@ -2237,6 +2429,7 @@ pub unsafe fn WinHttpSetOption(hinternet: *const ::core::ffi::c_void, dwoption: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpSetProxySettingsPerUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(fproxysettingsperuser: Param0) -> u32 {
@@ -2251,6 +2444,7 @@ pub unsafe fn WinHttpSetProxySettingsPerUser<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 #[inline]
 pub unsafe fn WinHttpSetStatusCallback(hinternet: *mut ::core::ffi::c_void, lpfninternetcallback: WINHTTP_STATUS_CALLBACK, dwnotificationflags: u32, dwreserved: usize) -> WINHTTP_STATUS_CALLBACK {
     #[cfg(windows)]
@@ -2264,6 +2458,7 @@ pub unsafe fn WinHttpSetStatusCallback(hinternet: *mut ::core::ffi::c_void, lpfn
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpSetTimeouts(hinternet: *mut ::core::ffi::c_void, nresolvetimeout: i32, nconnecttimeout: i32, nsendtimeout: i32, nreceivetimeout: i32) -> super::super::Foundation::BOOL {
@@ -2278,6 +2473,7 @@ pub unsafe fn WinHttpSetTimeouts(hinternet: *mut ::core::ffi::c_void, nresolveti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpTimeFromSystemTime(pst: *const super::super::Foundation::SYSTEMTIME, pwsztime: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
@@ -2292,6 +2488,7 @@ pub unsafe fn WinHttpTimeFromSystemTime(pst: *const super::super::Foundation::SY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpTimeToSystemTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwsztime: Param0, pst: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL {
@@ -2306,6 +2503,7 @@ pub unsafe fn WinHttpTimeToSystemTime<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 #[inline]
 pub unsafe fn WinHttpWebSocketClose(hwebsocket: *const ::core::ffi::c_void, usstatus: u16, pvreason: *const ::core::ffi::c_void, dwreasonlength: u32) -> u32 {
     #[cfg(windows)]
@@ -2319,6 +2517,7 @@ pub unsafe fn WinHttpWebSocketClose(hwebsocket: *const ::core::ffi::c_void, usst
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 #[inline]
 pub unsafe fn WinHttpWebSocketCompleteUpgrade(hrequest: *const ::core::ffi::c_void, pcontext: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -2332,6 +2531,7 @@ pub unsafe fn WinHttpWebSocketCompleteUpgrade(hrequest: *const ::core::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 #[inline]
 pub unsafe fn WinHttpWebSocketQueryCloseStatus(hwebsocket: *const ::core::ffi::c_void, pusstatus: *mut u16, pvreason: *mut ::core::ffi::c_void, dwreasonlength: u32, pdwreasonlengthconsumed: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2345,6 +2545,7 @@ pub unsafe fn WinHttpWebSocketQueryCloseStatus(hwebsocket: *const ::core::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 #[inline]
 pub unsafe fn WinHttpWebSocketReceive(hwebsocket: *const ::core::ffi::c_void, pvbuffer: *mut ::core::ffi::c_void, dwbufferlength: u32, pdwbytesread: *mut u32, pebuffertype: *mut WINHTTP_WEB_SOCKET_BUFFER_TYPE) -> u32 {
     #[cfg(windows)]
@@ -2358,6 +2559,7 @@ pub unsafe fn WinHttpWebSocketReceive(hwebsocket: *const ::core::ffi::c_void, pv
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 #[inline]
 pub unsafe fn WinHttpWebSocketSend(hwebsocket: *const ::core::ffi::c_void, ebuffertype: WINHTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer: *const ::core::ffi::c_void, dwbufferlength: u32) -> u32 {
     #[cfg(windows)]
@@ -2371,6 +2573,7 @@ pub unsafe fn WinHttpWebSocketSend(hwebsocket: *const ::core::ffi::c_void, ebuff
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 #[inline]
 pub unsafe fn WinHttpWebSocketShutdown(hwebsocket: *const ::core::ffi::c_void, usstatus: u16, pvreason: *const ::core::ffi::c_void, dwreasonlength: u32) -> u32 {
     #[cfg(windows)]
@@ -2384,6 +2587,7 @@ pub unsafe fn WinHttpWebSocketShutdown(hwebsocket: *const ::core::ffi::c_void, u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpWriteData(hrequest: *mut ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void, dwnumberofbytestowrite: u32, lpdwnumberofbyteswritten: *mut u32) -> super::super::Foundation::BOOL {
@@ -2398,6 +2602,7 @@ pub unsafe fn WinHttpWriteData(hrequest: *mut ::core::ffi::c_void, lpbuffer: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_WinHttp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHttpWriteProxySettings<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hsession: *const ::core::ffi::c_void, fforceupdate: Param1, pwinhttpproxysettings: *const WINHTTP_PROXY_SETTINGS) -> u32 {
@@ -2413,6 +2618,7 @@ pub unsafe fn WinHttpWriteProxySettings<'a, Param1: ::windows::core::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Networking_WinHttp'*"]
 pub struct _WinHttpProxyNetworkKey {
     pub pbBuffer: [u8; 128],
 }

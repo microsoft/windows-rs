@@ -3,6 +3,7 @@
 extern "system" {}
 pub type PlatformTelemetryRegistrationResult = *mut ::core::ffi::c_void;
 pub type PlatformTelemetryRegistrationSettings = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_Diagnostics_Telemetry'*"]
 #[repr(transparent)]
 pub struct PlatformTelemetryRegistrationStatus(pub i32);
 impl PlatformTelemetryRegistrationStatus {

@@ -226,6 +226,7 @@ pub struct IWorkflowPrintTicketValidationResultVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
 #[repr(transparent)]
 pub struct PrintTicketCapabilities(::windows::core::IUnknown);
 impl PrintTicketCapabilities {
@@ -434,6 +435,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintTicketCapabilities {}
 unsafe impl ::core::marker::Sync for PrintTicketCapabilities {}
+#[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
 #[repr(transparent)]
 pub struct PrintTicketFeature(::windows::core::IUnknown);
 impl PrintTicketFeature {
@@ -563,6 +565,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintTicketFeature {}
 unsafe impl ::core::marker::Sync for PrintTicketFeature {}
+#[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
 #[repr(transparent)]
 pub struct PrintTicketFeatureSelectionType(pub i32);
 impl PrintTicketFeatureSelectionType {
@@ -590,6 +593,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTicketFeatureSelectionType {
 impl ::windows::core::DefaultType for PrintTicketFeatureSelectionType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
 #[repr(transparent)]
 pub struct PrintTicketOption(::windows::core::IUnknown);
 impl PrintTicketOption {
@@ -716,6 +720,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintTicketOption {}
 unsafe impl ::core::marker::Sync for PrintTicketOption {}
+#[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
 #[repr(transparent)]
 pub struct PrintTicketParameterDataType(pub i32);
 impl PrintTicketParameterDataType {
@@ -744,6 +749,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTicketParameterDataType {
 impl ::windows::core::DefaultType for PrintTicketParameterDataType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
 #[repr(transparent)]
 pub struct PrintTicketParameterDefinition(::windows::core::IUnknown);
 impl PrintTicketParameterDefinition {
@@ -861,6 +867,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintTicketParameterDefinition {}
 unsafe impl ::core::marker::Sync for PrintTicketParameterDefinition {}
+#[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
 #[repr(transparent)]
 pub struct PrintTicketParameterInitializer(::windows::core::IUnknown);
 impl PrintTicketParameterInitializer {
@@ -961,6 +968,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintTicketParameterInitializer {}
 unsafe impl ::core::marker::Sync for PrintTicketParameterInitializer {}
+#[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
 #[repr(transparent)]
 pub struct PrintTicketValue(::windows::core::IUnknown);
 impl PrintTicketValue {
@@ -1049,6 +1057,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintTicketValue {}
 unsafe impl ::core::marker::Sync for PrintTicketValue {}
+#[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
 #[repr(transparent)]
 pub struct PrintTicketValueType(pub i32);
 impl PrintTicketValueType {
@@ -1077,6 +1086,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTicketValueType {
 impl ::windows::core::DefaultType for PrintTicketValueType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
 #[repr(transparent)]
 pub struct WorkflowPrintTicket(::windows::core::IUnknown);
 impl WorkflowPrintTicket {
@@ -1329,6 +1339,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Work
 }
 unsafe impl ::core::marker::Send for WorkflowPrintTicket {}
 unsafe impl ::core::marker::Sync for WorkflowPrintTicket {}
+#[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
 #[repr(transparent)]
 pub struct WorkflowPrintTicketValidationResult(::windows::core::IUnknown);
 impl WorkflowPrintTicketValidationResult {

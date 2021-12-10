@@ -2,6 +2,7 @@
 #[cfg(feature = "Devices_Gpio_Provider")]
 pub mod Provider;
 #[repr(C)]
+#[doc = "*Required features: 'Devices_Gpio', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct GpioChangeCount {
     pub Count: u64,
@@ -41,6 +42,7 @@ impl ::core::default::Default for GpioChangeCount {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
 pub struct GpioChangeCounter(::windows::core::IUnknown);
 impl GpioChangeCounter {
@@ -191,6 +193,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for GpioChangeCounter {}
 unsafe impl ::core::marker::Sync for GpioChangeCounter {}
+#[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
 pub struct GpioChangePolarity(pub i32);
 impl GpioChangePolarity {
@@ -219,6 +222,7 @@ unsafe impl ::windows::core::RuntimeType for GpioChangePolarity {
 impl ::windows::core::DefaultType for GpioChangePolarity {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
 pub struct GpioChangeReader(::windows::core::IUnknown);
 impl GpioChangeReader {
@@ -424,6 +428,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 unsafe impl ::core::marker::Send for GpioChangeReader {}
 unsafe impl ::core::marker::Sync for GpioChangeReader {}
 #[repr(C)]
+#[doc = "*Required features: 'Devices_Gpio', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct GpioChangeRecord {
     pub RelativeTime: super::super::Foundation::TimeSpan,
@@ -463,6 +468,7 @@ impl ::core::default::Default for GpioChangeRecord {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
 pub struct GpioController(::windows::core::IUnknown);
 impl GpioController {
@@ -586,6 +592,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gpio
 }
 unsafe impl ::core::marker::Send for GpioController {}
 unsafe impl ::core::marker::Sync for GpioController {}
+#[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
 pub struct GpioOpenStatus(pub i32);
 impl GpioOpenStatus {
@@ -616,6 +623,7 @@ unsafe impl ::windows::core::RuntimeType for GpioOpenStatus {
 impl ::windows::core::DefaultType for GpioOpenStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
 pub struct GpioPin(::windows::core::IUnknown);
 impl GpioPin {
@@ -783,6 +791,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for GpioPin {}
 unsafe impl ::core::marker::Sync for GpioPin {}
+#[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
 pub struct GpioPinDriveMode(pub i32);
 impl GpioPinDriveMode {
@@ -816,6 +825,7 @@ unsafe impl ::windows::core::RuntimeType for GpioPinDriveMode {
 impl ::windows::core::DefaultType for GpioPinDriveMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
 pub struct GpioPinEdge(pub i32);
 impl GpioPinEdge {
@@ -843,6 +853,7 @@ unsafe impl ::windows::core::RuntimeType for GpioPinEdge {
 impl ::windows::core::DefaultType for GpioPinEdge {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
 pub struct GpioPinValue(pub i32);
 impl GpioPinValue {
@@ -870,6 +881,7 @@ unsafe impl ::windows::core::RuntimeType for GpioPinValue {
 impl ::windows::core::DefaultType for GpioPinValue {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
 pub struct GpioPinValueChangedEventArgs(::windows::core::IUnknown);
 impl GpioPinValueChangedEventArgs {
@@ -944,6 +956,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gpio
 }
 unsafe impl ::core::marker::Send for GpioPinValueChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GpioPinValueChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
 pub struct GpioSharingMode(pub i32);
 impl GpioSharingMode {

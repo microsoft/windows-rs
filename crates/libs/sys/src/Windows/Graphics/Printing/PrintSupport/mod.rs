@@ -8,6 +8,7 @@ pub type PrintSupportPrintTicketValidationRequestedEventArgs = *mut ::core::ffi:
 pub type PrintSupportSessionInfo = *mut ::core::ffi::c_void;
 pub type PrintSupportSettingsActivatedEventArgs = *mut ::core::ffi::c_void;
 pub type PrintSupportSettingsUISession = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Graphics_Printing_PrintSupport'*"]
 #[repr(transparent)]
 pub struct SettingsLaunchKind(pub i32);
 impl SettingsLaunchKind {
@@ -20,6 +21,7 @@ impl ::core::clone::Clone for SettingsLaunchKind {
         *self
     }
 }
+#[doc = "*Required features: 'Graphics_Printing_PrintSupport'*"]
 #[repr(transparent)]
 pub struct WorkflowPrintTicketValidationStatus(pub i32);
 impl WorkflowPrintTicketValidationStatus {

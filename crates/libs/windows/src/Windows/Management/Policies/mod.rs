@@ -76,6 +76,7 @@ impl NamedPolicy {
 impl ::windows::core::RuntimeName for NamedPolicy {
     const NAME: &'static str = "Windows.Management.Policies.NamedPolicy";
 }
+#[doc = "*Required features: 'Management_Policies'*"]
 #[repr(transparent)]
 pub struct NamedPolicyData(::windows::core::IUnknown);
 impl NamedPolicyData {
@@ -235,6 +236,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Name
 }
 unsafe impl ::core::marker::Send for NamedPolicyData {}
 unsafe impl ::core::marker::Sync for NamedPolicyData {}
+#[doc = "*Required features: 'Management_Policies'*"]
 #[repr(transparent)]
 pub struct NamedPolicyKind(pub i32);
 impl NamedPolicyKind {

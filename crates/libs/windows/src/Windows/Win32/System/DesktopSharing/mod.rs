@@ -1,29 +1,55 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub type ATTENDEE_DISCONNECT_REASON = i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const ATTENDEE_DISCONNECT_REASON_MIN: ATTENDEE_DISCONNECT_REASON = 0i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const ATTENDEE_DISCONNECT_REASON_APP: ATTENDEE_DISCONNECT_REASON = 0i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const ATTENDEE_DISCONNECT_REASON_ERR: ATTENDEE_DISCONNECT_REASON = 1i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const ATTENDEE_DISCONNECT_REASON_CLI: ATTENDEE_DISCONNECT_REASON = 2i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const ATTENDEE_DISCONNECT_REASON_MAX: ATTENDEE_DISCONNECT_REASON = 2i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub type CHANNEL_ACCESS_ENUM = i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CHANNEL_ACCESS_ENUM_NONE: CHANNEL_ACCESS_ENUM = 0i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CHANNEL_ACCESS_ENUM_SENDRECEIVE: CHANNEL_ACCESS_ENUM = 1i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub type CHANNEL_FLAGS = i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CHANNEL_FLAGS_LEGACY: CHANNEL_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CHANNEL_FLAGS_UNCOMPRESSED: CHANNEL_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CHANNEL_FLAGS_DYNAMIC: CHANNEL_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub type CHANNEL_PRIORITY = i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CHANNEL_PRIORITY_LO: CHANNEL_PRIORITY = 0i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CHANNEL_PRIORITY_MED: CHANNEL_PRIORITY = 1i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CHANNEL_PRIORITY_HI: CHANNEL_PRIORITY = 2i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub type CTRL_LEVEL = i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CTRL_LEVEL_MIN: CTRL_LEVEL = 0i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CTRL_LEVEL_INVALID: CTRL_LEVEL = 0i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CTRL_LEVEL_NONE: CTRL_LEVEL = 1i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CTRL_LEVEL_VIEW: CTRL_LEVEL = 2i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CTRL_LEVEL_INTERACTIVE: CTRL_LEVEL = 3i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CTRL_LEVEL_REQCTRL_VIEW: CTRL_LEVEL = 4i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CTRL_LEVEL_REQCTRL_INTERACTIVE: CTRL_LEVEL = 5i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CTRL_LEVEL_MAX: CTRL_LEVEL = 5i32;
 pub const DISPID_RDPAPI_EVENT_ON_BOUNDING_RECT_CHANGED: u32 = 340u32;
 pub const DISPID_RDPSRAPI_EVENT_ON_APPFILTER_UPDATE: u32 = 322u32;
@@ -149,6 +175,7 @@ pub const DISPID_RDPSRAPI_PROP_WINDOWNAME: u32 = 213u32;
 pub const DISPID_RDPSRAPI_PROP_WINDOWSHARED: u32 = 212u32;
 pub const DISPID_RDPSRAPI_PROP_WINDOW_LIST: u32 = 216u32;
 pub const DISPID_RDPSRAPI_PROP_WNDFLAGS: u32 = 224u32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPIApplication(::windows::core::IUnknown);
 impl IRDPSRAPIApplication {
@@ -276,6 +303,7 @@ pub struct IRDPSRAPIApplicationVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPIApplicationFilter(::windows::core::IUnknown);
 impl IRDPSRAPIApplicationFilter {
@@ -391,6 +419,7 @@ pub struct IRDPSRAPIApplicationFilterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPIApplicationList(::windows::core::IUnknown);
 impl IRDPSRAPIApplicationList {
@@ -497,6 +526,7 @@ pub struct IRDPSRAPIApplicationListVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: i32, papplication: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPIAttendee(::windows::core::IUnknown);
 impl IRDPSRAPIAttendee {
@@ -633,6 +663,7 @@ pub struct IRDPSRAPIAttendeeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plflags: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPIAttendeeDisconnectInfo(::windows::core::IUnknown);
 impl IRDPSRAPIAttendeeDisconnectInfo {
@@ -744,6 +775,7 @@ pub struct IRDPSRAPIAttendeeDisconnectInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, preason: *mut ATTENDEE_DISCONNECT_REASON) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPIAttendeeManager(::windows::core::IUnknown);
 impl IRDPSRAPIAttendeeManager {
@@ -850,6 +882,7 @@ pub struct IRDPSRAPIAttendeeManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: i32, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPIAudioStream(::windows::core::IUnknown);
 impl IRDPSRAPIAudioStream {
@@ -917,6 +950,7 @@ pub struct IRDPSRAPIAudioStreamVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbdata: *mut *mut u8, pcbdata: *mut u32, ptimestamp: *mut u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPIClipboardUseEvents(::windows::core::IUnknown);
 impl IRDPSRAPIClipboardUseEvents {
@@ -970,6 +1004,7 @@ pub struct IRDPSRAPIClipboardUseEventsVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clipboardformat: u32, pattendee: ::windows::core::RawPtr, pretval: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPIDebug(::windows::core::IUnknown);
 impl IRDPSRAPIDebug {
@@ -1029,6 +1064,7 @@ pub struct IRDPSRAPIDebugVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclxcmdline: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPIFrameBuffer(::windows::core::IUnknown);
 impl IRDPSRAPIFrameBuffer {
@@ -1147,6 +1183,7 @@ pub struct IRDPSRAPIFrameBufferVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: i32, y: i32, width: i32, heigth: i32, ppbits: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPIInvitation(::windows::core::IUnknown);
 impl IRDPSRAPIInvitation {
@@ -1282,6 +1319,7 @@ pub struct IRDPSRAPIInvitationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPIInvitationManager(::windows::core::IUnknown);
 impl IRDPSRAPIInvitationManager {
@@ -1402,6 +1440,7 @@ pub struct IRDPSRAPIInvitationManagerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrauthstring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, attendeelimit: i32, ppinvitation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPIPerfCounterLogger(::windows::core::IUnknown);
 impl IRDPSRAPIPerfCounterLogger {
@@ -1447,6 +1486,7 @@ unsafe impl ::windows::core::Interface for IRDPSRAPIPerfCounterLogger {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRDPSRAPIPerfCounterLoggerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lvalue: i64) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPIPerfCounterLoggingManager(::windows::core::IUnknown);
 impl IRDPSRAPIPerfCounterLoggingManager {
@@ -1500,6 +1540,7 @@ pub struct IRDPSRAPIPerfCounterLoggingManagerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrcountername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pplogger: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPISessionProperties(::windows::core::IUnknown);
 impl IRDPSRAPISessionProperties {
@@ -1609,6 +1650,7 @@ pub struct IRDPSRAPISessionPropertiesVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, newval: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPISharingSession(::windows::core::IUnknown);
 impl IRDPSRAPISharingSession {
@@ -1769,6 +1811,7 @@ pub struct IRDPSRAPISharingSessionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: i32, top: i32, right: i32, bottom: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPISharingSession2(::windows::core::IUnknown);
 impl IRDPSRAPISharingSession2 {
@@ -1964,6 +2007,7 @@ pub struct IRDPSRAPISharingSession2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pattendee: ::windows::core::RawPtr, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPITcpConnectionInfo(::windows::core::IUnknown);
 impl IRDPSRAPITcpConnectionInfo {
@@ -2089,6 +2133,7 @@ pub struct IRDPSRAPITcpConnectionInfoVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrip: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPITransportStream(::windows::core::IUnknown);
 impl IRDPSRAPITransportStream {
@@ -2160,6 +2205,7 @@ pub struct IRDPSRAPITransportStreamVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallbacks: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPITransportStreamBuffer(::windows::core::IUnknown);
 impl IRDPSRAPITransportStreamBuffer {
@@ -2252,6 +2298,7 @@ pub struct IRDPSRAPITransportStreamBufferVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPITransportStreamEvents(::windows::core::IUnknown);
 impl IRDPSRAPITransportStreamEvents {
@@ -2310,6 +2357,7 @@ pub struct IRDPSRAPITransportStreamEventsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffer: ::windows::core::RawPtr),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrreason: ::windows::core::HRESULT),
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPIViewer(::windows::core::IUnknown);
 impl IRDPSRAPIViewer {
@@ -2478,6 +2526,7 @@ pub struct IRDPSRAPIViewerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrconnectionstring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrusername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrreverseconnectstring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPIVirtualChannel(::windows::core::IUnknown);
 impl IRDPSRAPIVirtualChannel {
@@ -2601,6 +2650,7 @@ pub struct IRDPSRAPIVirtualChannelVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plflags: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppriority: *mut CHANNEL_PRIORITY) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPIVirtualChannelManager(::windows::core::IUnknown);
 impl IRDPSRAPIVirtualChannelManager {
@@ -2716,6 +2766,7 @@ pub struct IRDPSRAPIVirtualChannelManagerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrchannelname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, priority: CHANNEL_PRIORITY, channelflags: u32, ppchannel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPIWindow(::windows::core::IUnknown);
 impl IRDPSRAPIWindow {
@@ -2847,6 +2898,7 @@ pub struct IRDPSRAPIWindowVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPSRAPIWindowList(::windows::core::IUnknown);
 impl IRDPSRAPIWindowList {
@@ -2953,6 +3005,7 @@ pub struct IRDPSRAPIWindowListVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: i32, pwindow: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct IRDPViewerInputSink(::windows::core::IUnknown);
 impl IRDPViewerInputSink {
@@ -3031,7 +3084,9 @@ pub struct IRDPViewerInputSinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contactid: u32, event: u32, x: i32, y: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub type RDPENCOMAPI_ATTENDEE_FLAGS = i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const ATTENDEE_FLAGS_LOCAL: RDPENCOMAPI_ATTENDEE_FLAGS = 1i32;
 pub const RDPSRAPIApplication: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc116a484_4b25_4b9f_8a54_b934b06e57fa);
 pub const RDPSRAPIApplicationFilter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe35ace89_c7e8_427e_a4f9_b9da072826bd);
@@ -3046,29 +3101,49 @@ pub const RDPSRAPISessionProperties: ::windows::core::GUID = ::windows::core::GU
 pub const RDPSRAPITcpConnectionInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe49db3f_ebb6_4278_8ce0_d5455833eaee);
 pub const RDPSRAPIWindow: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03cf46db_ce45_4d36_86ed_ed28b74398bf);
 pub const RDPSRAPIWindowList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c21e2b8_5dd4_42cc_81ba_1c099852e6fa);
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub type RDPSRAPI_APP_FLAGS = i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const APP_FLAG_PRIVILEGED: RDPSRAPI_APP_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub type RDPSRAPI_KBD_CODE_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const RDPSRAPI_KBD_CODE_SCANCODE: RDPSRAPI_KBD_CODE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const RDPSRAPI_KBD_CODE_UNICODE: RDPSRAPI_KBD_CODE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub type RDPSRAPI_KBD_SYNC_FLAG = i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const RDPSRAPI_KBD_SYNC_FLAG_SCROLL_LOCK: RDPSRAPI_KBD_SYNC_FLAG = 1i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const RDPSRAPI_KBD_SYNC_FLAG_NUM_LOCK: RDPSRAPI_KBD_SYNC_FLAG = 2i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const RDPSRAPI_KBD_SYNC_FLAG_CAPS_LOCK: RDPSRAPI_KBD_SYNC_FLAG = 4i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const RDPSRAPI_KBD_SYNC_FLAG_KANA_LOCK: RDPSRAPI_KBD_SYNC_FLAG = 8i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub type RDPSRAPI_MOUSE_BUTTON_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const RDPSRAPI_MOUSE_BUTTON_BUTTON1: RDPSRAPI_MOUSE_BUTTON_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const RDPSRAPI_MOUSE_BUTTON_BUTTON2: RDPSRAPI_MOUSE_BUTTON_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const RDPSRAPI_MOUSE_BUTTON_BUTTON3: RDPSRAPI_MOUSE_BUTTON_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON1: RDPSRAPI_MOUSE_BUTTON_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON2: RDPSRAPI_MOUSE_BUTTON_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON3: RDPSRAPI_MOUSE_BUTTON_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub type RDPSRAPI_WND_FLAGS = i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const WND_FLAG_PRIVILEGED: RDPSRAPI_WND_FLAGS = 1i32;
 pub const RDPSession: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b78f0e6_3e05_4a5b_b2e8_e743a8956b65);
 pub const RDPTransportStreamBuffer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d4a1c69_f17f_4549_a699_761c6e6b5c0a);
 pub const RDPTransportStreamEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31e3ab20_5350_483f_9dc6_6748665efdeb);
 pub const RDPViewer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32be5ed2_5c86_480f_a914_0ff8885a1b3f);
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 #[repr(transparent)]
 pub struct _IRDPSessionEvents(::windows::core::IUnknown);
 impl _IRDPSessionEvents {
@@ -3165,15 +3240,24 @@ pub struct _IRDPSessionEventsVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub type __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CONST_MAX_CHANNEL_MESSAGE_SIZE: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = 1024i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CONST_MAX_CHANNEL_NAME_LEN: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = 8i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CONST_MAX_LEGACY_CHANNEL_MESSAGE_SIZE: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = 409600i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CONST_ATTENDEE_ID_EVERYONE: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = -1i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CONST_ATTENDEE_ID_HOST: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = 0i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CONST_CONN_INTERVAL: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = 50i32;
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const CONST_ATTENDEE_ID_DEFAULT: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = -1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub struct __ReferenceRemainingTypes__ {
     pub __ctrlLevel__: CTRL_LEVEL,
     pub __attendeeDisconnectReason__: ATTENDEE_DISCONNECT_REASON,

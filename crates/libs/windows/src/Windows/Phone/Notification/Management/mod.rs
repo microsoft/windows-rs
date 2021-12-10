@@ -281,6 +281,7 @@ impl AccessoryManager {
 impl ::windows::core::RuntimeName for AccessoryManager {
     const NAME: &'static str = "Windows.Phone.Notification.Management.AccessoryManager";
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct AccessoryNotificationType(pub u32);
 impl AccessoryNotificationType {
@@ -322,6 +323,7 @@ unsafe impl ::windows::core::RuntimeType for AccessoryNotificationType {
 impl ::windows::core::DefaultType for AccessoryNotificationType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct AlarmNotificationTriggerDetails(::windows::core::IUnknown);
 impl AlarmNotificationTriggerDetails {
@@ -485,6 +487,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
         ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct AppNotificationInfo(::windows::core::IUnknown);
 impl AppNotificationInfo {
@@ -564,6 +567,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppN
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct BinaryId(::windows::core::IUnknown);
 impl BinaryId {
@@ -643,6 +647,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Bina
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct CalendarChangedEvent(pub i32);
 impl CalendarChangedEvent {
@@ -675,6 +680,7 @@ unsafe impl ::windows::core::RuntimeType for CalendarChangedEvent {
 impl ::windows::core::DefaultType for CalendarChangedEvent {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct CalendarChangedNotificationTriggerDetails(::windows::core::IUnknown);
 impl CalendarChangedNotificationTriggerDetails {
@@ -816,6 +822,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
         ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct CortanaTileNotificationTriggerDetails(::windows::core::IUnknown);
 impl CortanaTileNotificationTriggerDetails {
@@ -1013,6 +1020,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
         ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct EmailAccountInfo(::windows::core::IUnknown);
 impl EmailAccountInfo {
@@ -1092,6 +1100,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct EmailFolderInfo(::windows::core::IUnknown);
 impl EmailFolderInfo {
@@ -1171,6 +1180,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct EmailNotificationTriggerDetails(::windows::core::IUnknown);
 impl EmailNotificationTriggerDetails {
@@ -1349,6 +1359,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
         ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct EmailReadNotificationTriggerDetails(::windows::core::IUnknown);
 impl EmailReadNotificationTriggerDetails {
@@ -1627,6 +1638,7 @@ pub struct IAccessoryManager3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instanceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instanceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct IAccessoryNotificationTriggerDetails(::windows::core::IUnknown);
 impl IAccessoryNotificationTriggerDetails {
@@ -2255,6 +2267,7 @@ pub struct IVolumeInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut VibrateState) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct MediaControlsTriggerDetails(::windows::core::IUnknown);
 impl MediaControlsTriggerDetails {
@@ -2396,6 +2409,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
         ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct MediaMetadata(::windows::core::IUnknown);
 impl MediaMetadata {
@@ -2512,6 +2526,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PhoneCallAudioEndpoint(pub i32);
 impl PhoneCallAudioEndpoint {
@@ -2540,6 +2555,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallAudioEndpoint {
 impl ::windows::core::DefaultType for PhoneCallAudioEndpoint {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PhoneCallDetails(::windows::core::IUnknown);
 impl PhoneCallDetails {
@@ -2692,6 +2708,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PhoneCallDirection(pub i32);
 impl PhoneCallDirection {
@@ -2719,6 +2736,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallDirection {
 impl ::windows::core::DefaultType for PhoneCallDirection {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PhoneCallState(pub i32);
 impl PhoneCallState {
@@ -2749,6 +2767,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallState {
 impl ::windows::core::DefaultType for PhoneCallState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PhoneCallTransport(pub i32);
 impl PhoneCallTransport {
@@ -2776,6 +2795,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallTransport {
 impl ::windows::core::DefaultType for PhoneCallTransport {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PhoneLineDetails(::windows::core::IUnknown);
 impl PhoneLineDetails {
@@ -2890,6 +2910,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PhoneLineRegistrationState(pub i32);
 impl PhoneLineRegistrationState {
@@ -2918,6 +2939,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineRegistrationState {
 impl ::windows::core::DefaultType for PhoneLineRegistrationState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PhoneMediaType(pub i32);
 impl PhoneMediaType {
@@ -2945,6 +2967,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneMediaType {
 impl ::windows::core::DefaultType for PhoneMediaType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PhoneNotificationTriggerDetails(::windows::core::IUnknown);
 impl PhoneNotificationTriggerDetails {
@@ -3093,6 +3116,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
         ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PhoneNotificationType(pub i32);
 impl PhoneNotificationType {
@@ -3123,6 +3147,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneNotificationType {
 impl ::windows::core::DefaultType for PhoneNotificationType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PlaybackCapability(pub u32);
 impl PlaybackCapability {
@@ -3159,6 +3184,7 @@ unsafe impl ::windows::core::RuntimeType for PlaybackCapability {
 impl ::windows::core::DefaultType for PlaybackCapability {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PlaybackCommand(pub i32);
 impl PlaybackCommand {
@@ -3194,6 +3220,7 @@ unsafe impl ::windows::core::RuntimeType for PlaybackCommand {
 impl ::windows::core::DefaultType for PlaybackCommand {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PlaybackStatus(pub i32);
 impl PlaybackStatus {
@@ -3224,6 +3251,7 @@ unsafe impl ::windows::core::RuntimeType for PlaybackStatus {
 impl ::windows::core::DefaultType for PlaybackStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct ReminderNotificationTriggerDetails(::windows::core::IUnknown);
 impl ReminderNotificationTriggerDetails {
@@ -3409,6 +3437,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
         ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct ReminderState(pub i32);
 impl ReminderState {
@@ -3437,6 +3466,7 @@ unsafe impl ::windows::core::RuntimeType for ReminderState {
 impl ::windows::core::DefaultType for ReminderState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct SpeedDialEntry(::windows::core::IUnknown);
 impl SpeedDialEntry {
@@ -3523,6 +3553,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct TextResponse(::windows::core::IUnknown);
 impl TextResponse {
@@ -3602,6 +3633,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Text
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct ToastNotificationTriggerDetails(::windows::core::IUnknown);
 impl ToastNotificationTriggerDetails {
@@ -3771,6 +3803,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
         ::core::convert::TryInto::<IAccessoryNotificationTriggerDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct VibrateState(pub i32);
 impl VibrateState {
@@ -3800,6 +3833,7 @@ unsafe impl ::windows::core::RuntimeType for VibrateState {
 impl ::windows::core::DefaultType for VibrateState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct VolumeInfo(::windows::core::IUnknown);
 impl VolumeInfo {

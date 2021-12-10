@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Media_AppBroadcasting'*"]
 #[repr(transparent)]
 pub struct AppBroadcastingMonitor(::windows::core::IUnknown);
 impl AppBroadcastingMonitor {
@@ -93,6 +94,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 unsafe impl ::core::marker::Send for AppBroadcastingMonitor {}
 unsafe impl ::core::marker::Sync for AppBroadcastingMonitor {}
+#[doc = "*Required features: 'Media_AppBroadcasting'*"]
 #[repr(transparent)]
 pub struct AppBroadcastingStatus(::windows::core::IUnknown);
 impl AppBroadcastingStatus {
@@ -174,6 +176,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 unsafe impl ::core::marker::Send for AppBroadcastingStatus {}
 unsafe impl ::core::marker::Sync for AppBroadcastingStatus {}
+#[doc = "*Required features: 'Media_AppBroadcasting'*"]
 #[repr(transparent)]
 pub struct AppBroadcastingStatusDetails(::windows::core::IUnknown);
 impl AppBroadcastingStatusDetails {
@@ -297,6 +300,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 unsafe impl ::core::marker::Send for AppBroadcastingStatusDetails {}
 unsafe impl ::core::marker::Sync for AppBroadcastingStatusDetails {}
+#[doc = "*Required features: 'Media_AppBroadcasting'*"]
 #[repr(transparent)]
 pub struct AppBroadcastingUI(::windows::core::IUnknown);
 impl AppBroadcastingUI {

@@ -4,6 +4,7 @@ pub mod DataProvider;
 #[link(name = "windows")]
 extern "system" {}
 pub type EmailAttachment = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailAttachmentDownloadState(pub i32);
 impl EmailAttachmentDownloadState {
@@ -18,6 +19,7 @@ impl ::core::clone::Clone for EmailAttachmentDownloadState {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailBatchStatus(pub i32);
 impl EmailBatchStatus {
@@ -31,6 +33,7 @@ impl ::core::clone::Clone for EmailBatchStatus {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailCertificateValidationStatus(pub i32);
 impl EmailCertificateValidationStatus {
@@ -55,6 +58,7 @@ impl ::core::clone::Clone for EmailCertificateValidationStatus {
 pub type EmailConversation = *mut ::core::ffi::c_void;
 pub type EmailConversationBatch = *mut ::core::ffi::c_void;
 pub type EmailConversationReader = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailFlagState(pub i32);
 impl EmailFlagState {
@@ -70,6 +74,7 @@ impl ::core::clone::Clone for EmailFlagState {
     }
 }
 pub type EmailFolder = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailImportance(pub i32);
 impl EmailImportance {
@@ -88,6 +93,7 @@ pub type EmailIrmTemplate = *mut ::core::ffi::c_void;
 pub type EmailItemCounts = *mut ::core::ffi::c_void;
 pub type EmailMailbox = *mut ::core::ffi::c_void;
 pub type EmailMailboxAction = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxActionKind(pub i32);
 impl EmailMailboxActionKind {
@@ -109,6 +115,7 @@ impl ::core::clone::Clone for EmailMailboxActionKind {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation(pub i32);
 impl EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
@@ -123,6 +130,7 @@ impl ::core::clone::Clone for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotia
     }
 }
 pub type EmailMailboxAutoReply = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxAutoReplyMessageResponseKind(pub i32);
 impl EmailMailboxAutoReplyMessageResponseKind {
@@ -140,6 +148,7 @@ pub type EmailMailboxCapabilities = *mut ::core::ffi::c_void;
 pub type EmailMailboxChange = *mut ::core::ffi::c_void;
 pub type EmailMailboxChangeReader = *mut ::core::ffi::c_void;
 pub type EmailMailboxChangeTracker = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxChangeType(pub i32);
 impl EmailMailboxChangeType {
@@ -160,6 +169,7 @@ impl ::core::clone::Clone for EmailMailboxChangeType {
 pub type EmailMailboxChangedDeferral = *mut ::core::ffi::c_void;
 pub type EmailMailboxChangedEventArgs = *mut ::core::ffi::c_void;
 pub type EmailMailboxCreateFolderResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxCreateFolderStatus(pub i32);
 impl EmailMailboxCreateFolderStatus {
@@ -177,6 +187,7 @@ impl ::core::clone::Clone for EmailMailboxCreateFolderStatus {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxDeleteFolderStatus(pub i32);
 impl EmailMailboxDeleteFolderStatus {
@@ -193,6 +204,7 @@ impl ::core::clone::Clone for EmailMailboxDeleteFolderStatus {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxEmptyFolderStatus(pub i32);
 impl EmailMailboxEmptyFolderStatus {
@@ -209,6 +221,7 @@ impl ::core::clone::Clone for EmailMailboxEmptyFolderStatus {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxOtherAppReadAccess(pub i32);
 impl EmailMailboxOtherAppReadAccess {
@@ -222,6 +235,7 @@ impl ::core::clone::Clone for EmailMailboxOtherAppReadAccess {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxOtherAppWriteAccess(pub i32);
 impl EmailMailboxOtherAppWriteAccess {
@@ -235,6 +249,7 @@ impl ::core::clone::Clone for EmailMailboxOtherAppWriteAccess {
     }
 }
 pub type EmailMailboxPolicies = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxSmimeEncryptionAlgorithm(pub i32);
 impl EmailMailboxSmimeEncryptionAlgorithm {
@@ -251,6 +266,7 @@ impl ::core::clone::Clone for EmailMailboxSmimeEncryptionAlgorithm {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxSmimeSigningAlgorithm(pub i32);
 impl EmailMailboxSmimeSigningAlgorithm {
@@ -265,6 +281,7 @@ impl ::core::clone::Clone for EmailMailboxSmimeSigningAlgorithm {
     }
 }
 pub type EmailMailboxSyncManager = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxSyncStatus(pub i32);
 impl EmailMailboxSyncStatus {
@@ -284,6 +301,7 @@ impl ::core::clone::Clone for EmailMailboxSyncStatus {
 }
 pub type EmailManagerForUser = *mut ::core::ffi::c_void;
 pub type EmailMeetingInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMeetingResponseType(pub i32);
 impl EmailMeetingResponseType {
@@ -299,6 +317,7 @@ impl ::core::clone::Clone for EmailMeetingResponseType {
 }
 pub type EmailMessage = *mut ::core::ffi::c_void;
 pub type EmailMessageBatch = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMessageBodyKind(pub i32);
 impl EmailMessageBodyKind {
@@ -311,6 +330,7 @@ impl ::core::clone::Clone for EmailMessageBodyKind {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMessageDownloadState(pub i32);
 impl EmailMessageDownloadState {
@@ -326,6 +346,7 @@ impl ::core::clone::Clone for EmailMessageDownloadState {
     }
 }
 pub type EmailMessageReader = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMessageResponseKind(pub i32);
 impl EmailMessageResponseKind {
@@ -340,6 +361,7 @@ impl ::core::clone::Clone for EmailMessageResponseKind {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMessageSmimeKind(pub i32);
 impl EmailMessageSmimeKind {
@@ -354,6 +376,7 @@ impl ::core::clone::Clone for EmailMessageSmimeKind {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailQueryKind(pub i32);
 impl EmailQueryKind {
@@ -371,6 +394,7 @@ impl ::core::clone::Clone for EmailQueryKind {
     }
 }
 pub type EmailQueryOptions = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailQuerySearchFields(pub u32);
 impl EmailQuerySearchFields {
@@ -387,6 +411,7 @@ impl ::core::clone::Clone for EmailQuerySearchFields {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailQuerySearchScope(pub i32);
 impl EmailQuerySearchScope {
@@ -399,6 +424,7 @@ impl ::core::clone::Clone for EmailQuerySearchScope {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailQuerySortDirection(pub i32);
 impl EmailQuerySortDirection {
@@ -411,6 +437,7 @@ impl ::core::clone::Clone for EmailQuerySortDirection {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailQuerySortProperty(pub i32);
 impl EmailQuerySortProperty {
@@ -425,6 +452,7 @@ impl ::core::clone::Clone for EmailQuerySortProperty {
 pub type EmailQueryTextSearch = *mut ::core::ffi::c_void;
 pub type EmailRecipient = *mut ::core::ffi::c_void;
 pub type EmailRecipientResolutionResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailRecipientResolutionStatus(pub i32);
 impl EmailRecipientResolutionStatus {
@@ -443,6 +471,7 @@ impl ::core::clone::Clone for EmailRecipientResolutionStatus {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailSpecialFolderKind(pub i32);
 impl EmailSpecialFolderKind {
@@ -461,6 +490,7 @@ impl ::core::clone::Clone for EmailSpecialFolderKind {
     }
 }
 pub type EmailStore = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailStoreAccessType(pub i32);
 impl EmailStoreAccessType {

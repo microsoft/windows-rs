@@ -38,14 +38,19 @@ pub const C3_NONSPACING: u32 = 1u32;
 pub const C3_NOTAPPLICABLE: u32 = 0u32;
 pub const C3_SYMBOL: u32 = 8u32;
 pub const C3_VOWELMARK: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CALINFO_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CALINFO_ENUMPROCEXA = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PSTR, param1: u32) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CALINFO_ENUMPROCEXEX = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32, param2: super::Foundation::PWSTR, param3: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CALINFO_ENUMPROCEXW = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CALINFO_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL>;
 pub const CAL_GREGORIAN: u32 = 1u32;
@@ -129,6 +134,7 @@ pub const CAL_UMALQURA: u32 = 23u32;
 pub const CAL_USE_CP_ACP: u32 = 1073741824u32;
 pub const CANITER_SKIP_ZEROES: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct CHARSETINFO {
     pub ciCharset: u32,
     pub ciACP: u32,
@@ -157,27 +163,46 @@ impl ::core::default::Default for CHARSETINFO {
 pub const CMLangConvertCharset: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd66d6f99_cdaa_11d0_b822_00c04fc9b31f);
 pub const CMLangString: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc04d65cf_b70d_11d0_b188_00aa0038c969);
 pub const CMultiLanguage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x275c23e2_3747_11d0_9fea_00aa003f8646);
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CODEPAGE_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CODEPAGE_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type COMPARE_STRING_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const LINGUISTIC_IGNORECASE: COMPARE_STRING_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const LINGUISTIC_IGNOREDIACRITIC: COMPARE_STRING_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const NORM_IGNORECASE: COMPARE_STRING_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const NORM_IGNOREKANATYPE: COMPARE_STRING_FLAGS = 65536u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const NORM_IGNORENONSPACE: COMPARE_STRING_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const NORM_IGNORESYMBOLS: COMPARE_STRING_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const NORM_IGNOREWIDTH: COMPARE_STRING_FLAGS = 131072u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const NORM_LINGUISTIC_CASING: COMPARE_STRING_FLAGS = 134217728u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SORT_DIGITSASNUMBERS: COMPARE_STRING_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SORT_STRINGSORT: COMPARE_STRING_FLAGS = 4096u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type CORRECTIVE_ACTION = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const CORRECTIVE_ACTION_NONE: CORRECTIVE_ACTION = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const CORRECTIVE_ACTION_GET_SUGGESTIONS: CORRECTIVE_ACTION = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const CORRECTIVE_ACTION_REPLACE: CORRECTIVE_ACTION = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const CORRECTIVE_ACTION_DELETE: CORRECTIVE_ACTION = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct CPINFO {
     pub MaxCharSize: u32,
     pub DefaultChar: [u8; 2],
@@ -204,6 +229,7 @@ impl ::core::default::Default for CPINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CPINFOEXA {
     pub MaxCharSize: u32,
@@ -240,6 +266,7 @@ impl ::core::default::Default for CPINFOEXA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct CPINFOEXW {
     pub MaxCharSize: u32,
     pub DefaultChar: [u8; 2],
@@ -396,6 +423,7 @@ pub const CT_CTYPE1: u32 = 1u32;
 pub const CT_CTYPE2: u32 = 2u32;
 pub const CT_CTYPE3: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CURRENCYFMTA {
     pub NumDigits: u32,
@@ -434,6 +462,7 @@ impl ::core::default::Default for CURRENCYFMTA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CURRENCYFMTW {
     pub NumDigits: u32,
@@ -471,6 +500,7 @@ impl ::core::default::Default for CURRENCYFMTW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: *const i8, cchcount1: i32, lpstring2: *const i8, cchcount2: i32) -> i32 {
     #[cfg(windows)]
@@ -484,6 +514,7 @@ pub unsafe fn CompareStringA(locale: u32, dwcmpflags: u32, lpstring1: *const i8,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CompareStringEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lplocalename: Param0, dwcmpflags: COMPARE_STRING_FLAGS, lpstring1: Param2, cchcount1: i32, lpstring2: Param4, cchcount2: i32, lpversioninformation: *mut NLSVERSIONINFO, lpreserved: *mut ::core::ffi::c_void, lparam: Param8) -> i32 {
@@ -498,6 +529,7 @@ pub unsafe fn CompareStringEx<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CompareStringOrdinal<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(lpstring1: Param0, cchcount1: i32, lpstring2: Param2, cchcount2: i32, bignorecase: Param4) -> i32 {
@@ -512,6 +544,7 @@ pub unsafe fn CompareStringOrdinal<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CompareStringW<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, dwcmpflags: u32, lpstring1: Param2, cchcount1: i32, lpstring2: Param4, cchcount2: i32) -> i32 {
@@ -526,6 +559,7 @@ pub unsafe fn CompareStringW<'a, Param2: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ConvertDefaultLocale(locale: u32) -> u32 {
     #[cfg(windows)]
@@ -539,17 +573,23 @@ pub unsafe fn ConvertDefaultLocale(locale: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DATEFMT_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DATEFMT_ENUMPROCEXA = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PSTR, param1: u32) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DATEFMT_ENUMPROCEXEX = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32, param2: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DATEFMT_ENUMPROCEXW = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DATEFMT_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct DetectEncodingInfo {
     pub nLangID: u32,
     pub nCodePage: u32,
@@ -586,6 +626,7 @@ pub const ELS_GUID_TRANSLITERATION_HANS_TO_HANT: ::windows::core::GUID = ::windo
 pub const ELS_GUID_TRANSLITERATION_HANT_TO_HANS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3a8333b_f4fc_42f6_a0c4_0462fe7317cb);
 pub const ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8b983b1_f8bf_4a2b_bcd5_5b5ea20613e1);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ENUMTEXTMETRICA {
     pub etmNewTextMetricEx: NEWTEXTMETRICEXA,
@@ -618,6 +659,7 @@ impl ::core::default::Default for ENUMTEXTMETRICA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ENUMTEXTMETRICW {
     pub etmNewTextMetricEx: NEWTEXTMETRICEXW,
@@ -650,21 +692,37 @@ impl ::core::default::Default for ENUMTEXTMETRICW {
     }
 }
 pub const ENUM_ALL_CALENDARS: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type ENUM_DATE_FORMATS_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const DATE_SHORTDATE: ENUM_DATE_FORMATS_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const DATE_LONGDATE: ENUM_DATE_FORMATS_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const DATE_YEARMONTH: ENUM_DATE_FORMATS_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const DATE_MONTHDAY: ENUM_DATE_FORMATS_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const DATE_AUTOLAYOUT: ENUM_DATE_FORMATS_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const DATE_LTRREADING: ENUM_DATE_FORMATS_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const DATE_RTLREADING: ENUM_DATE_FORMATS_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const DATE_USE_ALT_CALENDAR: ENUM_DATE_FORMATS_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type ENUM_SYSTEM_CODE_PAGES_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const CP_INSTALLED: ENUM_SYSTEM_CODE_PAGES_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const CP_SUPPORTED: ENUM_SYSTEM_CODE_PAGES_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const LGRPID_INSTALLED: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const LGRPID_SUPPORTED: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumCalendarInfoA(lpcalinfoenumproc: CALINFO_ENUMPROCA, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
@@ -679,6 +737,7 @@ pub unsafe fn EnumCalendarInfoA(lpcalinfoenumproc: CALINFO_ENUMPROCA, locale: u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumCalendarInfoExA(lpcalinfoenumprocex: CALINFO_ENUMPROCEXA, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
@@ -693,6 +752,7 @@ pub unsafe fn EnumCalendarInfoExA(lpcalinfoenumprocex: CALINFO_ENUMPROCEXA, loca
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumCalendarInfoExEx<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(pcalinfoenumprocexex: CALINFO_ENUMPROCEXEX, lplocalename: Param1, calendar: u32, lpreserved: Param3, caltype: u32, lparam: Param5) -> super::Foundation::BOOL {
@@ -707,6 +767,7 @@ pub unsafe fn EnumCalendarInfoExEx<'a, Param1: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumCalendarInfoExW(lpcalinfoenumprocex: CALINFO_ENUMPROCEXW, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
@@ -721,6 +782,7 @@ pub unsafe fn EnumCalendarInfoExW(lpcalinfoenumprocex: CALINFO_ENUMPROCEXW, loca
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumCalendarInfoW(lpcalinfoenumproc: CALINFO_ENUMPROCW, locale: u32, calendar: u32, caltype: u32) -> super::Foundation::BOOL {
@@ -735,6 +797,7 @@ pub unsafe fn EnumCalendarInfoW(lpcalinfoenumproc: CALINFO_ENUMPROCW, locale: u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDateFormatsA(lpdatefmtenumproc: DATEFMT_ENUMPROCA, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
@@ -749,6 +812,7 @@ pub unsafe fn EnumDateFormatsA(lpdatefmtenumproc: DATEFMT_ENUMPROCA, locale: u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDateFormatsExA(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXA, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
@@ -763,6 +827,7 @@ pub unsafe fn EnumDateFormatsExA(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXA, local
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDateFormatsExEx<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lpdatefmtenumprocexex: DATEFMT_ENUMPROCEXEX, lplocalename: Param1, dwflags: ENUM_DATE_FORMATS_FLAGS, lparam: Param3) -> super::Foundation::BOOL {
@@ -777,6 +842,7 @@ pub unsafe fn EnumDateFormatsExEx<'a, Param1: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDateFormatsExW(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXW, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
@@ -791,6 +857,7 @@ pub unsafe fn EnumDateFormatsExW(lpdatefmtenumprocex: DATEFMT_ENUMPROCEXW, local
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDateFormatsW(lpdatefmtenumproc: DATEFMT_ENUMPROCW, locale: u32, dwflags: u32) -> super::Foundation::BOOL {
@@ -805,6 +872,7 @@ pub unsafe fn EnumDateFormatsW(lpdatefmtenumproc: DATEFMT_ENUMPROCW, locale: u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCA, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
@@ -819,6 +887,7 @@ pub unsafe fn EnumLanguageGroupLocalesA(lplanggrouplocaleenumproc: LANGGROUPLOCA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: LANGGROUPLOCALE_ENUMPROCW, languagegroup: u32, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
@@ -833,6 +902,7 @@ pub unsafe fn EnumLanguageGroupLocalesW(lplanggrouplocaleenumproc: LANGGROUPLOCA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemCodePagesA(lpcodepageenumproc: CODEPAGE_ENUMPROCA, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL {
@@ -847,6 +917,7 @@ pub unsafe fn EnumSystemCodePagesA(lpcodepageenumproc: CODEPAGE_ENUMPROCA, dwfla
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemCodePagesW(lpcodepageenumproc: CODEPAGE_ENUMPROCW, dwflags: ENUM_SYSTEM_CODE_PAGES_FLAGS) -> super::Foundation::BOOL {
@@ -861,6 +932,7 @@ pub unsafe fn EnumSystemCodePagesW(lpcodepageenumproc: CODEPAGE_ENUMPROCW, dwfla
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemGeoID(geoclass: u32, parentgeoid: i32, lpgeoenumproc: GEO_ENUMPROC) -> super::Foundation::BOOL {
@@ -875,6 +947,7 @@ pub unsafe fn EnumSystemGeoID(geoclass: u32, parentgeoid: i32, lpgeoenumproc: GE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemGeoNames<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(geoclass: u32, geoenumproc: GEO_ENUMNAMEPROC, data: Param2) -> super::Foundation::BOOL {
@@ -889,6 +962,7 @@ pub unsafe fn EnumSystemGeoNames<'a, Param2: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCA, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL {
@@ -903,6 +977,7 @@ pub unsafe fn EnumSystemLanguageGroupsA(lplanguagegroupenumproc: LANGUAGEGROUP_E
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc: LANGUAGEGROUP_ENUMPROCW, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS, lparam: isize) -> super::Foundation::BOOL {
@@ -917,6 +992,7 @@ pub unsafe fn EnumSystemLanguageGroupsW(lplanguagegroupenumproc: LANGUAGEGROUP_E
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemLocalesA(lplocaleenumproc: LOCALE_ENUMPROCA, dwflags: u32) -> super::Foundation::BOOL {
@@ -931,6 +1007,7 @@ pub unsafe fn EnumSystemLocalesA(lplocaleenumproc: LOCALE_ENUMPROCA, dwflags: u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemLocalesEx<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lplocaleenumprocex: LOCALE_ENUMPROCEX, dwflags: u32, lparam: Param2, lpreserved: *const ::core::ffi::c_void) -> super::Foundation::BOOL {
@@ -945,6 +1022,7 @@ pub unsafe fn EnumSystemLocalesEx<'a, Param2: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumSystemLocalesW(lplocaleenumproc: LOCALE_ENUMPROCW, dwflags: u32) -> super::Foundation::BOOL {
@@ -959,6 +1037,7 @@ pub unsafe fn EnumSystemLocalesW(lplocaleenumproc: LOCALE_ENUMPROCW, dwflags: u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumTimeFormatsA(lptimefmtenumproc: TIMEFMT_ENUMPROCA, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL {
@@ -973,6 +1052,7 @@ pub unsafe fn EnumTimeFormatsA(lptimefmtenumproc: TIMEFMT_ENUMPROCA, locale: u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumTimeFormatsEx<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lptimefmtenumprocex: TIMEFMT_ENUMPROCEX, lplocalename: Param1, dwflags: u32, lparam: Param3) -> super::Foundation::BOOL {
@@ -987,6 +1067,7 @@ pub unsafe fn EnumTimeFormatsEx<'a, Param1: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumTimeFormatsW(lptimefmtenumproc: TIMEFMT_ENUMPROCW, locale: u32, dwflags: TIME_FORMAT_FLAGS) -> super::Foundation::BOOL {
@@ -1001,6 +1082,7 @@ pub unsafe fn EnumTimeFormatsW(lptimefmtenumproc: TIMEFMT_ENUMPROCW, locale: u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumUILanguagesA(lpuilanguageenumproc: UILANGUAGE_ENUMPROCA, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
@@ -1015,6 +1097,7 @@ pub unsafe fn EnumUILanguagesA(lpuilanguageenumproc: UILANGUAGE_ENUMPROCA, dwfla
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumUILanguagesW(lpuilanguageenumproc: UILANGUAGE_ENUMPROCW, dwflags: u32, lparam: isize) -> super::Foundation::BOOL {
@@ -1030,6 +1113,7 @@ pub unsafe fn EnumUILanguagesW(lpuilanguageenumproc: UILANGUAGE_ENUMPROCW, dwfla
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct FILEMUIINFO {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -1069,13 +1153,20 @@ pub const FIND_ENDSWITH: u32 = 2097152u32;
 pub const FIND_FROMEND: u32 = 8388608u32;
 pub const FIND_FROMSTART: u32 = 4194304u32;
 pub const FIND_STARTSWITH: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type FOLD_STRING_MAP_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MAP_COMPOSITE: FOLD_STRING_MAP_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MAP_EXPAND_LIGATURES: FOLD_STRING_MAP_FLAGS = 8192u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MAP_FOLDCZONE: FOLD_STRING_MAP_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MAP_FOLDDIGITS: FOLD_STRING_MAP_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MAP_PRECOMPOSED: FOLD_STRING_MAP_FLAGS = 32u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct FONTSIGNATURE {
     pub fsUsb: [u32; 4],
     pub fsCsb: [u32; 2],
@@ -1100,6 +1191,7 @@ impl ::core::default::Default for FONTSIGNATURE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNLSString<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, dwfindnlsstringflags: u32, lpstringsource: Param2, cchsource: i32, lpstringvalue: Param4, cchvalue: i32, pcchfound: *mut i32) -> i32 {
@@ -1114,6 +1206,7 @@ pub unsafe fn FindNLSString<'a, Param2: ::windows::core::IntoParam<'a, super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNLSStringEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param9: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lplocalename: Param0, dwfindnlsstringflags: u32, lpstringsource: Param2, cchsource: i32, lpstringvalue: Param4, cchvalue: i32, pcchfound: *mut i32, lpversioninformation: *const NLSVERSIONINFO, lpreserved: *const ::core::ffi::c_void, sorthandle: Param9) -> i32 {
@@ -1128,6 +1221,7 @@ pub unsafe fn FindNLSStringEx<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindStringOrdinal<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(dwfindstringordinalflags: u32, lpstringsource: Param1, cchsource: i32, lpstringvalue: Param3, cchvalue: i32, bignorecase: Param5) -> i32 {
@@ -1142,6 +1236,7 @@ pub unsafe fn FindStringOrdinal<'a, Param1: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FoldStringA<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: Param1, cchsrc: i32, lpdeststr: super::Foundation::PSTR, cchdest: i32) -> i32 {
@@ -1156,6 +1251,7 @@ pub unsafe fn FoldStringA<'a, Param1: ::windows::core::IntoParam<'a, super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FoldStringW<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwmapflags: FOLD_STRING_MAP_FLAGS, lpsrcstr: Param1, cchsrc: i32, lpdeststr: super::Foundation::PWSTR, cchdest: i32) -> i32 {
@@ -1171,11 +1267,14 @@ pub unsafe fn FoldStringW<'a, Param1: ::windows::core::IntoParam<'a, super::Foun
     unimplemented!("Unsupported target OS");
 }
 pub const GEOID_NOT_AVAILABLE: i32 = -1i32;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type GEO_ENUMNAMEPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type GEO_ENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: i32) -> super::Foundation::BOOL>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct GOFFSET {
     pub du: i32,
     pub dv: i32,
@@ -1201,6 +1300,7 @@ impl ::core::default::Default for GOFFSET {
     }
 }
 pub const GSS_ALLOW_INHERITED_COMMON: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn GetACP() -> u32 {
     #[cfg(windows)]
@@ -1214,6 +1314,7 @@ pub unsafe fn GetACP() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCPInfo(codepage: u32, lpcpinfo: *mut CPINFO) -> super::Foundation::BOOL {
@@ -1228,6 +1329,7 @@ pub unsafe fn GetCPInfo(codepage: u32, lpcpinfo: *mut CPINFO) -> super::Foundati
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCPInfoExA(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXA) -> super::Foundation::BOOL {
@@ -1242,6 +1344,7 @@ pub unsafe fn GetCPInfoExA(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCPInfoExW(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOEXW) -> super::Foundation::BOOL {
@@ -1256,6 +1359,7 @@ pub unsafe fn GetCPInfoExW(codepage: u32, dwflags: u32, lpcpinfoex: *mut CPINFOE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcaldata: super::Foundation::PSTR, cchdata: i32, lpvalue: *mut u32) -> i32 {
@@ -1270,6 +1374,7 @@ pub unsafe fn GetCalendarInfoA(locale: u32, calendar: u32, caltype: u32, lpcalda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCalendarInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lplocalename: Param0, calendar: u32, lpreserved: Param2, caltype: u32, lpcaldata: super::Foundation::PWSTR, cchdata: i32, lpvalue: *mut u32) -> i32 {
@@ -1284,6 +1389,7 @@ pub unsafe fn GetCalendarInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcaldata: super::Foundation::PWSTR, cchdata: i32, lpvalue: *mut u32) -> i32 {
@@ -1298,6 +1404,7 @@ pub unsafe fn GetCalendarInfoW(locale: u32, calendar: u32, caltype: u32, lpcalda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrencyFormatA<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: u32, dwflags: u32, lpvalue: Param2, lpformat: *const CURRENCYFMTA, lpcurrencystr: super::Foundation::PSTR, cchcurrency: i32) -> i32 {
@@ -1312,6 +1419,7 @@ pub unsafe fn GetCurrencyFormatA<'a, Param2: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrencyFormatEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lplocalename: Param0, dwflags: u32, lpvalue: Param2, lpformat: *const CURRENCYFMTW, lpcurrencystr: super::Foundation::PWSTR, cchcurrency: i32) -> i32 {
@@ -1326,6 +1434,7 @@ pub unsafe fn GetCurrencyFormatEx<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrencyFormatW<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, dwflags: u32, lpvalue: Param2, lpformat: *const CURRENCYFMTW, lpcurrencystr: super::Foundation::PWSTR, cchcurrency: i32) -> i32 {
@@ -1340,6 +1449,7 @@ pub unsafe fn GetCurrencyFormatW<'a, Param2: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDateFormatA<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: u32, dwflags: u32, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: Param3, lpdatestr: super::Foundation::PSTR, cchdate: i32) -> i32 {
@@ -1354,6 +1464,7 @@ pub unsafe fn GetDateFormatA<'a, Param3: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDateFormatEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lplocalename: Param0, dwflags: ENUM_DATE_FORMATS_FLAGS, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: Param3, lpdatestr: super::Foundation::PWSTR, cchdate: i32, lpcalendar: Param6) -> i32 {
@@ -1368,6 +1479,7 @@ pub unsafe fn GetDateFormatEx<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDateFormatW<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, dwflags: u32, lpdate: *const super::Foundation::SYSTEMTIME, lpformat: Param3, lpdatestr: super::Foundation::PWSTR, cchdate: i32) -> i32 {
@@ -1382,6 +1494,7 @@ pub unsafe fn GetDateFormatW<'a, Param3: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDistanceOfClosestLanguageInList<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(pszlanguage: Param0, pszlanguageslist: Param1, wchlistdelimiter: u16) -> ::windows::core::Result<f64> {
@@ -1397,6 +1510,7 @@ pub unsafe fn GetDistanceOfClosestLanguageInList<'a, Param0: ::windows::core::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDurationFormat<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, dwflags: u32, lpduration: *const super::Foundation::SYSTEMTIME, ullduration: u64, lpformat: Param4, lpdurationstr: super::Foundation::PWSTR, cchduration: i32) -> i32 {
@@ -1411,6 +1525,7 @@ pub unsafe fn GetDurationFormat<'a, Param4: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDurationFormatEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lplocalename: Param0, dwflags: u32, lpduration: *const super::Foundation::SYSTEMTIME, ullduration: u64, lpformat: Param4, lpdurationstr: super::Foundation::PWSTR, cchduration: i32) -> i32 {
@@ -1425,6 +1540,7 @@ pub unsafe fn GetDurationFormatEx<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileMUIInfo<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, pcwszfilepath: Param1, pfilemuiinfo: *mut FILEMUIINFO, pcbfilemuiinfo: *mut u32) -> super::Foundation::BOOL {
@@ -1439,6 +1555,7 @@ pub unsafe fn GetFileMUIInfo<'a, Param1: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileMUIPath<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, pcwszfilepath: Param1, pwszlanguage: Param2, pcchlanguage: *mut u32, pwszfilemuipath: super::Foundation::PWSTR, pcchfilemuipath: *mut u32, pululenumerator: *mut u64) -> super::Foundation::BOOL {
@@ -1453,6 +1570,7 @@ pub unsafe fn GetFileMUIPath<'a, Param1: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGeoInfoA(location: i32, geotype: u32, lpgeodata: super::Foundation::PSTR, cchdata: i32, langid: u16) -> i32 {
@@ -1467,6 +1585,7 @@ pub unsafe fn GetGeoInfoA(location: i32, geotype: u32, lpgeodata: super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGeoInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(location: Param0, geotype: u32, geodata: super::Foundation::PWSTR, geodatacount: i32) -> i32 {
@@ -1481,6 +1600,7 @@ pub unsafe fn GetGeoInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::Fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGeoInfoW(location: i32, geotype: u32, lpgeodata: super::Foundation::PWSTR, cchdata: i32, langid: u16) -> i32 {
@@ -1495,6 +1615,7 @@ pub unsafe fn GetGeoInfoW(location: i32, geotype: u32, lpgeodata: super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLocaleInfoA(locale: u32, lctype: u32, lplcdata: super::Foundation::PSTR, cchdata: i32) -> i32 {
@@ -1509,6 +1630,7 @@ pub unsafe fn GetLocaleInfoA(locale: u32, lctype: u32, lplcdata: super::Foundati
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLocaleInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lplocalename: Param0, lctype: u32, lplcdata: super::Foundation::PWSTR, cchdata: i32) -> i32 {
@@ -1523,6 +1645,7 @@ pub unsafe fn GetLocaleInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLocaleInfoW(locale: u32, lctype: u32, lplcdata: super::Foundation::PWSTR, cchdata: i32) -> i32 {
@@ -1537,6 +1660,7 @@ pub unsafe fn GetLocaleInfoW(locale: u32, lctype: u32, lplcdata: super::Foundati
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNLSVersion(function: u32, locale: u32, lpversioninformation: *mut NLSVERSIONINFO) -> super::Foundation::BOOL {
@@ -1551,6 +1675,7 @@ pub unsafe fn GetNLSVersion(function: u32, locale: u32, lpversioninformation: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNLSVersionEx<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(function: u32, lplocalename: Param1, lpversioninformation: *mut NLSVERSIONINFOEX) -> super::Foundation::BOOL {
@@ -1565,6 +1690,7 @@ pub unsafe fn GetNLSVersionEx<'a, Param1: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNumberFormatA<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: u32, dwflags: u32, lpvalue: Param2, lpformat: *const NUMBERFMTA, lpnumberstr: super::Foundation::PSTR, cchnumber: i32) -> i32 {
@@ -1579,6 +1705,7 @@ pub unsafe fn GetNumberFormatA<'a, Param2: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNumberFormatEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lplocalename: Param0, dwflags: u32, lpvalue: Param2, lpformat: *const NUMBERFMTW, lpnumberstr: super::Foundation::PWSTR, cchnumber: i32) -> i32 {
@@ -1593,6 +1720,7 @@ pub unsafe fn GetNumberFormatEx<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNumberFormatW<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, dwflags: u32, lpvalue: Param2, lpformat: *const NUMBERFMTW, lpnumberstr: super::Foundation::PWSTR, cchnumber: i32) -> i32 {
@@ -1607,6 +1735,7 @@ pub unsafe fn GetNumberFormatW<'a, Param2: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn GetOEMCP() -> u32 {
     #[cfg(windows)]
@@ -1620,6 +1749,7 @@ pub unsafe fn GetOEMCP() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL {
@@ -1634,6 +1764,7 @@ pub unsafe fn GetProcessPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStringScripts<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, lpstring: Param1, cchstring: i32, lpscripts: super::Foundation::PWSTR, cchscripts: i32) -> i32 {
@@ -1648,6 +1779,7 @@ pub unsafe fn GetStringScripts<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStringTypeA<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: u32, dwinfotype: u32, lpsrcstr: Param2, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL {
@@ -1662,6 +1794,7 @@ pub unsafe fn GetStringTypeA<'a, Param2: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStringTypeExA<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: u32, dwinfotype: u32, lpsrcstr: Param2, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL {
@@ -1676,6 +1809,7 @@ pub unsafe fn GetStringTypeExA<'a, Param2: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStringTypeExW<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, dwinfotype: u32, lpsrcstr: Param2, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL {
@@ -1690,6 +1824,7 @@ pub unsafe fn GetStringTypeExW<'a, Param2: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStringTypeW<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwinfotype: u32, lpsrcstr: Param1, cchsrc: i32, lpchartype: *mut u16) -> super::Foundation::BOOL {
@@ -1704,6 +1839,7 @@ pub unsafe fn GetStringTypeW<'a, Param1: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn GetSystemDefaultLCID() -> u32 {
     #[cfg(windows)]
@@ -1717,6 +1853,7 @@ pub unsafe fn GetSystemDefaultLCID() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn GetSystemDefaultLangID() -> u16 {
     #[cfg(windows)]
@@ -1730,6 +1867,7 @@ pub unsafe fn GetSystemDefaultLangID() -> u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemDefaultLocaleName(lplocalename: super::Foundation::PWSTR, cchlocalename: i32) -> i32 {
@@ -1744,6 +1882,7 @@ pub unsafe fn GetSystemDefaultLocaleName(lplocalename: super::Foundation::PWSTR,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn GetSystemDefaultUILanguage() -> u16 {
     #[cfg(windows)]
@@ -1757,6 +1896,7 @@ pub unsafe fn GetSystemDefaultUILanguage() -> u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL {
@@ -1771,6 +1911,7 @@ pub unsafe fn GetSystemPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetTextCharset<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0) -> i32 {
@@ -1785,6 +1926,7 @@ pub unsafe fn GetTextCharset<'a, Param0: ::windows::core::IntoParam<'a, super::G
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetTextCharsetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, lpsig: *mut FONTSIGNATURE, dwflags: u32) -> i32 {
@@ -1799,6 +1941,7 @@ pub unsafe fn GetTextCharsetInfo<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn GetThreadLocale() -> u32 {
     #[cfg(windows)]
@@ -1812,6 +1955,7 @@ pub unsafe fn GetThreadLocale() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetThreadPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL {
@@ -1826,6 +1970,7 @@ pub unsafe fn GetThreadPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn GetThreadUILanguage() -> u16 {
     #[cfg(windows)]
@@ -1839,6 +1984,7 @@ pub unsafe fn GetThreadUILanguage() -> u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTimeFormatA<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: u32, dwflags: u32, lptime: *const super::Foundation::SYSTEMTIME, lpformat: Param3, lptimestr: super::Foundation::PSTR, cchtime: i32) -> i32 {
@@ -1853,6 +1999,7 @@ pub unsafe fn GetTimeFormatA<'a, Param3: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTimeFormatEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lplocalename: Param0, dwflags: TIME_FORMAT_FLAGS, lptime: *const super::Foundation::SYSTEMTIME, lpformat: Param3, lptimestr: super::Foundation::PWSTR, cchtime: i32) -> i32 {
@@ -1867,6 +2014,7 @@ pub unsafe fn GetTimeFormatEx<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTimeFormatW<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, dwflags: u32, lptime: *const super::Foundation::SYSTEMTIME, lpformat: Param3, lptimestr: super::Foundation::PWSTR, cchtime: i32) -> i32 {
@@ -1881,6 +2029,7 @@ pub unsafe fn GetTimeFormatW<'a, Param3: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUILanguageInfo<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, pwmszlanguage: Param1, pwszfallbacklanguages: super::Foundation::PWSTR, pcchfallbacklanguages: *mut u32, pattributes: *mut u32) -> super::Foundation::BOOL {
@@ -1895,6 +2044,7 @@ pub unsafe fn GetUILanguageInfo<'a, Param1: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUserDefaultGeoName(geoname: super::Foundation::PWSTR, geonamecount: i32) -> i32 {
@@ -1909,6 +2059,7 @@ pub unsafe fn GetUserDefaultGeoName(geoname: super::Foundation::PWSTR, geonameco
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn GetUserDefaultLCID() -> u32 {
     #[cfg(windows)]
@@ -1922,6 +2073,7 @@ pub unsafe fn GetUserDefaultLCID() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn GetUserDefaultLangID() -> u16 {
     #[cfg(windows)]
@@ -1935,6 +2087,7 @@ pub unsafe fn GetUserDefaultLangID() -> u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUserDefaultLocaleName(lplocalename: super::Foundation::PWSTR, cchlocalename: i32) -> i32 {
@@ -1949,6 +2102,7 @@ pub unsafe fn GetUserDefaultLocaleName(lplocalename: super::Foundation::PWSTR, c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn GetUserDefaultUILanguage() -> u16 {
     #[cfg(windows)]
@@ -1962,6 +2116,7 @@ pub unsafe fn GetUserDefaultUILanguage() -> u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn GetUserGeoID(geoclass: u32) -> i32 {
     #[cfg(windows)]
@@ -1975,6 +2130,7 @@ pub unsafe fn GetUserGeoID(geoclass: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUserPreferredUILanguages(dwflags: u32, pulnumlanguages: *mut u32, pwszlanguagesbuffer: super::Foundation::PWSTR, pcchlanguagesbuffer: *mut u32) -> super::Foundation::BOOL {
@@ -1995,6 +2151,7 @@ pub const HIGH_SURROGATE_START: u32 = 55296u32;
 pub type HIMC = isize;
 pub type HIMCC = isize;
 pub type HSAVEDUILANGUAGES = isize;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IComprehensiveSpellCheckProvider(::windows::core::IUnknown);
 impl IComprehensiveSpellCheckProvider {
@@ -2052,6 +2209,7 @@ pub const IDN_ALLOW_UNASSIGNED: u32 = 1u32;
 pub const IDN_EMAIL_ADDRESS: u32 = 4u32;
 pub const IDN_RAW_PUNYCODE: u32 = 8u32;
 pub const IDN_USE_STD3_ASCII_RULES: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IEnumCodePage(::windows::core::IUnknown);
 impl IEnumCodePage {
@@ -2115,6 +2273,7 @@ pub struct IEnumCodePageVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IEnumRfc1766(::windows::core::IUnknown);
 impl IEnumRfc1766 {
@@ -2178,6 +2337,7 @@ pub struct IEnumRfc1766Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IEnumScript(::windows::core::IUnknown);
 impl IEnumScript {
@@ -2241,6 +2401,7 @@ pub struct IEnumScriptVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IEnumSpellingError(::windows::core::IUnknown);
 impl IEnumSpellingError {
@@ -2299,6 +2460,7 @@ pub const IME_CMODE_LANGUAGE: u32 = 3u32;
 pub const IME_CMODE_NATIVE: u32 = 1u32;
 pub const IME_CMODE_NATIVESYMBOL: u32 = 128u32;
 pub const IME_CMODE_ROMAN: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IMLangCodePages(::windows::core::IUnknown);
 impl IMLangCodePages {
@@ -2366,6 +2528,7 @@ pub struct IMLangCodePagesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ucodepage: u32, pdwcodepages: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcodepages: u32, udefaultcodepage: u32, pucodepage: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IMLangConvertCharset(::windows::core::IUnknown);
 impl IMLangConvertCharset {
@@ -2447,6 +2610,7 @@ pub struct IMLangConvertCharsetVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psrcstr: super::Foundation::PWSTR, pcsrcsize: *mut u32, pdststr: super::Foundation::PSTR, pcdstsize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IMLangFontLink(::windows::core::IUnknown);
 impl IMLangFontLink {
@@ -2558,6 +2722,7 @@ pub struct IMLangFontLinkVtbl(
     #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IMLangFontLink2(::windows::core::IUnknown);
 impl IMLangFontLink2 {
@@ -2685,6 +2850,7 @@ pub struct IMLangFontLink2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sid: u8, dwflags: u32, puifonts: *mut u32, pscriptfont: *mut tagSCRIPFONTINFO) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uicodepage: u32, psid: *mut u8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IMLangLineBreakConsole(::windows::core::IUnknown);
 impl IMLangLineBreakConsole {
@@ -2747,6 +2913,7 @@ pub struct IMLangLineBreakConsoleVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, locale: u32, ucodepage: u32, pszsrc: super::Foundation::PSTR, cchsrc: i32, cmaxcolumns: i32, pcchline: *mut i32, pcchskip: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IMLangString(::windows::core::IUnknown);
 impl IMLangString {
@@ -2812,6 +2979,7 @@ pub struct IMLangStringVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ldestpos: i32, ldestlen: i32, psrcmlstr: *mut ::core::ffi::c_void, lsrcpos: i32, lsrclen: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsrcpos: i32, lsrclen: i32, punkouter: *mut ::core::ffi::c_void, dwclscontext: u32, piid: *const ::windows::core::GUID, ppdestmlstr: *mut *mut ::core::ffi::c_void, pldestpos: *mut i32, pldestlen: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IMLangStringAStr(::windows::core::IUnknown);
 impl IMLangStringAStr {
@@ -2937,6 +3105,7 @@ pub struct IMLangStringAStrVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ldestpos: i32, ldestlen: i32, locale: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsrcpos: i32, lsrcmaxlen: i32, plocale: *mut u32, pllocalepos: *mut i32, pllocalelen: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IMLangStringBufA(::windows::core::IUnknown);
 impl IMLangStringBufA {
@@ -3008,6 +3177,7 @@ pub struct IMLangStringBufAVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchoffset: i32, cchmaxinsert: i32, pcchactual: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchoffset: i32, cchdelete: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IMLangStringBufW(::windows::core::IUnknown);
 impl IMLangStringBufW {
@@ -3077,6 +3247,7 @@ pub struct IMLangStringBufWVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchoffset: i32, cchmaxinsert: i32, pcchactual: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchoffset: i32, cchdelete: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IMLangStringWStr(::windows::core::IUnknown);
 impl IMLangStringWStr {
@@ -3202,6 +3373,7 @@ pub struct IMLangStringWStrVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ldestpos: i32, ldestlen: i32, locale: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lsrcpos: i32, lsrcmaxlen: i32, plocale: *mut u32, pllocalepos: *mut i32, pllocalelen: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IMultiLanguage(::windows::core::IUnknown);
 impl IMultiLanguage {
@@ -3327,6 +3499,7 @@ pub struct IMultiLanguageVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, locale: u32, prfc1766info: *mut RFC1766INFO) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32, ppmlangconvertcharset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IMultiLanguage2(::windows::core::IUnknown);
 impl IMultiLanguage2 {
@@ -3518,6 +3691,7 @@ pub struct IMultiLanguage2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uicodepage: u32, hwnd: super::Foundation::HWND, dwfiodcontrol: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IMultiLanguage3(::windows::core::IUnknown);
 impl IMultiLanguage3 {
@@ -3741,6 +3915,7 @@ pub struct IMultiLanguage3Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pstrin: ::windows::core::RawPtr, puipreferredcodepages: *const u32, npreferredcodepages: u32, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IOptionDescription(::windows::core::IUnknown);
 impl IOptionDescription {
@@ -3815,25 +3990,45 @@ pub struct IOptionDescriptionVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type IS_TEXT_UNICODE_RESULT = u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const IS_TEXT_UNICODE_ASCII16: IS_TEXT_UNICODE_RESULT = 1u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const IS_TEXT_UNICODE_REVERSE_ASCII16: IS_TEXT_UNICODE_RESULT = 16u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const IS_TEXT_UNICODE_STATISTICS: IS_TEXT_UNICODE_RESULT = 2u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const IS_TEXT_UNICODE_REVERSE_STATISTICS: IS_TEXT_UNICODE_RESULT = 32u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const IS_TEXT_UNICODE_CONTROLS: IS_TEXT_UNICODE_RESULT = 4u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const IS_TEXT_UNICODE_REVERSE_CONTROLS: IS_TEXT_UNICODE_RESULT = 64u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const IS_TEXT_UNICODE_SIGNATURE: IS_TEXT_UNICODE_RESULT = 8u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const IS_TEXT_UNICODE_REVERSE_SIGNATURE: IS_TEXT_UNICODE_RESULT = 128u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const IS_TEXT_UNICODE_ILLEGAL_CHARS: IS_TEXT_UNICODE_RESULT = 256u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const IS_TEXT_UNICODE_ODD_LENGTH: IS_TEXT_UNICODE_RESULT = 512u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const IS_TEXT_UNICODE_NULL_BYTES: IS_TEXT_UNICODE_RESULT = 4096u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const IS_TEXT_UNICODE_UNICODE_MASK: IS_TEXT_UNICODE_RESULT = 15u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const IS_TEXT_UNICODE_REVERSE_MASK: IS_TEXT_UNICODE_RESULT = 240u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const IS_TEXT_UNICODE_NOT_UNICODE_MASK: IS_TEXT_UNICODE_RESULT = 3840u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const IS_TEXT_UNICODE_NOT_ASCII_MASK: IS_TEXT_UNICODE_RESULT = 61440u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type IS_VALID_LOCALE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const LCID_INSTALLED: IS_VALID_LOCALE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const LCID_SUPPORTED: IS_VALID_LOCALE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct ISpellCheckProvider(::windows::core::IUnknown);
 impl ISpellCheckProvider {
@@ -3948,6 +4143,7 @@ pub struct ISpellCheckProviderVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wordlisttype: WORDLIST_TYPE, words: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct ISpellCheckProviderFactory(::windows::core::IUnknown);
 impl ISpellCheckProviderFactory {
@@ -4015,6 +4211,7 @@ pub struct ISpellCheckProviderFactoryVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languagetag: super::Foundation::PWSTR, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct ISpellChecker(::windows::core::IUnknown);
 impl ISpellChecker {
@@ -4151,6 +4348,7 @@ pub struct ISpellCheckerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: super::Foundation::PWSTR, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct ISpellChecker2(::windows::core::IUnknown);
 impl ISpellChecker2 {
@@ -4313,6 +4511,7 @@ pub struct ISpellChecker2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, word: super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct ISpellCheckerChangedEventHandler(::windows::core::IUnknown);
 impl ISpellCheckerChangedEventHandler {
@@ -4358,6 +4557,7 @@ unsafe impl ::windows::core::Interface for ISpellCheckerChangedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpellCheckerChangedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct ISpellCheckerFactory(::windows::core::IUnknown);
 impl ISpellCheckerFactory {
@@ -4425,6 +4625,7 @@ pub struct ISpellCheckerFactoryVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languagetag: super::Foundation::PWSTR, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct ISpellingError(::windows::core::IUnknown);
 impl ISpellingError {
@@ -4493,6 +4694,7 @@ pub struct ISpellingErrorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[repr(transparent)]
 pub struct IUserDictionariesRegistrar(::windows::core::IUnknown);
 impl IUserDictionariesRegistrar {
@@ -4551,6 +4753,7 @@ pub struct IUserDictionariesRegistrarVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionarypath: super::Foundation::PWSTR, languagetag: super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IdnToAscii<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, lpunicodecharstr: Param1, cchunicodechar: i32, lpasciicharstr: super::Foundation::PWSTR, cchasciichar: i32) -> i32 {
@@ -4565,6 +4768,7 @@ pub unsafe fn IdnToAscii<'a, Param1: ::windows::core::IntoParam<'a, super::Found
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IdnToNameprepUnicode<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, lpunicodecharstr: Param1, cchunicodechar: i32, lpnameprepcharstr: super::Foundation::PWSTR, cchnameprepchar: i32) -> i32 {
@@ -4579,6 +4783,7 @@ pub unsafe fn IdnToNameprepUnicode<'a, Param1: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IdnToUnicode<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, lpasciicharstr: Param1, cchasciichar: i32, lpunicodecharstr: super::Foundation::PWSTR, cchunicodechar: i32) -> i32 {
@@ -4593,6 +4798,7 @@ pub unsafe fn IdnToUnicode<'a, Param1: ::windows::core::IntoParam<'a, super::Fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsDBCSLeadByte(testchar: u8) -> super::Foundation::BOOL {
@@ -4607,6 +4813,7 @@ pub unsafe fn IsDBCSLeadByte(testchar: u8) -> super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsDBCSLeadByteEx(codepage: u32, testchar: u8) -> super::Foundation::BOOL {
@@ -4621,6 +4828,7 @@ pub unsafe fn IsDBCSLeadByteEx(codepage: u32, testchar: u8) -> super::Foundation
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsNLSDefinedString<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(function: u32, dwflags: u32, lpversioninformation: *const NLSVERSIONINFO, lpstring: Param3, cchstr: i32) -> super::Foundation::BOOL {
@@ -4635,6 +4843,7 @@ pub unsafe fn IsNLSDefinedString<'a, Param3: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsNormalizedString<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(normform: NORM_FORM, lpstring: Param1, cwlength: i32) -> super::Foundation::BOOL {
@@ -4649,6 +4858,7 @@ pub unsafe fn IsNormalizedString<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsTextUnicode(lpv: *const ::core::ffi::c_void, isize: i32, lpiresult: *mut IS_TEXT_UNICODE_RESULT) -> super::Foundation::BOOL {
@@ -4663,6 +4873,7 @@ pub unsafe fn IsTextUnicode(lpv: *const ::core::ffi::c_void, isize: i32, lpiresu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsValidCodePage(codepage: u32) -> super::Foundation::BOOL {
@@ -4677,6 +4888,7 @@ pub unsafe fn IsValidCodePage(codepage: u32) -> super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsValidLanguageGroup(languagegroup: u32, dwflags: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS) -> super::Foundation::BOOL {
@@ -4691,6 +4903,7 @@ pub unsafe fn IsValidLanguageGroup(languagegroup: u32, dwflags: ENUM_SYSTEM_LANG
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsValidLocale(locale: u32, dwflags: IS_VALID_LOCALE_FLAGS) -> super::Foundation::BOOL {
@@ -4705,6 +4918,7 @@ pub unsafe fn IsValidLocale(locale: u32, dwflags: IS_VALID_LOCALE_FLAGS) -> supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsValidLocaleName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lplocalename: Param0) -> super::Foundation::BOOL {
@@ -4719,6 +4933,7 @@ pub unsafe fn IsValidLocaleName<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsValidNLSVersion<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(function: u32, lplocalename: Param1, lpversioninformation: *const NLSVERSIONINFOEX) -> u32 {
@@ -4733,6 +4948,7 @@ pub unsafe fn IsValidNLSVersion<'a, Param1: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsWellFormedTag<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(psztag: Param0) -> u8 {
@@ -4747,14 +4963,19 @@ pub unsafe fn IsWellFormedTag<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LANGGROUPLOCALE_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: super::Foundation::PSTR, param3: isize) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LANGGROUPLOCALE_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: u32, param2: super::Foundation::PWSTR, param3: isize) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LANGUAGEGROUP_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: super::Foundation::PSTR, param2: super::Foundation::PSTR, param3: u32, param4: isize) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LANGUAGEGROUP_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: super::Foundation::PWSTR, param2: super::Foundation::PWSTR, param3: u32, param4: isize) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LCIDToLocaleName(locale: u32, lpname: super::Foundation::PWSTR, cchname: i32, dwflags: u32) -> i32 {
@@ -4784,6 +5005,7 @@ pub const LCMAP_SORTKEY: u32 = 1024u32;
 pub const LCMAP_TITLECASE: u32 = 768u32;
 pub const LCMAP_TRADITIONAL_CHINESE: u32 = 67108864u32;
 pub const LCMAP_UPPERCASE: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LCMapStringA<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: u32, dwmapflags: u32, lpsrcstr: Param2, cchsrc: i32, lpdeststr: super::Foundation::PSTR, cchdest: i32) -> i32 {
@@ -4798,6 +5020,7 @@ pub unsafe fn LCMapStringA<'a, Param2: ::windows::core::IntoParam<'a, super::Fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LCMapStringEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::Foundation::LPARAM>>(lplocalename: Param0, dwmapflags: u32, lpsrcstr: Param2, cchsrc: i32, lpdeststr: super::Foundation::PWSTR, cchdest: i32, lpversioninformation: *const NLSVERSIONINFO, lpreserved: *const ::core::ffi::c_void, sorthandle: Param8) -> i32 {
@@ -4812,6 +5035,7 @@ pub unsafe fn LCMapStringEx<'a, Param0: ::windows::core::IntoParam<'a, super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LCMapStringW<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, dwmapflags: u32, lpsrcstr: Param2, cchsrc: i32, lpdeststr: super::Foundation::PWSTR, cchdest: i32) -> i32 {
@@ -4845,6 +5069,7 @@ pub const LGRPID_TURKISH: u32 = 6u32;
 pub const LGRPID_VIETNAMESE: u32 = 14u32;
 pub const LGRPID_WESTERN_EUROPE: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct LOCALESIGNATURE {
     pub lsUsb: [u32; 4],
     pub lsCsbDefault: [u32; 2],
@@ -4873,10 +5098,13 @@ impl ::core::default::Default for LOCALESIGNATURE {
 pub const LOCALE_ALL: u32 = 0u32;
 pub const LOCALE_ALLOW_NEUTRAL_NAMES: u32 = 134217728u32;
 pub const LOCALE_ALTERNATE_SORTS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LOCALE_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LOCALE_ENUMPROCEX = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: u32, param2: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LOCALE_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL>;
 pub const LOCALE_FONTSIGNATURE: u32 = 88u32;
@@ -5049,6 +5277,7 @@ pub const LOCALE_WINDOWS: u32 = 1u32;
 pub const LOWLEVEL_SERVICE_TYPES: u32 = 2u32;
 pub const LOW_SURROGATE_END: u32 = 57343u32;
 pub const LOW_SURROGATE_START: u32 = 56320u32;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LocaleNameToLCID<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpname: Param0, dwflags: u32) -> u32 {
@@ -5064,6 +5293,7 @@ pub unsafe fn LocaleNameToLCID<'a, Param0: ::windows::core::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MAPPING_DATA_RANGE {
     pub dwStartIndex: u32,
@@ -5104,6 +5334,7 @@ impl ::core::default::Default for MAPPING_DATA_RANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MAPPING_ENUM_OPTIONS {
     pub Size: usize,
@@ -5144,6 +5375,7 @@ impl ::core::default::Default for MAPPING_ENUM_OPTIONS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MAPPING_OPTIONS {
     pub Size: usize,
@@ -5190,6 +5422,7 @@ impl ::core::default::Default for MAPPING_OPTIONS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MAPPING_PROPERTY_BAG {
     pub Size: usize,
@@ -5228,6 +5461,7 @@ impl ::core::default::Default for MAPPING_PROPERTY_BAG {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MAPPING_SERVICE_INFO {
     pub Size: usize,
@@ -5290,21 +5524,36 @@ pub const MAX_MIMECSET_NAME: u32 = 50u32;
 pub const MAX_MIMEFACE_NAME: u32 = 32u32;
 pub const MAX_RFC1766_NAME: u32 = 6u32;
 pub const MAX_SCRIPT_NAME: u32 = 48u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type MIMECONTF = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MIMECONTF_MAILNEWS: MIMECONTF = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MIMECONTF_BROWSER: MIMECONTF = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MIMECONTF_MINIMAL: MIMECONTF = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MIMECONTF_IMPORT: MIMECONTF = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MIMECONTF_SAVABLE_MAILNEWS: MIMECONTF = 256i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MIMECONTF_SAVABLE_BROWSER: MIMECONTF = 512i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MIMECONTF_EXPORT: MIMECONTF = 1024i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MIMECONTF_PRIVCONVERTER: MIMECONTF = 65536i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MIMECONTF_VALID: MIMECONTF = 131072i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MIMECONTF_VALID_NLS: MIMECONTF = 262144i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MIMECONTF_MIME_IE4: MIMECONTF = 268435456i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MIMECONTF_MIME_LATEST: MIMECONTF = 536870912i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MIMECONTF_MIME_REGISTRY: MIMECONTF = 1073741824i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct MIMECPINFO {
     pub dwFlags: u32,
     pub uiCodePage: u32,
@@ -5338,6 +5587,7 @@ impl ::core::default::Default for MIMECPINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct MIMECSETINFO {
     pub uiCodePage: u32,
     pub uiInternetEncoding: u32,
@@ -5364,15 +5614,25 @@ impl ::core::default::Default for MIMECSETINFO {
     }
 }
 pub const MIN_SPELLING_NTDDI: u32 = 100794368u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type MLDETECTCP = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLDETECTCP_NONE: MLDETECTCP = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLDETECTCP_7BIT: MLDETECTCP = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLDETECTCP_8BIT: MLDETECTCP = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLDETECTCP_DBCS: MLDETECTCP = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLDETECTCP_HTML: MLDETECTCP = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLDETECTCP_NUMBER: MLDETECTCP = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type MLSTR_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLSTR_READ: MLSTR_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLSTR_WRITE: MLSTR_FLAGS = 2i32;
 pub const MUI_COMPLEX_SCRIPT_FILTER: u32 = 512u32;
 pub const MUI_CONSOLE_FILTER: u32 = 256u32;
@@ -5407,11 +5667,17 @@ pub const MUI_USER_PREFERRED_UI_LANGUAGES: u32 = 16u32;
 pub const MUI_USE_INSTALLED_LANGUAGES: u32 = 32u32;
 pub const MUI_USE_SEARCH_ALL_LANGUAGES: u32 = 64u32;
 pub const MUI_VERIFY_FILE_EXISTS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type MULTI_BYTE_TO_WIDE_CHAR_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MB_COMPOSITE: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MB_ERR_INVALID_CHARS: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MB_PRECOMPOSED: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MB_USEGLYPHCHARS: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MappingDoAction<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(pbag: *mut MAPPING_PROPERTY_BAG, dwrangeindex: u32, pszactionid: Param2) -> ::windows::core::Result<()> {
@@ -5426,6 +5692,7 @@ pub unsafe fn MappingDoAction<'a, Param2: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MappingFreePropertyBag(pbag: *const MAPPING_PROPERTY_BAG) -> ::windows::core::Result<()> {
@@ -5440,6 +5707,7 @@ pub unsafe fn MappingFreePropertyBag(pbag: *const MAPPING_PROPERTY_BAG) -> ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MappingFreeServices(pserviceinfo: *const MAPPING_SERVICE_INFO) -> ::windows::core::Result<()> {
@@ -5454,6 +5722,7 @@ pub unsafe fn MappingFreeServices(pserviceinfo: *const MAPPING_SERVICE_INFO) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MappingGetServices(poptions: *const MAPPING_ENUM_OPTIONS, prgservices: *mut *mut MAPPING_SERVICE_INFO, pdwservicescount: *mut u32) -> ::windows::core::Result<()> {
@@ -5468,6 +5737,7 @@ pub unsafe fn MappingGetServices(poptions: *const MAPPING_ENUM_OPTIONS, prgservi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MappingRecognizeText<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(pserviceinfo: *const MAPPING_SERVICE_INFO, psztext: Param1, dwlength: u32, dwindex: u32, poptions: *const MAPPING_OPTIONS, pbag: *mut MAPPING_PROPERTY_BAG) -> ::windows::core::Result<()> {
@@ -5482,6 +5752,7 @@ pub unsafe fn MappingRecognizeText<'a, Param1: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MultiByteToWideChar<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(codepage: u32, dwflags: MULTI_BYTE_TO_WIDE_CHAR_FLAGS, lpmultibytestr: Param2, cbmultibyte: i32, lpwidecharstr: super::Foundation::PWSTR, cchwidechar: i32) -> i32 {
@@ -5497,6 +5768,7 @@ pub unsafe fn MultiByteToWideChar<'a, Param2: ::windows::core::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NEWTEXTMETRICEXA {
     pub ntmTm: super::Graphics::Gdi::NEWTEXTMETRICA,
@@ -5529,6 +5801,7 @@ impl ::core::default::Default for NEWTEXTMETRICEXA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NEWTEXTMETRICEXW {
     pub ntmTm: super::Graphics::Gdi::NEWTEXTMETRICW,
@@ -5561,6 +5834,7 @@ impl ::core::default::Default for NEWTEXTMETRICEXW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct NLSVERSIONINFO {
     pub dwNLSVersionInfoSize: u32,
     pub dwNLSVersion: u32,
@@ -5589,6 +5863,7 @@ impl ::core::default::Default for NLSVERSIONINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct NLSVERSIONINFOEX {
     pub dwNLSVersionInfoSize: u32,
     pub dwNLSVersion: u32,
@@ -5619,13 +5894,20 @@ impl ::core::default::Default for NLSVERSIONINFOEX {
 pub const NLS_CP_CPINFO: u32 = 268435456u32;
 pub const NLS_CP_MBTOWC: u32 = 1073741824u32;
 pub const NLS_CP_WCTOMB: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type NORM_FORM = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const NormalizationOther: NORM_FORM = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const NormalizationC: NORM_FORM = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const NormalizationD: NORM_FORM = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const NormalizationKC: NORM_FORM = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const NormalizationKD: NORM_FORM = 6i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NUMBERFMTA {
     pub NumDigits: u32,
@@ -5662,6 +5944,7 @@ impl ::core::default::Default for NUMBERFMTA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NUMBERFMTW {
     pub NumDigits: u32,
@@ -5698,6 +5981,7 @@ impl ::core::default::Default for NUMBERFMTW {
     }
 }
 pub const NUMSYS_NAME_CAPACITY: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NormalizeString<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(normform: NORM_FORM, lpsrcstring: Param1, cwsrclength: i32, lpdststring: super::Foundation::PWSTR, cwdstlength: i32) -> i32 {
@@ -5712,6 +5996,7 @@ pub unsafe fn NormalizeString<'a, Param1: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NotifyUILanguageChange<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, pcwstrnewlanguage: Param1, pcwstrpreviouslanguage: Param2, dwreserved: u32, pdwstatusrtrn: *mut u32) -> super::Foundation::BOOL {
@@ -5728,9 +6013,11 @@ pub unsafe fn NotifyUILanguageChange<'a, Param1: ::windows::core::IntoParam<'a, 
 }
 pub const OFFLINE_SERVICES: u32 = 2u32;
 pub const ONLINE_SERVICES: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_MAPPINGCALLBACKPROC = ::core::option::Option<unsafe extern "system" fn(pbag: *mut MAPPING_PROPERTY_BAG, data: *mut ::core::ffi::c_void, dwdatasize: u32, result: ::windows::core::HRESULT)>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct RFC1766INFO {
     pub lcid: u32,
     pub wszRfc1766: [u16; 6],
@@ -5756,6 +6043,7 @@ impl ::core::default::Default for RFC1766INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResolveLocaleName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpnametoresolve: Param0, lplocalename: super::Foundation::PWSTR, cchlocalename: i32) -> i32 {
@@ -5770,6 +6058,7 @@ pub unsafe fn ResolveLocaleName<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn RestoreThreadPreferredUILanguages<'a, Param0: ::windows::core::IntoParam<'a, HSAVEDUILANGUAGES>>(snapshot: Param0) {
     #[cfg(windows)]
@@ -5783,58 +6072,110 @@ pub unsafe fn RestoreThreadPreferredUILanguages<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type SCRIPTCONTF = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidDefault: SCRIPTCONTF = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidMerge: SCRIPTCONTF = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidAsciiSym: SCRIPTCONTF = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidAsciiLatin: SCRIPTCONTF = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidLatin: SCRIPTCONTF = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidGreek: SCRIPTCONTF = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidCyrillic: SCRIPTCONTF = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidArmenian: SCRIPTCONTF = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidHebrew: SCRIPTCONTF = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidArabic: SCRIPTCONTF = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidDevanagari: SCRIPTCONTF = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidBengali: SCRIPTCONTF = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidGurmukhi: SCRIPTCONTF = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidGujarati: SCRIPTCONTF = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidOriya: SCRIPTCONTF = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidTamil: SCRIPTCONTF = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidTelugu: SCRIPTCONTF = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidKannada: SCRIPTCONTF = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidMalayalam: SCRIPTCONTF = 18i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidThai: SCRIPTCONTF = 19i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidLao: SCRIPTCONTF = 20i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidTibetan: SCRIPTCONTF = 21i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidGeorgian: SCRIPTCONTF = 22i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidHangul: SCRIPTCONTF = 23i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidKana: SCRIPTCONTF = 24i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidBopomofo: SCRIPTCONTF = 25i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidHan: SCRIPTCONTF = 26i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidEthiopic: SCRIPTCONTF = 27i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidCanSyllabic: SCRIPTCONTF = 28i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidCherokee: SCRIPTCONTF = 29i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidYi: SCRIPTCONTF = 30i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidBraille: SCRIPTCONTF = 31i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidRunic: SCRIPTCONTF = 32i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidOgham: SCRIPTCONTF = 33i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidSinhala: SCRIPTCONTF = 34i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidSyriac: SCRIPTCONTF = 35i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidBurmese: SCRIPTCONTF = 36i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidKhmer: SCRIPTCONTF = 37i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidThaana: SCRIPTCONTF = 38i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidMongolian: SCRIPTCONTF = 39i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidUserDefined: SCRIPTCONTF = 40i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidLim: SCRIPTCONTF = 41i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidFEFirst: SCRIPTCONTF = 23i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const sidFELast: SCRIPTCONTF = 26i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type SCRIPTFONTCONTF = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPTCONTF_FIXED_FONT: SCRIPTFONTCONTF = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPTCONTF_PROPORTIONAL_FONT: SCRIPTFONTCONTF = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPTCONTF_SCRIPT_USER: SCRIPTFONTCONTF = 65536i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPTCONTF_SCRIPT_HIDE: SCRIPTFONTCONTF = 131072i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPTCONTF_SCRIPT_SYSTEM: SCRIPTFONTCONTF = 262144i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct SCRIPTINFO {
     pub ScriptId: u8,
     pub uiCodePage: u32,
@@ -5863,6 +6204,7 @@ impl ::core::default::Default for SCRIPTINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct SCRIPT_ANALYSIS {
     pub _bitfield: u16,
     pub s: SCRIPT_STATE,
@@ -5888,6 +6230,7 @@ impl ::core::default::Default for SCRIPT_ANALYSIS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct SCRIPT_CONTROL {
     pub _bitfield: u32,
 }
@@ -5912,6 +6255,7 @@ impl ::core::default::Default for SCRIPT_CONTROL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct SCRIPT_DIGITSUBSTITUTE {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
@@ -5942,6 +6286,7 @@ pub const SCRIPT_DIGITSUBSTITUTE_NATIONAL: u32 = 2u32;
 pub const SCRIPT_DIGITSUBSTITUTE_NONE: u32 = 1u32;
 pub const SCRIPT_DIGITSUBSTITUTE_TRADITIONAL: u32 = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct SCRIPT_FONTPROPERTIES {
     pub cBytes: i32,
     pub wgBlank: u16,
@@ -5970,11 +6315,16 @@ impl ::core::default::Default for SCRIPT_FONTPROPERTIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type SCRIPT_IS_COMPLEX_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SIC_ASCIIDIGIT: SCRIPT_IS_COMPLEX_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SIC_COMPLEX: SCRIPT_IS_COMPLEX_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SIC_NEUTRAL: SCRIPT_IS_COMPLEX_FLAGS = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct SCRIPT_ITEM {
     pub iCharPos: i32,
     pub a: SCRIPT_ANALYSIS,
@@ -5999,24 +6349,42 @@ impl ::core::default::Default for SCRIPT_ITEM {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type SCRIPT_JUSTIFY = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPT_JUSTIFY_NONE: SCRIPT_JUSTIFY = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPT_JUSTIFY_ARABIC_BLANK: SCRIPT_JUSTIFY = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPT_JUSTIFY_CHARACTER: SCRIPT_JUSTIFY = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPT_JUSTIFY_RESERVED1: SCRIPT_JUSTIFY = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPT_JUSTIFY_BLANK: SCRIPT_JUSTIFY = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPT_JUSTIFY_RESERVED2: SCRIPT_JUSTIFY = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPT_JUSTIFY_RESERVED3: SCRIPT_JUSTIFY = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPT_JUSTIFY_ARABIC_NORMAL: SCRIPT_JUSTIFY = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPT_JUSTIFY_ARABIC_KASHIDA: SCRIPT_JUSTIFY = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPT_JUSTIFY_ARABIC_ALEF: SCRIPT_JUSTIFY = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPT_JUSTIFY_ARABIC_HA: SCRIPT_JUSTIFY = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPT_JUSTIFY_ARABIC_RA: SCRIPT_JUSTIFY = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPT_JUSTIFY_ARABIC_BA: SCRIPT_JUSTIFY = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPT_JUSTIFY_ARABIC_BARA: SCRIPT_JUSTIFY = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPT_JUSTIFY_ARABIC_SEEN: SCRIPT_JUSTIFY = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const SCRIPT_JUSTIFY_ARABIC_SEEN_M: SCRIPT_JUSTIFY = 15i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct SCRIPT_LOGATTR {
     pub _bitfield: u8,
 }
@@ -6041,6 +6409,7 @@ impl ::core::default::Default for SCRIPT_LOGATTR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct SCRIPT_PROPERTIES {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
@@ -6066,6 +6435,7 @@ impl ::core::default::Default for SCRIPT_PROPERTIES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct SCRIPT_STATE {
     pub _bitfield: u16,
 }
@@ -6090,6 +6460,7 @@ impl ::core::default::Default for SCRIPT_STATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct SCRIPT_TABDEF {
     pub cTabStops: i32,
     pub iScale: i32,
@@ -6119,6 +6490,7 @@ impl ::core::default::Default for SCRIPT_TABDEF {
 pub const SCRIPT_TAG_UNKNOWN: u32 = 0u32;
 pub const SCRIPT_UNDEFINED: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct SCRIPT_VISATTR {
     pub _bitfield: u16,
 }
@@ -6166,31 +6538,57 @@ pub const SSA_PASSWORD: u32 = 1u32;
 pub const SSA_PIDX: u32 = 268435456u32;
 pub const SSA_RTL: u32 = 256u32;
 pub const SSA_TAB: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type SYSGEOCLASS = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEOCLASS_NATION: SYSGEOCLASS = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEOCLASS_REGION: SYSGEOCLASS = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEOCLASS_ALL: SYSGEOCLASS = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type SYSGEOTYPE = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEO_NATION: SYSGEOTYPE = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEO_LATITUDE: SYSGEOTYPE = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEO_LONGITUDE: SYSGEOTYPE = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEO_ISO2: SYSGEOTYPE = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEO_ISO3: SYSGEOTYPE = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEO_RFC1766: SYSGEOTYPE = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEO_LCID: SYSGEOTYPE = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEO_FRIENDLYNAME: SYSGEOTYPE = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEO_OFFICIALNAME: SYSGEOTYPE = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEO_TIMEZONES: SYSGEOTYPE = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEO_OFFICIALLANGUAGES: SYSGEOTYPE = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEO_ISO_UN_NUMBER: SYSGEOTYPE = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEO_PARENT: SYSGEOTYPE = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEO_DIALINGCODE: SYSGEOTYPE = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEO_CURRENCYCODE: SYSGEOTYPE = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEO_CURRENCYSYMBOL: SYSGEOTYPE = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEO_NAME: SYSGEOTYPE = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const GEO_ID: SYSGEOTYPE = 18i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type SYSNLS_FUNCTION = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const COMPARE_STRING: SYSNLS_FUNCTION = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ScriptApplyDigitSubstitution(psds: *const SCRIPT_DIGITSUBSTITUTE, psc: *mut SCRIPT_CONTROL, pss: *mut SCRIPT_STATE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6204,6 +6602,7 @@ pub unsafe fn ScriptApplyDigitSubstitution(psds: *const SCRIPT_DIGITSUBSTITUTE, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pabc: *mut super::Graphics::Gdi::ABC, pijustify: *mut i32) -> ::windows::core::Result<()> {
@@ -6218,6 +6617,7 @@ pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScriptBreak<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(pwcchars: Param0, cchars: i32, psa: *const SCRIPT_ANALYSIS) -> ::windows::core::Result<SCRIPT_LOGATTR> {
@@ -6233,6 +6633,7 @@ pub unsafe fn ScriptBreak<'a, Param0: ::windows::core::IntoParam<'a, super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScriptCPtoX<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(icp: i32, ftrailing: Param1, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pix: *mut i32) -> ::windows::core::Result<()> {
@@ -6247,6 +6648,7 @@ pub unsafe fn ScriptCPtoX<'a, Param1: ::windows::core::IntoParam<'a, super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptCacheGetHeight<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, tmheight: *mut i32) -> ::windows::core::Result<()> {
@@ -6261,6 +6663,7 @@ pub unsafe fn ScriptCacheGetHeight<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ScriptFreeCache(psc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6274,6 +6677,7 @@ pub unsafe fn ScriptFreeCache(psc: *mut *mut ::core::ffi::c_void) -> ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ScriptGetCMap<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, pwcinchars: Param2, cchars: i32, dwflags: u32, pwoutglyphs: *mut u16) -> ::windows::core::Result<()> {
@@ -6288,6 +6692,7 @@ pub unsafe fn ScriptGetCMap<'a, Param0: ::windows::core::IntoParam<'a, super::Gr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetFontAlternateGlyphs<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, wglyphid: u16, cmaxalternates: i32, palternateglyphs: *mut u16, pcalternates: *mut i32) -> ::windows::core::Result<()> {
@@ -6302,6 +6707,7 @@ pub unsafe fn ScriptGetFontAlternateGlyphs<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetFontFeatureTags<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, cmaxtags: i32, pfeaturetags: *mut u32, pctags: *mut i32) -> ::windows::core::Result<()> {
@@ -6316,6 +6722,7 @@ pub unsafe fn ScriptGetFontFeatureTags<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetFontLanguageTags<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, cmaxtags: i32, plangsystags: *mut u32, pctags: *mut i32) -> ::windows::core::Result<()> {
@@ -6330,6 +6737,7 @@ pub unsafe fn ScriptGetFontLanguageTags<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetFontProperties<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, sfp: *mut SCRIPT_FONTPROPERTIES) -> ::windows::core::Result<()> {
@@ -6344,6 +6752,7 @@ pub unsafe fn ScriptGetFontProperties<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetFontScriptTags<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, cmaxtags: i32, pscripttags: *mut u32, pctags: *mut i32) -> ::windows::core::Result<()> {
@@ -6358,6 +6767,7 @@ pub unsafe fn ScriptGetFontScriptTags<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptGetGlyphABCWidth<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, wglyph: u16, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows::core::Result<()> {
@@ -6372,6 +6782,7 @@ pub unsafe fn ScriptGetGlyphABCWidth<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ScriptGetLogicalWidths(psa: *const SCRIPT_ANALYSIS, cchars: i32, cglyphs: i32, piglyphwidth: *const i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, pidx: *const i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6385,6 +6796,7 @@ pub unsafe fn ScriptGetLogicalWidths(psa: *const SCRIPT_ANALYSIS, cchars: i32, c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ScriptGetProperties(ppsp: *mut *mut *mut SCRIPT_PROPERTIES, pinumscripts: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6398,6 +6810,7 @@ pub unsafe fn ScriptGetProperties(ppsp: *mut *mut *mut SCRIPT_PROPERTIES, pinums
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScriptIsComplex<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(pwcinchars: Param0, cinchars: i32, dwflags: SCRIPT_IS_COMPLEX_FLAGS) -> ::windows::core::Result<()> {
@@ -6412,6 +6825,7 @@ pub unsafe fn ScriptIsComplex<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScriptItemize<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(pwcinchars: Param0, cinchars: i32, cmaxitems: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pitems: *mut SCRIPT_ITEM, pcitems: *mut i32) -> ::windows::core::Result<()> {
@@ -6426,6 +6840,7 @@ pub unsafe fn ScriptItemize<'a, Param0: ::windows::core::IntoParam<'a, super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScriptItemizeOpenType<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(pwcinchars: Param0, cinchars: i32, cmaxitems: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pitems: *mut SCRIPT_ITEM, pscripttags: *mut u32, pcitems: *mut i32) -> ::windows::core::Result<()> {
@@ -6440,6 +6855,7 @@ pub unsafe fn ScriptItemizeOpenType<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, cglyphs: i32, idx: i32, iminkashida: i32) -> ::windows::core::Result<i32> {
     #[cfg(windows)]
@@ -6454,6 +6870,7 @@ pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: *mut i32, pilogicaltovisual: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6467,6 +6884,7 @@ pub unsafe fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptPlace<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, pwglyphs: *const u16, cglyphs: i32, psva: *const SCRIPT_VISATTR, psa: *mut SCRIPT_ANALYSIS, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows::core::Result<()> {
@@ -6481,6 +6899,7 @@ pub unsafe fn ScriptPlace<'a, Param0: ::windows::core::IntoParam<'a, super::Grap
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ScriptPlaceOpenType<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>, Param8: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: Param8, pwlogclust: *const u16, pcharprops: *const script_charprop, cchars: i32, pwglyphs: *const u16, pglyphprops: *const script_glyphprop, cglyphs: i32, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: *mut super::Graphics::Gdi::ABC) -> ::windows::core::Result<()> {
@@ -6515,6 +6934,7 @@ pub unsafe fn ScriptPlaceOpenType<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptPositionSingleGlyph<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>, Param9: ::windows::core::IntoParam<'a, GOFFSET>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, iadvance: i32, goffset: Param9, pioutadvance: *mut i32, poutgoffset: *mut GOFFSET) -> ::windows::core::Result<()> {
@@ -6529,6 +6949,7 @@ pub unsafe fn ScriptPositionSingleGlyph<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ScriptRecordDigitSubstitution(locale: u32) -> ::windows::core::Result<SCRIPT_DIGITSUBSTITUTE> {
     #[cfg(windows)]
@@ -6543,6 +6964,7 @@ pub unsafe fn ScriptRecordDigitSubstitution(locale: u32) -> ::windows::core::Res
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ScriptShape<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, pwcchars: Param2, cchars: i32, cmaxglyphs: i32, psa: *mut SCRIPT_ANALYSIS, pwoutglyphs: *mut u16, pwlogclust: *mut u16, psva: *mut SCRIPT_VISATTR, pcglyphs: *mut i32) -> ::windows::core::Result<()> {
@@ -6557,6 +6979,7 @@ pub unsafe fn ScriptShape<'a, Param0: ::windows::core::IntoParam<'a, super::Grap
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ScriptShapeOpenType<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>, Param8: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: Param8, cchars: i32, cmaxglyphs: i32, pwlogclust: *mut u16, pcharprops: *mut script_charprop, pwoutglyphs: *mut u16, poutglyphprops: *mut script_glyphprop, pcglyphs: *mut i32) -> ::windows::core::Result<()> {
@@ -6589,6 +7012,7 @@ pub unsafe fn ScriptShapeOpenType<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptStringAnalyse<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, pstring: *const ::core::ffi::c_void, cstring: i32, cglyphs: i32, icharset: i32, dwflags: u32, ireqwidth: i32, pscontrol: *const SCRIPT_CONTROL, psstate: *const SCRIPT_STATE, pidx: *const i32, ptabdef: *const SCRIPT_TABDEF, pbinclass: *const u8, pssa: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -6603,6 +7027,7 @@ pub unsafe fn ScriptStringAnalyse<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScriptStringCPtoX<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(ssa: *const ::core::ffi::c_void, icp: i32, ftrailing: Param2) -> ::windows::core::Result<i32> {
@@ -6618,6 +7043,7 @@ pub unsafe fn ScriptStringCPtoX<'a, Param2: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ScriptStringFree(pssa: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6631,6 +7057,7 @@ pub unsafe fn ScriptStringFree(pssa: *mut *mut ::core::ffi::c_void) -> ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ScriptStringGetLogicalWidths(ssa: *const ::core::ffi::c_void, pidx: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6644,6 +7071,7 @@ pub unsafe fn ScriptStringGetLogicalWidths(ssa: *const ::core::ffi::c_void, pidx
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ScriptStringGetOrder(ssa: *const ::core::ffi::c_void, puorder: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6657,6 +7085,7 @@ pub unsafe fn ScriptStringGetOrder(ssa: *const ::core::ffi::c_void, puorder: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ScriptStringOut<'a, Param7: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(ssa: *const ::core::ffi::c_void, ix: i32, iy: i32, uoptions: super::Graphics::Gdi::ETO_OPTIONS, prc: *const super::Foundation::RECT, iminsel: i32, imaxsel: i32, fdisabled: Param7) -> ::windows::core::Result<()> {
@@ -6671,6 +7100,7 @@ pub unsafe fn ScriptStringOut<'a, Param7: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ScriptStringValidate(ssa: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6684,6 +7114,7 @@ pub unsafe fn ScriptStringValidate(ssa: *const ::core::ffi::c_void) -> ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ScriptStringXtoCP(ssa: *const ::core::ffi::c_void, ix: i32, pich: *mut i32, pitrailing: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6697,6 +7128,7 @@ pub unsafe fn ScriptStringXtoCP(ssa: *const ::core::ffi::c_void, ix: i32, pich: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ScriptString_pLogAttr(ssa: *const ::core::ffi::c_void) -> *mut SCRIPT_LOGATTR {
     #[cfg(windows)]
@@ -6710,6 +7142,7 @@ pub unsafe fn ScriptString_pLogAttr(ssa: *const ::core::ffi::c_void) -> *mut SCR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScriptString_pSize(ssa: *const ::core::ffi::c_void) -> *mut super::Foundation::SIZE {
@@ -6724,6 +7157,7 @@ pub unsafe fn ScriptString_pSize(ssa: *const ::core::ffi::c_void) -> *mut super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ScriptString_pcOutChars(ssa: *const ::core::ffi::c_void) -> *mut i32 {
     #[cfg(windows)]
@@ -6737,6 +7171,7 @@ pub unsafe fn ScriptString_pcOutChars(ssa: *const ::core::ffi::c_void) -> *mut i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ScriptSubstituteSingleGlyph<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, psa: *const SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, tagfeature: u32, lparameter: i32, wglyphid: u16, pwoutglyphid: *mut u16) -> ::windows::core::Result<()> {
@@ -6751,6 +7186,7 @@ pub unsafe fn ScriptSubstituteSingleGlyph<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ScriptTextOut<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Gdi::HDC>, Param7: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(hdc: Param0, psc: *mut *mut ::core::ffi::c_void, x: i32, y: i32, fuoptions: u32, lprc: *const super::Foundation::RECT, psa: *const SCRIPT_ANALYSIS, pwcreserved: Param7, ireserved: i32, pwglyphs: *const u16, cglyphs: i32, piadvance: *const i32, pijustify: *const i32, pgoffset: *const GOFFSET) -> ::windows::core::Result<()> {
@@ -6765,6 +7201,7 @@ pub unsafe fn ScriptTextOut<'a, Param0: ::windows::core::IntoParam<'a, super::Gr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ScriptXtoCP(ix: i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, picp: *mut i32, pitrailing: *mut i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -6778,6 +7215,7 @@ pub unsafe fn ScriptXtoCP(ix: i32, cchars: i32, cglyphs: i32, pwlogclust: *const
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCalendarInfoA<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: u32, calendar: u32, caltype: u32, lpcaldata: Param3) -> super::Foundation::BOOL {
@@ -6792,6 +7230,7 @@ pub unsafe fn SetCalendarInfoA<'a, Param3: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCalendarInfoW<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, calendar: u32, caltype: u32, lpcaldata: Param3) -> super::Foundation::BOOL {
@@ -6806,6 +7245,7 @@ pub unsafe fn SetCalendarInfoW<'a, Param3: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetLocaleInfoA<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: u32, lctype: u32, lplcdata: Param2) -> super::Foundation::BOOL {
@@ -6820,6 +7260,7 @@ pub unsafe fn SetLocaleInfoA<'a, Param2: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetLocaleInfoW<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(locale: u32, lctype: u32, lplcdata: Param2) -> super::Foundation::BOOL {
@@ -6834,6 +7275,7 @@ pub unsafe fn SetLocaleInfoW<'a, Param2: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetProcessPreferredUILanguages<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, pwszlanguagesbuffer: Param1, pulnumlanguages: *mut u32) -> super::Foundation::BOOL {
@@ -6848,6 +7290,7 @@ pub unsafe fn SetProcessPreferredUILanguages<'a, Param1: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadLocale(locale: u32) -> super::Foundation::BOOL {
@@ -6862,6 +7305,7 @@ pub unsafe fn SetThreadLocale(locale: u32) -> super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadPreferredUILanguages<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, pwszlanguagesbuffer: Param1, pulnumlanguages: *mut u32) -> super::Foundation::BOOL {
@@ -6876,6 +7320,7 @@ pub unsafe fn SetThreadPreferredUILanguages<'a, Param1: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadPreferredUILanguages2<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(flags: u32, languages: Param1, numlanguagesset: *mut u32, snapshot: *mut HSAVEDUILANGUAGES) -> super::Foundation::BOOL {
@@ -6890,6 +7335,7 @@ pub unsafe fn SetThreadPreferredUILanguages2<'a, Param1: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn SetThreadUILanguage(langid: u16) -> u16 {
     #[cfg(windows)]
@@ -6903,6 +7349,7 @@ pub unsafe fn SetThreadUILanguage(langid: u16) -> u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetUserGeoID(geoid: i32) -> super::Foundation::BOOL {
@@ -6917,6 +7364,7 @@ pub unsafe fn SetUserGeoID(geoid: i32) -> super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetUserGeoName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(geoname: Param0) -> super::Foundation::BOOL {
@@ -6932,22 +7380,36 @@ pub unsafe fn SetUserGeoName<'a, Param0: ::windows::core::IntoParam<'a, super::F
     unimplemented!("Unsupported target OS");
 }
 pub const SpellCheckerFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ab36653_1796_484b_bdfa_e74f1db7c1dc);
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMEFMT_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PSTR) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMEFMT_ENUMPROCEX = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: super::Foundation::LPARAM) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMEFMT_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type TIME_FORMAT_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const TIME_NOMINUTESORSECONDS: TIME_FORMAT_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const TIME_NOSECONDS: TIME_FORMAT_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const TIME_NOTIMEMARKER: TIME_FORMAT_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const TIME_FORCE24HOURFORMAT: TIME_FORMAT_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type TRANSLATE_CHARSET_INFO_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const TCI_SRCCHARSET: TRANSLATE_CHARSET_INFO_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const TCI_SRCCODEPAGE: TRANSLATE_CHARSET_INFO_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const TCI_SRCFONTSIG: TRANSLATE_CHARSET_INFO_FLAGS = 3u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const TCI_SRCLOCALE: TRANSLATE_CHARSET_INFO_FLAGS = 4096u32;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TranslateCharsetInfo(lpsrc: *mut u32, lpcs: *mut CHARSETINFO, dwflags: TRANSLATE_CHARSET_INFO_FLAGS) -> super::Foundation::BOOL {
@@ -6964,14 +7426,23 @@ pub unsafe fn TranslateCharsetInfo(lpsrc: *mut u32, lpcs: *mut CHARSETINFO, dwfl
 }
 pub const U16_MAX_LENGTH: u32 = 2u32;
 pub const U8_MAX_LENGTH: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UAcceptResult = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOC_ACCEPT_FAILED: UAcceptResult = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOC_ACCEPT_VALID: UAcceptResult = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOC_ACCEPT_FALLBACK: UAcceptResult = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UAlphabeticIndexLabelType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_ALPHAINDEX_NORMAL: UAlphabeticIndexLabelType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_ALPHAINDEX_UNDERFLOW: UAlphabeticIndexLabelType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_ALPHAINDEX_INFLOW: UAlphabeticIndexLabelType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_ALPHAINDEX_OVERFLOW: UAlphabeticIndexLabelType = 3i32;
 pub const UBIDI_DEFAULT_LTR: u32 = 254u32;
 pub const UBIDI_DEFAULT_RTL: u32 = 255u32;
@@ -6985,360 +7456,708 @@ pub const UBIDI_OUTPUT_REVERSE: u32 = 16u32;
 pub const UBIDI_REMOVE_BIDI_CONTROLS: u32 = 8u32;
 #[repr(C)]
 pub struct UBiDi(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UBiDiClassCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, c: i32) -> UCharDirection>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UBiDiDirection = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBIDI_LTR: UBiDiDirection = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBIDI_RTL: UBiDiDirection = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBIDI_MIXED: UBiDiDirection = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBIDI_NEUTRAL: UBiDiDirection = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UBiDiMirroring = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBIDI_MIRRORING_OFF: UBiDiMirroring = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBIDI_MIRRORING_ON: UBiDiMirroring = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UBiDiOrder = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBIDI_LOGICAL: UBiDiOrder = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBIDI_VISUAL: UBiDiOrder = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UBiDiReorderingMode = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBIDI_REORDER_DEFAULT: UBiDiReorderingMode = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBIDI_REORDER_NUMBERS_SPECIAL: UBiDiReorderingMode = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBIDI_REORDER_GROUP_NUMBERS_WITH_R: UBiDiReorderingMode = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBIDI_REORDER_RUNS_ONLY: UBiDiReorderingMode = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBIDI_REORDER_INVERSE_NUMBERS_AS_L: UBiDiReorderingMode = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBIDI_REORDER_INVERSE_LIKE_DIRECT: UBiDiReorderingMode = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBIDI_REORDER_INVERSE_FOR_NUMBERS_SPECIAL: UBiDiReorderingMode = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UBiDiReorderingOption = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBIDI_OPTION_DEFAULT: UBiDiReorderingOption = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBIDI_OPTION_INSERT_MARKS: UBiDiReorderingOption = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBIDI_OPTION_REMOVE_CONTROLS: UBiDiReorderingOption = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBIDI_OPTION_STREAMING: UBiDiReorderingOption = 4i32;
 #[repr(C)]
 pub struct UBiDiTransform(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UBidiPairedBracketType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BPT_NONE: UBidiPairedBracketType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BPT_OPEN: UBidiPairedBracketType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BPT_CLOSE: UBidiPairedBracketType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UBlockCode = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_NO_BLOCK: UBlockCode = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_BASIC_LATIN: UBlockCode = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_LATIN_1_SUPPLEMENT: UBlockCode = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_LATIN_EXTENDED_A: UBlockCode = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_LATIN_EXTENDED_B: UBlockCode = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_IPA_EXTENSIONS: UBlockCode = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SPACING_MODIFIER_LETTERS: UBlockCode = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_COMBINING_DIACRITICAL_MARKS: UBlockCode = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_GREEK: UBlockCode = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CYRILLIC: UBlockCode = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ARMENIAN: UBlockCode = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_HEBREW: UBlockCode = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ARABIC: UBlockCode = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SYRIAC: UBlockCode = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_THAANA: UBlockCode = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_DEVANAGARI: UBlockCode = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_BENGALI: UBlockCode = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_GURMUKHI: UBlockCode = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_GUJARATI: UBlockCode = 18i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ORIYA: UBlockCode = 19i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_TAMIL: UBlockCode = 20i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_TELUGU: UBlockCode = 21i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_KANNADA: UBlockCode = 22i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MALAYALAM: UBlockCode = 23i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SINHALA: UBlockCode = 24i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_THAI: UBlockCode = 25i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_LAO: UBlockCode = 26i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_TIBETAN: UBlockCode = 27i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MYANMAR: UBlockCode = 28i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_GEORGIAN: UBlockCode = 29i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_HANGUL_JAMO: UBlockCode = 30i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ETHIOPIC: UBlockCode = 31i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CHEROKEE: UBlockCode = 32i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS: UBlockCode = 33i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_OGHAM: UBlockCode = 34i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_RUNIC: UBlockCode = 35i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_KHMER: UBlockCode = 36i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MONGOLIAN: UBlockCode = 37i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_LATIN_EXTENDED_ADDITIONAL: UBlockCode = 38i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_GREEK_EXTENDED: UBlockCode = 39i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_GENERAL_PUNCTUATION: UBlockCode = 40i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SUPERSCRIPTS_AND_SUBSCRIPTS: UBlockCode = 41i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CURRENCY_SYMBOLS: UBlockCode = 42i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_COMBINING_MARKS_FOR_SYMBOLS: UBlockCode = 43i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_LETTERLIKE_SYMBOLS: UBlockCode = 44i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_NUMBER_FORMS: UBlockCode = 45i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ARROWS: UBlockCode = 46i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MATHEMATICAL_OPERATORS: UBlockCode = 47i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MISCELLANEOUS_TECHNICAL: UBlockCode = 48i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CONTROL_PICTURES: UBlockCode = 49i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_OPTICAL_CHARACTER_RECOGNITION: UBlockCode = 50i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ENCLOSED_ALPHANUMERICS: UBlockCode = 51i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_BOX_DRAWING: UBlockCode = 52i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_BLOCK_ELEMENTS: UBlockCode = 53i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_GEOMETRIC_SHAPES: UBlockCode = 54i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MISCELLANEOUS_SYMBOLS: UBlockCode = 55i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_DINGBATS: UBlockCode = 56i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_BRAILLE_PATTERNS: UBlockCode = 57i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CJK_RADICALS_SUPPLEMENT: UBlockCode = 58i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_KANGXI_RADICALS: UBlockCode = 59i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_IDEOGRAPHIC_DESCRIPTION_CHARACTERS: UBlockCode = 60i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CJK_SYMBOLS_AND_PUNCTUATION: UBlockCode = 61i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_HIRAGANA: UBlockCode = 62i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_KATAKANA: UBlockCode = 63i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_BOPOMOFO: UBlockCode = 64i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_HANGUL_COMPATIBILITY_JAMO: UBlockCode = 65i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_KANBUN: UBlockCode = 66i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_BOPOMOFO_EXTENDED: UBlockCode = 67i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ENCLOSED_CJK_LETTERS_AND_MONTHS: UBlockCode = 68i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CJK_COMPATIBILITY: UBlockCode = 69i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A: UBlockCode = 70i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS: UBlockCode = 71i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_YI_SYLLABLES: UBlockCode = 72i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_YI_RADICALS: UBlockCode = 73i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_HANGUL_SYLLABLES: UBlockCode = 74i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_HIGH_SURROGATES: UBlockCode = 75i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_HIGH_PRIVATE_USE_SURROGATES: UBlockCode = 76i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_LOW_SURROGATES: UBlockCode = 77i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_PRIVATE_USE_AREA: UBlockCode = 78i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_PRIVATE_USE: UBlockCode = 78i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CJK_COMPATIBILITY_IDEOGRAPHS: UBlockCode = 79i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ALPHABETIC_PRESENTATION_FORMS: UBlockCode = 80i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ARABIC_PRESENTATION_FORMS_A: UBlockCode = 81i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_COMBINING_HALF_MARKS: UBlockCode = 82i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CJK_COMPATIBILITY_FORMS: UBlockCode = 83i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SMALL_FORM_VARIANTS: UBlockCode = 84i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ARABIC_PRESENTATION_FORMS_B: UBlockCode = 85i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SPECIALS: UBlockCode = 86i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_HALFWIDTH_AND_FULLWIDTH_FORMS: UBlockCode = 87i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_OLD_ITALIC: UBlockCode = 88i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_GOTHIC: UBlockCode = 89i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_DESERET: UBlockCode = 90i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_BYZANTINE_MUSICAL_SYMBOLS: UBlockCode = 91i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MUSICAL_SYMBOLS: UBlockCode = 92i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MATHEMATICAL_ALPHANUMERIC_SYMBOLS: UBlockCode = 93i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B: UBlockCode = 94i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT: UBlockCode = 95i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_TAGS: UBlockCode = 96i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CYRILLIC_SUPPLEMENT: UBlockCode = 97i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CYRILLIC_SUPPLEMENTARY: UBlockCode = 97i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_TAGALOG: UBlockCode = 98i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_HANUNOO: UBlockCode = 99i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_BUHID: UBlockCode = 100i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_TAGBANWA: UBlockCode = 101i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A: UBlockCode = 102i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SUPPLEMENTAL_ARROWS_A: UBlockCode = 103i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SUPPLEMENTAL_ARROWS_B: UBlockCode = 104i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B: UBlockCode = 105i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SUPPLEMENTAL_MATHEMATICAL_OPERATORS: UBlockCode = 106i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_KATAKANA_PHONETIC_EXTENSIONS: UBlockCode = 107i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_VARIATION_SELECTORS: UBlockCode = 108i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SUPPLEMENTARY_PRIVATE_USE_AREA_A: UBlockCode = 109i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SUPPLEMENTARY_PRIVATE_USE_AREA_B: UBlockCode = 110i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_LIMBU: UBlockCode = 111i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_TAI_LE: UBlockCode = 112i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_KHMER_SYMBOLS: UBlockCode = 113i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_PHONETIC_EXTENSIONS: UBlockCode = 114i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MISCELLANEOUS_SYMBOLS_AND_ARROWS: UBlockCode = 115i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_YIJING_HEXAGRAM_SYMBOLS: UBlockCode = 116i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_LINEAR_B_SYLLABARY: UBlockCode = 117i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_LINEAR_B_IDEOGRAMS: UBlockCode = 118i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_AEGEAN_NUMBERS: UBlockCode = 119i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_UGARITIC: UBlockCode = 120i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SHAVIAN: UBlockCode = 121i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_OSMANYA: UBlockCode = 122i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CYPRIOT_SYLLABARY: UBlockCode = 123i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_TAI_XUAN_JING_SYMBOLS: UBlockCode = 124i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_VARIATION_SELECTORS_SUPPLEMENT: UBlockCode = 125i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ANCIENT_GREEK_MUSICAL_NOTATION: UBlockCode = 126i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ANCIENT_GREEK_NUMBERS: UBlockCode = 127i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ARABIC_SUPPLEMENT: UBlockCode = 128i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_BUGINESE: UBlockCode = 129i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CJK_STROKES: UBlockCode = 130i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_COMBINING_DIACRITICAL_MARKS_SUPPLEMENT: UBlockCode = 131i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_COPTIC: UBlockCode = 132i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ETHIOPIC_EXTENDED: UBlockCode = 133i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ETHIOPIC_SUPPLEMENT: UBlockCode = 134i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_GEORGIAN_SUPPLEMENT: UBlockCode = 135i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_GLAGOLITIC: UBlockCode = 136i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_KHAROSHTHI: UBlockCode = 137i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MODIFIER_TONE_LETTERS: UBlockCode = 138i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_NEW_TAI_LUE: UBlockCode = 139i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_OLD_PERSIAN: UBlockCode = 140i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_PHONETIC_EXTENSIONS_SUPPLEMENT: UBlockCode = 141i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SUPPLEMENTAL_PUNCTUATION: UBlockCode = 142i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SYLOTI_NAGRI: UBlockCode = 143i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_TIFINAGH: UBlockCode = 144i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_VERTICAL_FORMS: UBlockCode = 145i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_NKO: UBlockCode = 146i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_BALINESE: UBlockCode = 147i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_LATIN_EXTENDED_C: UBlockCode = 148i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_LATIN_EXTENDED_D: UBlockCode = 149i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_PHAGS_PA: UBlockCode = 150i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_PHOENICIAN: UBlockCode = 151i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CUNEIFORM: UBlockCode = 152i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CUNEIFORM_NUMBERS_AND_PUNCTUATION: UBlockCode = 153i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_COUNTING_ROD_NUMERALS: UBlockCode = 154i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SUNDANESE: UBlockCode = 155i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_LEPCHA: UBlockCode = 156i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_OL_CHIKI: UBlockCode = 157i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CYRILLIC_EXTENDED_A: UBlockCode = 158i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_VAI: UBlockCode = 159i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CYRILLIC_EXTENDED_B: UBlockCode = 160i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SAURASHTRA: UBlockCode = 161i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_KAYAH_LI: UBlockCode = 162i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_REJANG: UBlockCode = 163i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CHAM: UBlockCode = 164i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ANCIENT_SYMBOLS: UBlockCode = 165i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_PHAISTOS_DISC: UBlockCode = 166i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_LYCIAN: UBlockCode = 167i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CARIAN: UBlockCode = 168i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_LYDIAN: UBlockCode = 169i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MAHJONG_TILES: UBlockCode = 170i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_DOMINO_TILES: UBlockCode = 171i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SAMARITAN: UBlockCode = 172i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED: UBlockCode = 173i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_TAI_THAM: UBlockCode = 174i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_VEDIC_EXTENSIONS: UBlockCode = 175i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_LISU: UBlockCode = 176i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_BAMUM: UBlockCode = 177i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_COMMON_INDIC_NUMBER_FORMS: UBlockCode = 178i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_DEVANAGARI_EXTENDED: UBlockCode = 179i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_HANGUL_JAMO_EXTENDED_A: UBlockCode = 180i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_JAVANESE: UBlockCode = 181i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MYANMAR_EXTENDED_A: UBlockCode = 182i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_TAI_VIET: UBlockCode = 183i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MEETEI_MAYEK: UBlockCode = 184i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_HANGUL_JAMO_EXTENDED_B: UBlockCode = 185i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_IMPERIAL_ARAMAIC: UBlockCode = 186i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_OLD_SOUTH_ARABIAN: UBlockCode = 187i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_AVESTAN: UBlockCode = 188i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_INSCRIPTIONAL_PARTHIAN: UBlockCode = 189i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_INSCRIPTIONAL_PAHLAVI: UBlockCode = 190i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_OLD_TURKIC: UBlockCode = 191i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_RUMI_NUMERAL_SYMBOLS: UBlockCode = 192i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_KAITHI: UBlockCode = 193i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_EGYPTIAN_HIEROGLYPHS: UBlockCode = 194i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ENCLOSED_ALPHANUMERIC_SUPPLEMENT: UBlockCode = 195i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ENCLOSED_IDEOGRAPHIC_SUPPLEMENT: UBlockCode = 196i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C: UBlockCode = 197i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MANDAIC: UBlockCode = 198i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_BATAK: UBlockCode = 199i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ETHIOPIC_EXTENDED_A: UBlockCode = 200i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_BRAHMI: UBlockCode = 201i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_BAMUM_SUPPLEMENT: UBlockCode = 202i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_KANA_SUPPLEMENT: UBlockCode = 203i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_PLAYING_CARDS: UBlockCode = 204i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS: UBlockCode = 205i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_EMOTICONS: UBlockCode = 206i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_TRANSPORT_AND_MAP_SYMBOLS: UBlockCode = 207i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ALCHEMICAL_SYMBOLS: UBlockCode = 208i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D: UBlockCode = 209i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ARABIC_EXTENDED_A: UBlockCode = 210i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ARABIC_MATHEMATICAL_ALPHABETIC_SYMBOLS: UBlockCode = 211i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CHAKMA: UBlockCode = 212i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MEETEI_MAYEK_EXTENSIONS: UBlockCode = 213i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MEROITIC_CURSIVE: UBlockCode = 214i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MEROITIC_HIEROGLYPHS: UBlockCode = 215i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MIAO: UBlockCode = 216i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SHARADA: UBlockCode = 217i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SORA_SOMPENG: UBlockCode = 218i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SUNDANESE_SUPPLEMENT: UBlockCode = 219i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_TAKRI: UBlockCode = 220i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_BASSA_VAH: UBlockCode = 221i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CAUCASIAN_ALBANIAN: UBlockCode = 222i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_COPTIC_EPACT_NUMBERS: UBlockCode = 223i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_COMBINING_DIACRITICAL_MARKS_EXTENDED: UBlockCode = 224i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_DUPLOYAN: UBlockCode = 225i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ELBASAN: UBlockCode = 226i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_GEOMETRIC_SHAPES_EXTENDED: UBlockCode = 227i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_GRANTHA: UBlockCode = 228i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_KHOJKI: UBlockCode = 229i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_KHUDAWADI: UBlockCode = 230i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_LATIN_EXTENDED_E: UBlockCode = 231i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_LINEAR_A: UBlockCode = 232i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MAHAJANI: UBlockCode = 233i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MANICHAEAN: UBlockCode = 234i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MENDE_KIKAKUI: UBlockCode = 235i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MODI: UBlockCode = 236i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MRO: UBlockCode = 237i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MYANMAR_EXTENDED_B: UBlockCode = 238i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_NABATAEAN: UBlockCode = 239i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_OLD_NORTH_ARABIAN: UBlockCode = 240i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_OLD_PERMIC: UBlockCode = 241i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ORNAMENTAL_DINGBATS: UBlockCode = 242i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_PAHAWH_HMONG: UBlockCode = 243i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_PALMYRENE: UBlockCode = 244i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_PAU_CIN_HAU: UBlockCode = 245i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_PSALTER_PAHLAVI: UBlockCode = 246i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SHORTHAND_FORMAT_CONTROLS: UBlockCode = 247i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SIDDHAM: UBlockCode = 248i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SINHALA_ARCHAIC_NUMBERS: UBlockCode = 249i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SUPPLEMENTAL_ARROWS_C: UBlockCode = 250i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_TIRHUTA: UBlockCode = 251i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_WARANG_CITI: UBlockCode = 252i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_AHOM: UBlockCode = 253i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ANATOLIAN_HIEROGLYPHS: UBlockCode = 254i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CHEROKEE_SUPPLEMENT: UBlockCode = 255i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_E: UBlockCode = 256i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_EARLY_DYNASTIC_CUNEIFORM: UBlockCode = 257i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_HATRAN: UBlockCode = 258i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MULTANI: UBlockCode = 259i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_OLD_HUNGARIAN: UBlockCode = 260i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SUPPLEMENTAL_SYMBOLS_AND_PICTOGRAPHS: UBlockCode = 261i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SUTTON_SIGNWRITING: UBlockCode = 262i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ADLAM: UBlockCode = 263i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_BHAIKSUKI: UBlockCode = 264i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CYRILLIC_EXTENDED_C: UBlockCode = 265i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_GLAGOLITIC_SUPPLEMENT: UBlockCode = 266i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_IDEOGRAPHIC_SYMBOLS_AND_PUNCTUATION: UBlockCode = 267i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MARCHEN: UBlockCode = 268i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MONGOLIAN_SUPPLEMENT: UBlockCode = 269i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_NEWA: UBlockCode = 270i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_OSAGE: UBlockCode = 271i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_TANGUT: UBlockCode = 272i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_TANGUT_COMPONENTS: UBlockCode = 273i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_F: UBlockCode = 274i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_KANA_EXTENDED_A: UBlockCode = 275i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MASARAM_GONDI: UBlockCode = 276i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_NUSHU: UBlockCode = 277i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SOYOMBO: UBlockCode = 278i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SYRIAC_SUPPLEMENT: UBlockCode = 279i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ZANABAZAR_SQUARE: UBlockCode = 280i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CHESS_SYMBOLS: UBlockCode = 281i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_DOGRA: UBlockCode = 282i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_GEORGIAN_EXTENDED: UBlockCode = 283i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_GUNJALA_GONDI: UBlockCode = 284i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_HANIFI_ROHINGYA: UBlockCode = 285i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_INDIC_SIYAQ_NUMBERS: UBlockCode = 286i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MAKASAR: UBlockCode = 287i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MAYAN_NUMERALS: UBlockCode = 288i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_MEDEFAIDRIN: UBlockCode = 289i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_OLD_SOGDIAN: UBlockCode = 290i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SOGDIAN: UBlockCode = 291i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_EGYPTIAN_HIEROGLYPH_FORMAT_CONTROLS: UBlockCode = 292i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_ELYMAIC: UBlockCode = 293i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_NANDINAGARI: UBlockCode = 294i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_NYIAKENG_PUACHUE_HMONG: UBlockCode = 295i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_OTTOMAN_SIYAQ_NUMBERS: UBlockCode = 296i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SMALL_KANA_EXTENSION: UBlockCode = 297i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SYMBOLS_AND_PICTOGRAPHS_EXTENDED_A: UBlockCode = 298i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_TAMIL_SUPPLEMENT: UBlockCode = 299i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_WANCHO: UBlockCode = 300i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CHORASMIAN: UBlockCode = 301i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_G: UBlockCode = 302i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_DIVES_AKURU: UBlockCode = 303i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_KHITAN_SMALL_SCRIPT: UBlockCode = 304i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_LISU_SUPPLEMENT: UBlockCode = 305i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_SYMBOLS_FOR_LEGACY_COMPUTING: UBlockCode = 306i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_TANGUT_SUPPLEMENT: UBlockCode = 307i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_YEZIDI: UBlockCode = 308i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBLOCK_INVALID_CODE: UBlockCode = -1i32;
 #[repr(C)]
 pub struct UBreakIterator(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UBreakIteratorType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_CHARACTER: UBreakIteratorType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_WORD: UBreakIteratorType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_LINE: UBreakIteratorType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_SENTENCE: UBreakIteratorType = 3i32;
 pub const UCHAR_MAX_VALUE: u32 = 1114111u32;
 pub const UCHAR_MIN_VALUE: u32 = 0u32;
 pub const UCLN_NO_AUTO_CLEANUP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UCNV_FROM_U_CALLBACK_ESCAPE(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
@@ -7353,6 +8172,7 @@ pub unsafe fn UCNV_FROM_U_CALLBACK_ESCAPE(context: *const ::core::ffi::c_void, f
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UCNV_FROM_U_CALLBACK_SKIP(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
@@ -7367,6 +8187,7 @@ pub unsafe fn UCNV_FROM_U_CALLBACK_SKIP(context: *const ::core::ffi::c_void, fro
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UCNV_FROM_U_CALLBACK_STOP(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
@@ -7381,6 +8202,7 @@ pub unsafe fn UCNV_FROM_U_CALLBACK_STOP(context: *const ::core::ffi::c_void, fro
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UCNV_FROM_U_CALLBACK_SUBSTITUTE(context: *const ::core::ffi::c_void, fromuargs: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
@@ -7398,6 +8220,7 @@ pub unsafe fn UCNV_FROM_U_CALLBACK_SUBSTITUTE(context: *const ::core::ffi::c_voi
 pub const UCNV_MAX_CONVERTER_NAME_LENGTH: u32 = 60u32;
 pub const UCNV_SI: u32 = 15u32;
 pub const UCNV_SO: u32 = 14u32;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UCNV_TO_U_CALLBACK_ESCAPE<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: Param2, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
@@ -7412,6 +8235,7 @@ pub unsafe fn UCNV_TO_U_CALLBACK_ESCAPE<'a, Param2: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UCNV_TO_U_CALLBACK_SKIP<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: Param2, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
@@ -7426,6 +8250,7 @@ pub unsafe fn UCNV_TO_U_CALLBACK_SKIP<'a, Param2: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UCNV_TO_U_CALLBACK_STOP<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: Param2, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
@@ -7440,6 +8265,7 @@ pub unsafe fn UCNV_TO_U_CALLBACK_STOP<'a, Param2: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UCNV_TO_U_CALLBACK_SUBSTITUTE<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(context: *const ::core::ffi::c_void, touargs: *mut UConverterToUnicodeArgs, codeunits: Param2, length: i32, reason: UConverterCallbackReason, err: *mut UErrorCode) {
@@ -7457,10 +8283,15 @@ pub unsafe fn UCNV_TO_U_CALLBACK_SUBSTITUTE<'a, Param2: ::windows::core::IntoPar
 pub const UCONFIG_ENABLE_PLUGINS: u32 = 0u32;
 #[repr(C)]
 pub struct UCPMap(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCPMapRangeOption = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCPMAP_RANGE_NORMAL: UCPMapRangeOption = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCPMAP_RANGE_FIXED_LEAD_SURROGATES: UCPMapRangeOption = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCPMAP_RANGE_FIXED_ALL_SURROGATES: UCPMapRangeOption = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCPMapValueFilter = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, value: u32) -> u32>;
 pub const UCPTRIE_ERROR_VALUE_NEG_DATA_OFFSET: i32 = 1i32;
 pub const UCPTRIE_FAST_DATA_BLOCK_LENGTH: i32 = 64i32;
@@ -7469,6 +8300,7 @@ pub const UCPTRIE_FAST_SHIFT: i32 = 6i32;
 pub const UCPTRIE_HIGH_VALUE_NEG_DATA_OFFSET: i32 = 2i32;
 pub const UCPTRIE_SMALL_MAX: i32 = 4095i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct UCPTrie {
     pub index: *mut u16,
     pub data: UCPTrieData,
@@ -7505,6 +8337,7 @@ impl ::core::default::Default for UCPTrie {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub union UCPTrieData {
     pub ptr0: *mut ::core::ffi::c_void,
     pub ptr16: *mut u16,
@@ -7531,158 +8364,308 @@ impl ::core::default::Default for UCPTrieData {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCPTrieType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCPTRIE_TYPE_ANY: UCPTrieType = -1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCPTRIE_TYPE_FAST: UCPTrieType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCPTRIE_TYPE_SMALL: UCPTrieType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCPTrieValueWidth = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCPTRIE_VALUE_BITS_ANY: UCPTrieValueWidth = -1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCPTRIE_VALUE_BITS_16: UCPTrieValueWidth = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCPTRIE_VALUE_BITS_32: UCPTrieValueWidth = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCPTRIE_VALUE_BITS_8: UCPTrieValueWidth = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCalendarAMPMs = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_AM: UCalendarAMPMs = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_PM: UCalendarAMPMs = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCalendarAttribute = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_LENIENT: UCalendarAttribute = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_FIRST_DAY_OF_WEEK: UCalendarAttribute = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_MINIMAL_DAYS_IN_FIRST_WEEK: UCalendarAttribute = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_REPEATED_WALL_TIME: UCalendarAttribute = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_SKIPPED_WALL_TIME: UCalendarAttribute = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCalendarDateFields = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_ERA: UCalendarDateFields = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_YEAR: UCalendarDateFields = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_MONTH: UCalendarDateFields = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_WEEK_OF_YEAR: UCalendarDateFields = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_WEEK_OF_MONTH: UCalendarDateFields = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_DATE: UCalendarDateFields = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_DAY_OF_YEAR: UCalendarDateFields = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_DAY_OF_WEEK: UCalendarDateFields = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_DAY_OF_WEEK_IN_MONTH: UCalendarDateFields = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_AM_PM: UCalendarDateFields = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_HOUR: UCalendarDateFields = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_HOUR_OF_DAY: UCalendarDateFields = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_MINUTE: UCalendarDateFields = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_SECOND: UCalendarDateFields = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_MILLISECOND: UCalendarDateFields = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_ZONE_OFFSET: UCalendarDateFields = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_DST_OFFSET: UCalendarDateFields = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_YEAR_WOY: UCalendarDateFields = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_DOW_LOCAL: UCalendarDateFields = 18i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_EXTENDED_YEAR: UCalendarDateFields = 19i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_JULIAN_DAY: UCalendarDateFields = 20i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_MILLISECONDS_IN_DAY: UCalendarDateFields = 21i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_IS_LEAP_MONTH: UCalendarDateFields = 22i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_FIELD_COUNT: UCalendarDateFields = 23i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_DAY_OF_MONTH: UCalendarDateFields = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCalendarDaysOfWeek = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_SUNDAY: UCalendarDaysOfWeek = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_MONDAY: UCalendarDaysOfWeek = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_TUESDAY: UCalendarDaysOfWeek = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_WEDNESDAY: UCalendarDaysOfWeek = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_THURSDAY: UCalendarDaysOfWeek = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_FRIDAY: UCalendarDaysOfWeek = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_SATURDAY: UCalendarDaysOfWeek = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCalendarDisplayNameType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_STANDARD: UCalendarDisplayNameType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_SHORT_STANDARD: UCalendarDisplayNameType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_DST: UCalendarDisplayNameType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_SHORT_DST: UCalendarDisplayNameType = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCalendarLimitType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_MINIMUM: UCalendarLimitType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_MAXIMUM: UCalendarLimitType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_GREATEST_MINIMUM: UCalendarLimitType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_LEAST_MAXIMUM: UCalendarLimitType = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_ACTUAL_MINIMUM: UCalendarLimitType = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_ACTUAL_MAXIMUM: UCalendarLimitType = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCalendarMonths = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_JANUARY: UCalendarMonths = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_FEBRUARY: UCalendarMonths = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_MARCH: UCalendarMonths = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_APRIL: UCalendarMonths = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_MAY: UCalendarMonths = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_JUNE: UCalendarMonths = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_JULY: UCalendarMonths = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_AUGUST: UCalendarMonths = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_SEPTEMBER: UCalendarMonths = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_OCTOBER: UCalendarMonths = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_NOVEMBER: UCalendarMonths = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_DECEMBER: UCalendarMonths = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_UNDECIMBER: UCalendarMonths = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCalendarType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_TRADITIONAL: UCalendarType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_DEFAULT: UCalendarType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_GREGORIAN: UCalendarType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCalendarWallTimeOption = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_WALLTIME_LAST: UCalendarWallTimeOption = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_WALLTIME_FIRST: UCalendarWallTimeOption = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_WALLTIME_NEXT_VALID: UCalendarWallTimeOption = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCalendarWeekdayType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_WEEKDAY: UCalendarWeekdayType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_WEEKEND: UCalendarWeekdayType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_WEEKEND_ONSET: UCalendarWeekdayType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_WEEKEND_CEASE: UCalendarWeekdayType = 3i32;
 #[repr(C)]
 pub struct UCaseMap(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCharCategory = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_UNASSIGNED: UCharCategory = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_GENERAL_OTHER_TYPES: UCharCategory = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_UPPERCASE_LETTER: UCharCategory = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LOWERCASE_LETTER: UCharCategory = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_TITLECASE_LETTER: UCharCategory = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MODIFIER_LETTER: UCharCategory = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_OTHER_LETTER: UCharCategory = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_NON_SPACING_MARK: UCharCategory = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_ENCLOSING_MARK: UCharCategory = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_COMBINING_SPACING_MARK: UCharCategory = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DECIMAL_DIGIT_NUMBER: UCharCategory = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LETTER_NUMBER: UCharCategory = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_OTHER_NUMBER: UCharCategory = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SPACE_SEPARATOR: UCharCategory = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LINE_SEPARATOR: UCharCategory = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_PARAGRAPH_SEPARATOR: UCharCategory = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_CONTROL_CHAR: UCharCategory = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_FORMAT_CHAR: UCharCategory = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_PRIVATE_USE_CHAR: UCharCategory = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SURROGATE: UCharCategory = 18i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DASH_PUNCTUATION: UCharCategory = 19i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_START_PUNCTUATION: UCharCategory = 20i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_END_PUNCTUATION: UCharCategory = 21i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_CONNECTOR_PUNCTUATION: UCharCategory = 22i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_OTHER_PUNCTUATION: UCharCategory = 23i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MATH_SYMBOL: UCharCategory = 24i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_CURRENCY_SYMBOL: UCharCategory = 25i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MODIFIER_SYMBOL: UCharCategory = 26i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_OTHER_SYMBOL: UCharCategory = 27i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INITIAL_PUNCTUATION: UCharCategory = 28i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_FINAL_PUNCTUATION: UCharCategory = 29i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_CHAR_CATEGORY_COUNT: UCharCategory = 30i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCharDirection = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LEFT_TO_RIGHT: UCharDirection = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_RIGHT_TO_LEFT: UCharDirection = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_EUROPEAN_NUMBER: UCharDirection = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_EUROPEAN_NUMBER_SEPARATOR: UCharDirection = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_EUROPEAN_NUMBER_TERMINATOR: UCharDirection = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_ARABIC_NUMBER: UCharDirection = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_COMMON_NUMBER_SEPARATOR: UCharDirection = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BLOCK_SEPARATOR: UCharDirection = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SEGMENT_SEPARATOR: UCharDirection = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WHITE_SPACE_NEUTRAL: UCharDirection = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_OTHER_NEUTRAL: UCharDirection = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LEFT_TO_RIGHT_EMBEDDING: UCharDirection = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LEFT_TO_RIGHT_OVERRIDE: UCharDirection = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_RIGHT_TO_LEFT_ARABIC: UCharDirection = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_RIGHT_TO_LEFT_EMBEDDING: UCharDirection = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_RIGHT_TO_LEFT_OVERRIDE: UCharDirection = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_POP_DIRECTIONAL_FORMAT: UCharDirection = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DIR_NON_SPACING_MARK: UCharDirection = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BOUNDARY_NEUTRAL: UCharDirection = 18i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_FIRST_STRONG_ISOLATE: UCharDirection = 19i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LEFT_TO_RIGHT_ISOLATE: UCharDirection = 20i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_RIGHT_TO_LEFT_ISOLATE: UCharDirection = 21i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_POP_DIRECTIONAL_ISOLATE: UCharDirection = 22i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCharEnumTypeRange = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, start: i32, limit: i32, r#type: UCharCategory) -> i8>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct UCharIterator {
     pub context: *mut ::core::ffi::c_void,
     pub length: i32,
@@ -7721,78 +8704,145 @@ impl ::core::default::Default for UCharIterator {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCharIteratorCurrent = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i32>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCharIteratorGetIndex = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator, origin: UCharIteratorOrigin) -> i32>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCharIteratorGetState = ::core::option::Option<unsafe extern "system" fn(iter: *const UCharIterator) -> u32>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCharIteratorHasNext = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i8>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCharIteratorHasPrevious = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i8>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCharIteratorMove = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator, delta: i32, origin: UCharIteratorOrigin) -> i32>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCharIteratorNext = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i32>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCharIteratorOrigin = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UITER_START: UCharIteratorOrigin = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UITER_CURRENT: UCharIteratorOrigin = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UITER_LIMIT: UCharIteratorOrigin = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UITER_ZERO: UCharIteratorOrigin = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UITER_LENGTH: UCharIteratorOrigin = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCharIteratorPrevious = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator) -> i32>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCharIteratorReserved = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator, something: i32) -> i32>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCharIteratorSetState = ::core::option::Option<unsafe extern "system" fn(iter: *mut UCharIterator, state: u32, perrorcode: *mut UErrorCode)>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCharNameChoice = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_UNICODE_CHAR_NAME: UCharNameChoice = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_EXTENDED_CHAR_NAME: UCharNameChoice = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_CHAR_NAME_ALIAS: UCharNameChoice = 3i32;
 #[repr(C)]
 pub struct UCharsetDetector(pub u8);
 #[repr(C)]
 pub struct UCharsetMatch(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UColAttribute = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_FRENCH_COLLATION: UColAttribute = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_ALTERNATE_HANDLING: UColAttribute = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_CASE_FIRST: UColAttribute = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_CASE_LEVEL: UColAttribute = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_NORMALIZATION_MODE: UColAttribute = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_DECOMPOSITION_MODE: UColAttribute = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_STRENGTH: UColAttribute = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_NUMERIC_COLLATION: UColAttribute = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_ATTRIBUTE_COUNT: UColAttribute = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UColAttributeValue = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_DEFAULT: UColAttributeValue = -1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_PRIMARY: UColAttributeValue = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_SECONDARY: UColAttributeValue = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_TERTIARY: UColAttributeValue = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_DEFAULT_STRENGTH: UColAttributeValue = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_CE_STRENGTH_LIMIT: UColAttributeValue = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_QUATERNARY: UColAttributeValue = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_IDENTICAL: UColAttributeValue = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_STRENGTH_LIMIT: UColAttributeValue = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_OFF: UColAttributeValue = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_ON: UColAttributeValue = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_SHIFTED: UColAttributeValue = 20i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_NON_IGNORABLE: UColAttributeValue = 21i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_LOWER_FIRST: UColAttributeValue = 24i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_UPPER_FIRST: UColAttributeValue = 25i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UColBoundMode = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_BOUND_LOWER: UColBoundMode = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_BOUND_UPPER: UColBoundMode = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_BOUND_UPPER_LONG: UColBoundMode = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UColReorderCode = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_REORDER_CODE_DEFAULT: UColReorderCode = -1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_REORDER_CODE_NONE: UColReorderCode = 103i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_REORDER_CODE_OTHERS: UColReorderCode = 103i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_REORDER_CODE_SPACE: UColReorderCode = 4096i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_REORDER_CODE_FIRST: UColReorderCode = 4096i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_REORDER_CODE_PUNCTUATION: UColReorderCode = 4097i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_REORDER_CODE_SYMBOL: UColReorderCode = 4098i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_REORDER_CODE_CURRENCY: UColReorderCode = 4099i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_REORDER_CODE_DIGIT: UColReorderCode = 4100i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UColRuleOption = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_TAILORING_ONLY: UColRuleOption = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_FULL_RULES: UColRuleOption = 1i32;
 #[repr(C)]
 pub struct UCollationElements(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCollationResult = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_EQUAL: UCollationResult = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_GREATER: UCollationResult = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCOL_LESS: UCollationResult = -1i32;
 #[repr(C)]
 pub struct UCollator(pub u8);
@@ -7800,16 +8850,25 @@ pub struct UCollator(pub u8);
 pub struct UConstrainedFieldPosition(pub u8);
 #[repr(C)]
 pub struct UConverter(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UConverterCallbackReason = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_UNASSIGNED: UConverterCallbackReason = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_ILLEGAL: UConverterCallbackReason = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_IRREGULAR: UConverterCallbackReason = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_RESET: UConverterCallbackReason = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_CLOSE: UConverterCallbackReason = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_CLONE: UConverterCallbackReason = 5i32;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type UConverterFromUCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, args: *mut UConverterFromUnicodeArgs, codeunits: *const u16, length: i32, codepoint: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct UConverterFromUnicodeArgs {
     pub size: u16,
@@ -7847,14 +8906,19 @@ impl ::core::default::Default for UConverterFromUnicodeArgs {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UConverterPlatform = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_UNKNOWN: UConverterPlatform = -1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_IBM: UConverterPlatform = 0i32;
 #[repr(C)]
 pub struct UConverterSelector(pub u8);
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type UConverterToUCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, args: *mut UConverterToUnicodeArgs, codeunits: super::Foundation::PSTR, length: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct UConverterToUnicodeArgs {
     pub size: u16,
@@ -7892,443 +8956,873 @@ impl ::core::default::Default for UConverterToUnicodeArgs {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UConverterType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_UNSUPPORTED_CONVERTER: UConverterType = -1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_SBCS: UConverterType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_DBCS: UConverterType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_MBCS: UConverterType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_LATIN_1: UConverterType = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_UTF8: UConverterType = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_UTF16_BigEndian: UConverterType = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_UTF16_LittleEndian: UConverterType = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_UTF32_BigEndian: UConverterType = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_UTF32_LittleEndian: UConverterType = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_EBCDIC_STATEFUL: UConverterType = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_ISO_2022: UConverterType = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_LMBCS_1: UConverterType = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_LMBCS_2: UConverterType = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_LMBCS_3: UConverterType = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_LMBCS_4: UConverterType = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_LMBCS_5: UConverterType = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_LMBCS_6: UConverterType = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_LMBCS_8: UConverterType = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_LMBCS_11: UConverterType = 18i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_LMBCS_16: UConverterType = 19i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_LMBCS_17: UConverterType = 20i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_LMBCS_18: UConverterType = 21i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_LMBCS_19: UConverterType = 22i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_LMBCS_LAST: UConverterType = 22i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_HZ: UConverterType = 23i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_SCSU: UConverterType = 24i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_ISCII: UConverterType = 25i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_US_ASCII: UConverterType = 26i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_UTF7: UConverterType = 27i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_BOCU1: UConverterType = 28i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_UTF16: UConverterType = 29i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_UTF32: UConverterType = 30i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_CESU8: UConverterType = 31i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_IMAP_MAILBOX: UConverterType = 32i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_COMPOUND_TEXT: UConverterType = 33i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_NUMBER_OF_SUPPORTED_CONVERTER_TYPES: UConverterType = 34i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UConverterUnicodeSet = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_ROUNDTRIP_SET: UConverterUnicodeSet = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCNV_ROUNDTRIP_AND_FALLBACK_SET: UConverterUnicodeSet = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCurrCurrencyType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCURR_ALL: UCurrCurrencyType = 2147483647i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCURR_COMMON: UCurrCurrencyType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCURR_UNCOMMON: UCurrCurrencyType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCURR_DEPRECATED: UCurrCurrencyType = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCURR_NON_DEPRECATED: UCurrCurrencyType = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCurrNameStyle = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCURR_SYMBOL_NAME: UCurrNameStyle = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCURR_LONG_NAME: UCurrNameStyle = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCURR_NARROW_SYMBOL_NAME: UCurrNameStyle = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCurrencySpacing = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_CURRENCY_MATCH: UCurrencySpacing = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_CURRENCY_SURROUNDING_MATCH: UCurrencySpacing = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_CURRENCY_INSERT: UCurrencySpacing = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_CURRENCY_SPACING_COUNT: UCurrencySpacing = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UCurrencyUsage = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCURR_USAGE_STANDARD: UCurrencyUsage = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCURR_USAGE_CASH: UCurrencyUsage = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UDateAbsoluteUnit = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_ABSOLUTE_SUNDAY: UDateAbsoluteUnit = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_ABSOLUTE_MONDAY: UDateAbsoluteUnit = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_ABSOLUTE_TUESDAY: UDateAbsoluteUnit = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_ABSOLUTE_WEDNESDAY: UDateAbsoluteUnit = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_ABSOLUTE_THURSDAY: UDateAbsoluteUnit = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_ABSOLUTE_FRIDAY: UDateAbsoluteUnit = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_ABSOLUTE_SATURDAY: UDateAbsoluteUnit = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_ABSOLUTE_DAY: UDateAbsoluteUnit = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_ABSOLUTE_WEEK: UDateAbsoluteUnit = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_ABSOLUTE_MONTH: UDateAbsoluteUnit = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_ABSOLUTE_YEAR: UDateAbsoluteUnit = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_ABSOLUTE_NOW: UDateAbsoluteUnit = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_ABSOLUTE_UNIT_COUNT: UDateAbsoluteUnit = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UDateDirection = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_DIRECTION_LAST_2: UDateDirection = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_DIRECTION_LAST: UDateDirection = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_DIRECTION_THIS: UDateDirection = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_DIRECTION_NEXT: UDateDirection = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_DIRECTION_NEXT_2: UDateDirection = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_DIRECTION_PLAIN: UDateDirection = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_DIRECTION_COUNT: UDateDirection = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UDateFormatBooleanAttribute = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_PARSE_ALLOW_WHITESPACE: UDateFormatBooleanAttribute = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_PARSE_ALLOW_NUMERIC: UDateFormatBooleanAttribute = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_PARSE_PARTIAL_LITERAL_MATCH: UDateFormatBooleanAttribute = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_PARSE_MULTIPLE_PATTERNS_FOR_MATCH: UDateFormatBooleanAttribute = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_BOOLEAN_ATTRIBUTE_COUNT: UDateFormatBooleanAttribute = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UDateFormatField = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_ERA_FIELD: UDateFormatField = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_YEAR_FIELD: UDateFormatField = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_MONTH_FIELD: UDateFormatField = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_DATE_FIELD: UDateFormatField = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_HOUR_OF_DAY1_FIELD: UDateFormatField = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_HOUR_OF_DAY0_FIELD: UDateFormatField = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_MINUTE_FIELD: UDateFormatField = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_SECOND_FIELD: UDateFormatField = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_FRACTIONAL_SECOND_FIELD: UDateFormatField = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_DAY_OF_WEEK_FIELD: UDateFormatField = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_DAY_OF_YEAR_FIELD: UDateFormatField = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_DAY_OF_WEEK_IN_MONTH_FIELD: UDateFormatField = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_WEEK_OF_YEAR_FIELD: UDateFormatField = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_WEEK_OF_MONTH_FIELD: UDateFormatField = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_AM_PM_FIELD: UDateFormatField = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_HOUR1_FIELD: UDateFormatField = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_HOUR0_FIELD: UDateFormatField = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_TIMEZONE_FIELD: UDateFormatField = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_YEAR_WOY_FIELD: UDateFormatField = 18i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_DOW_LOCAL_FIELD: UDateFormatField = 19i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_EXTENDED_YEAR_FIELD: UDateFormatField = 20i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_JULIAN_DAY_FIELD: UDateFormatField = 21i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_MILLISECONDS_IN_DAY_FIELD: UDateFormatField = 22i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_TIMEZONE_RFC_FIELD: UDateFormatField = 23i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_TIMEZONE_GENERIC_FIELD: UDateFormatField = 24i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_STANDALONE_DAY_FIELD: UDateFormatField = 25i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_STANDALONE_MONTH_FIELD: UDateFormatField = 26i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_QUARTER_FIELD: UDateFormatField = 27i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_STANDALONE_QUARTER_FIELD: UDateFormatField = 28i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_TIMEZONE_SPECIAL_FIELD: UDateFormatField = 29i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_YEAR_NAME_FIELD: UDateFormatField = 30i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_TIMEZONE_LOCALIZED_GMT_OFFSET_FIELD: UDateFormatField = 31i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_TIMEZONE_ISO_FIELD: UDateFormatField = 32i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_TIMEZONE_ISO_LOCAL_FIELD: UDateFormatField = 33i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_AM_PM_MIDNIGHT_NOON_FIELD: UDateFormatField = 35i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_FLEXIBLE_DAY_PERIOD_FIELD: UDateFormatField = 36i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UDateFormatStyle = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_FULL: UDateFormatStyle = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_LONG: UDateFormatStyle = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_MEDIUM: UDateFormatStyle = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_SHORT: UDateFormatStyle = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_DEFAULT: UDateFormatStyle = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_RELATIVE: UDateFormatStyle = 128i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_FULL_RELATIVE: UDateFormatStyle = 128i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_LONG_RELATIVE: UDateFormatStyle = 129i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_MEDIUM_RELATIVE: UDateFormatStyle = 130i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_SHORT_RELATIVE: UDateFormatStyle = 131i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_NONE: UDateFormatStyle = -1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_PATTERN: UDateFormatStyle = -2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UDateFormatSymbolType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_ERAS: UDateFormatSymbolType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_MONTHS: UDateFormatSymbolType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_SHORT_MONTHS: UDateFormatSymbolType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_WEEKDAYS: UDateFormatSymbolType = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_SHORT_WEEKDAYS: UDateFormatSymbolType = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_AM_PMS: UDateFormatSymbolType = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_LOCALIZED_CHARS: UDateFormatSymbolType = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_ERA_NAMES: UDateFormatSymbolType = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_NARROW_MONTHS: UDateFormatSymbolType = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_NARROW_WEEKDAYS: UDateFormatSymbolType = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_STANDALONE_MONTHS: UDateFormatSymbolType = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_STANDALONE_SHORT_MONTHS: UDateFormatSymbolType = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_STANDALONE_NARROW_MONTHS: UDateFormatSymbolType = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_STANDALONE_WEEKDAYS: UDateFormatSymbolType = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_STANDALONE_SHORT_WEEKDAYS: UDateFormatSymbolType = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_STANDALONE_NARROW_WEEKDAYS: UDateFormatSymbolType = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_QUARTERS: UDateFormatSymbolType = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_SHORT_QUARTERS: UDateFormatSymbolType = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_STANDALONE_QUARTERS: UDateFormatSymbolType = 18i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_STANDALONE_SHORT_QUARTERS: UDateFormatSymbolType = 19i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_SHORTER_WEEKDAYS: UDateFormatSymbolType = 20i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_STANDALONE_SHORTER_WEEKDAYS: UDateFormatSymbolType = 21i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_CYCLIC_YEARS_WIDE: UDateFormatSymbolType = 22i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_CYCLIC_YEARS_ABBREVIATED: UDateFormatSymbolType = 23i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_CYCLIC_YEARS_NARROW: UDateFormatSymbolType = 24i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_ZODIAC_NAMES_WIDE: UDateFormatSymbolType = 25i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_ZODIAC_NAMES_ABBREVIATED: UDateFormatSymbolType = 26i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_ZODIAC_NAMES_NARROW: UDateFormatSymbolType = 27i32;
 #[repr(C)]
 pub struct UDateFormatSymbols(pub u8);
 #[repr(C)]
 pub struct UDateIntervalFormat(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UDateRelativeDateTimeFormatterStyle = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_STYLE_LONG: UDateRelativeDateTimeFormatterStyle = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_STYLE_SHORT: UDateRelativeDateTimeFormatterStyle = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_STYLE_NARROW: UDateRelativeDateTimeFormatterStyle = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UDateRelativeUnit = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_RELATIVE_SECONDS: UDateRelativeUnit = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_RELATIVE_MINUTES: UDateRelativeUnit = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_RELATIVE_HOURS: UDateRelativeUnit = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_RELATIVE_DAYS: UDateRelativeUnit = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_RELATIVE_WEEKS: UDateRelativeUnit = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_RELATIVE_MONTHS: UDateRelativeUnit = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_RELATIVE_YEARS: UDateRelativeUnit = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_RELATIVE_UNIT_COUNT: UDateRelativeUnit = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UDateTimePGDisplayWidth = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_WIDE: UDateTimePGDisplayWidth = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_ABBREVIATED: UDateTimePGDisplayWidth = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_NARROW: UDateTimePGDisplayWidth = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UDateTimePatternConflict = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_NO_CONFLICT: UDateTimePatternConflict = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_BASE_CONFLICT: UDateTimePatternConflict = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_CONFLICT: UDateTimePatternConflict = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UDateTimePatternField = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_ERA_FIELD: UDateTimePatternField = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_YEAR_FIELD: UDateTimePatternField = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_QUARTER_FIELD: UDateTimePatternField = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_MONTH_FIELD: UDateTimePatternField = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_WEEK_OF_YEAR_FIELD: UDateTimePatternField = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_WEEK_OF_MONTH_FIELD: UDateTimePatternField = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_WEEKDAY_FIELD: UDateTimePatternField = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_DAY_OF_YEAR_FIELD: UDateTimePatternField = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_DAY_OF_WEEK_IN_MONTH_FIELD: UDateTimePatternField = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_DAY_FIELD: UDateTimePatternField = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_DAYPERIOD_FIELD: UDateTimePatternField = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_HOUR_FIELD: UDateTimePatternField = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_MINUTE_FIELD: UDateTimePatternField = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_SECOND_FIELD: UDateTimePatternField = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_FRACTIONAL_SECOND_FIELD: UDateTimePatternField = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_ZONE_FIELD: UDateTimePatternField = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_FIELD_COUNT: UDateTimePatternField = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UDateTimePatternMatchOptions = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_MATCH_NO_OPTIONS: UDateTimePatternMatchOptions = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_MATCH_HOUR_FIELD_LENGTH: UDateTimePatternMatchOptions = 2048i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDATPG_MATCH_ALL_FIELDS_LENGTH: UDateTimePatternMatchOptions = 65535i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UDateTimeScale = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDTS_JAVA_TIME: UDateTimeScale = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDTS_UNIX_TIME: UDateTimeScale = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDTS_ICU4C_TIME: UDateTimeScale = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDTS_WINDOWS_FILE_TIME: UDateTimeScale = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDTS_DOTNET_DATE_TIME: UDateTimeScale = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDTS_MAC_OLD_TIME: UDateTimeScale = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDTS_MAC_TIME: UDateTimeScale = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDTS_EXCEL_TIME: UDateTimeScale = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDTS_DB2_TIME: UDateTimeScale = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDTS_UNIX_MICROSECONDS_TIME: UDateTimeScale = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UDecompositionType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DT_NONE: UDecompositionType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DT_CANONICAL: UDecompositionType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DT_COMPAT: UDecompositionType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DT_CIRCLE: UDecompositionType = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DT_FINAL: UDecompositionType = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DT_FONT: UDecompositionType = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DT_FRACTION: UDecompositionType = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DT_INITIAL: UDecompositionType = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DT_ISOLATED: UDecompositionType = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DT_MEDIAL: UDecompositionType = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DT_NARROW: UDecompositionType = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DT_NOBREAK: UDecompositionType = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DT_SMALL: UDecompositionType = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DT_SQUARE: UDecompositionType = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DT_SUB: UDecompositionType = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DT_SUPER: UDecompositionType = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DT_VERTICAL: UDecompositionType = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DT_WIDE: UDecompositionType = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UDialectHandling = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULDN_STANDARD_NAMES: UDialectHandling = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULDN_DIALECT_NAMES: UDialectHandling = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UDisplayContext = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDISPCTX_STANDARD_NAMES: UDisplayContext = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDISPCTX_DIALECT_NAMES: UDisplayContext = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDISPCTX_CAPITALIZATION_NONE: UDisplayContext = 256i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDISPCTX_CAPITALIZATION_FOR_MIDDLE_OF_SENTENCE: UDisplayContext = 257i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDISPCTX_CAPITALIZATION_FOR_BEGINNING_OF_SENTENCE: UDisplayContext = 258i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDISPCTX_CAPITALIZATION_FOR_UI_LIST_OR_MENU: UDisplayContext = 259i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDISPCTX_CAPITALIZATION_FOR_STANDALONE: UDisplayContext = 260i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDISPCTX_LENGTH_FULL: UDisplayContext = 512i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDISPCTX_LENGTH_SHORT: UDisplayContext = 513i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDISPCTX_SUBSTITUTE: UDisplayContext = 768i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDISPCTX_NO_SUBSTITUTE: UDisplayContext = 769i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UDisplayContextType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDISPCTX_TYPE_DIALECT_HANDLING: UDisplayContextType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDISPCTX_TYPE_CAPITALIZATION: UDisplayContextType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDISPCTX_TYPE_DISPLAY_LENGTH: UDisplayContextType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDISPCTX_TYPE_SUBSTITUTE_HANDLING: UDisplayContextType = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UEastAsianWidth = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_EA_NEUTRAL: UEastAsianWidth = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_EA_AMBIGUOUS: UEastAsianWidth = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_EA_HALFWIDTH: UEastAsianWidth = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_EA_FULLWIDTH: UEastAsianWidth = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_EA_NARROW: UEastAsianWidth = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_EA_WIDE: UEastAsianWidth = 5i32;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type UEnumCharNamesFn = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, code: i32, namechoice: UCharNameChoice, name: super::Foundation::PSTR, length: i32) -> i8>;
 #[repr(C)]
 pub struct UEnumeration(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UErrorCode = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_USING_FALLBACK_WARNING: UErrorCode = -128i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_ERROR_WARNING_START: UErrorCode = -128i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_USING_DEFAULT_WARNING: UErrorCode = -127i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SAFECLONE_ALLOCATED_WARNING: UErrorCode = -126i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_STATE_OLD_WARNING: UErrorCode = -125i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_STRING_NOT_TERMINATED_WARNING: UErrorCode = -124i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SORT_KEY_TOO_SHORT_WARNING: UErrorCode = -123i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_AMBIGUOUS_ALIAS_WARNING: UErrorCode = -122i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DIFFERENT_UCA_VERSION: UErrorCode = -121i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_PLUGIN_CHANGED_LEVEL_WARNING: UErrorCode = -120i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_ZERO_ERROR: UErrorCode = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_ILLEGAL_ARGUMENT_ERROR: UErrorCode = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MISSING_RESOURCE_ERROR: UErrorCode = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INVALID_FORMAT_ERROR: UErrorCode = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_FILE_ACCESS_ERROR: UErrorCode = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INTERNAL_PROGRAM_ERROR: UErrorCode = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MESSAGE_PARSE_ERROR: UErrorCode = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MEMORY_ALLOCATION_ERROR: UErrorCode = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INDEX_OUTOFBOUNDS_ERROR: UErrorCode = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_PARSE_ERROR: UErrorCode = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INVALID_CHAR_FOUND: UErrorCode = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_TRUNCATED_CHAR_FOUND: UErrorCode = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_ILLEGAL_CHAR_FOUND: UErrorCode = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INVALID_TABLE_FORMAT: UErrorCode = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INVALID_TABLE_FILE: UErrorCode = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BUFFER_OVERFLOW_ERROR: UErrorCode = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_UNSUPPORTED_ERROR: UErrorCode = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_RESOURCE_TYPE_MISMATCH: UErrorCode = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_ILLEGAL_ESCAPE_SEQUENCE: UErrorCode = 18i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_UNSUPPORTED_ESCAPE_SEQUENCE: UErrorCode = 19i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_NO_SPACE_AVAILABLE: UErrorCode = 20i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_CE_NOT_FOUND_ERROR: UErrorCode = 21i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_PRIMARY_TOO_LONG_ERROR: UErrorCode = 22i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_STATE_TOO_OLD_ERROR: UErrorCode = 23i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_TOO_MANY_ALIASES_ERROR: UErrorCode = 24i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_ENUM_OUT_OF_SYNC_ERROR: UErrorCode = 25i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INVARIANT_CONVERSION_ERROR: UErrorCode = 26i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INVALID_STATE_ERROR: UErrorCode = 27i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_COLLATOR_VERSION_MISMATCH: UErrorCode = 28i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_USELESS_COLLATOR_ERROR: UErrorCode = 29i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_NO_WRITE_PERMISSION: UErrorCode = 30i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BAD_VARIABLE_DEFINITION: UErrorCode = 65536i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_PARSE_ERROR_START: UErrorCode = 65536i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MALFORMED_RULE: UErrorCode = 65537i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MALFORMED_SET: UErrorCode = 65538i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MALFORMED_SYMBOL_REFERENCE: UErrorCode = 65539i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MALFORMED_UNICODE_ESCAPE: UErrorCode = 65540i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MALFORMED_VARIABLE_DEFINITION: UErrorCode = 65541i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MALFORMED_VARIABLE_REFERENCE: UErrorCode = 65542i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MISMATCHED_SEGMENT_DELIMITERS: UErrorCode = 65543i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MISPLACED_ANCHOR_START: UErrorCode = 65544i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MISPLACED_CURSOR_OFFSET: UErrorCode = 65545i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MISPLACED_QUANTIFIER: UErrorCode = 65546i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MISSING_OPERATOR: UErrorCode = 65547i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MISSING_SEGMENT_CLOSE: UErrorCode = 65548i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MULTIPLE_ANTE_CONTEXTS: UErrorCode = 65549i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MULTIPLE_CURSORS: UErrorCode = 65550i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MULTIPLE_POST_CONTEXTS: UErrorCode = 65551i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_TRAILING_BACKSLASH: UErrorCode = 65552i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_UNDEFINED_SEGMENT_REFERENCE: UErrorCode = 65553i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_UNDEFINED_VARIABLE: UErrorCode = 65554i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_UNQUOTED_SPECIAL: UErrorCode = 65555i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_UNTERMINATED_QUOTE: UErrorCode = 65556i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_RULE_MASK_ERROR: UErrorCode = 65557i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MISPLACED_COMPOUND_FILTER: UErrorCode = 65558i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MULTIPLE_COMPOUND_FILTERS: UErrorCode = 65559i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INVALID_RBT_SYNTAX: UErrorCode = 65560i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INVALID_PROPERTY_PATTERN: UErrorCode = 65561i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MALFORMED_PRAGMA: UErrorCode = 65562i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_UNCLOSED_SEGMENT: UErrorCode = 65563i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_ILLEGAL_CHAR_IN_SEGMENT: UErrorCode = 65564i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_VARIABLE_RANGE_EXHAUSTED: UErrorCode = 65565i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_VARIABLE_RANGE_OVERLAP: UErrorCode = 65566i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_ILLEGAL_CHARACTER: UErrorCode = 65567i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INTERNAL_TRANSLITERATOR_ERROR: UErrorCode = 65568i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INVALID_ID: UErrorCode = 65569i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INVALID_FUNCTION: UErrorCode = 65570i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_UNEXPECTED_TOKEN: UErrorCode = 65792i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_FMT_PARSE_ERROR_START: UErrorCode = 65792i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MULTIPLE_DECIMAL_SEPARATORS: UErrorCode = 65793i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MULTIPLE_DECIMAL_SEPERATORS: UErrorCode = 65793i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MULTIPLE_EXPONENTIAL_SYMBOLS: UErrorCode = 65794i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MALFORMED_EXPONENTIAL_PATTERN: UErrorCode = 65795i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MULTIPLE_PERCENT_SYMBOLS: UErrorCode = 65796i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MULTIPLE_PERMILL_SYMBOLS: UErrorCode = 65797i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_MULTIPLE_PAD_SPECIFIERS: UErrorCode = 65798i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_PATTERN_SYNTAX_ERROR: UErrorCode = 65799i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_ILLEGAL_PAD_POSITION: UErrorCode = 65800i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_UNMATCHED_BRACES: UErrorCode = 65801i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_UNSUPPORTED_PROPERTY: UErrorCode = 65802i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_UNSUPPORTED_ATTRIBUTE: UErrorCode = 65803i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_ARGUMENT_TYPE_MISMATCH: UErrorCode = 65804i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DUPLICATE_KEYWORD: UErrorCode = 65805i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_UNDEFINED_KEYWORD: UErrorCode = 65806i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DEFAULT_KEYWORD_MISSING: UErrorCode = 65807i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_DECIMAL_NUMBER_SYNTAX_ERROR: UErrorCode = 65808i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_FORMAT_INEXACT_ERROR: UErrorCode = 65809i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_NUMBER_ARG_OUTOFBOUNDS_ERROR: UErrorCode = 65810i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_NUMBER_SKELETON_SYNTAX_ERROR: UErrorCode = 65811i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BRK_INTERNAL_ERROR: UErrorCode = 66048i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BRK_ERROR_START: UErrorCode = 66048i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BRK_HEX_DIGITS_EXPECTED: UErrorCode = 66049i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BRK_SEMICOLON_EXPECTED: UErrorCode = 66050i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BRK_RULE_SYNTAX: UErrorCode = 66051i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BRK_UNCLOSED_SET: UErrorCode = 66052i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BRK_ASSIGN_ERROR: UErrorCode = 66053i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BRK_VARIABLE_REDFINITION: UErrorCode = 66054i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BRK_MISMATCHED_PAREN: UErrorCode = 66055i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BRK_NEW_LINE_IN_QUOTED_STRING: UErrorCode = 66056i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BRK_UNDEFINED_VARIABLE: UErrorCode = 66057i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BRK_INIT_ERROR: UErrorCode = 66058i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BRK_RULE_EMPTY_SET: UErrorCode = 66059i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BRK_UNRECOGNIZED_OPTION: UErrorCode = 66060i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_BRK_MALFORMED_RULE_TAG: UErrorCode = 66061i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_INTERNAL_ERROR: UErrorCode = 66304i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_ERROR_START: UErrorCode = 66304i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_RULE_SYNTAX: UErrorCode = 66305i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_INVALID_STATE: UErrorCode = 66306i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_BAD_ESCAPE_SEQUENCE: UErrorCode = 66307i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_PROPERTY_SYNTAX: UErrorCode = 66308i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_UNIMPLEMENTED: UErrorCode = 66309i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_MISMATCHED_PAREN: UErrorCode = 66310i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_NUMBER_TOO_BIG: UErrorCode = 66311i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_BAD_INTERVAL: UErrorCode = 66312i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_MAX_LT_MIN: UErrorCode = 66313i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_INVALID_BACK_REF: UErrorCode = 66314i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_INVALID_FLAG: UErrorCode = 66315i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_LOOK_BEHIND_LIMIT: UErrorCode = 66316i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_SET_CONTAINS_STRING: UErrorCode = 66317i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_MISSING_CLOSE_BRACKET: UErrorCode = 66319i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_INVALID_RANGE: UErrorCode = 66320i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_STACK_OVERFLOW: UErrorCode = 66321i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_TIME_OUT: UErrorCode = 66322i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_STOPPED_BY_CALLER: UErrorCode = 66323i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_PATTERN_TOO_BIG: UErrorCode = 66324i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_REGEX_INVALID_CAPTURE_GROUP_NAME: UErrorCode = 66325i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_IDNA_PROHIBITED_ERROR: UErrorCode = 66560i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_IDNA_ERROR_START: UErrorCode = 66560i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_IDNA_UNASSIGNED_ERROR: UErrorCode = 66561i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_IDNA_CHECK_BIDI_ERROR: UErrorCode = 66562i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_IDNA_STD3_ASCII_RULES_ERROR: UErrorCode = 66563i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_IDNA_ACE_PREFIX_ERROR: UErrorCode = 66564i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_IDNA_VERIFICATION_ERROR: UErrorCode = 66565i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_IDNA_LABEL_TOO_LONG_ERROR: UErrorCode = 66566i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_IDNA_ZERO_LENGTH_LABEL_ERROR: UErrorCode = 66567i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_IDNA_DOMAIN_NAME_TOO_LONG_ERROR: UErrorCode = 66568i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_STRINGPREP_PROHIBITED_ERROR: UErrorCode = 66560i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_STRINGPREP_UNASSIGNED_ERROR: UErrorCode = 66561i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_STRINGPREP_CHECK_BIDI_ERROR: UErrorCode = 66562i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_PLUGIN_ERROR_START: UErrorCode = 66816i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_PLUGIN_TOO_HIGH: UErrorCode = 66816i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_PLUGIN_DIDNT_SET_LEVEL: UErrorCode = 66817i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UFieldCategory = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UFIELD_CATEGORY_UNDEFINED: UFieldCategory = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UFIELD_CATEGORY_DATE: UFieldCategory = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UFIELD_CATEGORY_NUMBER: UFieldCategory = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UFIELD_CATEGORY_LIST: UFieldCategory = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UFIELD_CATEGORY_RELATIVE_DATETIME: UFieldCategory = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UFIELD_CATEGORY_DATE_INTERVAL: UFieldCategory = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UFIELD_CATEGORY_LIST_SPAN: UFieldCategory = 4099i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UFIELD_CATEGORY_DATE_INTERVAL_SPAN: UFieldCategory = 4101i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct UFieldPosition {
     pub field: i32,
     pub beginIndex: i32,
@@ -8356,13 +9850,21 @@ impl ::core::default::Default for UFieldPosition {
 }
 #[repr(C)]
 pub struct UFieldPositionIterator(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UFormattableType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UFMT_DATE: UFormattableType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UFMT_DOUBLE: UFormattableType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UFMT_LONG: UFormattableType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UFMT_STRING: UFormattableType = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UFMT_ARRAY: UFormattableType = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UFMT_INT64: UFormattableType = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UFMT_OBJECT: UFormattableType = 6i32;
 #[repr(C)]
 pub struct UFormattedDateInterval(pub u8);
@@ -8376,43 +9878,74 @@ pub struct UFormattedNumberRange(pub u8);
 pub struct UFormattedRelativeDateTime(pub u8);
 #[repr(C)]
 pub struct UFormattedValue(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UGender = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UGENDER_MALE: UGender = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UGENDER_FEMALE: UGender = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UGENDER_OTHER: UGender = 2i32;
 #[repr(C)]
 pub struct UGenderInfo(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UGraphemeClusterBreak = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_GCB_OTHER: UGraphemeClusterBreak = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_GCB_CONTROL: UGraphemeClusterBreak = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_GCB_CR: UGraphemeClusterBreak = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_GCB_EXTEND: UGraphemeClusterBreak = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_GCB_L: UGraphemeClusterBreak = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_GCB_LF: UGraphemeClusterBreak = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_GCB_LV: UGraphemeClusterBreak = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_GCB_LVT: UGraphemeClusterBreak = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_GCB_T: UGraphemeClusterBreak = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_GCB_V: UGraphemeClusterBreak = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_GCB_SPACING_MARK: UGraphemeClusterBreak = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_GCB_PREPEND: UGraphemeClusterBreak = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_GCB_REGIONAL_INDICATOR: UGraphemeClusterBreak = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_GCB_E_BASE: UGraphemeClusterBreak = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_GCB_E_BASE_GAZ: UGraphemeClusterBreak = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_GCB_E_MODIFIER: UGraphemeClusterBreak = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_GCB_GLUE_AFTER_ZWJ: UGraphemeClusterBreak = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_GCB_ZWJ: UGraphemeClusterBreak = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UHangulSyllableType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_HST_NOT_APPLICABLE: UHangulSyllableType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_HST_LEADING_JAMO: UHangulSyllableType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_HST_VOWEL_JAMO: UHangulSyllableType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_HST_TRAILING_JAMO: UHangulSyllableType = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_HST_LV_SYLLABLE: UHangulSyllableType = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_HST_LVT_SYLLABLE: UHangulSyllableType = 5i32;
 #[repr(C)]
 pub struct UHashtable(pub u8);
 #[repr(C)]
 pub struct UIDNA(pub u8);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct UIDNAInfo {
     pub size: i16,
     pub isTransitionalDifferent: i8,
@@ -8463,175 +9996,342 @@ pub const UIDNA_ERROR_TRAILING_HYPHEN: i32 = 16i32;
 pub const UIDNA_NONTRANSITIONAL_TO_ASCII: i32 = 16i32;
 pub const UIDNA_NONTRANSITIONAL_TO_UNICODE: i32 = 32i32;
 pub const UIDNA_USE_STD3_RULES: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type UILANGUAGE_ENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PSTR, param1: isize) -> super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type UILANGUAGE_ENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::Foundation::PWSTR, param1: isize) -> super::Foundation::BOOL>;
 pub const UITER_UNKNOWN_INDEX: i32 = -2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UIndicPositionalCategory = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INPC_NA: UIndicPositionalCategory = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INPC_BOTTOM: UIndicPositionalCategory = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INPC_BOTTOM_AND_LEFT: UIndicPositionalCategory = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INPC_BOTTOM_AND_RIGHT: UIndicPositionalCategory = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INPC_LEFT: UIndicPositionalCategory = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INPC_LEFT_AND_RIGHT: UIndicPositionalCategory = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INPC_OVERSTRUCK: UIndicPositionalCategory = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INPC_RIGHT: UIndicPositionalCategory = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INPC_TOP: UIndicPositionalCategory = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INPC_TOP_AND_BOTTOM: UIndicPositionalCategory = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INPC_TOP_AND_BOTTOM_AND_RIGHT: UIndicPositionalCategory = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INPC_TOP_AND_LEFT: UIndicPositionalCategory = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INPC_TOP_AND_LEFT_AND_RIGHT: UIndicPositionalCategory = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INPC_TOP_AND_RIGHT: UIndicPositionalCategory = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INPC_VISUAL_ORDER_LEFT: UIndicPositionalCategory = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INPC_TOP_AND_BOTTOM_AND_LEFT: UIndicPositionalCategory = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UIndicSyllabicCategory = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_OTHER: UIndicSyllabicCategory = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_AVAGRAHA: UIndicSyllabicCategory = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_BINDU: UIndicSyllabicCategory = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_BRAHMI_JOINING_NUMBER: UIndicSyllabicCategory = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_CANTILLATION_MARK: UIndicSyllabicCategory = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_CONSONANT: UIndicSyllabicCategory = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_CONSONANT_DEAD: UIndicSyllabicCategory = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_CONSONANT_FINAL: UIndicSyllabicCategory = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_CONSONANT_HEAD_LETTER: UIndicSyllabicCategory = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_CONSONANT_INITIAL_POSTFIXED: UIndicSyllabicCategory = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_CONSONANT_KILLER: UIndicSyllabicCategory = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_CONSONANT_MEDIAL: UIndicSyllabicCategory = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_CONSONANT_PLACEHOLDER: UIndicSyllabicCategory = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_CONSONANT_PRECEDING_REPHA: UIndicSyllabicCategory = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_CONSONANT_PREFIXED: UIndicSyllabicCategory = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_CONSONANT_SUBJOINED: UIndicSyllabicCategory = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_CONSONANT_SUCCEEDING_REPHA: UIndicSyllabicCategory = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_CONSONANT_WITH_STACKER: UIndicSyllabicCategory = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_GEMINATION_MARK: UIndicSyllabicCategory = 18i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_INVISIBLE_STACKER: UIndicSyllabicCategory = 19i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_JOINER: UIndicSyllabicCategory = 20i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_MODIFYING_LETTER: UIndicSyllabicCategory = 21i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_NON_JOINER: UIndicSyllabicCategory = 22i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_NUKTA: UIndicSyllabicCategory = 23i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_NUMBER: UIndicSyllabicCategory = 24i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_NUMBER_JOINER: UIndicSyllabicCategory = 25i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_PURE_KILLER: UIndicSyllabicCategory = 26i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_REGISTER_SHIFTER: UIndicSyllabicCategory = 27i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_SYLLABLE_MODIFIER: UIndicSyllabicCategory = 28i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_TONE_LETTER: UIndicSyllabicCategory = 29i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_TONE_MARK: UIndicSyllabicCategory = 30i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_VIRAMA: UIndicSyllabicCategory = 31i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_VISARGA: UIndicSyllabicCategory = 32i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_VOWEL: UIndicSyllabicCategory = 33i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_VOWEL_DEPENDENT: UIndicSyllabicCategory = 34i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_INSC_VOWEL_INDEPENDENT: UIndicSyllabicCategory = 35i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UJoiningGroup = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_NO_JOINING_GROUP: UJoiningGroup = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_AIN: UJoiningGroup = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_ALAPH: UJoiningGroup = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_ALEF: UJoiningGroup = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_BEH: UJoiningGroup = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_BETH: UJoiningGroup = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_DAL: UJoiningGroup = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_DALATH_RISH: UJoiningGroup = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_E: UJoiningGroup = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_FEH: UJoiningGroup = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_FINAL_SEMKATH: UJoiningGroup = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_GAF: UJoiningGroup = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_GAMAL: UJoiningGroup = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_HAH: UJoiningGroup = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_TEH_MARBUTA_GOAL: UJoiningGroup = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_HAMZA_ON_HEH_GOAL: UJoiningGroup = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_HE: UJoiningGroup = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_HEH: UJoiningGroup = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_HEH_GOAL: UJoiningGroup = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_HETH: UJoiningGroup = 18i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_KAF: UJoiningGroup = 19i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_KAPH: UJoiningGroup = 20i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_KNOTTED_HEH: UJoiningGroup = 21i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_LAM: UJoiningGroup = 22i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_LAMADH: UJoiningGroup = 23i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MEEM: UJoiningGroup = 24i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MIM: UJoiningGroup = 25i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_NOON: UJoiningGroup = 26i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_NUN: UJoiningGroup = 27i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_PE: UJoiningGroup = 28i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_QAF: UJoiningGroup = 29i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_QAPH: UJoiningGroup = 30i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_REH: UJoiningGroup = 31i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_REVERSED_PE: UJoiningGroup = 32i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_SAD: UJoiningGroup = 33i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_SADHE: UJoiningGroup = 34i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_SEEN: UJoiningGroup = 35i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_SEMKATH: UJoiningGroup = 36i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_SHIN: UJoiningGroup = 37i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_SWASH_KAF: UJoiningGroup = 38i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_SYRIAC_WAW: UJoiningGroup = 39i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_TAH: UJoiningGroup = 40i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_TAW: UJoiningGroup = 41i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_TEH_MARBUTA: UJoiningGroup = 42i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_TETH: UJoiningGroup = 43i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_WAW: UJoiningGroup = 44i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_YEH: UJoiningGroup = 45i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_YEH_BARREE: UJoiningGroup = 46i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_YEH_WITH_TAIL: UJoiningGroup = 47i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_YUDH: UJoiningGroup = 48i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_YUDH_HE: UJoiningGroup = 49i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_ZAIN: UJoiningGroup = 50i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_FE: UJoiningGroup = 51i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_KHAPH: UJoiningGroup = 52i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_ZHAIN: UJoiningGroup = 53i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_BURUSHASKI_YEH_BARREE: UJoiningGroup = 54i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_FARSI_YEH: UJoiningGroup = 55i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_NYA: UJoiningGroup = 56i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_ROHINGYA_YEH: UJoiningGroup = 57i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_ALEPH: UJoiningGroup = 58i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_AYIN: UJoiningGroup = 59i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_BETH: UJoiningGroup = 60i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_DALETH: UJoiningGroup = 61i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_DHAMEDH: UJoiningGroup = 62i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_FIVE: UJoiningGroup = 63i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_GIMEL: UJoiningGroup = 64i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_HETH: UJoiningGroup = 65i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_HUNDRED: UJoiningGroup = 66i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_KAPH: UJoiningGroup = 67i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_LAMEDH: UJoiningGroup = 68i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_MEM: UJoiningGroup = 69i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_NUN: UJoiningGroup = 70i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_ONE: UJoiningGroup = 71i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_PE: UJoiningGroup = 72i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_QOPH: UJoiningGroup = 73i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_RESH: UJoiningGroup = 74i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_SADHE: UJoiningGroup = 75i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_SAMEKH: UJoiningGroup = 76i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_TAW: UJoiningGroup = 77i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_TEN: UJoiningGroup = 78i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_TETH: UJoiningGroup = 79i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_THAMEDH: UJoiningGroup = 80i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_TWENTY: UJoiningGroup = 81i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_WAW: UJoiningGroup = 82i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_YODH: UJoiningGroup = 83i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MANICHAEAN_ZAYIN: UJoiningGroup = 84i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_STRAIGHT_WAW: UJoiningGroup = 85i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_AFRICAN_FEH: UJoiningGroup = 86i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_AFRICAN_NOON: UJoiningGroup = 87i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_AFRICAN_QAF: UJoiningGroup = 88i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MALAYALAM_BHA: UJoiningGroup = 89i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MALAYALAM_JA: UJoiningGroup = 90i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MALAYALAM_LLA: UJoiningGroup = 91i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MALAYALAM_LLLA: UJoiningGroup = 92i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MALAYALAM_NGA: UJoiningGroup = 93i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MALAYALAM_NNA: UJoiningGroup = 94i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MALAYALAM_NNNA: UJoiningGroup = 95i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MALAYALAM_NYA: UJoiningGroup = 96i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MALAYALAM_RA: UJoiningGroup = 97i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MALAYALAM_SSA: UJoiningGroup = 98i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_MALAYALAM_TTA: UJoiningGroup = 99i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_HANIFI_ROHINGYA_KINNA_YA: UJoiningGroup = 100i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JG_HANIFI_ROHINGYA_PA: UJoiningGroup = 101i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UJoiningType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JT_NON_JOINING: UJoiningType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JT_JOIN_CAUSING: UJoiningType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JT_DUAL_JOINING: UJoiningType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JT_LEFT_JOINING: UJoiningType = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JT_RIGHT_JOINING: UJoiningType = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_JT_TRANSPARENT: UJoiningType = 5i32;
 pub const ULOC_COUNTRY_CAPACITY: u32 = 4u32;
 pub const ULOC_FULLNAME_CAPACITY: u32 = 157u32;
@@ -8642,140 +10342,264 @@ pub const ULOC_KEYWORD_ITEM_SEPARATOR_UNICODE: u32 = 59u32;
 pub const ULOC_KEYWORD_SEPARATOR_UNICODE: u32 = 64u32;
 pub const ULOC_LANG_CAPACITY: u32 = 12u32;
 pub const ULOC_SCRIPT_CAPACITY: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type ULayoutType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOC_LAYOUT_LTR: ULayoutType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOC_LAYOUT_RTL: ULayoutType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOC_LAYOUT_TTB: ULayoutType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOC_LAYOUT_BTT: ULayoutType = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOC_LAYOUT_UNKNOWN: ULayoutType = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type ULineBreak = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_UNKNOWN: ULineBreak = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_AMBIGUOUS: ULineBreak = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_ALPHABETIC: ULineBreak = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_BREAK_BOTH: ULineBreak = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_BREAK_AFTER: ULineBreak = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_BREAK_BEFORE: ULineBreak = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_MANDATORY_BREAK: ULineBreak = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_CONTINGENT_BREAK: ULineBreak = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_CLOSE_PUNCTUATION: ULineBreak = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_COMBINING_MARK: ULineBreak = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_CARRIAGE_RETURN: ULineBreak = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_EXCLAMATION: ULineBreak = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_GLUE: ULineBreak = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_HYPHEN: ULineBreak = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_IDEOGRAPHIC: ULineBreak = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_INSEPARABLE: ULineBreak = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_INSEPERABLE: ULineBreak = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_INFIX_NUMERIC: ULineBreak = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_LINE_FEED: ULineBreak = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_NONSTARTER: ULineBreak = 18i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_NUMERIC: ULineBreak = 19i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_OPEN_PUNCTUATION: ULineBreak = 20i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_POSTFIX_NUMERIC: ULineBreak = 21i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_PREFIX_NUMERIC: ULineBreak = 22i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_QUOTATION: ULineBreak = 23i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_COMPLEX_CONTEXT: ULineBreak = 24i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_SURROGATE: ULineBreak = 25i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_SPACE: ULineBreak = 26i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_BREAK_SYMBOLS: ULineBreak = 27i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_ZWSPACE: ULineBreak = 28i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_NEXT_LINE: ULineBreak = 29i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_WORD_JOINER: ULineBreak = 30i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_H2: ULineBreak = 31i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_H3: ULineBreak = 32i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_JL: ULineBreak = 33i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_JT: ULineBreak = 34i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_JV: ULineBreak = 35i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_CLOSE_PARENTHESIS: ULineBreak = 36i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_CONDITIONAL_JAPANESE_STARTER: ULineBreak = 37i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_HEBREW_LETTER: ULineBreak = 38i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_REGIONAL_INDICATOR: ULineBreak = 39i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_E_BASE: ULineBreak = 40i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_E_MODIFIER: ULineBreak = 41i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LB_ZWJ: ULineBreak = 42i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type ULineBreakTag = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_LINE_SOFT: ULineBreakTag = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_LINE_SOFT_LIMIT: ULineBreakTag = 100i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_LINE_HARD: ULineBreakTag = 100i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_LINE_HARD_LIMIT: ULineBreakTag = 200i32;
 #[repr(C)]
 pub struct UListFormatter(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UListFormatterField = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULISTFMT_LITERAL_FIELD: UListFormatterField = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULISTFMT_ELEMENT_FIELD: UListFormatterField = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UListFormatterType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULISTFMT_TYPE_AND: UListFormatterType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULISTFMT_TYPE_OR: UListFormatterType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULISTFMT_TYPE_UNITS: UListFormatterType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UListFormatterWidth = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULISTFMT_WIDTH_WIDE: UListFormatterWidth = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULISTFMT_WIDTH_SHORT: UListFormatterWidth = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULISTFMT_WIDTH_NARROW: UListFormatterWidth = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type ULocAvailableType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOC_AVAILABLE_DEFAULT: ULocAvailableType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOC_AVAILABLE_ONLY_LEGACY_ALIASES: ULocAvailableType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOC_AVAILABLE_WITH_LEGACY_ALIASES: ULocAvailableType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type ULocDataLocaleType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOC_ACTUAL_LOCALE: ULocDataLocaleType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOC_VALID_LOCALE: ULocDataLocaleType = 1i32;
 #[repr(C)]
 pub struct ULocaleData(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type ULocaleDataDelimiterType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOCDATA_QUOTATION_START: ULocaleDataDelimiterType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOCDATA_QUOTATION_END: ULocaleDataDelimiterType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOCDATA_ALT_QUOTATION_START: ULocaleDataDelimiterType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOCDATA_ALT_QUOTATION_END: ULocaleDataDelimiterType = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type ULocaleDataExemplarSetType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOCDATA_ES_STANDARD: ULocaleDataExemplarSetType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOCDATA_ES_AUXILIARY: ULocaleDataExemplarSetType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOCDATA_ES_INDEX: ULocaleDataExemplarSetType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const ULOCDATA_ES_PUNCTUATION: ULocaleDataExemplarSetType = 3i32;
 #[repr(C)]
 pub struct ULocaleDisplayNames(pub u8);
 pub const UMSGPAT_ARG_NAME_NOT_NUMBER: i32 = -1i32;
 pub const UMSGPAT_ARG_NAME_NOT_VALID: i32 = -2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UMeasureFormatWidth = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMEASFMT_WIDTH_WIDE: UMeasureFormatWidth = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMEASFMT_WIDTH_SHORT: UMeasureFormatWidth = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMEASFMT_WIDTH_NARROW: UMeasureFormatWidth = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMEASFMT_WIDTH_NUMERIC: UMeasureFormatWidth = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMEASFMT_WIDTH_COUNT: UMeasureFormatWidth = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UMeasurementSystem = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMS_SI: UMeasurementSystem = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMS_US: UMeasurementSystem = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMS_UK: UMeasurementSystem = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UMemAllocFn = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UMemFreeFn = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, mem: *mut ::core::ffi::c_void)>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UMemReallocFn = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, mem: *mut ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UMessagePatternApostropheMode = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_APOS_DOUBLE_OPTIONAL: UMessagePatternApostropheMode = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_APOS_DOUBLE_REQUIRED: UMessagePatternApostropheMode = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UMessagePatternArgType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_ARG_TYPE_NONE: UMessagePatternArgType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_ARG_TYPE_SIMPLE: UMessagePatternArgType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_ARG_TYPE_CHOICE: UMessagePatternArgType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_ARG_TYPE_PLURAL: UMessagePatternArgType = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_ARG_TYPE_SELECT: UMessagePatternArgType = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_ARG_TYPE_SELECTORDINAL: UMessagePatternArgType = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UMessagePatternPartType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_PART_TYPE_MSG_START: UMessagePatternPartType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_PART_TYPE_MSG_LIMIT: UMessagePatternPartType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_PART_TYPE_SKIP_SYNTAX: UMessagePatternPartType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_PART_TYPE_INSERT_CHAR: UMessagePatternPartType = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_PART_TYPE_REPLACE_NUMBER: UMessagePatternPartType = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_PART_TYPE_ARG_START: UMessagePatternPartType = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_PART_TYPE_ARG_LIMIT: UMessagePatternPartType = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_PART_TYPE_ARG_NUMBER: UMessagePatternPartType = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_PART_TYPE_ARG_NAME: UMessagePatternPartType = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_PART_TYPE_ARG_TYPE: UMessagePatternPartType = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_PART_TYPE_ARG_STYLE: UMessagePatternPartType = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_PART_TYPE_ARG_SELECTOR: UMessagePatternPartType = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_PART_TYPE_ARG_INT: UMessagePatternPartType = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UMSGPAT_PART_TYPE_ARG_DOUBLE: UMessagePatternPartType = 13i32;
 #[repr(C)]
 pub struct UMutableCPTrie(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNESCAPE_CHAR_AT = ::core::option::Option<unsafe extern "system" fn(offset: i32, context: *mut ::core::ffi::c_void) -> u16>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct UNICODERANGE {
     pub wcFrom: u16,
     pub wcTo: u16,
@@ -8802,197 +10626,382 @@ impl ::core::default::Default for UNICODERANGE {
 }
 pub const UNISCRIBE_OPENTYPE: u32 = 256u32;
 pub const UNORM_INPUT_IS_FCD: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNormalization2Mode = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNORM2_COMPOSE: UNormalization2Mode = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNORM2_DECOMPOSE: UNormalization2Mode = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNORM2_FCD: UNormalization2Mode = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNORM2_COMPOSE_CONTIGUOUS: UNormalization2Mode = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNormalizationCheckResult = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNORM_NO: UNormalizationCheckResult = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNORM_YES: UNormalizationCheckResult = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNORM_MAYBE: UNormalizationCheckResult = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNormalizationMode = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNORM_NONE: UNormalizationMode = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNORM_NFD: UNormalizationMode = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNORM_NFKD: UNormalizationMode = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNORM_NFC: UNormalizationMode = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNORM_DEFAULT: UNormalizationMode = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNORM_NFKC: UNormalizationMode = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNORM_FCD: UNormalizationMode = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNORM_MODE_COUNT: UNormalizationMode = 7i32;
 #[repr(C)]
 pub struct UNormalizer2(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNumberCompactStyle = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_SHORT: UNumberCompactStyle = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_LONG: UNumberCompactStyle = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNumberDecimalSeparatorDisplay = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_DECIMAL_SEPARATOR_AUTO: UNumberDecimalSeparatorDisplay = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_DECIMAL_SEPARATOR_ALWAYS: UNumberDecimalSeparatorDisplay = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_DECIMAL_SEPARATOR_COUNT: UNumberDecimalSeparatorDisplay = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNumberFormatAttribute = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PARSE_INT_ONLY: UNumberFormatAttribute = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_GROUPING_USED: UNumberFormatAttribute = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_DECIMAL_ALWAYS_SHOWN: UNumberFormatAttribute = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_MAX_INTEGER_DIGITS: UNumberFormatAttribute = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_MIN_INTEGER_DIGITS: UNumberFormatAttribute = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_INTEGER_DIGITS: UNumberFormatAttribute = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_MAX_FRACTION_DIGITS: UNumberFormatAttribute = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_MIN_FRACTION_DIGITS: UNumberFormatAttribute = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_FRACTION_DIGITS: UNumberFormatAttribute = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_MULTIPLIER: UNumberFormatAttribute = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_GROUPING_SIZE: UNumberFormatAttribute = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_ROUNDING_MODE: UNumberFormatAttribute = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_ROUNDING_INCREMENT: UNumberFormatAttribute = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_FORMAT_WIDTH: UNumberFormatAttribute = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PADDING_POSITION: UNumberFormatAttribute = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_SECONDARY_GROUPING_SIZE: UNumberFormatAttribute = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_SIGNIFICANT_DIGITS_USED: UNumberFormatAttribute = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_MIN_SIGNIFICANT_DIGITS: UNumberFormatAttribute = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_MAX_SIGNIFICANT_DIGITS: UNumberFormatAttribute = 18i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_LENIENT_PARSE: UNumberFormatAttribute = 19i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PARSE_ALL_INPUT: UNumberFormatAttribute = 20i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_SCALE: UNumberFormatAttribute = 21i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_MINIMUM_GROUPING_DIGITS: UNumberFormatAttribute = 22i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_CURRENCY_USAGE: UNumberFormatAttribute = 23i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_FORMAT_FAIL_IF_MORE_THAN_MAX_DIGITS: UNumberFormatAttribute = 4096i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PARSE_NO_EXPONENT: UNumberFormatAttribute = 4097i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PARSE_DECIMAL_MARK_REQUIRED: UNumberFormatAttribute = 4098i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PARSE_CASE_SENSITIVE: UNumberFormatAttribute = 4099i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_SIGN_ALWAYS_SHOWN: UNumberFormatAttribute = 4100i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNumberFormatAttributeValue = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_FORMAT_ATTRIBUTE_VALUE_HIDDEN: UNumberFormatAttributeValue = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNumberFormatFields = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_INTEGER_FIELD: UNumberFormatFields = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_FRACTION_FIELD: UNumberFormatFields = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_DECIMAL_SEPARATOR_FIELD: UNumberFormatFields = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_EXPONENT_SYMBOL_FIELD: UNumberFormatFields = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_EXPONENT_SIGN_FIELD: UNumberFormatFields = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_EXPONENT_FIELD: UNumberFormatFields = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_GROUPING_SEPARATOR_FIELD: UNumberFormatFields = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_CURRENCY_FIELD: UNumberFormatFields = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PERCENT_FIELD: UNumberFormatFields = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PERMILL_FIELD: UNumberFormatFields = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_SIGN_FIELD: UNumberFormatFields = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_MEASURE_UNIT_FIELD: UNumberFormatFields = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_COMPACT_FIELD: UNumberFormatFields = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNumberFormatPadPosition = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PAD_BEFORE_PREFIX: UNumberFormatPadPosition = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PAD_AFTER_PREFIX: UNumberFormatPadPosition = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PAD_BEFORE_SUFFIX: UNumberFormatPadPosition = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PAD_AFTER_SUFFIX: UNumberFormatPadPosition = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNumberFormatRoundingMode = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_ROUND_CEILING: UNumberFormatRoundingMode = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_ROUND_FLOOR: UNumberFormatRoundingMode = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_ROUND_DOWN: UNumberFormatRoundingMode = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_ROUND_UP: UNumberFormatRoundingMode = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_ROUND_HALFEVEN: UNumberFormatRoundingMode = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_ROUND_HALFDOWN: UNumberFormatRoundingMode = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_ROUND_HALFUP: UNumberFormatRoundingMode = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_ROUND_UNNECESSARY: UNumberFormatRoundingMode = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNumberFormatStyle = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PATTERN_DECIMAL: UNumberFormatStyle = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_DECIMAL: UNumberFormatStyle = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_CURRENCY: UNumberFormatStyle = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PERCENT: UNumberFormatStyle = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_SCIENTIFIC: UNumberFormatStyle = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_SPELLOUT: UNumberFormatStyle = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_ORDINAL: UNumberFormatStyle = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_DURATION: UNumberFormatStyle = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_NUMBERING_SYSTEM: UNumberFormatStyle = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PATTERN_RULEBASED: UNumberFormatStyle = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_CURRENCY_ISO: UNumberFormatStyle = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_CURRENCY_PLURAL: UNumberFormatStyle = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_CURRENCY_ACCOUNTING: UNumberFormatStyle = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_CASH_CURRENCY: UNumberFormatStyle = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_DECIMAL_COMPACT_SHORT: UNumberFormatStyle = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_DECIMAL_COMPACT_LONG: UNumberFormatStyle = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_CURRENCY_STANDARD: UNumberFormatStyle = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_DEFAULT: UNumberFormatStyle = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_IGNORE: UNumberFormatStyle = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNumberFormatSymbol = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_DECIMAL_SEPARATOR_SYMBOL: UNumberFormatSymbol = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_GROUPING_SEPARATOR_SYMBOL: UNumberFormatSymbol = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PATTERN_SEPARATOR_SYMBOL: UNumberFormatSymbol = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PERCENT_SYMBOL: UNumberFormatSymbol = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_ZERO_DIGIT_SYMBOL: UNumberFormatSymbol = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_DIGIT_SYMBOL: UNumberFormatSymbol = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_MINUS_SIGN_SYMBOL: UNumberFormatSymbol = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PLUS_SIGN_SYMBOL: UNumberFormatSymbol = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_CURRENCY_SYMBOL: UNumberFormatSymbol = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_INTL_CURRENCY_SYMBOL: UNumberFormatSymbol = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_MONETARY_SEPARATOR_SYMBOL: UNumberFormatSymbol = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_EXPONENTIAL_SYMBOL: UNumberFormatSymbol = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PERMILL_SYMBOL: UNumberFormatSymbol = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PAD_ESCAPE_SYMBOL: UNumberFormatSymbol = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_INFINITY_SYMBOL: UNumberFormatSymbol = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_NAN_SYMBOL: UNumberFormatSymbol = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_SIGNIFICANT_DIGIT_SYMBOL: UNumberFormatSymbol = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_MONETARY_GROUPING_SEPARATOR_SYMBOL: UNumberFormatSymbol = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_ONE_DIGIT_SYMBOL: UNumberFormatSymbol = 18i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_TWO_DIGIT_SYMBOL: UNumberFormatSymbol = 19i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_THREE_DIGIT_SYMBOL: UNumberFormatSymbol = 20i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_FOUR_DIGIT_SYMBOL: UNumberFormatSymbol = 21i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_FIVE_DIGIT_SYMBOL: UNumberFormatSymbol = 22i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_SIX_DIGIT_SYMBOL: UNumberFormatSymbol = 23i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_SEVEN_DIGIT_SYMBOL: UNumberFormatSymbol = 24i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_EIGHT_DIGIT_SYMBOL: UNumberFormatSymbol = 25i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_NINE_DIGIT_SYMBOL: UNumberFormatSymbol = 26i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_EXPONENT_MULTIPLICATION_SYMBOL: UNumberFormatSymbol = 27i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNumberFormatTextAttribute = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_POSITIVE_PREFIX: UNumberFormatTextAttribute = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_POSITIVE_SUFFIX: UNumberFormatTextAttribute = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_NEGATIVE_PREFIX: UNumberFormatTextAttribute = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_NEGATIVE_SUFFIX: UNumberFormatTextAttribute = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PADDING_CHARACTER: UNumberFormatTextAttribute = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_CURRENCY_CODE: UNumberFormatTextAttribute = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_DEFAULT_RULESET: UNumberFormatTextAttribute = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_PUBLIC_RULESETS: UNumberFormatTextAttribute = 7i32;
 #[repr(C)]
 pub struct UNumberFormatter(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNumberGroupingStrategy = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_GROUPING_OFF: UNumberGroupingStrategy = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_GROUPING_MIN2: UNumberGroupingStrategy = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_GROUPING_AUTO: UNumberGroupingStrategy = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_GROUPING_ON_ALIGNED: UNumberGroupingStrategy = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_GROUPING_THOUSANDS: UNumberGroupingStrategy = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNumberRangeCollapse = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_RANGE_COLLAPSE_AUTO: UNumberRangeCollapse = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_RANGE_COLLAPSE_NONE: UNumberRangeCollapse = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_RANGE_COLLAPSE_UNIT: UNumberRangeCollapse = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_RANGE_COLLAPSE_ALL: UNumberRangeCollapse = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNumberRangeIdentityFallback = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_IDENTITY_FALLBACK_SINGLE_VALUE: UNumberRangeIdentityFallback = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_IDENTITY_FALLBACK_APPROXIMATELY_OR_SINGLE_VALUE: UNumberRangeIdentityFallback = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_IDENTITY_FALLBACK_APPROXIMATELY: UNumberRangeIdentityFallback = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_IDENTITY_FALLBACK_RANGE: UNumberRangeIdentityFallback = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNumberRangeIdentityResult = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_IDENTITY_RESULT_EQUAL_BEFORE_ROUNDING: UNumberRangeIdentityResult = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_IDENTITY_RESULT_EQUAL_AFTER_ROUNDING: UNumberRangeIdentityResult = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_IDENTITY_RESULT_NOT_EQUAL: UNumberRangeIdentityResult = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNumberSignDisplay = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_SIGN_AUTO: UNumberSignDisplay = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_SIGN_ALWAYS: UNumberSignDisplay = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_SIGN_NEVER: UNumberSignDisplay = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_SIGN_ACCOUNTING: UNumberSignDisplay = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_SIGN_ACCOUNTING_ALWAYS: UNumberSignDisplay = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_SIGN_EXCEPT_ZERO: UNumberSignDisplay = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_SIGN_ACCOUNTING_EXCEPT_ZERO: UNumberSignDisplay = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_SIGN_COUNT: UNumberSignDisplay = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNumberUnitWidth = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_UNIT_WIDTH_NARROW: UNumberUnitWidth = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_UNIT_WIDTH_SHORT: UNumberUnitWidth = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_UNIT_WIDTH_FULL_NAME: UNumberUnitWidth = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_UNIT_WIDTH_ISO_CODE: UNumberUnitWidth = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_UNIT_WIDTH_HIDDEN: UNumberUnitWidth = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UNUM_UNIT_WIDTH_COUNT: UNumberUnitWidth = 5i32;
 #[repr(C)]
 pub struct UNumberingSystem(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UNumericType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_NT_NONE: UNumericType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_NT_DECIMAL: UNumericType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_NT_DIGIT: UNumericType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_NT_NUMERIC: UNumericType = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct UParseError {
     pub line: i32,
     pub offset: i32,
@@ -9021,170 +11030,328 @@ impl ::core::default::Default for UParseError {
 }
 #[repr(C)]
 pub struct UPluralRules(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UPluralType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UPLURAL_TYPE_CARDINAL: UPluralType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UPLURAL_TYPE_ORDINAL: UPluralType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UProperty = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_ALPHABETIC: UProperty = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_BINARY_START: UProperty = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_ASCII_HEX_DIGIT: UProperty = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_BIDI_CONTROL: UProperty = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_BIDI_MIRRORED: UProperty = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_DASH: UProperty = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_DEFAULT_IGNORABLE_CODE_POINT: UProperty = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_DEPRECATED: UProperty = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_DIACRITIC: UProperty = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_EXTENDER: UProperty = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_FULL_COMPOSITION_EXCLUSION: UProperty = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_GRAPHEME_BASE: UProperty = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_GRAPHEME_EXTEND: UProperty = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_GRAPHEME_LINK: UProperty = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_HEX_DIGIT: UProperty = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_HYPHEN: UProperty = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_ID_CONTINUE: UProperty = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_ID_START: UProperty = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_IDEOGRAPHIC: UProperty = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_IDS_BINARY_OPERATOR: UProperty = 18i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_IDS_TRINARY_OPERATOR: UProperty = 19i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_JOIN_CONTROL: UProperty = 20i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_LOGICAL_ORDER_EXCEPTION: UProperty = 21i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_LOWERCASE: UProperty = 22i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_MATH: UProperty = 23i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_NONCHARACTER_CODE_POINT: UProperty = 24i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_QUOTATION_MARK: UProperty = 25i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_RADICAL: UProperty = 26i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_SOFT_DOTTED: UProperty = 27i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_TERMINAL_PUNCTUATION: UProperty = 28i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_UNIFIED_IDEOGRAPH: UProperty = 29i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_UPPERCASE: UProperty = 30i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_WHITE_SPACE: UProperty = 31i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_XID_CONTINUE: UProperty = 32i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_XID_START: UProperty = 33i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_CASE_SENSITIVE: UProperty = 34i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_S_TERM: UProperty = 35i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_VARIATION_SELECTOR: UProperty = 36i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_NFD_INERT: UProperty = 37i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_NFKD_INERT: UProperty = 38i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_NFC_INERT: UProperty = 39i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_NFKC_INERT: UProperty = 40i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_SEGMENT_STARTER: UProperty = 41i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_PATTERN_SYNTAX: UProperty = 42i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_PATTERN_WHITE_SPACE: UProperty = 43i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_POSIX_ALNUM: UProperty = 44i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_POSIX_BLANK: UProperty = 45i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_POSIX_GRAPH: UProperty = 46i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_POSIX_PRINT: UProperty = 47i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_POSIX_XDIGIT: UProperty = 48i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_CASED: UProperty = 49i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_CASE_IGNORABLE: UProperty = 50i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_CHANGES_WHEN_LOWERCASED: UProperty = 51i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_CHANGES_WHEN_UPPERCASED: UProperty = 52i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_CHANGES_WHEN_TITLECASED: UProperty = 53i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_CHANGES_WHEN_CASEFOLDED: UProperty = 54i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_CHANGES_WHEN_CASEMAPPED: UProperty = 55i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_CHANGES_WHEN_NFKC_CASEFOLDED: UProperty = 56i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_EMOJI: UProperty = 57i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_EMOJI_PRESENTATION: UProperty = 58i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_EMOJI_MODIFIER: UProperty = 59i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_EMOJI_MODIFIER_BASE: UProperty = 60i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_EMOJI_COMPONENT: UProperty = 61i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_REGIONAL_INDICATOR: UProperty = 62i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_PREPENDED_CONCATENATION_MARK: UProperty = 63i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_EXTENDED_PICTOGRAPHIC: UProperty = 64i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_BIDI_CLASS: UProperty = 4096i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_INT_START: UProperty = 4096i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_BLOCK: UProperty = 4097i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_CANONICAL_COMBINING_CLASS: UProperty = 4098i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_DECOMPOSITION_TYPE: UProperty = 4099i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_EAST_ASIAN_WIDTH: UProperty = 4100i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_GENERAL_CATEGORY: UProperty = 4101i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_JOINING_GROUP: UProperty = 4102i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_JOINING_TYPE: UProperty = 4103i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_LINE_BREAK: UProperty = 4104i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_NUMERIC_TYPE: UProperty = 4105i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_SCRIPT: UProperty = 4106i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_HANGUL_SYLLABLE_TYPE: UProperty = 4107i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_NFD_QUICK_CHECK: UProperty = 4108i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_NFKD_QUICK_CHECK: UProperty = 4109i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_NFC_QUICK_CHECK: UProperty = 4110i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_NFKC_QUICK_CHECK: UProperty = 4111i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_LEAD_CANONICAL_COMBINING_CLASS: UProperty = 4112i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_TRAIL_CANONICAL_COMBINING_CLASS: UProperty = 4113i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_GRAPHEME_CLUSTER_BREAK: UProperty = 4114i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_SENTENCE_BREAK: UProperty = 4115i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_WORD_BREAK: UProperty = 4116i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_BIDI_PAIRED_BRACKET_TYPE: UProperty = 4117i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_INDIC_POSITIONAL_CATEGORY: UProperty = 4118i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_INDIC_SYLLABIC_CATEGORY: UProperty = 4119i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_VERTICAL_ORIENTATION: UProperty = 4120i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_GENERAL_CATEGORY_MASK: UProperty = 8192i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_MASK_START: UProperty = 8192i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_NUMERIC_VALUE: UProperty = 12288i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_DOUBLE_START: UProperty = 12288i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_AGE: UProperty = 16384i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_STRING_START: UProperty = 16384i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_BIDI_MIRRORING_GLYPH: UProperty = 16385i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_CASE_FOLDING: UProperty = 16386i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_LOWERCASE_MAPPING: UProperty = 16388i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_NAME: UProperty = 16389i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_SIMPLE_CASE_FOLDING: UProperty = 16390i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_SIMPLE_LOWERCASE_MAPPING: UProperty = 16391i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_SIMPLE_TITLECASE_MAPPING: UProperty = 16392i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_SIMPLE_UPPERCASE_MAPPING: UProperty = 16393i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_TITLECASE_MAPPING: UProperty = 16394i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_UPPERCASE_MAPPING: UProperty = 16396i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_BIDI_PAIRED_BRACKET: UProperty = 16397i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_SCRIPT_EXTENSIONS: UProperty = 28672i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_OTHER_PROPERTY_START: UProperty = 28672i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCHAR_INVALID_CODE: UProperty = -1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UPropertyNameChoice = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SHORT_PROPERTY_NAME: UPropertyNameChoice = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_LONG_PROPERTY_NAME: UPropertyNameChoice = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type URegexFindProgressCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, matchindex: i64) -> i8>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type URegexMatchCallback = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, steps: i32) -> i8>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type URegexpFlag = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UREGEX_CASE_INSENSITIVE: URegexpFlag = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UREGEX_COMMENTS: URegexpFlag = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UREGEX_DOTALL: URegexpFlag = 32i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UREGEX_LITERAL: URegexpFlag = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UREGEX_MULTILINE: URegexpFlag = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UREGEX_UNIX_LINES: URegexpFlag = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UREGEX_UWORD: URegexpFlag = 256i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UREGEX_ERROR_ON_UNKNOWN_ESCAPES: URegexpFlag = 512i32;
 #[repr(C)]
 pub struct URegion(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type URegionType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const URGN_UNKNOWN: URegionType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const URGN_TERRITORY: URegionType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const URGN_WORLD: URegionType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const URGN_CONTINENT: URegionType = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const URGN_SUBCONTINENT: URegionType = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const URGN_GROUPING: URegionType = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const URGN_DEPRECATED: URegionType = 6i32;
 #[repr(C)]
 pub struct URegularExpression(pub u8);
 #[repr(C)]
 pub struct URelativeDateTimeFormatter(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type URelativeDateTimeFormatterField = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_REL_LITERAL_FIELD: URelativeDateTimeFormatterField = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_REL_NUMERIC_FIELD: URelativeDateTimeFormatterField = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type URelativeDateTimeUnit = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_REL_UNIT_YEAR: URelativeDateTimeUnit = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_REL_UNIT_QUARTER: URelativeDateTimeUnit = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_REL_UNIT_MONTH: URelativeDateTimeUnit = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_REL_UNIT_WEEK: URelativeDateTimeUnit = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_REL_UNIT_DAY: URelativeDateTimeUnit = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_REL_UNIT_HOUR: URelativeDateTimeUnit = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_REL_UNIT_MINUTE: URelativeDateTimeUnit = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_REL_UNIT_SECOND: URelativeDateTimeUnit = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_REL_UNIT_SUNDAY: URelativeDateTimeUnit = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_REL_UNIT_MONDAY: URelativeDateTimeUnit = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_REL_UNIT_TUESDAY: URelativeDateTimeUnit = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_REL_UNIT_WEDNESDAY: URelativeDateTimeUnit = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_REL_UNIT_THURSDAY: URelativeDateTimeUnit = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_REL_UNIT_FRIDAY: URelativeDateTimeUnit = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UDAT_REL_UNIT_SATURDAY: URelativeDateTimeUnit = 14i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct UReplaceableCallbacks {
     pub length: isize,
     pub charAt: isize,
@@ -9213,24 +11380,41 @@ impl ::core::default::Default for UReplaceableCallbacks {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UResType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const URES_NONE: UResType = -1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const URES_STRING: UResType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const URES_BINARY: UResType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const URES_TABLE: UResType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const URES_ALIAS: UResType = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const URES_INT: UResType = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const URES_ARRAY: UResType = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const URES_INT_VECTOR: UResType = 14i32;
 #[repr(C)]
 pub struct UResourceBundle(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type URestrictionLevel = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPOOF_ASCII: URestrictionLevel = 268435456i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPOOF_SINGLE_SCRIPT_RESTRICTIVE: URestrictionLevel = 536870912i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPOOF_HIGHLY_RESTRICTIVE: URestrictionLevel = 805306368i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPOOF_MODERATELY_RESTRICTIVE: URestrictionLevel = 1073741824i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPOOF_MINIMALLY_RESTRICTIVE: URestrictionLevel = 1342177280i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPOOF_UNRESTRICTIVE: URestrictionLevel = 1610612736i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPOOF_RESTRICTION_LEVEL_MASK: URestrictionLevel = 2130706432i32;
 pub const USEARCH_DONE: i32 = -1i32;
 pub const USET_ADD_CASE_MAPPINGS: i32 = 4i32;
@@ -9239,248 +11423,488 @@ pub const USET_IGNORE_SPACE: i32 = 1i32;
 pub const USET_SERIALIZED_STATIC_ARRAY_CAPACITY: i32 = 8i32;
 pub const USPREP_ALLOW_UNASSIGNED: u32 = 1u32;
 pub const USPREP_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USP_E_SCRIPT_NOT_IN_FONT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UScriptCode = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_INVALID_CODE: UScriptCode = -1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_COMMON: UScriptCode = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_INHERITED: UScriptCode = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_ARABIC: UScriptCode = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_ARMENIAN: UScriptCode = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_BENGALI: UScriptCode = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_BOPOMOFO: UScriptCode = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_CHEROKEE: UScriptCode = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_COPTIC: UScriptCode = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_CYRILLIC: UScriptCode = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_DESERET: UScriptCode = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_DEVANAGARI: UScriptCode = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_ETHIOPIC: UScriptCode = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_GEORGIAN: UScriptCode = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_GOTHIC: UScriptCode = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_GREEK: UScriptCode = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_GUJARATI: UScriptCode = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_GURMUKHI: UScriptCode = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_HAN: UScriptCode = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_HANGUL: UScriptCode = 18i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_HEBREW: UScriptCode = 19i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_HIRAGANA: UScriptCode = 20i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_KANNADA: UScriptCode = 21i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_KATAKANA: UScriptCode = 22i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_KHMER: UScriptCode = 23i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_LAO: UScriptCode = 24i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_LATIN: UScriptCode = 25i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MALAYALAM: UScriptCode = 26i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MONGOLIAN: UScriptCode = 27i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MYANMAR: UScriptCode = 28i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_OGHAM: UScriptCode = 29i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_OLD_ITALIC: UScriptCode = 30i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_ORIYA: UScriptCode = 31i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_RUNIC: UScriptCode = 32i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_SINHALA: UScriptCode = 33i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_SYRIAC: UScriptCode = 34i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_TAMIL: UScriptCode = 35i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_TELUGU: UScriptCode = 36i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_THAANA: UScriptCode = 37i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_THAI: UScriptCode = 38i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_TIBETAN: UScriptCode = 39i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_CANADIAN_ABORIGINAL: UScriptCode = 40i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_UCAS: UScriptCode = 40i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_YI: UScriptCode = 41i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_TAGALOG: UScriptCode = 42i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_HANUNOO: UScriptCode = 43i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_BUHID: UScriptCode = 44i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_TAGBANWA: UScriptCode = 45i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_BRAILLE: UScriptCode = 46i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_CYPRIOT: UScriptCode = 47i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_LIMBU: UScriptCode = 48i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_LINEAR_B: UScriptCode = 49i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_OSMANYA: UScriptCode = 50i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_SHAVIAN: UScriptCode = 51i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_TAI_LE: UScriptCode = 52i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_UGARITIC: UScriptCode = 53i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_KATAKANA_OR_HIRAGANA: UScriptCode = 54i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_BUGINESE: UScriptCode = 55i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_GLAGOLITIC: UScriptCode = 56i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_KHAROSHTHI: UScriptCode = 57i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_SYLOTI_NAGRI: UScriptCode = 58i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_NEW_TAI_LUE: UScriptCode = 59i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_TIFINAGH: UScriptCode = 60i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_OLD_PERSIAN: UScriptCode = 61i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_BALINESE: UScriptCode = 62i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_BATAK: UScriptCode = 63i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_BLISSYMBOLS: UScriptCode = 64i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_BRAHMI: UScriptCode = 65i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_CHAM: UScriptCode = 66i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_CIRTH: UScriptCode = 67i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_OLD_CHURCH_SLAVONIC_CYRILLIC: UScriptCode = 68i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_DEMOTIC_EGYPTIAN: UScriptCode = 69i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_HIERATIC_EGYPTIAN: UScriptCode = 70i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_EGYPTIAN_HIEROGLYPHS: UScriptCode = 71i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_KHUTSURI: UScriptCode = 72i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_SIMPLIFIED_HAN: UScriptCode = 73i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_TRADITIONAL_HAN: UScriptCode = 74i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_PAHAWH_HMONG: UScriptCode = 75i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_OLD_HUNGARIAN: UScriptCode = 76i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_HARAPPAN_INDUS: UScriptCode = 77i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_JAVANESE: UScriptCode = 78i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_KAYAH_LI: UScriptCode = 79i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_LATIN_FRAKTUR: UScriptCode = 80i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_LATIN_GAELIC: UScriptCode = 81i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_LEPCHA: UScriptCode = 82i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_LINEAR_A: UScriptCode = 83i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MANDAIC: UScriptCode = 84i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MANDAEAN: UScriptCode = 84i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MAYAN_HIEROGLYPHS: UScriptCode = 85i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MEROITIC_HIEROGLYPHS: UScriptCode = 86i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MEROITIC: UScriptCode = 86i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_NKO: UScriptCode = 87i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_ORKHON: UScriptCode = 88i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_OLD_PERMIC: UScriptCode = 89i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_PHAGS_PA: UScriptCode = 90i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_PHOENICIAN: UScriptCode = 91i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MIAO: UScriptCode = 92i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_PHONETIC_POLLARD: UScriptCode = 92i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_RONGORONGO: UScriptCode = 93i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_SARATI: UScriptCode = 94i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_ESTRANGELO_SYRIAC: UScriptCode = 95i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_WESTERN_SYRIAC: UScriptCode = 96i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_EASTERN_SYRIAC: UScriptCode = 97i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_TENGWAR: UScriptCode = 98i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_VAI: UScriptCode = 99i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_VISIBLE_SPEECH: UScriptCode = 100i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_CUNEIFORM: UScriptCode = 101i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_UNWRITTEN_LANGUAGES: UScriptCode = 102i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_UNKNOWN: UScriptCode = 103i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_CARIAN: UScriptCode = 104i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_JAPANESE: UScriptCode = 105i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_LANNA: UScriptCode = 106i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_LYCIAN: UScriptCode = 107i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_LYDIAN: UScriptCode = 108i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_OL_CHIKI: UScriptCode = 109i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_REJANG: UScriptCode = 110i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_SAURASHTRA: UScriptCode = 111i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_SIGN_WRITING: UScriptCode = 112i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_SUNDANESE: UScriptCode = 113i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MOON: UScriptCode = 114i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MEITEI_MAYEK: UScriptCode = 115i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_IMPERIAL_ARAMAIC: UScriptCode = 116i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_AVESTAN: UScriptCode = 117i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_CHAKMA: UScriptCode = 118i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_KOREAN: UScriptCode = 119i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_KAITHI: UScriptCode = 120i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MANICHAEAN: UScriptCode = 121i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_INSCRIPTIONAL_PAHLAVI: UScriptCode = 122i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_PSALTER_PAHLAVI: UScriptCode = 123i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_BOOK_PAHLAVI: UScriptCode = 124i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_INSCRIPTIONAL_PARTHIAN: UScriptCode = 125i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_SAMARITAN: UScriptCode = 126i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_TAI_VIET: UScriptCode = 127i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MATHEMATICAL_NOTATION: UScriptCode = 128i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_SYMBOLS: UScriptCode = 129i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_BAMUM: UScriptCode = 130i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_LISU: UScriptCode = 131i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_NAKHI_GEBA: UScriptCode = 132i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_OLD_SOUTH_ARABIAN: UScriptCode = 133i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_BASSA_VAH: UScriptCode = 134i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_DUPLOYAN: UScriptCode = 135i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_ELBASAN: UScriptCode = 136i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_GRANTHA: UScriptCode = 137i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_KPELLE: UScriptCode = 138i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_LOMA: UScriptCode = 139i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MENDE: UScriptCode = 140i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MEROITIC_CURSIVE: UScriptCode = 141i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_OLD_NORTH_ARABIAN: UScriptCode = 142i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_NABATAEAN: UScriptCode = 143i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_PALMYRENE: UScriptCode = 144i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_KHUDAWADI: UScriptCode = 145i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_SINDHI: UScriptCode = 145i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_WARANG_CITI: UScriptCode = 146i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_AFAKA: UScriptCode = 147i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_JURCHEN: UScriptCode = 148i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MRO: UScriptCode = 149i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_NUSHU: UScriptCode = 150i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_SHARADA: UScriptCode = 151i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_SORA_SOMPENG: UScriptCode = 152i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_TAKRI: UScriptCode = 153i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_TANGUT: UScriptCode = 154i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_WOLEAI: UScriptCode = 155i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_ANATOLIAN_HIEROGLYPHS: UScriptCode = 156i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_KHOJKI: UScriptCode = 157i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_TIRHUTA: UScriptCode = 158i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_CAUCASIAN_ALBANIAN: UScriptCode = 159i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MAHAJANI: UScriptCode = 160i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_AHOM: UScriptCode = 161i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_HATRAN: UScriptCode = 162i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MODI: UScriptCode = 163i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MULTANI: UScriptCode = 164i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_PAU_CIN_HAU: UScriptCode = 165i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_SIDDHAM: UScriptCode = 166i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_ADLAM: UScriptCode = 167i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_BHAIKSUKI: UScriptCode = 168i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MARCHEN: UScriptCode = 169i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_NEWA: UScriptCode = 170i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_OSAGE: UScriptCode = 171i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_HAN_WITH_BOPOMOFO: UScriptCode = 172i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_JAMO: UScriptCode = 173i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_SYMBOLS_EMOJI: UScriptCode = 174i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MASARAM_GONDI: UScriptCode = 175i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_SOYOMBO: UScriptCode = 176i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_ZANABAZAR_SQUARE: UScriptCode = 177i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_DOGRA: UScriptCode = 178i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_GUNJALA_GONDI: UScriptCode = 179i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MAKASAR: UScriptCode = 180i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_MEDEFAIDRIN: UScriptCode = 181i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_HANIFI_ROHINGYA: UScriptCode = 182i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_SOGDIAN: UScriptCode = 183i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_OLD_SOGDIAN: UScriptCode = 184i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_ELYMAIC: UScriptCode = 185i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_NYIAKENG_PUACHUE_HMONG: UScriptCode = 186i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_NANDINAGARI: UScriptCode = 187i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_WANCHO: UScriptCode = 188i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_CHORASMIAN: UScriptCode = 189i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_DIVES_AKURU: UScriptCode = 190i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_KHITAN_SMALL_SCRIPT: UScriptCode = 191i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_YEZIDI: UScriptCode = 192i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UScriptUsage = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_USAGE_NOT_ENCODED: UScriptUsage = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_USAGE_UNKNOWN: UScriptUsage = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_USAGE_EXCLUDED: UScriptUsage = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_USAGE_LIMITED_USE: UScriptUsage = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_USAGE_ASPIRATIONAL: UScriptUsage = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USCRIPT_USAGE_RECOMMENDED: UScriptUsage = 5i32;
 #[repr(C)]
 pub struct USearch(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type USearchAttribute = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USEARCH_OVERLAP: USearchAttribute = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USEARCH_ELEMENT_COMPARISON: USearchAttribute = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type USearchAttributeValue = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USEARCH_DEFAULT: USearchAttributeValue = -1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USEARCH_OFF: USearchAttributeValue = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USEARCH_ON: USearchAttributeValue = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USEARCH_STANDARD_ELEMENT_COMPARISON: USearchAttributeValue = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USEARCH_PATTERN_BASE_WEIGHT_IS_WILDCARD: USearchAttributeValue = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USEARCH_ANY_BASE_WEIGHT_IS_WILDCARD: USearchAttributeValue = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type USentenceBreak = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SB_OTHER: USentenceBreak = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SB_ATERM: USentenceBreak = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SB_CLOSE: USentenceBreak = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SB_FORMAT: USentenceBreak = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SB_LOWER: USentenceBreak = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SB_NUMERIC: USentenceBreak = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SB_OLETTER: USentenceBreak = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SB_SEP: USentenceBreak = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SB_SP: USentenceBreak = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SB_STERM: USentenceBreak = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SB_UPPER: USentenceBreak = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SB_CR: USentenceBreak = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SB_EXTEND: USentenceBreak = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SB_LF: USentenceBreak = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_SB_SCONTINUE: USentenceBreak = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type USentenceBreakTag = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_SENTENCE_TERM: USentenceBreakTag = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_SENTENCE_TERM_LIMIT: USentenceBreakTag = 100i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_SENTENCE_SEP: USentenceBreakTag = 100i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_SENTENCE_SEP_LIMIT: USentenceBreakTag = 200i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct USerializedSet {
     pub array: *mut u16,
     pub bmpLength: i32,
@@ -9509,57 +11933,101 @@ impl ::core::default::Default for USerializedSet {
 }
 #[repr(C)]
 pub struct USet(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type USetSpanCondition = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USET_SPAN_NOT_CONTAINED: USetSpanCondition = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USET_SPAN_CONTAINED: USetSpanCondition = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USET_SPAN_SIMPLE: USetSpanCondition = 2i32;
 #[repr(C)]
 pub struct USpoofCheckResult(pub u8);
 #[repr(C)]
 pub struct USpoofChecker(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type USpoofChecks = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPOOF_SINGLE_SCRIPT_CONFUSABLE: USpoofChecks = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPOOF_MIXED_SCRIPT_CONFUSABLE: USpoofChecks = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPOOF_WHOLE_SCRIPT_CONFUSABLE: USpoofChecks = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPOOF_CONFUSABLE: USpoofChecks = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPOOF_RESTRICTION_LEVEL: USpoofChecks = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPOOF_INVISIBLE: USpoofChecks = 32i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPOOF_CHAR_LIMIT: USpoofChecks = 64i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPOOF_MIXED_NUMBERS: USpoofChecks = 128i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPOOF_HIDDEN_OVERLAY: USpoofChecks = 256i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPOOF_ALL_CHECKS: USpoofChecks = 65535i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPOOF_AUX_INFO: USpoofChecks = 1073741824i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UStringCaseMapper = ::core::option::Option<unsafe extern "system" fn(csm: *const UCaseMap, dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32>;
 #[repr(C)]
 pub struct UStringPrepProfile(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UStringPrepProfileType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPREP_RFC3491_NAMEPREP: UStringPrepProfileType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPREP_RFC3530_NFS4_CS_PREP: UStringPrepProfileType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPREP_RFC3530_NFS4_CS_PREP_CI: UStringPrepProfileType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPREP_RFC3530_NFS4_CIS_PREP: UStringPrepProfileType = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPREP_RFC3530_NFS4_MIXED_PREP_PREFIX: UStringPrepProfileType = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPREP_RFC3530_NFS4_MIXED_PREP_SUFFIX: UStringPrepProfileType = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPREP_RFC3722_ISCSI: UStringPrepProfileType = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPREP_RFC3920_NODEPREP: UStringPrepProfileType = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPREP_RFC3920_RESOURCEPREP: UStringPrepProfileType = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPREP_RFC4011_MIB: UStringPrepProfileType = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPREP_RFC4013_SASLPREP: UStringPrepProfileType = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPREP_RFC4505_TRACE: UStringPrepProfileType = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPREP_RFC4518_LDAP: UStringPrepProfileType = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USPREP_RFC4518_LDAP_CI: UStringPrepProfileType = 13i32;
 #[repr(C)]
 pub struct UStringSearch(pub u8);
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UStringTrieBuildOption = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USTRINGTRIE_BUILD_FAST: UStringTrieBuildOption = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USTRINGTRIE_BUILD_SMALL: UStringTrieBuildOption = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UStringTrieResult = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USTRINGTRIE_NO_MATCH: UStringTrieResult = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USTRINGTRIE_NO_VALUE: UStringTrieResult = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USTRINGTRIE_FINAL_VALUE: UStringTrieResult = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const USTRINGTRIE_INTERMEDIATE_VALUE: UStringTrieResult = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type USystemTimeZoneType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_ZONE_TYPE_ANY: USystemTimeZoneType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_ZONE_TYPE_CANONICAL: USystemTimeZoneType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_ZONE_TYPE_CANONICAL_LOCATION: USystemTimeZoneType = 2i32;
 pub const UTEXT_MAGIC: i32 = 878368812i32;
 pub const UTEXT_PROVIDER_HAS_META_DATA: i32 = 4i32;
@@ -9576,6 +12044,7 @@ pub const UTF_ERROR_VALUE: u32 = 65535u32;
 pub const UTF_MAX_CHAR_LENGTH: u32 = 2u32;
 pub const UTF_SIZE: u32 = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct UText {
     pub magic: u32,
     pub flags: i32,
@@ -9622,12 +12091,18 @@ impl ::core::default::Default for UText {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTextAccess = ::core::option::Option<unsafe extern "system" fn(ut: *mut UText, nativeindex: i64, forward: i8) -> i8>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTextClone = ::core::option::Option<unsafe extern "system" fn(dest: *mut UText, src: *const UText, deep: i8, status: *mut UErrorCode) -> *mut UText>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTextClose = ::core::option::Option<unsafe extern "system" fn(ut: *mut UText)>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTextCopy = ::core::option::Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, nativedest: i64, r#move: i8, status: *mut UErrorCode)>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTextExtract = ::core::option::Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct UTextFuncs {
     pub tableSize: i32,
     pub reserved1: i32,
@@ -9666,112 +12141,216 @@ impl ::core::default::Default for UTextFuncs {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTextMapNativeIndexToUTF16 = ::core::option::Option<unsafe extern "system" fn(ut: *const UText, nativeindex: i64) -> i32>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTextMapOffsetToNative = ::core::option::Option<unsafe extern "system" fn(ut: *const UText) -> i64>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTextNativeLength = ::core::option::Option<unsafe extern "system" fn(ut: *mut UText) -> i64>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTextReplace = ::core::option::Option<unsafe extern "system" fn(ut: *mut UText, nativestart: i64, nativelimit: i64, replacementtext: *const u16, replacmentlength: i32, status: *mut UErrorCode) -> i32>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTimeScaleValue = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTSV_UNITS_VALUE: UTimeScaleValue = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTSV_EPOCH_OFFSET_VALUE: UTimeScaleValue = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTSV_FROM_MIN_VALUE: UTimeScaleValue = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTSV_FROM_MAX_VALUE: UTimeScaleValue = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTSV_TO_MIN_VALUE: UTimeScaleValue = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTSV_TO_MAX_VALUE: UTimeScaleValue = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTimeZoneFormatGMTOffsetPatternType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_PAT_POSITIVE_HM: UTimeZoneFormatGMTOffsetPatternType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_PAT_POSITIVE_HMS: UTimeZoneFormatGMTOffsetPatternType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_PAT_NEGATIVE_HM: UTimeZoneFormatGMTOffsetPatternType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_PAT_NEGATIVE_HMS: UTimeZoneFormatGMTOffsetPatternType = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_PAT_POSITIVE_H: UTimeZoneFormatGMTOffsetPatternType = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_PAT_NEGATIVE_H: UTimeZoneFormatGMTOffsetPatternType = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_PAT_COUNT: UTimeZoneFormatGMTOffsetPatternType = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTimeZoneFormatParseOption = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_PARSE_OPTION_NONE: UTimeZoneFormatParseOption = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_PARSE_OPTION_ALL_STYLES: UTimeZoneFormatParseOption = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_PARSE_OPTION_TZ_DATABASE_ABBREVIATIONS: UTimeZoneFormatParseOption = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTimeZoneFormatStyle = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_GENERIC_LOCATION: UTimeZoneFormatStyle = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_GENERIC_LONG: UTimeZoneFormatStyle = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_GENERIC_SHORT: UTimeZoneFormatStyle = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_SPECIFIC_LONG: UTimeZoneFormatStyle = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_SPECIFIC_SHORT: UTimeZoneFormatStyle = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_LOCALIZED_GMT: UTimeZoneFormatStyle = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_LOCALIZED_GMT_SHORT: UTimeZoneFormatStyle = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_ISO_BASIC_SHORT: UTimeZoneFormatStyle = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_ISO_BASIC_LOCAL_SHORT: UTimeZoneFormatStyle = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_ISO_BASIC_FIXED: UTimeZoneFormatStyle = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_ISO_BASIC_LOCAL_FIXED: UTimeZoneFormatStyle = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_ISO_BASIC_FULL: UTimeZoneFormatStyle = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_ISO_BASIC_LOCAL_FULL: UTimeZoneFormatStyle = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_ISO_EXTENDED_FIXED: UTimeZoneFormatStyle = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_ISO_EXTENDED_LOCAL_FIXED: UTimeZoneFormatStyle = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_ISO_EXTENDED_FULL: UTimeZoneFormatStyle = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_ISO_EXTENDED_LOCAL_FULL: UTimeZoneFormatStyle = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_ZONE_ID: UTimeZoneFormatStyle = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_ZONE_ID_SHORT: UTimeZoneFormatStyle = 18i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_STYLE_EXEMPLAR_LOCATION: UTimeZoneFormatStyle = 19i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTimeZoneFormatTimeType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_TIME_TYPE_UNKNOWN: UTimeZoneFormatTimeType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_TIME_TYPE_STANDARD: UTimeZoneFormatTimeType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZFMT_TIME_TYPE_DAYLIGHT: UTimeZoneFormatTimeType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTimeZoneNameType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZNM_UNKNOWN: UTimeZoneNameType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZNM_LONG_GENERIC: UTimeZoneNameType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZNM_LONG_STANDARD: UTimeZoneNameType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZNM_LONG_DAYLIGHT: UTimeZoneNameType = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZNM_SHORT_GENERIC: UTimeZoneNameType = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZNM_SHORT_STANDARD: UTimeZoneNameType = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZNM_SHORT_DAYLIGHT: UTimeZoneNameType = 32i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTZNM_EXEMPLAR_LOCATION: UTimeZoneNameType = 64i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTimeZoneTransitionType = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_TZ_TRANSITION_NEXT: UTimeZoneTransitionType = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_TZ_TRANSITION_NEXT_INCLUSIVE: UTimeZoneTransitionType = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_TZ_TRANSITION_PREVIOUS: UTimeZoneTransitionType = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UCAL_TZ_TRANSITION_PREVIOUS_INCLUSIVE: UTimeZoneTransitionType = 3i32;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type UTraceData = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, fnnumber: i32, level: i32, fmt: super::Foundation::PSTR, args: *mut i8)>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTraceEntry = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, fnnumber: i32)>;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type UTraceExit = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, fnnumber: i32, fmt: super::Foundation::PSTR, args: *mut i8)>;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTraceFunctionNumber = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_FUNCTION_START: UTraceFunctionNumber = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_U_INIT: UTraceFunctionNumber = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_U_CLEANUP: UTraceFunctionNumber = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_CONVERSION_START: UTraceFunctionNumber = 4096i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UCNV_OPEN: UTraceFunctionNumber = 4096i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UCNV_OPEN_PACKAGE: UTraceFunctionNumber = 4097i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UCNV_OPEN_ALGORITHMIC: UTraceFunctionNumber = 4098i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UCNV_CLONE: UTraceFunctionNumber = 4099i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UCNV_CLOSE: UTraceFunctionNumber = 4100i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UCNV_FLUSH_CACHE: UTraceFunctionNumber = 4101i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UCNV_LOAD: UTraceFunctionNumber = 4102i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UCNV_UNLOAD: UTraceFunctionNumber = 4103i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_COLLATION_START: UTraceFunctionNumber = 8192i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UCOL_OPEN: UTraceFunctionNumber = 8192i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UCOL_CLOSE: UTraceFunctionNumber = 8193i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UCOL_STRCOLL: UTraceFunctionNumber = 8194i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UCOL_GET_SORTKEY: UTraceFunctionNumber = 8195i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UCOL_GETLOCALE: UTraceFunctionNumber = 8196i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UCOL_NEXTSORTKEYPART: UTraceFunctionNumber = 8197i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UCOL_STRCOLLITER: UTraceFunctionNumber = 8198i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UCOL_OPEN_FROM_SHORT_STRING: UTraceFunctionNumber = 8199i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UCOL_STRCOLLUTF8: UTraceFunctionNumber = 8200i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UDATA_START: UTraceFunctionNumber = 12288i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UDATA_RESOURCE: UTraceFunctionNumber = 12288i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UDATA_BUNDLE: UTraceFunctionNumber = 12289i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UDATA_DATA_FILE: UTraceFunctionNumber = 12290i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_UDATA_RES_FILE: UTraceFunctionNumber = 12291i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTraceLevel = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_OFF: UTraceLevel = -1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_ERROR: UTraceLevel = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_WARNING: UTraceLevel = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_OPEN_CLOSE: UTraceLevel = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_INFO: UTraceLevel = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRACE_VERBOSE: UTraceLevel = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UTransDirection = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRANS_FORWARD: UTransDirection = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UTRANS_REVERSE: UTransDirection = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct UTransPosition {
     pub contextStart: i32,
     pub contextLimit: i32,
@@ -9798,45 +12377,85 @@ impl ::core::default::Default for UTransPosition {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UVerticalOrientation = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_VO_ROTATED: UVerticalOrientation = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_VO_TRANSFORMED_ROTATED: UVerticalOrientation = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_VO_TRANSFORMED_UPRIGHT: UVerticalOrientation = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_VO_UPRIGHT: UVerticalOrientation = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UWordBreak = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_WORD_NONE: UWordBreak = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_WORD_NONE_LIMIT: UWordBreak = 100i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_WORD_NUMBER: UWordBreak = 100i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_WORD_NUMBER_LIMIT: UWordBreak = 200i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_WORD_LETTER: UWordBreak = 200i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_WORD_LETTER_LIMIT: UWordBreak = 300i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_WORD_KANA: UWordBreak = 300i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_WORD_KANA_LIMIT: UWordBreak = 400i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_WORD_IDEO: UWordBreak = 400i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const UBRK_WORD_IDEO_LIMIT: UWordBreak = 500i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type UWordBreakValues = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_OTHER: UWordBreakValues = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_ALETTER: UWordBreakValues = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_FORMAT: UWordBreakValues = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_KATAKANA: UWordBreakValues = 3i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_MIDLETTER: UWordBreakValues = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_MIDNUM: UWordBreakValues = 5i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_NUMERIC: UWordBreakValues = 6i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_EXTENDNUMLET: UWordBreakValues = 7i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_CR: UWordBreakValues = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_EXTEND: UWordBreakValues = 9i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_LF: UWordBreakValues = 10i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_MIDNUMLET: UWordBreakValues = 11i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_NEWLINE: UWordBreakValues = 12i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_REGIONAL_INDICATOR: UWordBreakValues = 13i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_HEBREW_LETTER: UWordBreakValues = 14i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_SINGLE_QUOTE: UWordBreakValues = 15i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_DOUBLE_QUOTE: UWordBreakValues = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_E_BASE: UWordBreakValues = 17i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_E_BASE_GAZ: UWordBreakValues = 18i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_E_MODIFIER: UWordBreakValues = 19i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_GLUE_AFTER_ZWJ: UWordBreakValues = 20i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_ZWJ: UWordBreakValues = 21i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const U_WB_WSEGSPACE: UWordBreakValues = 22i32;
 pub const U_ASCII_FAMILY: u32 = 0u32;
 pub const U_CHECK_DYLOAD: u32 = 1u32;
@@ -9948,6 +12567,7 @@ pub const U_TITLECASE_NO_LOWERCASE: u32 = 256u32;
 pub const U_TITLECASE_SENTENCES: u32 = 64u32;
 pub const U_TITLECASE_WHOLE_STRING: u32 = 32u32;
 pub const VS_ALLOW_LATIN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyScripts<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dwflags: u32, lplocalescripts: Param1, cchlocalescripts: i32, lptestscripts: Param3, cchtestscripts: i32) -> super::Foundation::BOOL {
@@ -9968,11 +12588,17 @@ pub const WC_DISCARDNS: u32 = 16u32;
 pub const WC_ERR_INVALID_CHARS: u32 = 128u32;
 pub const WC_NO_BEST_FIT_CHARS: u32 = 1024u32;
 pub const WC_SEPCHARS: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type WORDLIST_TYPE = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const WORDLIST_TYPE_IGNORE: WORDLIST_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const WORDLIST_TYPE_ADD: WORDLIST_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const WORDLIST_TYPE_EXCLUDE: WORDLIST_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const WORDLIST_TYPE_AUTOCORRECT: WORDLIST_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WideCharToMultiByte<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(codepage: u32, dwflags: u32, lpwidecharstr: Param2, cchwidechar: i32, lpmultibytestr: super::Foundation::PSTR, cbmultibyte: i32, lpdefaultchar: Param6, lpuseddefaultchar: *mut i32) -> i32 {
@@ -9987,6 +12613,7 @@ pub unsafe fn WideCharToMultiByte<'a, Param2: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lstrcatA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpstring1: Param0, lpstring2: Param1) -> super::Foundation::PSTR {
@@ -10001,6 +12628,7 @@ pub unsafe fn lstrcatA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lstrcatW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpstring1: Param0, lpstring2: Param1) -> super::Foundation::PWSTR {
@@ -10015,6 +12643,7 @@ pub unsafe fn lstrcatW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lstrcmpA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpstring1: Param0, lpstring2: Param1) -> i32 {
@@ -10029,6 +12658,7 @@ pub unsafe fn lstrcmpA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lstrcmpW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpstring1: Param0, lpstring2: Param1) -> i32 {
@@ -10043,6 +12673,7 @@ pub unsafe fn lstrcmpW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lstrcmpiA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpstring1: Param0, lpstring2: Param1) -> i32 {
@@ -10057,6 +12688,7 @@ pub unsafe fn lstrcmpiA<'a, Param0: ::windows::core::IntoParam<'a, super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lstrcmpiW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpstring1: Param0, lpstring2: Param1) -> i32 {
@@ -10071,6 +12703,7 @@ pub unsafe fn lstrcmpiW<'a, Param0: ::windows::core::IntoParam<'a, super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lstrcpyA<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpstring1: super::Foundation::PSTR, lpstring2: Param1) -> super::Foundation::PSTR {
@@ -10085,6 +12718,7 @@ pub unsafe fn lstrcpyA<'a, Param1: ::windows::core::IntoParam<'a, super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lstrcpyW<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpstring1: super::Foundation::PWSTR, lpstring2: Param1) -> super::Foundation::PWSTR {
@@ -10099,6 +12733,7 @@ pub unsafe fn lstrcpyW<'a, Param1: ::windows::core::IntoParam<'a, super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lstrcpynA<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpstring1: super::Foundation::PSTR, lpstring2: Param1, imaxlength: i32) -> super::Foundation::PSTR {
@@ -10113,6 +12748,7 @@ pub unsafe fn lstrcpynA<'a, Param1: ::windows::core::IntoParam<'a, super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lstrcpynW<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpstring1: super::Foundation::PWSTR, lpstring2: Param1, imaxlength: i32) -> super::Foundation::PWSTR {
@@ -10127,6 +12763,7 @@ pub unsafe fn lstrcpynW<'a, Param1: ::windows::core::IntoParam<'a, super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lstrlenA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpstring: Param0) -> i32 {
@@ -10141,6 +12778,7 @@ pub unsafe fn lstrlenA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lstrlenW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpstring: Param0) -> i32 {
@@ -10156,6 +12794,7 @@ pub unsafe fn lstrlenW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundat
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct opentype_feature_record {
     pub tagFeature: u32,
     pub lParameter: i32,
@@ -10181,6 +12820,7 @@ impl ::core::default::Default for opentype_feature_record {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct script_charprop {
     pub _bitfield: u16,
 }
@@ -10205,6 +12845,7 @@ impl ::core::default::Default for script_charprop {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct script_glyphprop {
     pub sva: SCRIPT_VISATTR,
     pub reserved: u16,
@@ -10229,24 +12870,42 @@ impl ::core::default::Default for script_glyphprop {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type tagMLCONVCHARF = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLCONVCHARF_AUTODETECT: tagMLCONVCHARF = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLCONVCHARF_ENTITIZE: tagMLCONVCHARF = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLCONVCHARF_NCR_ENTITIZE: tagMLCONVCHARF = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLCONVCHARF_NAME_ENTITIZE: tagMLCONVCHARF = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLCONVCHARF_USEDEFCHAR: tagMLCONVCHARF = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLCONVCHARF_NOBESTFITCHARS: tagMLCONVCHARF = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLCONVCHARF_DETECTJPN: tagMLCONVCHARF = 32i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub type tagMLCPF = i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLDETECTF_MAILNEWS: tagMLCPF = 1i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLDETECTF_BROWSER: tagMLCPF = 2i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLDETECTF_VALID: tagMLCPF = 4i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLDETECTF_VALID_NLS: tagMLCPF = 8i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLDETECTF_PRESERVE_ORDER: tagMLCPF = 16i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLDETECTF_PREFERRED_ONLY: tagMLCPF = 32i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLDETECTF_FILTER_SPECIALCHAR: tagMLCPF = 64i32;
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub const MLDETECTF_EURO_UTF8: tagMLCPF = 128i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct tagSCRIPFONTINFO {
     pub scripts: i64,
     pub wszFont: [u16; 32],
@@ -10272,6 +12931,7 @@ impl ::core::default::Default for tagSCRIPFONTINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Globalization'*"]
 pub struct textrange_properties {
     pub potfRecords: *mut opentype_feature_record,
     pub cotfRecords: i32,
@@ -10296,6 +12956,7 @@ impl ::core::default::Default for textrange_properties {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_UCharsToChars<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(us: *const u16, cs: Param1, length: i32) {
@@ -10310,6 +12971,7 @@ pub unsafe fn u_UCharsToChars<'a, Param1: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_austrcpy<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dst: Param0, src: *const u16) -> super::Foundation::PSTR {
@@ -10324,6 +12986,7 @@ pub unsafe fn u_austrcpy<'a, Param0: ::windows::core::IntoParam<'a, super::Found
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_austrncpy<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dst: Param0, src: *const u16, n: i32) -> super::Foundation::PSTR {
@@ -10338,6 +13001,7 @@ pub unsafe fn u_austrncpy<'a, Param0: ::windows::core::IntoParam<'a, super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_catclose(catd: *mut UResourceBundle) {
     #[cfg(windows)]
@@ -10351,6 +13015,7 @@ pub unsafe fn u_catclose(catd: *mut UResourceBundle) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_catgets(catd: *mut UResourceBundle, set_num: i32, msg_num: i32, s: *const u16, len: *mut i32, ec: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
@@ -10364,6 +13029,7 @@ pub unsafe fn u_catgets(catd: *mut UResourceBundle, set_num: i32, msg_num: i32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_catopen<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(name: Param0, locale: Param1, ec: *mut UErrorCode) -> *mut UResourceBundle {
@@ -10378,6 +13044,7 @@ pub unsafe fn u_catopen<'a, Param0: ::windows::core::IntoParam<'a, super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_charAge(c: i32, versionarray: *mut u8) {
     #[cfg(windows)]
@@ -10391,6 +13058,7 @@ pub unsafe fn u_charAge(c: i32, versionarray: *mut u8) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_charDigitValue(c: i32) -> i32 {
     #[cfg(windows)]
@@ -10404,6 +13072,7 @@ pub unsafe fn u_charDigitValue(c: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_charDirection(c: i32) -> UCharDirection {
     #[cfg(windows)]
@@ -10417,6 +13086,7 @@ pub unsafe fn u_charDirection(c: i32) -> UCharDirection {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_charFromName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(namechoice: UCharNameChoice, name: Param1, perrorcode: *mut UErrorCode) -> i32 {
@@ -10431,6 +13101,7 @@ pub unsafe fn u_charFromName<'a, Param1: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_charMirror(c: i32) -> i32 {
     #[cfg(windows)]
@@ -10444,6 +13115,7 @@ pub unsafe fn u_charMirror(c: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_charName<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(code: i32, namechoice: UCharNameChoice, buffer: Param2, bufferlength: i32, perrorcode: *mut UErrorCode) -> i32 {
@@ -10458,6 +13130,7 @@ pub unsafe fn u_charName<'a, Param2: ::windows::core::IntoParam<'a, super::Found
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_charType(c: i32) -> i8 {
     #[cfg(windows)]
@@ -10471,6 +13144,7 @@ pub unsafe fn u_charType(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_charsToUChars<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(cs: Param0, us: *mut u16, length: i32) {
@@ -10485,6 +13159,7 @@ pub unsafe fn u_charsToUChars<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_cleanup() {
     #[cfg(windows)]
@@ -10498,6 +13173,7 @@ pub unsafe fn u_cleanup() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_countChar32(s: *const u16, length: i32) -> i32 {
     #[cfg(windows)]
@@ -10511,6 +13187,7 @@ pub unsafe fn u_countChar32(s: *const u16, length: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_digit(ch: i32, radix: i8) -> i32 {
     #[cfg(windows)]
@@ -10524,6 +13201,7 @@ pub unsafe fn u_digit(ch: i32, radix: i8) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_enumCharNames(start: i32, limit: i32, r#fn: *mut UEnumCharNamesFn, context: *mut ::core::ffi::c_void, namechoice: UCharNameChoice, perrorcode: *mut UErrorCode) {
@@ -10538,6 +13216,7 @@ pub unsafe fn u_enumCharNames(start: i32, limit: i32, r#fn: *mut UEnumCharNamesF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_enumCharTypes(enumrange: *mut UCharEnumTypeRange, context: *const ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -10551,6 +13230,7 @@ pub unsafe fn u_enumCharTypes(enumrange: *mut UCharEnumTypeRange, context: *cons
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_errorName(code: UErrorCode) -> super::Foundation::PSTR {
@@ -10565,6 +13245,7 @@ pub unsafe fn u_errorName(code: UErrorCode) -> super::Foundation::PSTR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_foldCase(c: i32, options: u32) -> i32 {
     #[cfg(windows)]
@@ -10578,6 +13259,7 @@ pub unsafe fn u_foldCase(c: i32, options: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_forDigit(digit: i32, radix: i8) -> i32 {
     #[cfg(windows)]
@@ -10591,6 +13273,7 @@ pub unsafe fn u_forDigit(digit: i32, radix: i8) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_formatMessage<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
@@ -10605,6 +13288,7 @@ pub unsafe fn u_formatMessage<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_formatMessageWithError<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode) -> i32 {
@@ -10619,6 +13303,7 @@ pub unsafe fn u_formatMessageWithError<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_getBidiPairedBracket(c: i32) -> i32 {
     #[cfg(windows)]
@@ -10632,6 +13317,7 @@ pub unsafe fn u_getBidiPairedBracket(c: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_getBinaryPropertySet(property: UProperty, perrorcode: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
@@ -10645,6 +13331,7 @@ pub unsafe fn u_getBinaryPropertySet(property: UProperty, perrorcode: *mut UErro
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_getCombiningClass(c: i32) -> u8 {
     #[cfg(windows)]
@@ -10658,6 +13345,7 @@ pub unsafe fn u_getCombiningClass(c: i32) -> u8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_getDataVersion(dataversionfillin: *mut u8, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -10671,6 +13359,7 @@ pub unsafe fn u_getDataVersion(dataversionfillin: *mut u8, status: *mut UErrorCo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_getFC_NFKC_Closure(c: i32, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -10684,6 +13373,7 @@ pub unsafe fn u_getFC_NFKC_Closure(c: i32, dest: *mut u16, destcapacity: i32, pe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_getIntPropertyMap(property: UProperty, perrorcode: *mut UErrorCode) -> *mut UCPMap {
     #[cfg(windows)]
@@ -10697,6 +13387,7 @@ pub unsafe fn u_getIntPropertyMap(property: UProperty, perrorcode: *mut UErrorCo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_getIntPropertyMaxValue(which: UProperty) -> i32 {
     #[cfg(windows)]
@@ -10710,6 +13401,7 @@ pub unsafe fn u_getIntPropertyMaxValue(which: UProperty) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_getIntPropertyMinValue(which: UProperty) -> i32 {
     #[cfg(windows)]
@@ -10723,6 +13415,7 @@ pub unsafe fn u_getIntPropertyMinValue(which: UProperty) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_getIntPropertyValue(c: i32, which: UProperty) -> i32 {
     #[cfg(windows)]
@@ -10736,6 +13429,7 @@ pub unsafe fn u_getIntPropertyValue(c: i32, which: UProperty) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_getNumericValue(c: i32) -> f64 {
     #[cfg(windows)]
@@ -10749,6 +13443,7 @@ pub unsafe fn u_getNumericValue(c: i32) -> f64 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_getPropertyEnum<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(alias: Param0) -> UProperty {
@@ -10763,6 +13458,7 @@ pub unsafe fn u_getPropertyEnum<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_getPropertyName(property: UProperty, namechoice: UPropertyNameChoice) -> super::Foundation::PSTR {
@@ -10777,6 +13473,7 @@ pub unsafe fn u_getPropertyName(property: UProperty, namechoice: UPropertyNameCh
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_getPropertyValueEnum<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(property: UProperty, alias: Param1) -> i32 {
@@ -10791,6 +13488,7 @@ pub unsafe fn u_getPropertyValueEnum<'a, Param1: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_getPropertyValueName(property: UProperty, value: i32, namechoice: UPropertyNameChoice) -> super::Foundation::PSTR {
@@ -10805,6 +13503,7 @@ pub unsafe fn u_getPropertyValueName(property: UProperty, value: i32, namechoice
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_getUnicodeVersion(versionarray: *mut u8) {
     #[cfg(windows)]
@@ -10818,6 +13517,7 @@ pub unsafe fn u_getUnicodeVersion(versionarray: *mut u8) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_getVersion(versionarray: *mut u8) {
     #[cfg(windows)]
@@ -10831,6 +13531,7 @@ pub unsafe fn u_getVersion(versionarray: *mut u8) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_hasBinaryProperty(c: i32, which: UProperty) -> i8 {
     #[cfg(windows)]
@@ -10844,6 +13545,7 @@ pub unsafe fn u_hasBinaryProperty(c: i32, which: UProperty) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_init(status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -10857,6 +13559,7 @@ pub unsafe fn u_init(status: *mut UErrorCode) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isIDIgnorable(c: i32) -> i8 {
     #[cfg(windows)]
@@ -10870,6 +13573,7 @@ pub unsafe fn u_isIDIgnorable(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isIDPart(c: i32) -> i8 {
     #[cfg(windows)]
@@ -10883,6 +13587,7 @@ pub unsafe fn u_isIDPart(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isIDStart(c: i32) -> i8 {
     #[cfg(windows)]
@@ -10896,6 +13601,7 @@ pub unsafe fn u_isIDStart(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isISOControl(c: i32) -> i8 {
     #[cfg(windows)]
@@ -10909,6 +13615,7 @@ pub unsafe fn u_isISOControl(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isJavaIDPart(c: i32) -> i8 {
     #[cfg(windows)]
@@ -10922,6 +13629,7 @@ pub unsafe fn u_isJavaIDPart(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isJavaIDStart(c: i32) -> i8 {
     #[cfg(windows)]
@@ -10935,6 +13643,7 @@ pub unsafe fn u_isJavaIDStart(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isJavaSpaceChar(c: i32) -> i8 {
     #[cfg(windows)]
@@ -10948,6 +13657,7 @@ pub unsafe fn u_isJavaSpaceChar(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isMirrored(c: i32) -> i8 {
     #[cfg(windows)]
@@ -10961,6 +13671,7 @@ pub unsafe fn u_isMirrored(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isUAlphabetic(c: i32) -> i8 {
     #[cfg(windows)]
@@ -10974,6 +13685,7 @@ pub unsafe fn u_isUAlphabetic(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isULowercase(c: i32) -> i8 {
     #[cfg(windows)]
@@ -10987,6 +13699,7 @@ pub unsafe fn u_isULowercase(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isUUppercase(c: i32) -> i8 {
     #[cfg(windows)]
@@ -11000,6 +13713,7 @@ pub unsafe fn u_isUUppercase(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isUWhiteSpace(c: i32) -> i8 {
     #[cfg(windows)]
@@ -11013,6 +13727,7 @@ pub unsafe fn u_isUWhiteSpace(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isWhitespace(c: i32) -> i8 {
     #[cfg(windows)]
@@ -11026,6 +13741,7 @@ pub unsafe fn u_isWhitespace(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isalnum(c: i32) -> i8 {
     #[cfg(windows)]
@@ -11039,6 +13755,7 @@ pub unsafe fn u_isalnum(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isalpha(c: i32) -> i8 {
     #[cfg(windows)]
@@ -11052,6 +13769,7 @@ pub unsafe fn u_isalpha(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isbase(c: i32) -> i8 {
     #[cfg(windows)]
@@ -11065,6 +13783,7 @@ pub unsafe fn u_isbase(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isblank(c: i32) -> i8 {
     #[cfg(windows)]
@@ -11078,6 +13797,7 @@ pub unsafe fn u_isblank(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_iscntrl(c: i32) -> i8 {
     #[cfg(windows)]
@@ -11091,6 +13811,7 @@ pub unsafe fn u_iscntrl(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isdefined(c: i32) -> i8 {
     #[cfg(windows)]
@@ -11104,6 +13825,7 @@ pub unsafe fn u_isdefined(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isdigit(c: i32) -> i8 {
     #[cfg(windows)]
@@ -11117,6 +13839,7 @@ pub unsafe fn u_isdigit(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isgraph(c: i32) -> i8 {
     #[cfg(windows)]
@@ -11130,6 +13853,7 @@ pub unsafe fn u_isgraph(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_islower(c: i32) -> i8 {
     #[cfg(windows)]
@@ -11143,6 +13867,7 @@ pub unsafe fn u_islower(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isprint(c: i32) -> i8 {
     #[cfg(windows)]
@@ -11156,6 +13881,7 @@ pub unsafe fn u_isprint(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_ispunct(c: i32) -> i8 {
     #[cfg(windows)]
@@ -11169,6 +13895,7 @@ pub unsafe fn u_ispunct(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isspace(c: i32) -> i8 {
     #[cfg(windows)]
@@ -11182,6 +13909,7 @@ pub unsafe fn u_isspace(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_istitle(c: i32) -> i8 {
     #[cfg(windows)]
@@ -11195,6 +13923,7 @@ pub unsafe fn u_istitle(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isupper(c: i32) -> i8 {
     #[cfg(windows)]
@@ -11208,6 +13937,7 @@ pub unsafe fn u_isupper(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_isxdigit(c: i32) -> i8 {
     #[cfg(windows)]
@@ -11221,6 +13951,7 @@ pub unsafe fn u_isxdigit(c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_memcasecmp(s1: *const u16, s2: *const u16, length: i32, options: u32) -> i32 {
     #[cfg(windows)]
@@ -11234,6 +13965,7 @@ pub unsafe fn u_memcasecmp(s1: *const u16, s2: *const u16, length: i32, options:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_memchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
     #[cfg(windows)]
@@ -11247,6 +13979,7 @@ pub unsafe fn u_memchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_memchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
     #[cfg(windows)]
@@ -11260,6 +13993,7 @@ pub unsafe fn u_memchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_memcmp(buf1: *const u16, buf2: *const u16, count: i32) -> i32 {
     #[cfg(windows)]
@@ -11273,6 +14007,7 @@ pub unsafe fn u_memcmp(buf1: *const u16, buf2: *const u16, count: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_memcmpCodePointOrder(s1: *const u16, s2: *const u16, count: i32) -> i32 {
     #[cfg(windows)]
@@ -11286,6 +14021,7 @@ pub unsafe fn u_memcmpCodePointOrder(s1: *const u16, s2: *const u16, count: i32)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_memcpy(dest: *mut u16, src: *const u16, count: i32) -> *mut u16 {
     #[cfg(windows)]
@@ -11299,6 +14035,7 @@ pub unsafe fn u_memcpy(dest: *mut u16, src: *const u16, count: i32) -> *mut u16 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_memmove(dest: *mut u16, src: *const u16, count: i32) -> *mut u16 {
     #[cfg(windows)]
@@ -11312,6 +14049,7 @@ pub unsafe fn u_memmove(dest: *mut u16, src: *const u16, count: i32) -> *mut u16
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_memrchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
     #[cfg(windows)]
@@ -11325,6 +14063,7 @@ pub unsafe fn u_memrchr(s: *const u16, c: u16, count: i32) -> *mut u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_memrchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
     #[cfg(windows)]
@@ -11338,6 +14077,7 @@ pub unsafe fn u_memrchr32(s: *const u16, c: i32, count: i32) -> *mut u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_memset(dest: *mut u16, c: u16, count: i32) -> *mut u16 {
     #[cfg(windows)]
@@ -11351,6 +14091,7 @@ pub unsafe fn u_memset(dest: *mut u16, c: u16, count: i32) -> *mut u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_parseMessage<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, status: *mut UErrorCode) {
@@ -11365,6 +14106,7 @@ pub unsafe fn u_parseMessage<'a, Param0: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_parseMessageWithError<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, parseerror: *mut UParseError, status: *mut UErrorCode) {
@@ -11379,6 +14121,7 @@ pub unsafe fn u_parseMessageWithError<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_setMemoryFunctions(context: *const ::core::ffi::c_void, a: *mut UMemAllocFn, r: *mut UMemReallocFn, f: *mut UMemFreeFn, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -11392,6 +14135,7 @@ pub unsafe fn u_setMemoryFunctions(context: *const ::core::ffi::c_void, a: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_shapeArabic(source: *const u16, sourcelength: i32, dest: *mut u16, destsize: i32, options: u32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -11405,6 +14149,7 @@ pub unsafe fn u_shapeArabic(source: *const u16, sourcelength: i32, dest: *mut u1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strCaseCompare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, options: u32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -11418,6 +14163,7 @@ pub unsafe fn u_strCaseCompare(s1: *const u16, length1: i32, s2: *const u16, len
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strCompare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, codepointorder: i8) -> i32 {
     #[cfg(windows)]
@@ -11431,6 +14177,7 @@ pub unsafe fn u_strCompare(s1: *const u16, length1: i32, s2: *const u16, length2
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strCompareIter(iter1: *mut UCharIterator, iter2: *mut UCharIterator, codepointorder: i8) -> i32 {
     #[cfg(windows)]
@@ -11444,6 +14191,7 @@ pub unsafe fn u_strCompareIter(iter1: *mut UCharIterator, iter2: *mut UCharItera
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strFindFirst(s: *const u16, length: i32, substring: *const u16, sublength: i32) -> *mut u16 {
     #[cfg(windows)]
@@ -11457,6 +14205,7 @@ pub unsafe fn u_strFindFirst(s: *const u16, length: i32, substring: *const u16, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strFindLast(s: *const u16, length: i32, substring: *const u16, sublength: i32) -> *mut u16 {
     #[cfg(windows)]
@@ -11470,6 +14219,7 @@ pub unsafe fn u_strFindLast(s: *const u16, length: i32, substring: *const u16, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strFoldCase(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, options: u32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -11483,6 +14233,7 @@ pub unsafe fn u_strFoldCase(dest: *mut u16, destcapacity: i32, src: *const u16, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_strFromJavaModifiedUTF8WithSub<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: Param3, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16 {
@@ -11497,6 +14248,7 @@ pub unsafe fn u_strFromJavaModifiedUTF8WithSub<'a, Param3: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strFromUTF32(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: *const i32, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
@@ -11510,6 +14262,7 @@ pub unsafe fn u_strFromUTF32(dest: *mut u16, destcapacity: i32, pdestlength: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strFromUTF32WithSub(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: *const i32, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
@@ -11523,6 +14276,7 @@ pub unsafe fn u_strFromUTF32WithSub(dest: *mut u16, destcapacity: i32, pdestleng
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_strFromUTF8<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: Param3, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16 {
@@ -11537,6 +14291,7 @@ pub unsafe fn u_strFromUTF8<'a, Param3: ::windows::core::IntoParam<'a, super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_strFromUTF8Lenient<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: Param3, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16 {
@@ -11551,6 +14306,7 @@ pub unsafe fn u_strFromUTF8Lenient<'a, Param3: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_strFromUTF8WithSub<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: Param3, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut u16 {
@@ -11565,6 +14321,7 @@ pub unsafe fn u_strFromUTF8WithSub<'a, Param3: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_strFromWCS<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dest: *mut u16, destcapacity: i32, pdestlength: *mut i32, src: Param3, srclength: i32, perrorcode: *mut UErrorCode) -> *mut u16 {
@@ -11579,6 +14336,7 @@ pub unsafe fn u_strFromWCS<'a, Param3: ::windows::core::IntoParam<'a, super::Fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strHasMoreChar32Than(s: *const u16, length: i32, number: i32) -> i8 {
     #[cfg(windows)]
@@ -11592,6 +14350,7 @@ pub unsafe fn u_strHasMoreChar32Than(s: *const u16, length: i32, number: i32) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_strToJavaModifiedUTF8<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: Param0, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -11606,6 +14365,7 @@ pub unsafe fn u_strToJavaModifiedUTF8<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_strToLower<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, locale: Param4, perrorcode: *mut UErrorCode) -> i32 {
@@ -11620,6 +14380,7 @@ pub unsafe fn u_strToLower<'a, Param4: ::windows::core::IntoParam<'a, super::Fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_strToTitle<'a, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, titleiter: *mut UBreakIterator, locale: Param5, perrorcode: *mut UErrorCode) -> i32 {
@@ -11634,6 +14395,7 @@ pub unsafe fn u_strToTitle<'a, Param5: ::windows::core::IntoParam<'a, super::Fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strToUTF32(dest: *mut i32, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> *mut i32 {
     #[cfg(windows)]
@@ -11647,6 +14409,7 @@ pub unsafe fn u_strToUTF32(dest: *mut i32, destcapacity: i32, pdestlength: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strToUTF32WithSub(dest: *mut i32, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> *mut i32 {
     #[cfg(windows)]
@@ -11660,6 +14423,7 @@ pub unsafe fn u_strToUTF32WithSub(dest: *mut i32, destcapacity: i32, pdestlength
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_strToUTF8<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: Param0, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -11674,6 +14438,7 @@ pub unsafe fn u_strToUTF8<'a, Param0: ::windows::core::IntoParam<'a, super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_strToUTF8WithSub<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: Param0, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, subchar: i32, pnumsubstitutions: *mut i32, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -11688,6 +14453,7 @@ pub unsafe fn u_strToUTF8WithSub<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_strToUpper<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, locale: Param4, perrorcode: *mut UErrorCode) -> i32 {
@@ -11702,6 +14468,7 @@ pub unsafe fn u_strToUpper<'a, Param4: ::windows::core::IntoParam<'a, super::Fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_strToWCS<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(dest: Param0, destcapacity: i32, pdestlength: *mut i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> super::Foundation::PWSTR {
@@ -11716,6 +14483,7 @@ pub unsafe fn u_strToWCS<'a, Param0: ::windows::core::IntoParam<'a, super::Found
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strcasecmp(s1: *const u16, s2: *const u16, options: u32) -> i32 {
     #[cfg(windows)]
@@ -11729,6 +14497,7 @@ pub unsafe fn u_strcasecmp(s1: *const u16, s2: *const u16, options: u32) -> i32 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strcat(dst: *mut u16, src: *const u16) -> *mut u16 {
     #[cfg(windows)]
@@ -11742,6 +14511,7 @@ pub unsafe fn u_strcat(dst: *mut u16, src: *const u16) -> *mut u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strchr(s: *const u16, c: u16) -> *mut u16 {
     #[cfg(windows)]
@@ -11755,6 +14525,7 @@ pub unsafe fn u_strchr(s: *const u16, c: u16) -> *mut u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strchr32(s: *const u16, c: i32) -> *mut u16 {
     #[cfg(windows)]
@@ -11768,6 +14539,7 @@ pub unsafe fn u_strchr32(s: *const u16, c: i32) -> *mut u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strcmp(s1: *const u16, s2: *const u16) -> i32 {
     #[cfg(windows)]
@@ -11781,6 +14553,7 @@ pub unsafe fn u_strcmp(s1: *const u16, s2: *const u16) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strcmpCodePointOrder(s1: *const u16, s2: *const u16) -> i32 {
     #[cfg(windows)]
@@ -11794,6 +14567,7 @@ pub unsafe fn u_strcmpCodePointOrder(s1: *const u16, s2: *const u16) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strcpy(dst: *mut u16, src: *const u16) -> *mut u16 {
     #[cfg(windows)]
@@ -11807,6 +14581,7 @@ pub unsafe fn u_strcpy(dst: *mut u16, src: *const u16) -> *mut u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strcspn(string: *const u16, matchset: *const u16) -> i32 {
     #[cfg(windows)]
@@ -11820,6 +14595,7 @@ pub unsafe fn u_strcspn(string: *const u16, matchset: *const u16) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strlen(s: *const u16) -> i32 {
     #[cfg(windows)]
@@ -11833,6 +14609,7 @@ pub unsafe fn u_strlen(s: *const u16) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strncasecmp(s1: *const u16, s2: *const u16, n: i32, options: u32) -> i32 {
     #[cfg(windows)]
@@ -11846,6 +14623,7 @@ pub unsafe fn u_strncasecmp(s1: *const u16, s2: *const u16, n: i32, options: u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strncat(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
     #[cfg(windows)]
@@ -11859,6 +14637,7 @@ pub unsafe fn u_strncat(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strncmp(ucs1: *const u16, ucs2: *const u16, n: i32) -> i32 {
     #[cfg(windows)]
@@ -11872,6 +14651,7 @@ pub unsafe fn u_strncmp(ucs1: *const u16, ucs2: *const u16, n: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strncmpCodePointOrder(s1: *const u16, s2: *const u16, n: i32) -> i32 {
     #[cfg(windows)]
@@ -11885,6 +14665,7 @@ pub unsafe fn u_strncmpCodePointOrder(s1: *const u16, s2: *const u16, n: i32) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strncpy(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
     #[cfg(windows)]
@@ -11898,6 +14679,7 @@ pub unsafe fn u_strncpy(dst: *mut u16, src: *const u16, n: i32) -> *mut u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strpbrk(string: *const u16, matchset: *const u16) -> *mut u16 {
     #[cfg(windows)]
@@ -11911,6 +14693,7 @@ pub unsafe fn u_strpbrk(string: *const u16, matchset: *const u16) -> *mut u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strrchr(s: *const u16, c: u16) -> *mut u16 {
     #[cfg(windows)]
@@ -11924,6 +14707,7 @@ pub unsafe fn u_strrchr(s: *const u16, c: u16) -> *mut u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strrchr32(s: *const u16, c: i32) -> *mut u16 {
     #[cfg(windows)]
@@ -11937,6 +14721,7 @@ pub unsafe fn u_strrchr32(s: *const u16, c: i32) -> *mut u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strrstr(s: *const u16, substring: *const u16) -> *mut u16 {
     #[cfg(windows)]
@@ -11950,6 +14735,7 @@ pub unsafe fn u_strrstr(s: *const u16, substring: *const u16) -> *mut u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strspn(string: *const u16, matchset: *const u16) -> i32 {
     #[cfg(windows)]
@@ -11963,6 +14749,7 @@ pub unsafe fn u_strspn(string: *const u16, matchset: *const u16) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strstr(s: *const u16, substring: *const u16) -> *mut u16 {
     #[cfg(windows)]
@@ -11976,6 +14763,7 @@ pub unsafe fn u_strstr(s: *const u16, substring: *const u16) -> *mut u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_strtok_r(src: *mut u16, delim: *const u16, savestate: *mut *mut u16) -> *mut u16 {
     #[cfg(windows)]
@@ -11989,6 +14777,7 @@ pub unsafe fn u_strtok_r(src: *mut u16, delim: *const u16, savestate: *mut *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_tolower(c: i32) -> i32 {
     #[cfg(windows)]
@@ -12002,6 +14791,7 @@ pub unsafe fn u_tolower(c: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_totitle(c: i32) -> i32 {
     #[cfg(windows)]
@@ -12015,6 +14805,7 @@ pub unsafe fn u_totitle(c: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_toupper(c: i32) -> i32 {
     #[cfg(windows)]
@@ -12028,6 +14819,7 @@ pub unsafe fn u_toupper(c: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_uastrcpy<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dst: *mut u16, src: Param1) -> *mut u16 {
@@ -12042,6 +14834,7 @@ pub unsafe fn u_uastrcpy<'a, Param1: ::windows::core::IntoParam<'a, super::Found
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_uastrncpy<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(dst: *mut u16, src: Param1, n: i32) -> *mut u16 {
@@ -12056,6 +14849,7 @@ pub unsafe fn u_uastrncpy<'a, Param1: ::windows::core::IntoParam<'a, super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_unescape<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(src: Param0, dest: *mut u16, destcapacity: i32) -> i32 {
@@ -12070,6 +14864,7 @@ pub unsafe fn u_unescape<'a, Param0: ::windows::core::IntoParam<'a, super::Found
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_unescapeAt(charat: UNESCAPE_CHAR_AT, offset: *mut i32, length: i32, context: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
@@ -12083,6 +14878,7 @@ pub unsafe fn u_unescapeAt(charat: UNESCAPE_CHAR_AT, offset: *mut i32, length: i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_versionFromString<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(versionarray: *mut u8, versionstring: Param1) {
@@ -12097,6 +14893,7 @@ pub unsafe fn u_versionFromString<'a, Param1: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn u_versionFromUString(versionarray: *mut u8, versionstring: *const u16) {
     #[cfg(windows)]
@@ -12110,6 +14907,7 @@ pub unsafe fn u_versionFromUString(versionarray: *mut u8, versionstring: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_versionToString<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(versionarray: *const u8, versionstring: Param1) {
@@ -12124,6 +14922,7 @@ pub unsafe fn u_versionToString<'a, Param1: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_vformatMessage<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, ap: *mut i8, status: *mut UErrorCode) -> i32 {
@@ -12138,6 +14937,7 @@ pub unsafe fn u_vformatMessage<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_vformatMessageWithError<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, pattern: *const u16, patternlength: i32, result: *mut u16, resultlength: i32, parseerror: *mut UParseError, ap: *mut i8, status: *mut UErrorCode) -> i32 {
@@ -12152,6 +14952,7 @@ pub unsafe fn u_vformatMessageWithError<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_vparseMessage<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, ap: *mut i8, status: *mut UErrorCode) {
@@ -12166,6 +14967,7 @@ pub unsafe fn u_vparseMessage<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn u_vparseMessageWithError<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, pattern: *const u16, patternlength: i32, source: *const u16, sourcelength: i32, ap: *mut i8, parseerror: *mut UParseError, status: *mut UErrorCode) {
@@ -12180,6 +14982,7 @@ pub unsafe fn u_vparseMessageWithError<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_close(pbidi: *mut UBiDi) {
     #[cfg(windows)]
@@ -12193,6 +14996,7 @@ pub unsafe fn ubidi_close(pbidi: *mut UBiDi) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_countParagraphs(pbidi: *mut UBiDi) -> i32 {
     #[cfg(windows)]
@@ -12206,6 +15010,7 @@ pub unsafe fn ubidi_countParagraphs(pbidi: *mut UBiDi) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_countRuns(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -12219,6 +15024,7 @@ pub unsafe fn ubidi_countRuns(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getBaseDirection(text: *const u16, length: i32) -> UBiDiDirection {
     #[cfg(windows)]
@@ -12232,6 +15038,7 @@ pub unsafe fn ubidi_getBaseDirection(text: *const u16, length: i32) -> UBiDiDire
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getClassCallback(pbidi: *mut UBiDi, r#fn: *mut UBiDiClassCallback, context: *const *const ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -12245,6 +15052,7 @@ pub unsafe fn ubidi_getClassCallback(pbidi: *mut UBiDi, r#fn: *mut UBiDiClassCal
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getCustomizedClass(pbidi: *mut UBiDi, c: i32) -> UCharDirection {
     #[cfg(windows)]
@@ -12258,6 +15066,7 @@ pub unsafe fn ubidi_getCustomizedClass(pbidi: *mut UBiDi, c: i32) -> UCharDirect
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getDirection(pbidi: *const UBiDi) -> UBiDiDirection {
     #[cfg(windows)]
@@ -12271,6 +15080,7 @@ pub unsafe fn ubidi_getDirection(pbidi: *const UBiDi) -> UBiDiDirection {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getLength(pbidi: *const UBiDi) -> i32 {
     #[cfg(windows)]
@@ -12284,6 +15094,7 @@ pub unsafe fn ubidi_getLength(pbidi: *const UBiDi) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getLevelAt(pbidi: *const UBiDi, charindex: i32) -> u8 {
     #[cfg(windows)]
@@ -12297,6 +15108,7 @@ pub unsafe fn ubidi_getLevelAt(pbidi: *const UBiDi, charindex: i32) -> u8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getLevels(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) -> *mut u8 {
     #[cfg(windows)]
@@ -12310,6 +15122,7 @@ pub unsafe fn ubidi_getLevels(pbidi: *mut UBiDi, perrorcode: *mut UErrorCode) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getLogicalIndex(pbidi: *mut UBiDi, visualindex: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -12323,6 +15136,7 @@ pub unsafe fn ubidi_getLogicalIndex(pbidi: *mut UBiDi, visualindex: i32, perrorc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getLogicalMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
@@ -12336,6 +15150,7 @@ pub unsafe fn ubidi_getLogicalMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getLogicalRun(pbidi: *const UBiDi, logicalposition: i32, plogicallimit: *mut i32, plevel: *mut u8) {
     #[cfg(windows)]
@@ -12349,6 +15164,7 @@ pub unsafe fn ubidi_getLogicalRun(pbidi: *const UBiDi, logicalposition: i32, plo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getParaLevel(pbidi: *const UBiDi) -> u8 {
     #[cfg(windows)]
@@ -12362,6 +15178,7 @@ pub unsafe fn ubidi_getParaLevel(pbidi: *const UBiDi) -> u8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getParagraph(pbidi: *const UBiDi, charindex: i32, pparastart: *mut i32, pparalimit: *mut i32, pparalevel: *mut u8, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -12375,6 +15192,7 @@ pub unsafe fn ubidi_getParagraph(pbidi: *const UBiDi, charindex: i32, pparastart
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getParagraphByIndex(pbidi: *const UBiDi, paraindex: i32, pparastart: *mut i32, pparalimit: *mut i32, pparalevel: *mut u8, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
@@ -12388,6 +15206,7 @@ pub unsafe fn ubidi_getParagraphByIndex(pbidi: *const UBiDi, paraindex: i32, ppa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getProcessedLength(pbidi: *const UBiDi) -> i32 {
     #[cfg(windows)]
@@ -12401,6 +15220,7 @@ pub unsafe fn ubidi_getProcessedLength(pbidi: *const UBiDi) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getReorderingMode(pbidi: *mut UBiDi) -> UBiDiReorderingMode {
     #[cfg(windows)]
@@ -12414,6 +15234,7 @@ pub unsafe fn ubidi_getReorderingMode(pbidi: *mut UBiDi) -> UBiDiReorderingMode 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getReorderingOptions(pbidi: *mut UBiDi) -> u32 {
     #[cfg(windows)]
@@ -12427,6 +15248,7 @@ pub unsafe fn ubidi_getReorderingOptions(pbidi: *mut UBiDi) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getResultLength(pbidi: *const UBiDi) -> i32 {
     #[cfg(windows)]
@@ -12440,6 +15262,7 @@ pub unsafe fn ubidi_getResultLength(pbidi: *const UBiDi) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getText(pbidi: *const UBiDi) -> *mut u16 {
     #[cfg(windows)]
@@ -12453,6 +15276,7 @@ pub unsafe fn ubidi_getText(pbidi: *const UBiDi) -> *mut u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getVisualIndex(pbidi: *mut UBiDi, logicalindex: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -12466,6 +15290,7 @@ pub unsafe fn ubidi_getVisualIndex(pbidi: *mut UBiDi, logicalindex: i32, perrorc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getVisualMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
@@ -12479,6 +15304,7 @@ pub unsafe fn ubidi_getVisualMap(pbidi: *mut UBiDi, indexmap: *mut i32, perrorco
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_getVisualRun(pbidi: *mut UBiDi, runindex: i32, plogicalstart: *mut i32, plength: *mut i32) -> UBiDiDirection {
     #[cfg(windows)]
@@ -12492,6 +15318,7 @@ pub unsafe fn ubidi_getVisualRun(pbidi: *mut UBiDi, runindex: i32, plogicalstart
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_invertMap(srcmap: *const i32, destmap: *mut i32, length: i32) {
     #[cfg(windows)]
@@ -12505,6 +15332,7 @@ pub unsafe fn ubidi_invertMap(srcmap: *const i32, destmap: *mut i32, length: i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_isInverse(pbidi: *mut UBiDi) -> i8 {
     #[cfg(windows)]
@@ -12518,6 +15346,7 @@ pub unsafe fn ubidi_isInverse(pbidi: *mut UBiDi) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_isOrderParagraphsLTR(pbidi: *mut UBiDi) -> i8 {
     #[cfg(windows)]
@@ -12531,6 +15360,7 @@ pub unsafe fn ubidi_isOrderParagraphsLTR(pbidi: *mut UBiDi) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_open() -> *mut UBiDi {
     #[cfg(windows)]
@@ -12544,6 +15374,7 @@ pub unsafe fn ubidi_open() -> *mut UBiDi {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_openSized(maxlength: i32, maxruncount: i32, perrorcode: *mut UErrorCode) -> *mut UBiDi {
     #[cfg(windows)]
@@ -12557,6 +15388,7 @@ pub unsafe fn ubidi_openSized(maxlength: i32, maxruncount: i32, perrorcode: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_orderParagraphsLTR(pbidi: *mut UBiDi, orderparagraphsltr: i8) {
     #[cfg(windows)]
@@ -12570,6 +15402,7 @@ pub unsafe fn ubidi_orderParagraphsLTR(pbidi: *mut UBiDi, orderparagraphsltr: i8
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_reorderLogical(levels: *const u8, length: i32, indexmap: *mut i32) {
     #[cfg(windows)]
@@ -12583,6 +15416,7 @@ pub unsafe fn ubidi_reorderLogical(levels: *const u8, length: i32, indexmap: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_reorderVisual(levels: *const u8, length: i32, indexmap: *mut i32) {
     #[cfg(windows)]
@@ -12596,6 +15430,7 @@ pub unsafe fn ubidi_reorderVisual(levels: *const u8, length: i32, indexmap: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_setClassCallback(pbidi: *mut UBiDi, newfn: UBiDiClassCallback, newcontext: *const ::core::ffi::c_void, oldfn: *mut UBiDiClassCallback, oldcontext: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
@@ -12609,6 +15444,7 @@ pub unsafe fn ubidi_setClassCallback(pbidi: *mut UBiDi, newfn: UBiDiClassCallbac
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_setContext(pbidi: *mut UBiDi, prologue: *const u16, prolength: i32, epilogue: *const u16, epilength: i32, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
@@ -12622,6 +15458,7 @@ pub unsafe fn ubidi_setContext(pbidi: *mut UBiDi, prologue: *const u16, prolengt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_setInverse(pbidi: *mut UBiDi, isinverse: i8) {
     #[cfg(windows)]
@@ -12635,6 +15472,7 @@ pub unsafe fn ubidi_setInverse(pbidi: *mut UBiDi, isinverse: i8) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_setLine(pparabidi: *const UBiDi, start: i32, limit: i32, plinebidi: *mut UBiDi, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
@@ -12648,6 +15486,7 @@ pub unsafe fn ubidi_setLine(pparabidi: *const UBiDi, start: i32, limit: i32, pli
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_setPara(pbidi: *mut UBiDi, text: *const u16, length: i32, paralevel: u8, embeddinglevels: *mut u8, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
@@ -12661,6 +15500,7 @@ pub unsafe fn ubidi_setPara(pbidi: *mut UBiDi, text: *const u16, length: i32, pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_setReorderingMode(pbidi: *mut UBiDi, reorderingmode: UBiDiReorderingMode) {
     #[cfg(windows)]
@@ -12674,6 +15514,7 @@ pub unsafe fn ubidi_setReorderingMode(pbidi: *mut UBiDi, reorderingmode: UBiDiRe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_setReorderingOptions(pbidi: *mut UBiDi, reorderingoptions: u32) {
     #[cfg(windows)]
@@ -12687,6 +15528,7 @@ pub unsafe fn ubidi_setReorderingOptions(pbidi: *mut UBiDi, reorderingoptions: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_writeReordered(pbidi: *mut UBiDi, dest: *mut u16, destsize: i32, options: u16, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -12700,6 +15542,7 @@ pub unsafe fn ubidi_writeReordered(pbidi: *mut UBiDi, dest: *mut u16, destsize: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubidi_writeReverse(src: *const u16, srclength: i32, dest: *mut u16, destsize: i32, options: u16, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -12713,6 +15556,7 @@ pub unsafe fn ubidi_writeReverse(src: *const u16, srclength: i32, dest: *mut u16
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubiditransform_close(pbiditransform: *mut UBiDiTransform) {
     #[cfg(windows)]
@@ -12726,6 +15570,7 @@ pub unsafe fn ubiditransform_close(pbiditransform: *mut UBiDiTransform) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubiditransform_open(perrorcode: *mut UErrorCode) -> *mut UBiDiTransform {
     #[cfg(windows)]
@@ -12739,6 +15584,7 @@ pub unsafe fn ubiditransform_open(perrorcode: *mut UErrorCode) -> *mut UBiDiTran
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubiditransform_transform(pbiditransform: *mut UBiDiTransform, src: *const u16, srclength: i32, dest: *mut u16, destsize: i32, inparalevel: u8, inorder: UBiDiOrder, outparalevel: u8, outorder: UBiDiOrder, domirroring: UBiDiMirroring, shapingoptions: u32, perrorcode: *mut UErrorCode) -> u32 {
     #[cfg(windows)]
@@ -12752,6 +15598,7 @@ pub unsafe fn ubiditransform_transform(pbiditransform: *mut UBiDiTransform, src:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ublock_getCode(c: i32) -> UBlockCode {
     #[cfg(windows)]
@@ -12765,6 +15612,7 @@ pub unsafe fn ublock_getCode(c: i32) -> UBlockCode {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubrk_close(bi: *mut UBreakIterator) {
     #[cfg(windows)]
@@ -12778,6 +15626,7 @@ pub unsafe fn ubrk_close(bi: *mut UBreakIterator) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubrk_countAvailable() -> i32 {
     #[cfg(windows)]
@@ -12791,6 +15640,7 @@ pub unsafe fn ubrk_countAvailable() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubrk_current(bi: *const UBreakIterator) -> i32 {
     #[cfg(windows)]
@@ -12804,6 +15654,7 @@ pub unsafe fn ubrk_current(bi: *const UBreakIterator) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubrk_first(bi: *mut UBreakIterator) -> i32 {
     #[cfg(windows)]
@@ -12817,6 +15668,7 @@ pub unsafe fn ubrk_first(bi: *mut UBreakIterator) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubrk_following(bi: *mut UBreakIterator, offset: i32) -> i32 {
     #[cfg(windows)]
@@ -12830,6 +15682,7 @@ pub unsafe fn ubrk_following(bi: *mut UBreakIterator, offset: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ubrk_getAvailable(index: i32) -> super::Foundation::PSTR {
@@ -12844,6 +15697,7 @@ pub unsafe fn ubrk_getAvailable(index: i32) -> super::Foundation::PSTR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubrk_getBinaryRules(bi: *mut UBreakIterator, binaryrules: *mut u8, rulescapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -12857,6 +15711,7 @@ pub unsafe fn ubrk_getBinaryRules(bi: *mut UBreakIterator, binaryrules: *mut u8,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ubrk_getLocaleByType(bi: *const UBreakIterator, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -12871,6 +15726,7 @@ pub unsafe fn ubrk_getLocaleByType(bi: *const UBreakIterator, r#type: ULocDataLo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubrk_getRuleStatus(bi: *mut UBreakIterator) -> i32 {
     #[cfg(windows)]
@@ -12884,6 +15740,7 @@ pub unsafe fn ubrk_getRuleStatus(bi: *mut UBreakIterator) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubrk_getRuleStatusVec(bi: *mut UBreakIterator, fillinvec: *mut i32, capacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -12897,6 +15754,7 @@ pub unsafe fn ubrk_getRuleStatusVec(bi: *mut UBreakIterator, fillinvec: *mut i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubrk_isBoundary(bi: *mut UBreakIterator, offset: i32) -> i8 {
     #[cfg(windows)]
@@ -12910,6 +15768,7 @@ pub unsafe fn ubrk_isBoundary(bi: *mut UBreakIterator, offset: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubrk_last(bi: *mut UBreakIterator) -> i32 {
     #[cfg(windows)]
@@ -12923,6 +15782,7 @@ pub unsafe fn ubrk_last(bi: *mut UBreakIterator) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubrk_next(bi: *mut UBreakIterator) -> i32 {
     #[cfg(windows)]
@@ -12936,6 +15796,7 @@ pub unsafe fn ubrk_next(bi: *mut UBreakIterator) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ubrk_open<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(r#type: UBreakIteratorType, locale: Param1, text: *const u16, textlength: i32, status: *mut UErrorCode) -> *mut UBreakIterator {
@@ -12950,6 +15811,7 @@ pub unsafe fn ubrk_open<'a, Param1: ::windows::core::IntoParam<'a, super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubrk_openBinaryRules(binaryrules: *const u8, ruleslength: i32, text: *const u16, textlength: i32, status: *mut UErrorCode) -> *mut UBreakIterator {
     #[cfg(windows)]
@@ -12963,6 +15825,7 @@ pub unsafe fn ubrk_openBinaryRules(binaryrules: *const u8, ruleslength: i32, tex
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubrk_openRules(rules: *const u16, ruleslength: i32, text: *const u16, textlength: i32, parseerr: *mut UParseError, status: *mut UErrorCode) -> *mut UBreakIterator {
     #[cfg(windows)]
@@ -12976,6 +15839,7 @@ pub unsafe fn ubrk_openRules(rules: *const u16, ruleslength: i32, text: *const u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubrk_preceding(bi: *mut UBreakIterator, offset: i32) -> i32 {
     #[cfg(windows)]
@@ -12989,6 +15853,7 @@ pub unsafe fn ubrk_preceding(bi: *mut UBreakIterator, offset: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubrk_previous(bi: *mut UBreakIterator) -> i32 {
     #[cfg(windows)]
@@ -13002,6 +15867,7 @@ pub unsafe fn ubrk_previous(bi: *mut UBreakIterator) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubrk_refreshUText(bi: *mut UBreakIterator, text: *mut UText, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -13015,6 +15881,7 @@ pub unsafe fn ubrk_refreshUText(bi: *mut UBreakIterator, text: *mut UText, statu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubrk_safeClone(bi: *const UBreakIterator, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UBreakIterator {
     #[cfg(windows)]
@@ -13028,6 +15895,7 @@ pub unsafe fn ubrk_safeClone(bi: *const UBreakIterator, stackbuffer: *mut ::core
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubrk_setText(bi: *mut UBreakIterator, text: *const u16, textlength: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -13041,6 +15909,7 @@ pub unsafe fn ubrk_setText(bi: *mut UBreakIterator, text: *const u16, textlength
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ubrk_setUText(bi: *mut UBreakIterator, text: *mut UText, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -13054,6 +15923,7 @@ pub unsafe fn ubrk_setUText(bi: *mut UBreakIterator, text: *mut UText, status: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_add(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields, amount: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -13067,6 +15937,7 @@ pub unsafe fn ucal_add(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_clear(calendar: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -13080,6 +15951,7 @@ pub unsafe fn ucal_clear(calendar: *mut *mut ::core::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_clearField(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields) {
     #[cfg(windows)]
@@ -13093,6 +15965,7 @@ pub unsafe fn ucal_clearField(cal: *mut *mut ::core::ffi::c_void, field: UCalend
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_clone(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -13106,6 +15979,7 @@ pub unsafe fn ucal_clone(cal: *const *const ::core::ffi::c_void, status: *mut UE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_close(cal: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -13119,6 +15993,7 @@ pub unsafe fn ucal_close(cal: *mut *mut ::core::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_countAvailable() -> i32 {
     #[cfg(windows)]
@@ -13132,6 +16007,7 @@ pub unsafe fn ucal_countAvailable() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_equivalentTo(cal1: *const *const ::core::ffi::c_void, cal2: *const *const ::core::ffi::c_void) -> i8 {
     #[cfg(windows)]
@@ -13145,6 +16021,7 @@ pub unsafe fn ucal_equivalentTo(cal1: *const *const ::core::ffi::c_void, cal2: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_get(cal: *const *const ::core::ffi::c_void, field: UCalendarDateFields, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -13158,6 +16035,7 @@ pub unsafe fn ucal_get(cal: *const *const ::core::ffi::c_void, field: UCalendarD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_getAttribute(cal: *const *const ::core::ffi::c_void, attr: UCalendarAttribute) -> i32 {
     #[cfg(windows)]
@@ -13171,6 +16049,7 @@ pub unsafe fn ucal_getAttribute(cal: *const *const ::core::ffi::c_void, attr: UC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucal_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
@@ -13185,6 +16064,7 @@ pub unsafe fn ucal_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_getCanonicalTimeZoneID(id: *const u16, len: i32, result: *mut u16, resultcapacity: i32, issystemid: *mut i8, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -13198,6 +16078,7 @@ pub unsafe fn ucal_getCanonicalTimeZoneID(id: *const u16, len: i32, result: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_getDSTSavings(zoneid: *const u16, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -13211,6 +16092,7 @@ pub unsafe fn ucal_getDSTSavings(zoneid: *const u16, ec: *mut UErrorCode) -> i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_getDayOfWeekType(cal: *const *const ::core::ffi::c_void, dayofweek: UCalendarDaysOfWeek, status: *mut UErrorCode) -> UCalendarWeekdayType {
     #[cfg(windows)]
@@ -13224,6 +16106,7 @@ pub unsafe fn ucal_getDayOfWeekType(cal: *const *const ::core::ffi::c_void, dayo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_getDefaultTimeZone(result: *mut u16, resultcapacity: i32, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -13237,6 +16120,7 @@ pub unsafe fn ucal_getDefaultTimeZone(result: *mut u16, resultcapacity: i32, ec:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_getFieldDifference(cal: *mut *mut ::core::ffi::c_void, target: f64, field: UCalendarDateFields, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -13250,6 +16134,7 @@ pub unsafe fn ucal_getFieldDifference(cal: *mut *mut ::core::ffi::c_void, target
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_getGregorianChange(cal: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
@@ -13263,6 +16148,7 @@ pub unsafe fn ucal_getGregorianChange(cal: *const *const ::core::ffi::c_void, pe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_getHostTimeZone(result: *mut u16, resultcapacity: i32, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -13276,6 +16162,7 @@ pub unsafe fn ucal_getHostTimeZone(result: *mut u16, resultcapacity: i32, ec: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucal_getKeywordValuesForLocale<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(key: Param0, locale: Param1, commonlyused: i8, status: *mut UErrorCode) -> *mut UEnumeration {
@@ -13290,6 +16177,7 @@ pub unsafe fn ucal_getKeywordValuesForLocale<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_getLimit(cal: *const *const ::core::ffi::c_void, field: UCalendarDateFields, r#type: UCalendarLimitType, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -13303,6 +16191,7 @@ pub unsafe fn ucal_getLimit(cal: *const *const ::core::ffi::c_void, field: UCale
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucal_getLocaleByType(cal: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -13317,6 +16206,7 @@ pub unsafe fn ucal_getLocaleByType(cal: *const *const ::core::ffi::c_void, r#typ
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_getMillis(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
@@ -13330,6 +16220,7 @@ pub unsafe fn ucal_getMillis(cal: *const *const ::core::ffi::c_void, status: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_getNow() -> f64 {
     #[cfg(windows)]
@@ -13343,6 +16234,7 @@ pub unsafe fn ucal_getNow() -> f64 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucal_getTZDataVersion(status: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -13357,6 +16249,7 @@ pub unsafe fn ucal_getTZDataVersion(status: *mut UErrorCode) -> super::Foundatio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucal_getTimeZoneDisplayName<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(cal: *const *const ::core::ffi::c_void, r#type: UCalendarDisplayNameType, locale: Param2, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
@@ -13371,6 +16264,7 @@ pub unsafe fn ucal_getTimeZoneDisplayName<'a, Param2: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_getTimeZoneID(cal: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -13384,6 +16278,7 @@ pub unsafe fn ucal_getTimeZoneID(cal: *const *const ::core::ffi::c_void, result:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucal_getTimeZoneIDForWindowsID<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(winid: *const u16, len: i32, region: Param2, id: *mut u16, idcapacity: i32, status: *mut UErrorCode) -> i32 {
@@ -13398,6 +16293,7 @@ pub unsafe fn ucal_getTimeZoneIDForWindowsID<'a, Param2: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_getTimeZoneTransitionDate(cal: *const *const ::core::ffi::c_void, r#type: UTimeZoneTransitionType, transition: *mut f64, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -13411,6 +16307,7 @@ pub unsafe fn ucal_getTimeZoneTransitionDate(cal: *const *const ::core::ffi::c_v
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucal_getType(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -13425,6 +16322,7 @@ pub unsafe fn ucal_getType(cal: *const *const ::core::ffi::c_void, status: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_getWeekendTransition(cal: *const *const ::core::ffi::c_void, dayofweek: UCalendarDaysOfWeek, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -13438,6 +16336,7 @@ pub unsafe fn ucal_getWeekendTransition(cal: *const *const ::core::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_getWindowsTimeZoneID(id: *const u16, len: i32, winid: *mut u16, winidcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -13451,6 +16350,7 @@ pub unsafe fn ucal_getWindowsTimeZoneID(id: *const u16, len: i32, winid: *mut u1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_inDaylightTime(cal: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -13464,6 +16364,7 @@ pub unsafe fn ucal_inDaylightTime(cal: *const *const ::core::ffi::c_void, status
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_isSet(cal: *const *const ::core::ffi::c_void, field: UCalendarDateFields) -> i8 {
     #[cfg(windows)]
@@ -13477,6 +16378,7 @@ pub unsafe fn ucal_isSet(cal: *const *const ::core::ffi::c_void, field: UCalenda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_isWeekend(cal: *const *const ::core::ffi::c_void, date: f64, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -13490,6 +16392,7 @@ pub unsafe fn ucal_isWeekend(cal: *const *const ::core::ffi::c_void, date: f64, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucal_open<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(zoneid: *const u16, len: i32, locale: Param2, r#type: UCalendarType, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
@@ -13504,6 +16407,7 @@ pub unsafe fn ucal_open<'a, Param2: ::windows::core::IntoParam<'a, super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucal_openCountryTimeZones<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(country: Param0, ec: *mut UErrorCode) -> *mut UEnumeration {
@@ -13518,6 +16422,7 @@ pub unsafe fn ucal_openCountryTimeZones<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucal_openTimeZoneIDEnumeration<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(zonetype: USystemTimeZoneType, region: Param1, rawoffset: *const i32, ec: *mut UErrorCode) -> *mut UEnumeration {
@@ -13532,6 +16437,7 @@ pub unsafe fn ucal_openTimeZoneIDEnumeration<'a, Param1: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_openTimeZones(ec: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
@@ -13545,6 +16451,7 @@ pub unsafe fn ucal_openTimeZones(ec: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_roll(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields, amount: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -13558,6 +16465,7 @@ pub unsafe fn ucal_roll(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDate
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_set(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateFields, value: i32) {
     #[cfg(windows)]
@@ -13571,6 +16479,7 @@ pub unsafe fn ucal_set(cal: *mut *mut ::core::ffi::c_void, field: UCalendarDateF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_setAttribute(cal: *mut *mut ::core::ffi::c_void, attr: UCalendarAttribute, newvalue: i32) {
     #[cfg(windows)]
@@ -13584,6 +16493,7 @@ pub unsafe fn ucal_setAttribute(cal: *mut *mut ::core::ffi::c_void, attr: UCalen
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_setDate(cal: *mut *mut ::core::ffi::c_void, year: i32, month: i32, date: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -13597,6 +16507,7 @@ pub unsafe fn ucal_setDate(cal: *mut *mut ::core::ffi::c_void, year: i32, month:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_setDateTime(cal: *mut *mut ::core::ffi::c_void, year: i32, month: i32, date: i32, hour: i32, minute: i32, second: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -13610,6 +16521,7 @@ pub unsafe fn ucal_setDateTime(cal: *mut *mut ::core::ffi::c_void, year: i32, mo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_setDefaultTimeZone(zoneid: *const u16, ec: *mut UErrorCode) {
     #[cfg(windows)]
@@ -13623,6 +16535,7 @@ pub unsafe fn ucal_setDefaultTimeZone(zoneid: *const u16, ec: *mut UErrorCode) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_setGregorianChange(cal: *mut *mut ::core::ffi::c_void, date: f64, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
@@ -13636,6 +16549,7 @@ pub unsafe fn ucal_setGregorianChange(cal: *mut *mut ::core::ffi::c_void, date: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_setMillis(cal: *mut *mut ::core::ffi::c_void, datetime: f64, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -13649,6 +16563,7 @@ pub unsafe fn ucal_setMillis(cal: *mut *mut ::core::ffi::c_void, datetime: f64, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucal_setTimeZone(cal: *mut *mut ::core::ffi::c_void, zoneid: *const u16, len: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -13662,6 +16577,7 @@ pub unsafe fn ucal_setTimeZone(cal: *mut *mut ::core::ffi::c_void, zoneid: *cons
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucasemap_close(csm: *mut UCaseMap) {
     #[cfg(windows)]
@@ -13675,6 +16591,7 @@ pub unsafe fn ucasemap_close(csm: *mut UCaseMap) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucasemap_getBreakIterator(csm: *const UCaseMap) -> *mut UBreakIterator {
     #[cfg(windows)]
@@ -13688,6 +16605,7 @@ pub unsafe fn ucasemap_getBreakIterator(csm: *const UCaseMap) -> *mut UBreakIter
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucasemap_getLocale(csm: *const UCaseMap) -> super::Foundation::PSTR {
@@ -13702,6 +16620,7 @@ pub unsafe fn ucasemap_getLocale(csm: *const UCaseMap) -> super::Foundation::PST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucasemap_getOptions(csm: *const UCaseMap) -> u32 {
     #[cfg(windows)]
@@ -13715,6 +16634,7 @@ pub unsafe fn ucasemap_getOptions(csm: *const UCaseMap) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucasemap_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, options: u32, perrorcode: *mut UErrorCode) -> *mut UCaseMap {
@@ -13729,6 +16649,7 @@ pub unsafe fn ucasemap_open<'a, Param0: ::windows::core::IntoParam<'a, super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucasemap_setBreakIterator(csm: *mut UCaseMap, itertoadopt: *mut UBreakIterator, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
@@ -13742,6 +16663,7 @@ pub unsafe fn ucasemap_setBreakIterator(csm: *mut UCaseMap, itertoadopt: *mut UB
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucasemap_setLocale<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(csm: *mut UCaseMap, locale: Param1, perrorcode: *mut UErrorCode) {
@@ -13756,6 +16678,7 @@ pub unsafe fn ucasemap_setLocale<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucasemap_setOptions(csm: *mut UCaseMap, options: u32, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
@@ -13769,6 +16692,7 @@ pub unsafe fn ucasemap_setOptions(csm: *mut UCaseMap, options: u32, perrorcode: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucasemap_toTitle(csm: *mut UCaseMap, dest: *mut u16, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -13782,6 +16706,7 @@ pub unsafe fn ucasemap_toTitle(csm: *mut UCaseMap, dest: *mut u16, destcapacity:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucasemap_utf8FoldCase<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(csm: *const UCaseMap, dest: Param1, destcapacity: i32, src: Param3, srclength: i32, perrorcode: *mut UErrorCode) -> i32 {
@@ -13796,6 +16721,7 @@ pub unsafe fn ucasemap_utf8FoldCase<'a, Param1: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucasemap_utf8ToLower<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(csm: *const UCaseMap, dest: Param1, destcapacity: i32, src: Param3, srclength: i32, perrorcode: *mut UErrorCode) -> i32 {
@@ -13810,6 +16736,7 @@ pub unsafe fn ucasemap_utf8ToLower<'a, Param1: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucasemap_utf8ToTitle<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(csm: *mut UCaseMap, dest: Param1, destcapacity: i32, src: Param3, srclength: i32, perrorcode: *mut UErrorCode) -> i32 {
@@ -13824,6 +16751,7 @@ pub unsafe fn ucasemap_utf8ToTitle<'a, Param1: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucasemap_utf8ToUpper<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(csm: *const UCaseMap, dest: Param1, destcapacity: i32, src: Param3, srclength: i32, perrorcode: *mut UErrorCode) -> i32 {
@@ -13838,6 +16766,7 @@ pub unsafe fn ucasemap_utf8ToUpper<'a, Param1: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucfpos_close(ucfpos: *mut UConstrainedFieldPosition) {
     #[cfg(windows)]
@@ -13851,6 +16780,7 @@ pub unsafe fn ucfpos_close(ucfpos: *mut UConstrainedFieldPosition) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucfpos_constrainCategory(ucfpos: *mut UConstrainedFieldPosition, category: i32, ec: *mut UErrorCode) {
     #[cfg(windows)]
@@ -13864,6 +16794,7 @@ pub unsafe fn ucfpos_constrainCategory(ucfpos: *mut UConstrainedFieldPosition, c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucfpos_constrainField(ucfpos: *mut UConstrainedFieldPosition, category: i32, field: i32, ec: *mut UErrorCode) {
     #[cfg(windows)]
@@ -13877,6 +16808,7 @@ pub unsafe fn ucfpos_constrainField(ucfpos: *mut UConstrainedFieldPosition, cate
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucfpos_getCategory(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -13890,6 +16822,7 @@ pub unsafe fn ucfpos_getCategory(ucfpos: *const UConstrainedFieldPosition, ec: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucfpos_getField(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -13903,6 +16836,7 @@ pub unsafe fn ucfpos_getField(ucfpos: *const UConstrainedFieldPosition, ec: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucfpos_getIndexes(ucfpos: *const UConstrainedFieldPosition, pstart: *mut i32, plimit: *mut i32, ec: *mut UErrorCode) {
     #[cfg(windows)]
@@ -13916,6 +16850,7 @@ pub unsafe fn ucfpos_getIndexes(ucfpos: *const UConstrainedFieldPosition, pstart
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucfpos_getInt64IterationContext(ucfpos: *const UConstrainedFieldPosition, ec: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
@@ -13929,6 +16864,7 @@ pub unsafe fn ucfpos_getInt64IterationContext(ucfpos: *const UConstrainedFieldPo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucfpos_matchesField(ucfpos: *const UConstrainedFieldPosition, category: i32, field: i32, ec: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -13942,6 +16878,7 @@ pub unsafe fn ucfpos_matchesField(ucfpos: *const UConstrainedFieldPosition, cate
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucfpos_open(ec: *mut UErrorCode) -> *mut UConstrainedFieldPosition {
     #[cfg(windows)]
@@ -13955,6 +16892,7 @@ pub unsafe fn ucfpos_open(ec: *mut UErrorCode) -> *mut UConstrainedFieldPosition
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucfpos_reset(ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErrorCode) {
     #[cfg(windows)]
@@ -13968,6 +16906,7 @@ pub unsafe fn ucfpos_reset(ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucfpos_setInt64IterationContext(ucfpos: *mut UConstrainedFieldPosition, context: i64, ec: *mut UErrorCode) {
     #[cfg(windows)]
@@ -13981,6 +16920,7 @@ pub unsafe fn ucfpos_setInt64IterationContext(ucfpos: *mut UConstrainedFieldPosi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucfpos_setState(ucfpos: *mut UConstrainedFieldPosition, category: i32, field: i32, start: i32, limit: i32, ec: *mut UErrorCode) {
     #[cfg(windows)]
@@ -13994,6 +16934,7 @@ pub unsafe fn ucfpos_setState(ucfpos: *mut UConstrainedFieldPosition, category: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_cbFromUWriteBytes<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(args: *mut UConverterFromUnicodeArgs, source: Param1, length: i32, offsetindex: i32, err: *mut UErrorCode) {
@@ -14008,6 +16949,7 @@ pub unsafe fn ucnv_cbFromUWriteBytes<'a, Param1: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_cbFromUWriteSub(args: *mut UConverterFromUnicodeArgs, offsetindex: i32, err: *mut UErrorCode) {
@@ -14022,6 +16964,7 @@ pub unsafe fn ucnv_cbFromUWriteSub(args: *mut UConverterFromUnicodeArgs, offseti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_cbFromUWriteUChars(args: *mut UConverterFromUnicodeArgs, source: *const *const u16, sourcelimit: *const u16, offsetindex: i32, err: *mut UErrorCode) {
@@ -14036,6 +16979,7 @@ pub unsafe fn ucnv_cbFromUWriteUChars(args: *mut UConverterFromUnicodeArgs, sour
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_cbToUWriteSub(args: *mut UConverterToUnicodeArgs, offsetindex: i32, err: *mut UErrorCode) {
@@ -14050,6 +16994,7 @@ pub unsafe fn ucnv_cbToUWriteSub(args: *mut UConverterToUnicodeArgs, offsetindex
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_cbToUWriteUChars(args: *mut UConverterToUnicodeArgs, source: *const u16, length: i32, offsetindex: i32, err: *mut UErrorCode) {
@@ -14064,6 +17009,7 @@ pub unsafe fn ucnv_cbToUWriteUChars(args: *mut UConverterToUnicodeArgs, source: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_close(converter: *mut UConverter) {
     #[cfg(windows)]
@@ -14077,6 +17023,7 @@ pub unsafe fn ucnv_close(converter: *mut UConverter) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_compareNames<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(name1: Param0, name2: Param1) -> i32 {
@@ -14091,6 +17038,7 @@ pub unsafe fn ucnv_compareNames<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_convert<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(toconvertername: Param0, fromconvertername: Param1, target: Param2, targetcapacity: i32, source: Param4, sourcelength: i32, perrorcode: *mut UErrorCode) -> i32 {
@@ -14105,6 +17053,7 @@ pub unsafe fn ucnv_convert<'a, Param0: ::windows::core::IntoParam<'a, super::Fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_convertEx<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(targetcnv: *mut UConverter, sourcecnv: *mut UConverter, target: *mut *mut i8, targetlimit: Param3, source: *const *const i8, sourcelimit: Param5, pivotstart: *mut u16, pivotsource: *mut *mut u16, pivottarget: *mut *mut u16, pivotlimit: *const u16, reset: i8, flush: i8, perrorcode: *mut UErrorCode) {
@@ -14119,6 +17068,7 @@ pub unsafe fn ucnv_convertEx<'a, Param3: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_countAliases<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(alias: Param0, perrorcode: *mut UErrorCode) -> u16 {
@@ -14133,6 +17083,7 @@ pub unsafe fn ucnv_countAliases<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_countAvailable() -> i32 {
     #[cfg(windows)]
@@ -14146,6 +17097,7 @@ pub unsafe fn ucnv_countAvailable() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_countStandards() -> u16 {
     #[cfg(windows)]
@@ -14159,6 +17111,7 @@ pub unsafe fn ucnv_countStandards() -> u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_detectUnicodeSignature<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(source: Param0, sourcelength: i32, signaturelength: *mut i32, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -14173,6 +17126,7 @@ pub unsafe fn ucnv_detectUnicodeSignature<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_fixFileSeparator(cnv: *const UConverter, source: *mut u16, sourcelen: i32) {
     #[cfg(windows)]
@@ -14186,6 +17140,7 @@ pub unsafe fn ucnv_fixFileSeparator(cnv: *const UConverter, source: *mut u16, so
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_flushCache() -> i32 {
     #[cfg(windows)]
@@ -14199,6 +17154,7 @@ pub unsafe fn ucnv_flushCache() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_fromAlgorithmic<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(cnv: *mut UConverter, algorithmictype: UConverterType, target: Param2, targetcapacity: i32, source: Param4, sourcelength: i32, perrorcode: *mut UErrorCode) -> i32 {
@@ -14213,6 +17169,7 @@ pub unsafe fn ucnv_fromAlgorithmic<'a, Param2: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_fromUChars<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(cnv: *mut UConverter, dest: Param1, destcapacity: i32, src: *const u16, srclength: i32, perrorcode: *mut UErrorCode) -> i32 {
@@ -14227,6 +17184,7 @@ pub unsafe fn ucnv_fromUChars<'a, Param1: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_fromUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -14240,6 +17198,7 @@ pub unsafe fn ucnv_fromUCountPending(cnv: *const UConverter, status: *mut UError
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_fromUnicode<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(converter: *mut UConverter, target: *mut *mut i8, targetlimit: Param2, source: *const *const u16, sourcelimit: *const u16, offsets: *mut i32, flush: i8, err: *mut UErrorCode) {
@@ -14254,6 +17213,7 @@ pub unsafe fn ucnv_fromUnicode<'a, Param2: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_getAlias<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(alias: Param0, n: u16, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -14268,6 +17228,7 @@ pub unsafe fn ucnv_getAlias<'a, Param0: ::windows::core::IntoParam<'a, super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_getAliases<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(alias: Param0, aliases: *const *const i8, perrorcode: *mut UErrorCode) {
@@ -14282,6 +17243,7 @@ pub unsafe fn ucnv_getAliases<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_getAvailableName(n: i32) -> super::Foundation::PSTR {
@@ -14296,6 +17258,7 @@ pub unsafe fn ucnv_getAvailableName(n: i32) -> super::Foundation::PSTR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_getCCSID(converter: *const UConverter, err: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -14309,6 +17272,7 @@ pub unsafe fn ucnv_getCCSID(converter: *const UConverter, err: *mut UErrorCode) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_getCanonicalName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(alias: Param0, standard: Param1, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -14323,6 +17287,7 @@ pub unsafe fn ucnv_getCanonicalName<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_getDefaultName() -> super::Foundation::PSTR {
@@ -14337,6 +17302,7 @@ pub unsafe fn ucnv_getDefaultName() -> super::Foundation::PSTR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_getDisplayName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(converter: *const UConverter, displaylocale: Param1, displayname: *mut u16, displaynamecapacity: i32, err: *mut UErrorCode) -> i32 {
@@ -14351,6 +17317,7 @@ pub unsafe fn ucnv_getDisplayName<'a, Param1: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_getFromUCallBack(converter: *const UConverter, action: *mut UConverterFromUCallback, context: *const *const ::core::ffi::c_void) {
@@ -14365,6 +17332,7 @@ pub unsafe fn ucnv_getFromUCallBack(converter: *const UConverter, action: *mut U
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_getInvalidChars<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(converter: *const UConverter, errbytes: Param1, len: *mut i8, err: *mut UErrorCode) {
@@ -14379,6 +17347,7 @@ pub unsafe fn ucnv_getInvalidChars<'a, Param1: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_getInvalidUChars(converter: *const UConverter, erruchars: *mut u16, len: *mut i8, err: *mut UErrorCode) {
     #[cfg(windows)]
@@ -14392,6 +17361,7 @@ pub unsafe fn ucnv_getInvalidUChars(converter: *const UConverter, erruchars: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_getMaxCharSize(converter: *const UConverter) -> i8 {
     #[cfg(windows)]
@@ -14405,6 +17375,7 @@ pub unsafe fn ucnv_getMaxCharSize(converter: *const UConverter) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_getMinCharSize(converter: *const UConverter) -> i8 {
     #[cfg(windows)]
@@ -14418,6 +17389,7 @@ pub unsafe fn ucnv_getMinCharSize(converter: *const UConverter) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_getName(converter: *const UConverter, err: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -14432,6 +17404,7 @@ pub unsafe fn ucnv_getName(converter: *const UConverter, err: *mut UErrorCode) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_getNextUChar<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(converter: *mut UConverter, source: *const *const i8, sourcelimit: Param2, err: *mut UErrorCode) -> i32 {
@@ -14446,6 +17419,7 @@ pub unsafe fn ucnv_getNextUChar<'a, Param2: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_getPlatform(converter: *const UConverter, err: *mut UErrorCode) -> UConverterPlatform {
     #[cfg(windows)]
@@ -14459,6 +17433,7 @@ pub unsafe fn ucnv_getPlatform(converter: *const UConverter, err: *mut UErrorCod
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_getStandard(n: u16, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -14473,6 +17448,7 @@ pub unsafe fn ucnv_getStandard(n: u16, perrorcode: *mut UErrorCode) -> super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_getStandardName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(name: Param0, standard: Param1, perrorcode: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -14487,6 +17463,7 @@ pub unsafe fn ucnv_getStandardName<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_getStarters(converter: *const UConverter, starters: *mut i8, err: *mut UErrorCode) {
     #[cfg(windows)]
@@ -14500,6 +17477,7 @@ pub unsafe fn ucnv_getStarters(converter: *const UConverter, starters: *mut i8, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_getSubstChars<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(converter: *const UConverter, subchars: Param1, len: *mut i8, err: *mut UErrorCode) {
@@ -14514,6 +17492,7 @@ pub unsafe fn ucnv_getSubstChars<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_getToUCallBack(converter: *const UConverter, action: *mut UConverterToUCallback, context: *const *const ::core::ffi::c_void) {
@@ -14528,6 +17507,7 @@ pub unsafe fn ucnv_getToUCallBack(converter: *const UConverter, action: *mut UCo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_getType(converter: *const UConverter) -> UConverterType {
     #[cfg(windows)]
@@ -14541,6 +17521,7 @@ pub unsafe fn ucnv_getType(converter: *const UConverter) -> UConverterType {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_getUnicodeSet(cnv: *const UConverter, setfillin: *mut USet, whichset: UConverterUnicodeSet, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
@@ -14554,6 +17535,7 @@ pub unsafe fn ucnv_getUnicodeSet(cnv: *const UConverter, setfillin: *mut USet, w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_isAmbiguous(cnv: *const UConverter) -> i8 {
     #[cfg(windows)]
@@ -14567,6 +17549,7 @@ pub unsafe fn ucnv_isAmbiguous(cnv: *const UConverter) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_isFixedWidth(cnv: *mut UConverter, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -14580,6 +17563,7 @@ pub unsafe fn ucnv_isFixedWidth(cnv: *mut UConverter, status: *mut UErrorCode) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(convertername: Param0, err: *mut UErrorCode) -> *mut UConverter {
@@ -14594,6 +17578,7 @@ pub unsafe fn ucnv_open<'a, Param0: ::windows::core::IntoParam<'a, super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_openAllNames(perrorcode: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
@@ -14607,6 +17592,7 @@ pub unsafe fn ucnv_openAllNames(perrorcode: *mut UErrorCode) -> *mut UEnumeratio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_openCCSID(codepage: i32, platform: UConverterPlatform, err: *mut UErrorCode) -> *mut UConverter {
     #[cfg(windows)]
@@ -14620,6 +17606,7 @@ pub unsafe fn ucnv_openCCSID(codepage: i32, platform: UConverterPlatform, err: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_openPackage<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(packagename: Param0, convertername: Param1, err: *mut UErrorCode) -> *mut UConverter {
@@ -14634,6 +17621,7 @@ pub unsafe fn ucnv_openPackage<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_openStandardNames<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(convname: Param0, standard: Param1, perrorcode: *mut UErrorCode) -> *mut UEnumeration {
@@ -14648,6 +17636,7 @@ pub unsafe fn ucnv_openStandardNames<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_openU(name: *const u16, err: *mut UErrorCode) -> *mut UConverter {
     #[cfg(windows)]
@@ -14661,6 +17650,7 @@ pub unsafe fn ucnv_openU(name: *const u16, err: *mut UErrorCode) -> *mut UConver
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_reset(converter: *mut UConverter) {
     #[cfg(windows)]
@@ -14674,6 +17664,7 @@ pub unsafe fn ucnv_reset(converter: *mut UConverter) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_resetFromUnicode(converter: *mut UConverter) {
     #[cfg(windows)]
@@ -14687,6 +17678,7 @@ pub unsafe fn ucnv_resetFromUnicode(converter: *mut UConverter) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_resetToUnicode(converter: *mut UConverter) {
     #[cfg(windows)]
@@ -14700,6 +17692,7 @@ pub unsafe fn ucnv_resetToUnicode(converter: *mut UConverter) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_safeClone(cnv: *const UConverter, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UConverter {
     #[cfg(windows)]
@@ -14713,6 +17706,7 @@ pub unsafe fn ucnv_safeClone(cnv: *const UConverter, stackbuffer: *mut ::core::f
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_setDefaultName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(name: Param0) {
@@ -14727,6 +17721,7 @@ pub unsafe fn ucnv_setDefaultName<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_setFallback(cnv: *mut UConverter, usesfallback: i8) {
     #[cfg(windows)]
@@ -14740,6 +17735,7 @@ pub unsafe fn ucnv_setFallback(cnv: *mut UConverter, usesfallback: i8) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_setFromUCallBack(converter: *mut UConverter, newaction: UConverterFromUCallback, newcontext: *const ::core::ffi::c_void, oldaction: *mut UConverterFromUCallback, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode) {
@@ -14754,6 +17750,7 @@ pub unsafe fn ucnv_setFromUCallBack(converter: *mut UConverter, newaction: UConv
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_setSubstChars<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(converter: *mut UConverter, subchars: Param1, len: i8, err: *mut UErrorCode) {
@@ -14768,6 +17765,7 @@ pub unsafe fn ucnv_setSubstChars<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_setSubstString(cnv: *mut UConverter, s: *const u16, length: i32, err: *mut UErrorCode) {
     #[cfg(windows)]
@@ -14781,6 +17779,7 @@ pub unsafe fn ucnv_setSubstString(cnv: *mut UConverter, s: *const u16, length: i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_setToUCallBack(converter: *mut UConverter, newaction: UConverterToUCallback, newcontext: *const ::core::ffi::c_void, oldaction: *mut UConverterToUCallback, oldcontext: *const *const ::core::ffi::c_void, err: *mut UErrorCode) {
@@ -14795,6 +17794,7 @@ pub unsafe fn ucnv_setToUCallBack(converter: *mut UConverter, newaction: UConver
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_toAlgorithmic<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(algorithmictype: UConverterType, cnv: *mut UConverter, target: Param2, targetcapacity: i32, source: Param4, sourcelength: i32, perrorcode: *mut UErrorCode) -> i32 {
@@ -14809,6 +17809,7 @@ pub unsafe fn ucnv_toAlgorithmic<'a, Param2: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_toUChars<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(cnv: *mut UConverter, dest: *mut u16, destcapacity: i32, src: Param3, srclength: i32, perrorcode: *mut UErrorCode) -> i32 {
@@ -14823,6 +17824,7 @@ pub unsafe fn ucnv_toUChars<'a, Param3: ::windows::core::IntoParam<'a, super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_toUCountPending(cnv: *const UConverter, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -14836,6 +17838,7 @@ pub unsafe fn ucnv_toUCountPending(cnv: *const UConverter, status: *mut UErrorCo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnv_toUnicode<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(converter: *mut UConverter, target: *mut *mut u16, targetlimit: *const u16, source: *const *const i8, sourcelimit: Param4, offsets: *mut i32, flush: i8, err: *mut UErrorCode) {
@@ -14850,6 +17853,7 @@ pub unsafe fn ucnv_toUnicode<'a, Param4: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnv_usesFallback(cnv: *const UConverter) -> i8 {
     #[cfg(windows)]
@@ -14863,6 +17867,7 @@ pub unsafe fn ucnv_usesFallback(cnv: *const UConverter) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnvsel_close(sel: *mut UConverterSelector) {
     #[cfg(windows)]
@@ -14876,6 +17881,7 @@ pub unsafe fn ucnvsel_close(sel: *mut UConverterSelector) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnvsel_open(converterlist: *const *const i8, converterlistsize: i32, excludedcodepoints: *const USet, whichset: UConverterUnicodeSet, status: *mut UErrorCode) -> *mut UConverterSelector {
     #[cfg(windows)]
@@ -14889,6 +17895,7 @@ pub unsafe fn ucnvsel_open(converterlist: *const *const i8, converterlistsize: i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnvsel_openFromSerialized(buffer: *const ::core::ffi::c_void, length: i32, status: *mut UErrorCode) -> *mut UConverterSelector {
     #[cfg(windows)]
@@ -14902,6 +17909,7 @@ pub unsafe fn ucnvsel_openFromSerialized(buffer: *const ::core::ffi::c_void, len
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnvsel_selectForString(sel: *const UConverterSelector, s: *const u16, length: i32, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
@@ -14915,6 +17923,7 @@ pub unsafe fn ucnvsel_selectForString(sel: *const UConverterSelector, s: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucnvsel_selectForUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(sel: *const UConverterSelector, s: Param1, length: i32, status: *mut UErrorCode) -> *mut UEnumeration {
@@ -14929,6 +17938,7 @@ pub unsafe fn ucnvsel_selectForUTF8<'a, Param1: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucnvsel_serialize(sel: *const UConverterSelector, buffer: *mut ::core::ffi::c_void, buffercapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -14942,6 +17952,7 @@ pub unsafe fn ucnvsel_serialize(sel: *const UConverterSelector, buffer: *mut ::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_cloneBinary(coll: *const UCollator, buffer: *mut u8, capacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -14955,6 +17966,7 @@ pub unsafe fn ucol_cloneBinary(coll: *const UCollator, buffer: *mut u8, capacity
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_close(coll: *mut UCollator) {
     #[cfg(windows)]
@@ -14968,6 +17980,7 @@ pub unsafe fn ucol_close(coll: *mut UCollator) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_closeElements(elems: *mut UCollationElements) {
     #[cfg(windows)]
@@ -14981,6 +17994,7 @@ pub unsafe fn ucol_closeElements(elems: *mut UCollationElements) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_countAvailable() -> i32 {
     #[cfg(windows)]
@@ -14994,6 +18008,7 @@ pub unsafe fn ucol_countAvailable() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_equal(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8 {
     #[cfg(windows)]
@@ -15007,6 +18022,7 @@ pub unsafe fn ucol_equal(coll: *const UCollator, source: *const u16, sourcelengt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_getAttribute(coll: *const UCollator, attr: UColAttribute, status: *mut UErrorCode) -> UColAttributeValue {
     #[cfg(windows)]
@@ -15020,6 +18036,7 @@ pub unsafe fn ucol_getAttribute(coll: *const UCollator, attr: UColAttribute, sta
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucol_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
@@ -15034,6 +18051,7 @@ pub unsafe fn ucol_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_getBound(source: *const u8, sourcelength: i32, boundtype: UColBoundMode, nooflevels: u32, result: *mut u8, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -15047,6 +18065,7 @@ pub unsafe fn ucol_getBound(source: *const u8, sourcelength: i32, boundtype: UCo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_getContractionsAndExpansions(coll: *const UCollator, contractions: *mut USet, expansions: *mut USet, addprefixes: i8, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -15060,6 +18079,7 @@ pub unsafe fn ucol_getContractionsAndExpansions(coll: *const UCollator, contract
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucol_getDisplayName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(objloc: Param0, disploc: Param1, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
@@ -15074,6 +18094,7 @@ pub unsafe fn ucol_getDisplayName<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_getEquivalentReorderCodes(reordercode: i32, dest: *mut i32, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -15087,6 +18108,7 @@ pub unsafe fn ucol_getEquivalentReorderCodes(reordercode: i32, dest: *mut i32, d
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucol_getFunctionalEquivalent<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(result: Param0, resultcapacity: i32, keyword: Param2, locale: Param3, isavailable: *mut i8, status: *mut UErrorCode) -> i32 {
@@ -15101,6 +18123,7 @@ pub unsafe fn ucol_getFunctionalEquivalent<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucol_getKeywordValues<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(keyword: Param0, status: *mut UErrorCode) -> *mut UEnumeration {
@@ -15115,6 +18138,7 @@ pub unsafe fn ucol_getKeywordValues<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucol_getKeywordValuesForLocale<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(key: Param0, locale: Param1, commonlyused: i8, status: *mut UErrorCode) -> *mut UEnumeration {
@@ -15129,6 +18153,7 @@ pub unsafe fn ucol_getKeywordValuesForLocale<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_getKeywords(status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
@@ -15142,6 +18167,7 @@ pub unsafe fn ucol_getKeywords(status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucol_getLocaleByType(coll: *const UCollator, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -15156,6 +18182,7 @@ pub unsafe fn ucol_getLocaleByType(coll: *const UCollator, r#type: ULocDataLocal
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_getMaxExpansion(elems: *const UCollationElements, order: i32) -> i32 {
     #[cfg(windows)]
@@ -15169,6 +18196,7 @@ pub unsafe fn ucol_getMaxExpansion(elems: *const UCollationElements, order: i32)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_getMaxVariable(coll: *const UCollator) -> UColReorderCode {
     #[cfg(windows)]
@@ -15182,6 +18210,7 @@ pub unsafe fn ucol_getMaxVariable(coll: *const UCollator) -> UColReorderCode {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_getOffset(elems: *const UCollationElements) -> i32 {
     #[cfg(windows)]
@@ -15195,6 +18224,7 @@ pub unsafe fn ucol_getOffset(elems: *const UCollationElements) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_getReorderCodes(coll: *const UCollator, dest: *mut i32, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -15208,6 +18238,7 @@ pub unsafe fn ucol_getReorderCodes(coll: *const UCollator, dest: *mut i32, destc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_getRules(coll: *const UCollator, length: *mut i32) -> *mut u16 {
     #[cfg(windows)]
@@ -15221,6 +18252,7 @@ pub unsafe fn ucol_getRules(coll: *const UCollator, length: *mut i32) -> *mut u1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_getRulesEx(coll: *const UCollator, delta: UColRuleOption, buffer: *mut u16, bufferlen: i32) -> i32 {
     #[cfg(windows)]
@@ -15234,6 +18266,7 @@ pub unsafe fn ucol_getRulesEx(coll: *const UCollator, delta: UColRuleOption, buf
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_getSortKey(coll: *const UCollator, source: *const u16, sourcelength: i32, result: *mut u8, resultlength: i32) -> i32 {
     #[cfg(windows)]
@@ -15247,6 +18280,7 @@ pub unsafe fn ucol_getSortKey(coll: *const UCollator, source: *const u16, source
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_getStrength(coll: *const UCollator) -> UColAttributeValue {
     #[cfg(windows)]
@@ -15260,6 +18294,7 @@ pub unsafe fn ucol_getStrength(coll: *const UCollator) -> UColAttributeValue {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_getTailoredSet(coll: *const UCollator, status: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
@@ -15273,6 +18308,7 @@ pub unsafe fn ucol_getTailoredSet(coll: *const UCollator, status: *mut UErrorCod
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_getUCAVersion(coll: *const UCollator, info: *mut u8) {
     #[cfg(windows)]
@@ -15286,6 +18322,7 @@ pub unsafe fn ucol_getUCAVersion(coll: *const UCollator, info: *mut u8) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_getVariableTop(coll: *const UCollator, status: *mut UErrorCode) -> u32 {
     #[cfg(windows)]
@@ -15299,6 +18336,7 @@ pub unsafe fn ucol_getVariableTop(coll: *const UCollator, status: *mut UErrorCod
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_getVersion(coll: *const UCollator, info: *mut u8) {
     #[cfg(windows)]
@@ -15312,6 +18350,7 @@ pub unsafe fn ucol_getVersion(coll: *const UCollator, info: *mut u8) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_greater(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8 {
     #[cfg(windows)]
@@ -15325,6 +18364,7 @@ pub unsafe fn ucol_greater(coll: *const UCollator, source: *const u16, sourcelen
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_greaterOrEqual(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> i8 {
     #[cfg(windows)]
@@ -15338,6 +18378,7 @@ pub unsafe fn ucol_greaterOrEqual(coll: *const UCollator, source: *const u16, so
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_keyHashCode(key: *const u8, length: i32) -> i32 {
     #[cfg(windows)]
@@ -15351,6 +18392,7 @@ pub unsafe fn ucol_keyHashCode(key: *const u8, length: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_mergeSortkeys(src1: *const u8, src1length: i32, src2: *const u8, src2length: i32, dest: *mut u8, destcapacity: i32) -> i32 {
     #[cfg(windows)]
@@ -15364,6 +18406,7 @@ pub unsafe fn ucol_mergeSortkeys(src1: *const u8, src1length: i32, src2: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_next(elems: *mut UCollationElements, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -15377,6 +18420,7 @@ pub unsafe fn ucol_next(elems: *mut UCollationElements, status: *mut UErrorCode)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_nextSortKeyPart(coll: *const UCollator, iter: *mut UCharIterator, state: *mut u32, dest: *mut u8, count: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -15390,6 +18434,7 @@ pub unsafe fn ucol_nextSortKeyPart(coll: *const UCollator, iter: *mut UCharItera
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucol_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(loc: Param0, status: *mut UErrorCode) -> *mut UCollator {
@@ -15404,6 +18449,7 @@ pub unsafe fn ucol_open<'a, Param0: ::windows::core::IntoParam<'a, super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_openAvailableLocales(status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
@@ -15417,6 +18463,7 @@ pub unsafe fn ucol_openAvailableLocales(status: *mut UErrorCode) -> *mut UEnumer
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_openBinary(bin: *const u8, length: i32, base: *const UCollator, status: *mut UErrorCode) -> *mut UCollator {
     #[cfg(windows)]
@@ -15430,6 +18477,7 @@ pub unsafe fn ucol_openBinary(bin: *const u8, length: i32, base: *const UCollato
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_openElements(coll: *const UCollator, text: *const u16, textlength: i32, status: *mut UErrorCode) -> *mut UCollationElements {
     #[cfg(windows)]
@@ -15443,6 +18491,7 @@ pub unsafe fn ucol_openElements(coll: *const UCollator, text: *const u16, textle
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_openRules(rules: *const u16, ruleslength: i32, normalizationmode: UColAttributeValue, strength: UColAttributeValue, parseerror: *mut UParseError, status: *mut UErrorCode) -> *mut UCollator {
     #[cfg(windows)]
@@ -15456,6 +18505,7 @@ pub unsafe fn ucol_openRules(rules: *const u16, ruleslength: i32, normalizationm
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_previous(elems: *mut UCollationElements, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -15469,6 +18519,7 @@ pub unsafe fn ucol_previous(elems: *mut UCollationElements, status: *mut UErrorC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_primaryOrder(order: i32) -> i32 {
     #[cfg(windows)]
@@ -15482,6 +18533,7 @@ pub unsafe fn ucol_primaryOrder(order: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_reset(elems: *mut UCollationElements) {
     #[cfg(windows)]
@@ -15495,6 +18547,7 @@ pub unsafe fn ucol_reset(elems: *mut UCollationElements) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_safeClone(coll: *const UCollator, stackbuffer: *mut ::core::ffi::c_void, pbuffersize: *mut i32, status: *mut UErrorCode) -> *mut UCollator {
     #[cfg(windows)]
@@ -15508,6 +18561,7 @@ pub unsafe fn ucol_safeClone(coll: *const UCollator, stackbuffer: *mut ::core::f
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_secondaryOrder(order: i32) -> i32 {
     #[cfg(windows)]
@@ -15521,6 +18575,7 @@ pub unsafe fn ucol_secondaryOrder(order: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_setAttribute(coll: *mut UCollator, attr: UColAttribute, value: UColAttributeValue, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -15534,6 +18589,7 @@ pub unsafe fn ucol_setAttribute(coll: *mut UCollator, attr: UColAttribute, value
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_setMaxVariable(coll: *mut UCollator, group: UColReorderCode, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
@@ -15547,6 +18603,7 @@ pub unsafe fn ucol_setMaxVariable(coll: *mut UCollator, group: UColReorderCode, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_setOffset(elems: *mut UCollationElements, offset: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -15560,6 +18617,7 @@ pub unsafe fn ucol_setOffset(elems: *mut UCollationElements, offset: i32, status
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_setReorderCodes(coll: *mut UCollator, reordercodes: *const i32, reordercodeslength: i32, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
@@ -15573,6 +18631,7 @@ pub unsafe fn ucol_setReorderCodes(coll: *mut UCollator, reordercodes: *const i3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_setStrength(coll: *mut UCollator, strength: UColAttributeValue) {
     #[cfg(windows)]
@@ -15586,6 +18645,7 @@ pub unsafe fn ucol_setStrength(coll: *mut UCollator, strength: UColAttributeValu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_setText(elems: *mut UCollationElements, text: *const u16, textlength: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -15599,6 +18659,7 @@ pub unsafe fn ucol_setText(elems: *mut UCollationElements, text: *const u16, tex
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_strcoll(coll: *const UCollator, source: *const u16, sourcelength: i32, target: *const u16, targetlength: i32) -> UCollationResult {
     #[cfg(windows)]
@@ -15612,6 +18673,7 @@ pub unsafe fn ucol_strcoll(coll: *const UCollator, source: *const u16, sourcelen
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_strcollIter(coll: *const UCollator, siter: *mut UCharIterator, titer: *mut UCharIterator, status: *mut UErrorCode) -> UCollationResult {
     #[cfg(windows)]
@@ -15625,6 +18687,7 @@ pub unsafe fn ucol_strcollIter(coll: *const UCollator, siter: *mut UCharIterator
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucol_strcollUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(coll: *const UCollator, source: Param1, sourcelength: i32, target: Param3, targetlength: i32, status: *mut UErrorCode) -> UCollationResult {
@@ -15639,6 +18702,7 @@ pub unsafe fn ucol_strcollUTF8<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucol_tertiaryOrder(order: i32) -> i32 {
     #[cfg(windows)]
@@ -15652,6 +18716,7 @@ pub unsafe fn ucol_tertiaryOrder(order: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucpmap_get(map: *const UCPMap, c: i32) -> u32 {
     #[cfg(windows)]
@@ -15665,6 +18730,7 @@ pub unsafe fn ucpmap_get(map: *const UCPMap, c: i32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucpmap_getRange(map: *const UCPMap, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut UCPMapValueFilter, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -15678,6 +18744,7 @@ pub unsafe fn ucpmap_getRange(map: *const UCPMap, start: i32, option: UCPMapRang
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucptrie_close(trie: *mut UCPTrie) {
     #[cfg(windows)]
@@ -15691,6 +18758,7 @@ pub unsafe fn ucptrie_close(trie: *mut UCPTrie) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucptrie_get(trie: *const UCPTrie, c: i32) -> u32 {
     #[cfg(windows)]
@@ -15704,6 +18772,7 @@ pub unsafe fn ucptrie_get(trie: *const UCPTrie, c: i32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucptrie_getRange(trie: *const UCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut UCPMapValueFilter, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -15717,6 +18786,7 @@ pub unsafe fn ucptrie_getRange(trie: *const UCPTrie, start: i32, option: UCPMapR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucptrie_getType(trie: *const UCPTrie) -> UCPTrieType {
     #[cfg(windows)]
@@ -15730,6 +18800,7 @@ pub unsafe fn ucptrie_getType(trie: *const UCPTrie) -> UCPTrieType {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucptrie_getValueWidth(trie: *const UCPTrie) -> UCPTrieValueWidth {
     #[cfg(windows)]
@@ -15743,6 +18814,7 @@ pub unsafe fn ucptrie_getValueWidth(trie: *const UCPTrie) -> UCPTrieValueWidth {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucptrie_internalSmallIndex(trie: *const UCPTrie, c: i32) -> i32 {
     #[cfg(windows)]
@@ -15756,6 +18828,7 @@ pub unsafe fn ucptrie_internalSmallIndex(trie: *const UCPTrie, c: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucptrie_internalSmallU8Index(trie: *const UCPTrie, lt1: i32, t2: u8, t3: u8) -> i32 {
     #[cfg(windows)]
@@ -15769,6 +18842,7 @@ pub unsafe fn ucptrie_internalSmallU8Index(trie: *const UCPTrie, lt1: i32, t2: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucptrie_internalU8PrevIndex(trie: *const UCPTrie, c: i32, start: *const u8, src: *const u8) -> i32 {
     #[cfg(windows)]
@@ -15782,6 +18856,7 @@ pub unsafe fn ucptrie_internalU8PrevIndex(trie: *const UCPTrie, c: i32, start: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucptrie_openFromBinary(r#type: UCPTrieType, valuewidth: UCPTrieValueWidth, data: *const ::core::ffi::c_void, length: i32, pactuallength: *mut i32, perrorcode: *mut UErrorCode) -> *mut UCPTrie {
     #[cfg(windows)]
@@ -15795,6 +18870,7 @@ pub unsafe fn ucptrie_openFromBinary(r#type: UCPTrieType, valuewidth: UCPTrieVal
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucptrie_toBinary(trie: *const UCPTrie, data: *mut ::core::ffi::c_void, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -15808,6 +18884,7 @@ pub unsafe fn ucptrie_toBinary(trie: *const UCPTrie, data: *mut ::core::ffi::c_v
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucsdet_close(ucsd: *mut UCharsetDetector) {
     #[cfg(windows)]
@@ -15821,6 +18898,7 @@ pub unsafe fn ucsdet_close(ucsd: *mut UCharsetDetector) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucsdet_detect(ucsd: *mut UCharsetDetector, status: *mut UErrorCode) -> *mut UCharsetMatch {
     #[cfg(windows)]
@@ -15834,6 +18912,7 @@ pub unsafe fn ucsdet_detect(ucsd: *mut UCharsetDetector, status: *mut UErrorCode
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucsdet_detectAll(ucsd: *mut UCharsetDetector, matchesfound: *mut i32, status: *mut UErrorCode) -> *mut *mut UCharsetMatch {
     #[cfg(windows)]
@@ -15847,6 +18926,7 @@ pub unsafe fn ucsdet_detectAll(ucsd: *mut UCharsetDetector, matchesfound: *mut i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucsdet_enableInputFilter(ucsd: *mut UCharsetDetector, filter: i8) -> i8 {
     #[cfg(windows)]
@@ -15860,6 +18940,7 @@ pub unsafe fn ucsdet_enableInputFilter(ucsd: *mut UCharsetDetector, filter: i8) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucsdet_getAllDetectableCharsets(ucsd: *const UCharsetDetector, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
@@ -15873,6 +18954,7 @@ pub unsafe fn ucsdet_getAllDetectableCharsets(ucsd: *const UCharsetDetector, sta
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucsdet_getConfidence(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -15886,6 +18968,7 @@ pub unsafe fn ucsdet_getConfidence(ucsm: *const UCharsetMatch, status: *mut UErr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucsdet_getLanguage(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -15900,6 +18983,7 @@ pub unsafe fn ucsdet_getLanguage(ucsm: *const UCharsetMatch, status: *mut UError
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucsdet_getName(ucsm: *const UCharsetMatch, status: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -15914,6 +18998,7 @@ pub unsafe fn ucsdet_getName(ucsm: *const UCharsetMatch, status: *mut UErrorCode
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucsdet_getUChars(ucsm: *const UCharsetMatch, buf: *mut u16, cap: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -15927,6 +19012,7 @@ pub unsafe fn ucsdet_getUChars(ucsm: *const UCharsetMatch, buf: *mut u16, cap: i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucsdet_isInputFilterEnabled(ucsd: *const UCharsetDetector) -> i8 {
     #[cfg(windows)]
@@ -15940,6 +19026,7 @@ pub unsafe fn ucsdet_isInputFilterEnabled(ucsd: *const UCharsetDetector) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucsdet_open(status: *mut UErrorCode) -> *mut UCharsetDetector {
     #[cfg(windows)]
@@ -15953,6 +19040,7 @@ pub unsafe fn ucsdet_open(status: *mut UErrorCode) -> *mut UCharsetDetector {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucsdet_setDeclaredEncoding<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ucsd: *mut UCharsetDetector, encoding: Param1, length: i32, status: *mut UErrorCode) {
@@ -15967,6 +19055,7 @@ pub unsafe fn ucsdet_setDeclaredEncoding<'a, Param1: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucsdet_setText<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ucsd: *mut UCharsetDetector, textin: Param1, len: i32, status: *mut UErrorCode) {
@@ -15981,6 +19070,7 @@ pub unsafe fn ucsdet_setText<'a, Param1: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucurr_countCurrencies<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, date: f64, ec: *mut UErrorCode) -> i32 {
@@ -15995,6 +19085,7 @@ pub unsafe fn ucurr_countCurrencies<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucurr_forLocale<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, buff: *mut u16, buffcapacity: i32, ec: *mut UErrorCode) -> i32 {
@@ -16009,6 +19100,7 @@ pub unsafe fn ucurr_forLocale<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucurr_forLocaleAndDate<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, date: f64, index: i32, buff: *mut u16, buffcapacity: i32, ec: *mut UErrorCode) -> i32 {
@@ -16023,6 +19115,7 @@ pub unsafe fn ucurr_forLocaleAndDate<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucurr_getDefaultFractionDigits(currency: *const u16, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -16036,6 +19129,7 @@ pub unsafe fn ucurr_getDefaultFractionDigits(currency: *const u16, ec: *mut UErr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucurr_getDefaultFractionDigitsForUsage(currency: *const u16, usage: UCurrencyUsage, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -16049,6 +19143,7 @@ pub unsafe fn ucurr_getDefaultFractionDigitsForUsage(currency: *const u16, usage
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucurr_getKeywordValuesForLocale<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(key: Param0, locale: Param1, commonlyused: i8, status: *mut UErrorCode) -> *mut UEnumeration {
@@ -16063,6 +19158,7 @@ pub unsafe fn ucurr_getKeywordValuesForLocale<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucurr_getName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(currency: *const u16, locale: Param1, namestyle: UCurrNameStyle, ischoiceformat: *mut i8, len: *mut i32, ec: *mut UErrorCode) -> *mut u16 {
@@ -16077,6 +19173,7 @@ pub unsafe fn ucurr_getName<'a, Param1: ::windows::core::IntoParam<'a, super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucurr_getNumericCode(currency: *const u16) -> i32 {
     #[cfg(windows)]
@@ -16090,6 +19187,7 @@ pub unsafe fn ucurr_getNumericCode(currency: *const u16) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucurr_getPluralName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(currency: *const u16, locale: Param1, ischoiceformat: *mut i8, pluralcount: Param3, len: *mut i32, ec: *mut UErrorCode) -> *mut u16 {
@@ -16104,6 +19202,7 @@ pub unsafe fn ucurr_getPluralName<'a, Param1: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucurr_getRoundingIncrement(currency: *const u16, ec: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
@@ -16117,6 +19216,7 @@ pub unsafe fn ucurr_getRoundingIncrement(currency: *const u16, ec: *mut UErrorCo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucurr_getRoundingIncrementForUsage(currency: *const u16, usage: UCurrencyUsage, ec: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
@@ -16130,6 +19230,7 @@ pub unsafe fn ucurr_getRoundingIncrementForUsage(currency: *const u16, usage: UC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucurr_isAvailable(isocode: *const u16, from: f64, to: f64, errorcode: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -16143,6 +19244,7 @@ pub unsafe fn ucurr_isAvailable(isocode: *const u16, from: f64, to: f64, errorco
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucurr_openISOCurrencies(currtype: u32, perrorcode: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
@@ -16156,6 +19258,7 @@ pub unsafe fn ucurr_openISOCurrencies(currtype: u32, perrorcode: *mut UErrorCode
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ucurr_register<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(isocode: *const u16, locale: Param1, status: *mut UErrorCode) -> *mut ::core::ffi::c_void {
@@ -16170,6 +19273,7 @@ pub unsafe fn ucurr_register<'a, Param1: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ucurr_unregister(key: *mut ::core::ffi::c_void, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -16183,6 +19287,7 @@ pub unsafe fn ucurr_unregister(key: *mut ::core::ffi::c_void, status: *mut UErro
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_adoptNumberFormat(fmt: *mut *mut ::core::ffi::c_void, numberformattoadopt: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -16196,6 +19301,7 @@ pub unsafe fn udat_adoptNumberFormat(fmt: *mut *mut ::core::ffi::c_void, numberf
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_adoptNumberFormatForFields(fmt: *mut *mut ::core::ffi::c_void, fields: *const u16, numberformattoset: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -16209,6 +19315,7 @@ pub unsafe fn udat_adoptNumberFormatForFields(fmt: *mut *mut ::core::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_applyPattern(format: *mut *mut ::core::ffi::c_void, localized: i8, pattern: *const u16, patternlength: i32) {
     #[cfg(windows)]
@@ -16222,6 +19329,7 @@ pub unsafe fn udat_applyPattern(format: *mut *mut ::core::ffi::c_void, localized
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -16235,6 +19343,7 @@ pub unsafe fn udat_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_close(format: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -16248,6 +19357,7 @@ pub unsafe fn udat_close(format: *mut *mut ::core::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_countAvailable() -> i32 {
     #[cfg(windows)]
@@ -16261,6 +19371,7 @@ pub unsafe fn udat_countAvailable() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_countSymbols(fmt: *const *const ::core::ffi::c_void, r#type: UDateFormatSymbolType) -> i32 {
     #[cfg(windows)]
@@ -16274,6 +19385,7 @@ pub unsafe fn udat_countSymbols(fmt: *const *const ::core::ffi::c_void, r#type: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_format(format: *const *const ::core::ffi::c_void, datetoformat: f64, result: *mut u16, resultlength: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -16287,6 +19399,7 @@ pub unsafe fn udat_format(format: *const *const ::core::ffi::c_void, datetoforma
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_formatCalendar(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, result: *mut u16, capacity: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -16300,6 +19413,7 @@ pub unsafe fn udat_formatCalendar(format: *const *const ::core::ffi::c_void, cal
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_formatCalendarForFields(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, result: *mut u16, capacity: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -16313,6 +19427,7 @@ pub unsafe fn udat_formatCalendarForFields(format: *const *const ::core::ffi::c_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_formatForFields(format: *const *const ::core::ffi::c_void, datetoformat: f64, result: *mut u16, resultlength: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -16326,6 +19441,7 @@ pub unsafe fn udat_formatForFields(format: *const *const ::core::ffi::c_void, da
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_get2DigitYearStart(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
@@ -16339,6 +19455,7 @@ pub unsafe fn udat_get2DigitYearStart(fmt: *const *const ::core::ffi::c_void, st
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn udat_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
@@ -16353,6 +19470,7 @@ pub unsafe fn udat_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_getBooleanAttribute(fmt: *const *const ::core::ffi::c_void, attr: UDateFormatBooleanAttribute, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -16366,6 +19484,7 @@ pub unsafe fn udat_getBooleanAttribute(fmt: *const *const ::core::ffi::c_void, a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_getCalendar(fmt: *const *const ::core::ffi::c_void) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -16379,6 +19498,7 @@ pub unsafe fn udat_getCalendar(fmt: *const *const ::core::ffi::c_void) -> *mut *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UDisplayContextType, status: *mut UErrorCode) -> UDisplayContext {
     #[cfg(windows)]
@@ -16392,6 +19512,7 @@ pub unsafe fn udat_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn udat_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -16406,6 +19527,7 @@ pub unsafe fn udat_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#typ
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_getNumberFormat(fmt: *const *const ::core::ffi::c_void) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -16419,6 +19541,7 @@ pub unsafe fn udat_getNumberFormat(fmt: *const *const ::core::ffi::c_void) -> *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_getNumberFormatForField(fmt: *const *const ::core::ffi::c_void, field: u16) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -16432,6 +19555,7 @@ pub unsafe fn udat_getNumberFormatForField(fmt: *const *const ::core::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_getSymbols(fmt: *const *const ::core::ffi::c_void, r#type: UDateFormatSymbolType, symbolindex: i32, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -16445,6 +19569,7 @@ pub unsafe fn udat_getSymbols(fmt: *const *const ::core::ffi::c_void, r#type: UD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_isLenient(fmt: *const *const ::core::ffi::c_void) -> i8 {
     #[cfg(windows)]
@@ -16458,6 +19583,7 @@ pub unsafe fn udat_isLenient(fmt: *const *const ::core::ffi::c_void) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn udat_open<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(timestyle: UDateFormatStyle, datestyle: UDateFormatStyle, locale: Param2, tzid: *const u16, tzidlength: i32, pattern: *const u16, patternlength: i32, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
@@ -16472,6 +19598,7 @@ pub unsafe fn udat_open<'a, Param2: ::windows::core::IntoParam<'a, super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_parse(format: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
@@ -16485,6 +19612,7 @@ pub unsafe fn udat_parse(format: *const *const ::core::ffi::c_void, text: *const
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_parseCalendar(format: *const *const ::core::ffi::c_void, calendar: *mut *mut ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -16498,6 +19626,7 @@ pub unsafe fn udat_parseCalendar(format: *const *const ::core::ffi::c_void, cale
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_set2DigitYearStart(fmt: *mut *mut ::core::ffi::c_void, d: f64, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -16511,6 +19640,7 @@ pub unsafe fn udat_set2DigitYearStart(fmt: *mut *mut ::core::ffi::c_void, d: f64
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_setBooleanAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: UDateFormatBooleanAttribute, newvalue: i8, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -16524,6 +19654,7 @@ pub unsafe fn udat_setBooleanAttribute(fmt: *mut *mut ::core::ffi::c_void, attr:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_setCalendar(fmt: *mut *mut ::core::ffi::c_void, calendartoset: *const *const ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -16537,6 +19668,7 @@ pub unsafe fn udat_setCalendar(fmt: *mut *mut ::core::ffi::c_void, calendartoset
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDisplayContext, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -16550,6 +19682,7 @@ pub unsafe fn udat_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDispla
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_setLenient(fmt: *mut *mut ::core::ffi::c_void, islenient: i8) {
     #[cfg(windows)]
@@ -16563,6 +19696,7 @@ pub unsafe fn udat_setLenient(fmt: *mut *mut ::core::ffi::c_void, islenient: i8)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_setNumberFormat(fmt: *mut *mut ::core::ffi::c_void, numberformattoset: *const *const ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -16576,6 +19710,7 @@ pub unsafe fn udat_setNumberFormat(fmt: *mut *mut ::core::ffi::c_void, numberfor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_setSymbols(format: *mut *mut ::core::ffi::c_void, r#type: UDateFormatSymbolType, symbolindex: i32, value: *mut u16, valuelength: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -16589,6 +19724,7 @@ pub unsafe fn udat_setSymbols(format: *mut *mut ::core::ffi::c_void, r#type: UDa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_toCalendarDateField(field: UDateFormatField) -> UCalendarDateFields {
     #[cfg(windows)]
@@ -16602,6 +19738,7 @@ pub unsafe fn udat_toCalendarDateField(field: UDateFormatField) -> UCalendarDate
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udat_toPattern(fmt: *const *const ::core::ffi::c_void, localized: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -16615,6 +19752,7 @@ pub unsafe fn udat_toPattern(fmt: *const *const ::core::ffi::c_void, localized: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_addPattern(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, r#override: i8, conflictingpattern: *mut u16, capacity: i32, plength: *mut i32, perrorcode: *mut UErrorCode) -> UDateTimePatternConflict {
     #[cfg(windows)]
@@ -16628,6 +19766,7 @@ pub unsafe fn udatpg_addPattern(dtpg: *mut *mut ::core::ffi::c_void, pattern: *c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_clone(dtpg: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -16641,6 +19780,7 @@ pub unsafe fn udatpg_clone(dtpg: *const *const ::core::ffi::c_void, perrorcode: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_close(dtpg: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -16654,6 +19794,7 @@ pub unsafe fn udatpg_close(dtpg: *mut *mut ::core::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_getAppendItemFormat(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, plength: *mut i32) -> *mut u16 {
     #[cfg(windows)]
@@ -16667,6 +19808,7 @@ pub unsafe fn udatpg_getAppendItemFormat(dtpg: *const *const ::core::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_getAppendItemName(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, plength: *mut i32) -> *mut u16 {
     #[cfg(windows)]
@@ -16680,6 +19822,7 @@ pub unsafe fn udatpg_getAppendItemName(dtpg: *const *const ::core::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_getBaseSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, length: i32, baseskeleton: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -16693,6 +19836,7 @@ pub unsafe fn udatpg_getBaseSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_getBestPattern(dtpg: *mut *mut ::core::ffi::c_void, skeleton: *const u16, length: i32, bestpattern: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -16706,6 +19850,7 @@ pub unsafe fn udatpg_getBestPattern(dtpg: *mut *mut ::core::ffi::c_void, skeleto
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_getBestPatternWithOptions(dtpg: *mut *mut ::core::ffi::c_void, skeleton: *const u16, length: i32, options: UDateTimePatternMatchOptions, bestpattern: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -16719,6 +19864,7 @@ pub unsafe fn udatpg_getBestPatternWithOptions(dtpg: *mut *mut ::core::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_getDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, plength: *mut i32) -> *mut u16 {
     #[cfg(windows)]
@@ -16732,6 +19878,7 @@ pub unsafe fn udatpg_getDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_getDecimal(dtpg: *const *const ::core::ffi::c_void, plength: *mut i32) -> *mut u16 {
     #[cfg(windows)]
@@ -16745,6 +19892,7 @@ pub unsafe fn udatpg_getDecimal(dtpg: *const *const ::core::ffi::c_void, plength
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_getFieldDisplayName(dtpg: *const *const ::core::ffi::c_void, field: UDateTimePatternField, width: UDateTimePGDisplayWidth, fieldname: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -16758,6 +19906,7 @@ pub unsafe fn udatpg_getFieldDisplayName(dtpg: *const *const ::core::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_getPatternForSkeleton(dtpg: *const *const ::core::ffi::c_void, skeleton: *const u16, skeletonlength: i32, plength: *mut i32) -> *mut u16 {
     #[cfg(windows)]
@@ -16771,6 +19920,7 @@ pub unsafe fn udatpg_getPatternForSkeleton(dtpg: *const *const ::core::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_getSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, length: i32, skeleton: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -16784,6 +19934,7 @@ pub unsafe fn udatpg_getSkeleton(unuseddtpg: *mut *mut ::core::ffi::c_void, patt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn udatpg_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
@@ -16798,6 +19949,7 @@ pub unsafe fn udatpg_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_openBaseSkeletons(dtpg: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
@@ -16811,6 +19963,7 @@ pub unsafe fn udatpg_openBaseSkeletons(dtpg: *const *const ::core::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_openEmpty(perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -16824,6 +19977,7 @@ pub unsafe fn udatpg_openEmpty(perrorcode: *mut UErrorCode) -> *mut *mut ::core:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_openSkeletons(dtpg: *const *const ::core::ffi::c_void, perrorcode: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
@@ -16837,6 +19991,7 @@ pub unsafe fn udatpg_openSkeletons(dtpg: *const *const ::core::ffi::c_void, perr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_replaceFieldTypes(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, skeleton: *const u16, skeletonlength: i32, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -16850,6 +20005,7 @@ pub unsafe fn udatpg_replaceFieldTypes(dtpg: *mut *mut ::core::ffi::c_void, patt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_replaceFieldTypesWithOptions(dtpg: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, skeleton: *const u16, skeletonlength: i32, options: UDateTimePatternMatchOptions, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -16863,6 +20019,7 @@ pub unsafe fn udatpg_replaceFieldTypesWithOptions(dtpg: *mut *mut ::core::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_setAppendItemFormat(dtpg: *mut *mut ::core::ffi::c_void, field: UDateTimePatternField, value: *const u16, length: i32) {
     #[cfg(windows)]
@@ -16876,6 +20033,7 @@ pub unsafe fn udatpg_setAppendItemFormat(dtpg: *mut *mut ::core::ffi::c_void, fi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_setAppendItemName(dtpg: *mut *mut ::core::ffi::c_void, field: UDateTimePatternField, value: *const u16, length: i32) {
     #[cfg(windows)]
@@ -16889,6 +20047,7 @@ pub unsafe fn udatpg_setAppendItemName(dtpg: *mut *mut ::core::ffi::c_void, fiel
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_setDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, dtformat: *const u16, length: i32) {
     #[cfg(windows)]
@@ -16902,6 +20061,7 @@ pub unsafe fn udatpg_setDateTimeFormat(dtpg: *const *const ::core::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udatpg_setDecimal(dtpg: *mut *mut ::core::ffi::c_void, decimal: *const u16, length: i32) {
     #[cfg(windows)]
@@ -16915,6 +20075,7 @@ pub unsafe fn udatpg_setDecimal(dtpg: *mut *mut ::core::ffi::c_void, decimal: *c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udtitvfmt_close(formatter: *mut UDateIntervalFormat) {
     #[cfg(windows)]
@@ -16928,6 +20089,7 @@ pub unsafe fn udtitvfmt_close(formatter: *mut UDateIntervalFormat) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udtitvfmt_closeResult(uresult: *mut UFormattedDateInterval) {
     #[cfg(windows)]
@@ -16941,6 +20103,7 @@ pub unsafe fn udtitvfmt_closeResult(uresult: *mut UFormattedDateInterval) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udtitvfmt_format(formatter: *const UDateIntervalFormat, fromdate: f64, todate: f64, result: *mut u16, resultcapacity: i32, position: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -16954,6 +20117,7 @@ pub unsafe fn udtitvfmt_format(formatter: *const UDateIntervalFormat, fromdate: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn udtitvfmt_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, skeleton: *const u16, skeletonlength: i32, tzid: *const u16, tzidlength: i32, status: *mut UErrorCode) -> *mut UDateIntervalFormat {
@@ -16968,6 +20132,7 @@ pub unsafe fn udtitvfmt_open<'a, Param0: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udtitvfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedDateInterval {
     #[cfg(windows)]
@@ -16981,6 +20146,7 @@ pub unsafe fn udtitvfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedDateIn
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn udtitvfmt_resultAsValue(uresult: *const UFormattedDateInterval, ec: *mut UErrorCode) -> *mut UFormattedValue {
     #[cfg(windows)]
@@ -16994,6 +20160,7 @@ pub unsafe fn udtitvfmt_resultAsValue(uresult: *const UFormattedDateInterval, ec
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uenum_close(en: *mut UEnumeration) {
     #[cfg(windows)]
@@ -17007,6 +20174,7 @@ pub unsafe fn uenum_close(en: *mut UEnumeration) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uenum_count(en: *mut UEnumeration, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -17020,6 +20188,7 @@ pub unsafe fn uenum_count(en: *mut UEnumeration, status: *mut UErrorCode) -> i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uenum_next(en: *mut UEnumeration, resultlength: *mut i32, status: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -17034,6 +20203,7 @@ pub unsafe fn uenum_next(en: *mut UEnumeration, resultlength: *mut i32, status: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uenum_openCharStringsEnumeration(strings: *const *const i8, count: i32, ec: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
@@ -17047,6 +20217,7 @@ pub unsafe fn uenum_openCharStringsEnumeration(strings: *const *const i8, count:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uenum_openUCharStringsEnumeration(strings: *const *const u16, count: i32, ec: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
@@ -17060,6 +20231,7 @@ pub unsafe fn uenum_openUCharStringsEnumeration(strings: *const *const u16, coun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uenum_reset(en: *mut UEnumeration, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -17073,6 +20245,7 @@ pub unsafe fn uenum_reset(en: *mut UEnumeration, status: *mut UErrorCode) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uenum_unext(en: *mut UEnumeration, resultlength: *mut i32, status: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
@@ -17086,6 +20259,7 @@ pub unsafe fn uenum_unext(en: *mut UEnumeration, resultlength: *mut i32, status:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ufieldpositer_close(fpositer: *mut UFieldPositionIterator) {
     #[cfg(windows)]
@@ -17099,6 +20273,7 @@ pub unsafe fn ufieldpositer_close(fpositer: *mut UFieldPositionIterator) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ufieldpositer_next(fpositer: *mut UFieldPositionIterator, beginindex: *mut i32, endindex: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -17112,6 +20287,7 @@ pub unsafe fn ufieldpositer_next(fpositer: *mut UFieldPositionIterator, beginind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ufieldpositer_open(status: *mut UErrorCode) -> *mut UFieldPositionIterator {
     #[cfg(windows)]
@@ -17125,6 +20301,7 @@ pub unsafe fn ufieldpositer_open(status: *mut UErrorCode) -> *mut UFieldPosition
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ufmt_close(fmt: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -17138,6 +20315,7 @@ pub unsafe fn ufmt_close(fmt: *mut *mut ::core::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ufmt_getArrayItemByIndex(fmt: *mut *mut ::core::ffi::c_void, n: i32, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -17151,6 +20329,7 @@ pub unsafe fn ufmt_getArrayItemByIndex(fmt: *mut *mut ::core::ffi::c_void, n: i3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ufmt_getArrayLength(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -17164,6 +20343,7 @@ pub unsafe fn ufmt_getArrayLength(fmt: *const *const ::core::ffi::c_void, status
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ufmt_getDate(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
@@ -17177,6 +20357,7 @@ pub unsafe fn ufmt_getDate(fmt: *const *const ::core::ffi::c_void, status: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ufmt_getDecNumChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut i32, status: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -17191,6 +20372,7 @@ pub unsafe fn ufmt_getDecNumChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ufmt_getDouble(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
@@ -17204,6 +20386,7 @@ pub unsafe fn ufmt_getDouble(fmt: *mut *mut ::core::ffi::c_void, status: *mut UE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ufmt_getInt64(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
@@ -17217,6 +20400,7 @@ pub unsafe fn ufmt_getInt64(fmt: *mut *mut ::core::ffi::c_void, status: *mut UEr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ufmt_getLong(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -17230,6 +20414,7 @@ pub unsafe fn ufmt_getLong(fmt: *mut *mut ::core::ffi::c_void, status: *mut UErr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ufmt_getObject(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -17243,6 +20428,7 @@ pub unsafe fn ufmt_getObject(fmt: *const *const ::core::ffi::c_void, status: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ufmt_getType(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> UFormattableType {
     #[cfg(windows)]
@@ -17256,6 +20442,7 @@ pub unsafe fn ufmt_getType(fmt: *const *const ::core::ffi::c_void, status: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ufmt_getUChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut i32, status: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
@@ -17269,6 +20456,7 @@ pub unsafe fn ufmt_getUChars(fmt: *mut *mut ::core::ffi::c_void, len: *mut i32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ufmt_isNumeric(fmt: *const *const ::core::ffi::c_void) -> i8 {
     #[cfg(windows)]
@@ -17282,6 +20470,7 @@ pub unsafe fn ufmt_isNumeric(fmt: *const *const ::core::ffi::c_void) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ufmt_open(status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -17295,6 +20484,7 @@ pub unsafe fn ufmt_open(status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ufmtval_getString(ufmtval: *const UFormattedValue, plength: *mut i32, ec: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
@@ -17308,6 +20498,7 @@ pub unsafe fn ufmtval_getString(ufmtval: *const UFormattedValue, plength: *mut i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ufmtval_nextPosition(ufmtval: *const UFormattedValue, ucfpos: *mut UConstrainedFieldPosition, ec: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -17321,6 +20512,7 @@ pub unsafe fn ufmtval_nextPosition(ufmtval: *const UFormattedValue, ucfpos: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ugender_getInstance<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, status: *mut UErrorCode) -> *mut UGenderInfo {
@@ -17335,6 +20527,7 @@ pub unsafe fn ugender_getInstance<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ugender_getListGender(genderinfo: *const UGenderInfo, genders: *const UGender, size: i32, status: *mut UErrorCode) -> UGender {
     #[cfg(windows)]
@@ -17348,6 +20541,7 @@ pub unsafe fn ugender_getListGender(genderinfo: *const UGenderInfo, genders: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uidna_close(idna: *mut UIDNA) {
     #[cfg(windows)]
@@ -17361,6 +20555,7 @@ pub unsafe fn uidna_close(idna: *mut UIDNA) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uidna_labelToASCII(idna: *const UIDNA, label: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -17374,6 +20569,7 @@ pub unsafe fn uidna_labelToASCII(idna: *const UIDNA, label: *const u16, length: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uidna_labelToASCII_UTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(idna: *const UIDNA, label: Param1, length: i32, dest: Param3, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
@@ -17388,6 +20584,7 @@ pub unsafe fn uidna_labelToASCII_UTF8<'a, Param1: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uidna_labelToUnicode(idna: *const UIDNA, label: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -17401,6 +20598,7 @@ pub unsafe fn uidna_labelToUnicode(idna: *const UIDNA, label: *const u16, length
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uidna_labelToUnicodeUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(idna: *const UIDNA, label: Param1, length: i32, dest: Param3, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
@@ -17415,6 +20613,7 @@ pub unsafe fn uidna_labelToUnicodeUTF8<'a, Param1: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uidna_nameToASCII(idna: *const UIDNA, name: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -17428,6 +20627,7 @@ pub unsafe fn uidna_nameToASCII(idna: *const UIDNA, name: *const u16, length: i3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uidna_nameToASCII_UTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(idna: *const UIDNA, name: Param1, length: i32, dest: Param3, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
@@ -17442,6 +20642,7 @@ pub unsafe fn uidna_nameToASCII_UTF8<'a, Param1: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uidna_nameToUnicode(idna: *const UIDNA, name: *const u16, length: i32, dest: *mut u16, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -17455,6 +20656,7 @@ pub unsafe fn uidna_nameToUnicode(idna: *const UIDNA, name: *const u16, length: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uidna_nameToUnicodeUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(idna: *const UIDNA, name: Param1, length: i32, dest: Param3, capacity: i32, pinfo: *mut UIDNAInfo, perrorcode: *mut UErrorCode) -> i32 {
@@ -17469,6 +20671,7 @@ pub unsafe fn uidna_nameToUnicodeUTF8<'a, Param1: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uidna_openUTS46(options: u32, perrorcode: *mut UErrorCode) -> *mut UIDNA {
     #[cfg(windows)]
@@ -17482,6 +20685,7 @@ pub unsafe fn uidna_openUTS46(options: u32, perrorcode: *mut UErrorCode) -> *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uiter_current32(iter: *mut UCharIterator) -> i32 {
     #[cfg(windows)]
@@ -17495,6 +20699,7 @@ pub unsafe fn uiter_current32(iter: *mut UCharIterator) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uiter_getState(iter: *const UCharIterator) -> u32 {
     #[cfg(windows)]
@@ -17508,6 +20713,7 @@ pub unsafe fn uiter_getState(iter: *const UCharIterator) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uiter_next32(iter: *mut UCharIterator) -> i32 {
     #[cfg(windows)]
@@ -17521,6 +20727,7 @@ pub unsafe fn uiter_next32(iter: *mut UCharIterator) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uiter_previous32(iter: *mut UCharIterator) -> i32 {
     #[cfg(windows)]
@@ -17534,6 +20741,7 @@ pub unsafe fn uiter_previous32(iter: *mut UCharIterator) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uiter_setState(iter: *mut UCharIterator, state: u32, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
@@ -17547,6 +20755,7 @@ pub unsafe fn uiter_setState(iter: *mut UCharIterator, state: u32, perrorcode: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uiter_setString(iter: *mut UCharIterator, s: *const u16, length: i32) {
     #[cfg(windows)]
@@ -17560,6 +20769,7 @@ pub unsafe fn uiter_setString(iter: *mut UCharIterator, s: *const u16, length: i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uiter_setUTF16BE<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(iter: *mut UCharIterator, s: Param1, length: i32) {
@@ -17574,6 +20784,7 @@ pub unsafe fn uiter_setUTF16BE<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uiter_setUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(iter: *mut UCharIterator, s: Param1, length: i32) {
@@ -17588,6 +20799,7 @@ pub unsafe fn uiter_setUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uldn_close(ldn: *mut ULocaleDisplayNames) {
     #[cfg(windows)]
@@ -17601,6 +20813,7 @@ pub unsafe fn uldn_close(ldn: *mut ULocaleDisplayNames) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uldn_getContext(ldn: *const ULocaleDisplayNames, r#type: UDisplayContextType, perrorcode: *mut UErrorCode) -> UDisplayContext {
     #[cfg(windows)]
@@ -17614,6 +20827,7 @@ pub unsafe fn uldn_getContext(ldn: *const ULocaleDisplayNames, r#type: UDisplayC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uldn_getDialectHandling(ldn: *const ULocaleDisplayNames) -> UDialectHandling {
     #[cfg(windows)]
@@ -17627,6 +20841,7 @@ pub unsafe fn uldn_getDialectHandling(ldn: *const ULocaleDisplayNames) -> UDiale
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uldn_getLocale(ldn: *const ULocaleDisplayNames) -> super::Foundation::PSTR {
@@ -17641,6 +20856,7 @@ pub unsafe fn uldn_getLocale(ldn: *const ULocaleDisplayNames) -> super::Foundati
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uldn_keyDisplayName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ldn: *const ULocaleDisplayNames, key: Param1, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32 {
@@ -17655,6 +20871,7 @@ pub unsafe fn uldn_keyDisplayName<'a, Param1: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uldn_keyValueDisplayName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ldn: *const ULocaleDisplayNames, key: Param1, value: Param2, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32 {
@@ -17669,6 +20886,7 @@ pub unsafe fn uldn_keyValueDisplayName<'a, Param1: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uldn_languageDisplayName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ldn: *const ULocaleDisplayNames, lang: Param1, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32 {
@@ -17683,6 +20901,7 @@ pub unsafe fn uldn_languageDisplayName<'a, Param1: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uldn_localeDisplayName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ldn: *const ULocaleDisplayNames, locale: Param1, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32 {
@@ -17697,6 +20916,7 @@ pub unsafe fn uldn_localeDisplayName<'a, Param1: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uldn_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, dialecthandling: UDialectHandling, perrorcode: *mut UErrorCode) -> *mut ULocaleDisplayNames {
@@ -17711,6 +20931,7 @@ pub unsafe fn uldn_open<'a, Param0: ::windows::core::IntoParam<'a, super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uldn_openForContext<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, contexts: *mut UDisplayContext, length: i32, perrorcode: *mut UErrorCode) -> *mut ULocaleDisplayNames {
@@ -17725,6 +20946,7 @@ pub unsafe fn uldn_openForContext<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uldn_regionDisplayName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ldn: *const ULocaleDisplayNames, region: Param1, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32 {
@@ -17739,6 +20961,7 @@ pub unsafe fn uldn_regionDisplayName<'a, Param1: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uldn_scriptCodeDisplayName(ldn: *const ULocaleDisplayNames, scriptcode: UScriptCode, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -17752,6 +20975,7 @@ pub unsafe fn uldn_scriptCodeDisplayName(ldn: *const ULocaleDisplayNames, script
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uldn_scriptDisplayName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ldn: *const ULocaleDisplayNames, script: Param1, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32 {
@@ -17766,6 +20990,7 @@ pub unsafe fn uldn_scriptDisplayName<'a, Param1: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uldn_variantDisplayName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ldn: *const ULocaleDisplayNames, variant: Param1, result: *mut u16, maxresultsize: i32, perrorcode: *mut UErrorCode) -> i32 {
@@ -17780,6 +21005,7 @@ pub unsafe fn uldn_variantDisplayName<'a, Param1: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ulistfmt_close(listfmt: *mut UListFormatter) {
     #[cfg(windows)]
@@ -17793,6 +21019,7 @@ pub unsafe fn ulistfmt_close(listfmt: *mut UListFormatter) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ulistfmt_closeResult(uresult: *mut UFormattedList) {
     #[cfg(windows)]
@@ -17806,6 +21033,7 @@ pub unsafe fn ulistfmt_closeResult(uresult: *mut UFormattedList) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ulistfmt_format(listfmt: *const UListFormatter, strings: *const *const u16, stringlengths: *const i32, stringcount: i32, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -17819,6 +21047,7 @@ pub unsafe fn ulistfmt_format(listfmt: *const UListFormatter, strings: *const *c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ulistfmt_formatStringsToResult(listfmt: *const UListFormatter, strings: *const *const u16, stringlengths: *const i32, stringcount: i32, uresult: *mut UFormattedList, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -17832,6 +21061,7 @@ pub unsafe fn ulistfmt_formatStringsToResult(listfmt: *const UListFormatter, str
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ulistfmt_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, status: *mut UErrorCode) -> *mut UListFormatter {
@@ -17846,6 +21076,7 @@ pub unsafe fn ulistfmt_open<'a, Param0: ::windows::core::IntoParam<'a, super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ulistfmt_openForType<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, r#type: UListFormatterType, width: UListFormatterWidth, status: *mut UErrorCode) -> *mut UListFormatter {
@@ -17860,6 +21091,7 @@ pub unsafe fn ulistfmt_openForType<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ulistfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedList {
     #[cfg(windows)]
@@ -17873,6 +21105,7 @@ pub unsafe fn ulistfmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedList {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ulistfmt_resultAsValue(uresult: *const UFormattedList, ec: *mut UErrorCode) -> *mut UFormattedValue {
     #[cfg(windows)]
@@ -17886,6 +21119,7 @@ pub unsafe fn ulistfmt_resultAsValue(uresult: *const UFormattedList, ec: *mut UE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_acceptLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(result: Param0, resultavailable: i32, outresult: *mut UAcceptResult, acceptlist: *const *const i8, acceptlistcount: i32, availablelocales: *mut UEnumeration, status: *mut UErrorCode) -> i32 {
@@ -17900,6 +21134,7 @@ pub unsafe fn uloc_acceptLanguage<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_acceptLanguageFromHTTP<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(result: Param0, resultavailable: i32, outresult: *mut UAcceptResult, httpacceptlanguage: Param3, availablelocales: *mut UEnumeration, status: *mut UErrorCode) -> i32 {
@@ -17914,6 +21149,7 @@ pub unsafe fn uloc_acceptLanguageFromHTTP<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_addLikelySubtags<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, maximizedlocaleid: Param1, maximizedlocaleidcapacity: i32, err: *mut UErrorCode) -> i32 {
@@ -17928,6 +21164,7 @@ pub unsafe fn uloc_addLikelySubtags<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_canonicalize<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, name: Param1, namecapacity: i32, err: *mut UErrorCode) -> i32 {
@@ -17942,6 +21179,7 @@ pub unsafe fn uloc_canonicalize<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uloc_countAvailable() -> i32 {
     #[cfg(windows)]
@@ -17955,6 +21193,7 @@ pub unsafe fn uloc_countAvailable() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_forLanguageTag<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(langtag: Param0, localeid: Param1, localeidcapacity: i32, parsedlength: *mut i32, err: *mut UErrorCode) -> i32 {
@@ -17969,6 +21208,7 @@ pub unsafe fn uloc_forLanguageTag<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getAvailable(n: i32) -> super::Foundation::PSTR {
@@ -17983,6 +21223,7 @@ pub unsafe fn uloc_getAvailable(n: i32) -> super::Foundation::PSTR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getBaseName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, name: Param1, namecapacity: i32, err: *mut UErrorCode) -> i32 {
@@ -17997,6 +21238,7 @@ pub unsafe fn uloc_getBaseName<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getCharacterOrientation<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, status: *mut UErrorCode) -> ULayoutType {
@@ -18011,6 +21253,7 @@ pub unsafe fn uloc_getCharacterOrientation<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getCountry<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, country: Param1, countrycapacity: i32, err: *mut UErrorCode) -> i32 {
@@ -18025,6 +21268,7 @@ pub unsafe fn uloc_getCountry<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getDefault() -> super::Foundation::PSTR {
@@ -18039,6 +21283,7 @@ pub unsafe fn uloc_getDefault() -> super::Foundation::PSTR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getDisplayCountry<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, displaylocale: Param1, country: *mut u16, countrycapacity: i32, status: *mut UErrorCode) -> i32 {
@@ -18053,6 +21298,7 @@ pub unsafe fn uloc_getDisplayCountry<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getDisplayKeyword<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(keyword: Param0, displaylocale: Param1, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
@@ -18067,6 +21313,7 @@ pub unsafe fn uloc_getDisplayKeyword<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getDisplayKeywordValue<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, keyword: Param1, displaylocale: Param2, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
@@ -18081,6 +21328,7 @@ pub unsafe fn uloc_getDisplayKeywordValue<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getDisplayLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, displaylocale: Param1, language: *mut u16, languagecapacity: i32, status: *mut UErrorCode) -> i32 {
@@ -18095,6 +21343,7 @@ pub unsafe fn uloc_getDisplayLanguage<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getDisplayName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, inlocaleid: Param1, result: *mut u16, maxresultsize: i32, err: *mut UErrorCode) -> i32 {
@@ -18109,6 +21358,7 @@ pub unsafe fn uloc_getDisplayName<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getDisplayScript<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, displaylocale: Param1, script: *mut u16, scriptcapacity: i32, status: *mut UErrorCode) -> i32 {
@@ -18123,6 +21373,7 @@ pub unsafe fn uloc_getDisplayScript<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getDisplayVariant<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, displaylocale: Param1, variant: *mut u16, variantcapacity: i32, status: *mut UErrorCode) -> i32 {
@@ -18137,6 +21388,7 @@ pub unsafe fn uloc_getDisplayVariant<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getISO3Country<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0) -> super::Foundation::PSTR {
@@ -18151,6 +21403,7 @@ pub unsafe fn uloc_getISO3Country<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getISO3Language<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0) -> super::Foundation::PSTR {
@@ -18165,6 +21418,7 @@ pub unsafe fn uloc_getISO3Language<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uloc_getISOCountries() -> *mut *mut i8 {
     #[cfg(windows)]
@@ -18178,6 +21432,7 @@ pub unsafe fn uloc_getISOCountries() -> *mut *mut i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uloc_getISOLanguages() -> *mut *mut i8 {
     #[cfg(windows)]
@@ -18191,6 +21446,7 @@ pub unsafe fn uloc_getISOLanguages() -> *mut *mut i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getKeywordValue<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, keywordname: Param1, buffer: Param2, buffercapacity: i32, status: *mut UErrorCode) -> i32 {
@@ -18205,6 +21461,7 @@ pub unsafe fn uloc_getKeywordValue<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getLCID<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0) -> u32 {
@@ -18219,6 +21476,7 @@ pub unsafe fn uloc_getLCID<'a, Param0: ::windows::core::IntoParam<'a, super::Fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, language: Param1, languagecapacity: i32, err: *mut UErrorCode) -> i32 {
@@ -18233,6 +21491,7 @@ pub unsafe fn uloc_getLanguage<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getLineOrientation<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, status: *mut UErrorCode) -> ULayoutType {
@@ -18247,6 +21506,7 @@ pub unsafe fn uloc_getLineOrientation<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getLocaleForLCID<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(hostid: u32, locale: Param1, localecapacity: i32, status: *mut UErrorCode) -> i32 {
@@ -18261,6 +21521,7 @@ pub unsafe fn uloc_getLocaleForLCID<'a, Param1: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, name: Param1, namecapacity: i32, err: *mut UErrorCode) -> i32 {
@@ -18275,6 +21536,7 @@ pub unsafe fn uloc_getName<'a, Param0: ::windows::core::IntoParam<'a, super::Fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getParent<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, parent: Param1, parentcapacity: i32, err: *mut UErrorCode) -> i32 {
@@ -18289,6 +21551,7 @@ pub unsafe fn uloc_getParent<'a, Param0: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getScript<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, script: Param1, scriptcapacity: i32, err: *mut UErrorCode) -> i32 {
@@ -18303,6 +21566,7 @@ pub unsafe fn uloc_getScript<'a, Param0: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_getVariant<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, variant: Param1, variantcapacity: i32, err: *mut UErrorCode) -> i32 {
@@ -18317,6 +21581,7 @@ pub unsafe fn uloc_getVariant<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_isRightToLeft<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0) -> i8 {
@@ -18331,6 +21596,7 @@ pub unsafe fn uloc_isRightToLeft<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_minimizeSubtags<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, minimizedlocaleid: Param1, minimizedlocaleidcapacity: i32, err: *mut UErrorCode) -> i32 {
@@ -18345,6 +21611,7 @@ pub unsafe fn uloc_minimizeSubtags<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uloc_openAvailableByType(r#type: ULocAvailableType, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
@@ -18358,6 +21625,7 @@ pub unsafe fn uloc_openAvailableByType(r#type: ULocAvailableType, status: *mut U
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_openKeywords<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, status: *mut UErrorCode) -> *mut UEnumeration {
@@ -18372,6 +21640,7 @@ pub unsafe fn uloc_openKeywords<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_setDefault<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, status: *mut UErrorCode) {
@@ -18386,6 +21655,7 @@ pub unsafe fn uloc_setDefault<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_setKeywordValue<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(keywordname: Param0, keywordvalue: Param1, buffer: Param2, buffercapacity: i32, status: *mut UErrorCode) -> i32 {
@@ -18400,6 +21670,7 @@ pub unsafe fn uloc_setKeywordValue<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_toLanguageTag<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, langtag: Param1, langtagcapacity: i32, strict: i8, err: *mut UErrorCode) -> i32 {
@@ -18414,6 +21685,7 @@ pub unsafe fn uloc_toLanguageTag<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_toLegacyKey<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(keyword: Param0) -> super::Foundation::PSTR {
@@ -18428,6 +21700,7 @@ pub unsafe fn uloc_toLegacyKey<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_toLegacyType<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(keyword: Param0, value: Param1) -> super::Foundation::PSTR {
@@ -18442,6 +21715,7 @@ pub unsafe fn uloc_toLegacyType<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_toUnicodeLocaleKey<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(keyword: Param0) -> super::Foundation::PSTR {
@@ -18456,6 +21730,7 @@ pub unsafe fn uloc_toUnicodeLocaleKey<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uloc_toUnicodeLocaleType<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(keyword: Param0, value: Param1) -> super::Foundation::PSTR {
@@ -18470,6 +21745,7 @@ pub unsafe fn uloc_toUnicodeLocaleType<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ulocdata_close(uld: *mut ULocaleData) {
     #[cfg(windows)]
@@ -18483,6 +21759,7 @@ pub unsafe fn ulocdata_close(uld: *mut ULocaleData) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ulocdata_getCLDRVersion(versionarray: *mut u8, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -18496,6 +21773,7 @@ pub unsafe fn ulocdata_getCLDRVersion(versionarray: *mut u8, status: *mut UError
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ulocdata_getDelimiter(uld: *mut ULocaleData, r#type: ULocaleDataDelimiterType, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -18509,6 +21787,7 @@ pub unsafe fn ulocdata_getDelimiter(uld: *mut ULocaleData, r#type: ULocaleDataDe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ulocdata_getExemplarSet(uld: *mut ULocaleData, fillin: *mut USet, options: u32, extype: ULocaleDataExemplarSetType, status: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
@@ -18522,6 +21801,7 @@ pub unsafe fn ulocdata_getExemplarSet(uld: *mut ULocaleData, fillin: *mut USet, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ulocdata_getLocaleDisplayPattern(uld: *mut ULocaleData, pattern: *mut u16, patterncapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -18535,6 +21815,7 @@ pub unsafe fn ulocdata_getLocaleDisplayPattern(uld: *mut ULocaleData, pattern: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ulocdata_getLocaleSeparator(uld: *mut ULocaleData, separator: *mut u16, separatorcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -18548,6 +21829,7 @@ pub unsafe fn ulocdata_getLocaleSeparator(uld: *mut ULocaleData, separator: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ulocdata_getMeasurementSystem<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, status: *mut UErrorCode) -> UMeasurementSystem {
@@ -18562,6 +21844,7 @@ pub unsafe fn ulocdata_getMeasurementSystem<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ulocdata_getNoSubstitute(uld: *mut ULocaleData) -> i8 {
     #[cfg(windows)]
@@ -18575,6 +21858,7 @@ pub unsafe fn ulocdata_getNoSubstitute(uld: *mut ULocaleData) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ulocdata_getPaperSize<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, height: *mut i32, width: *mut i32, status: *mut UErrorCode) {
@@ -18589,6 +21873,7 @@ pub unsafe fn ulocdata_getPaperSize<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ulocdata_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(localeid: Param0, status: *mut UErrorCode) -> *mut ULocaleData {
@@ -18603,6 +21888,7 @@ pub unsafe fn ulocdata_open<'a, Param0: ::windows::core::IntoParam<'a, super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ulocdata_setNoSubstitute(uld: *mut ULocaleData, setting: i8) {
     #[cfg(windows)]
@@ -18616,6 +21902,7 @@ pub unsafe fn ulocdata_setNoSubstitute(uld: *mut ULocaleData, setting: i8) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn umsg_applyPattern(fmt: *mut *mut ::core::ffi::c_void, pattern: *const u16, patternlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -18629,6 +21916,7 @@ pub unsafe fn umsg_applyPattern(fmt: *mut *mut ::core::ffi::c_void, pattern: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn umsg_autoQuoteApostrophe(pattern: *const u16, patternlength: i32, dest: *mut u16, destcapacity: i32, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -18642,6 +21930,7 @@ pub unsafe fn umsg_autoQuoteApostrophe(pattern: *const u16, patternlength: i32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn umsg_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -18655,6 +21944,7 @@ pub unsafe fn umsg_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn umsg_close(format: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -18668,6 +21958,7 @@ pub unsafe fn umsg_close(format: *mut *mut ::core::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn umsg_format(fmt: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -18681,6 +21972,7 @@ pub unsafe fn umsg_format(fmt: *const *const ::core::ffi::c_void, result: *mut u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn umsg_getLocale(fmt: *const *const ::core::ffi::c_void) -> super::Foundation::PSTR {
@@ -18695,6 +21987,7 @@ pub unsafe fn umsg_getLocale(fmt: *const *const ::core::ffi::c_void) -> super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn umsg_open<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(pattern: *const u16, patternlength: i32, locale: Param2, parseerror: *mut UParseError, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
@@ -18709,6 +22002,7 @@ pub unsafe fn umsg_open<'a, Param2: ::windows::core::IntoParam<'a, super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn umsg_parse(fmt: *const *const ::core::ffi::c_void, source: *const u16, sourcelength: i32, count: *mut i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -18722,6 +22016,7 @@ pub unsafe fn umsg_parse(fmt: *const *const ::core::ffi::c_void, source: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn umsg_setLocale<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(fmt: *mut *mut ::core::ffi::c_void, locale: Param1) {
@@ -18736,6 +22031,7 @@ pub unsafe fn umsg_setLocale<'a, Param1: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn umsg_toPattern(fmt: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -18749,6 +22045,7 @@ pub unsafe fn umsg_toPattern(fmt: *const *const ::core::ffi::c_void, result: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn umsg_vformat(fmt: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, ap: *mut i8, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -18762,6 +22059,7 @@ pub unsafe fn umsg_vformat(fmt: *const *const ::core::ffi::c_void, result: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn umsg_vparse(fmt: *const *const ::core::ffi::c_void, source: *const u16, sourcelength: i32, count: *mut i32, ap: *mut i8, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -18775,6 +22073,7 @@ pub unsafe fn umsg_vparse(fmt: *const *const ::core::ffi::c_void, source: *const
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn umutablecptrie_buildImmutable(trie: *mut UMutableCPTrie, r#type: UCPTrieType, valuewidth: UCPTrieValueWidth, perrorcode: *mut UErrorCode) -> *mut UCPTrie {
     #[cfg(windows)]
@@ -18788,6 +22087,7 @@ pub unsafe fn umutablecptrie_buildImmutable(trie: *mut UMutableCPTrie, r#type: U
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn umutablecptrie_clone(other: *const UMutableCPTrie, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie {
     #[cfg(windows)]
@@ -18801,6 +22101,7 @@ pub unsafe fn umutablecptrie_clone(other: *const UMutableCPTrie, perrorcode: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn umutablecptrie_close(trie: *mut UMutableCPTrie) {
     #[cfg(windows)]
@@ -18814,6 +22115,7 @@ pub unsafe fn umutablecptrie_close(trie: *mut UMutableCPTrie) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn umutablecptrie_fromUCPMap(map: *const UCPMap, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie {
     #[cfg(windows)]
@@ -18827,6 +22129,7 @@ pub unsafe fn umutablecptrie_fromUCPMap(map: *const UCPMap, perrorcode: *mut UEr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn umutablecptrie_fromUCPTrie(trie: *const UCPTrie, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie {
     #[cfg(windows)]
@@ -18840,6 +22143,7 @@ pub unsafe fn umutablecptrie_fromUCPTrie(trie: *const UCPTrie, perrorcode: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn umutablecptrie_get(trie: *const UMutableCPTrie, c: i32) -> u32 {
     #[cfg(windows)]
@@ -18853,6 +22157,7 @@ pub unsafe fn umutablecptrie_get(trie: *const UMutableCPTrie, c: i32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn umutablecptrie_getRange(trie: *const UMutableCPTrie, start: i32, option: UCPMapRangeOption, surrogatevalue: u32, filter: *mut UCPMapValueFilter, context: *const ::core::ffi::c_void, pvalue: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -18866,6 +22171,7 @@ pub unsafe fn umutablecptrie_getRange(trie: *const UMutableCPTrie, start: i32, o
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn umutablecptrie_open(initialvalue: u32, errorvalue: u32, perrorcode: *mut UErrorCode) -> *mut UMutableCPTrie {
     #[cfg(windows)]
@@ -18879,6 +22185,7 @@ pub unsafe fn umutablecptrie_open(initialvalue: u32, errorvalue: u32, perrorcode
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn umutablecptrie_set(trie: *mut UMutableCPTrie, c: i32, value: u32, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
@@ -18892,6 +22199,7 @@ pub unsafe fn umutablecptrie_set(trie: *mut UMutableCPTrie, c: i32, value: u32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn umutablecptrie_setRange(trie: *mut UMutableCPTrie, start: i32, end: i32, value: u32, perrorcode: *mut UErrorCode) {
     #[cfg(windows)]
@@ -18905,6 +22213,7 @@ pub unsafe fn umutablecptrie_setRange(trie: *mut UMutableCPTrie, start: i32, end
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_append(norm2: *const UNormalizer2, first: *mut u16, firstlength: i32, firstcapacity: i32, second: *const u16, secondlength: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -18918,6 +22227,7 @@ pub unsafe fn unorm2_append(norm2: *const UNormalizer2, first: *mut u16, firstle
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_close(norm2: *mut UNormalizer2) {
     #[cfg(windows)]
@@ -18931,6 +22241,7 @@ pub unsafe fn unorm2_close(norm2: *mut UNormalizer2) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_composePair(norm2: *const UNormalizer2, a: i32, b: i32) -> i32 {
     #[cfg(windows)]
@@ -18944,6 +22255,7 @@ pub unsafe fn unorm2_composePair(norm2: *const UNormalizer2, a: i32, b: i32) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_getCombiningClass(norm2: *const UNormalizer2, c: i32) -> u8 {
     #[cfg(windows)]
@@ -18957,6 +22269,7 @@ pub unsafe fn unorm2_getCombiningClass(norm2: *const UNormalizer2, c: i32) -> u8
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_getDecomposition(norm2: *const UNormalizer2, c: i32, decomposition: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -18970,6 +22283,7 @@ pub unsafe fn unorm2_getDecomposition(norm2: *const UNormalizer2, c: i32, decomp
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn unorm2_getInstance<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(packagename: Param0, name: Param1, mode: UNormalization2Mode, perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
@@ -18984,6 +22298,7 @@ pub unsafe fn unorm2_getInstance<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_getNFCInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg(windows)]
@@ -18997,6 +22312,7 @@ pub unsafe fn unorm2_getNFCInstance(perrorcode: *mut UErrorCode) -> *mut UNormal
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_getNFDInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg(windows)]
@@ -19010,6 +22326,7 @@ pub unsafe fn unorm2_getNFDInstance(perrorcode: *mut UErrorCode) -> *mut UNormal
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_getNFKCCasefoldInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg(windows)]
@@ -19023,6 +22340,7 @@ pub unsafe fn unorm2_getNFKCCasefoldInstance(perrorcode: *mut UErrorCode) -> *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_getNFKCInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg(windows)]
@@ -19036,6 +22354,7 @@ pub unsafe fn unorm2_getNFKCInstance(perrorcode: *mut UErrorCode) -> *mut UNorma
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_getNFKDInstance(perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg(windows)]
@@ -19049,6 +22368,7 @@ pub unsafe fn unorm2_getNFKDInstance(perrorcode: *mut UErrorCode) -> *mut UNorma
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_getRawDecomposition(norm2: *const UNormalizer2, c: i32, decomposition: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19062,6 +22382,7 @@ pub unsafe fn unorm2_getRawDecomposition(norm2: *const UNormalizer2, c: i32, dec
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_hasBoundaryAfter(norm2: *const UNormalizer2, c: i32) -> i8 {
     #[cfg(windows)]
@@ -19075,6 +22396,7 @@ pub unsafe fn unorm2_hasBoundaryAfter(norm2: *const UNormalizer2, c: i32) -> i8 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_hasBoundaryBefore(norm2: *const UNormalizer2, c: i32) -> i8 {
     #[cfg(windows)]
@@ -19088,6 +22410,7 @@ pub unsafe fn unorm2_hasBoundaryBefore(norm2: *const UNormalizer2, c: i32) -> i8
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_isInert(norm2: *const UNormalizer2, c: i32) -> i8 {
     #[cfg(windows)]
@@ -19101,6 +22424,7 @@ pub unsafe fn unorm2_isInert(norm2: *const UNormalizer2, c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_isNormalized(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -19114,6 +22438,7 @@ pub unsafe fn unorm2_isNormalized(norm2: *const UNormalizer2, s: *const u16, len
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_normalize(norm2: *const UNormalizer2, src: *const u16, length: i32, dest: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19127,6 +22452,7 @@ pub unsafe fn unorm2_normalize(norm2: *const UNormalizer2, src: *const u16, leng
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_normalizeSecondAndAppend(norm2: *const UNormalizer2, first: *mut u16, firstlength: i32, firstcapacity: i32, second: *const u16, secondlength: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19140,6 +22466,7 @@ pub unsafe fn unorm2_normalizeSecondAndAppend(norm2: *const UNormalizer2, first:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_openFiltered(norm2: *const UNormalizer2, filterset: *const USet, perrorcode: *mut UErrorCode) -> *mut UNormalizer2 {
     #[cfg(windows)]
@@ -19153,6 +22480,7 @@ pub unsafe fn unorm2_openFiltered(norm2: *const UNormalizer2, filterset: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_quickCheck(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> UNormalizationCheckResult {
     #[cfg(windows)]
@@ -19166,6 +22494,7 @@ pub unsafe fn unorm2_quickCheck(norm2: *const UNormalizer2, s: *const u16, lengt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm2_spanQuickCheckYes(norm2: *const UNormalizer2, s: *const u16, length: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19179,6 +22508,7 @@ pub unsafe fn unorm2_spanQuickCheckYes(norm2: *const UNormalizer2, s: *const u16
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unorm_compare(s1: *const u16, length1: i32, s2: *const u16, length2: i32, options: u32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19192,6 +22522,7 @@ pub unsafe fn unorm_compare(s1: *const u16, length1: i32, s2: *const u16, length
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_applyPattern(format: *mut *mut ::core::ffi::c_void, localized: i8, pattern: *const u16, patternlength: i32, parseerror: *mut UParseError, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -19205,6 +22536,7 @@ pub unsafe fn unum_applyPattern(format: *mut *mut ::core::ffi::c_void, localized
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -19218,6 +22550,7 @@ pub unsafe fn unum_clone(fmt: *const *const ::core::ffi::c_void, status: *mut UE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_close(fmt: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -19231,6 +22564,7 @@ pub unsafe fn unum_close(fmt: *mut *mut ::core::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_countAvailable() -> i32 {
     #[cfg(windows)]
@@ -19244,6 +22578,7 @@ pub unsafe fn unum_countAvailable() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_format(fmt: *const *const ::core::ffi::c_void, number: i32, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19257,6 +22592,7 @@ pub unsafe fn unum_format(fmt: *const *const ::core::ffi::c_void, number: i32, r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn unum_formatDecimal<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(fmt: *const *const ::core::ffi::c_void, number: Param1, length: i32, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
@@ -19271,6 +22607,7 @@ pub unsafe fn unum_formatDecimal<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_formatDouble(fmt: *const *const ::core::ffi::c_void, number: f64, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19284,6 +22621,7 @@ pub unsafe fn unum_formatDouble(fmt: *const *const ::core::ffi::c_void, number: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_formatDoubleCurrency(fmt: *const *const ::core::ffi::c_void, number: f64, currency: *mut u16, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19297,6 +22635,7 @@ pub unsafe fn unum_formatDoubleCurrency(fmt: *const *const ::core::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_formatDoubleForFields(format: *const *const ::core::ffi::c_void, number: f64, result: *mut u16, resultlength: i32, fpositer: *mut UFieldPositionIterator, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19310,6 +22649,7 @@ pub unsafe fn unum_formatDoubleForFields(format: *const *const ::core::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_formatInt64(fmt: *const *const ::core::ffi::c_void, number: i64, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19323,6 +22663,7 @@ pub unsafe fn unum_formatInt64(fmt: *const *const ::core::ffi::c_void, number: i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_formatUFormattable(fmt: *const *const ::core::ffi::c_void, number: *const *const ::core::ffi::c_void, result: *mut u16, resultlength: i32, pos: *mut UFieldPosition, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19336,6 +22677,7 @@ pub unsafe fn unum_formatUFormattable(fmt: *const *const ::core::ffi::c_void, nu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_getAttribute(fmt: *const *const ::core::ffi::c_void, attr: UNumberFormatAttribute) -> i32 {
     #[cfg(windows)]
@@ -19349,6 +22691,7 @@ pub unsafe fn unum_getAttribute(fmt: *const *const ::core::ffi::c_void, attr: UN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn unum_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
@@ -19363,6 +22706,7 @@ pub unsafe fn unum_getAvailable(localeindex: i32) -> super::Foundation::PSTR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UDisplayContextType, status: *mut UErrorCode) -> UDisplayContext {
     #[cfg(windows)]
@@ -19376,6 +22720,7 @@ pub unsafe fn unum_getContext(fmt: *const *const ::core::ffi::c_void, r#type: UD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_getDoubleAttribute(fmt: *const *const ::core::ffi::c_void, attr: UNumberFormatAttribute) -> f64 {
     #[cfg(windows)]
@@ -19389,6 +22734,7 @@ pub unsafe fn unum_getDoubleAttribute(fmt: *const *const ::core::ffi::c_void, at
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn unum_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -19403,6 +22749,7 @@ pub unsafe fn unum_getLocaleByType(fmt: *const *const ::core::ffi::c_void, r#typ
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_getSymbol(fmt: *const *const ::core::ffi::c_void, symbol: UNumberFormatSymbol, buffer: *mut u16, size: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19416,6 +22763,7 @@ pub unsafe fn unum_getSymbol(fmt: *const *const ::core::ffi::c_void, symbol: UNu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_getTextAttribute(fmt: *const *const ::core::ffi::c_void, tag: UNumberFormatTextAttribute, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19429,6 +22777,7 @@ pub unsafe fn unum_getTextAttribute(fmt: *const *const ::core::ffi::c_void, tag:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn unum_open<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(style: UNumberFormatStyle, pattern: *const u16, patternlength: i32, locale: Param3, parseerr: *mut UParseError, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
@@ -19443,6 +22792,7 @@ pub unsafe fn unum_open<'a, Param3: ::windows::core::IntoParam<'a, super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_parse(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19456,6 +22806,7 @@ pub unsafe fn unum_parse(fmt: *const *const ::core::ffi::c_void, text: *const u1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn unum_parseDecimal<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, outbuf: Param4, outbuflength: i32, status: *mut UErrorCode) -> i32 {
@@ -19470,6 +22821,7 @@ pub unsafe fn unum_parseDecimal<'a, Param4: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_parseDouble(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
@@ -19483,6 +22835,7 @@ pub unsafe fn unum_parseDouble(fmt: *const *const ::core::ffi::c_void, text: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_parseDoubleCurrency(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, currency: *mut u16, status: *mut UErrorCode) -> f64 {
     #[cfg(windows)]
@@ -19496,6 +22849,7 @@ pub unsafe fn unum_parseDoubleCurrency(fmt: *const *const ::core::ffi::c_void, t
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_parseInt64(fmt: *const *const ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
@@ -19509,6 +22863,7 @@ pub unsafe fn unum_parseInt64(fmt: *const *const ::core::ffi::c_void, text: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_parseToUFormattable(fmt: *const *const ::core::ffi::c_void, result: *mut *mut ::core::ffi::c_void, text: *const u16, textlength: i32, parsepos: *mut i32, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -19522,6 +22877,7 @@ pub unsafe fn unum_parseToUFormattable(fmt: *const *const ::core::ffi::c_void, r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_setAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: UNumberFormatAttribute, newvalue: i32) {
     #[cfg(windows)]
@@ -19535,6 +22891,7 @@ pub unsafe fn unum_setAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: UNumbe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDisplayContext, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -19548,6 +22905,7 @@ pub unsafe fn unum_setContext(fmt: *mut *mut ::core::ffi::c_void, value: UDispla
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_setDoubleAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: UNumberFormatAttribute, newvalue: f64) {
     #[cfg(windows)]
@@ -19561,6 +22919,7 @@ pub unsafe fn unum_setDoubleAttribute(fmt: *mut *mut ::core::ffi::c_void, attr: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_setSymbol(fmt: *mut *mut ::core::ffi::c_void, symbol: UNumberFormatSymbol, value: *const u16, length: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -19574,6 +22933,7 @@ pub unsafe fn unum_setSymbol(fmt: *mut *mut ::core::ffi::c_void, symbol: UNumber
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_setTextAttribute(fmt: *mut *mut ::core::ffi::c_void, tag: UNumberFormatTextAttribute, newvalue: *const u16, newvaluelength: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -19587,6 +22947,7 @@ pub unsafe fn unum_setTextAttribute(fmt: *mut *mut ::core::ffi::c_void, tag: UNu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unum_toPattern(fmt: *const *const ::core::ffi::c_void, ispatternlocalized: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19600,6 +22961,7 @@ pub unsafe fn unum_toPattern(fmt: *const *const ::core::ffi::c_void, ispatternlo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unumf_close(uformatter: *mut UNumberFormatter) {
     #[cfg(windows)]
@@ -19613,6 +22975,7 @@ pub unsafe fn unumf_close(uformatter: *mut UNumberFormatter) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unumf_closeResult(uresult: *mut UFormattedNumber) {
     #[cfg(windows)]
@@ -19626,6 +22989,7 @@ pub unsafe fn unumf_closeResult(uresult: *mut UFormattedNumber) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn unumf_formatDecimal<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(uformatter: *const UNumberFormatter, value: Param1, valuelen: i32, uresult: *mut UFormattedNumber, ec: *mut UErrorCode) {
@@ -19640,6 +23004,7 @@ pub unsafe fn unumf_formatDecimal<'a, Param1: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unumf_formatDouble(uformatter: *const UNumberFormatter, value: f64, uresult: *mut UFormattedNumber, ec: *mut UErrorCode) {
     #[cfg(windows)]
@@ -19653,6 +23018,7 @@ pub unsafe fn unumf_formatDouble(uformatter: *const UNumberFormatter, value: f64
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unumf_formatInt(uformatter: *const UNumberFormatter, value: i64, uresult: *mut UFormattedNumber, ec: *mut UErrorCode) {
     #[cfg(windows)]
@@ -19666,6 +23032,7 @@ pub unsafe fn unumf_formatInt(uformatter: *const UNumberFormatter, value: i64, u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn unumf_openForSkeletonAndLocale<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(skeleton: *const u16, skeletonlen: i32, locale: Param2, ec: *mut UErrorCode) -> *mut UNumberFormatter {
@@ -19680,6 +23047,7 @@ pub unsafe fn unumf_openForSkeletonAndLocale<'a, Param2: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn unumf_openForSkeletonAndLocaleWithError<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(skeleton: *const u16, skeletonlen: i32, locale: Param2, perror: *mut UParseError, ec: *mut UErrorCode) -> *mut UNumberFormatter {
@@ -19694,6 +23062,7 @@ pub unsafe fn unumf_openForSkeletonAndLocaleWithError<'a, Param2: ::windows::cor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unumf_openResult(ec: *mut UErrorCode) -> *mut UFormattedNumber {
     #[cfg(windows)]
@@ -19707,6 +23076,7 @@ pub unsafe fn unumf_openResult(ec: *mut UErrorCode) -> *mut UFormattedNumber {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unumf_resultAsValue(uresult: *const UFormattedNumber, ec: *mut UErrorCode) -> *mut UFormattedValue {
     #[cfg(windows)]
@@ -19720,6 +23090,7 @@ pub unsafe fn unumf_resultAsValue(uresult: *const UFormattedNumber, ec: *mut UEr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unumf_resultGetAllFieldPositions(uresult: *const UFormattedNumber, ufpositer: *mut UFieldPositionIterator, ec: *mut UErrorCode) {
     #[cfg(windows)]
@@ -19733,6 +23104,7 @@ pub unsafe fn unumf_resultGetAllFieldPositions(uresult: *const UFormattedNumber,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unumf_resultNextFieldPosition(uresult: *const UFormattedNumber, ufpos: *mut UFieldPosition, ec: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -19746,6 +23118,7 @@ pub unsafe fn unumf_resultNextFieldPosition(uresult: *const UFormattedNumber, uf
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unumf_resultToString(uresult: *const UFormattedNumber, buffer: *mut u16, buffercapacity: i32, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19759,6 +23132,7 @@ pub unsafe fn unumf_resultToString(uresult: *const UFormattedNumber, buffer: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unumsys_close(unumsys: *mut UNumberingSystem) {
     #[cfg(windows)]
@@ -19772,6 +23146,7 @@ pub unsafe fn unumsys_close(unumsys: *mut UNumberingSystem) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unumsys_getDescription(unumsys: *const UNumberingSystem, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19785,6 +23160,7 @@ pub unsafe fn unumsys_getDescription(unumsys: *const UNumberingSystem, result: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn unumsys_getName(unumsys: *const UNumberingSystem) -> super::Foundation::PSTR {
@@ -19799,6 +23175,7 @@ pub unsafe fn unumsys_getName(unumsys: *const UNumberingSystem) -> super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unumsys_getRadix(unumsys: *const UNumberingSystem) -> i32 {
     #[cfg(windows)]
@@ -19812,6 +23189,7 @@ pub unsafe fn unumsys_getRadix(unumsys: *const UNumberingSystem) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unumsys_isAlgorithmic(unumsys: *const UNumberingSystem) -> i8 {
     #[cfg(windows)]
@@ -19825,6 +23203,7 @@ pub unsafe fn unumsys_isAlgorithmic(unumsys: *const UNumberingSystem) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn unumsys_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, status: *mut UErrorCode) -> *mut UNumberingSystem {
@@ -19839,6 +23218,7 @@ pub unsafe fn unumsys_open<'a, Param0: ::windows::core::IntoParam<'a, super::Fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn unumsys_openAvailableNames(status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
@@ -19852,6 +23232,7 @@ pub unsafe fn unumsys_openAvailableNames(status: *mut UErrorCode) -> *mut UEnume
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn unumsys_openByName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(name: Param0, status: *mut UErrorCode) -> *mut UNumberingSystem {
@@ -19866,6 +23247,7 @@ pub unsafe fn unumsys_openByName<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uplrules_close(uplrules: *mut UPluralRules) {
     #[cfg(windows)]
@@ -19879,6 +23261,7 @@ pub unsafe fn uplrules_close(uplrules: *mut UPluralRules) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uplrules_getKeywords(uplrules: *const UPluralRules, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
@@ -19892,6 +23275,7 @@ pub unsafe fn uplrules_getKeywords(uplrules: *const UPluralRules, status: *mut U
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uplrules_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, status: *mut UErrorCode) -> *mut UPluralRules {
@@ -19906,6 +23290,7 @@ pub unsafe fn uplrules_open<'a, Param0: ::windows::core::IntoParam<'a, super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uplrules_openForType<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, r#type: UPluralType, status: *mut UErrorCode) -> *mut UPluralRules {
@@ -19920,6 +23305,7 @@ pub unsafe fn uplrules_openForType<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uplrules_select(uplrules: *const UPluralRules, number: f64, keyword: *mut u16, capacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19933,6 +23319,7 @@ pub unsafe fn uplrules_select(uplrules: *const UPluralRules, number: f64, keywor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uplrules_selectFormatted(uplrules: *const UPluralRules, number: *const UFormattedNumber, keyword: *mut u16, capacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19946,6 +23333,7 @@ pub unsafe fn uplrules_selectFormatted(uplrules: *const UPluralRules, number: *c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_appendReplacement(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut *mut u16, destcapacity: *mut i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19959,6 +23347,7 @@ pub unsafe fn uregex_appendReplacement(regexp: *mut URegularExpression, replacem
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_appendReplacementUText(regexp: *mut URegularExpression, replacementtext: *mut UText, dest: *mut UText, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -19972,6 +23361,7 @@ pub unsafe fn uregex_appendReplacementUText(regexp: *mut URegularExpression, rep
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_appendTail(regexp: *mut URegularExpression, destbuf: *mut *mut u16, destcapacity: *mut i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -19985,6 +23375,7 @@ pub unsafe fn uregex_appendTail(regexp: *mut URegularExpression, destbuf: *mut *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_appendTailUText(regexp: *mut URegularExpression, dest: *mut UText, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
@@ -19998,6 +23389,7 @@ pub unsafe fn uregex_appendTailUText(regexp: *mut URegularExpression, dest: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_clone(regexp: *const URegularExpression, status: *mut UErrorCode) -> *mut URegularExpression {
     #[cfg(windows)]
@@ -20011,6 +23403,7 @@ pub unsafe fn uregex_clone(regexp: *const URegularExpression, status: *mut UErro
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_close(regexp: *mut URegularExpression) {
     #[cfg(windows)]
@@ -20024,6 +23417,7 @@ pub unsafe fn uregex_close(regexp: *mut URegularExpression) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_end(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -20037,6 +23431,7 @@ pub unsafe fn uregex_end(regexp: *mut URegularExpression, groupnum: i32, status:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_end64(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
@@ -20050,6 +23445,7 @@ pub unsafe fn uregex_end64(regexp: *mut URegularExpression, groupnum: i32, statu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_find(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -20063,6 +23459,7 @@ pub unsafe fn uregex_find(regexp: *mut URegularExpression, startindex: i32, stat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_find64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -20076,6 +23473,7 @@ pub unsafe fn uregex_find64(regexp: *mut URegularExpression, startindex: i64, st
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_findNext(regexp: *mut URegularExpression, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -20089,6 +23487,7 @@ pub unsafe fn uregex_findNext(regexp: *mut URegularExpression, status: *mut UErr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_flags(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -20102,6 +23501,7 @@ pub unsafe fn uregex_flags(regexp: *const URegularExpression, status: *mut UErro
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_getFindProgressCallback(regexp: *const URegularExpression, callback: *mut URegexFindProgressCallback, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -20115,6 +23515,7 @@ pub unsafe fn uregex_getFindProgressCallback(regexp: *const URegularExpression, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_getMatchCallback(regexp: *const URegularExpression, callback: *mut URegexMatchCallback, context: *const *const ::core::ffi::c_void, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -20128,6 +23529,7 @@ pub unsafe fn uregex_getMatchCallback(regexp: *const URegularExpression, callbac
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_getStackLimit(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -20141,6 +23543,7 @@ pub unsafe fn uregex_getStackLimit(regexp: *const URegularExpression, status: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_getText(regexp: *mut URegularExpression, textlength: *mut i32, status: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
@@ -20154,6 +23557,7 @@ pub unsafe fn uregex_getText(regexp: *mut URegularExpression, textlength: *mut i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_getTimeLimit(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -20167,6 +23571,7 @@ pub unsafe fn uregex_getTimeLimit(regexp: *const URegularExpression, status: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_getUText(regexp: *mut URegularExpression, dest: *mut UText, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
@@ -20180,6 +23585,7 @@ pub unsafe fn uregex_getUText(regexp: *mut URegularExpression, dest: *mut UText,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_group(regexp: *mut URegularExpression, groupnum: i32, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -20193,6 +23599,7 @@ pub unsafe fn uregex_group(regexp: *mut URegularExpression, groupnum: i32, dest:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_groupCount(regexp: *mut URegularExpression, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -20206,6 +23613,7 @@ pub unsafe fn uregex_groupCount(regexp: *mut URegularExpression, status: *mut UE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uregex_groupNumberFromCName<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(regexp: *mut URegularExpression, groupname: Param1, namelength: i32, status: *mut UErrorCode) -> i32 {
@@ -20220,6 +23628,7 @@ pub unsafe fn uregex_groupNumberFromCName<'a, Param1: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_groupNumberFromName(regexp: *mut URegularExpression, groupname: *const u16, namelength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -20233,6 +23642,7 @@ pub unsafe fn uregex_groupNumberFromName(regexp: *mut URegularExpression, groupn
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_groupUText(regexp: *mut URegularExpression, groupnum: i32, dest: *mut UText, grouplength: *mut i64, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
@@ -20246,6 +23656,7 @@ pub unsafe fn uregex_groupUText(regexp: *mut URegularExpression, groupnum: i32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_hasAnchoringBounds(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -20259,6 +23670,7 @@ pub unsafe fn uregex_hasAnchoringBounds(regexp: *const URegularExpression, statu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_hasTransparentBounds(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -20272,6 +23684,7 @@ pub unsafe fn uregex_hasTransparentBounds(regexp: *const URegularExpression, sta
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_hitEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -20285,6 +23698,7 @@ pub unsafe fn uregex_hitEnd(regexp: *const URegularExpression, status: *mut UErr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_lookingAt(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -20298,6 +23712,7 @@ pub unsafe fn uregex_lookingAt(regexp: *mut URegularExpression, startindex: i32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_lookingAt64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -20311,6 +23726,7 @@ pub unsafe fn uregex_lookingAt64(regexp: *mut URegularExpression, startindex: i6
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_matches(regexp: *mut URegularExpression, startindex: i32, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -20324,6 +23740,7 @@ pub unsafe fn uregex_matches(regexp: *mut URegularExpression, startindex: i32, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_matches64(regexp: *mut URegularExpression, startindex: i64, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -20337,6 +23754,7 @@ pub unsafe fn uregex_matches64(regexp: *mut URegularExpression, startindex: i64,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_open(pattern: *const u16, patternlength: i32, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression {
     #[cfg(windows)]
@@ -20350,6 +23768,7 @@ pub unsafe fn uregex_open(pattern: *const u16, patternlength: i32, flags: u32, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uregex_openC<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(pattern: Param0, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression {
@@ -20364,6 +23783,7 @@ pub unsafe fn uregex_openC<'a, Param0: ::windows::core::IntoParam<'a, super::Fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_openUText(pattern: *mut UText, flags: u32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut URegularExpression {
     #[cfg(windows)]
@@ -20377,6 +23797,7 @@ pub unsafe fn uregex_openUText(pattern: *mut UText, flags: u32, pe: *mut UParseE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_pattern(regexp: *const URegularExpression, patlength: *mut i32, status: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
@@ -20390,6 +23811,7 @@ pub unsafe fn uregex_pattern(regexp: *const URegularExpression, patlength: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_patternUText(regexp: *const URegularExpression, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
@@ -20403,6 +23825,7 @@ pub unsafe fn uregex_patternUText(regexp: *const URegularExpression, status: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_refreshUText(regexp: *mut URegularExpression, text: *mut UText, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -20416,6 +23839,7 @@ pub unsafe fn uregex_refreshUText(regexp: *mut URegularExpression, text: *mut UT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_regionEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -20429,6 +23853,7 @@ pub unsafe fn uregex_regionEnd(regexp: *const URegularExpression, status: *mut U
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_regionEnd64(regexp: *const URegularExpression, status: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
@@ -20442,6 +23867,7 @@ pub unsafe fn uregex_regionEnd64(regexp: *const URegularExpression, status: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_regionStart(regexp: *const URegularExpression, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -20455,6 +23881,7 @@ pub unsafe fn uregex_regionStart(regexp: *const URegularExpression, status: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_regionStart64(regexp: *const URegularExpression, status: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
@@ -20468,6 +23895,7 @@ pub unsafe fn uregex_regionStart64(regexp: *const URegularExpression, status: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_replaceAll(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -20481,6 +23909,7 @@ pub unsafe fn uregex_replaceAll(regexp: *mut URegularExpression, replacementtext
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_replaceAllUText(regexp: *mut URegularExpression, replacement: *mut UText, dest: *mut UText, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
@@ -20494,6 +23923,7 @@ pub unsafe fn uregex_replaceAllUText(regexp: *mut URegularExpression, replacemen
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_replaceFirst(regexp: *mut URegularExpression, replacementtext: *const u16, replacementlength: i32, destbuf: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -20507,6 +23937,7 @@ pub unsafe fn uregex_replaceFirst(regexp: *mut URegularExpression, replacementte
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_replaceFirstUText(regexp: *mut URegularExpression, replacement: *mut UText, dest: *mut UText, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
@@ -20520,6 +23951,7 @@ pub unsafe fn uregex_replaceFirstUText(regexp: *mut URegularExpression, replacem
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_requireEnd(regexp: *const URegularExpression, status: *mut UErrorCode) -> i8 {
     #[cfg(windows)]
@@ -20533,6 +23965,7 @@ pub unsafe fn uregex_requireEnd(regexp: *const URegularExpression, status: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_reset(regexp: *mut URegularExpression, index: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -20546,6 +23979,7 @@ pub unsafe fn uregex_reset(regexp: *mut URegularExpression, index: i32, status: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_reset64(regexp: *mut URegularExpression, index: i64, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -20559,6 +23993,7 @@ pub unsafe fn uregex_reset64(regexp: *mut URegularExpression, index: i64, status
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_setFindProgressCallback(regexp: *mut URegularExpression, callback: URegexFindProgressCallback, context: *const ::core::ffi::c_void, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -20572,6 +24007,7 @@ pub unsafe fn uregex_setFindProgressCallback(regexp: *mut URegularExpression, ca
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_setMatchCallback(regexp: *mut URegularExpression, callback: URegexMatchCallback, context: *const ::core::ffi::c_void, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -20585,6 +24021,7 @@ pub unsafe fn uregex_setMatchCallback(regexp: *mut URegularExpression, callback:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_setRegion(regexp: *mut URegularExpression, regionstart: i32, regionlimit: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -20598,6 +24035,7 @@ pub unsafe fn uregex_setRegion(regexp: *mut URegularExpression, regionstart: i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_setRegion64(regexp: *mut URegularExpression, regionstart: i64, regionlimit: i64, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -20611,6 +24049,7 @@ pub unsafe fn uregex_setRegion64(regexp: *mut URegularExpression, regionstart: i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_setRegionAndStart(regexp: *mut URegularExpression, regionstart: i64, regionlimit: i64, startindex: i64, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -20624,6 +24063,7 @@ pub unsafe fn uregex_setRegionAndStart(regexp: *mut URegularExpression, regionst
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_setStackLimit(regexp: *mut URegularExpression, limit: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -20637,6 +24077,7 @@ pub unsafe fn uregex_setStackLimit(regexp: *mut URegularExpression, limit: i32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_setText(regexp: *mut URegularExpression, text: *const u16, textlength: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -20650,6 +24091,7 @@ pub unsafe fn uregex_setText(regexp: *mut URegularExpression, text: *const u16, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_setTimeLimit(regexp: *mut URegularExpression, limit: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -20663,6 +24105,7 @@ pub unsafe fn uregex_setTimeLimit(regexp: *mut URegularExpression, limit: i32, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_setUText(regexp: *mut URegularExpression, text: *mut UText, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -20676,6 +24119,7 @@ pub unsafe fn uregex_setUText(regexp: *mut URegularExpression, text: *mut UText,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_split(regexp: *mut URegularExpression, destbuf: *mut u16, destcapacity: i32, requiredcapacity: *mut i32, destfields: *mut *mut u16, destfieldscapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -20689,6 +24133,7 @@ pub unsafe fn uregex_split(regexp: *mut URegularExpression, destbuf: *mut u16, d
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_splitUText(regexp: *mut URegularExpression, destfields: *mut *mut UText, destfieldscapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -20702,6 +24147,7 @@ pub unsafe fn uregex_splitUText(regexp: *mut URegularExpression, destfields: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_start(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -20715,6 +24161,7 @@ pub unsafe fn uregex_start(regexp: *mut URegularExpression, groupnum: i32, statu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_start64(regexp: *mut URegularExpression, groupnum: i32, status: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
@@ -20728,6 +24175,7 @@ pub unsafe fn uregex_start64(regexp: *mut URegularExpression, groupnum: i32, sta
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_useAnchoringBounds(regexp: *mut URegularExpression, b: i8, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -20741,6 +24189,7 @@ pub unsafe fn uregex_useAnchoringBounds(regexp: *mut URegularExpression, b: i8, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregex_useTransparentBounds(regexp: *mut URegularExpression, b: i8, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -20754,6 +24203,7 @@ pub unsafe fn uregex_useTransparentBounds(regexp: *mut URegularExpression, b: i8
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregion_areEqual(uregion: *const URegion, otherregion: *const URegion) -> i8 {
     #[cfg(windows)]
@@ -20767,6 +24217,7 @@ pub unsafe fn uregion_areEqual(uregion: *const URegion, otherregion: *const UReg
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregion_contains(uregion: *const URegion, otherregion: *const URegion) -> i8 {
     #[cfg(windows)]
@@ -20780,6 +24231,7 @@ pub unsafe fn uregion_contains(uregion: *const URegion, otherregion: *const UReg
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregion_getAvailable(r#type: URegionType, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
@@ -20793,6 +24245,7 @@ pub unsafe fn uregion_getAvailable(r#type: URegionType, status: *mut UErrorCode)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregion_getContainedRegions(uregion: *const URegion, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
@@ -20806,6 +24259,7 @@ pub unsafe fn uregion_getContainedRegions(uregion: *const URegion, status: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregion_getContainedRegionsOfType(uregion: *const URegion, r#type: URegionType, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
@@ -20819,6 +24273,7 @@ pub unsafe fn uregion_getContainedRegionsOfType(uregion: *const URegion, r#type:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregion_getContainingRegion(uregion: *const URegion) -> *mut URegion {
     #[cfg(windows)]
@@ -20832,6 +24287,7 @@ pub unsafe fn uregion_getContainingRegion(uregion: *const URegion) -> *mut URegi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregion_getContainingRegionOfType(uregion: *const URegion, r#type: URegionType) -> *mut URegion {
     #[cfg(windows)]
@@ -20845,6 +24301,7 @@ pub unsafe fn uregion_getContainingRegionOfType(uregion: *const URegion, r#type:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregion_getNumericCode(uregion: *const URegion) -> i32 {
     #[cfg(windows)]
@@ -20858,6 +24315,7 @@ pub unsafe fn uregion_getNumericCode(uregion: *const URegion) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregion_getPreferredValues(uregion: *const URegion, status: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
@@ -20871,6 +24329,7 @@ pub unsafe fn uregion_getPreferredValues(uregion: *const URegion, status: *mut U
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uregion_getRegionCode(uregion: *const URegion) -> super::Foundation::PSTR {
@@ -20885,6 +24344,7 @@ pub unsafe fn uregion_getRegionCode(uregion: *const URegion) -> super::Foundatio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uregion_getRegionFromCode<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(regioncode: Param0, status: *mut UErrorCode) -> *mut URegion {
@@ -20899,6 +24359,7 @@ pub unsafe fn uregion_getRegionFromCode<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregion_getRegionFromNumericCode(code: i32, status: *mut UErrorCode) -> *mut URegion {
     #[cfg(windows)]
@@ -20912,6 +24373,7 @@ pub unsafe fn uregion_getRegionFromNumericCode(code: i32, status: *mut UErrorCod
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uregion_getType(uregion: *const URegion) -> URegionType {
     #[cfg(windows)]
@@ -20925,6 +24387,7 @@ pub unsafe fn uregion_getType(uregion: *const URegion) -> URegionType {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ureldatefmt_close(reldatefmt: *mut URelativeDateTimeFormatter) {
     #[cfg(windows)]
@@ -20938,6 +24401,7 @@ pub unsafe fn ureldatefmt_close(reldatefmt: *mut URelativeDateTimeFormatter) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ureldatefmt_closeResult(ufrdt: *mut UFormattedRelativeDateTime) {
     #[cfg(windows)]
@@ -20951,6 +24415,7 @@ pub unsafe fn ureldatefmt_closeResult(ufrdt: *mut UFormattedRelativeDateTime) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ureldatefmt_combineDateAndTime(reldatefmt: *const URelativeDateTimeFormatter, relativedatestring: *const u16, relativedatestringlen: i32, timestring: *const u16, timestringlen: i32, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -20964,6 +24429,7 @@ pub unsafe fn ureldatefmt_combineDateAndTime(reldatefmt: *const URelativeDateTim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ureldatefmt_format(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -20977,6 +24443,7 @@ pub unsafe fn ureldatefmt_format(reldatefmt: *const URelativeDateTimeFormatter, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ureldatefmt_formatNumeric(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -20990,6 +24457,7 @@ pub unsafe fn ureldatefmt_formatNumeric(reldatefmt: *const URelativeDateTimeForm
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ureldatefmt_formatNumericToResult(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut UFormattedRelativeDateTime, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -21003,6 +24471,7 @@ pub unsafe fn ureldatefmt_formatNumericToResult(reldatefmt: *const URelativeDate
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ureldatefmt_formatToResult(reldatefmt: *const URelativeDateTimeFormatter, offset: f64, unit: URelativeDateTimeUnit, result: *mut UFormattedRelativeDateTime, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -21016,6 +24485,7 @@ pub unsafe fn ureldatefmt_formatToResult(reldatefmt: *const URelativeDateTimeFor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ureldatefmt_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(locale: Param0, nftoadopt: *mut *mut ::core::ffi::c_void, width: UDateRelativeDateTimeFormatterStyle, capitalizationcontext: UDisplayContext, status: *mut UErrorCode) -> *mut URelativeDateTimeFormatter {
@@ -21030,6 +24500,7 @@ pub unsafe fn ureldatefmt_open<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ureldatefmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedRelativeDateTime {
     #[cfg(windows)]
@@ -21043,6 +24514,7 @@ pub unsafe fn ureldatefmt_openResult(ec: *mut UErrorCode) -> *mut UFormattedRela
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ureldatefmt_resultAsValue(ufrdt: *const UFormattedRelativeDateTime, ec: *mut UErrorCode) -> *mut UFormattedValue {
     #[cfg(windows)]
@@ -21056,6 +24528,7 @@ pub unsafe fn ureldatefmt_resultAsValue(ufrdt: *const UFormattedRelativeDateTime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ures_close(resourcebundle: *mut UResourceBundle) {
     #[cfg(windows)]
@@ -21069,6 +24542,7 @@ pub unsafe fn ures_close(resourcebundle: *mut UResourceBundle) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ures_getBinary(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut u8 {
     #[cfg(windows)]
@@ -21082,6 +24556,7 @@ pub unsafe fn ures_getBinary(resourcebundle: *const UResourceBundle, len: *mut i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ures_getByIndex(resourcebundle: *const UResourceBundle, indexr: i32, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle {
     #[cfg(windows)]
@@ -21095,6 +24570,7 @@ pub unsafe fn ures_getByIndex(resourcebundle: *const UResourceBundle, indexr: i3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ures_getByKey<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(resourcebundle: *const UResourceBundle, key: Param1, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle {
@@ -21109,6 +24585,7 @@ pub unsafe fn ures_getByKey<'a, Param1: ::windows::core::IntoParam<'a, super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ures_getInt(resourcebundle: *const UResourceBundle, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -21122,6 +24599,7 @@ pub unsafe fn ures_getInt(resourcebundle: *const UResourceBundle, status: *mut U
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ures_getIntVector(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut i32 {
     #[cfg(windows)]
@@ -21135,6 +24613,7 @@ pub unsafe fn ures_getIntVector(resourcebundle: *const UResourceBundle, len: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ures_getKey(resourcebundle: *const UResourceBundle) -> super::Foundation::PSTR {
@@ -21149,6 +24628,7 @@ pub unsafe fn ures_getKey(resourcebundle: *const UResourceBundle) -> super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ures_getLocaleByType(resourcebundle: *const UResourceBundle, r#type: ULocDataLocaleType, status: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -21163,6 +24643,7 @@ pub unsafe fn ures_getLocaleByType(resourcebundle: *const UResourceBundle, r#typ
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ures_getNextResource(resourcebundle: *mut UResourceBundle, fillin: *mut UResourceBundle, status: *mut UErrorCode) -> *mut UResourceBundle {
     #[cfg(windows)]
@@ -21176,6 +24657,7 @@ pub unsafe fn ures_getNextResource(resourcebundle: *mut UResourceBundle, fillin:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ures_getNextString(resourcebundle: *mut UResourceBundle, len: *mut i32, key: *const *const i8, status: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
@@ -21189,6 +24671,7 @@ pub unsafe fn ures_getNextString(resourcebundle: *mut UResourceBundle, len: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ures_getSize(resourcebundle: *const UResourceBundle) -> i32 {
     #[cfg(windows)]
@@ -21202,6 +24685,7 @@ pub unsafe fn ures_getSize(resourcebundle: *const UResourceBundle) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ures_getString(resourcebundle: *const UResourceBundle, len: *mut i32, status: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
@@ -21215,6 +24699,7 @@ pub unsafe fn ures_getString(resourcebundle: *const UResourceBundle, len: *mut i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ures_getStringByIndex(resourcebundle: *const UResourceBundle, indexs: i32, len: *mut i32, status: *mut UErrorCode) -> *mut u16 {
     #[cfg(windows)]
@@ -21228,6 +24713,7 @@ pub unsafe fn ures_getStringByIndex(resourcebundle: *const UResourceBundle, inde
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ures_getStringByKey<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(resb: *const UResourceBundle, key: Param1, len: *mut i32, status: *mut UErrorCode) -> *mut u16 {
@@ -21242,6 +24728,7 @@ pub unsafe fn ures_getStringByKey<'a, Param1: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ures_getType(resourcebundle: *const UResourceBundle) -> UResType {
     #[cfg(windows)]
@@ -21255,6 +24742,7 @@ pub unsafe fn ures_getType(resourcebundle: *const UResourceBundle) -> UResType {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ures_getUInt(resourcebundle: *const UResourceBundle, status: *mut UErrorCode) -> u32 {
     #[cfg(windows)]
@@ -21268,6 +24756,7 @@ pub unsafe fn ures_getUInt(resourcebundle: *const UResourceBundle, status: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ures_getUTF8String<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(resb: *const UResourceBundle, dest: Param1, length: *mut i32, forcecopy: i8, status: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -21282,6 +24771,7 @@ pub unsafe fn ures_getUTF8String<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ures_getUTF8StringByIndex<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(resb: *const UResourceBundle, stringindex: i32, dest: Param2, plength: *mut i32, forcecopy: i8, status: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -21296,6 +24786,7 @@ pub unsafe fn ures_getUTF8StringByIndex<'a, Param2: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ures_getUTF8StringByKey<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(resb: *const UResourceBundle, key: Param1, dest: Param2, plength: *mut i32, forcecopy: i8, status: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -21310,6 +24801,7 @@ pub unsafe fn ures_getUTF8StringByKey<'a, Param1: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ures_getVersion(resb: *const UResourceBundle, versioninfo: *mut u8) {
     #[cfg(windows)]
@@ -21323,6 +24815,7 @@ pub unsafe fn ures_getVersion(resb: *const UResourceBundle, versioninfo: *mut u8
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ures_hasNext(resourcebundle: *const UResourceBundle) -> i8 {
     #[cfg(windows)]
@@ -21336,6 +24829,7 @@ pub unsafe fn ures_hasNext(resourcebundle: *const UResourceBundle) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ures_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(packagename: Param0, locale: Param1, status: *mut UErrorCode) -> *mut UResourceBundle {
@@ -21350,6 +24844,7 @@ pub unsafe fn ures_open<'a, Param0: ::windows::core::IntoParam<'a, super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ures_openAvailableLocales<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(packagename: Param0, status: *mut UErrorCode) -> *mut UEnumeration {
@@ -21364,6 +24859,7 @@ pub unsafe fn ures_openAvailableLocales<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ures_openDirect<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(packagename: Param0, locale: Param1, status: *mut UErrorCode) -> *mut UResourceBundle {
@@ -21378,6 +24874,7 @@ pub unsafe fn ures_openDirect<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ures_openU<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(packagename: *const u16, locale: Param1, status: *mut UErrorCode) -> *mut UResourceBundle {
@@ -21392,6 +24889,7 @@ pub unsafe fn ures_openU<'a, Param1: ::windows::core::IntoParam<'a, super::Found
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn ures_resetIterator(resourcebundle: *mut UResourceBundle) {
     #[cfg(windows)]
@@ -21405,6 +24903,7 @@ pub unsafe fn ures_resetIterator(resourcebundle: *mut UResourceBundle) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uscript_breaksBetweenLetters(script: UScriptCode) -> i8 {
     #[cfg(windows)]
@@ -21418,6 +24917,7 @@ pub unsafe fn uscript_breaksBetweenLetters(script: UScriptCode) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uscript_getCode<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(nameorabbrorlocale: Param0, fillin: *mut UScriptCode, capacity: i32, err: *mut UErrorCode) -> i32 {
@@ -21432,6 +24932,7 @@ pub unsafe fn uscript_getCode<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uscript_getName(scriptcode: UScriptCode) -> super::Foundation::PSTR {
@@ -21446,6 +24947,7 @@ pub unsafe fn uscript_getName(scriptcode: UScriptCode) -> super::Foundation::PST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uscript_getSampleString(script: UScriptCode, dest: *mut u16, capacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -21459,6 +24961,7 @@ pub unsafe fn uscript_getSampleString(script: UScriptCode, dest: *mut u16, capac
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uscript_getScript(codepoint: i32, err: *mut UErrorCode) -> UScriptCode {
     #[cfg(windows)]
@@ -21472,6 +24975,7 @@ pub unsafe fn uscript_getScript(codepoint: i32, err: *mut UErrorCode) -> UScript
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uscript_getScriptExtensions(c: i32, scripts: *mut UScriptCode, capacity: i32, errorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -21485,6 +24989,7 @@ pub unsafe fn uscript_getScriptExtensions(c: i32, scripts: *mut UScriptCode, cap
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uscript_getShortName(scriptcode: UScriptCode) -> super::Foundation::PSTR {
@@ -21499,6 +25004,7 @@ pub unsafe fn uscript_getShortName(scriptcode: UScriptCode) -> super::Foundation
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uscript_getUsage(script: UScriptCode) -> UScriptUsage {
     #[cfg(windows)]
@@ -21512,6 +25018,7 @@ pub unsafe fn uscript_getUsage(script: UScriptCode) -> UScriptUsage {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uscript_hasScript(c: i32, sc: UScriptCode) -> i8 {
     #[cfg(windows)]
@@ -21525,6 +25032,7 @@ pub unsafe fn uscript_hasScript(c: i32, sc: UScriptCode) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uscript_isCased(script: UScriptCode) -> i8 {
     #[cfg(windows)]
@@ -21538,6 +25046,7 @@ pub unsafe fn uscript_isCased(script: UScriptCode) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uscript_isRightToLeft(script: UScriptCode) -> i8 {
     #[cfg(windows)]
@@ -21551,6 +25060,7 @@ pub unsafe fn uscript_isRightToLeft(script: UScriptCode) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_close(searchiter: *mut UStringSearch) {
     #[cfg(windows)]
@@ -21564,6 +25074,7 @@ pub unsafe fn usearch_close(searchiter: *mut UStringSearch) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_first(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -21577,6 +25088,7 @@ pub unsafe fn usearch_first(strsrch: *mut UStringSearch, status: *mut UErrorCode
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_following(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -21590,6 +25102,7 @@ pub unsafe fn usearch_following(strsrch: *mut UStringSearch, position: i32, stat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_getAttribute(strsrch: *const UStringSearch, attribute: USearchAttribute) -> USearchAttributeValue {
     #[cfg(windows)]
@@ -21603,6 +25116,7 @@ pub unsafe fn usearch_getAttribute(strsrch: *const UStringSearch, attribute: USe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_getBreakIterator(strsrch: *const UStringSearch) -> *mut UBreakIterator {
     #[cfg(windows)]
@@ -21616,6 +25130,7 @@ pub unsafe fn usearch_getBreakIterator(strsrch: *const UStringSearch) -> *mut UB
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_getCollator(strsrch: *const UStringSearch) -> *mut UCollator {
     #[cfg(windows)]
@@ -21629,6 +25144,7 @@ pub unsafe fn usearch_getCollator(strsrch: *const UStringSearch) -> *mut UCollat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_getMatchedLength(strsrch: *const UStringSearch) -> i32 {
     #[cfg(windows)]
@@ -21642,6 +25158,7 @@ pub unsafe fn usearch_getMatchedLength(strsrch: *const UStringSearch) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_getMatchedStart(strsrch: *const UStringSearch) -> i32 {
     #[cfg(windows)]
@@ -21655,6 +25172,7 @@ pub unsafe fn usearch_getMatchedStart(strsrch: *const UStringSearch) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_getMatchedText(strsrch: *const UStringSearch, result: *mut u16, resultcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -21668,6 +25186,7 @@ pub unsafe fn usearch_getMatchedText(strsrch: *const UStringSearch, result: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_getOffset(strsrch: *const UStringSearch) -> i32 {
     #[cfg(windows)]
@@ -21681,6 +25200,7 @@ pub unsafe fn usearch_getOffset(strsrch: *const UStringSearch) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_getPattern(strsrch: *const UStringSearch, length: *mut i32) -> *mut u16 {
     #[cfg(windows)]
@@ -21694,6 +25214,7 @@ pub unsafe fn usearch_getPattern(strsrch: *const UStringSearch, length: *mut i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_getText(strsrch: *const UStringSearch, length: *mut i32) -> *mut u16 {
     #[cfg(windows)]
@@ -21707,6 +25228,7 @@ pub unsafe fn usearch_getText(strsrch: *const UStringSearch, length: *mut i32) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_last(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -21720,6 +25242,7 @@ pub unsafe fn usearch_last(strsrch: *mut UStringSearch, status: *mut UErrorCode)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_next(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -21733,6 +25256,7 @@ pub unsafe fn usearch_next(strsrch: *mut UStringSearch, status: *mut UErrorCode)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn usearch_open<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(pattern: *const u16, patternlength: i32, text: *const u16, textlength: i32, locale: Param4, breakiter: *mut UBreakIterator, status: *mut UErrorCode) -> *mut UStringSearch {
@@ -21747,6 +25271,7 @@ pub unsafe fn usearch_open<'a, Param4: ::windows::core::IntoParam<'a, super::Fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_openFromCollator(pattern: *const u16, patternlength: i32, text: *const u16, textlength: i32, collator: *const UCollator, breakiter: *mut UBreakIterator, status: *mut UErrorCode) -> *mut UStringSearch {
     #[cfg(windows)]
@@ -21760,6 +25285,7 @@ pub unsafe fn usearch_openFromCollator(pattern: *const u16, patternlength: i32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_preceding(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -21773,6 +25299,7 @@ pub unsafe fn usearch_preceding(strsrch: *mut UStringSearch, position: i32, stat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_previous(strsrch: *mut UStringSearch, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -21786,6 +25313,7 @@ pub unsafe fn usearch_previous(strsrch: *mut UStringSearch, status: *mut UErrorC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_reset(strsrch: *mut UStringSearch) {
     #[cfg(windows)]
@@ -21799,6 +25327,7 @@ pub unsafe fn usearch_reset(strsrch: *mut UStringSearch) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_setAttribute(strsrch: *mut UStringSearch, attribute: USearchAttribute, value: USearchAttributeValue, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -21812,6 +25341,7 @@ pub unsafe fn usearch_setAttribute(strsrch: *mut UStringSearch, attribute: USear
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_setBreakIterator(strsrch: *mut UStringSearch, breakiter: *mut UBreakIterator, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -21825,6 +25355,7 @@ pub unsafe fn usearch_setBreakIterator(strsrch: *mut UStringSearch, breakiter: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_setCollator(strsrch: *mut UStringSearch, collator: *const UCollator, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -21838,6 +25369,7 @@ pub unsafe fn usearch_setCollator(strsrch: *mut UStringSearch, collator: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_setOffset(strsrch: *mut UStringSearch, position: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -21851,6 +25383,7 @@ pub unsafe fn usearch_setOffset(strsrch: *mut UStringSearch, position: i32, stat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_setPattern(strsrch: *mut UStringSearch, pattern: *const u16, patternlength: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -21864,6 +25397,7 @@ pub unsafe fn usearch_setPattern(strsrch: *mut UStringSearch, pattern: *const u1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usearch_setText(strsrch: *mut UStringSearch, text: *const u16, textlength: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -21877,6 +25411,7 @@ pub unsafe fn usearch_setText(strsrch: *mut UStringSearch, text: *const u16, tex
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_add(set: *mut USet, c: i32) {
     #[cfg(windows)]
@@ -21890,6 +25425,7 @@ pub unsafe fn uset_add(set: *mut USet, c: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_addAll(set: *mut USet, additionalset: *const USet) {
     #[cfg(windows)]
@@ -21903,6 +25439,7 @@ pub unsafe fn uset_addAll(set: *mut USet, additionalset: *const USet) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_addAllCodePoints(set: *mut USet, str: *const u16, strlen: i32) {
     #[cfg(windows)]
@@ -21916,6 +25453,7 @@ pub unsafe fn uset_addAllCodePoints(set: *mut USet, str: *const u16, strlen: i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_addRange(set: *mut USet, start: i32, end: i32) {
     #[cfg(windows)]
@@ -21929,6 +25467,7 @@ pub unsafe fn uset_addRange(set: *mut USet, start: i32, end: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_addString(set: *mut USet, str: *const u16, strlen: i32) {
     #[cfg(windows)]
@@ -21942,6 +25481,7 @@ pub unsafe fn uset_addString(set: *mut USet, str: *const u16, strlen: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_applyIntPropertyValue(set: *mut USet, prop: UProperty, value: i32, ec: *mut UErrorCode) {
     #[cfg(windows)]
@@ -21955,6 +25495,7 @@ pub unsafe fn uset_applyIntPropertyValue(set: *mut USet, prop: UProperty, value:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_applyPattern(set: *mut USet, pattern: *const u16, patternlength: i32, options: u32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -21968,6 +25509,7 @@ pub unsafe fn uset_applyPattern(set: *mut USet, pattern: *const u16, patternleng
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_applyPropertyAlias(set: *mut USet, prop: *const u16, proplength: i32, value: *const u16, valuelength: i32, ec: *mut UErrorCode) {
     #[cfg(windows)]
@@ -21981,6 +25523,7 @@ pub unsafe fn uset_applyPropertyAlias(set: *mut USet, prop: *const u16, propleng
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_charAt(set: *const USet, charindex: i32) -> i32 {
     #[cfg(windows)]
@@ -21994,6 +25537,7 @@ pub unsafe fn uset_charAt(set: *const USet, charindex: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_clear(set: *mut USet) {
     #[cfg(windows)]
@@ -22007,6 +25551,7 @@ pub unsafe fn uset_clear(set: *mut USet) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_clone(set: *const USet) -> *mut USet {
     #[cfg(windows)]
@@ -22020,6 +25565,7 @@ pub unsafe fn uset_clone(set: *const USet) -> *mut USet {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_cloneAsThawed(set: *const USet) -> *mut USet {
     #[cfg(windows)]
@@ -22033,6 +25579,7 @@ pub unsafe fn uset_cloneAsThawed(set: *const USet) -> *mut USet {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_close(set: *mut USet) {
     #[cfg(windows)]
@@ -22046,6 +25593,7 @@ pub unsafe fn uset_close(set: *mut USet) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_closeOver(set: *mut USet, attributes: i32) {
     #[cfg(windows)]
@@ -22059,6 +25607,7 @@ pub unsafe fn uset_closeOver(set: *mut USet, attributes: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_compact(set: *mut USet) {
     #[cfg(windows)]
@@ -22072,6 +25621,7 @@ pub unsafe fn uset_compact(set: *mut USet) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_complement(set: *mut USet) {
     #[cfg(windows)]
@@ -22085,6 +25635,7 @@ pub unsafe fn uset_complement(set: *mut USet) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_complementAll(set: *mut USet, complement: *const USet) {
     #[cfg(windows)]
@@ -22098,6 +25649,7 @@ pub unsafe fn uset_complementAll(set: *mut USet, complement: *const USet) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_contains(set: *const USet, c: i32) -> i8 {
     #[cfg(windows)]
@@ -22111,6 +25663,7 @@ pub unsafe fn uset_contains(set: *const USet, c: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_containsAll(set1: *const USet, set2: *const USet) -> i8 {
     #[cfg(windows)]
@@ -22124,6 +25677,7 @@ pub unsafe fn uset_containsAll(set1: *const USet, set2: *const USet) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_containsAllCodePoints(set: *const USet, str: *const u16, strlen: i32) -> i8 {
     #[cfg(windows)]
@@ -22137,6 +25691,7 @@ pub unsafe fn uset_containsAllCodePoints(set: *const USet, str: *const u16, strl
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_containsNone(set1: *const USet, set2: *const USet) -> i8 {
     #[cfg(windows)]
@@ -22150,6 +25705,7 @@ pub unsafe fn uset_containsNone(set1: *const USet, set2: *const USet) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_containsRange(set: *const USet, start: i32, end: i32) -> i8 {
     #[cfg(windows)]
@@ -22163,6 +25719,7 @@ pub unsafe fn uset_containsRange(set: *const USet, start: i32, end: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_containsSome(set1: *const USet, set2: *const USet) -> i8 {
     #[cfg(windows)]
@@ -22176,6 +25733,7 @@ pub unsafe fn uset_containsSome(set1: *const USet, set2: *const USet) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_containsString(set: *const USet, str: *const u16, strlen: i32) -> i8 {
     #[cfg(windows)]
@@ -22189,6 +25747,7 @@ pub unsafe fn uset_containsString(set: *const USet, str: *const u16, strlen: i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_equals(set1: *const USet, set2: *const USet) -> i8 {
     #[cfg(windows)]
@@ -22202,6 +25761,7 @@ pub unsafe fn uset_equals(set1: *const USet, set2: *const USet) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_freeze(set: *mut USet) {
     #[cfg(windows)]
@@ -22215,6 +25775,7 @@ pub unsafe fn uset_freeze(set: *mut USet) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_getItem(set: *const USet, itemindex: i32, start: *mut i32, end: *mut i32, str: *mut u16, strcapacity: i32, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -22228,6 +25789,7 @@ pub unsafe fn uset_getItem(set: *const USet, itemindex: i32, start: *mut i32, en
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_getItemCount(set: *const USet) -> i32 {
     #[cfg(windows)]
@@ -22241,6 +25803,7 @@ pub unsafe fn uset_getItemCount(set: *const USet) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_getSerializedRange(set: *const USerializedSet, rangeindex: i32, pstart: *mut i32, pend: *mut i32) -> i8 {
     #[cfg(windows)]
@@ -22254,6 +25817,7 @@ pub unsafe fn uset_getSerializedRange(set: *const USerializedSet, rangeindex: i3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_getSerializedRangeCount(set: *const USerializedSet) -> i32 {
     #[cfg(windows)]
@@ -22267,6 +25831,7 @@ pub unsafe fn uset_getSerializedRangeCount(set: *const USerializedSet) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_getSerializedSet(fillset: *mut USerializedSet, src: *const u16, srclength: i32) -> i8 {
     #[cfg(windows)]
@@ -22280,6 +25845,7 @@ pub unsafe fn uset_getSerializedSet(fillset: *mut USerializedSet, src: *const u1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_indexOf(set: *const USet, c: i32) -> i32 {
     #[cfg(windows)]
@@ -22293,6 +25859,7 @@ pub unsafe fn uset_indexOf(set: *const USet, c: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_isEmpty(set: *const USet) -> i8 {
     #[cfg(windows)]
@@ -22306,6 +25873,7 @@ pub unsafe fn uset_isEmpty(set: *const USet) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_isFrozen(set: *const USet) -> i8 {
     #[cfg(windows)]
@@ -22319,6 +25887,7 @@ pub unsafe fn uset_isFrozen(set: *const USet) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_open(start: i32, end: i32) -> *mut USet {
     #[cfg(windows)]
@@ -22332,6 +25901,7 @@ pub unsafe fn uset_open(start: i32, end: i32) -> *mut USet {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_openEmpty() -> *mut USet {
     #[cfg(windows)]
@@ -22345,6 +25915,7 @@ pub unsafe fn uset_openEmpty() -> *mut USet {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_openPattern(pattern: *const u16, patternlength: i32, ec: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
@@ -22358,6 +25929,7 @@ pub unsafe fn uset_openPattern(pattern: *const u16, patternlength: i32, ec: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_openPatternOptions(pattern: *const u16, patternlength: i32, options: u32, ec: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
@@ -22371,6 +25943,7 @@ pub unsafe fn uset_openPatternOptions(pattern: *const u16, patternlength: i32, o
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_remove(set: *mut USet, c: i32) {
     #[cfg(windows)]
@@ -22384,6 +25957,7 @@ pub unsafe fn uset_remove(set: *mut USet, c: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_removeAll(set: *mut USet, removeset: *const USet) {
     #[cfg(windows)]
@@ -22397,6 +25971,7 @@ pub unsafe fn uset_removeAll(set: *mut USet, removeset: *const USet) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_removeAllStrings(set: *mut USet) {
     #[cfg(windows)]
@@ -22410,6 +25985,7 @@ pub unsafe fn uset_removeAllStrings(set: *mut USet) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_removeRange(set: *mut USet, start: i32, end: i32) {
     #[cfg(windows)]
@@ -22423,6 +25999,7 @@ pub unsafe fn uset_removeRange(set: *mut USet, start: i32, end: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_removeString(set: *mut USet, str: *const u16, strlen: i32) {
     #[cfg(windows)]
@@ -22436,6 +26013,7 @@ pub unsafe fn uset_removeString(set: *mut USet, str: *const u16, strlen: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_resemblesPattern(pattern: *const u16, patternlength: i32, pos: i32) -> i8 {
     #[cfg(windows)]
@@ -22449,6 +26027,7 @@ pub unsafe fn uset_resemblesPattern(pattern: *const u16, patternlength: i32, pos
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_retain(set: *mut USet, start: i32, end: i32) {
     #[cfg(windows)]
@@ -22462,6 +26041,7 @@ pub unsafe fn uset_retain(set: *mut USet, start: i32, end: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_retainAll(set: *mut USet, retain: *const USet) {
     #[cfg(windows)]
@@ -22475,6 +26055,7 @@ pub unsafe fn uset_retainAll(set: *mut USet, retain: *const USet) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_serialize(set: *const USet, dest: *mut u16, destcapacity: i32, perrorcode: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -22488,6 +26069,7 @@ pub unsafe fn uset_serialize(set: *const USet, dest: *mut u16, destcapacity: i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_serializedContains(set: *const USerializedSet, c: i32) -> i8 {
     #[cfg(windows)]
@@ -22501,6 +26083,7 @@ pub unsafe fn uset_serializedContains(set: *const USerializedSet, c: i32) -> i8 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_set(set: *mut USet, start: i32, end: i32) {
     #[cfg(windows)]
@@ -22514,6 +26097,7 @@ pub unsafe fn uset_set(set: *mut USet, start: i32, end: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_setSerializedToOne(fillset: *mut USerializedSet, c: i32) {
     #[cfg(windows)]
@@ -22527,6 +26111,7 @@ pub unsafe fn uset_setSerializedToOne(fillset: *mut USerializedSet, c: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_size(set: *const USet) -> i32 {
     #[cfg(windows)]
@@ -22540,6 +26125,7 @@ pub unsafe fn uset_size(set: *const USet) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_span(set: *const USet, s: *const u16, length: i32, spancondition: USetSpanCondition) -> i32 {
     #[cfg(windows)]
@@ -22553,6 +26139,7 @@ pub unsafe fn uset_span(set: *const USet, s: *const u16, length: i32, spancondit
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_spanBack(set: *const USet, s: *const u16, length: i32, spancondition: USetSpanCondition) -> i32 {
     #[cfg(windows)]
@@ -22566,6 +26153,7 @@ pub unsafe fn uset_spanBack(set: *const USet, s: *const u16, length: i32, spanco
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uset_spanBackUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(set: *const USet, s: Param1, length: i32, spancondition: USetSpanCondition) -> i32 {
@@ -22580,6 +26168,7 @@ pub unsafe fn uset_spanBackUTF8<'a, Param1: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uset_spanUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(set: *const USet, s: Param1, length: i32, spancondition: USetSpanCondition) -> i32 {
@@ -22594,6 +26183,7 @@ pub unsafe fn uset_spanUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uset_toPattern(set: *const USet, result: *mut u16, resultcapacity: i32, escapeunprintable: i8, ec: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -22607,6 +26197,7 @@ pub unsafe fn uset_toPattern(set: *const USet, result: *mut u16, resultcapacity:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_areConfusable(sc: *const USpoofChecker, id1: *const u16, length1: i32, id2: *const u16, length2: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -22620,6 +26211,7 @@ pub unsafe fn uspoof_areConfusable(sc: *const USpoofChecker, id1: *const u16, le
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uspoof_areConfusableUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(sc: *const USpoofChecker, id1: Param1, length1: i32, id2: Param3, length2: i32, status: *mut UErrorCode) -> i32 {
@@ -22634,6 +26226,7 @@ pub unsafe fn uspoof_areConfusableUTF8<'a, Param1: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_check(sc: *const USpoofChecker, id: *const u16, length: i32, position: *mut i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -22647,6 +26240,7 @@ pub unsafe fn uspoof_check(sc: *const USpoofChecker, id: *const u16, length: i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_check2(sc: *const USpoofChecker, id: *const u16, length: i32, checkresult: *mut USpoofCheckResult, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -22660,6 +26254,7 @@ pub unsafe fn uspoof_check2(sc: *const USpoofChecker, id: *const u16, length: i3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uspoof_check2UTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(sc: *const USpoofChecker, id: Param1, length: i32, checkresult: *mut USpoofCheckResult, status: *mut UErrorCode) -> i32 {
@@ -22674,6 +26269,7 @@ pub unsafe fn uspoof_check2UTF8<'a, Param1: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uspoof_checkUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(sc: *const USpoofChecker, id: Param1, length: i32, position: *mut i32, status: *mut UErrorCode) -> i32 {
@@ -22688,6 +26284,7 @@ pub unsafe fn uspoof_checkUTF8<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_clone(sc: *const USpoofChecker, status: *mut UErrorCode) -> *mut USpoofChecker {
     #[cfg(windows)]
@@ -22701,6 +26298,7 @@ pub unsafe fn uspoof_clone(sc: *const USpoofChecker, status: *mut UErrorCode) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_close(sc: *mut USpoofChecker) {
     #[cfg(windows)]
@@ -22714,6 +26312,7 @@ pub unsafe fn uspoof_close(sc: *mut USpoofChecker) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_closeCheckResult(checkresult: *mut USpoofCheckResult) {
     #[cfg(windows)]
@@ -22727,6 +26326,7 @@ pub unsafe fn uspoof_closeCheckResult(checkresult: *mut USpoofCheckResult) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_getAllowedChars(sc: *const USpoofChecker, status: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
@@ -22740,6 +26340,7 @@ pub unsafe fn uspoof_getAllowedChars(sc: *const USpoofChecker, status: *mut UErr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uspoof_getAllowedLocales(sc: *mut USpoofChecker, status: *mut UErrorCode) -> super::Foundation::PSTR {
@@ -22754,6 +26355,7 @@ pub unsafe fn uspoof_getAllowedLocales(sc: *mut USpoofChecker, status: *mut UErr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_getCheckResultChecks(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -22767,6 +26369,7 @@ pub unsafe fn uspoof_getCheckResultChecks(checkresult: *const USpoofCheckResult,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_getCheckResultNumerics(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
@@ -22780,6 +26383,7 @@ pub unsafe fn uspoof_getCheckResultNumerics(checkresult: *const USpoofCheckResul
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_getCheckResultRestrictionLevel(checkresult: *const USpoofCheckResult, status: *mut UErrorCode) -> URestrictionLevel {
     #[cfg(windows)]
@@ -22793,6 +26397,7 @@ pub unsafe fn uspoof_getCheckResultRestrictionLevel(checkresult: *const USpoofCh
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_getChecks(sc: *const USpoofChecker, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -22806,6 +26411,7 @@ pub unsafe fn uspoof_getChecks(sc: *const USpoofChecker, status: *mut UErrorCode
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_getInclusionSet(status: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
@@ -22819,6 +26425,7 @@ pub unsafe fn uspoof_getInclusionSet(status: *mut UErrorCode) -> *mut USet {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_getRecommendedSet(status: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
@@ -22832,6 +26439,7 @@ pub unsafe fn uspoof_getRecommendedSet(status: *mut UErrorCode) -> *mut USet {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_getRestrictionLevel(sc: *const USpoofChecker) -> URestrictionLevel {
     #[cfg(windows)]
@@ -22845,6 +26453,7 @@ pub unsafe fn uspoof_getRestrictionLevel(sc: *const USpoofChecker) -> URestricti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_getSkeleton(sc: *const USpoofChecker, r#type: u32, id: *const u16, length: i32, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -22858,6 +26467,7 @@ pub unsafe fn uspoof_getSkeleton(sc: *const USpoofChecker, r#type: u32, id: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uspoof_getSkeletonUTF8<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(sc: *const USpoofChecker, r#type: u32, id: Param2, length: i32, dest: Param4, destcapacity: i32, status: *mut UErrorCode) -> i32 {
@@ -22872,6 +26482,7 @@ pub unsafe fn uspoof_getSkeletonUTF8<'a, Param2: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_open(status: *mut UErrorCode) -> *mut USpoofChecker {
     #[cfg(windows)]
@@ -22885,6 +26496,7 @@ pub unsafe fn uspoof_open(status: *mut UErrorCode) -> *mut USpoofChecker {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_openCheckResult(status: *mut UErrorCode) -> *mut USpoofCheckResult {
     #[cfg(windows)]
@@ -22898,6 +26510,7 @@ pub unsafe fn uspoof_openCheckResult(status: *mut UErrorCode) -> *mut USpoofChec
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_openFromSerialized(data: *const ::core::ffi::c_void, length: i32, pactuallength: *mut i32, perrorcode: *mut UErrorCode) -> *mut USpoofChecker {
     #[cfg(windows)]
@@ -22911,6 +26524,7 @@ pub unsafe fn uspoof_openFromSerialized(data: *const ::core::ffi::c_void, length
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uspoof_openFromSource<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(confusables: Param0, confusableslen: i32, confusableswholescript: Param2, confusableswholescriptlen: i32, errtype: *mut i32, pe: *mut UParseError, status: *mut UErrorCode) -> *mut USpoofChecker {
@@ -22925,6 +26539,7 @@ pub unsafe fn uspoof_openFromSource<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_serialize(sc: *mut USpoofChecker, data: *mut ::core::ffi::c_void, capacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -22938,6 +26553,7 @@ pub unsafe fn uspoof_serialize(sc: *mut USpoofChecker, data: *mut ::core::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_setAllowedChars(sc: *mut USpoofChecker, chars: *const USet, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -22951,6 +26567,7 @@ pub unsafe fn uspoof_setAllowedChars(sc: *mut USpoofChecker, chars: *const USet,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn uspoof_setAllowedLocales<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(sc: *mut USpoofChecker, localeslist: Param1, status: *mut UErrorCode) {
@@ -22965,6 +26582,7 @@ pub unsafe fn uspoof_setAllowedLocales<'a, Param1: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_setChecks(sc: *mut USpoofChecker, checks: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -22978,6 +26596,7 @@ pub unsafe fn uspoof_setChecks(sc: *mut USpoofChecker, checks: i32, status: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn uspoof_setRestrictionLevel(sc: *mut USpoofChecker, restrictionlevel: URestrictionLevel) {
     #[cfg(windows)]
@@ -22991,6 +26610,7 @@ pub unsafe fn uspoof_setRestrictionLevel(sc: *mut USpoofChecker, restrictionleve
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usprep_close(profile: *mut UStringPrepProfile) {
     #[cfg(windows)]
@@ -23004,6 +26624,7 @@ pub unsafe fn usprep_close(profile: *mut UStringPrepProfile) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn usprep_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(path: Param0, filename: Param1, status: *mut UErrorCode) -> *mut UStringPrepProfile {
@@ -23018,6 +26639,7 @@ pub unsafe fn usprep_open<'a, Param0: ::windows::core::IntoParam<'a, super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usprep_openByType(r#type: UStringPrepProfileType, status: *mut UErrorCode) -> *mut UStringPrepProfile {
     #[cfg(windows)]
@@ -23031,6 +26653,7 @@ pub unsafe fn usprep_openByType(r#type: UStringPrepProfileType, status: *mut UEr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn usprep_prepare(prep: *const UStringPrepProfile, src: *const u16, srclength: i32, dest: *mut u16, destcapacity: i32, options: i32, parseerror: *mut UParseError, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -23044,6 +26667,7 @@ pub unsafe fn usprep_prepare(prep: *const UStringPrepProfile, src: *const u16, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_char32At(ut: *mut UText, nativeindex: i64) -> i32 {
     #[cfg(windows)]
@@ -23057,6 +26681,7 @@ pub unsafe fn utext_char32At(ut: *mut UText, nativeindex: i64) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_clone(dest: *mut UText, src: *const UText, deep: i8, readonly: i8, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
@@ -23070,6 +26695,7 @@ pub unsafe fn utext_clone(dest: *mut UText, src: *const UText, deep: i8, readonl
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_close(ut: *mut UText) -> *mut UText {
     #[cfg(windows)]
@@ -23083,6 +26709,7 @@ pub unsafe fn utext_close(ut: *mut UText) -> *mut UText {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_copy(ut: *mut UText, nativestart: i64, nativelimit: i64, destindex: i64, r#move: i8, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -23096,6 +26723,7 @@ pub unsafe fn utext_copy(ut: *mut UText, nativestart: i64, nativelimit: i64, des
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_current32(ut: *mut UText) -> i32 {
     #[cfg(windows)]
@@ -23109,6 +26737,7 @@ pub unsafe fn utext_current32(ut: *mut UText) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_equals(a: *const UText, b: *const UText) -> i8 {
     #[cfg(windows)]
@@ -23122,6 +26751,7 @@ pub unsafe fn utext_equals(a: *const UText, b: *const UText) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_extract(ut: *mut UText, nativestart: i64, nativelimit: i64, dest: *mut u16, destcapacity: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -23135,6 +26765,7 @@ pub unsafe fn utext_extract(ut: *mut UText, nativestart: i64, nativelimit: i64, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_freeze(ut: *mut UText) {
     #[cfg(windows)]
@@ -23148,6 +26779,7 @@ pub unsafe fn utext_freeze(ut: *mut UText) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_getNativeIndex(ut: *const UText) -> i64 {
     #[cfg(windows)]
@@ -23161,6 +26793,7 @@ pub unsafe fn utext_getNativeIndex(ut: *const UText) -> i64 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_getPreviousNativeIndex(ut: *mut UText) -> i64 {
     #[cfg(windows)]
@@ -23174,6 +26807,7 @@ pub unsafe fn utext_getPreviousNativeIndex(ut: *mut UText) -> i64 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_hasMetaData(ut: *const UText) -> i8 {
     #[cfg(windows)]
@@ -23187,6 +26821,7 @@ pub unsafe fn utext_hasMetaData(ut: *const UText) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_isLengthExpensive(ut: *const UText) -> i8 {
     #[cfg(windows)]
@@ -23200,6 +26835,7 @@ pub unsafe fn utext_isLengthExpensive(ut: *const UText) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_isWritable(ut: *const UText) -> i8 {
     #[cfg(windows)]
@@ -23213,6 +26849,7 @@ pub unsafe fn utext_isWritable(ut: *const UText) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_moveIndex32(ut: *mut UText, delta: i32) -> i8 {
     #[cfg(windows)]
@@ -23226,6 +26863,7 @@ pub unsafe fn utext_moveIndex32(ut: *mut UText, delta: i32) -> i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_nativeLength(ut: *mut UText) -> i64 {
     #[cfg(windows)]
@@ -23239,6 +26877,7 @@ pub unsafe fn utext_nativeLength(ut: *mut UText) -> i64 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_next32(ut: *mut UText) -> i32 {
     #[cfg(windows)]
@@ -23252,6 +26891,7 @@ pub unsafe fn utext_next32(ut: *mut UText) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_next32From(ut: *mut UText, nativeindex: i64) -> i32 {
     #[cfg(windows)]
@@ -23265,6 +26905,7 @@ pub unsafe fn utext_next32From(ut: *mut UText, nativeindex: i64) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_openUChars(ut: *mut UText, s: *const u16, length: i64, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
@@ -23278,6 +26919,7 @@ pub unsafe fn utext_openUChars(ut: *mut UText, s: *const u16, length: i64, statu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn utext_openUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(ut: *mut UText, s: Param1, length: i64, status: *mut UErrorCode) -> *mut UText {
@@ -23292,6 +26934,7 @@ pub unsafe fn utext_openUTF8<'a, Param1: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_previous32(ut: *mut UText) -> i32 {
     #[cfg(windows)]
@@ -23305,6 +26948,7 @@ pub unsafe fn utext_previous32(ut: *mut UText) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_previous32From(ut: *mut UText, nativeindex: i64) -> i32 {
     #[cfg(windows)]
@@ -23318,6 +26962,7 @@ pub unsafe fn utext_previous32From(ut: *mut UText, nativeindex: i64) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_replace(ut: *mut UText, nativestart: i64, nativelimit: i64, replacementtext: *const u16, replacementlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -23331,6 +26976,7 @@ pub unsafe fn utext_replace(ut: *mut UText, nativestart: i64, nativelimit: i64, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_setNativeIndex(ut: *mut UText, nativeindex: i64) {
     #[cfg(windows)]
@@ -23344,6 +26990,7 @@ pub unsafe fn utext_setNativeIndex(ut: *mut UText, nativeindex: i64) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utext_setup(ut: *mut UText, extraspace: i32, status: *mut UErrorCode) -> *mut UText {
     #[cfg(windows)]
@@ -23357,6 +27004,7 @@ pub unsafe fn utext_setup(ut: *mut UText, extraspace: i32, status: *mut UErrorCo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utf8_appendCharSafeBody(s: *mut u8, i: i32, length: i32, c: i32, piserror: *mut i8) -> i32 {
     #[cfg(windows)]
@@ -23370,6 +27018,7 @@ pub unsafe fn utf8_appendCharSafeBody(s: *mut u8, i: i32, length: i32, c: i32, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utf8_back1SafeBody(s: *const u8, start: i32, i: i32) -> i32 {
     #[cfg(windows)]
@@ -23383,6 +27032,7 @@ pub unsafe fn utf8_back1SafeBody(s: *const u8, start: i32, i: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utf8_nextCharSafeBody(s: *const u8, pi: *mut i32, length: i32, c: i32, strict: i8) -> i32 {
     #[cfg(windows)]
@@ -23396,6 +27046,7 @@ pub unsafe fn utf8_nextCharSafeBody(s: *const u8, pi: *mut i32, length: i32, c: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utf8_prevCharSafeBody(s: *const u8, start: i32, pi: *mut i32, c: i32, strict: i8) -> i32 {
     #[cfg(windows)]
@@ -23409,6 +27060,7 @@ pub unsafe fn utf8_prevCharSafeBody(s: *const u8, start: i32, pi: *mut i32, c: i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utmscale_fromInt64(othertime: i64, timescale: UDateTimeScale, status: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
@@ -23422,6 +27074,7 @@ pub unsafe fn utmscale_fromInt64(othertime: i64, timescale: UDateTimeScale, stat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utmscale_getTimeScaleValue(timescale: UDateTimeScale, value: UTimeScaleValue, status: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
@@ -23435,6 +27088,7 @@ pub unsafe fn utmscale_getTimeScaleValue(timescale: UDateTimeScale, value: UTime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utmscale_toInt64(universaltime: i64, timescale: UDateTimeScale, status: *mut UErrorCode) -> i64 {
     #[cfg(windows)]
@@ -23448,6 +27102,7 @@ pub unsafe fn utmscale_toInt64(universaltime: i64, timescale: UDateTimeScale, st
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn utrace_format<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(outbuf: Param0, capacity: i32, indent: i32, fmt: Param3) -> i32 {
@@ -23462,6 +27117,7 @@ pub unsafe fn utrace_format<'a, Param0: ::windows::core::IntoParam<'a, super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn utrace_functionName(fnnumber: i32) -> super::Foundation::PSTR {
@@ -23476,6 +27132,7 @@ pub unsafe fn utrace_functionName(fnnumber: i32) -> super::Foundation::PSTR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn utrace_getFunctions(context: *const *const ::core::ffi::c_void, e: *mut UTraceEntry, x: *mut UTraceExit, d: *mut UTraceData) {
@@ -23490,6 +27147,7 @@ pub unsafe fn utrace_getFunctions(context: *const *const ::core::ffi::c_void, e:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utrace_getLevel() -> i32 {
     #[cfg(windows)]
@@ -23503,6 +27161,7 @@ pub unsafe fn utrace_getLevel() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn utrace_setFunctions(context: *const ::core::ffi::c_void, e: UTraceEntry, x: UTraceExit, d: UTraceData) {
@@ -23517,6 +27176,7 @@ pub unsafe fn utrace_setFunctions(context: *const ::core::ffi::c_void, e: UTrace
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utrace_setLevel(tracelevel: i32) {
     #[cfg(windows)]
@@ -23530,6 +27190,7 @@ pub unsafe fn utrace_setLevel(tracelevel: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn utrace_vformat<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(outbuf: Param0, capacity: i32, indent: i32, fmt: Param3, args: *mut i8) -> i32 {
@@ -23544,6 +27205,7 @@ pub unsafe fn utrace_vformat<'a, Param0: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utrans_clone(trans: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -23557,6 +27219,7 @@ pub unsafe fn utrans_clone(trans: *const *const ::core::ffi::c_void, status: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utrans_close(trans: *mut *mut ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -23570,6 +27233,7 @@ pub unsafe fn utrans_close(trans: *mut *mut ::core::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utrans_countAvailableIDs() -> i32 {
     #[cfg(windows)]
@@ -23583,6 +27247,7 @@ pub unsafe fn utrans_countAvailableIDs() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utrans_getSourceSet(trans: *const *const ::core::ffi::c_void, ignorefilter: i8, fillin: *mut USet, status: *mut UErrorCode) -> *mut USet {
     #[cfg(windows)]
@@ -23596,6 +27261,7 @@ pub unsafe fn utrans_getSourceSet(trans: *const *const ::core::ffi::c_void, igno
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utrans_getUnicodeID(trans: *const *const ::core::ffi::c_void, resultlength: *mut i32) -> *mut u16 {
     #[cfg(windows)]
@@ -23609,6 +27275,7 @@ pub unsafe fn utrans_getUnicodeID(trans: *const *const ::core::ffi::c_void, resu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utrans_openIDs(perrorcode: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(windows)]
@@ -23622,6 +27289,7 @@ pub unsafe fn utrans_openIDs(perrorcode: *mut UErrorCode) -> *mut UEnumeration {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utrans_openInverse(trans: *const *const ::core::ffi::c_void, status: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -23635,6 +27303,7 @@ pub unsafe fn utrans_openInverse(trans: *const *const ::core::ffi::c_void, statu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utrans_openU(id: *const u16, idlength: i32, dir: UTransDirection, rules: *const u16, ruleslength: i32, parseerror: *mut UParseError, perrorcode: *mut UErrorCode) -> *mut *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -23648,6 +27317,7 @@ pub unsafe fn utrans_openU(id: *const u16, idlength: i32, dir: UTransDirection, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utrans_register(adoptedtrans: *mut *mut ::core::ffi::c_void, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -23661,6 +27331,7 @@ pub unsafe fn utrans_register(adoptedtrans: *mut *mut ::core::ffi::c_void, statu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utrans_setFilter(trans: *mut *mut ::core::ffi::c_void, filterpattern: *const u16, filterpatternlen: i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -23674,6 +27345,7 @@ pub unsafe fn utrans_setFilter(trans: *mut *mut ::core::ffi::c_void, filterpatte
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utrans_toRules(trans: *const *const ::core::ffi::c_void, escapeunprintable: i8, result: *mut u16, resultlength: i32, status: *mut UErrorCode) -> i32 {
     #[cfg(windows)]
@@ -23687,6 +27359,7 @@ pub unsafe fn utrans_toRules(trans: *const *const ::core::ffi::c_void, escapeunp
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utrans_trans(trans: *const *const ::core::ffi::c_void, rep: *mut *mut ::core::ffi::c_void, repfunc: *const UReplaceableCallbacks, start: i32, limit: *mut i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -23700,6 +27373,7 @@ pub unsafe fn utrans_trans(trans: *const *const ::core::ffi::c_void, rep: *mut *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utrans_transIncremental(trans: *const *const ::core::ffi::c_void, rep: *mut *mut ::core::ffi::c_void, repfunc: *const UReplaceableCallbacks, pos: *mut UTransPosition, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -23713,6 +27387,7 @@ pub unsafe fn utrans_transIncremental(trans: *const *const ::core::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utrans_transIncrementalUChars(trans: *const *const ::core::ffi::c_void, text: *mut u16, textlength: *mut i32, textcapacity: i32, pos: *mut UTransPosition, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -23726,6 +27401,7 @@ pub unsafe fn utrans_transIncrementalUChars(trans: *const *const ::core::ffi::c_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utrans_transUChars(trans: *const *const ::core::ffi::c_void, text: *mut u16, textlength: *mut i32, textcapacity: i32, start: i32, limit: *mut i32, status: *mut UErrorCode) {
     #[cfg(windows)]
@@ -23739,6 +27415,7 @@ pub unsafe fn utrans_transUChars(trans: *const *const ::core::ffi::c_void, text:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Globalization'*"]
 #[inline]
 pub unsafe fn utrans_unregisterID(id: *const u16, idlength: i32) {
     #[cfg(windows)]

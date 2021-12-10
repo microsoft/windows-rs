@@ -5,6 +5,7 @@ pub mod Animation;
 pub mod Imaging;
 #[cfg(feature = "UI_Xaml_Media_Media3D")]
 pub mod Media3D;
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct AcrylicBackgroundSource(pub i32);
 impl AcrylicBackgroundSource {
@@ -32,6 +33,7 @@ unsafe impl ::windows::core::RuntimeType for AcrylicBackgroundSource {
 impl ::windows::core::DefaultType for AcrylicBackgroundSource {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct AcrylicBrush(::windows::core::IUnknown);
 impl AcrylicBrush {
@@ -309,6 +311,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &AcrylicBru
 }
 unsafe impl ::core::marker::Send for AcrylicBrush {}
 unsafe impl ::core::marker::Sync for AcrylicBrush {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct AlignmentX(pub i32);
 impl AlignmentX {
@@ -337,6 +340,7 @@ unsafe impl ::windows::core::RuntimeType for AlignmentX {
 impl ::windows::core::DefaultType for AlignmentX {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct AlignmentY(pub i32);
 impl AlignmentY {
@@ -365,6 +369,7 @@ unsafe impl ::windows::core::RuntimeType for AlignmentY {
 impl ::windows::core::DefaultType for AlignmentY {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct ArcSegment(::windows::core::IUnknown);
 impl ArcSegment {
@@ -572,6 +577,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ArcSegment
 }
 unsafe impl ::core::marker::Send for ArcSegment {}
 unsafe impl ::core::marker::Sync for ArcSegment {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct AudioCategory(pub i32);
 impl AudioCategory {
@@ -609,6 +615,7 @@ unsafe impl ::windows::core::RuntimeType for AudioCategory {
 impl ::windows::core::DefaultType for AudioCategory {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct AudioDeviceType(pub i32);
 impl AudioDeviceType {
@@ -637,6 +644,7 @@ unsafe impl ::windows::core::RuntimeType for AudioDeviceType {
 impl ::windows::core::DefaultType for AudioDeviceType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct BezierSegment(::windows::core::IUnknown);
 impl BezierSegment {
@@ -812,6 +820,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &BezierSegm
 }
 unsafe impl ::core::marker::Send for BezierSegment {}
 unsafe impl ::core::marker::Sync for BezierSegment {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct BitmapCache(::windows::core::IUnknown);
 impl BitmapCache {
@@ -926,6 +935,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &BitmapCach
 }
 unsafe impl ::core::marker::Send for BitmapCache {}
 unsafe impl ::core::marker::Sync for BitmapCache {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct Brush(::windows::core::IUnknown);
 impl Brush {
@@ -1099,6 +1109,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Brush {
 }
 unsafe impl ::core::marker::Send for Brush {}
 unsafe impl ::core::marker::Sync for Brush {}
+#[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct BrushCollection(::windows::core::IUnknown);
@@ -1342,6 +1353,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for BrushCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for BrushCollection {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct BrushMappingMode(pub i32);
 impl BrushMappingMode {
@@ -1369,6 +1381,7 @@ unsafe impl ::windows::core::RuntimeType for BrushMappingMode {
 impl ::windows::core::DefaultType for BrushMappingMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct CacheMode(::windows::core::IUnknown);
 impl CacheMode {}
@@ -1455,6 +1468,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &CacheMode 
 }
 unsafe impl ::core::marker::Send for CacheMode {}
 unsafe impl ::core::marker::Sync for CacheMode {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct ColorInterpolationMode(pub i32);
 impl ColorInterpolationMode {
@@ -1482,6 +1496,7 @@ unsafe impl ::windows::core::RuntimeType for ColorInterpolationMode {
 impl ::windows::core::DefaultType for ColorInterpolationMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct CompositeTransform(::windows::core::IUnknown);
 impl CompositeTransform {
@@ -1773,6 +1788,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &CompositeT
 }
 unsafe impl ::core::marker::Send for CompositeTransform {}
 unsafe impl ::core::marker::Sync for CompositeTransform {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct CompositionTarget(::windows::core::IUnknown);
 impl CompositionTarget {
@@ -1881,6 +1897,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comp
 }
 unsafe impl ::core::marker::Send for CompositionTarget {}
 unsafe impl ::core::marker::Sync for CompositionTarget {}
+#[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct DoubleCollection(::windows::core::IUnknown);
@@ -2124,6 +2141,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for DoubleCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for DoubleCollection {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct ElementCompositeMode(pub i32);
 impl ElementCompositeMode {
@@ -2152,6 +2170,7 @@ unsafe impl ::windows::core::RuntimeType for ElementCompositeMode {
 impl ::windows::core::DefaultType for ElementCompositeMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct EllipseGeometry(::windows::core::IUnknown);
 impl EllipseGeometry {
@@ -2323,6 +2342,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &EllipseGeo
 }
 unsafe impl ::core::marker::Send for EllipseGeometry {}
 unsafe impl ::core::marker::Sync for EllipseGeometry {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct FastPlayFallbackBehaviour(pub i32);
 impl FastPlayFallbackBehaviour {
@@ -2351,6 +2371,7 @@ unsafe impl ::windows::core::RuntimeType for FastPlayFallbackBehaviour {
 impl ::windows::core::DefaultType for FastPlayFallbackBehaviour {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct FillRule(pub i32);
 impl FillRule {
@@ -2378,6 +2399,7 @@ unsafe impl ::windows::core::RuntimeType for FillRule {
 impl ::windows::core::DefaultType for FillRule {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct FontFamily(::windows::core::IUnknown);
 impl FontFamily {
@@ -2472,6 +2494,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Font
 }
 unsafe impl ::core::marker::Send for FontFamily {}
 unsafe impl ::core::marker::Sync for FontFamily {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct GeneralTransform(::windows::core::IUnknown);
 impl GeneralTransform {
@@ -2590,6 +2613,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &GeneralTra
 }
 unsafe impl ::core::marker::Send for GeneralTransform {}
 unsafe impl ::core::marker::Sync for GeneralTransform {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct Geometry(::windows::core::IUnknown);
 impl Geometry {
@@ -2718,6 +2742,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Geometry {
 }
 unsafe impl ::core::marker::Send for Geometry {}
 unsafe impl ::core::marker::Sync for Geometry {}
+#[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct GeometryCollection(::windows::core::IUnknown);
@@ -2961,6 +2986,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for GeometryCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for GeometryCollection {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct GeometryGroup(::windows::core::IUnknown);
 impl GeometryGroup {
@@ -3115,6 +3141,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &GeometryGr
 }
 unsafe impl ::core::marker::Send for GeometryGroup {}
 unsafe impl ::core::marker::Sync for GeometryGroup {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct GradientBrush(::windows::core::IUnknown);
 impl GradientBrush {
@@ -3322,6 +3349,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &GradientBr
 }
 unsafe impl ::core::marker::Send for GradientBrush {}
 unsafe impl ::core::marker::Sync for GradientBrush {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct GradientSpreadMethod(pub i32);
 impl GradientSpreadMethod {
@@ -3350,6 +3378,7 @@ unsafe impl ::windows::core::RuntimeType for GradientSpreadMethod {
 impl ::windows::core::DefaultType for GradientSpreadMethod {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct GradientStop(::windows::core::IUnknown);
 impl GradientStop {
@@ -3482,6 +3511,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &GradientSt
 }
 unsafe impl ::core::marker::Send for GradientStop {}
 unsafe impl ::core::marker::Sync for GradientStop {}
+#[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct GradientStopCollection(::windows::core::IUnknown);
@@ -6426,6 +6456,7 @@ pub struct IXamlLightStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lightid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, brush: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lightid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, brush: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct ImageBrush(::windows::core::IUnknown);
 impl ImageBrush {
@@ -6633,6 +6664,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ImageBrush
 }
 unsafe impl ::core::marker::Send for ImageBrush {}
 unsafe impl ::core::marker::Sync for ImageBrush {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct ImageSource(::windows::core::IUnknown);
 impl ImageSource {}
@@ -6719,6 +6751,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ImageSourc
 }
 unsafe impl ::core::marker::Send for ImageSource {}
 unsafe impl ::core::marker::Sync for ImageSource {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct LineGeometry(::windows::core::IUnknown);
 impl LineGeometry {
@@ -6875,6 +6908,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &LineGeomet
 }
 unsafe impl ::core::marker::Send for LineGeometry {}
 unsafe impl ::core::marker::Sync for LineGeometry {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct LineSegment(::windows::core::IUnknown);
 impl LineSegment {
@@ -7012,6 +7046,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &LineSegmen
 }
 unsafe impl ::core::marker::Send for LineSegment {}
 unsafe impl ::core::marker::Sync for LineSegment {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct LinearGradientBrush(::windows::core::IUnknown);
 impl LinearGradientBrush {
@@ -7225,6 +7260,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &LinearGrad
 }
 unsafe impl ::core::marker::Send for LinearGradientBrush {}
 unsafe impl ::core::marker::Sync for LinearGradientBrush {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct LoadedImageSourceLoadCompletedEventArgs(::windows::core::IUnknown);
 impl LoadedImageSourceLoadCompletedEventArgs {
@@ -7299,6 +7335,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Load
 }
 unsafe impl ::core::marker::Send for LoadedImageSourceLoadCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for LoadedImageSourceLoadCompletedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct LoadedImageSourceLoadStatus(pub i32);
 impl LoadedImageSourceLoadStatus {
@@ -7328,6 +7365,7 @@ unsafe impl ::windows::core::RuntimeType for LoadedImageSourceLoadStatus {
 impl ::windows::core::DefaultType for LoadedImageSourceLoadStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct LoadedImageSurface(::windows::core::IUnknown);
 impl LoadedImageSurface {
@@ -7522,6 +7560,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Composition::ICompositionS
 unsafe impl ::core::marker::Send for LoadedImageSurface {}
 unsafe impl ::core::marker::Sync for LoadedImageSurface {}
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 pub struct Matrix {
     pub M11: f64,
     pub M12: f64,
@@ -7556,6 +7595,7 @@ impl ::core::default::Default for Matrix {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct Matrix3DProjection(::windows::core::IUnknown);
 impl Matrix3DProjection {
@@ -7693,6 +7733,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Matrix3DPr
 }
 unsafe impl ::core::marker::Send for Matrix3DProjection {}
 unsafe impl ::core::marker::Sync for Matrix3DProjection {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct MatrixHelper(::windows::core::IUnknown);
 impl MatrixHelper {
@@ -7789,6 +7830,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Matr
 }
 unsafe impl ::core::marker::Send for MatrixHelper {}
 unsafe impl ::core::marker::Sync for MatrixHelper {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct MatrixTransform(::windows::core::IUnknown);
 impl MatrixTransform {
@@ -7944,6 +7986,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &MatrixTran
 }
 unsafe impl ::core::marker::Send for MatrixTransform {}
 unsafe impl ::core::marker::Sync for MatrixTransform {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct MediaCanPlayResponse(pub i32);
 impl MediaCanPlayResponse {
@@ -7972,6 +8015,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCanPlayResponse {
 impl ::windows::core::DefaultType for MediaCanPlayResponse {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct MediaElementState(pub i32);
 impl MediaElementState {
@@ -8003,6 +8047,7 @@ unsafe impl ::windows::core::RuntimeType for MediaElementState {
 impl ::windows::core::DefaultType for MediaElementState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct MediaTransportControlsThumbnailRequestedEventArgs(::windows::core::IUnknown);
 impl MediaTransportControlsThumbnailRequestedEventArgs {
@@ -8083,6 +8128,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaTransportControlsThumbnailRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaTransportControlsThumbnailRequestedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct PartialMediaFailureDetectedEventArgs(::windows::core::IUnknown);
 impl PartialMediaFailureDetectedEventArgs {
@@ -8172,6 +8218,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Part
 }
 unsafe impl ::core::marker::Send for PartialMediaFailureDetectedEventArgs {}
 unsafe impl ::core::marker::Sync for PartialMediaFailureDetectedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct PathFigure(::windows::core::IUnknown);
 impl PathFigure {
@@ -8342,6 +8389,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PathFigure
 }
 unsafe impl ::core::marker::Send for PathFigure {}
 unsafe impl ::core::marker::Sync for PathFigure {}
+#[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PathFigureCollection(::windows::core::IUnknown);
@@ -8585,6 +8633,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for PathFigureCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for PathFigureCollection {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct PathGeometry(::windows::core::IUnknown);
 impl PathGeometry {
@@ -8739,6 +8788,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PathGeomet
 }
 unsafe impl ::core::marker::Send for PathGeometry {}
 unsafe impl ::core::marker::Sync for PathGeometry {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct PathSegment(::windows::core::IUnknown);
 impl PathSegment {}
@@ -8825,6 +8875,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PathSegmen
 }
 unsafe impl ::core::marker::Send for PathSegment {}
 unsafe impl ::core::marker::Sync for PathSegment {}
+#[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PathSegmentCollection(::windows::core::IUnknown);
@@ -9068,6 +9119,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for PathSegmentCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for PathSegmentCollection {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct PenLineCap(pub i32);
 impl PenLineCap {
@@ -9097,6 +9149,7 @@ unsafe impl ::windows::core::RuntimeType for PenLineCap {
 impl ::windows::core::DefaultType for PenLineCap {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct PenLineJoin(pub i32);
 impl PenLineJoin {
@@ -9125,6 +9178,7 @@ unsafe impl ::windows::core::RuntimeType for PenLineJoin {
 impl ::windows::core::DefaultType for PenLineJoin {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct PlaneProjection(::windows::core::IUnknown);
 impl PlaneProjection {
@@ -9461,6 +9515,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PlaneProje
 }
 unsafe impl ::core::marker::Send for PlaneProjection {}
 unsafe impl ::core::marker::Sync for PlaneProjection {}
+#[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PointCollection(::windows::core::IUnknown);
@@ -9704,6 +9759,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for PointCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for PointCollection {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct PolyBezierSegment(::windows::core::IUnknown);
 impl PolyBezierSegment {
@@ -9841,6 +9897,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PolyBezier
 }
 unsafe impl ::core::marker::Send for PolyBezierSegment {}
 unsafe impl ::core::marker::Sync for PolyBezierSegment {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct PolyLineSegment(::windows::core::IUnknown);
 impl PolyLineSegment {
@@ -9978,6 +10035,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PolyLineSe
 }
 unsafe impl ::core::marker::Send for PolyLineSegment {}
 unsafe impl ::core::marker::Sync for PolyLineSegment {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct PolyQuadraticBezierSegment(::windows::core::IUnknown);
 impl PolyQuadraticBezierSegment {
@@ -10115,6 +10173,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PolyQuadra
 }
 unsafe impl ::core::marker::Send for PolyQuadraticBezierSegment {}
 unsafe impl ::core::marker::Sync for PolyQuadraticBezierSegment {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct Projection(::windows::core::IUnknown);
 impl Projection {}
@@ -10201,6 +10260,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Projection
 }
 unsafe impl ::core::marker::Send for Projection {}
 unsafe impl ::core::marker::Sync for Projection {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct QuadraticBezierSegment(::windows::core::IUnknown);
 impl QuadraticBezierSegment {
@@ -10357,6 +10417,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &QuadraticB
 }
 unsafe impl ::core::marker::Send for QuadraticBezierSegment {}
 unsafe impl ::core::marker::Sync for QuadraticBezierSegment {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct RateChangedRoutedEventArgs(::windows::core::IUnknown);
 impl RateChangedRoutedEventArgs {
@@ -10451,6 +10512,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &RateChanged
 }
 unsafe impl ::core::marker::Send for RateChangedRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for RateChangedRoutedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct RateChangedRoutedEventHandler(pub ::windows::core::IUnknown);
 impl RateChangedRoutedEventHandler {
@@ -10519,6 +10581,7 @@ unsafe impl ::windows::core::RuntimeType for RateChangedRoutedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct RateChangedRoutedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct RectangleGeometry(::windows::core::IUnknown);
 impl RectangleGeometry {
@@ -10656,6 +10719,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &RectangleG
 }
 unsafe impl ::core::marker::Send for RectangleGeometry {}
 unsafe impl ::core::marker::Sync for RectangleGeometry {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct RenderedEventArgs(::windows::core::IUnknown);
 impl RenderedEventArgs {
@@ -10731,6 +10795,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rend
 }
 unsafe impl ::core::marker::Send for RenderedEventArgs {}
 unsafe impl ::core::marker::Sync for RenderedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct RenderingEventArgs(::windows::core::IUnknown);
 impl RenderingEventArgs {
@@ -10806,6 +10871,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rend
 }
 unsafe impl ::core::marker::Send for RenderingEventArgs {}
 unsafe impl ::core::marker::Sync for RenderingEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct RevealBackgroundBrush(::windows::core::IUnknown);
 impl RevealBackgroundBrush {
@@ -10989,6 +11055,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &RevealBack
 }
 unsafe impl ::core::marker::Send for RevealBackgroundBrush {}
 unsafe impl ::core::marker::Sync for RevealBackgroundBrush {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct RevealBorderBrush(::windows::core::IUnknown);
 impl RevealBorderBrush {
@@ -11172,6 +11239,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &RevealBord
 }
 unsafe impl ::core::marker::Send for RevealBorderBrush {}
 unsafe impl ::core::marker::Sync for RevealBorderBrush {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct RevealBrush(::windows::core::IUnknown);
 impl RevealBrush {
@@ -11395,6 +11463,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &RevealBrus
 }
 unsafe impl ::core::marker::Send for RevealBrush {}
 unsafe impl ::core::marker::Sync for RevealBrush {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct RevealBrushState(pub i32);
 impl RevealBrushState {
@@ -11423,6 +11492,7 @@ unsafe impl ::windows::core::RuntimeType for RevealBrushState {
 impl ::windows::core::DefaultType for RevealBrushState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct RotateTransform(::windows::core::IUnknown);
 impl RotateTransform {
@@ -11612,6 +11682,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &RotateTran
 }
 unsafe impl ::core::marker::Send for RotateTransform {}
 unsafe impl ::core::marker::Sync for RotateTransform {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct ScaleTransform(::windows::core::IUnknown);
 impl ScaleTransform {
@@ -11818,6 +11889,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ScaleTrans
 }
 unsafe impl ::core::marker::Send for ScaleTransform {}
 unsafe impl ::core::marker::Sync for ScaleTransform {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct Shadow(::windows::core::IUnknown);
 impl Shadow {}
@@ -11904,6 +11976,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Shadow {
 }
 unsafe impl ::core::marker::Send for Shadow {}
 unsafe impl ::core::marker::Sync for Shadow {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct SkewTransform(::windows::core::IUnknown);
 impl SkewTransform {
@@ -12110,6 +12183,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &SkewTransf
 }
 unsafe impl ::core::marker::Send for SkewTransform {}
 unsafe impl ::core::marker::Sync for SkewTransform {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct SolidColorBrush(::windows::core::IUnknown);
 impl SolidColorBrush {
@@ -12281,6 +12355,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &SolidColor
 }
 unsafe impl ::core::marker::Send for SolidColorBrush {}
 unsafe impl ::core::marker::Sync for SolidColorBrush {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct Stereo3DVideoPackingMode(pub i32);
 impl Stereo3DVideoPackingMode {
@@ -12309,6 +12384,7 @@ unsafe impl ::windows::core::RuntimeType for Stereo3DVideoPackingMode {
 impl ::windows::core::DefaultType for Stereo3DVideoPackingMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct Stereo3DVideoRenderMode(pub i32);
 impl Stereo3DVideoRenderMode {
@@ -12336,6 +12412,7 @@ unsafe impl ::windows::core::RuntimeType for Stereo3DVideoRenderMode {
 impl ::windows::core::DefaultType for Stereo3DVideoRenderMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct Stretch(pub i32);
 impl Stretch {
@@ -12365,6 +12442,7 @@ unsafe impl ::windows::core::RuntimeType for Stretch {
 impl ::windows::core::DefaultType for Stretch {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct StyleSimulations(pub i32);
 impl StyleSimulations {
@@ -12394,6 +12472,7 @@ unsafe impl ::windows::core::RuntimeType for StyleSimulations {
 impl ::windows::core::DefaultType for StyleSimulations {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct SweepDirection(pub i32);
 impl SweepDirection {
@@ -12421,6 +12500,7 @@ unsafe impl ::windows::core::RuntimeType for SweepDirection {
 impl ::windows::core::DefaultType for SweepDirection {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct ThemeShadow(::windows::core::IUnknown);
 impl ThemeShadow {
@@ -12545,6 +12625,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ThemeShado
 }
 unsafe impl ::core::marker::Send for ThemeShadow {}
 unsafe impl ::core::marker::Sync for ThemeShadow {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct TileBrush(::windows::core::IUnknown);
 impl TileBrush {
@@ -12733,6 +12814,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &TileBrush 
 }
 unsafe impl ::core::marker::Send for TileBrush {}
 unsafe impl ::core::marker::Sync for TileBrush {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct TimelineMarker(::windows::core::IUnknown);
 impl TimelineMarker {
@@ -12884,6 +12966,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &TimelineMa
 }
 unsafe impl ::core::marker::Send for TimelineMarker {}
 unsafe impl ::core::marker::Sync for TimelineMarker {}
+#[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct TimelineMarkerCollection(::windows::core::IUnknown);
@@ -13127,6 +13210,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for TimelineMarkerCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for TimelineMarkerCollection {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct TimelineMarkerRoutedEventArgs(::windows::core::IUnknown);
 impl TimelineMarkerRoutedEventArgs {
@@ -13232,6 +13316,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &TimelineMar
 }
 unsafe impl ::core::marker::Send for TimelineMarkerRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for TimelineMarkerRoutedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct TimelineMarkerRoutedEventHandler(pub ::windows::core::IUnknown);
 impl TimelineMarkerRoutedEventHandler {
@@ -13300,6 +13385,7 @@ unsafe impl ::windows::core::RuntimeType for TimelineMarkerRoutedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct TimelineMarkerRoutedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct Transform(::windows::core::IUnknown);
 impl Transform {}
@@ -13406,6 +13492,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Transform 
 }
 unsafe impl ::core::marker::Send for Transform {}
 unsafe impl ::core::marker::Sync for Transform {}
+#[doc = "*Required features: 'UI_Xaml_Media', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct TransformCollection(::windows::core::IUnknown);
@@ -13649,6 +13736,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for TransformCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for TransformCollection {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct TransformGroup(::windows::core::IUnknown);
 impl TransformGroup {
@@ -13813,6 +13901,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &TransformG
 }
 unsafe impl ::core::marker::Send for TransformGroup {}
 unsafe impl ::core::marker::Sync for TransformGroup {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct TranslateTransform(::windows::core::IUnknown);
 impl TranslateTransform {
@@ -13985,6 +14074,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &TranslateT
 }
 unsafe impl ::core::marker::Send for TranslateTransform {}
 unsafe impl ::core::marker::Sync for TranslateTransform {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct VisualTreeHelper(::windows::core::IUnknown);
 impl VisualTreeHelper {
@@ -14127,6 +14217,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Visu
 }
 unsafe impl ::core::marker::Send for VisualTreeHelper {}
 unsafe impl ::core::marker::Sync for VisualTreeHelper {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct XamlCompositionBrushBase(::windows::core::IUnknown);
 impl XamlCompositionBrushBase {
@@ -14294,6 +14385,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &XamlCompos
 }
 unsafe impl ::core::marker::Send for XamlCompositionBrushBase {}
 unsafe impl ::core::marker::Sync for XamlCompositionBrushBase {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct XamlLight(::windows::core::IUnknown);
 impl XamlLight {

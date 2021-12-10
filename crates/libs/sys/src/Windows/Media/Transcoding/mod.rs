@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 pub type MediaTranscoder = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Transcoding'*"]
 #[repr(transparent)]
 pub struct MediaVideoProcessingAlgorithm(pub i32);
 impl MediaVideoProcessingAlgorithm {
@@ -15,6 +16,7 @@ impl ::core::clone::Clone for MediaVideoProcessingAlgorithm {
     }
 }
 pub type PrepareTranscodeResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Transcoding'*"]
 #[repr(transparent)]
 pub struct TranscodeFailureReason(pub i32);
 impl TranscodeFailureReason {

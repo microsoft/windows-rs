@@ -3,6 +3,7 @@
 extern "system" {}
 pub type INotificationActivationCallback = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Notifications', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NOTIFICATION_USER_INPUT_DATA {
     pub Key: super::super::Foundation::PWSTR,

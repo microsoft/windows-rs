@@ -23,6 +23,7 @@ pub mod Threading;
 pub mod Update;
 #[cfg(feature = "System_UserProfile")]
 pub mod UserProfile;
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppActivationResult(::windows::core::IUnknown);
 impl AppActivationResult {
@@ -104,6 +105,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppA
 }
 unsafe impl ::core::marker::Send for AppActivationResult {}
 unsafe impl ::core::marker::Sync for AppActivationResult {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppDiagnosticInfo(::windows::core::IUnknown);
 impl AppDiagnosticInfo {
@@ -251,6 +253,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppD
 }
 unsafe impl ::core::marker::Send for AppDiagnosticInfo {}
 unsafe impl ::core::marker::Sync for AppDiagnosticInfo {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppDiagnosticInfoWatcher(::windows::core::IUnknown);
 impl AppDiagnosticInfoWatcher {
@@ -385,6 +388,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppD
 }
 unsafe impl ::core::marker::Send for AppDiagnosticInfoWatcher {}
 unsafe impl ::core::marker::Sync for AppDiagnosticInfoWatcher {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppDiagnosticInfoWatcherEventArgs(::windows::core::IUnknown);
 impl AppDiagnosticInfoWatcherEventArgs {
@@ -459,6 +463,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppD
 }
 unsafe impl ::core::marker::Send for AppDiagnosticInfoWatcherEventArgs {}
 unsafe impl ::core::marker::Sync for AppDiagnosticInfoWatcherEventArgs {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppDiagnosticInfoWatcherStatus(pub i32);
 impl AppDiagnosticInfoWatcherStatus {
@@ -490,6 +495,7 @@ unsafe impl ::windows::core::RuntimeType for AppDiagnosticInfoWatcherStatus {
 impl ::windows::core::DefaultType for AppDiagnosticInfoWatcherStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppExecutionStateChangeResult(::windows::core::IUnknown);
 impl AppExecutionStateChangeResult {
@@ -564,6 +570,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppE
 }
 unsafe impl ::core::marker::Send for AppExecutionStateChangeResult {}
 unsafe impl ::core::marker::Sync for AppExecutionStateChangeResult {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppMemoryReport(::windows::core::IUnknown);
 impl AppMemoryReport {
@@ -666,6 +673,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppM
 }
 unsafe impl ::core::marker::Send for AppMemoryReport {}
 unsafe impl ::core::marker::Sync for AppMemoryReport {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppMemoryUsageLevel(pub i32);
 impl AppMemoryUsageLevel {
@@ -695,6 +703,7 @@ unsafe impl ::windows::core::RuntimeType for AppMemoryUsageLevel {
 impl ::windows::core::DefaultType for AppMemoryUsageLevel {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppMemoryUsageLimitChangingEventArgs(::windows::core::IUnknown);
 impl AppMemoryUsageLimitChangingEventArgs {
@@ -776,6 +785,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppM
 }
 unsafe impl ::core::marker::Send for AppMemoryUsageLimitChangingEventArgs {}
 unsafe impl ::core::marker::Sync for AppMemoryUsageLimitChangingEventArgs {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppResourceGroupBackgroundTaskReport(::windows::core::IUnknown);
 impl AppResourceGroupBackgroundTaskReport {
@@ -871,6 +881,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
 }
 unsafe impl ::core::marker::Send for AppResourceGroupBackgroundTaskReport {}
 unsafe impl ::core::marker::Sync for AppResourceGroupBackgroundTaskReport {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppResourceGroupEnergyQuotaState(pub i32);
 impl AppResourceGroupEnergyQuotaState {
@@ -899,6 +910,7 @@ unsafe impl ::windows::core::RuntimeType for AppResourceGroupEnergyQuotaState {
 impl ::windows::core::DefaultType for AppResourceGroupEnergyQuotaState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppResourceGroupExecutionState(pub i32);
 impl AppResourceGroupExecutionState {
@@ -929,6 +941,7 @@ unsafe impl ::windows::core::RuntimeType for AppResourceGroupExecutionState {
 impl ::windows::core::DefaultType for AppResourceGroupExecutionState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppResourceGroupInfo(::windows::core::IUnknown);
 impl AppResourceGroupInfo {
@@ -1064,6 +1077,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
 }
 unsafe impl ::core::marker::Send for AppResourceGroupInfo {}
 unsafe impl ::core::marker::Sync for AppResourceGroupInfo {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppResourceGroupInfoWatcher(::windows::core::IUnknown);
 impl AppResourceGroupInfoWatcher {
@@ -1211,6 +1225,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
 }
 unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcher {}
 unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcher {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppResourceGroupInfoWatcherEventArgs(::windows::core::IUnknown);
 impl AppResourceGroupInfoWatcherEventArgs {
@@ -1293,6 +1308,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
 }
 unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcherEventArgs {}
 unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcherEventArgs {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppResourceGroupInfoWatcherExecutionStateChangedEventArgs(::windows::core::IUnknown);
 impl AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
@@ -1375,6 +1391,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
 }
 unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppResourceGroupInfoWatcherStatus(pub i32);
 impl AppResourceGroupInfoWatcherStatus {
@@ -1406,6 +1423,7 @@ unsafe impl ::windows::core::RuntimeType for AppResourceGroupInfoWatcherStatus {
 impl ::windows::core::DefaultType for AppResourceGroupInfoWatcherStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppResourceGroupMemoryReport(::windows::core::IUnknown);
 impl AppResourceGroupMemoryReport {
@@ -1501,6 +1519,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
 }
 unsafe impl ::core::marker::Send for AppResourceGroupMemoryReport {}
 unsafe impl ::core::marker::Sync for AppResourceGroupMemoryReport {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppResourceGroupStateReport(::windows::core::IUnknown);
 impl AppResourceGroupStateReport {
@@ -1582,6 +1601,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppR
 }
 unsafe impl ::core::marker::Send for AppResourceGroupStateReport {}
 unsafe impl ::core::marker::Sync for AppResourceGroupStateReport {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppUriHandlerHost(::windows::core::IUnknown);
 impl AppUriHandlerHost {
@@ -1688,6 +1708,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppU
 }
 unsafe impl ::core::marker::Send for AppUriHandlerHost {}
 unsafe impl ::core::marker::Sync for AppUriHandlerHost {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppUriHandlerRegistration(::windows::core::IUnknown);
 impl AppUriHandlerRegistration {
@@ -1805,6 +1826,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppU
 }
 unsafe impl ::core::marker::Send for AppUriHandlerRegistration {}
 unsafe impl ::core::marker::Sync for AppUriHandlerRegistration {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AppUriHandlerRegistrationManager(::windows::core::IUnknown);
 impl AppUriHandlerRegistrationManager {
@@ -1925,6 +1947,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppU
 }
 unsafe impl ::core::marker::Send for AppUriHandlerRegistrationManager {}
 unsafe impl ::core::marker::Sync for AppUriHandlerRegistrationManager {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct AutoUpdateTimeZoneStatus(pub i32);
 impl AutoUpdateTimeZoneStatus {
@@ -1967,6 +1990,7 @@ impl DateTimeSettings {
 impl ::windows::core::RuntimeName for DateTimeSettings {
     const NAME: &'static str = "Windows.System.DateTimeSettings";
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct DiagnosticAccessStatus(pub i32);
 impl DiagnosticAccessStatus {
@@ -1996,6 +2020,7 @@ unsafe impl ::windows::core::RuntimeType for DiagnosticAccessStatus {
 impl ::windows::core::DefaultType for DiagnosticAccessStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct DispatcherQueue(::windows::core::IUnknown);
 impl DispatcherQueue {
@@ -2127,6 +2152,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DispatcherQueue {}
 unsafe impl ::core::marker::Sync for DispatcherQueue {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct DispatcherQueueController(::windows::core::IUnknown);
 impl DispatcherQueueController {
@@ -2219,6 +2245,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DispatcherQueueController {}
 unsafe impl ::core::marker::Sync for DispatcherQueueController {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct DispatcherQueueHandler(pub ::windows::core::IUnknown);
 impl DispatcherQueueHandler {
@@ -2287,6 +2314,7 @@ unsafe impl ::windows::core::RuntimeType for DispatcherQueueHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DispatcherQueueHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct DispatcherQueuePriority(pub i32);
 impl DispatcherQueuePriority {
@@ -2315,6 +2343,7 @@ unsafe impl ::windows::core::RuntimeType for DispatcherQueuePriority {
 impl ::windows::core::DefaultType for DispatcherQueuePriority {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct DispatcherQueueShutdownStartingEventArgs(::windows::core::IUnknown);
 impl DispatcherQueueShutdownStartingEventArgs {
@@ -2390,6 +2419,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DispatcherQueueShutdownStartingEventArgs {}
 unsafe impl ::core::marker::Sync for DispatcherQueueShutdownStartingEventArgs {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct DispatcherQueueTimer(::windows::core::IUnknown);
 impl DispatcherQueueTimer {
@@ -2509,6 +2539,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DispatcherQueueTimer {}
 unsafe impl ::core::marker::Sync for DispatcherQueueTimer {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct FolderLauncherOptions(::windows::core::IUnknown);
 impl FolderLauncherOptions {
@@ -3759,6 +3790,7 @@ pub struct ILauncherUIOptionsVtbl(
     #[cfg(feature = "UI_Popups")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::UI::Popups::Placement) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Popups"))] usize,
 );
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct ILauncherViewOptions(::windows::core::IUnknown);
 impl ILauncherViewOptions {
@@ -4540,6 +4572,7 @@ impl KnownUserProperties {
 impl ::windows::core::RuntimeName for KnownUserProperties {
     const NAME: &'static str = "Windows.System.KnownUserProperties";
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct LaunchFileStatus(pub i32);
 impl LaunchFileStatus {
@@ -4570,6 +4603,7 @@ unsafe impl ::windows::core::RuntimeType for LaunchFileStatus {
 impl ::windows::core::DefaultType for LaunchFileStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct LaunchQuerySupportStatus(pub i32);
 impl LaunchQuerySupportStatus {
@@ -4600,6 +4634,7 @@ unsafe impl ::windows::core::RuntimeType for LaunchQuerySupportStatus {
 impl ::windows::core::DefaultType for LaunchQuerySupportStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct LaunchQuerySupportType(pub i32);
 impl LaunchQuerySupportType {
@@ -4627,6 +4662,7 @@ unsafe impl ::windows::core::RuntimeType for LaunchQuerySupportType {
 impl ::windows::core::DefaultType for LaunchQuerySupportType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct LaunchUriResult(::windows::core::IUnknown);
 impl LaunchUriResult {
@@ -4709,6 +4745,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Laun
 }
 unsafe impl ::core::marker::Send for LaunchUriResult {}
 unsafe impl ::core::marker::Sync for LaunchUriResult {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct LaunchUriStatus(pub i32);
 impl LaunchUriStatus {
@@ -4960,6 +4997,7 @@ impl Launcher {
 impl ::windows::core::RuntimeName for Launcher {
     const NAME: &'static str = "Windows.System.Launcher";
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct LauncherOptions(::windows::core::IUnknown);
 impl LauncherOptions {
@@ -5190,6 +5228,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILauncherViewOptions> for &LauncherOptio
 }
 unsafe impl ::core::marker::Send for LauncherOptions {}
 unsafe impl ::core::marker::Sync for LauncherOptions {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct LauncherUIOptions(::windows::core::IUnknown);
 impl LauncherUIOptions {
@@ -5393,6 +5432,7 @@ impl MemoryManager {
 impl ::windows::core::RuntimeName for MemoryManager {
     const NAME: &'static str = "Windows.System.MemoryManager";
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct PowerState(pub i32);
 impl PowerState {
@@ -5444,6 +5484,7 @@ impl ProcessLauncher {
 impl ::windows::core::RuntimeName for ProcessLauncher {
     const NAME: &'static str = "Windows.System.ProcessLauncher";
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct ProcessLauncherOptions(::windows::core::IUnknown);
 impl ProcessLauncherOptions {
@@ -5568,6 +5609,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
 }
 unsafe impl ::core::marker::Send for ProcessLauncherOptions {}
 unsafe impl ::core::marker::Sync for ProcessLauncherOptions {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct ProcessLauncherResult(::windows::core::IUnknown);
 impl ProcessLauncherResult {
@@ -5642,6 +5684,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
 }
 unsafe impl ::core::marker::Send for ProcessLauncherResult {}
 unsafe impl ::core::marker::Sync for ProcessLauncherResult {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct ProcessMemoryReport(::windows::core::IUnknown);
 impl ProcessMemoryReport {
@@ -5723,6 +5766,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
 }
 unsafe impl ::core::marker::Send for ProcessMemoryReport {}
 unsafe impl ::core::marker::Sync for ProcessMemoryReport {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct ProcessorArchitecture(pub i32);
 impl ProcessorArchitecture {
@@ -5755,6 +5799,7 @@ unsafe impl ::windows::core::RuntimeType for ProcessorArchitecture {
 impl ::windows::core::DefaultType for ProcessorArchitecture {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct ProtocolForResultsOperation(::windows::core::IUnknown);
 impl ProtocolForResultsOperation {
@@ -5827,6 +5872,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
 }
 unsafe impl ::core::marker::Send for ProtocolForResultsOperation {}
 unsafe impl ::core::marker::Sync for ProtocolForResultsOperation {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct RemoteLaunchUriStatus(pub i32);
 impl RemoteLaunchUriStatus {
@@ -5891,6 +5937,7 @@ impl RemoteLauncher {
 impl ::windows::core::RuntimeName for RemoteLauncher {
     const NAME: &'static str = "Windows.System.RemoteLauncher";
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct RemoteLauncherOptions(::windows::core::IUnknown);
 impl RemoteLauncherOptions {
@@ -5986,6 +6033,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteLauncherOptions {}
 unsafe impl ::core::marker::Sync for RemoteLauncherOptions {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct ShutdownKind(pub i32);
 impl ShutdownKind {
@@ -6090,6 +6138,7 @@ impl TimeZoneSettings {
 impl ::windows::core::RuntimeName for TimeZoneSettings {
     const NAME: &'static str = "Windows.System.TimeZoneSettings";
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct User(::windows::core::IUnknown);
 impl User {
@@ -6257,6 +6306,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for User {}
 unsafe impl ::core::marker::Sync for User {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserAgeConsentGroup(pub i32);
 impl UserAgeConsentGroup {
@@ -6285,6 +6335,7 @@ unsafe impl ::windows::core::RuntimeType for UserAgeConsentGroup {
 impl ::windows::core::DefaultType for UserAgeConsentGroup {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserAgeConsentResult(pub i32);
 impl UserAgeConsentResult {
@@ -6315,6 +6366,7 @@ unsafe impl ::windows::core::RuntimeType for UserAgeConsentResult {
 impl ::windows::core::DefaultType for UserAgeConsentResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserAuthenticationStatus(pub i32);
 impl UserAuthenticationStatus {
@@ -6343,6 +6395,7 @@ unsafe impl ::windows::core::RuntimeType for UserAuthenticationStatus {
 impl ::windows::core::DefaultType for UserAuthenticationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserAuthenticationStatusChangeDeferral(::windows::core::IUnknown);
 impl UserAuthenticationStatusChangeDeferral {
@@ -6414,6 +6467,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserAuthenticationStatusChangeDeferral {}
 unsafe impl ::core::marker::Sync for UserAuthenticationStatusChangeDeferral {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserAuthenticationStatusChangingEventArgs(::windows::core::IUnknown);
 impl UserAuthenticationStatusChangingEventArgs {
@@ -6509,6 +6563,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserAuthenticationStatusChangingEventArgs {}
 unsafe impl ::core::marker::Sync for UserAuthenticationStatusChangingEventArgs {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserChangedEventArgs(::windows::core::IUnknown);
 impl UserChangedEventArgs {
@@ -6618,6 +6673,7 @@ impl UserDeviceAssociation {
 impl ::windows::core::RuntimeName for UserDeviceAssociation {
     const NAME: &'static str = "Windows.System.UserDeviceAssociation";
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserDeviceAssociationChangedEventArgs(::windows::core::IUnknown);
 impl UserDeviceAssociationChangedEventArgs {
@@ -6706,6 +6762,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDeviceAssociationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserDeviceAssociationChangedEventArgs {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserPicker(::windows::core::IUnknown);
 impl UserPicker {
@@ -6820,6 +6877,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserPicker {}
 unsafe impl ::core::marker::Sync for UserPicker {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserPictureSize(pub i32);
 impl UserPictureSize {
@@ -6849,6 +6907,7 @@ unsafe impl ::windows::core::RuntimeType for UserPictureSize {
 impl ::windows::core::DefaultType for UserPictureSize {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserType(pub i32);
 impl UserType {
@@ -6879,6 +6938,7 @@ unsafe impl ::windows::core::RuntimeType for UserType {
 impl ::windows::core::DefaultType for UserType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserWatcher(::windows::core::IUnknown);
 impl UserWatcher {
@@ -7052,6 +7112,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserWatcher {}
 unsafe impl ::core::marker::Sync for UserWatcher {}
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserWatcherStatus(pub i32);
 impl UserWatcherStatus {
@@ -7083,6 +7144,7 @@ unsafe impl ::windows::core::RuntimeType for UserWatcherStatus {
 impl ::windows::core::DefaultType for UserWatcherStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct UserWatcherUpdateKind(pub i32);
 impl UserWatcherUpdateKind {
@@ -7110,6 +7172,7 @@ unsafe impl ::windows::core::RuntimeType for UserWatcherUpdateKind {
 impl ::windows::core::DefaultType for UserWatcherUpdateKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct VirtualKey(pub i32);
 impl VirtualKey {
@@ -7307,6 +7370,7 @@ unsafe impl ::windows::core::RuntimeType for VirtualKey {
 impl ::windows::core::DefaultType for VirtualKey {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
 pub struct VirtualKeyModifiers(pub u32);
 impl VirtualKeyModifiers {

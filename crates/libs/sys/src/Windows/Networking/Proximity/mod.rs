@@ -6,6 +6,7 @@ pub type DeviceArrivedEventHandler = *mut ::core::ffi::c_void;
 pub type DeviceDepartedEventHandler = *mut ::core::ffi::c_void;
 pub type MessageReceivedHandler = *mut ::core::ffi::c_void;
 pub type MessageTransmittedHandler = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
 pub struct PeerDiscoveryTypes(pub u32);
 impl PeerDiscoveryTypes {
@@ -20,6 +21,7 @@ impl ::core::clone::Clone for PeerDiscoveryTypes {
     }
 }
 pub type PeerInformation = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
 pub struct PeerRole(pub i32);
 impl PeerRole {
@@ -34,6 +36,7 @@ impl ::core::clone::Clone for PeerRole {
     }
 }
 pub type PeerWatcher = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
 pub struct PeerWatcherStatus(pub i32);
 impl PeerWatcherStatus {
@@ -52,6 +55,7 @@ impl ::core::clone::Clone for PeerWatcherStatus {
 }
 pub type ProximityDevice = *mut ::core::ffi::c_void;
 pub type ProximityMessage = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
 pub struct TriggeredConnectState(pub i32);
 impl TriggeredConnectState {

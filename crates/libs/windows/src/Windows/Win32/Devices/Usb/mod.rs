@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const ALLOW_PARTIAL_READS: u32 = 5u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct ALTERNATE_INTERFACE {
     pub InterfaceNumber: u16,
     pub AlternateInterfaceNumber: u16,
@@ -38,6 +39,7 @@ pub const BMREQUEST_TO_INTERFACE: u32 = 1u32;
 pub const BMREQUEST_TO_OTHER: u32 = 3u32;
 pub const BMREQUEST_VENDOR: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union BM_REQUEST_TYPE {
     pub s: BM_REQUEST_TYPE_0,
     pub B: u8,
@@ -63,6 +65,7 @@ impl ::core::default::Default for BM_REQUEST_TYPE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct BM_REQUEST_TYPE_0 {
     pub _bitfield: u8,
 }
@@ -88,6 +91,7 @@ impl ::core::default::Default for BM_REQUEST_TYPE_0 {
 }
 pub const BULKIN_FLAG: u32 = 128u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct CHANNEL_INFO {
     pub EventChannelSize: u32,
     pub uReadDataAlignment: u32,
@@ -114,6 +118,7 @@ impl ::core::default::Default for CHANNEL_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct DEVICE_DESCRIPTOR {
     pub usVendorId: u16,
     pub usProductId: u16,
@@ -142,6 +147,7 @@ impl ::core::default::Default for DEVICE_DESCRIPTOR {
 }
 pub const DEVICE_SPEED: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct DRV_VERSION {
     pub major: u32,
     pub minor: u32,
@@ -282,6 +288,7 @@ pub const IOCTL_USB_UNREGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 22293
 pub const IOCTL_WAIT_ON_DEVICE_EVENT: u32 = 2147491848u32;
 pub const IOCTL_WRITE_REGISTERS: u32 = 2147491856u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct IO_BLOCK {
     pub uOffset: u32,
     pub uLength: u32,
@@ -309,6 +316,7 @@ impl ::core::default::Default for IO_BLOCK {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct IO_BLOCK_EX {
     pub uOffset: u32,
     pub uLength: u32,
@@ -353,6 +361,7 @@ pub const MS_GENRE_DESCRIPTOR_INDEX: u32 = 1u32;
 pub const MS_OS_FLAGS_CONTAINERID: u32 = 2u32;
 pub const MS_POWER_DESCRIPTOR_INDEX: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct OS_STRING {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -381,6 +390,7 @@ impl ::core::default::Default for OS_STRING {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union OS_STRING_0 {
     pub bPad: u8,
     pub bFlags: u8,
@@ -407,6 +417,7 @@ impl ::core::default::Default for OS_STRING_0 {
 }
 pub const OS_STRING_DESCRIPTOR_INDEX: u32 = 238u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct PACKET_PARAMETERS {
     pub DeviceAddress: u8,
     pub EndpointAddress: u8,
@@ -442,10 +453,15 @@ impl ::core::default::Default for PACKET_PARAMETERS {
     }
 }
 pub const PIPE_TRANSFER_TIMEOUT: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub type PIPE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const EVENT_PIPE: PIPE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const READ_DATA_PIPE: PIPE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WRITE_DATA_PIPE: PIPE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const ALL_PIPE: PIPE_TYPE = 3i32;
 pub const PORT_LINK_STATE_COMPLIANCE_MODE: u32 = 10u32;
 pub const PORT_LINK_STATE_DISABLED: u32 = 4u32;
@@ -461,12 +477,18 @@ pub const PORT_LINK_STATE_U1: u32 = 1u32;
 pub const PORT_LINK_STATE_U2: u32 = 2u32;
 pub const PORT_LINK_STATE_U3: u32 = 3u32;
 pub const RAW_IO: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub type RAW_PIPE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBSCAN_PIPE_CONTROL: RAW_PIPE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBSCAN_PIPE_ISOCHRONOUS: RAW_PIPE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBSCAN_PIPE_BULK: RAW_PIPE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBSCAN_PIPE_INTERRUPT: RAW_PIPE_TYPE = 3i32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct RAW_RESET_PORT_PARAMETERS {
     pub PortNumber: u16,
     pub PortStatus: u16,
@@ -492,6 +514,7 @@ impl ::core::default::Default for RAW_RESET_PORT_PARAMETERS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct RAW_ROOTPORT_FEATURE {
     pub PortNumber: u16,
     pub PortFeature: u16,
@@ -518,6 +541,7 @@ impl ::core::default::Default for RAW_ROOTPORT_FEATURE {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct RAW_ROOTPORT_PARAMETERS {
     pub PortNumber: u16,
     pub PortStatus: u16,
@@ -546,6 +570,7 @@ pub const RESET_PIPE_ON_RESUME: u32 = 9u32;
 pub const SHORT_PACKET_TERMINATE: u32 = 1u32;
 pub const SUSPEND_DELAY: u32 = 131u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct URB {
     pub Anonymous: URB_0,
 }
@@ -570,6 +595,7 @@ impl ::core::default::Default for URB {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union URB_0 {
     pub UrbHeader: _URB_HEADER,
     pub UrbSelectInterface: _URB_SELECT_INTERFACE,
@@ -677,6 +703,7 @@ pub const USBDI_VERSION: u32 = 1536u32;
 pub const USBD_DEFAULT_MAXIMUM_TRANSFER_SIZE: u32 = 4294967295u32;
 pub const USBD_DEFAULT_PIPE_TRANSFER: u32 = 8u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBD_DEVICE_INFORMATION {
     pub OffsetNext: u32,
     pub UsbdDeviceHandle: *mut ::core::ffi::c_void,
@@ -703,6 +730,7 @@ impl ::core::default::Default for USBD_DEVICE_INFORMATION {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBD_ENDPOINT_OFFLOAD_INFORMATION {
     pub Size: u32,
     pub EndpointAddress: u16,
@@ -740,11 +768,16 @@ impl ::core::default::Default for USBD_ENDPOINT_OFFLOAD_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub type USBD_ENDPOINT_OFFLOAD_MODE = i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbdEndpointOffloadModeNotSupported: USBD_ENDPOINT_OFFLOAD_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbdEndpointOffloadSoftwareAssisted: USBD_ENDPOINT_OFFLOAD_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbdEndpointOffloadHardwareAssisted: USBD_ENDPOINT_OFFLOAD_MODE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBD_INTERFACE_INFORMATION {
     pub Length: u16,
     pub InterfaceNumber: u8,
@@ -778,6 +811,7 @@ impl ::core::default::Default for USBD_INTERFACE_INFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBD_ISO_PACKET_DESCRIPTOR {
     pub Offset: u32,
     pub Length: u32,
@@ -815,6 +849,7 @@ pub const USBD_PF_SSP_HIGH_BANDWIDTH_ISOCH: u32 = 65536u32;
 pub const USBD_PF_VIDEO_PRIORITY: u32 = 16u32;
 pub const USBD_PF_VOICE_PRIORITY: u32 = 32u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBD_PIPE_INFORMATION {
     pub MaximumPacketSize: u16,
     pub EndpointAddress: u8,
@@ -844,16 +879,22 @@ impl ::core::default::Default for USBD_PIPE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub type USBD_PIPE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbdPipeTypeControl: USBD_PIPE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbdPipeTypeIsochronous: USBD_PIPE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbdPipeTypeBulk: USBD_PIPE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbdPipeTypeInterrupt: USBD_PIPE_TYPE = 3i32;
 pub const USBD_PORT_CONNECTED: u32 = 2u32;
 pub const USBD_PORT_ENABLED: u32 = 1u32;
 pub const USBD_SHORT_TRANSFER_OK: u32 = 2u32;
 pub const USBD_START_ISO_TRANSFER_ASAP: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBD_STREAM_INFORMATION {
     pub PipeHandle: *mut ::core::ffi::c_void,
     pub StreamID: u32,
@@ -884,6 +925,7 @@ pub const USBD_TRANSFER_DIRECTION: u32 = 1u32;
 pub const USBD_TRANSFER_DIRECTION_IN: u32 = 1u32;
 pub const USBD_TRANSFER_DIRECTION_OUT: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBD_VERSION_INFORMATION {
     pub USBDI_Version: u32,
     pub Supported_USB_Version: u32,
@@ -909,6 +951,7 @@ impl ::core::default::Default for USBD_VERSION_INFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USBFN_BUS_CONFIGURATION_INFO {
     pub ConfigurationName: [u16; 40],
@@ -941,13 +984,20 @@ impl ::core::default::Default for USBFN_BUS_CONFIGURATION_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub type USBFN_BUS_SPEED = i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnBusSpeedLow: USBFN_BUS_SPEED = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnBusSpeedFull: USBFN_BUS_SPEED = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnBusSpeedHigh: USBFN_BUS_SPEED = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnBusSpeedSuper: USBFN_BUS_SPEED = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnBusSpeedMaximum: USBFN_BUS_SPEED = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USBFN_CLASS_INFORMATION_PACKET {
     pub FullSpeedClassInterface: USBFN_CLASS_INTERFACE,
@@ -984,6 +1034,7 @@ impl ::core::default::Default for USBFN_CLASS_INFORMATION_PACKET {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USBFN_CLASS_INFORMATION_PACKET_EX {
     pub FullSpeedClassInterfaceEx: USBFN_CLASS_INTERFACE_EX,
@@ -1020,6 +1071,7 @@ impl ::core::default::Default for USBFN_CLASS_INFORMATION_PACKET_EX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBFN_CLASS_INTERFACE {
     pub InterfaceNumber: u8,
     pub PipeCount: u8,
@@ -1046,6 +1098,7 @@ impl ::core::default::Default for USBFN_CLASS_INTERFACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBFN_CLASS_INTERFACE_EX {
     pub BaseInterfaceNumber: u8,
     pub InterfaceCount: u8,
@@ -1072,37 +1125,68 @@ impl ::core::default::Default for USBFN_CLASS_INTERFACE_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub type USBFN_DEVICE_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnDeviceStateMinimum: USBFN_DEVICE_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnDeviceStateAttached: USBFN_DEVICE_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnDeviceStateDefault: USBFN_DEVICE_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnDeviceStateDetached: USBFN_DEVICE_STATE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnDeviceStateAddressed: USBFN_DEVICE_STATE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnDeviceStateConfigured: USBFN_DEVICE_STATE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnDeviceStateSuspended: USBFN_DEVICE_STATE = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnDeviceStateStateMaximum: USBFN_DEVICE_STATE = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub type USBFN_DIRECTION = i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnDirectionMinimum: USBFN_DIRECTION = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnDirectionIn: USBFN_DIRECTION = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnDirectionOut: USBFN_DIRECTION = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnDirectionTx: USBFN_DIRECTION = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnDirectionRx: USBFN_DIRECTION = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnDirectionMaximum: USBFN_DIRECTION = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub type USBFN_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnEventMinimum: USBFN_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnEventAttach: USBFN_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnEventReset: USBFN_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnEventDetach: USBFN_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnEventSuspend: USBFN_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnEventResume: USBFN_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnEventSetupPacket: USBFN_EVENT = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnEventConfigured: USBFN_EVENT = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnEventUnConfigured: USBFN_EVENT = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnEventPortType: USBFN_EVENT = 9i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnEventBusTearDown: USBFN_EVENT = 10i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnEventSetInterface: USBFN_EVENT = 11i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnEventMaximum: USBFN_EVENT = 12i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBFN_INTERFACE_INFO {
     pub InterfaceNumber: u8,
     pub Speed: USBFN_BUS_SPEED,
@@ -1131,6 +1215,7 @@ impl ::core::default::Default for USBFN_INTERFACE_INFO {
 }
 pub const USBFN_INTERRUPT_ENDPOINT_SIZE_NOT_UPDATEABLE_MASK: u32 = 128u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBFN_NOTIFICATION {
     pub Event: USBFN_EVENT,
     pub u: USBFN_NOTIFICATION_0,
@@ -1156,6 +1241,7 @@ impl ::core::default::Default for USBFN_NOTIFICATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USBFN_NOTIFICATION_0 {
     pub BusSpeed: USBFN_BUS_SPEED,
     pub SetupPacket: USB_DEFAULT_PIPE_SETUP_PACKET,
@@ -1184,6 +1270,7 @@ impl ::core::default::Default for USBFN_NOTIFICATION_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBFN_PIPE_INFORMATION {
     pub EpDesc: USB_ENDPOINT_DESCRIPTOR,
     pub PipeId: u32,
@@ -1208,15 +1295,24 @@ impl ::core::default::Default for USBFN_PIPE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub type USBFN_PORT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnUnknownPort: USBFN_PORT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnStandardDownstreamPort: USBFN_PORT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnChargingDownstreamPort: USBFN_PORT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnDedicatedChargingPort: USBFN_PORT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnInvalidDedicatedChargingPort: USBFN_PORT_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnProprietaryDedicatedChargingPort: USBFN_PORT_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbfnPortTypeMaximum: USBFN_PORT_TYPE = 6i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBFN_USB_STRING {
     pub StringIndex: u8,
     pub UsbString: [u16; 255],
@@ -1242,6 +1338,7 @@ impl ::core::default::Default for USBFN_USB_STRING {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBSCAN_GET_DESCRIPTOR {
     pub DescriptorType: u8,
     pub Index: u8,
@@ -1268,6 +1365,7 @@ impl ::core::default::Default for USBSCAN_GET_DESCRIPTOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBSCAN_PIPE_CONFIGURATION {
     pub NumberOfPipes: u32,
     pub PipeInfo: [USBSCAN_PIPE_INFORMATION; 8],
@@ -1293,6 +1391,7 @@ impl ::core::default::Default for USBSCAN_PIPE_CONFIGURATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBSCAN_PIPE_INFORMATION {
     pub MaximumPacketSize: u16,
     pub EndpointAddress: u8,
@@ -1320,6 +1419,7 @@ impl ::core::default::Default for USBSCAN_PIPE_INFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBSCAN_TIMEOUT {
     pub TimeoutRead: u32,
     pub TimeoutWrite: u32,
@@ -1346,6 +1446,7 @@ impl ::core::default::Default for USBSCAN_TIMEOUT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBUSER_BANDWIDTH_INFO_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
     pub BandwidthInformation: USB_BANDWIDTH_INFO,
@@ -1371,6 +1472,7 @@ impl ::core::default::Default for USBUSER_BANDWIDTH_INFO_REQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USBUSER_BUS_STATISTICS_0_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -1404,6 +1506,7 @@ impl ::core::default::Default for USBUSER_BUS_STATISTICS_0_REQUEST {
 }
 pub const USBUSER_CLEAR_ROOTPORT_FEATURE: u32 = 536870918u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBUSER_CLOSE_RAW_DEVICE {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: USB_CLOSE_RAW_DEVICE_PARAMETERS,
@@ -1429,6 +1532,7 @@ impl ::core::default::Default for USBUSER_CLOSE_RAW_DEVICE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBUSER_CONTROLLER_INFO_0 {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Info0: USB_CONTROLLER_INFO_0,
@@ -1454,6 +1558,7 @@ impl ::core::default::Default for USBUSER_CONTROLLER_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBUSER_CONTROLLER_UNICODE_NAME {
     pub Header: USBUSER_REQUEST_HEADER,
     pub UnicodeName: USB_UNICODE_NAME,
@@ -1483,6 +1588,7 @@ pub const USBUSER_GET_BUS_STATISTICS_0: u32 = 6u32;
 pub const USBUSER_GET_CONTROLLER_DRIVER_KEY: u32 = 2u32;
 pub const USBUSER_GET_CONTROLLER_INFO_0: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USBUSER_GET_DRIVER_VERSION {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -1518,6 +1624,7 @@ pub const USBUSER_GET_POWER_STATE_MAP: u32 = 4u32;
 pub const USBUSER_GET_ROOTHUB_SYMBOLIC_NAME: u32 = 7u32;
 pub const USBUSER_GET_ROOTPORT_STATUS: u32 = 536870919u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBUSER_GET_USB2HW_VERSION {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: USB_USB2HW_VERSION_PARAMETERS,
@@ -1546,6 +1653,7 @@ pub const USBUSER_GET_USB2_HW_VERSION: u32 = 9u32;
 pub const USBUSER_GET_USB_DRIVER_VERSION: u32 = 8u32;
 pub const USBUSER_INVALID_REQUEST: u32 = 4294967280u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBUSER_OPEN_RAW_DEVICE {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: USB_OPEN_RAW_DEVICE_PARAMETERS,
@@ -1579,6 +1687,7 @@ pub const USBUSER_OP_SEND_ONE_PACKET: u32 = 268435457u32;
 pub const USBUSER_OP_SEND_RAW_COMMAND: u32 = 536870916u32;
 pub const USBUSER_PASS_THRU: u32 = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBUSER_PASS_THRU_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
     pub PassThru: USB_PASS_THRU_PARAMETERS,
@@ -1604,6 +1713,7 @@ impl ::core::default::Default for USBUSER_PASS_THRU_REQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USBUSER_POWER_INFO_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
@@ -1636,6 +1746,7 @@ impl ::core::default::Default for USBUSER_POWER_INFO_REQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBUSER_RAW_RESET_ROOT_PORT {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: RAW_RESET_PORT_PARAMETERS,
@@ -1661,6 +1772,7 @@ impl ::core::default::Default for USBUSER_RAW_RESET_ROOT_PORT {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBUSER_REFRESH_HCT_REG {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Flags: u32,
@@ -1686,6 +1798,7 @@ impl ::core::default::Default for USBUSER_REFRESH_HCT_REG {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBUSER_REQUEST_HEADER {
     pub UsbUserRequest: u32,
     pub UsbUserStatusCode: USB_USER_ERROR_CODE,
@@ -1713,6 +1826,7 @@ impl ::core::default::Default for USBUSER_REQUEST_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBUSER_ROOTPORT_FEATURE_REQUEST {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: RAW_ROOTPORT_FEATURE,
@@ -1738,6 +1852,7 @@ impl ::core::default::Default for USBUSER_ROOTPORT_FEATURE_REQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBUSER_ROOTPORT_PARAMETERS {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: RAW_ROOTPORT_PARAMETERS,
@@ -1763,6 +1878,7 @@ impl ::core::default::Default for USBUSER_ROOTPORT_PARAMETERS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBUSER_SEND_ONE_PACKET {
     pub Header: USBUSER_REQUEST_HEADER,
     pub PacketParameters: PACKET_PARAMETERS,
@@ -1788,6 +1904,7 @@ impl ::core::default::Default for USBUSER_SEND_ONE_PACKET {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USBUSER_SEND_RAW_COMMAND {
     pub Header: USBUSER_REQUEST_HEADER,
     pub Parameters: USB_SEND_RAW_COMMAND_PARAMETERS,
@@ -1818,6 +1935,7 @@ pub const USBUSER_VERSION: u32 = 4u32;
 pub const USB_20_ENDPOINT_TYPE_INTERRUPT_RESERVED_MASK: u32 = 252u32;
 pub const USB_20_HUB_DESCRIPTOR_TYPE: u32 = 41u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_20_PORT_CHANGE {
     pub AsUshort16: u16,
     pub Anonymous: USB_20_PORT_CHANGE_0,
@@ -1843,6 +1961,7 @@ impl ::core::default::Default for USB_20_PORT_CHANGE {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_20_PORT_CHANGE_0 {
     pub _bitfield: u16,
 }
@@ -1867,6 +1986,7 @@ impl ::core::default::Default for USB_20_PORT_CHANGE_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_20_PORT_STATUS {
     pub AsUshort16: u16,
     pub Anonymous: USB_20_PORT_STATUS_0,
@@ -1892,6 +2012,7 @@ impl ::core::default::Default for USB_20_PORT_STATUS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_20_PORT_STATUS_0 {
     pub _bitfield: u16,
 }
@@ -1922,6 +2043,7 @@ pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_PERIODIC: u32 = 0u32;
 pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_RESERVED10: u32 = 32u32;
 pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_RESERVED11: u32 = 48u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_30_HUB_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -1955,6 +2077,7 @@ impl ::core::default::Default for USB_30_HUB_DESCRIPTOR {
 }
 pub const USB_30_HUB_DESCRIPTOR_TYPE: u32 = 42u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_30_PORT_CHANGE {
     pub AsUshort16: u16,
     pub Anonymous: USB_30_PORT_CHANGE_0,
@@ -1980,6 +2103,7 @@ impl ::core::default::Default for USB_30_PORT_CHANGE {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_30_PORT_CHANGE_0 {
     pub _bitfield: u16,
 }
@@ -2004,6 +2128,7 @@ impl ::core::default::Default for USB_30_PORT_CHANGE_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_30_PORT_STATUS {
     pub AsUshort16: u16,
     pub Anonymous: USB_30_PORT_STATUS_0,
@@ -2029,6 +2154,7 @@ impl ::core::default::Default for USB_30_PORT_STATUS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_30_PORT_STATUS_0 {
     pub _bitfield: u16,
 }
@@ -2054,6 +2180,7 @@ impl ::core::default::Default for USB_30_PORT_STATUS_0 {
 }
 pub const USB_ALLOW_FIRMWARE_UPDATE: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_BANDWIDTH_INFO {
     pub DeviceCount: u32,
     pub TotalBusBandwidth: u32,
@@ -2088,6 +2215,7 @@ impl ::core::default::Default for USB_BANDWIDTH_INFO {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_BOS_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2116,6 +2244,7 @@ impl ::core::default::Default for USB_BOS_DESCRIPTOR {
 }
 pub const USB_BOS_DESCRIPTOR_TYPE: u32 = 15u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_BUS_STATISTICS_0 {
     pub DeviceCount: u32,
@@ -2166,6 +2295,7 @@ pub const USB_CHARGING_POLICY_ICCHPF: u32 = 1u32;
 pub const USB_CHARGING_POLICY_ICCLPF: u32 = 2u32;
 pub const USB_CHARGING_POLICY_NO_POWER: u32 = 3u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_CLOSE_RAW_DEVICE_PARAMETERS {
     pub xxx: u32,
 }
@@ -2190,6 +2320,7 @@ impl ::core::default::Default for USB_CLOSE_RAW_DEVICE_PARAMETERS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_COMMON_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2215,6 +2346,7 @@ impl ::core::default::Default for USB_COMMON_DESCRIPTOR {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_CONFIGURATION_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2247,6 +2379,7 @@ impl ::core::default::Default for USB_CONFIGURATION_DESCRIPTOR {
 }
 pub const USB_CONFIGURATION_DESCRIPTOR_TYPE: u32 = 2u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_CONFIGURATION_POWER_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2288,35 +2421,64 @@ pub const USB_CONFIG_POWER_DESCRIPTOR_TYPE: u32 = 7u32;
 pub const USB_CONFIG_REMOTE_WAKEUP: u32 = 32u32;
 pub const USB_CONFIG_RESERVED: u32 = 31u32;
 pub const USB_CONFIG_SELF_POWERED: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub type USB_CONTROLLER_FLAVOR = i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_HcGeneric: USB_CONTROLLER_FLAVOR = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const OHCI_Generic: USB_CONTROLLER_FLAVOR = 100i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const OHCI_Hydra: USB_CONTROLLER_FLAVOR = 101i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const OHCI_NEC: USB_CONTROLLER_FLAVOR = 102i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UHCI_Generic: USB_CONTROLLER_FLAVOR = 200i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UHCI_Piix4: USB_CONTROLLER_FLAVOR = 201i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UHCI_Piix3: USB_CONTROLLER_FLAVOR = 202i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UHCI_Ich2: USB_CONTROLLER_FLAVOR = 203i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UHCI_Reserved204: USB_CONTROLLER_FLAVOR = 204i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UHCI_Ich1: USB_CONTROLLER_FLAVOR = 205i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UHCI_Ich3m: USB_CONTROLLER_FLAVOR = 206i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UHCI_Ich4: USB_CONTROLLER_FLAVOR = 207i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UHCI_Ich5: USB_CONTROLLER_FLAVOR = 208i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UHCI_Ich6: USB_CONTROLLER_FLAVOR = 209i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UHCI_Intel: USB_CONTROLLER_FLAVOR = 249i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UHCI_VIA: USB_CONTROLLER_FLAVOR = 250i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UHCI_VIA_x01: USB_CONTROLLER_FLAVOR = 251i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UHCI_VIA_x02: USB_CONTROLLER_FLAVOR = 252i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UHCI_VIA_x03: USB_CONTROLLER_FLAVOR = 253i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UHCI_VIA_x04: USB_CONTROLLER_FLAVOR = 254i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UHCI_VIA_x0E_FIFO: USB_CONTROLLER_FLAVOR = 264i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const EHCI_Generic: USB_CONTROLLER_FLAVOR = 1000i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const EHCI_NEC: USB_CONTROLLER_FLAVOR = 2000i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const EHCI_Lucent: USB_CONTROLLER_FLAVOR = 3000i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const EHCI_NVIDIA_Tegra2: USB_CONTROLLER_FLAVOR = 4000i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const EHCI_NVIDIA_Tegra3: USB_CONTROLLER_FLAVOR = 4001i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const EHCI_Intel_Medfield: USB_CONTROLLER_FLAVOR = 5001i32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_CONTROLLER_INFO_0 {
     pub PciVendorId: u32,
     pub PciDeviceId: u32,
@@ -2351,6 +2513,7 @@ pub const USB_DEFAULT_DEVICE_ADDRESS: u32 = 0u32;
 pub const USB_DEFAULT_ENDPOINT_ADDRESS: u32 = 0u32;
 pub const USB_DEFAULT_MAX_PACKET: u32 = 64u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEFAULT_PIPE_SETUP_PACKET {
     pub bmRequestType: BM_REQUEST_TYPE,
     pub bRequest: u8,
@@ -2379,6 +2542,7 @@ impl ::core::default::Default for USB_DEFAULT_PIPE_SETUP_PACKET {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_DEFAULT_PIPE_SETUP_PACKET_0 {
     pub Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_0_0,
     pub W: u16,
@@ -2404,6 +2568,7 @@ impl ::core::default::Default for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
     pub LowByte: u8,
     pub HiByte: u8,
@@ -2429,6 +2594,7 @@ impl ::core::default::Default for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_DEFAULT_PIPE_SETUP_PACKET_1 {
     pub Anonymous: USB_DEFAULT_PIPE_SETUP_PACKET_1_0,
     pub W: u16,
@@ -2454,6 +2620,7 @@ impl ::core::default::Default for USB_DEFAULT_PIPE_SETUP_PACKET_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
     pub LowByte: u8,
     pub HiByte: u8,
@@ -2481,6 +2648,7 @@ impl ::core::default::Default for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
 pub const USB_DEVICE_CAPABILITY_BATTERY_INFO: u32 = 7u32;
 pub const USB_DEVICE_CAPABILITY_BILLBOARD: u32 = 13u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2514,6 +2682,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
     pub wSVID: u16,
     pub bAlternateMode: u8,
@@ -2540,6 +2709,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
     pub AsUshort: u16,
     pub Anonymous: USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0,
@@ -2565,6 +2735,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0 {
     pub _bitfield: u16,
 }
@@ -2590,6 +2761,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0
 }
 pub const USB_DEVICE_CAPABILITY_CONTAINER_ID: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2618,6 +2790,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR 
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_CAPABILITY_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2646,6 +2819,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_DESCRIPTOR {
 pub const USB_DEVICE_CAPABILITY_DESCRIPTOR_TYPE: u32 = 16u32;
 pub const USB_DEVICE_CAPABILITY_FIRMWARE_STATUS: u32 = 17u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2674,6 +2848,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPT
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {
     pub AsUlong: u32,
     pub Anonymous: USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0,
@@ -2699,6 +2874,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPT
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
@@ -2726,6 +2902,7 @@ pub const USB_DEVICE_CAPABILITY_MAX_U1_LATENCY: u32 = 10u32;
 pub const USB_DEVICE_CAPABILITY_MAX_U2_LATENCY: u32 = 2047u32;
 pub const USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT: u32 = 8u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2760,6 +2937,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIP
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {
     pub AsUshort: u16,
     pub Anonymous: USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0,
@@ -2785,6 +2963,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIP
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {
     pub _bitfield: u16,
 }
@@ -2811,6 +2990,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIP
 pub const USB_DEVICE_CAPABILITY_PD_PROVIDER_PORT: u32 = 9u32;
 pub const USB_DEVICE_CAPABILITY_PLATFORM: u32 = 5u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2841,6 +3021,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
 }
 pub const USB_DEVICE_CAPABILITY_POWER_DELIVERY: u32 = 6u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -2874,6 +3055,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTO
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {
     pub AsUlong: u32,
     pub Anonymous: USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0,
@@ -2899,6 +3081,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTO
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
@@ -2924,6 +3107,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTO
 }
 pub const USB_DEVICE_CAPABILITY_PRECISION_TIME_MEASUREMENT: u32 = 11u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
     pub AsUlong32: u32,
     pub Anonymous: USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0,
@@ -2949,6 +3133,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
     pub _bitfield: u32,
 }
@@ -2984,6 +3169,7 @@ pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_PROTOCOL_SS: u32 = 0u32;
 pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_PROTOCOL_SSP: u32 = 1u32;
 pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB: u32 = 10u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -3015,6 +3201,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCR
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {
     pub AsUlong: u32,
     pub Anonymous: USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0,
@@ -3040,6 +3227,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCR
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
@@ -3064,6 +3252,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCR
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {
     pub AsUshort: u16,
     pub Anonymous: USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0,
@@ -3089,6 +3278,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCR
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {
     pub _bitfield: u16,
 }
@@ -3123,6 +3313,7 @@ pub const USB_DEVICE_CAPABILITY_SUPERSPEED_U1_DEVICE_EXIT_MAX_VALUE: u32 = 10u32
 pub const USB_DEVICE_CAPABILITY_SUPERSPEED_U2_DEVICE_EXIT_MAX_VALUE: u32 = 2047u32;
 pub const USB_DEVICE_CAPABILITY_SUPERSPEED_USB: u32 = 3u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -3156,6 +3347,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTO
 pub const USB_DEVICE_CAPABILITY_USB20_EXTENSION: u32 = 2u32;
 pub const USB_DEVICE_CAPABILITY_USB20_EXTENSION_BMATTRIBUTES_RESERVED_MASK: u32 = 4294901985u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -3183,6 +3375,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPT
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {
     pub AsUlong: u32,
     pub Anonymous: USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0,
@@ -3208,6 +3401,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPT
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
@@ -3258,6 +3452,7 @@ pub const USB_DEVICE_CLASS_VENDOR_SPECIFIC: u32 = 255u32;
 pub const USB_DEVICE_CLASS_VIDEO: u32 = 14u32;
 pub const USB_DEVICE_CLASS_WIRELESS_CONTROLLER: u32 = 224u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -3297,6 +3492,7 @@ impl ::core::default::Default for USB_DEVICE_DESCRIPTOR {
 pub const USB_DEVICE_DESCRIPTOR_TYPE: u32 = 1u32;
 pub const USB_DEVICE_FIRMWARE_HASH_LENGTH: u32 = 32u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_QUALIFIER_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -3329,12 +3525,18 @@ impl ::core::default::Default for USB_DEVICE_QUALIFIER_DESCRIPTOR {
     }
 }
 pub const USB_DEVICE_QUALIFIER_DESCRIPTOR_TYPE: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub type USB_DEVICE_SPEED = i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbLowSpeed: USB_DEVICE_SPEED = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbFullSpeed: USB_DEVICE_SPEED = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbHighSpeed: USB_DEVICE_SPEED = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbSuperSpeed: USB_DEVICE_SPEED = 3i32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_DEVICE_STATUS {
     pub AsUshort16: u16,
     pub Anonymous: USB_DEVICE_STATUS_0,
@@ -3360,6 +3562,7 @@ impl ::core::default::Default for USB_DEVICE_STATUS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_DEVICE_STATUS_0 {
     pub _bitfield: u16,
 }
@@ -3383,13 +3586,17 @@ impl ::core::default::Default for USB_DEVICE_STATUS_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub type USB_DEVICE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const Usb11Device: USB_DEVICE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const Usb20Device: USB_DEVICE_TYPE = 1i32;
 pub const USB_DIAG_IGNORE_HUBS_OFF: u32 = 263u32;
 pub const USB_DIAG_IGNORE_HUBS_ON: u32 = 262u32;
 pub const USB_DISALLOW_FIRMWARE_UPDATE: u32 = 0u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_DRIVER_VERSION_PARAMETERS {
     pub DriverTrackingCode: u32,
@@ -3428,6 +3635,7 @@ impl ::core::default::Default for USB_DRIVER_VERSION_PARAMETERS {
 pub const USB_ENABLE_PORT: u32 = 5u32;
 pub const USB_ENDPOINT_ADDRESS_MASK: u32 = 15u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_ENDPOINT_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -3459,6 +3667,7 @@ impl ::core::default::Default for USB_ENDPOINT_DESCRIPTOR {
 pub const USB_ENDPOINT_DESCRIPTOR_TYPE: u32 = 5u32;
 pub const USB_ENDPOINT_DIRECTION_MASK: u32 = 128u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_ENDPOINT_STATUS {
     pub AsUshort16: u16,
     pub Anonymous: USB_ENDPOINT_STATUS_0,
@@ -3484,6 +3693,7 @@ impl ::core::default::Default for USB_ENDPOINT_STATUS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_ENDPOINT_STATUS_0 {
     pub _bitfield: u16,
 }
@@ -3547,6 +3757,7 @@ pub const USB_FEATURE_TEST_MODE: u32 = 2u32;
 pub const USB_FEATURE_U1_ENABLE: u32 = 48u32;
 pub const USB_FEATURE_U2_ENABLE: u32 = 49u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::super::Foundation::HANDLE,
@@ -3588,6 +3799,7 @@ impl ::core::default::Default for USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMA
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_FUNCTION_SUSPEND_OPTIONS {
     pub AsUchar: u8,
     pub Anonymous: USB_FUNCTION_SUSPEND_OPTIONS_0,
@@ -3613,6 +3825,7 @@ impl ::core::default::Default for USB_FUNCTION_SUSPEND_OPTIONS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_FUNCTION_SUSPEND_OPTIONS_0 {
     pub _bitfield: u8,
 }
@@ -3676,6 +3889,7 @@ pub const USB_HC_FEATURE_FLAG_SEL_SUSPEND: u32 = 2u32;
 pub const USB_HC_FEATURE_LEGACY_BIOS: u32 = 4u32;
 pub const USB_HC_FEATURE_TIME_SYNC_API: u32 = 8u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_HIGH_SPEED_MAXPACKET {
     pub us: u16,
 }
@@ -3700,6 +3914,7 @@ impl ::core::default::Default for USB_HIGH_SPEED_MAXPACKET {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_HIGH_SPEED_MAXPACKET_0 {
     pub _bitfield: u16,
 }
@@ -3724,6 +3939,7 @@ impl ::core::default::Default for USB_HIGH_SPEED_MAXPACKET_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_HUB_30_PORT_REMOTE_WAKE_MASK {
     pub AsUchar8: u8,
     pub Anonymous: USB_HUB_30_PORT_REMOTE_WAKE_MASK_0,
@@ -3749,6 +3965,7 @@ impl ::core::default::Default for USB_HUB_30_PORT_REMOTE_WAKE_MASK {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
     pub _bitfield: u8,
 }
@@ -3773,6 +3990,7 @@ impl ::core::default::Default for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_HUB_CHANGE {
     pub AsUshort16: u16,
     pub Anonymous: USB_HUB_CHANGE_0,
@@ -3798,6 +4016,7 @@ impl ::core::default::Default for USB_HUB_CHANGE {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_HUB_CHANGE_0 {
     pub _bitfield: u16,
 }
@@ -3823,6 +4042,7 @@ impl ::core::default::Default for USB_HUB_CHANGE_0 {
 }
 pub const USB_HUB_CYCLE_PORT: u32 = 273u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_HUB_DESCRIPTOR {
     pub bDescriptorLength: u8,
     pub bDescriptorType: u8,
@@ -3853,6 +4073,7 @@ impl ::core::default::Default for USB_HUB_DESCRIPTOR {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_HUB_STATUS {
     pub AsUshort16: u16,
     pub Anonymous: USB_HUB_STATUS_0,
@@ -3878,6 +4099,7 @@ impl ::core::default::Default for USB_HUB_STATUS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_HUB_STATUS_0 {
     pub _bitfield: u16,
 }
@@ -3902,6 +4124,7 @@ impl ::core::default::Default for USB_HUB_STATUS_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_HUB_STATUS_AND_CHANGE {
     pub AsUlong32: u32,
     pub Anonymous: USB_HUB_STATUS_AND_CHANGE_0,
@@ -3927,6 +4150,7 @@ impl ::core::default::Default for USB_HUB_STATUS_AND_CHANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_HUB_STATUS_AND_CHANGE_0 {
     pub HubStatus: USB_HUB_STATUS,
     pub HubChange: USB_HUB_CHANGE,
@@ -3951,8 +4175,10 @@ impl ::core::default::Default for USB_HUB_STATUS_AND_CHANGE_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub type USB_IDLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_IDLE_CALLBACK_INFO {
     pub IdleCallback: USB_IDLE_CALLBACK,
     pub IdleContext: *mut ::core::ffi::c_void,
@@ -3980,6 +4206,7 @@ impl ::core::default::Default for USB_IDLE_CALLBACK_INFO {
 pub const USB_IDLE_NOTIFICATION: u32 = 9u32;
 pub const USB_IDLE_NOTIFICATION_EX: u32 = 272u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -4012,6 +4239,7 @@ impl ::core::default::Default for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
 }
 pub const USB_INTERFACE_ASSOCIATION_DESCRIPTOR_TYPE: u32 = 11u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_INTERFACE_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -4045,6 +4273,7 @@ impl ::core::default::Default for USB_INTERFACE_DESCRIPTOR {
 }
 pub const USB_INTERFACE_DESCRIPTOR_TYPE: u32 = 4u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_INTERFACE_POWER_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -4081,6 +4310,7 @@ impl ::core::default::Default for USB_INTERFACE_POWER_DESCRIPTOR {
 }
 pub const USB_INTERFACE_POWER_DESCRIPTOR_TYPE: u32 = 8u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_INTERFACE_STATUS {
     pub AsUshort16: u16,
     pub Anonymous: USB_INTERFACE_STATUS_0,
@@ -4106,6 +4336,7 @@ impl ::core::default::Default for USB_INTERFACE_STATUS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_INTERFACE_STATUS_0 {
     pub _bitfield: u16,
 }
@@ -4131,6 +4362,7 @@ impl ::core::default::Default for USB_INTERFACE_STATUS_0 {
 }
 pub const USB_NOTIFY_ON_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 283u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_OPEN_RAW_DEVICE_PARAMETERS {
     pub PortStatus: u16,
     pub MaxPacketEp0: u16,
@@ -4168,6 +4400,7 @@ pub const USB_PACKETFLAG_SETUP: u32 = 128u32;
 pub const USB_PACKETFLAG_TOGGLE0: u32 = 256u32;
 pub const USB_PACKETFLAG_TOGGLE1: u32 = 512u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_PASS_THRU_PARAMETERS {
     pub FunctionGUID: ::windows::core::GUID,
     pub ParameterLength: u32,
@@ -4200,6 +4433,7 @@ pub const USB_PORTATTR_OEM_CONNECTOR: u32 = 8u32;
 pub const USB_PORTATTR_OWNED_BY_CC: u32 = 16777216u32;
 pub const USB_PORTATTR_SHARED_USB2: u32 = 2u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_PORT_CHANGE {
     pub AsUshort16: u16,
     pub Usb20PortChange: USB_20_PORT_CHANGE,
@@ -4226,6 +4460,7 @@ impl ::core::default::Default for USB_PORT_CHANGE {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_PORT_EXT_STATUS {
     pub AsUlong32: u32,
     pub Anonymous: USB_PORT_EXT_STATUS_0,
@@ -4251,6 +4486,7 @@ impl ::core::default::Default for USB_PORT_EXT_STATUS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_PORT_EXT_STATUS_0 {
     pub _bitfield: u32,
 }
@@ -4275,6 +4511,7 @@ impl ::core::default::Default for USB_PORT_EXT_STATUS_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_PORT_EXT_STATUS_AND_CHANGE {
     pub AsUlong64: u64,
     pub Anonymous: USB_PORT_EXT_STATUS_AND_CHANGE_0,
@@ -4300,6 +4537,7 @@ impl ::core::default::Default for USB_PORT_EXT_STATUS_AND_CHANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_PORT_EXT_STATUS_AND_CHANGE_0 {
     pub PortStatusChange: USB_PORT_STATUS_AND_CHANGE,
     pub PortExtStatus: USB_PORT_EXT_STATUS,
@@ -4325,6 +4563,7 @@ impl ::core::default::Default for USB_PORT_EXT_STATUS_AND_CHANGE_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_PORT_STATUS {
     pub AsUshort16: u16,
     pub Usb20PortStatus: USB_20_PORT_STATUS,
@@ -4351,6 +4590,7 @@ impl ::core::default::Default for USB_PORT_STATUS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_PORT_STATUS_AND_CHANGE {
     pub AsUlong32: u32,
     pub Anonymous: USB_PORT_STATUS_AND_CHANGE_0,
@@ -4376,6 +4616,7 @@ impl ::core::default::Default for USB_PORT_STATUS_AND_CHANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_PORT_STATUS_AND_CHANGE_0 {
     pub PortStatus: USB_PORT_STATUS,
     pub PortChange: USB_PORT_CHANGE,
@@ -4409,6 +4650,7 @@ pub const USB_PORT_STATUS_POWER: u32 = 256u32;
 pub const USB_PORT_STATUS_RESET: u32 = 16u32;
 pub const USB_PORT_STATUS_SUSPEND: u32 = 4u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_POWER_INFO {
     pub SystemState: WDMUSB_POWER_STATE,
@@ -4482,6 +4724,7 @@ pub const USB_RESERVED_DESCRIPTOR_TYPE: u32 = 6u32;
 pub const USB_RESET_HUB: u32 = 275u32;
 pub const USB_RESET_PORT: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_SEND_RAW_COMMAND_PARAMETERS {
     pub Usb_bmRequest: u8,
     pub Usb_bRequest: u8,
@@ -4517,6 +4760,7 @@ impl ::core::default::Default for USB_SEND_RAW_COMMAND_PARAMETERS {
 }
 pub const USB_START_TRACKING_FOR_TIME_SYNC: u32 = 285u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::super::Foundation::HANDLE,
@@ -4553,6 +4797,7 @@ pub const USB_STATUS_PD_STATUS: u32 = 1u32;
 pub const USB_STATUS_PORT_STATUS: u32 = 0u32;
 pub const USB_STOP_TRACKING_FOR_TIME_SYNC: u32 = 287u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::super::Foundation::HANDLE,
@@ -4584,6 +4829,7 @@ impl ::core::default::Default for USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_STRING_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -4614,6 +4860,7 @@ pub const USB_SUBMIT_URB: u32 = 0u32;
 pub const USB_SUPERSPEEDPLUS_ISOCHRONOUS_MAX_BYTESPERINTERVAL: u32 = 16777215u32;
 pub const USB_SUPERSPEEDPLUS_ISOCHRONOUS_MIN_BYTESPERINTERVAL: u32 = 49153u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -4642,6 +4889,7 @@ impl ::core::default::Default for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DE
 }
 pub const USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR_TYPE: u32 = 49u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -4670,6 +4918,7 @@ impl ::core::default::Default for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub union USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
     pub AsUchar: u8,
     pub Bulk: USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0,
@@ -4696,6 +4945,7 @@ impl ::core::default::Default for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
 }
@@ -4720,6 +4970,7 @@ impl ::core::default::Default for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
     pub _bitfield: u8,
 }
@@ -4760,6 +5011,7 @@ pub const USB_TRANSPORT_CHARACTERISTICS_BANDWIDTH_AVAILABLE: u32 = 2u32;
 pub const USB_TRANSPORT_CHARACTERISTICS_LATENCY_AVAILABLE: u32 = 1u32;
 pub const USB_TRANSPORT_CHARACTERISTICS_VERSION_1: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_UNICODE_NAME {
     pub Length: u32,
     pub String: [u16; 1],
@@ -4787,6 +5039,7 @@ impl ::core::default::Default for USB_UNICODE_NAME {
 pub const USB_UNREGISTER_COMPOSITE_DEVICE: u32 = 1u32;
 pub const USB_UNREGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 284u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct USB_USB2HW_VERSION_PARAMETERS {
     pub Usb2HwRevision: u8,
 }
@@ -4810,33 +5063,60 @@ impl ::core::default::Default for USB_USB2HW_VERSION_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub type USB_USER_ERROR_CODE = i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbUserSuccess: USB_USER_ERROR_CODE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbUserNotSupported: USB_USER_ERROR_CODE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbUserInvalidRequestCode: USB_USER_ERROR_CODE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbUserFeatureDisabled: USB_USER_ERROR_CODE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbUserInvalidHeaderParameter: USB_USER_ERROR_CODE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbUserInvalidParameter: USB_USER_ERROR_CODE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbUserMiniportError: USB_USER_ERROR_CODE = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbUserBufferTooSmall: USB_USER_ERROR_CODE = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbUserErrorNotMapped: USB_USER_ERROR_CODE = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbUserDeviceNotStarted: USB_USER_ERROR_CODE = 9i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbUserNoDeviceConnected: USB_USER_ERROR_CODE = 10i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub type WDMUSB_POWER_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WdmUsbPowerNotMapped: WDMUSB_POWER_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WdmUsbPowerSystemUnspecified: WDMUSB_POWER_STATE = 100i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WdmUsbPowerSystemWorking: WDMUSB_POWER_STATE = 101i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WdmUsbPowerSystemSleeping1: WDMUSB_POWER_STATE = 102i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WdmUsbPowerSystemSleeping2: WDMUSB_POWER_STATE = 103i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WdmUsbPowerSystemSleeping3: WDMUSB_POWER_STATE = 104i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WdmUsbPowerSystemHibernate: WDMUSB_POWER_STATE = 105i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WdmUsbPowerSystemShutdown: WDMUSB_POWER_STATE = 106i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WdmUsbPowerDeviceUnspecified: WDMUSB_POWER_STATE = 200i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WdmUsbPowerDeviceD0: WDMUSB_POWER_STATE = 201i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WdmUsbPowerDeviceD1: WDMUSB_POWER_STATE = 202i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WdmUsbPowerDeviceD2: WDMUSB_POWER_STATE = 203i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WdmUsbPowerDeviceD3: WDMUSB_POWER_STATE = 204i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct WINUSB_PIPE_INFORMATION {
     pub PipeType: USBD_PIPE_TYPE,
     pub PipeId: u8,
@@ -4864,6 +5144,7 @@ impl ::core::default::Default for WINUSB_PIPE_INFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct WINUSB_PIPE_INFORMATION_EX {
     pub PipeType: USBD_PIPE_TYPE,
     pub PipeId: u8,
@@ -4892,6 +5173,7 @@ impl ::core::default::Default for WINUSB_PIPE_INFORMATION_EX {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct WINUSB_SETUP_PACKET {
     pub RequestType: u8,
     pub Request: u8,
@@ -4926,6 +5208,7 @@ pub const WMI_USB_HUB_NODE_INFORMATION: u32 = 4u32;
 pub const WMI_USB_PERFORMANCE_INFORMATION: u32 = 1u32;
 pub const WMI_USB_POWER_DEVICE_ENABLE: u32 = 2u32;
 pub const WinUSB_TestGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda812bff_12c3_46a2_8e2b_dbd3b7834c43);
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_AbortPipe(interfacehandle: *const ::core::ffi::c_void, pipeid: u8) -> super::super::Foundation::BOOL {
@@ -4940,6 +5223,7 @@ pub unsafe fn WinUsb_AbortPipe(interfacehandle: *const ::core::ffi::c_void, pipe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_ControlTransfer<'a, Param1: ::windows::core::IntoParam<'a, WINUSB_SETUP_PACKET>>(interfacehandle: *const ::core::ffi::c_void, setuppacket: Param1, buffer: *mut u8, bufferlength: u32, lengthtransferred: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -4954,6 +5238,7 @@ pub unsafe fn WinUsb_ControlTransfer<'a, Param1: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_FlushPipe(interfacehandle: *const ::core::ffi::c_void, pipeid: u8) -> super::super::Foundation::BOOL {
@@ -4968,6 +5253,7 @@ pub unsafe fn WinUsb_FlushPipe(interfacehandle: *const ::core::ffi::c_void, pipe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_Free(interfacehandle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -4982,6 +5268,7 @@ pub unsafe fn WinUsb_Free(interfacehandle: *const ::core::ffi::c_void) -> super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetAdjustedFrameNumber(currentframenumber: *mut u32, timestamp: i64) -> super::super::Foundation::BOOL {
@@ -4996,6 +5283,7 @@ pub unsafe fn WinUsb_GetAdjustedFrameNumber(currentframenumber: *mut u32, timest
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetAssociatedInterface(interfacehandle: *const ::core::ffi::c_void, associatedinterfaceindex: u8, associatedinterfacehandle: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -5010,6 +5298,7 @@ pub unsafe fn WinUsb_GetAssociatedInterface(interfacehandle: *const ::core::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetCurrentAlternateSetting(interfacehandle: *const ::core::ffi::c_void, settingnumber: *mut u8) -> super::super::Foundation::BOOL {
@@ -5024,6 +5313,7 @@ pub unsafe fn WinUsb_GetCurrentAlternateSetting(interfacehandle: *const ::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetCurrentFrameNumber(interfacehandle: *const ::core::ffi::c_void, currentframenumber: *mut u32, timestamp: *mut i64) -> super::super::Foundation::BOOL {
@@ -5038,6 +5328,7 @@ pub unsafe fn WinUsb_GetCurrentFrameNumber(interfacehandle: *const ::core::ffi::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetCurrentFrameNumberAndQpc(interfacehandle: *const ::core::ffi::c_void, frameqpcinfo: *const USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation::BOOL {
@@ -5052,6 +5343,7 @@ pub unsafe fn WinUsb_GetCurrentFrameNumberAndQpc(interfacehandle: *const ::core:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetDescriptor(interfacehandle: *const ::core::ffi::c_void, descriptortype: u8, index: u8, languageid: u16, buffer: *mut u8, bufferlength: u32, lengthtransferred: *mut u32) -> super::super::Foundation::BOOL {
@@ -5066,6 +5358,7 @@ pub unsafe fn WinUsb_GetDescriptor(interfacehandle: *const ::core::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_GetOverlappedResult<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(interfacehandle: *const ::core::ffi::c_void, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: Param3) -> super::super::Foundation::BOOL {
@@ -5080,6 +5373,7 @@ pub unsafe fn WinUsb_GetOverlappedResult<'a, Param3: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetPipePolicy(interfacehandle: *const ::core::ffi::c_void, pipeid: u8, policytype: u32, valuelength: *mut u32, value: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -5094,6 +5388,7 @@ pub unsafe fn WinUsb_GetPipePolicy(interfacehandle: *const ::core::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetPowerPolicy(interfacehandle: *const ::core::ffi::c_void, policytype: u32, valuelength: *mut u32, value: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -5108,6 +5403,7 @@ pub unsafe fn WinUsb_GetPowerPolicy(interfacehandle: *const ::core::ffi::c_void,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(devicehandle: Param0, interfacehandle: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -5122,6 +5418,7 @@ pub unsafe fn WinUsb_Initialize<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 #[inline]
 pub unsafe fn WinUsb_ParseConfigurationDescriptor(configurationdescriptor: *const USB_CONFIGURATION_DESCRIPTOR, startposition: *const ::core::ffi::c_void, interfacenumber: i32, alternatesetting: i32, interfaceclass: i32, interfacesubclass: i32, interfaceprotocol: i32) -> *mut USB_INTERFACE_DESCRIPTOR {
     #[cfg(windows)]
@@ -5135,6 +5432,7 @@ pub unsafe fn WinUsb_ParseConfigurationDescriptor(configurationdescriptor: *cons
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 #[inline]
 pub unsafe fn WinUsb_ParseDescriptors(descriptorbuffer: *const ::core::ffi::c_void, totallength: u32, startposition: *const ::core::ffi::c_void, descriptortype: i32) -> *mut USB_COMMON_DESCRIPTOR {
     #[cfg(windows)]
@@ -5148,6 +5446,7 @@ pub unsafe fn WinUsb_ParseDescriptors(descriptorbuffer: *const ::core::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_QueryDeviceInformation(interfacehandle: *const ::core::ffi::c_void, informationtype: u32, bufferlength: *mut u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -5162,6 +5461,7 @@ pub unsafe fn WinUsb_QueryDeviceInformation(interfacehandle: *const ::core::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_QueryInterfaceSettings(interfacehandle: *const ::core::ffi::c_void, alternateinterfacenumber: u8, usbaltinterfacedescriptor: *mut USB_INTERFACE_DESCRIPTOR) -> super::super::Foundation::BOOL {
@@ -5176,6 +5476,7 @@ pub unsafe fn WinUsb_QueryInterfaceSettings(interfacehandle: *const ::core::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_QueryPipe(interfacehandle: *const ::core::ffi::c_void, alternateinterfacenumber: u8, pipeindex: u8, pipeinformation: *mut WINUSB_PIPE_INFORMATION) -> super::super::Foundation::BOOL {
@@ -5190,6 +5491,7 @@ pub unsafe fn WinUsb_QueryPipe(interfacehandle: *const ::core::ffi::c_void, alte
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_QueryPipeEx(interfacehandle: *const ::core::ffi::c_void, alternatesettingnumber: u8, pipeindex: u8, pipeinformationex: *mut WINUSB_PIPE_INFORMATION_EX) -> super::super::Foundation::BOOL {
@@ -5204,6 +5506,7 @@ pub unsafe fn WinUsb_QueryPipeEx(interfacehandle: *const ::core::ffi::c_void, al
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_ReadIsochPipe(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, framenumber: *mut u32, numberofpackets: u32, isopacketdescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -5218,6 +5521,7 @@ pub unsafe fn WinUsb_ReadIsochPipe(bufferhandle: *const ::core::ffi::c_void, off
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_ReadIsochPipeAsap<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: Param3, numberofpackets: u32, isopacketdescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -5232,6 +5536,7 @@ pub unsafe fn WinUsb_ReadIsochPipeAsap<'a, Param3: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_ReadPipe(interfacehandle: *const ::core::ffi::c_void, pipeid: u8, buffer: *mut u8, bufferlength: u32, lengthtransferred: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -5246,6 +5551,7 @@ pub unsafe fn WinUsb_ReadPipe(interfacehandle: *const ::core::ffi::c_void, pipei
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_RegisterIsochBuffer(interfacehandle: *const ::core::ffi::c_void, pipeid: u8, buffer: *mut u8, bufferlength: u32, isochbufferhandle: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -5260,6 +5566,7 @@ pub unsafe fn WinUsb_RegisterIsochBuffer(interfacehandle: *const ::core::ffi::c_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_ResetPipe(interfacehandle: *const ::core::ffi::c_void, pipeid: u8) -> super::super::Foundation::BOOL {
@@ -5274,6 +5581,7 @@ pub unsafe fn WinUsb_ResetPipe(interfacehandle: *const ::core::ffi::c_void, pipe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_SetCurrentAlternateSetting(interfacehandle: *const ::core::ffi::c_void, settingnumber: u8) -> super::super::Foundation::BOOL {
@@ -5288,6 +5596,7 @@ pub unsafe fn WinUsb_SetCurrentAlternateSetting(interfacehandle: *const ::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_SetPipePolicy(interfacehandle: *const ::core::ffi::c_void, pipeid: u8, policytype: u32, valuelength: u32, value: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -5302,6 +5611,7 @@ pub unsafe fn WinUsb_SetPipePolicy(interfacehandle: *const ::core::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_SetPowerPolicy(interfacehandle: *const ::core::ffi::c_void, policytype: u32, valuelength: u32, value: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -5316,6 +5626,7 @@ pub unsafe fn WinUsb_SetPowerPolicy(interfacehandle: *const ::core::ffi::c_void,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_StartTrackingForTimeSync(interfacehandle: *const ::core::ffi::c_void, starttrackinginfo: *const USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation::BOOL {
@@ -5330,6 +5641,7 @@ pub unsafe fn WinUsb_StartTrackingForTimeSync(interfacehandle: *const ::core::ff
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_StopTrackingForTimeSync(interfacehandle: *const ::core::ffi::c_void, stoptrackinginfo: *const USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation::BOOL {
@@ -5344,6 +5656,7 @@ pub unsafe fn WinUsb_StopTrackingForTimeSync(interfacehandle: *const ::core::ffi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_UnregisterIsochBuffer(isochbufferhandle: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -5358,6 +5671,7 @@ pub unsafe fn WinUsb_UnregisterIsochBuffer(isochbufferhandle: *const ::core::ffi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_WriteIsochPipe(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, framenumber: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -5372,6 +5686,7 @@ pub unsafe fn WinUsb_WriteIsochPipe(bufferhandle: *const ::core::ffi::c_void, of
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_WriteIsochPipeAsap<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: Param3, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -5386,6 +5701,7 @@ pub unsafe fn WinUsb_WriteIsochPipeAsap<'a, Param3: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_WritePipe(interfacehandle: *const ::core::ffi::c_void, pipeid: u8, buffer: *const u8, bufferlength: u32, lengthtransferred: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -5401,6 +5717,7 @@ pub unsafe fn WinUsb_WritePipe(interfacehandle: *const ::core::ffi::c_void, pipe
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_BULK_OR_INTERRUPT_TRANSFER {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut ::core::ffi::c_void,
@@ -5432,6 +5749,7 @@ impl ::core::default::Default for _URB_BULK_OR_INTERRUPT_TRANSFER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_CONTROL_DESCRIPTOR_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut ::core::ffi::c_void,
@@ -5468,6 +5786,7 @@ impl ::core::default::Default for _URB_CONTROL_DESCRIPTOR_REQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_CONTROL_FEATURE_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut ::core::ffi::c_void,
@@ -5503,6 +5822,7 @@ impl ::core::default::Default for _URB_CONTROL_FEATURE_REQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_CONTROL_GET_CONFIGURATION_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut ::core::ffi::c_void,
@@ -5535,6 +5855,7 @@ impl ::core::default::Default for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_CONTROL_GET_INTERFACE_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut ::core::ffi::c_void,
@@ -5569,6 +5890,7 @@ impl ::core::default::Default for _URB_CONTROL_GET_INTERFACE_REQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_CONTROL_GET_STATUS_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut ::core::ffi::c_void,
@@ -5603,6 +5925,7 @@ impl ::core::default::Default for _URB_CONTROL_GET_STATUS_REQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_CONTROL_TRANSFER {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut ::core::ffi::c_void,
@@ -5635,6 +5958,7 @@ impl ::core::default::Default for _URB_CONTROL_TRANSFER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_CONTROL_TRANSFER_EX {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut ::core::ffi::c_void,
@@ -5667,6 +5991,7 @@ impl ::core::default::Default for _URB_CONTROL_TRANSFER_EX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut ::core::ffi::c_void,
@@ -5703,6 +6028,7 @@ impl ::core::default::Default for _URB_CONTROL_VENDOR_OR_CLASS_REQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_FRAME_LENGTH_CONTROL {
     pub Hdr: _URB_HEADER,
 }
@@ -5727,6 +6053,7 @@ impl ::core::default::Default for _URB_FRAME_LENGTH_CONTROL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_GET_CURRENT_FRAME_NUMBER {
     pub Hdr: _URB_HEADER,
     pub FrameNumber: u32,
@@ -5752,6 +6079,7 @@ impl ::core::default::Default for _URB_GET_CURRENT_FRAME_NUMBER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_GET_FRAME_LENGTH {
     pub Hdr: _URB_HEADER,
     pub FrameLength: u32,
@@ -5778,6 +6106,7 @@ impl ::core::default::Default for _URB_GET_FRAME_LENGTH {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut ::core::ffi::c_void,
@@ -5805,6 +6134,7 @@ impl ::core::default::Default for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_HCD_AREA {
     pub Reserved8: [*mut ::core::ffi::c_void; 8],
 }
@@ -5829,6 +6159,7 @@ impl ::core::default::Default for _URB_HCD_AREA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_HEADER {
     pub Length: u16,
     pub Function: u16,
@@ -5857,6 +6188,7 @@ impl ::core::default::Default for _URB_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_ISOCH_TRANSFER {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut ::core::ffi::c_void,
@@ -5892,6 +6224,7 @@ impl ::core::default::Default for _URB_ISOCH_TRANSFER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_OPEN_STATIC_STREAMS {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut ::core::ffi::c_void,
@@ -5921,6 +6254,7 @@ impl ::core::default::Default for _URB_OPEN_STATIC_STREAMS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     pub Hdr: _URB_HEADER,
     pub Reserved: *mut ::core::ffi::c_void,
@@ -5958,6 +6292,7 @@ impl ::core::default::Default for _URB_OS_FEATURE_DESCRIPTOR_REQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_PIPE_REQUEST {
     pub Hdr: _URB_HEADER,
     pub PipeHandle: *mut ::core::ffi::c_void,
@@ -5984,6 +6319,7 @@ impl ::core::default::Default for _URB_PIPE_REQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_SELECT_CONFIGURATION {
     pub Hdr: _URB_HEADER,
     pub ConfigurationDescriptor: *mut USB_CONFIGURATION_DESCRIPTOR,
@@ -6011,6 +6347,7 @@ impl ::core::default::Default for _URB_SELECT_CONFIGURATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_SELECT_INTERFACE {
     pub Hdr: _URB_HEADER,
     pub ConfigurationHandle: *mut ::core::ffi::c_void,
@@ -6037,6 +6374,7 @@ impl ::core::default::Default for _URB_SELECT_INTERFACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub struct _URB_SET_FRAME_LENGTH {
     pub Hdr: _URB_HEADER,
     pub FrameLengthDelta: i32,

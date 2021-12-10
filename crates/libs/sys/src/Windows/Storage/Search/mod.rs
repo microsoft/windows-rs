@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct CommonFileQuery(pub i32);
 impl CommonFileQuery {
@@ -17,6 +18,7 @@ impl ::core::clone::Clone for CommonFileQuery {
         *self
     }
 }
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct CommonFolderQuery(pub i32);
 impl CommonFolderQuery {
@@ -42,6 +44,7 @@ impl ::core::clone::Clone for CommonFolderQuery {
 }
 pub type ContentIndexer = *mut ::core::ffi::c_void;
 pub type ContentIndexerQuery = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct DateStackOption(pub i32);
 impl DateStackOption {
@@ -55,6 +58,7 @@ impl ::core::clone::Clone for DateStackOption {
         *self
     }
 }
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct FolderDepth(pub i32);
 impl FolderDepth {
@@ -71,6 +75,7 @@ pub type IIndexableContent = *mut ::core::ffi::c_void;
 pub type IStorageFolderQueryOperations = *mut ::core::ffi::c_void;
 pub type IStorageQueryResultBase = *mut ::core::ffi::c_void;
 pub type IndexableContent = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct IndexedState(pub i32);
 impl IndexedState {
@@ -85,6 +90,7 @@ impl ::core::clone::Clone for IndexedState {
         *self
     }
 }
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct IndexerOption(pub i32);
 impl IndexerOption {
@@ -101,6 +107,7 @@ impl ::core::clone::Clone for IndexerOption {
 }
 pub type QueryOptions = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Storage_Search'*"]
 pub struct SortEntry {
     pub PropertyName: ::windows_sys::core::HSTRING,
     pub AscendingOrder: bool,

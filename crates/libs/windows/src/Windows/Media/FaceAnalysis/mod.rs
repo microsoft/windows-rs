@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Media_FaceAnalysis'*"]
 #[repr(transparent)]
 pub struct DetectedFace(::windows::core::IUnknown);
 impl DetectedFace {
@@ -74,6 +75,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dete
 }
 unsafe impl ::core::marker::Send for DetectedFace {}
 unsafe impl ::core::marker::Sync for DetectedFace {}
+#[doc = "*Required features: 'Media_FaceAnalysis'*"]
 #[repr(transparent)]
 pub struct FaceDetector(::windows::core::IUnknown);
 impl FaceDetector {
@@ -214,6 +216,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Face
 }
 unsafe impl ::core::marker::Send for FaceDetector {}
 unsafe impl ::core::marker::Sync for FaceDetector {}
+#[doc = "*Required features: 'Media_FaceAnalysis'*"]
 #[repr(transparent)]
 pub struct FaceTracker(::windows::core::IUnknown);
 impl FaceTracker {

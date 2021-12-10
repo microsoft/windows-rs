@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CMD_ENTRY {
     pub pwszCmdToken: super::super::Foundation::PWSTR,
@@ -36,6 +37,7 @@ impl ::core::default::Default for CMD_ENTRY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CMD_GROUP_ENTRY {
     pub pwszCmdGroupToken: super::super::Foundation::PWSTR,
@@ -94,6 +96,7 @@ pub const ERROR_SUPPRESS_OUTPUT: u32 = 15017u32;
 pub const ERROR_TAG_ALREADY_PRESENT: u32 = 15008u32;
 pub const ERROR_TRANSPORT_NOT_PRESENT: u32 = 15012u32;
 pub const MAX_NAME_LEN: u32 = 48u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MatchEnumTag<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hmodule: Param0, pwcarg: Param1, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32 {
@@ -108,6 +111,7 @@ pub unsafe fn MatchEnumTag<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MatchToken<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszusertoken: Param0, pwszcmdtoken: Param1) -> super::super::Foundation::BOOL {
@@ -127,15 +131,24 @@ pub const NETSH_ERROR_END: u32 = 15019u32;
 pub const NETSH_MAX_CMD_TOKEN_LENGTH: u32 = 128u32;
 pub const NETSH_MAX_TOKEN_LENGTH: u32 = 64u32;
 pub const NETSH_VERSION_50: u32 = 20480u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub type NS_CMD_FLAGS = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const CMD_FLAG_PRIVATE: NS_CMD_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const CMD_FLAG_INTERACTIVE: NS_CMD_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const CMD_FLAG_LOCAL: NS_CMD_FLAGS = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const CMD_FLAG_ONLINE: NS_CMD_FLAGS = 16i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const CMD_FLAG_HIDDEN: NS_CMD_FLAGS = 32i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const CMD_FLAG_LIMIT_MASK: NS_CMD_FLAGS = 65535i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const CMD_FLAG_PRIORITY: NS_CMD_FLAGS = -2147483648i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NS_CONTEXT_ATTRIBUTES {
     pub Anonymous: NS_CONTEXT_ATTRIBUTES_0,
@@ -180,6 +193,7 @@ impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union NS_CONTEXT_ATTRIBUTES_0 {
     pub Anonymous: NS_CONTEXT_ATTRIBUTES_0_0,
@@ -212,6 +226,7 @@ impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NS_CONTEXT_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
@@ -243,13 +258,20 @@ impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub type NS_EVENTS = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const NS_EVENT_LOOP: NS_EVENTS = 65536i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const NS_EVENT_LAST_N: NS_EVENTS = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const NS_EVENT_LAST_SECS: NS_EVENTS = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const NS_EVENT_FROM_N: NS_EVENTS = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const NS_EVENT_FROM_START: NS_EVENTS = 8i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub struct NS_HELPER_ATTRIBUTES {
     pub Anonymous: NS_HELPER_ATTRIBUTES_0,
     pub guidHelper: ::windows::core::GUID,
@@ -277,6 +299,7 @@ impl ::core::default::Default for NS_HELPER_ATTRIBUTES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub union NS_HELPER_ATTRIBUTES_0 {
     pub Anonymous: NS_HELPER_ATTRIBUTES_0_0,
     pub _ullAlign: u64,
@@ -302,6 +325,7 @@ impl ::core::default::Default for NS_HELPER_ATTRIBUTES_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub struct NS_HELPER_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
     pub dwReserved: u32,
@@ -326,32 +350,54 @@ impl ::core::default::Default for NS_HELPER_ATTRIBUTES_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub type NS_MODE_CHANGE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const NETSH_COMMIT: NS_MODE_CHANGE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const NETSH_UNCOMMIT: NS_MODE_CHANGE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const NETSH_FLUSH: NS_MODE_CHANGE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const NETSH_COMMIT_STATE: NS_MODE_CHANGE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const NETSH_SAVE: NS_MODE_CHANGE = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub type NS_REQS = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const NS_REQ_ZERO: NS_REQS = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const NS_REQ_PRESENT: NS_REQS = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const NS_REQ_ALLOW_MULTIPLE: NS_REQS = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub const NS_REQ_ONE_OR_MORE: NS_REQS = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HANDLE_CMD = ::core::option::Option<unsafe extern "system" fn(pwszmachine: super::super::Foundation::PWSTR, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const ::core::ffi::c_void, pbdone: *mut super::super::Foundation::BOOL) -> u32>;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_RESOURCE_STRING_FN = ::core::option::Option<unsafe extern "system" fn(dwmsgid: u32, lpbuffer: super::super::Foundation::PWSTR, nbuffermax: u32) -> u32>;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub type PNS_CONTEXT_COMMIT_FN = ::core::option::Option<unsafe extern "system" fn(dwaction: u32) -> u32>;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PNS_CONTEXT_CONNECT_FN = ::core::option::Option<unsafe extern "system" fn(pwszmachine: super::super::Foundation::PWSTR) -> u32>;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PNS_CONTEXT_DUMP_FN = ::core::option::Option<unsafe extern "system" fn(pwszrouter: super::super::Foundation::PWSTR, ppwcarguments: *const super::super::Foundation::PWSTR, dwargcount: u32, pvdata: *const ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub type PNS_DLL_INIT_FN = ::core::option::Option<unsafe extern "system" fn(dwnetshversion: u32, preserved: *mut ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub type PNS_DLL_STOP_FN = ::core::option::Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub type PNS_HELPER_START_FN = ::core::option::Option<unsafe extern "system" fn(pguidparent: *const ::windows::core::GUID, dwversion: u32) -> u32>;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub type PNS_HELPER_STOP_FN = ::core::option::Option<unsafe extern "system" fn(dwreserved: u32) -> u32>;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PNS_OSVERSIONCHECK = ::core::option::Option<unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: super::super::Foundation::PWSTR, cimosbuildnumber: super::super::Foundation::PWSTR, cimservicepackmajorversion: super::super::Foundation::PWSTR, cimservicepackminorversion: super::super::Foundation::PWSTR, uireserved: u32, dwreserved: u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PreprocessCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, ptttags: *mut TAG_TYPE, dwtagcount: u32, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32 {
@@ -366,6 +412,7 @@ pub unsafe fn PreprocessCommand<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrintError<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, dwerrid: u32) -> u32 {
@@ -380,6 +427,7 @@ pub unsafe fn PrintError<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrintMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszformat: Param0) -> u32 {
@@ -394,6 +442,7 @@ pub unsafe fn PrintMessage<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrintMessageFromModule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, dwmsgid: u32) -> u32 {
@@ -408,6 +457,7 @@ pub unsafe fn PrintMessageFromModule<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32 {
@@ -422,6 +472,7 @@ pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 #[inline]
 pub unsafe fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32 {
     #[cfg(windows)]
@@ -436,6 +487,7 @@ pub unsafe fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, p
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TAG_TYPE {
     pub pwszTag: super::super::Foundation::PWSTR,
@@ -469,6 +521,7 @@ impl ::core::default::Default for TAG_TYPE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_VALUE {
     pub pwszToken: super::super::Foundation::PWSTR,

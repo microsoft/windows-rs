@@ -89,6 +89,7 @@ impl BackgroundEnergyManager {
 impl ::windows::core::RuntimeName for BackgroundEnergyManager {
     const NAME: &'static str = "Windows.System.Power.BackgroundEnergyManager";
 }
+#[doc = "*Required features: 'System_Power'*"]
 #[repr(transparent)]
 pub struct BatteryStatus(pub i32);
 impl BatteryStatus {
@@ -118,6 +119,7 @@ unsafe impl ::windows::core::RuntimeType for BatteryStatus {
 impl ::windows::core::DefaultType for BatteryStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_Power'*"]
 #[repr(transparent)]
 pub struct EnergySaverStatus(pub i32);
 impl EnergySaverStatus {
@@ -441,6 +443,7 @@ impl PowerManager {
 impl ::windows::core::RuntimeName for PowerManager {
     const NAME: &'static str = "Windows.System.Power.PowerManager";
 }
+#[doc = "*Required features: 'System_Power'*"]
 #[repr(transparent)]
 pub struct PowerSupplyStatus(pub i32);
 impl PowerSupplyStatus {

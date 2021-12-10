@@ -29,11 +29,12 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     let phantoms = gen_phantoms(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let cfg = gen.type_cfg(def);
+    let doc = cfg.gen_doc(gen);
 
     let mut tokens = if is_exclusive {
         quote! { #[doc(hidden)] }
     } else {
-        quote! {}
+        quote! { #doc }
     };
 
     tokens.combine(&quote! {

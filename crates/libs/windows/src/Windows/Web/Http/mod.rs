@@ -5,6 +5,7 @@ pub mod Diagnostics;
 pub mod Filters;
 #[cfg(feature = "Web_Http_Headers")]
 pub mod Headers;
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpBufferContent(::windows::core::IUnknown);
 impl HttpBufferContent {
@@ -232,6 +233,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for HttpBufferContent {}
 unsafe impl ::core::marker::Sync for HttpBufferContent {}
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpClient(::windows::core::IUnknown);
 impl HttpClient {
@@ -550,6 +552,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for HttpClient {}
 unsafe impl ::core::marker::Sync for HttpClient {}
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpCompletionOption(pub i32);
 impl HttpCompletionOption {
@@ -577,6 +580,7 @@ unsafe impl ::windows::core::RuntimeType for HttpCompletionOption {
 impl ::windows::core::DefaultType for HttpCompletionOption {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpCookie(::windows::core::IUnknown);
 impl HttpCookie {
@@ -755,6 +759,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for HttpCookie {}
 unsafe impl ::core::marker::Sync for HttpCookie {}
+#[doc = "*Required features: 'Web_Http', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct HttpCookieCollection(::windows::core::IUnknown);
@@ -948,6 +953,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 unsafe impl ::core::marker::Send for HttpCookieCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for HttpCookieCollection {}
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpCookieManager(::windows::core::IUnknown);
 impl HttpCookieManager {
@@ -1041,6 +1047,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Http
 }
 unsafe impl ::core::marker::Send for HttpCookieManager {}
 unsafe impl ::core::marker::Sync for HttpCookieManager {}
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpFormUrlEncodedContent(::windows::core::IUnknown);
 impl HttpFormUrlEncodedContent {
@@ -1261,6 +1268,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for HttpFormUrlEncodedContent {}
 unsafe impl ::core::marker::Sync for HttpFormUrlEncodedContent {}
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpGetBufferResult(::windows::core::IUnknown);
 impl HttpGetBufferResult {
@@ -1429,6 +1437,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for HttpGetBufferResult {}
 unsafe impl ::core::marker::Sync for HttpGetBufferResult {}
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpGetInputStreamResult(::windows::core::IUnknown);
 impl HttpGetInputStreamResult {
@@ -1597,6 +1606,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for HttpGetInputStreamResult {}
 unsafe impl ::core::marker::Sync for HttpGetInputStreamResult {}
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpGetStringResult(::windows::core::IUnknown);
 impl HttpGetStringResult {
@@ -1764,6 +1774,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for HttpGetStringResult {}
 unsafe impl ::core::marker::Sync for HttpGetStringResult {}
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpMethod(::windows::core::IUnknown);
 impl HttpMethod {
@@ -1928,6 +1939,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for HttpMethod {}
 unsafe impl ::core::marker::Sync for HttpMethod {}
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpMultipartContent(::windows::core::IUnknown);
 impl HttpMultipartContent {
@@ -2214,6 +2226,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for HttpMultipartContent {}
 unsafe impl ::core::marker::Sync for HttpMultipartContent {}
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpMultipartFormDataContent(::windows::core::IUnknown);
 impl HttpMultipartFormDataContent {
@@ -2503,6 +2516,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 unsafe impl ::core::marker::Send for HttpMultipartFormDataContent {}
 unsafe impl ::core::marker::Sync for HttpMultipartFormDataContent {}
 #[repr(C)]
+#[doc = "*Required features: 'Web_Http', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct HttpProgress {
     pub Stage: HttpProgressStage,
@@ -2551,6 +2565,7 @@ impl ::core::default::Default for HttpProgress {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpProgressStage(pub i32);
 impl HttpProgressStage {
@@ -2586,6 +2601,7 @@ unsafe impl ::windows::core::RuntimeType for HttpProgressStage {
 impl ::windows::core::DefaultType for HttpProgressStage {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpRequestMessage(::windows::core::IUnknown);
 impl HttpRequestMessage {
@@ -2794,6 +2810,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for HttpRequestMessage {}
 unsafe impl ::core::marker::Sync for HttpRequestMessage {}
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpRequestResult(::windows::core::IUnknown);
 impl HttpRequestResult {
@@ -2954,6 +2971,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for HttpRequestResult {}
 unsafe impl ::core::marker::Sync for HttpRequestResult {}
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpResponseMessage(::windows::core::IUnknown);
 impl HttpResponseMessage {
@@ -3191,6 +3209,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for HttpResponseMessage {}
 unsafe impl ::core::marker::Sync for HttpResponseMessage {}
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpResponseMessageSource(pub i32);
 impl HttpResponseMessageSource {
@@ -3219,6 +3238,7 @@ unsafe impl ::windows::core::RuntimeType for HttpResponseMessageSource {
 impl ::windows::core::DefaultType for HttpResponseMessageSource {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpStatusCode(pub i32);
 impl HttpStatusCode {
@@ -3302,6 +3322,7 @@ unsafe impl ::windows::core::RuntimeType for HttpStatusCode {
 impl ::windows::core::DefaultType for HttpStatusCode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpStreamContent(::windows::core::IUnknown);
 impl HttpStreamContent {
@@ -3522,6 +3543,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for HttpStreamContent {}
 unsafe impl ::core::marker::Sync for HttpStreamContent {}
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpStringContent(::windows::core::IUnknown);
 impl HttpStringContent {
@@ -3755,6 +3777,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for HttpStringContent {}
 unsafe impl ::core::marker::Sync for HttpStringContent {}
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpTransportInformation(::windows::core::IUnknown);
 impl HttpTransportInformation {
@@ -3888,6 +3911,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for HttpTransportInformation {}
 unsafe impl ::core::marker::Sync for HttpTransportInformation {}
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpVersion(pub i32);
 impl HttpVersion {
@@ -4033,6 +4057,7 @@ pub struct IHttpClientFactoryVtbl(
     #[cfg(feature = "Web_Http_Filters")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Web_Http_Filters"))] usize,
 );
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct IHttpContent(::windows::core::IUnknown);
 impl IHttpContent {

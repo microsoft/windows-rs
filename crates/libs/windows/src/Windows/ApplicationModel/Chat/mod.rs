@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatCapabilities(::windows::core::IUnknown);
 impl ChatCapabilities {
@@ -143,6 +144,7 @@ impl ChatCapabilitiesManager {
 impl ::windows::core::RuntimeName for ChatCapabilitiesManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatCapabilitiesManager";
 }
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatConversation(::windows::core::IUnknown);
 impl ChatConversation {
@@ -368,6 +370,7 @@ impl<'a> ::windows::core::IntoParam<'a, IChatItem> for &ChatConversation {
 }
 unsafe impl ::core::marker::Send for ChatConversation {}
 unsafe impl ::core::marker::Sync for ChatConversation {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatConversationReader(::windows::core::IUnknown);
 impl ChatConversationReader {
@@ -451,6 +454,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
 }
 unsafe impl ::core::marker::Send for ChatConversationReader {}
 unsafe impl ::core::marker::Sync for ChatConversationReader {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatConversationThreadingInfo(::windows::core::IUnknown);
 impl ChatConversationThreadingInfo {
@@ -577,6 +581,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
 }
 unsafe impl ::core::marker::Send for ChatConversationThreadingInfo {}
 unsafe impl ::core::marker::Sync for ChatConversationThreadingInfo {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatConversationThreadingKind(pub i32);
 impl ChatConversationThreadingKind {
@@ -606,6 +611,7 @@ unsafe impl ::windows::core::RuntimeType for ChatConversationThreadingKind {
 impl ::windows::core::DefaultType for ChatConversationThreadingKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatItemKind(pub i32);
 impl ChatItemKind {
@@ -633,6 +639,7 @@ unsafe impl ::windows::core::RuntimeType for ChatItemKind {
 impl ::windows::core::DefaultType for ChatItemKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessage(::windows::core::IUnknown);
 impl ChatMessage {
@@ -1020,6 +1027,7 @@ impl<'a> ::windows::core::IntoParam<'a, IChatItem> for &ChatMessage {
 }
 unsafe impl ::core::marker::Send for ChatMessage {}
 unsafe impl ::core::marker::Sync for ChatMessage {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageAttachment(::windows::core::IUnknown);
 impl ChatMessageAttachment {
@@ -1196,6 +1204,7 @@ impl ChatMessageBlocking {
 impl ::windows::core::RuntimeName for ChatMessageBlocking {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageBlocking";
 }
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageChange(::windows::core::IUnknown);
 impl ChatMessageChange {
@@ -1277,6 +1286,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
 }
 unsafe impl ::core::marker::Send for ChatMessageChange {}
 unsafe impl ::core::marker::Sync for ChatMessageChange {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageChangeReader(::windows::core::IUnknown);
 impl ChatMessageChangeReader {
@@ -1360,6 +1370,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
 }
 unsafe impl ::core::marker::Send for ChatMessageChangeReader {}
 unsafe impl ::core::marker::Sync for ChatMessageChangeReader {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageChangeTracker(::windows::core::IUnknown);
 impl ChatMessageChangeTracker {
@@ -1442,6 +1453,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
 }
 unsafe impl ::core::marker::Send for ChatMessageChangeTracker {}
 unsafe impl ::core::marker::Sync for ChatMessageChangeTracker {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageChangeType(pub i32);
 impl ChatMessageChangeType {
@@ -1471,6 +1483,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageChangeType {
 impl ::windows::core::DefaultType for ChatMessageChangeType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageChangedDeferral(::windows::core::IUnknown);
 impl ChatMessageChangedDeferral {
@@ -1542,6 +1555,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
 }
 unsafe impl ::core::marker::Send for ChatMessageChangedDeferral {}
 unsafe impl ::core::marker::Sync for ChatMessageChangedDeferral {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageChangedEventArgs(::windows::core::IUnknown);
 impl ChatMessageChangedEventArgs {
@@ -1616,6 +1630,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
 }
 unsafe impl ::core::marker::Send for ChatMessageChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ChatMessageChangedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageKind(pub i32);
 impl ChatMessageKind {
@@ -1711,6 +1726,7 @@ impl ChatMessageManager {
 impl ::windows::core::RuntimeName for ChatMessageManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageManager";
 }
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageNotificationTriggerDetails(::windows::core::IUnknown);
 impl ChatMessageNotificationTriggerDetails {
@@ -1813,6 +1829,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
 }
 unsafe impl ::core::marker::Send for ChatMessageNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for ChatMessageNotificationTriggerDetails {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageOperatorKind(pub i32);
 impl ChatMessageOperatorKind {
@@ -1842,6 +1859,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageOperatorKind {
 impl ::windows::core::DefaultType for ChatMessageOperatorKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageReader(::windows::core::IUnknown);
 impl ChatMessageReader {
@@ -1925,6 +1943,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
 }
 unsafe impl ::core::marker::Send for ChatMessageReader {}
 unsafe impl ::core::marker::Sync for ChatMessageReader {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageStatus(pub i32);
 impl ChatMessageStatus {
@@ -1964,6 +1983,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageStatus {
 impl ::windows::core::DefaultType for ChatMessageStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageStore(::windows::core::IUnknown);
 impl ChatMessageStore {
@@ -2260,6 +2280,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
 }
 unsafe impl ::core::marker::Send for ChatMessageStore {}
 unsafe impl ::core::marker::Sync for ChatMessageStore {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageStoreChangedEventArgs(::windows::core::IUnknown);
 impl ChatMessageStoreChangedEventArgs {
@@ -2341,6 +2362,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
 }
 unsafe impl ::core::marker::Send for ChatMessageStoreChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ChatMessageStoreChangedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageTransport(::windows::core::IUnknown);
 impl ChatMessageTransport {
@@ -2458,6 +2480,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
 }
 unsafe impl ::core::marker::Send for ChatMessageTransport {}
 unsafe impl ::core::marker::Sync for ChatMessageTransport {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageTransportConfiguration(::windows::core::IUnknown);
 impl ChatMessageTransportConfiguration {
@@ -2562,6 +2585,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
 }
 unsafe impl ::core::marker::Send for ChatMessageTransportConfiguration {}
 unsafe impl ::core::marker::Sync for ChatMessageTransportConfiguration {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageTransportKind(pub i32);
 impl ChatMessageTransportKind {
@@ -2591,6 +2615,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageTransportKind {
 impl ::windows::core::DefaultType for ChatMessageTransportKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageValidationResult(::windows::core::IUnknown);
 impl ChatMessageValidationResult {
@@ -2689,6 +2714,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
 }
 unsafe impl ::core::marker::Send for ChatMessageValidationResult {}
 unsafe impl ::core::marker::Sync for ChatMessageValidationResult {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatMessageValidationStatus(pub i32);
 impl ChatMessageValidationStatus {
@@ -2728,6 +2754,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageValidationStatus {
 impl ::windows::core::DefaultType for ChatMessageValidationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatQueryOptions(::windows::core::IUnknown);
 impl ChatQueryOptions {
@@ -2813,6 +2840,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
 }
 unsafe impl ::core::marker::Send for ChatQueryOptions {}
 unsafe impl ::core::marker::Sync for ChatQueryOptions {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatRecipientDeliveryInfo(::windows::core::IUnknown);
 impl ChatRecipientDeliveryInfo {
@@ -2959,6 +2987,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
 }
 unsafe impl ::core::marker::Send for ChatRecipientDeliveryInfo {}
 unsafe impl ::core::marker::Sync for ChatRecipientDeliveryInfo {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatRestoreHistorySpan(pub i32);
 impl ChatRestoreHistorySpan {
@@ -2987,6 +3016,7 @@ unsafe impl ::windows::core::RuntimeType for ChatRestoreHistorySpan {
 impl ::windows::core::DefaultType for ChatRestoreHistorySpan {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatSearchReader(::windows::core::IUnknown);
 impl ChatSearchReader {
@@ -3070,6 +3100,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
 }
 unsafe impl ::core::marker::Send for ChatSearchReader {}
 unsafe impl ::core::marker::Sync for ChatSearchReader {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatStoreChangedEventKind(pub i32);
 impl ChatStoreChangedEventKind {
@@ -3103,6 +3134,7 @@ unsafe impl ::windows::core::RuntimeType for ChatStoreChangedEventKind {
 impl ::windows::core::DefaultType for ChatStoreChangedEventKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatSyncConfiguration(::windows::core::IUnknown);
 impl ChatSyncConfiguration {
@@ -3192,6 +3224,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
 }
 unsafe impl ::core::marker::Send for ChatSyncConfiguration {}
 unsafe impl ::core::marker::Sync for ChatSyncConfiguration {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatSyncManager(::windows::core::IUnknown);
 impl ChatSyncManager {
@@ -3302,6 +3335,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Chat
 }
 unsafe impl ::core::marker::Send for ChatSyncManager {}
 unsafe impl ::core::marker::Sync for ChatSyncManager {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatTransportErrorCodeCategory(pub i32);
 impl ChatTransportErrorCodeCategory {
@@ -3331,6 +3365,7 @@ unsafe impl ::windows::core::RuntimeType for ChatTransportErrorCodeCategory {
 impl ::windows::core::DefaultType for ChatTransportErrorCodeCategory {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct ChatTransportInterpretedErrorCode(pub i32);
 impl ChatTransportInterpretedErrorCode {
@@ -3535,6 +3570,7 @@ pub struct IChatConversationThreadingInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ChatConversationThreadingKind) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ChatConversationThreadingKind) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct IChatItem(::windows::core::IUnknown);
 impl IChatItem {
@@ -4640,6 +4676,7 @@ pub struct IRemoteParticipantComposingChangedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct RcsEndUserMessage(::windows::core::IUnknown);
 impl RcsEndUserMessage {
@@ -4759,6 +4796,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RcsE
 }
 unsafe impl ::core::marker::Send for RcsEndUserMessage {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessage {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct RcsEndUserMessageAction(::windows::core::IUnknown);
 impl RcsEndUserMessageAction {
@@ -4833,6 +4871,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RcsE
 }
 unsafe impl ::core::marker::Send for RcsEndUserMessageAction {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessageAction {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct RcsEndUserMessageAvailableEventArgs(::windows::core::IUnknown);
 impl RcsEndUserMessageAvailableEventArgs {
@@ -4914,6 +4953,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RcsE
 }
 unsafe impl ::core::marker::Send for RcsEndUserMessageAvailableEventArgs {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessageAvailableEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct RcsEndUserMessageAvailableTriggerDetails(::windows::core::IUnknown);
 impl RcsEndUserMessageAvailableTriggerDetails {
@@ -4995,6 +5035,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RcsE
 }
 unsafe impl ::core::marker::Send for RcsEndUserMessageAvailableTriggerDetails {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessageAvailableTriggerDetails {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct RcsEndUserMessageManager(::windows::core::IUnknown);
 impl RcsEndUserMessageManager {
@@ -5127,6 +5168,7 @@ impl RcsManager {
 impl ::windows::core::RuntimeName for RcsManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsManager";
 }
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct RcsServiceKind(pub i32);
 impl RcsServiceKind {
@@ -5156,6 +5198,7 @@ unsafe impl ::windows::core::RuntimeType for RcsServiceKind {
 impl ::windows::core::DefaultType for RcsServiceKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct RcsServiceKindSupportedChangedEventArgs(::windows::core::IUnknown);
 impl RcsServiceKindSupportedChangedEventArgs {
@@ -5230,6 +5273,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RcsS
 }
 unsafe impl ::core::marker::Send for RcsServiceKindSupportedChangedEventArgs {}
 unsafe impl ::core::marker::Sync for RcsServiceKindSupportedChangedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct RcsTransport(::windows::core::IUnknown);
 impl RcsTransport {
@@ -5360,6 +5404,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RcsT
 }
 unsafe impl ::core::marker::Send for RcsTransport {}
 unsafe impl ::core::marker::Sync for RcsTransport {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct RcsTransportConfiguration(::windows::core::IUnknown);
 impl RcsTransportConfiguration {
@@ -5469,6 +5514,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &RcsT
 }
 unsafe impl ::core::marker::Send for RcsTransportConfiguration {}
 unsafe impl ::core::marker::Sync for RcsTransportConfiguration {}
+#[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
 pub struct RemoteParticipantComposingChangedEventArgs(::windows::core::IUnknown);
 impl RemoteParticipantComposingChangedEventArgs {

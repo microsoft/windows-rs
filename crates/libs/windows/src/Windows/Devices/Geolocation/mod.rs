@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Devices_Geolocation_Geofencing")]
 pub mod Geofencing;
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct AltitudeReferenceSystem(pub i32);
 impl AltitudeReferenceSystem {
@@ -32,6 +33,7 @@ impl ::windows::core::DefaultType for AltitudeReferenceSystem {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 pub struct BasicGeoposition {
     pub Latitude: f64,
     pub Longitude: f64,
@@ -63,6 +65,7 @@ impl ::core::default::Default for BasicGeoposition {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct CivicAddress(::windows::core::IUnknown);
 impl CivicAddress {
@@ -166,6 +169,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Civi
 }
 unsafe impl ::core::marker::Send for CivicAddress {}
 unsafe impl ::core::marker::Sync for CivicAddress {}
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct GeoboundingBox(::windows::core::IUnknown);
 impl GeoboundingBox {
@@ -358,6 +362,7 @@ impl<'a> ::windows::core::IntoParam<'a, IGeoshape> for &GeoboundingBox {
 }
 unsafe impl ::core::marker::Send for GeoboundingBox {}
 unsafe impl ::core::marker::Sync for GeoboundingBox {}
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct Geocircle(::windows::core::IUnknown);
 impl Geocircle {
@@ -504,6 +509,7 @@ impl<'a> ::windows::core::IntoParam<'a, IGeoshape> for &Geocircle {
 }
 unsafe impl ::core::marker::Send for Geocircle {}
 unsafe impl ::core::marker::Sync for Geocircle {}
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct Geocoordinate(::windows::core::IUnknown);
 impl Geocoordinate {
@@ -670,6 +676,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geoc
 }
 unsafe impl ::core::marker::Send for Geocoordinate {}
 unsafe impl ::core::marker::Sync for Geocoordinate {}
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct GeocoordinateSatelliteData(::windows::core::IUnknown);
 impl GeocoordinateSatelliteData {
@@ -777,6 +784,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geoc
 }
 unsafe impl ::core::marker::Send for GeocoordinateSatelliteData {}
 unsafe impl ::core::marker::Sync for GeocoordinateSatelliteData {}
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct GeolocationAccessStatus(pub i32);
 impl GeolocationAccessStatus {
@@ -805,6 +813,7 @@ unsafe impl ::windows::core::RuntimeType for GeolocationAccessStatus {
 impl ::windows::core::DefaultType for GeolocationAccessStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct Geolocator(::windows::core::IUnknown);
 impl Geolocator {
@@ -1024,6 +1033,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geol
 }
 unsafe impl ::core::marker::Send for Geolocator {}
 unsafe impl ::core::marker::Sync for Geolocator {}
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct Geopath(::windows::core::IUnknown);
 impl Geopath {
@@ -1167,6 +1177,7 @@ impl<'a> ::windows::core::IntoParam<'a, IGeoshape> for &Geopath {
 }
 unsafe impl ::core::marker::Send for Geopath {}
 unsafe impl ::core::marker::Sync for Geopath {}
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct Geopoint(::windows::core::IUnknown);
 impl Geopoint {
@@ -1306,6 +1317,7 @@ impl<'a> ::windows::core::IntoParam<'a, IGeoshape> for &Geopoint {
 }
 unsafe impl ::core::marker::Send for Geopoint {}
 unsafe impl ::core::marker::Sync for Geopoint {}
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct Geoposition(::windows::core::IUnknown);
 impl Geoposition {
@@ -1394,6 +1406,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geop
 }
 unsafe impl ::core::marker::Send for Geoposition {}
 unsafe impl ::core::marker::Sync for Geoposition {}
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct GeoshapeType(pub i32);
 impl GeoshapeType {
@@ -1423,6 +1436,7 @@ unsafe impl ::windows::core::RuntimeType for GeoshapeType {
 impl ::windows::core::DefaultType for GeoshapeType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct Geovisit(::windows::core::IUnknown);
 impl Geovisit {
@@ -1512,6 +1526,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geov
 }
 unsafe impl ::core::marker::Send for Geovisit {}
 unsafe impl ::core::marker::Sync for Geovisit {}
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct GeovisitMonitor(::windows::core::IUnknown);
 impl GeovisitMonitor {
@@ -1625,6 +1640,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geov
 }
 unsafe impl ::core::marker::Send for GeovisitMonitor {}
 unsafe impl ::core::marker::Sync for GeovisitMonitor {}
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct GeovisitStateChangedEventArgs(::windows::core::IUnknown);
 impl GeovisitStateChangedEventArgs {
@@ -1699,6 +1715,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Geov
 }
 unsafe impl ::core::marker::Send for GeovisitStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GeovisitStateChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct GeovisitTriggerDetails(::windows::core::IUnknown);
 impl GeovisitTriggerDetails {
@@ -2288,6 +2305,7 @@ pub struct IGeoposition2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct IGeoshape(::windows::core::IUnknown);
 impl IGeoshape {
@@ -2540,6 +2558,7 @@ pub struct IVenueDataVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct PositionAccuracy(pub i32);
 impl PositionAccuracy {
@@ -2567,6 +2586,7 @@ unsafe impl ::windows::core::RuntimeType for PositionAccuracy {
 impl ::windows::core::DefaultType for PositionAccuracy {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct PositionChangedEventArgs(::windows::core::IUnknown);
 impl PositionChangedEventArgs {
@@ -2641,6 +2661,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Posi
 }
 unsafe impl ::core::marker::Send for PositionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PositionChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct PositionSource(pub i32);
 impl PositionSource {
@@ -2673,6 +2694,7 @@ unsafe impl ::windows::core::RuntimeType for PositionSource {
 impl ::windows::core::DefaultType for PositionSource {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct PositionStatus(pub i32);
 impl PositionStatus {
@@ -2704,6 +2726,7 @@ unsafe impl ::windows::core::RuntimeType for PositionStatus {
 impl ::windows::core::DefaultType for PositionStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct StatusChangedEventArgs(::windows::core::IUnknown);
 impl StatusChangedEventArgs {
@@ -2778,6 +2801,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stat
 }
 unsafe impl ::core::marker::Send for StatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for StatusChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct VenueData(::windows::core::IUnknown);
 impl VenueData {
@@ -2859,6 +2883,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Venu
 }
 unsafe impl ::core::marker::Send for VenueData {}
 unsafe impl ::core::marker::Sync for VenueData {}
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct VisitMonitoringScope(pub i32);
 impl VisitMonitoringScope {
@@ -2886,6 +2911,7 @@ unsafe impl ::windows::core::RuntimeType for VisitMonitoringScope {
 impl ::windows::core::DefaultType for VisitMonitoringScope {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct VisitStateChange(pub i32);
 impl VisitStateChange {

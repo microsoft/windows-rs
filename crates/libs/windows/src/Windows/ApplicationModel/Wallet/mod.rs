@@ -374,6 +374,7 @@ pub struct IWalletVerbFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
 pub struct WalletActionKind(pub i32);
 impl WalletActionKind {
@@ -404,6 +405,7 @@ unsafe impl ::windows::core::RuntimeType for WalletActionKind {
 impl ::windows::core::DefaultType for WalletActionKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
 pub struct WalletBarcode(::windows::core::IUnknown);
 impl WalletBarcode {
@@ -510,6 +512,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wall
 }
 unsafe impl ::core::marker::Send for WalletBarcode {}
 unsafe impl ::core::marker::Sync for WalletBarcode {}
+#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
 pub struct WalletBarcodeSymbology(pub i32);
 impl WalletBarcodeSymbology {
@@ -547,6 +550,7 @@ unsafe impl ::windows::core::RuntimeType for WalletBarcodeSymbology {
 impl ::windows::core::DefaultType for WalletBarcodeSymbology {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
 pub struct WalletDetailViewPosition(pub i32);
 impl WalletDetailViewPosition {
@@ -587,6 +591,7 @@ unsafe impl ::windows::core::RuntimeType for WalletDetailViewPosition {
 impl ::windows::core::DefaultType for WalletDetailViewPosition {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
 pub struct WalletItem(::windows::core::IUnknown);
 impl WalletItem {
@@ -991,6 +996,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wall
 }
 unsafe impl ::core::marker::Send for WalletItem {}
 unsafe impl ::core::marker::Sync for WalletItem {}
+#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
 pub struct WalletItemCustomProperty(::windows::core::IUnknown);
 impl WalletItemCustomProperty {
@@ -1123,6 +1129,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wall
 }
 unsafe impl ::core::marker::Send for WalletItemCustomProperty {}
 unsafe impl ::core::marker::Sync for WalletItemCustomProperty {}
+#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
 pub struct WalletItemKind(pub i32);
 impl WalletItemKind {
@@ -1155,6 +1162,7 @@ unsafe impl ::windows::core::RuntimeType for WalletItemKind {
 impl ::windows::core::DefaultType for WalletItemKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
 pub struct WalletItemStore(::windows::core::IUnknown);
 impl WalletItemStore {
@@ -1319,6 +1327,7 @@ impl WalletManager {
 impl ::windows::core::RuntimeName for WalletManager {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletManager";
 }
+#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
 pub struct WalletRelevantLocation(::windows::core::IUnknown);
 impl WalletRelevantLocation {
@@ -1417,6 +1426,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wall
 }
 unsafe impl ::core::marker::Send for WalletRelevantLocation {}
 unsafe impl ::core::marker::Sync for WalletRelevantLocation {}
+#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
 pub struct WalletSummaryViewPosition(pub i32);
 impl WalletSummaryViewPosition {
@@ -1445,6 +1455,7 @@ unsafe impl ::windows::core::RuntimeType for WalletSummaryViewPosition {
 impl ::windows::core::DefaultType for WalletSummaryViewPosition {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
 pub struct WalletTransaction(::windows::core::IUnknown);
 impl WalletTransaction {
@@ -1587,6 +1598,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wall
 }
 unsafe impl ::core::marker::Send for WalletTransaction {}
 unsafe impl ::core::marker::Sync for WalletTransaction {}
+#[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
 pub struct WalletVerb(::windows::core::IUnknown);
 impl WalletVerb {

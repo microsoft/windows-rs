@@ -107,6 +107,7 @@ pub struct IOcrWordVtbl(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Ocr'*"]
 #[repr(transparent)]
 pub struct OcrEngine(::windows::core::IUnknown);
 impl OcrEngine {
@@ -227,6 +228,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OcrE
 }
 unsafe impl ::core::marker::Send for OcrEngine {}
 unsafe impl ::core::marker::Sync for OcrEngine {}
+#[doc = "*Required features: 'Media_Ocr'*"]
 #[repr(transparent)]
 pub struct OcrLine(::windows::core::IUnknown);
 impl OcrLine {
@@ -309,6 +311,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OcrL
 }
 unsafe impl ::core::marker::Send for OcrLine {}
 unsafe impl ::core::marker::Sync for OcrLine {}
+#[doc = "*Required features: 'Media_Ocr'*"]
 #[repr(transparent)]
 pub struct OcrResult(::windows::core::IUnknown);
 impl OcrResult {
@@ -399,6 +402,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OcrR
 }
 unsafe impl ::core::marker::Send for OcrResult {}
 unsafe impl ::core::marker::Sync for OcrResult {}
+#[doc = "*Required features: 'Media_Ocr'*"]
 #[repr(transparent)]
 pub struct OcrWord(::windows::core::IUnknown);
 impl OcrWord {

@@ -119,6 +119,7 @@ pub struct IPhoneCallOriginManagerStatics3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Calls_Provider'*"]
 #[repr(transparent)]
 pub struct PhoneCallOrigin(::windows::core::IUnknown);
 impl PhoneCallOrigin {

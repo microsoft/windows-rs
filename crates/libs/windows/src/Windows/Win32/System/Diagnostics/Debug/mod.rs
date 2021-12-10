@@ -1,10 +1,14 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug_WebApp")]
 pub mod WebApp;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ACTIVPROF_E_PROFILER_ABSENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ACTIVPROF_E_PROFILER_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ACTIVPROF_E_UNABLE_TO_APPLY_ACTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220990i32);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86")]
 pub struct ADDRESS {
     pub Offset: u32,
@@ -38,6 +42,7 @@ impl ::core::default::Default for ADDRESS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct ADDRESS64 {
     pub Offset: u64,
     pub Segment: u16,
@@ -63,13 +68,19 @@ impl ::core::default::Default for ADDRESS64 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type ADDRESS_MODE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const AddrMode1616: ADDRESS_MODE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const AddrMode1632: ADDRESS_MODE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const AddrModeReal: ADDRESS_MODE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const AddrModeFlat: ADDRESS_MODE = 3i32;
 pub const ADDRESS_TYPE_INDEX_NOT_FOUND: u32 = 11u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union AER_BRIDGE_DESCRIPTOR_FLAGS {
     pub Anonymous: AER_BRIDGE_DESCRIPTOR_FLAGS_0,
     pub AsUSHORT: u16,
@@ -95,6 +106,7 @@ impl ::core::default::Default for AER_BRIDGE_DESCRIPTOR_FLAGS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct AER_BRIDGE_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u16,
 }
@@ -119,6 +131,7 @@ impl ::core::default::Default for AER_BRIDGE_DESCRIPTOR_FLAGS_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union AER_ENDPOINT_DESCRIPTOR_FLAGS {
     pub Anonymous: AER_ENDPOINT_DESCRIPTOR_FLAGS_0,
     pub AsUSHORT: u16,
@@ -144,6 +157,7 @@ impl ::core::default::Default for AER_ENDPOINT_DESCRIPTOR_FLAGS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct AER_ENDPOINT_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u16,
 }
@@ -168,6 +182,7 @@ impl ::core::default::Default for AER_ENDPOINT_DESCRIPTOR_FLAGS_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union AER_ROOTPORT_DESCRIPTOR_FLAGS {
     pub Anonymous: AER_ROOTPORT_DESCRIPTOR_FLAGS_0,
     pub AsUSHORT: u16,
@@ -193,6 +208,7 @@ impl ::core::default::Default for AER_ROOTPORT_DESCRIPTOR_FLAGS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct AER_ROOTPORT_DESCRIPTOR_FLAGS_0 {
     pub _bitfield: u16,
 }
@@ -217,6 +233,7 @@ impl ::core::default::Default for AER_ROOTPORT_DESCRIPTOR_FLAGS_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct API_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -253,11 +270,16 @@ pub const APPBREAKFLAG_STEPTYPE_BYTECODE: u32 = 1048576u32;
 pub const APPBREAKFLAG_STEPTYPE_MACHINE: u32 = 2097152u32;
 pub const APPBREAKFLAG_STEPTYPE_MASK: u32 = 15728640u32;
 pub const APPBREAKFLAG_STEPTYPE_SOURCE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type APPLICATION_NODE_EVENT_FILTER = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FILTER_EXCLUDE_NOTHING: APPLICATION_NODE_EVENT_FILTER = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FILTER_EXCLUDE_ANONYMOUS_CODE: APPLICATION_NODE_EVENT_FILTER = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FILTER_EXCLUDE_EVAL_CODE: APPLICATION_NODE_EVENT_FILTER = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 pub struct ARM64_NT_CONTEXT {
     pub ContextFlags: u32,
@@ -300,6 +322,7 @@ impl ::core::default::Default for ARM64_NT_CONTEXT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 pub union ARM64_NT_CONTEXT_0 {
     pub Anonymous: ARM64_NT_CONTEXT_0_0,
@@ -332,6 +355,7 @@ impl ::core::default::Default for ARM64_NT_CONTEXT_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 pub struct ARM64_NT_CONTEXT_0_0 {
     pub X0: u64,
@@ -393,6 +417,7 @@ impl ::core::default::Default for ARM64_NT_CONTEXT_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union ARM64_NT_NEON128 {
     pub Anonymous: ARM64_NT_NEON128_0,
     pub D: [f64; 2],
@@ -421,6 +446,7 @@ impl ::core::default::Default for ARM64_NT_NEON128 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct ARM64_NT_NEON128_0 {
     pub Low: u64,
     pub High: i64,
@@ -445,6 +471,7 @@ impl ::core::default::Default for ARM64_NT_NEON128_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn AddVectoredContinueHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut ::core::ffi::c_void {
@@ -459,6 +486,7 @@ pub unsafe fn AddVectoredContinueHandler(first: u32, handler: PVECTORED_EXCEPTIO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn AddVectoredExceptionHandler(first: u32, handler: PVECTORED_EXCEPTION_HANDLER) -> *mut ::core::ffi::c_void {
@@ -474,6 +502,7 @@ pub unsafe fn AddVectoredExceptionHandler(first: u32, handler: PVECTORED_EXCEPTI
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct ArrayDimension {
     pub LowerBound: i64,
     pub Length: u64,
@@ -499,6 +528,7 @@ impl ::core::default::Default for ArrayDimension {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct AsyncIDebugApplicationNodeEvents(::windows::core::IUnknown);
 impl AsyncIDebugApplicationNodeEvents {
@@ -582,546 +612,1087 @@ pub const BIND_CACHE_IMPORT_DLLS: u32 = 8u32;
 pub const BIND_NO_BOUND_IMPORTS: u32 = 1u32;
 pub const BIND_NO_UPDATE: u32 = 2u32;
 pub const BIND_REPORT_64BIT_VA: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type BREAKPOINT_STATE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKPOINT_DELETED: BREAKPOINT_STATE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKPOINT_DISABLED: BREAKPOINT_STATE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKPOINT_ENABLED: BREAKPOINT_STATE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type BREAKREASON = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKREASON_STEP: BREAKREASON = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKREASON_BREAKPOINT: BREAKREASON = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKREASON_DEBUGGER_BLOCK: BREAKREASON = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKREASON_HOST_INITIATED: BREAKREASON = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKREASON_LANGUAGE_INITIATED: BREAKREASON = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKREASON_DEBUGGER_HALT: BREAKREASON = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKREASON_ERROR: BREAKREASON = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKREASON_JIT: BREAKREASON = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKREASON_MUTATION_BREAKPOINT: BREAKREASON = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type BREAKRESUME_ACTION = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKRESUMEACTION_ABORT: BREAKRESUME_ACTION = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKRESUMEACTION_CONTINUE: BREAKRESUME_ACTION = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKRESUMEACTION_STEP_INTO: BREAKRESUME_ACTION = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKRESUMEACTION_STEP_OVER: BREAKRESUME_ACTION = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKRESUMEACTION_STEP_OUT: BREAKRESUME_ACTION = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKRESUMEACTION_IGNORE: BREAKRESUME_ACTION = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKRESUMEACTION_STEP_DOCUMENT: BREAKRESUME_ACTION = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type BUGCHECK_ERROR = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const HARDWARE_PROFILE_UNDOCKED_STRING: BUGCHECK_ERROR = 1073807361u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const HARDWARE_PROFILE_DOCKED_STRING: BUGCHECK_ERROR = 1073807362u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const HARDWARE_PROFILE_UNKNOWN_STRING: BUGCHECK_ERROR = 1073807363u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WINDOWS_NT_BANNER: BUGCHECK_ERROR = 1073741950u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WINDOWS_NT_CSD_STRING: BUGCHECK_ERROR = 1073741959u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WINDOWS_NT_INFO_STRING: BUGCHECK_ERROR = 1073741960u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WINDOWS_NT_MP_STRING: BUGCHECK_ERROR = 1073741961u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const THREAD_TERMINATE_HELD_MUTEX: BUGCHECK_ERROR = 1073741962u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WINDOWS_NT_INFO_STRING_PLURAL: BUGCHECK_ERROR = 1073741981u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WINDOWS_NT_RC_STRING: BUGCHECK_ERROR = 1073741982u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const APC_INDEX_MISMATCH: BUGCHECK_ERROR = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DEVICE_QUEUE_NOT_BUSY: BUGCHECK_ERROR = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_AFFINITY_SET: BUGCHECK_ERROR = 3u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_DATA_ACCESS_TRAP: BUGCHECK_ERROR = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_PROCESS_ATTACH_ATTEMPT: BUGCHECK_ERROR = 5u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_PROCESS_DETACH_ATTEMPT: BUGCHECK_ERROR = 6u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_SOFTWARE_INTERRUPT: BUGCHECK_ERROR = 7u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IRQL_NOT_DISPATCH_LEVEL: BUGCHECK_ERROR = 8u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IRQL_NOT_GREATER_OR_EQUAL: BUGCHECK_ERROR = 9u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IRQL_NOT_LESS_OR_EQUAL: BUGCHECK_ERROR = 10u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const NO_EXCEPTION_HANDLING_SUPPORT: BUGCHECK_ERROR = 11u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MAXIMUM_WAIT_OBJECTS_EXCEEDED: BUGCHECK_ERROR = 12u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MUTEX_LEVEL_NUMBER_VIOLATION: BUGCHECK_ERROR = 13u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const NO_USER_MODE_CONTEXT: BUGCHECK_ERROR = 14u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SPIN_LOCK_ALREADY_OWNED: BUGCHECK_ERROR = 15u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SPIN_LOCK_NOT_OWNED: BUGCHECK_ERROR = 16u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const THREAD_NOT_MUTEX_OWNER: BUGCHECK_ERROR = 17u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TRAP_CAUSE_UNKNOWN: BUGCHECK_ERROR = 18u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EMPTY_THREAD_REAPER_LIST: BUGCHECK_ERROR = 19u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CREATE_DELETE_LOCK_NOT_LOCKED: BUGCHECK_ERROR = 20u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const LAST_CHANCE_CALLED_FROM_KMODE: BUGCHECK_ERROR = 21u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CID_HANDLE_CREATION: BUGCHECK_ERROR = 22u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CID_HANDLE_DELETION: BUGCHECK_ERROR = 23u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const REFERENCE_BY_POINTER: BUGCHECK_ERROR = 24u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BAD_POOL_HEADER: BUGCHECK_ERROR = 25u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MEMORY_MANAGEMENT: BUGCHECK_ERROR = 26u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PFN_SHARE_COUNT: BUGCHECK_ERROR = 27u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PFN_REFERENCE_COUNT: BUGCHECK_ERROR = 28u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const NO_SPIN_LOCK_AVAILABLE: BUGCHECK_ERROR = 29u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const KMODE_EXCEPTION_NOT_HANDLED: BUGCHECK_ERROR = 30u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SHARED_RESOURCE_CONV_ERROR: BUGCHECK_ERROR = 31u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const KERNEL_APC_PENDING_DURING_EXIT: BUGCHECK_ERROR = 32u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const QUOTA_UNDERFLOW: BUGCHECK_ERROR = 33u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FILE_SYSTEM: BUGCHECK_ERROR = 34u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FAT_FILE_SYSTEM: BUGCHECK_ERROR = 35u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const NTFS_FILE_SYSTEM: BUGCHECK_ERROR = 36u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const NPFS_FILE_SYSTEM: BUGCHECK_ERROR = 37u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CDFS_FILE_SYSTEM: BUGCHECK_ERROR = 38u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const RDR_FILE_SYSTEM: BUGCHECK_ERROR = 39u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CORRUPT_ACCESS_TOKEN: BUGCHECK_ERROR = 40u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SECURITY_SYSTEM: BUGCHECK_ERROR = 41u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INCONSISTENT_IRP: BUGCHECK_ERROR = 42u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PANIC_STACK_SWITCH: BUGCHECK_ERROR = 43u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PORT_DRIVER_INTERNAL: BUGCHECK_ERROR = 44u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCSI_DISK_DRIVER_INTERNAL: BUGCHECK_ERROR = 45u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DATA_BUS_ERROR: BUGCHECK_ERROR = 46u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INSTRUCTION_BUS_ERROR: BUGCHECK_ERROR = 47u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SET_OF_INVALID_CONTEXT: BUGCHECK_ERROR = 48u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PHASE0_INITIALIZATION_FAILED: BUGCHECK_ERROR = 49u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PHASE1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 50u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UNEXPECTED_INITIALIZATION_CALL: BUGCHECK_ERROR = 51u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CACHE_MANAGER: BUGCHECK_ERROR = 52u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const NO_MORE_IRP_STACK_LOCATIONS: BUGCHECK_ERROR = 53u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DEVICE_REFERENCE_COUNT_NOT_ZERO: BUGCHECK_ERROR = 54u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FLOPPY_INTERNAL_ERROR: BUGCHECK_ERROR = 55u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SERIAL_DRIVER_INTERNAL: BUGCHECK_ERROR = 56u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYSTEM_EXIT_OWNED_MUTEX: BUGCHECK_ERROR = 57u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYSTEM_UNWIND_PREVIOUS_USER: BUGCHECK_ERROR = 58u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYSTEM_SERVICE_EXCEPTION: BUGCHECK_ERROR = 59u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INTERRUPT_UNWIND_ATTEMPTED: BUGCHECK_ERROR = 60u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INTERRUPT_EXCEPTION_NOT_HANDLED: BUGCHECK_ERROR = 61u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MULTIPROCESSOR_CONFIGURATION_NOT_SUPPORTED: BUGCHECK_ERROR = 62u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const NO_MORE_SYSTEM_PTES: BUGCHECK_ERROR = 63u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TARGET_MDL_TOO_SMALL: BUGCHECK_ERROR = 64u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MUST_SUCCEED_POOL_EMPTY: BUGCHECK_ERROR = 65u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ATDISK_DRIVER_INTERNAL: BUGCHECK_ERROR = 66u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const NO_SUCH_PARTITION: BUGCHECK_ERROR = 67u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MULTIPLE_IRP_COMPLETE_REQUESTS: BUGCHECK_ERROR = 68u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INSUFFICIENT_SYSTEM_MAP_REGS: BUGCHECK_ERROR = 69u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DEREF_UNKNOWN_LOGON_SESSION: BUGCHECK_ERROR = 70u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const REF_UNKNOWN_LOGON_SESSION: BUGCHECK_ERROR = 71u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CANCEL_STATE_IN_COMPLETED_IRP: BUGCHECK_ERROR = 72u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PAGE_FAULT_WITH_INTERRUPTS_OFF: BUGCHECK_ERROR = 73u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IRQL_GT_ZERO_AT_SYSTEM_SERVICE: BUGCHECK_ERROR = 74u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const STREAMS_INTERNAL_ERROR: BUGCHECK_ERROR = 75u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FATAL_UNHANDLED_HARD_ERROR: BUGCHECK_ERROR = 76u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const NO_PAGES_AVAILABLE: BUGCHECK_ERROR = 77u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PFN_LIST_CORRUPT: BUGCHECK_ERROR = 78u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const NDIS_INTERNAL_ERROR: BUGCHECK_ERROR = 79u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PAGE_FAULT_IN_NONPAGED_AREA: BUGCHECK_ERROR = 80u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PAGE_FAULT_IN_NONPAGED_AREA_M: BUGCHECK_ERROR = 268435536u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const REGISTRY_ERROR: BUGCHECK_ERROR = 81u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MAILSLOT_FILE_SYSTEM: BUGCHECK_ERROR = 82u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const NO_BOOT_DEVICE: BUGCHECK_ERROR = 83u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const LM_SERVER_INTERNAL_ERROR: BUGCHECK_ERROR = 84u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DATA_COHERENCY_EXCEPTION: BUGCHECK_ERROR = 85u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INSTRUCTION_COHERENCY_EXCEPTION: BUGCHECK_ERROR = 86u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const XNS_INTERNAL_ERROR: BUGCHECK_ERROR = 87u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VOLMGRX_INTERNAL_ERROR: BUGCHECK_ERROR = 88u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PINBALL_FILE_SYSTEM: BUGCHECK_ERROR = 89u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CRITICAL_SERVICE_FAILED: BUGCHECK_ERROR = 90u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SET_ENV_VAR_FAILED: BUGCHECK_ERROR = 91u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const HAL_INITIALIZATION_FAILED: BUGCHECK_ERROR = 92u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UNSUPPORTED_PROCESSOR: BUGCHECK_ERROR = 93u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_INITIALIZATION_FAILED: BUGCHECK_ERROR = 94u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SECURITY_INITIALIZATION_FAILED: BUGCHECK_ERROR = 95u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROCESS_INITIALIZATION_FAILED: BUGCHECK_ERROR = 96u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const HAL1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 97u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 98u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SECURITY1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 99u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMBOLIC_INITIALIZATION_FAILED: BUGCHECK_ERROR = 100u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MEMORY1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 101u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CACHE_INITIALIZATION_FAILED: BUGCHECK_ERROR = 102u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CONFIG_INITIALIZATION_FAILED: BUGCHECK_ERROR = 103u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FILE_INITIALIZATION_FAILED: BUGCHECK_ERROR = 104u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IO1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 105u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const LPC_INITIALIZATION_FAILED: BUGCHECK_ERROR = 106u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROCESS1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 107u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const REFMON_INITIALIZATION_FAILED: BUGCHECK_ERROR = 108u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SESSION1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 109u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BOOTPROC_INITIALIZATION_FAILED: BUGCHECK_ERROR = 110u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VSL_INITIALIZATION_FAILED: BUGCHECK_ERROR = 111u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SOFT_RESTART_FATAL_ERROR: BUGCHECK_ERROR = 112u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ASSIGN_DRIVE_LETTERS_FAILED: BUGCHECK_ERROR = 114u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CONFIG_LIST_FAILED: BUGCHECK_ERROR = 115u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BAD_SYSTEM_CONFIG_INFO: BUGCHECK_ERROR = 116u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CANNOT_WRITE_CONFIGURATION: BUGCHECK_ERROR = 117u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROCESS_HAS_LOCKED_PAGES: BUGCHECK_ERROR = 118u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const KERNEL_STACK_INPAGE_ERROR: BUGCHECK_ERROR = 119u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PHASE0_EXCEPTION: BUGCHECK_ERROR = 120u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MISMATCHED_HAL: BUGCHECK_ERROR = 121u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const KERNEL_DATA_INPAGE_ERROR: BUGCHECK_ERROR = 122u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INACCESSIBLE_BOOT_DEVICE: BUGCHECK_ERROR = 123u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BUGCODE_NDIS_DRIVER: BUGCHECK_ERROR = 124u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INSTALL_MORE_MEMORY: BUGCHECK_ERROR = 125u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYSTEM_THREAD_EXCEPTION_NOT_HANDLED: BUGCHECK_ERROR = 126u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYSTEM_THREAD_EXCEPTION_NOT_HANDLED_M: BUGCHECK_ERROR = 268435582u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UNEXPECTED_KERNEL_MODE_TRAP: BUGCHECK_ERROR = 127u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UNEXPECTED_KERNEL_MODE_TRAP_M: BUGCHECK_ERROR = 268435583u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const NMI_HARDWARE_FAILURE: BUGCHECK_ERROR = 128u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SPIN_LOCK_INIT_FAILURE: BUGCHECK_ERROR = 129u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DFS_FILE_SYSTEM: BUGCHECK_ERROR = 130u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OFS_FILE_SYSTEM: BUGCHECK_ERROR = 131u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const RECOM_DRIVER: BUGCHECK_ERROR = 132u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SETUP_FAILURE: BUGCHECK_ERROR = 133u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const AUDIT_FAILURE: BUGCHECK_ERROR = 134u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MBR_CHECKSUM_MISMATCH: BUGCHECK_ERROR = 139u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const KERNEL_MODE_EXCEPTION_NOT_HANDLED: BUGCHECK_ERROR = 142u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const KERNEL_MODE_EXCEPTION_NOT_HANDLED_M: BUGCHECK_ERROR = 268435598u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PP0_INITIALIZATION_FAILED: BUGCHECK_ERROR = 143u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PP1_INITIALIZATION_FAILED: BUGCHECK_ERROR = 144u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WIN32K_INIT_OR_RIT_FAILURE: BUGCHECK_ERROR = 145u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UP_DRIVER_ON_MP_SYSTEM: BUGCHECK_ERROR = 146u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_KERNEL_HANDLE: BUGCHECK_ERROR = 147u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const KERNEL_STACK_LOCKED_AT_EXIT: BUGCHECK_ERROR = 148u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PNP_INTERNAL_ERROR: BUGCHECK_ERROR = 149u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_WORK_QUEUE_ITEM: BUGCHECK_ERROR = 150u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BOUND_IMAGE_UNSUPPORTED: BUGCHECK_ERROR = 151u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const END_OF_NT_EVALUATION_PERIOD: BUGCHECK_ERROR = 152u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_REGION_OR_SEGMENT: BUGCHECK_ERROR = 153u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYSTEM_LICENSE_VIOLATION: BUGCHECK_ERROR = 154u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UDFS_FILE_SYSTEM: BUGCHECK_ERROR = 155u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MACHINE_CHECK_EXCEPTION: BUGCHECK_ERROR = 156u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const USER_MODE_HEALTH_MONITOR: BUGCHECK_ERROR = 158u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_POWER_STATE_FAILURE: BUGCHECK_ERROR = 159u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INTERNAL_POWER_ERROR: BUGCHECK_ERROR = 160u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PCI_BUS_DRIVER_INTERNAL: BUGCHECK_ERROR = 161u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MEMORY_IMAGE_CORRUPT: BUGCHECK_ERROR = 162u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ACPI_DRIVER_INTERNAL: BUGCHECK_ERROR = 163u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CNSS_FILE_SYSTEM_FILTER: BUGCHECK_ERROR = 164u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ACPI_BIOS_ERROR: BUGCHECK_ERROR = 165u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FP_EMULATION_ERROR: BUGCHECK_ERROR = 166u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BAD_EXHANDLE: BUGCHECK_ERROR = 167u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BOOTING_IN_SAFEMODE_MINIMAL: BUGCHECK_ERROR = 168u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BOOTING_IN_SAFEMODE_NETWORK: BUGCHECK_ERROR = 169u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BOOTING_IN_SAFEMODE_DSREPAIR: BUGCHECK_ERROR = 170u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SESSION_HAS_VALID_POOL_ON_EXIT: BUGCHECK_ERROR = 171u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const HAL_MEMORY_ALLOCATION: BUGCHECK_ERROR = 172u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VIDEO_DRIVER_DEBUG_REPORT_REQUEST: BUGCHECK_ERROR = 1073741997u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BGI_DETECTED_VIOLATION: BUGCHECK_ERROR = 177u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VIDEO_DRIVER_INIT_FAILURE: BUGCHECK_ERROR = 180u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BOOTLOG_LOADED: BUGCHECK_ERROR = 181u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BOOTLOG_NOT_LOADED: BUGCHECK_ERROR = 182u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BOOTLOG_ENABLED: BUGCHECK_ERROR = 183u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ATTEMPTED_SWITCH_FROM_DPC: BUGCHECK_ERROR = 184u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CHIPSET_DETECTED_ERROR: BUGCHECK_ERROR = 185u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SESSION_HAS_VALID_VIEWS_ON_EXIT: BUGCHECK_ERROR = 186u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const NETWORK_BOOT_INITIALIZATION_FAILED: BUGCHECK_ERROR = 187u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const NETWORK_BOOT_DUPLICATE_ADDRESS: BUGCHECK_ERROR = 188u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_HIBERNATED_STATE: BUGCHECK_ERROR = 189u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ATTEMPTED_WRITE_TO_READONLY_MEMORY: BUGCHECK_ERROR = 190u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MUTEX_ALREADY_OWNED: BUGCHECK_ERROR = 191u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PCI_CONFIG_SPACE_ACCESS_FAILURE: BUGCHECK_ERROR = 192u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SPECIAL_POOL_DETECTED_MEMORY_CORRUPTION: BUGCHECK_ERROR = 193u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BAD_POOL_CALLER: BUGCHECK_ERROR = 194u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYSTEM_IMAGE_BAD_SIGNATURE: BUGCHECK_ERROR = 195u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_VERIFIER_DETECTED_VIOLATION: BUGCHECK_ERROR = 196u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_CORRUPTED_EXPOOL: BUGCHECK_ERROR = 197u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_CAUGHT_MODIFYING_FREED_POOL: BUGCHECK_ERROR = 198u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TIMER_OR_DPC_INVALID: BUGCHECK_ERROR = 199u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IRQL_UNEXPECTED_VALUE: BUGCHECK_ERROR = 200u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_VERIFIER_IOMANAGER_VIOLATION: BUGCHECK_ERROR = 201u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PNP_DETECTED_FATAL_ERROR: BUGCHECK_ERROR = 202u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_LEFT_LOCKED_PAGES_IN_PROCESS: BUGCHECK_ERROR = 203u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PAGE_FAULT_IN_FREED_SPECIAL_POOL: BUGCHECK_ERROR = 204u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PAGE_FAULT_BEYOND_END_OF_ALLOCATION: BUGCHECK_ERROR = 205u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_UNLOADED_WITHOUT_CANCELLING_PENDING_OPERATIONS: BUGCHECK_ERROR = 206u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TERMINAL_SERVER_DRIVER_MADE_INCORRECT_MEMORY_REFERENCE: BUGCHECK_ERROR = 207u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_CORRUPTED_MMPOOL: BUGCHECK_ERROR = 208u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_IRQL_NOT_LESS_OR_EQUAL: BUGCHECK_ERROR = 209u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BUGCODE_ID_DRIVER: BUGCHECK_ERROR = 210u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_PORTION_MUST_BE_NONPAGED: BUGCHECK_ERROR = 211u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYSTEM_SCAN_AT_RAISED_IRQL_CAUGHT_IMPROPER_DRIVER_UNLOAD: BUGCHECK_ERROR = 212u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_PAGE_FAULT_IN_FREED_SPECIAL_POOL: BUGCHECK_ERROR = 213u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_PAGE_FAULT_BEYOND_END_OF_ALLOCATION: BUGCHECK_ERROR = 214u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_PAGE_FAULT_BEYOND_END_OF_ALLOCATION_M: BUGCHECK_ERROR = 268435670u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_UNMAPPING_INVALID_VIEW: BUGCHECK_ERROR = 215u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_USED_EXCESSIVE_PTES: BUGCHECK_ERROR = 216u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const LOCKED_PAGES_TRACKER_CORRUPTION: BUGCHECK_ERROR = 217u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYSTEM_PTE_MISUSE: BUGCHECK_ERROR = 218u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_CORRUPTED_SYSPTES: BUGCHECK_ERROR = 219u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_INVALID_STACK_ACCESS: BUGCHECK_ERROR = 220u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const POOL_CORRUPTION_IN_FILE_AREA: BUGCHECK_ERROR = 222u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMPERSONATING_WORKER_THREAD: BUGCHECK_ERROR = 223u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ACPI_BIOS_FATAL_ERROR: BUGCHECK_ERROR = 224u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WORKER_THREAD_RETURNED_AT_BAD_IRQL: BUGCHECK_ERROR = 225u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MANUALLY_INITIATED_CRASH: BUGCHECK_ERROR = 226u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const RESOURCE_NOT_OWNED: BUGCHECK_ERROR = 227u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WORKER_INVALID: BUGCHECK_ERROR = 228u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const POWER_FAILURE_SIMULATE: BUGCHECK_ERROR = 229u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_VERIFIER_DMA_VIOLATION: BUGCHECK_ERROR = 230u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_FLOATING_POINT_STATE: BUGCHECK_ERROR = 231u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_CANCEL_OF_FILE_OPEN: BUGCHECK_ERROR = 232u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ACTIVE_EX_WORKER_THREAD_TERMINATION: BUGCHECK_ERROR = 233u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_UNSPECIFIED: BUGCHECK_ERROR = 61440u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_BLANKSCREEN: BUGCHECK_ERROR = 61442u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_INPUT: BUGCHECK_ERROR = 61443u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_WATCHDOG: BUGCHECK_ERROR = 61444u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_STARTNOTVISIBLE: BUGCHECK_ERROR = 61445u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_NAVIGATIONMODEL: BUGCHECK_ERROR = 61446u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_OUTOFMEMORY: BUGCHECK_ERROR = 61447u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_GRAPHICS: BUGCHECK_ERROR = 61448u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_NAVSERVERTIMEOUT: BUGCHECK_ERROR = 61449u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_CHROMEPROCESSCRASH: BUGCHECK_ERROR = 61450u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_NOTIFICATIONDISMISSAL: BUGCHECK_ERROR = 61451u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_SPEECHDISMISSAL: BUGCHECK_ERROR = 61452u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_CALLDISMISSAL: BUGCHECK_ERROR = 61453u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_APPBARDISMISSAL: BUGCHECK_ERROR = 61454u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_RILADAPTATIONCRASH: BUGCHECK_ERROR = 61455u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_APPLISTUNREACHABLE: BUGCHECK_ERROR = 61456u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_REPORTNOTIFICATIONFAILURE: BUGCHECK_ERROR = 61457u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_UNEXPECTEDSHUTDOWN: BUGCHECK_ERROR = 61458u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_RPCFAILURE: BUGCHECK_ERROR = 61459u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_AUXILIARYFULLDUMP: BUGCHECK_ERROR = 61460u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_ACCOUNTPROVSVCINITFAILURE: BUGCHECK_ERROR = 61461u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_MTBFCOMMANDTIMEOUT: BUGCHECK_ERROR = 789u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_MTBFCOMMANDHANG: BUGCHECK_ERROR = 61697u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_MTBFPASSBUGCHECK: BUGCHECK_ERROR = 61698u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_MTBFIOERROR: BUGCHECK_ERROR = 61699u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_RENDERTHREADHANG: BUGCHECK_ERROR = 61952u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_RENDERMOBILEUIOOM: BUGCHECK_ERROR = 61953u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_DEVICEUPDATEUNSPECIFIED: BUGCHECK_ERROR = 62208u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_AUDIODRIVERHANG: BUGCHECK_ERROR = 62464u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_BATTERYPULLOUT: BUGCHECK_ERROR = 62720u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_MEDIACORETESTHANG: BUGCHECK_ERROR = 62976u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_RESOURCEMANAGEMENT: BUGCHECK_ERROR = 63232u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_CAPTURESERVICE: BUGCHECK_ERROR = 63488u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_WAITFORSHELLREADY: BUGCHECK_ERROR = 63744u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_NONRESPONSIVEPROCESS: BUGCHECK_ERROR = 404u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SAVER_SICKAPPLICATION: BUGCHECK_ERROR = 34918u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const THREAD_STUCK_IN_DEVICE_DRIVER: BUGCHECK_ERROR = 234u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const THREAD_STUCK_IN_DEVICE_DRIVER_M: BUGCHECK_ERROR = 268435690u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DIRTY_MAPPED_PAGES_CONGESTION: BUGCHECK_ERROR = 235u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SESSION_HAS_VALID_SPECIAL_POOL_ON_EXIT: BUGCHECK_ERROR = 236u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UNMOUNTABLE_BOOT_VOLUME: BUGCHECK_ERROR = 237u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CRITICAL_PROCESS_DIED: BUGCHECK_ERROR = 239u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const STORAGE_MINIPORT_ERROR: BUGCHECK_ERROR = 240u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCSI_VERIFIER_DETECTED_VIOLATION: BUGCHECK_ERROR = 241u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const HARDWARE_INTERRUPT_STORM: BUGCHECK_ERROR = 242u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DISORDERLY_SHUTDOWN: BUGCHECK_ERROR = 243u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CRITICAL_OBJECT_TERMINATION: BUGCHECK_ERROR = 244u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FLTMGR_FILE_SYSTEM: BUGCHECK_ERROR = 245u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PCI_VERIFIER_DETECTED_VIOLATION: BUGCHECK_ERROR = 246u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_OVERRAN_STACK_BUFFER: BUGCHECK_ERROR = 247u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const RAMDISK_BOOT_INITIALIZATION_FAILED: BUGCHECK_ERROR = 248u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_RETURNED_STATUS_REPARSE_FOR_VOLUME_OPEN: BUGCHECK_ERROR = 249u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const HTTP_DRIVER_CORRUPTED: BUGCHECK_ERROR = 250u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const RECURSIVE_MACHINE_CHECK: BUGCHECK_ERROR = 251u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ATTEMPTED_EXECUTE_OF_NOEXECUTE_MEMORY: BUGCHECK_ERROR = 252u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DIRTY_NOWRITE_PAGES_CONGESTION: BUGCHECK_ERROR = 253u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BUGCODE_USB_DRIVER: BUGCHECK_ERROR = 254u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BC_BLUETOOTH_VERIFIER_FAULT: BUGCHECK_ERROR = 3070u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BC_BTHMINI_VERIFIER_FAULT: BUGCHECK_ERROR = 3071u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const RESERVE_QUEUE_OVERFLOW: BUGCHECK_ERROR = 255u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const LOADER_BLOCK_MISMATCH: BUGCHECK_ERROR = 256u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CLOCK_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 257u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DPC_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 258u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MUP_FILE_SYSTEM: BUGCHECK_ERROR = 259u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const AGP_INVALID_ACCESS: BUGCHECK_ERROR = 260u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const AGP_GART_CORRUPTION: BUGCHECK_ERROR = 261u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const AGP_ILLEGALLY_REPROGRAMMED: BUGCHECK_ERROR = 262u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const KERNEL_EXPAND_STACK_ACTIVE: BUGCHECK_ERROR = 263u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const THIRD_PARTY_FILE_SYSTEM_FAILURE: BUGCHECK_ERROR = 264u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CRITICAL_STRUCTURE_CORRUPTION: BUGCHECK_ERROR = 265u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const APP_TAGGING_INITIALIZATION_FAILED: BUGCHECK_ERROR = 266u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DFSC_FILE_SYSTEM: BUGCHECK_ERROR = 267u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FSRTL_EXTRA_CREATE_PARAMETER_VIOLATION: BUGCHECK_ERROR = 268u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WDF_VIOLATION: BUGCHECK_ERROR = 269u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VIDEO_MEMORY_MANAGEMENT_INTERNAL: BUGCHECK_ERROR = 270u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_INVALID_CRUNTIME_PARAMETER: BUGCHECK_ERROR = 272u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const RECURSIVE_NMI: BUGCHECK_ERROR = 273u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MSRPC_STATE_VIOLATION: BUGCHECK_ERROR = 274u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VIDEO_DXGKRNL_FATAL_ERROR: BUGCHECK_ERROR = 275u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VIDEO_SHADOW_DRIVER_FATAL_ERROR: BUGCHECK_ERROR = 276u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const AGP_INTERNAL: BUGCHECK_ERROR = 277u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VIDEO_TDR_FAILURE: BUGCHECK_ERROR = 278u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VIDEO_TDR_TIMEOUT_DETECTED: BUGCHECK_ERROR = 279u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const NTHV_GUEST_ERROR: BUGCHECK_ERROR = 280u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VIDEO_SCHEDULER_INTERNAL_ERROR: BUGCHECK_ERROR = 281u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EM_INITIALIZATION_ERROR: BUGCHECK_ERROR = 282u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_RETURNED_HOLDING_CANCEL_LOCK: BUGCHECK_ERROR = 283u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ATTEMPTED_WRITE_TO_CM_PROTECTED_STORAGE: BUGCHECK_ERROR = 284u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EVENT_TRACING_FATAL_ERROR: BUGCHECK_ERROR = 285u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TOO_MANY_RECURSIVE_FAULTS: BUGCHECK_ERROR = 286u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_DRIVER_HANDLE: BUGCHECK_ERROR = 287u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BITLOCKER_FATAL_ERROR: BUGCHECK_ERROR = 288u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_VIOLATION: BUGCHECK_ERROR = 289u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WHEA_INTERNAL_ERROR: BUGCHECK_ERROR = 290u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CRYPTO_SELF_TEST_FAILURE: BUGCHECK_ERROR = 291u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WHEA_UNCORRECTABLE_ERROR: BUGCHECK_ERROR = 292u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const NMR_INVALID_STATE: BUGCHECK_ERROR = 293u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const NETIO_INVALID_POOL_CALLER: BUGCHECK_ERROR = 294u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PAGE_NOT_ZERO: BUGCHECK_ERROR = 295u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WORKER_THREAD_RETURNED_WITH_BAD_IO_PRIORITY: BUGCHECK_ERROR = 296u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WORKER_THREAD_RETURNED_WITH_BAD_PAGING_IO_PRIORITY: BUGCHECK_ERROR = 297u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MUI_NO_VALID_SYSTEM_LANGUAGE: BUGCHECK_ERROR = 298u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FAULTY_HARDWARE_CORRUPTED_PAGE: BUGCHECK_ERROR = 299u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXFAT_FILE_SYSTEM: BUGCHECK_ERROR = 300u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VOLSNAP_OVERLAPPED_TABLE_ACCESS: BUGCHECK_ERROR = 301u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_MDL_RANGE: BUGCHECK_ERROR = 302u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VHD_BOOT_INITIALIZATION_FAILED: BUGCHECK_ERROR = 303u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DYNAMIC_ADD_PROCESSOR_MISMATCH: BUGCHECK_ERROR = 304u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_EXTENDED_PROCESSOR_STATE: BUGCHECK_ERROR = 305u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const RESOURCE_OWNER_POINTER_INVALID: BUGCHECK_ERROR = 306u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DPC_WATCHDOG_VIOLATION: BUGCHECK_ERROR = 307u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVE_EXTENDER: BUGCHECK_ERROR = 308u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const REGISTRY_FILTER_DRIVER_EXCEPTION: BUGCHECK_ERROR = 309u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VHD_BOOT_HOST_VOLUME_NOT_ENOUGH_SPACE: BUGCHECK_ERROR = 310u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WIN32K_HANDLE_MANAGER: BUGCHECK_ERROR = 311u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const GPIO_CONTROLLER_DRIVER_ERROR: BUGCHECK_ERROR = 312u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const KERNEL_SECURITY_CHECK_FAILURE: BUGCHECK_ERROR = 313u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const KERNEL_MODE_HEAP_CORRUPTION: BUGCHECK_ERROR = 314u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PASSIVE_INTERRUPT_ERROR: BUGCHECK_ERROR = 315u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_IO_BOOST_STATE: BUGCHECK_ERROR = 316u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CRITICAL_INITIALIZATION_FAILURE: BUGCHECK_ERROR = 317u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ERRATA_WORKAROUND_UNSUCCESSFUL: BUGCHECK_ERROR = 318u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const REGISTRY_CALLBACK_DRIVER_EXCEPTION: BUGCHECK_ERROR = 319u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const STORAGE_DEVICE_ABNORMALITY_DETECTED: BUGCHECK_ERROR = 320u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VIDEO_ENGINE_TIMEOUT_DETECTED: BUGCHECK_ERROR = 321u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VIDEO_TDR_APPLICATION_BLOCKED: BUGCHECK_ERROR = 322u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROCESSOR_DRIVER_INTERNAL: BUGCHECK_ERROR = 323u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BUGCODE_USB3_DRIVER: BUGCHECK_ERROR = 324u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SECURE_BOOT_VIOLATION: BUGCHECK_ERROR = 325u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const NDIS_NET_BUFFER_LIST_INFO_ILLEGALLY_TRANSFERRED: BUGCHECK_ERROR = 326u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ABNORMAL_RESET_DETECTED: BUGCHECK_ERROR = 327u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IO_OBJECT_INVALID: BUGCHECK_ERROR = 328u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const REFS_FILE_SYSTEM: BUGCHECK_ERROR = 329u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const KERNEL_WMI_INTERNAL: BUGCHECK_ERROR = 330u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SOC_SUBSYSTEM_FAILURE: BUGCHECK_ERROR = 331u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FATAL_ABNORMAL_RESET_ERROR: BUGCHECK_ERROR = 332u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXCEPTION_SCOPE_INVALID: BUGCHECK_ERROR = 333u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SOC_CRITICAL_DEVICE_REMOVED: BUGCHECK_ERROR = 334u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PDC_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 335u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TCPIP_AOAC_NIC_ACTIVE_REFERENCE_LEAK: BUGCHECK_ERROR = 336u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UNSUPPORTED_INSTRUCTION_MODE: BUGCHECK_ERROR = 337u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_PUSH_LOCK_FLAGS: BUGCHECK_ERROR = 338u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const KERNEL_LOCK_ENTRY_LEAKED_ON_THREAD_TERMINATION: BUGCHECK_ERROR = 339u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UNEXPECTED_STORE_EXCEPTION: BUGCHECK_ERROR = 340u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OS_DATA_TAMPERING: BUGCHECK_ERROR = 341u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WINSOCK_DETECTED_HUNG_CLOSESOCKET_LIVEDUMP: BUGCHECK_ERROR = 342u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const KERNEL_THREAD_PRIORITY_FLOOR_VIOLATION: BUGCHECK_ERROR = 343u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ILLEGAL_IOMMU_PAGE_FAULT: BUGCHECK_ERROR = 344u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const HAL_ILLEGAL_IOMMU_PAGE_FAULT: BUGCHECK_ERROR = 345u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SDBUS_INTERNAL_ERROR: BUGCHECK_ERROR = 346u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WORKER_THREAD_RETURNED_WITH_SYSTEM_PAGE_PRIORITY_ACTIVE: BUGCHECK_ERROR = 347u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PDC_WATCHDOG_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 348u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SOC_SUBSYSTEM_FAILURE_LIVEDUMP: BUGCHECK_ERROR = 349u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BUGCODE_NDIS_DRIVER_LIVE_DUMP: BUGCHECK_ERROR = 350u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CONNECTED_STANDBY_WATCHDOG_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 351u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WIN32K_ATOMIC_CHECK_FAILURE: BUGCHECK_ERROR = 352u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const LIVE_SYSTEM_DUMP: BUGCHECK_ERROR = 353u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const KERNEL_AUTO_BOOST_INVALID_LOCK_RELEASE: BUGCHECK_ERROR = 354u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WORKER_THREAD_TEST_CONDITION: BUGCHECK_ERROR = 355u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WIN32K_CRITICAL_FAILURE: BUGCHECK_ERROR = 356u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CLUSTER_CSV_STATUS_IO_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 357u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CLUSTER_RESOURCE_CALL_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 358u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CLUSTER_CSV_SNAPSHOT_DEVICE_INFO_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 359u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CLUSTER_CSV_STATE_TRANSITION_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 360u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CLUSTER_CSV_VOLUME_ARRIVAL_LIVEDUMP: BUGCHECK_ERROR = 361u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CLUSTER_CSV_VOLUME_REMOVAL_LIVEDUMP: BUGCHECK_ERROR = 362u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CLUSTER_CSV_CLUSTER_WATCHDOG_LIVEDUMP: BUGCHECK_ERROR = 363u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_RUNDOWN_PROTECTION_FLAGS: BUGCHECK_ERROR = 364u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_SLOT_ALLOCATOR_FLAGS: BUGCHECK_ERROR = 365u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ERESOURCE_INVALID_RELEASE: BUGCHECK_ERROR = 366u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CLUSTER_CSV_STATE_TRANSITION_INTERVAL_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 367u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CLUSTER_CSV_CLUSSVC_DISCONNECT_WATCHDOG: BUGCHECK_ERROR = 368u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CRYPTO_LIBRARY_INTERNAL_ERROR: BUGCHECK_ERROR = 369u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const COREMSGCALL_INTERNAL_ERROR: BUGCHECK_ERROR = 371u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const COREMSG_INTERNAL_ERROR: BUGCHECK_ERROR = 372u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PREVIOUS_FATAL_ABNORMAL_RESET_ERROR: BUGCHECK_ERROR = 373u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ELAM_DRIVER_DETECTED_FATAL_ERROR: BUGCHECK_ERROR = 376u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CLUSTER_CLUSPORT_STATUS_IO_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 377u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_CONFIGURATION_ILLEGAL: BUGCHECK_ERROR = 379u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PDC_LOCK_WATCHDOG_LIVEDUMP: BUGCHECK_ERROR = 380u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PDC_UNEXPECTED_REVOCATION_LIVEDUMP: BUGCHECK_ERROR = 381u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MICROCODE_REVISION_MISMATCH: BUGCHECK_ERROR = 382u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const HYPERGUARD_INITIALIZATION_FAILURE: BUGCHECK_ERROR = 383u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WVR_LIVEDUMP_REPLICATION_IOCONTEXT_TIMEOUT: BUGCHECK_ERROR = 384u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WVR_LIVEDUMP_STATE_TRANSITION_TIMEOUT: BUGCHECK_ERROR = 385u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WVR_LIVEDUMP_RECOVERY_IOCONTEXT_TIMEOUT: BUGCHECK_ERROR = 386u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WVR_LIVEDUMP_APP_IO_TIMEOUT: BUGCHECK_ERROR = 387u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WVR_LIVEDUMP_MANUALLY_INITIATED: BUGCHECK_ERROR = 388u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WVR_LIVEDUMP_STATE_FAILURE: BUGCHECK_ERROR = 389u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WVR_LIVEDUMP_CRITICAL_ERROR: BUGCHECK_ERROR = 390u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VIDEO_DWMINIT_TIMEOUT_FALLBACK_BDD: BUGCHECK_ERROR = 391u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CLUSTER_CSVFS_LIVEDUMP: BUGCHECK_ERROR = 392u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BAD_OBJECT_HEADER: BUGCHECK_ERROR = 393u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SILO_CORRUPT: BUGCHECK_ERROR = 394u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SECURE_KERNEL_ERROR: BUGCHECK_ERROR = 395u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const HYPERGUARD_VIOLATION: BUGCHECK_ERROR = 396u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SECURE_FAULT_UNHANDLED: BUGCHECK_ERROR = 397u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const KERNEL_PARTITION_REFERENCE_VIOLATION: BUGCHECK_ERROR = 398u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYNTHETIC_EXCEPTION_UNHANDLED: BUGCHECK_ERROR = 399u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WIN32K_CRITICAL_FAILURE_LIVEDUMP: BUGCHECK_ERROR = 400u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PF_DETECTED_CORRUPTION: BUGCHECK_ERROR = 401u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const KERNEL_AUTO_BOOST_LOCK_ACQUISITION_WITH_RAISED_IRQL: BUGCHECK_ERROR = 402u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VIDEO_DXGKRNL_LIVEDUMP: BUGCHECK_ERROR = 403u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const KERNEL_STORAGE_SLOT_IN_USE: BUGCHECK_ERROR = 409u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SMB_SERVER_LIVEDUMP: BUGCHECK_ERROR = 405u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const LOADER_ROLLBACK_DETECTED: BUGCHECK_ERROR = 406u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WIN32K_SECURITY_FAILURE: BUGCHECK_ERROR = 407u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UFX_LIVEDUMP: BUGCHECK_ERROR = 408u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WORKER_THREAD_RETURNED_WHILE_ATTACHED_TO_SILO: BUGCHECK_ERROR = 410u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TTM_FATAL_ERROR: BUGCHECK_ERROR = 411u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WIN32K_POWER_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 412u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CLUSTER_SVHDX_LIVEDUMP: BUGCHECK_ERROR = 413u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BUGCODE_NETADAPTER_DRIVER: BUGCHECK_ERROR = 414u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PDC_PRIVILEGE_CHECK_LIVEDUMP: BUGCHECK_ERROR = 415u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TTM_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 416u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WIN32K_CALLOUT_WATCHDOG_LIVEDUMP: BUGCHECK_ERROR = 417u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WIN32K_CALLOUT_WATCHDOG_BUGCHECK: BUGCHECK_ERROR = 418u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CALL_HAS_NOT_RETURNED_WATCHDOG_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 419u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIPS_SW_HW_DIVERGENCE_LIVEDUMP: BUGCHECK_ERROR = 420u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const USB_DRIPS_BLOCKER_SURPRISE_REMOVAL_LIVEDUMP: BUGCHECK_ERROR = 421u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BLUETOOTH_ERROR_RECOVERY_LIVEDUMP: BUGCHECK_ERROR = 422u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SMB_REDIRECTOR_LIVEDUMP: BUGCHECK_ERROR = 423u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VIDEO_DXGKRNL_BLACK_SCREEN_LIVEDUMP: BUGCHECK_ERROR = 424u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DIRECTED_FX_TRANSITION_LIVEDUMP: BUGCHECK_ERROR = 425u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXCEPTION_ON_INVALID_STACK: BUGCHECK_ERROR = 426u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UNWIND_ON_INVALID_STACK: BUGCHECK_ERROR = 427u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VIDEO_MINIPORT_FAILED_LIVEDUMP: BUGCHECK_ERROR = 432u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VIDEO_MINIPORT_BLACK_SCREEN_LIVEDUMP: BUGCHECK_ERROR = 440u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_VERIFIER_DETECTED_VIOLATION_LIVEDUMP: BUGCHECK_ERROR = 452u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IO_THREADPOOL_DEADLOCK_LIVEDUMP: BUGCHECK_ERROR = 453u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FAST_ERESOURCE_PRECONDITION_VIOLATION: BUGCHECK_ERROR = 454u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const STORE_DATA_STRUCTURE_CORRUPTION: BUGCHECK_ERROR = 455u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MANUALLY_INITIATED_POWER_BUTTON_HOLD: BUGCHECK_ERROR = 456u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const USER_MODE_HEALTH_MONITOR_LIVEDUMP: BUGCHECK_ERROR = 457u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYNTHETIC_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 458u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_SILO_DETACH: BUGCHECK_ERROR = 459u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXRESOURCE_TIMEOUT_LIVEDUMP: BUGCHECK_ERROR = 460u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_CALLBACK_STACK_ADDRESS: BUGCHECK_ERROR = 461u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_KERNEL_STACK_ADDRESS: BUGCHECK_ERROR = 462u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const HARDWARE_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 463u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ACPI_FIRMWARE_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 464u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TELEMETRY_ASSERTS_LIVEDUMP: BUGCHECK_ERROR = 465u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WORKER_THREAD_INVALID_STATE: BUGCHECK_ERROR = 466u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WFP_INVALID_OPERATION: BUGCHECK_ERROR = 467u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UCMUCSI_LIVEDUMP: BUGCHECK_ERROR = 468u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_PNP_WATCHDOG: BUGCHECK_ERROR = 469u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WORKER_THREAD_RETURNED_WITH_NON_DEFAULT_WORKLOAD_CLASS: BUGCHECK_ERROR = 470u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EFS_FATAL_ERROR: BUGCHECK_ERROR = 471u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UCMUCSI_FAILURE: BUGCHECK_ERROR = 472u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const HAL_IOMMU_INTERNAL_ERROR: BUGCHECK_ERROR = 473u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const HAL_BLOCKED_PROCESSOR_INTERNAL_ERROR: BUGCHECK_ERROR = 474u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IPI_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 475u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DMA_COMMON_BUFFER_VECTOR_ERROR: BUGCHECK_ERROR = 476u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BUGCODE_MBBADAPTER_DRIVER: BUGCHECK_ERROR = 477u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BUGCODE_WIFIADAPTER_DRIVER: BUGCHECK_ERROR = 478u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROCESSOR_START_TIMEOUT: BUGCHECK_ERROR = 479u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_ALTERNATE_SYSTEM_CALL_HANDLER_REGISTRATION: BUGCHECK_ERROR = 480u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DEVICE_DIAGNOSTIC_LOG_LIVEDUMP: BUGCHECK_ERROR = 481u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const AZURE_DEVICE_FW_DUMP: BUGCHECK_ERROR = 482u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BREAKAWAY_CABLE_TRANSITION: BUGCHECK_ERROR = 483u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VIDEO_DXGKRNL_SYSMM_FATAL_ERROR: BUGCHECK_ERROR = 484u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DRIVER_VERIFIER_TRACKING_LIVE_DUMP: BUGCHECK_ERROR = 485u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CRASHDUMP_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 486u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const REGISTRY_LIVE_DUMP: BUGCHECK_ERROR = 487u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const INVALID_THREAD_AFFINITY_STATE: BUGCHECK_ERROR = 488u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ILLEGAL_ATS_INITIALIZATION: BUGCHECK_ERROR = 489u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SECURE_PCI_CONFIG_SPACE_ACCESS_VIOLATION: BUGCHECK_ERROR = 490u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DAM_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 491u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const XBOX_VMCTRL_CS_TIMEOUT: BUGCHECK_ERROR = 854u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const XBOX_CORRUPTED_IMAGE: BUGCHECK_ERROR = 855u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const XBOX_INVERTED_FUNCTION_TABLE_OVERFLOW: BUGCHECK_ERROR = 856u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const XBOX_CORRUPTED_IMAGE_BASE: BUGCHECK_ERROR = 857u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const XBOX_XDS_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 858u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const XBOX_SHUTDOWN_WATCHDOG_TIMEOUT: BUGCHECK_ERROR = 859u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const XBOX_360_SYSTEM_CRASH: BUGCHECK_ERROR = 864u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const XBOX_360_SYSTEM_CRASH_RESERVED: BUGCHECK_ERROR = 1056u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const XBOX_SECURITY_FAILUE: BUGCHECK_ERROR = 1057u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const KERNEL_CFG_INIT_FAILURE: BUGCHECK_ERROR = 1058u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MANUALLY_INITIATED_POWER_BUTTON_HOLD_LIVE_DUMP: BUGCHECK_ERROR = 4552u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const HYPERVISOR_ERROR: BUGCHECK_ERROR = 131073u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WINLOGON_FATAL_ERROR: BUGCHECK_ERROR = 3221226010u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MANUALLY_INITIATED_CRASH1: BUGCHECK_ERROR = 3735936685u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BUGCHECK_CONTEXT_MODIFIER: BUGCHECK_ERROR = 2147483648u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Beep(dwfreq: u32, dwduration: u32) -> super::super::super::Foundation::BOOL {
@@ -1136,6 +1707,7 @@ pub unsafe fn Beep(dwfreq: u32, dwduration: u32) -> super::super::super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BindImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(imagename: Param0, dllpath: Param1, symbolpath: Param2) -> super::super::super::Foundation::BOOL {
@@ -1150,6 +1722,7 @@ pub unsafe fn BindImage<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BindImageEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(flags: u32, imagename: Param1, dllpath: Param2, symbolpath: Param3, statusroutine: PIMAGEHLP_STATUS_ROUTINE) -> super::super::super::Foundation::BOOL {
@@ -1200,6 +1773,7 @@ pub const CHECKSUM_OPEN_FAILURE: u32 = 1u32;
 pub const CHECKSUM_SUCCESS: u32 = 0u32;
 pub const CHECKSUM_UNICODE_FAILURE: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT {
@@ -1249,6 +1823,7 @@ impl ::core::default::Default for CONTEXT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub union CONTEXT_0 {
@@ -1288,6 +1863,7 @@ impl ::core::default::Default for CONTEXT_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT_0_0 {
@@ -1356,6 +1932,7 @@ impl ::core::default::Default for CONTEXT_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT {
@@ -1439,6 +2016,7 @@ impl ::core::default::Default for CONTEXT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub union CONTEXT_0 {
@@ -1478,6 +2056,7 @@ impl ::core::default::Default for CONTEXT_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT_0_0 {
@@ -1533,6 +2112,7 @@ impl ::core::default::Default for CONTEXT_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT {
@@ -1595,6 +2175,7 @@ impl ::core::default::Default for CONTEXT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union CPU_INFORMATION {
     pub X86CpuInfo: CPU_INFORMATION_1,
     pub OtherCpuInfo: CPU_INFORMATION_0,
@@ -1620,6 +2201,7 @@ impl ::core::default::Default for CPU_INFORMATION {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct CPU_INFORMATION_0 {
     pub ProcessorFeatures: [u64; 2],
 }
@@ -1644,6 +2226,7 @@ impl ::core::default::Default for CPU_INFORMATION_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct CPU_INFORMATION_1 {
     pub VendorId: [u32; 3],
     pub VersionInformation: u32,
@@ -1671,6 +2254,7 @@ impl ::core::default::Default for CPU_INFORMATION_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Threading'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub struct CREATE_PROCESS_DEBUG_INFO {
     pub hFile: super::super::super::Foundation::HANDLE,
@@ -1711,6 +2295,7 @@ impl ::core::default::Default for CREATE_PROCESS_DEBUG_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Threading'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub struct CREATE_THREAD_DEBUG_INFO {
     pub hThread: super::super::super::Foundation::HANDLE,
@@ -1745,13 +2330,21 @@ impl ::core::default::Default for CREATE_THREAD_DEBUG_INFO {
 }
 pub const CROSS_PLATFORM_MAXIMUM_PROCESSORS: u32 = 2048u32;
 pub const CURRENT_KD_SECONDARY_VERSION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type CallingConventionKind = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CallingConventionUnknown: CallingConventionKind = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CallingConventionCDecl: CallingConventionKind = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CallingConventionFastCall: CallingConventionKind = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CallingConventionStdCall: CallingConventionKind = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CallingConventionSysCall: CallingConventionKind = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CallingConventionThisCall: CallingConventionKind = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckRemoteDebuggerPresent<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, pbdebuggerpresent: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL {
@@ -1766,6 +2359,7 @@ pub unsafe fn CheckRemoteDebuggerPresent<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filelength: u32, headersum: *mut u32, checksum: *mut u32) -> *mut IMAGE_NT_HEADERS64 {
@@ -1780,6 +2374,7 @@ pub unsafe fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filele
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filelength: u32, headersum: *mut u32, checksum: *mut u32) -> *mut IMAGE_NT_HEADERS32 {
@@ -1794,6 +2389,7 @@ pub unsafe fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filele
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn CloseThreadWaitChainSession(wcthandle: *const ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -1807,6 +2403,7 @@ pub unsafe fn CloseThreadWaitChainSession(wcthandle: *const ::core::ffi::c_void)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ContinueDebugEvent(dwprocessid: u32, dwthreadid: u32, dwcontinuestatus: u32) -> super::super::super::Foundation::BOOL {
@@ -1821,6 +2418,7 @@ pub unsafe fn ContinueDebugEvent(dwprocessid: u32, dwthreadid: u32, dwcontinuest
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn CopyContext(destination: *mut CONTEXT, contextflags: u32, source: *const CONTEXT) -> super::super::super::Foundation::BOOL {
@@ -1835,6 +2433,7 @@ pub unsafe fn CopyContext(destination: *mut CONTEXT, contextflags: u32, source: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn CreateDataModelManager<'a, Param0: ::windows::core::IntoParam<'a, IDebugHost>>(debughost: Param0) -> ::windows::core::Result<IDataModelManager> {
     #[cfg(windows)]
@@ -1850,6 +2449,7 @@ pub unsafe fn CreateDataModelManager<'a, Param0: ::windows::core::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DBGHELP_DATA_REPORT_STRUCT {
     pub pBinPathNonExist: super::super::super::Foundation::PWSTR,
@@ -1882,6 +2482,7 @@ impl ::core::default::Default for DBGHELP_DATA_REPORT_STRUCT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct DBGKD_DEBUG_DATA_HEADER32 {
     pub List: super::super::Kernel::LIST_ENTRY32,
@@ -1915,6 +2516,7 @@ impl ::core::default::Default for DBGKD_DEBUG_DATA_HEADER32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct DBGKD_DEBUG_DATA_HEADER64 {
     pub List: super::super::Kernel::LIST_ENTRY64,
@@ -1948,6 +2550,7 @@ impl ::core::default::Default for DBGKD_DEBUG_DATA_HEADER64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DBGKD_GET_VERSION32 {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -1985,6 +2588,7 @@ impl ::core::default::Default for DBGKD_GET_VERSION32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DBGKD_GET_VERSION64 {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -2021,18 +2625,31 @@ impl ::core::default::Default for DBGKD_GET_VERSION64 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type DBGKD_MAJOR_TYPES = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGKD_MAJOR_NT: DBGKD_MAJOR_TYPES = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGKD_MAJOR_XBOX: DBGKD_MAJOR_TYPES = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGKD_MAJOR_BIG: DBGKD_MAJOR_TYPES = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGKD_MAJOR_EXDI: DBGKD_MAJOR_TYPES = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGKD_MAJOR_NTBD: DBGKD_MAJOR_TYPES = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGKD_MAJOR_EFI: DBGKD_MAJOR_TYPES = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGKD_MAJOR_TNT: DBGKD_MAJOR_TYPES = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGKD_MAJOR_SINGULARITY: DBGKD_MAJOR_TYPES = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGKD_MAJOR_HYPERVISOR: DBGKD_MAJOR_TYPES = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGKD_MAJOR_MIDORI: DBGKD_MAJOR_TYPES = 9i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGKD_MAJOR_CE: DBGKD_MAJOR_TYPES = 10i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGKD_MAJOR_COUNT: DBGKD_MAJOR_TYPES = 11i32;
 pub const DBGKD_SIMULATION_EXDI: i32 = 1i32;
 pub const DBGKD_SIMULATION_NONE: i32 = 0i32;
@@ -2043,41 +2660,77 @@ pub const DBGKD_VERS_FLAG_MP: u32 = 1u32;
 pub const DBGKD_VERS_FLAG_NOMM: u32 = 8u32;
 pub const DBGKD_VERS_FLAG_PARTITIONS: u32 = 32u32;
 pub const DBGKD_VERS_FLAG_PTR64: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type DBGPROP_ATTRIB_FLAGS = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_NO_ATTRIB: DBGPROP_ATTRIB_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_VALUE_IS_INVALID: DBGPROP_ATTRIB_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_VALUE_IS_EXPANDABLE: DBGPROP_ATTRIB_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_VALUE_IS_FAKE: DBGPROP_ATTRIB_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_VALUE_IS_METHOD: DBGPROP_ATTRIB_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_VALUE_IS_EVENT: DBGPROP_ATTRIB_FLAGS = 512u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_VALUE_IS_RAW_STRING: DBGPROP_ATTRIB_FLAGS = 1024u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_VALUE_READONLY: DBGPROP_ATTRIB_FLAGS = 2048u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_ACCESS_PUBLIC: DBGPROP_ATTRIB_FLAGS = 4096u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_ACCESS_PRIVATE: DBGPROP_ATTRIB_FLAGS = 8192u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_ACCESS_PROTECTED: DBGPROP_ATTRIB_FLAGS = 16384u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_ACCESS_FINAL: DBGPROP_ATTRIB_FLAGS = 32768u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_STORAGE_GLOBAL: DBGPROP_ATTRIB_FLAGS = 65536u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_STORAGE_STATIC: DBGPROP_ATTRIB_FLAGS = 131072u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_STORAGE_FIELD: DBGPROP_ATTRIB_FLAGS = 262144u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_STORAGE_VIRTUAL: DBGPROP_ATTRIB_FLAGS = 524288u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_TYPE_IS_CONSTANT: DBGPROP_ATTRIB_FLAGS = 1048576u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_TYPE_IS_SYNCHRONIZED: DBGPROP_ATTRIB_FLAGS = 2097152u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_TYPE_IS_VOLATILE: DBGPROP_ATTRIB_FLAGS = 4194304u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_HAS_EXTENDED_ATTRIBS: DBGPROP_ATTRIB_FLAGS = 8388608u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_FRAME_INTRYBLOCK: DBGPROP_ATTRIB_FLAGS = 16777216u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_FRAME_INCATCHBLOCK: DBGPROP_ATTRIB_FLAGS = 33554432u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_FRAME_INFINALLYBLOCK: DBGPROP_ATTRIB_FLAGS = 67108864u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_VALUE_IS_RETURN_VALUE: DBGPROP_ATTRIB_FLAGS = 134217728u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_ATTRIB_VALUE_PENDING_MUTATION: DBGPROP_ATTRIB_FLAGS = 268435456u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type DBGPROP_INFO = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_INFO_NAME: DBGPROP_INFO = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_INFO_TYPE: DBGPROP_INFO = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_INFO_VALUE: DBGPROP_INFO = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_INFO_FULLNAME: DBGPROP_INFO = 32u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_INFO_ATTRIBUTES: DBGPROP_INFO = 8u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_INFO_DEBUGPROP: DBGPROP_INFO = 16u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_INFO_BEAUTIFY: DBGPROP_INFO = 33554432u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_INFO_CALLTOSTRING: DBGPROP_INFO = 67108864u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBGPROP_INFO_AUTOEXPAND: DBGPROP_INFO = 134217728u32;
 pub const DBG_DUMP_ADDRESS_AT_END: u32 = 131072u32;
 pub const DBG_DUMP_ADDRESS_OF_FIELD: u32 = 65536u32;
@@ -2144,6 +2797,7 @@ pub const DEBUG_BREAKPOINT_GO_ONLY: u32 = 1u32;
 pub const DEBUG_BREAKPOINT_INLINE: u32 = 3u32;
 pub const DEBUG_BREAKPOINT_ONE_SHOT: u32 = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_BREAKPOINT_PARAMETERS {
     pub Offset: u64,
     pub Id: u32,
@@ -2184,6 +2838,7 @@ pub const DEBUG_BREAK_IO: u32 = 8u32;
 pub const DEBUG_BREAK_READ: u32 = 1u32;
 pub const DEBUG_BREAK_WRITE: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_CACHED_SYMBOL_INFO {
     pub ModBase: u64,
     pub Arg1: u64,
@@ -2254,6 +2909,7 @@ pub const DEBUG_CLASS_UNINITIALIZED: u32 = 0u32;
 pub const DEBUG_CLASS_USER_WINDOWS: u32 = 2u32;
 pub const DEBUG_CLIENT_CDB: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_CLIENT_CONTEXT {
     pub cbSize: u32,
     pub eClient: u32,
@@ -2293,6 +2949,7 @@ pub const DEBUG_CONNECT_SESSION_DEFAULT: u32 = 0u32;
 pub const DEBUG_CONNECT_SESSION_NO_ANNOUNCE: u32 = 2u32;
 pub const DEBUG_CONNECT_SESSION_NO_VERSION: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_CREATE_PROCESS_OPTIONS {
     pub CreateFlags: u32,
     pub EngCreateFlags: u32,
@@ -2514,6 +3171,7 @@ pub const DEBUG_ENGOPT_PREFER_DML: u32 = 262144u32;
 pub const DEBUG_ENGOPT_PREFER_TRACE_FILES: u32 = 8388608u32;
 pub const DEBUG_ENGOPT_SYNCHRONIZE_BREAKPOINTS: u32 = 2048u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Threading'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub struct DEBUG_EVENT {
     pub dwDebugEventCode: DEBUG_EVENT_CODE,
@@ -2548,6 +3206,7 @@ impl ::core::default::Default for DEBUG_EVENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Threading'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 pub union DEBUG_EVENT_0 {
     pub Exception: EXCEPTION_DEBUG_INFO,
@@ -2590,17 +3249,28 @@ pub const DEBUG_EVENT_BREAKPOINT: u32 = 1u32;
 pub const DEBUG_EVENT_CHANGE_DEBUGGEE_STATE: u32 = 1024u32;
 pub const DEBUG_EVENT_CHANGE_ENGINE_STATE: u32 = 2048u32;
 pub const DEBUG_EVENT_CHANGE_SYMBOL_STATE: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type DEBUG_EVENT_CODE = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CREATE_PROCESS_DEBUG_EVENT: DEBUG_EVENT_CODE = 3u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CREATE_THREAD_DEBUG_EVENT: DEBUG_EVENT_CODE = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXCEPTION_DEBUG_EVENT: DEBUG_EVENT_CODE = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXIT_PROCESS_DEBUG_EVENT: DEBUG_EVENT_CODE = 5u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXIT_THREAD_DEBUG_EVENT: DEBUG_EVENT_CODE = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const LOAD_DLL_DEBUG_EVENT: DEBUG_EVENT_CODE = 6u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OUTPUT_DEBUG_STRING_EVENT: DEBUG_EVENT_CODE = 8u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const RIP_EVENT: DEBUG_EVENT_CODE = 9u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UNLOAD_DLL_DEBUG_EVENT: DEBUG_EVENT_CODE = 7u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_EVENT_CONTEXT {
     pub Size: u32,
     pub ProcessEngineId: u32,
@@ -2632,10 +3302,15 @@ pub const DEBUG_EVENT_CREATE_THREAD: u32 = 4u32;
 pub const DEBUG_EVENT_EXCEPTION: u32 = 2u32;
 pub const DEBUG_EVENT_EXIT_PROCESS: u32 = 32u32;
 pub const DEBUG_EVENT_EXIT_THREAD: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type DEBUG_EVENT_INFO_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DEIT_GENERAL: DEBUG_EVENT_INFO_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DEIT_ASMJS_IN_DEBUGGING: DEBUG_EVENT_INFO_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DEIT_ASMJS_SUCCEEDED: DEBUG_EVENT_INFO_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DEIT_ASMJS_FAILED: DEBUG_EVENT_INFO_TYPE = 3i32;
 pub const DEBUG_EVENT_LOAD_MODULE: u32 = 64u32;
 pub const DEBUG_EVENT_SERVICE_EXCEPTION: u32 = 8192u32;
@@ -2643,6 +3318,7 @@ pub const DEBUG_EVENT_SESSION_STATUS: u32 = 512u32;
 pub const DEBUG_EVENT_SYSTEM_ERROR: u32 = 256u32;
 pub const DEBUG_EVENT_UNLOAD_MODULE: u32 = 128u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_EXCEPTION_FILTER_PARAMETERS {
     pub ExecutionOption: u32,
     pub ContinueOption: u32,
@@ -2755,6 +3431,7 @@ pub const DEBUG_GET_PROC_FULL_MATCH: u32 = 1u32;
 pub const DEBUG_GET_PROC_ONLY_MATCH: u32 = 2u32;
 pub const DEBUG_GET_PROC_SERVICE_NAME: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_GET_TEXT_COMPLETIONS_IN {
     pub Flags: u32,
     pub MatchCountLimit: u32,
@@ -2787,6 +3464,7 @@ pub const DEBUG_GET_TEXT_COMPLETIONS_NO_DOT_COMMANDS: u32 = 1u32;
 pub const DEBUG_GET_TEXT_COMPLETIONS_NO_EXTENSION_COMMANDS: u32 = 2u32;
 pub const DEBUG_GET_TEXT_COMPLETIONS_NO_SYMBOLS: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_GET_TEXT_COMPLETIONS_OUT {
     pub Flags: u32,
     pub ReplaceIndex: u32,
@@ -2821,6 +3499,7 @@ pub const DEBUG_GSEL_INLINE_CALLSITE: u32 = 16u32;
 pub const DEBUG_GSEL_NEAREST_ONLY: u32 = 8u32;
 pub const DEBUG_GSEL_NO_SYMBOL_LOADS: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_HANDLE_DATA_BASIC {
     pub TypeNameSize: u32,
     pub ObjectNameSize: u32,
@@ -2888,6 +3567,7 @@ pub const DEBUG_KNOWN_STRUCT_GET_NAMES: u32 = 1u32;
 pub const DEBUG_KNOWN_STRUCT_GET_SINGLE_LINE_OUTPUT: u32 = 2u32;
 pub const DEBUG_KNOWN_STRUCT_SUPPRESS_TYPE_NAME: u32 = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_LAST_EVENT_INFO_BREAKPOINT {
     pub Id: u32,
 }
@@ -2912,6 +3592,7 @@ impl ::core::default::Default for DEBUG_LAST_EVENT_INFO_BREAKPOINT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_LAST_EVENT_INFO_EXCEPTION {
     pub ExceptionRecord: EXCEPTION_RECORD64,
@@ -2944,6 +3625,7 @@ impl ::core::default::Default for DEBUG_LAST_EVENT_INFO_EXCEPTION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
     pub ExitCode: u32,
 }
@@ -2968,6 +3650,7 @@ impl ::core::default::Default for DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_LAST_EVENT_INFO_EXIT_THREAD {
     pub ExitCode: u32,
 }
@@ -2992,6 +3675,7 @@ impl ::core::default::Default for DEBUG_LAST_EVENT_INFO_EXIT_THREAD {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_LAST_EVENT_INFO_LOAD_MODULE {
     pub Base: u64,
 }
@@ -3016,6 +3700,7 @@ impl ::core::default::Default for DEBUG_LAST_EVENT_INFO_LOAD_MODULE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
     pub Kind: u32,
     pub DataSize: u32,
@@ -3042,6 +3727,7 @@ impl ::core::default::Default for DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
     pub Error: u32,
     pub Level: u32,
@@ -3067,6 +3753,7 @@ impl ::core::default::Default for DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
     pub Base: u64,
 }
@@ -3111,6 +3798,7 @@ pub const DEBUG_MODNAME_MAPPED_IMAGE: u32 = 4u32;
 pub const DEBUG_MODNAME_MODULE: u32 = 1u32;
 pub const DEBUG_MODNAME_SYMBOL_FILE: u32 = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_MODULE_AND_ID {
     pub ModuleBase: u64,
     pub Id: u64,
@@ -3139,6 +3827,7 @@ pub const DEBUG_MODULE_EXE_MODULE: u32 = 4u32;
 pub const DEBUG_MODULE_EXPLICIT: u32 = 8u32;
 pub const DEBUG_MODULE_LOADED: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_MODULE_PARAMETERS {
     pub Base: u64,
     pub Size: u32,
@@ -3183,6 +3872,7 @@ pub const DEBUG_NOTIFY_SESSION_ACTIVE: u32 = 0u32;
 pub const DEBUG_NOTIFY_SESSION_INACCESSIBLE: u32 = 3u32;
 pub const DEBUG_NOTIFY_SESSION_INACTIVE: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_OFFSET_REGION {
     pub Base: u64,
     pub Size: u64,
@@ -3266,6 +3956,7 @@ pub const DEBUG_PHYSICAL_DEFAULT: u32 = 0u32;
 pub const DEBUG_PHYSICAL_UNCACHED: u32 = 2u32;
 pub const DEBUG_PHYSICAL_WRITE_COMBINED: u32 = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     pub Alpha: DEBUG_PROCESSOR_IDENTIFICATION_ALPHA,
@@ -3302,6 +3993,7 @@ impl ::core::default::Default for DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
     pub Type: u32,
     pub Revision: u32,
@@ -3327,6 +4019,7 @@ impl ::core::default::Default for DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     pub Family: u32,
@@ -3361,6 +4054,7 @@ impl ::core::default::Default for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     pub Model: u32,
@@ -3394,6 +4088,7 @@ impl ::core::default::Default for DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     pub Model: u32,
@@ -3427,6 +4122,7 @@ impl ::core::default::Default for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     pub Model: u32,
@@ -3462,6 +4158,7 @@ impl ::core::default::Default for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_X86 {
     pub Family: u32,
@@ -3506,6 +4203,7 @@ pub const DEBUG_PROC_DESC_NO_SESSION_ID: u32 = 16u32;
 pub const DEBUG_PROC_DESC_NO_USER_NAME: u32 = 32u32;
 pub const DEBUG_PROC_DESC_WITH_PACKAGEFAMILY: u32 = 64u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_READ_USER_MINIDUMP_STREAM {
     pub StreamType: u32,
     pub Flags: u32,
@@ -3540,6 +4238,7 @@ pub const DEBUG_REGISTERS_FLOAT: u32 = 4u32;
 pub const DEBUG_REGISTERS_INT32: u32 = 1u32;
 pub const DEBUG_REGISTERS_INT64: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_REGISTER_DESCRIPTION {
     pub Type: u32,
     pub Flags: u32,
@@ -3628,6 +4327,7 @@ pub const DEBUG_SESSION_HIBERNATE: u32 = 6u32;
 pub const DEBUG_SESSION_REBOOT: u32 = 5u32;
 pub const DEBUG_SOURCE_IS_STATEMENT: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_SPECIFIC_FILTER_PARAMETERS {
     pub ExecutionOption: u32,
     pub ContinueOption: u32,
@@ -3658,14 +4358,19 @@ impl ::core::default::Default for DEBUG_SPECIFIC_FILTER_PARAMETERS {
 pub const DEBUG_SRCFILE_SYMBOL_CHECKSUMINFO: u32 = 2u32;
 pub const DEBUG_SRCFILE_SYMBOL_TOKEN: u32 = 0u32;
 pub const DEBUG_SRCFILE_SYMBOL_TOKEN_SOURCE_COMMAND_WIDE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type DEBUG_STACKFRAME_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DST_SCRIPT_FRAME: DEBUG_STACKFRAME_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DST_INTERNAL_FRAME: DEBUG_STACKFRAME_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DST_INVOCATION_FRAME: DEBUG_STACKFRAME_TYPE = 2i32;
 pub const DEBUG_STACK_ARGUMENTS: u32 = 1u32;
 pub const DEBUG_STACK_COLUMN_NAMES: u32 = 16u32;
 pub const DEBUG_STACK_DML: u32 = 2048u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_STACK_FRAME {
     pub InstructionOffset: u64,
@@ -3708,6 +4413,7 @@ pub const DEBUG_STACK_FRAME_ADDRESSES: u32 = 8u32;
 pub const DEBUG_STACK_FRAME_ADDRESSES_RA_ONLY: u32 = 256u32;
 pub const DEBUG_STACK_FRAME_ARCH: u32 = 16384u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_STACK_FRAME_EX {
     pub InstructionOffset: u64,
@@ -3779,6 +4485,7 @@ pub const DEBUG_STATUS_TIMEOUT: u32 = 17u32;
 pub const DEBUG_STATUS_WAIT_INPUT: u32 = 16u32;
 pub const DEBUG_STATUS_WAIT_TIMEOUT: u64 = 8589934592u64;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_SYMBOL_ENTRY {
     pub ModuleBase: u64,
     pub Offset: u64,
@@ -3820,6 +4527,7 @@ pub const DEBUG_SYMBOL_IS_ARRAY: u32 = 64u32;
 pub const DEBUG_SYMBOL_IS_FLOAT: u32 = 128u32;
 pub const DEBUG_SYMBOL_IS_LOCAL: u32 = 512u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_SYMBOL_PARAMETERS {
     pub Module: u64,
     pub TypeId: u32,
@@ -3850,6 +4558,7 @@ impl ::core::default::Default for DEBUG_SYMBOL_PARAMETERS {
 }
 pub const DEBUG_SYMBOL_READ_ONLY: u32 = 32u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_SYMBOL_SOURCE_ENTRY {
     pub ModuleBase: u64,
     pub Offset: u64,
@@ -3922,6 +4631,7 @@ pub const DEBUG_TEXT_ISNONUSERCODE: u32 = 64u32;
 pub const DEBUG_TEXT_NOSIDEEFFECTS: u32 = 4u32;
 pub const DEBUG_TEXT_RETURNVALUE: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_THREAD_BASIC_INFORMATION {
     pub Valid: u32,
     pub ExitStatus: u32,
@@ -3955,6 +4665,7 @@ impl ::core::default::Default for DEBUG_THREAD_BASIC_INFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DEBUG_TYPED_DATA {
     pub ModBase: u64,
     pub Offset: u64,
@@ -4006,6 +4717,7 @@ pub const DEBUG_USER_WINDOWS_PROCESS_SERVER: u32 = 1u32;
 pub const DEBUG_USER_WINDOWS_REPT: u32 = 3u32;
 pub const DEBUG_USER_WINDOWS_SMALL_DUMP: u32 = 1024u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_VALUE {
     pub Anonymous: DEBUG_VALUE_0,
@@ -4039,6 +4751,7 @@ impl ::core::default::Default for DEBUG_VALUE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DEBUG_VALUE_0 {
     pub I8: u8,
@@ -4087,6 +4800,7 @@ impl ::core::default::Default for DEBUG_VALUE_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_VALUE_0_0 {
     pub I64: u64,
@@ -4119,6 +4833,7 @@ impl ::core::default::Default for DEBUG_VALUE_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_VALUE_0_1 {
     pub LowPart: u64,
@@ -4151,6 +4866,7 @@ impl ::core::default::Default for DEBUG_VALUE_0_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_VALUE_0_2 {
     pub LowPart: u32,
@@ -4202,9 +4918,11 @@ pub const DEBUG_VSOURCE_DUMP_WITHOUT_MEMINFO: u32 = 3u32;
 pub const DEBUG_VSOURCE_INVALID: u32 = 0u32;
 pub const DEBUG_VSOURCE_MAPPED_IMAGE: u32 = 2u32;
 pub const DEBUG_WAIT_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DIGEST_FUNCTION = ::core::option::Option<unsafe extern "system" fn(refdata: *mut ::core::ffi::c_void, pdata: *mut u8, dwlength: u32) -> super::super::super::Foundation::BOOL>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct DISPATCHER_CONTEXT {
@@ -4254,6 +4972,7 @@ impl ::core::default::Default for DISPATCHER_CONTEXT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct DISPATCHER_CONTEXT {
@@ -4310,16 +5029,24 @@ pub const DMP_RESERVED_0_SIZE_32: u32 = 1760u32;
 pub const DMP_RESERVED_0_SIZE_64: u32 = 4008u32;
 pub const DMP_RESERVED_2_SIZE_32: u32 = 16u32;
 pub const DMP_RESERVED_3_SIZE_32: u32 = 56u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type DOCUMENTNAMETYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DOCUMENTNAMETYPE_APPNODE: DOCUMENTNAMETYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DOCUMENTNAMETYPE_TITLE: DOCUMENTNAMETYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DOCUMENTNAMETYPE_FILE_TAIL: DOCUMENTNAMETYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DOCUMENTNAMETYPE_URL: DOCUMENTNAMETYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DOCUMENTNAMETYPE_UNIQUE_TITLE: DOCUMENTNAMETYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DOCUMENTNAMETYPE_SOURCE_MAP_URL: DOCUMENTNAMETYPE = 5i32;
 pub const DSLFLAG_MISMATCHED_DBG: u32 = 2u32;
 pub const DSLFLAG_MISMATCHED_PDB: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union DUMP_FILE_ATTRIBUTES {
     pub Anonymous: DUMP_FILE_ATTRIBUTES_0,
     pub Attributes: u32,
@@ -4345,6 +5072,7 @@ impl ::core::default::Default for DUMP_FILE_ATTRIBUTES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct DUMP_FILE_ATTRIBUTES_0 {
     pub _bitfield: u32,
 }
@@ -4369,6 +5097,7 @@ impl ::core::default::Default for DUMP_FILE_ATTRIBUTES_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DUMP_HEADER32 {
     pub Signature: u32,
@@ -4437,6 +5166,7 @@ impl ::core::default::Default for DUMP_HEADER32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DUMP_HEADER32_0 {
     pub PhysicalMemoryBlock: PHYSICAL_MEMORY_DESCRIPTOR32,
@@ -4469,6 +5199,7 @@ impl ::core::default::Default for DUMP_HEADER32_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DUMP_HEADER64 {
     pub Signature: u32,
@@ -4535,6 +5266,7 @@ impl ::core::default::Default for DUMP_HEADER64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DUMP_HEADER64_0 {
     pub PhysicalMemoryBlock: PHYSICAL_MEMORY_DESCRIPTOR64,
@@ -4568,6 +5300,7 @@ impl ::core::default::Default for DUMP_HEADER64_0 {
 }
 pub const DUMP_SUMMARY_VALID_CURRENT_USER_VA: u32 = 2u32;
 pub const DUMP_SUMMARY_VALID_KERNEL_VA: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DbgHelpCreateUserDump<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(filename: Param0, callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -4582,6 +5315,7 @@ pub unsafe fn DbgHelpCreateUserDump<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DbgHelpCreateUserDumpW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(filename: Param0, callback: PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -4596,6 +5330,7 @@ pub unsafe fn DbgHelpCreateUserDumpW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DebugActiveProcess(dwprocessid: u32) -> super::super::super::Foundation::BOOL {
@@ -4610,6 +5345,7 @@ pub unsafe fn DebugActiveProcess(dwprocessid: u32) -> super::super::super::Found
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DebugActiveProcessStop(dwprocessid: u32) -> super::super::super::Foundation::BOOL {
@@ -4624,6 +5360,7 @@ pub unsafe fn DebugActiveProcessStop(dwprocessid: u32) -> super::super::super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct DebugBaseEventCallbacks(::windows::core::IUnknown);
 impl DebugBaseEventCallbacks {
@@ -4755,6 +5492,7 @@ pub struct DebugBaseEventCallbacksVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, argument: u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, argument: u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct DebugBaseEventCallbacksWide(::windows::core::IUnknown);
 impl DebugBaseEventCallbacksWide {
@@ -4886,6 +5624,7 @@ pub struct DebugBaseEventCallbacksWideVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, argument: u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, argument: u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn DebugBreak() {
     #[cfg(windows)]
@@ -4899,6 +5638,7 @@ pub unsafe fn DebugBreak() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DebugBreakProcess<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(process: Param0) -> super::super::super::Foundation::BOOL {
@@ -4913,6 +5653,7 @@ pub unsafe fn DebugBreakProcess<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DebugConnect<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(remoteoptions: Param0, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -4927,6 +5668,7 @@ pub unsafe fn DebugConnect<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DebugConnectWide<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(remoteoptions: Param0, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -4941,6 +5683,7 @@ pub unsafe fn DebugConnectWide<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn DebugCreate(interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -4954,6 +5697,7 @@ pub unsafe fn DebugCreate(interfaceid: *const ::windows::core::GUID, interface: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn DebugCreateEx(interfaceid: *const ::windows::core::GUID, dbgengoptions: u32, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -4969,6 +5713,7 @@ pub unsafe fn DebugCreateEx(interfaceid: *const ::windows::core::GUID, dbgengopt
 }
 pub const DebugHelper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bfcc060_8c1d_11d0_accd_00aa0060275c);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DebugPropertyInfo {
     pub m_dwValidFields: u32,
@@ -5011,6 +5756,7 @@ impl ::core::default::Default for DebugPropertyInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DebugSetProcessKillOnExit<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(killonexit: Param0) -> super::super::super::Foundation::BOOL {
@@ -5026,6 +5772,7 @@ pub unsafe fn DebugSetProcessKillOnExit<'a, Param0: ::windows::core::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DebugStackFrameDescriptor {
     pub pdsf: ::core::option::Option<IDebugStackFrame>,
@@ -5059,6 +5806,7 @@ impl ::core::default::Default for DebugStackFrameDescriptor {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DebugStackFrameDescriptor64 {
     pub pdsf: ::core::option::Option<IDebugStackFrame>,
@@ -5091,6 +5839,7 @@ impl ::core::default::Default for DebugStackFrameDescriptor64 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn DecodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -5104,6 +5853,7 @@ pub unsafe fn DecodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DecodeRemotePointer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processhandle: Param0, ptr: *const ::core::ffi::c_void, decodedptr: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -5118,6 +5868,7 @@ pub unsafe fn DecodeRemotePointer<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn DecodeSystemPointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -5132,9 +5883,13 @@ pub unsafe fn DecodeSystemPointer(ptr: *const ::core::ffi::c_void) -> *mut ::cor
     unimplemented!("Unsupported target OS");
 }
 pub const DefaultDebugSessionProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x834128a2_51f4_11d0_8f20_00805f2cd064);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type ERRORRESUMEACTION = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ERRORRESUMEACTION_ReexecuteErrorStatement: ERRORRESUMEACTION = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ERRORRESUMEACTION_AbortCallAndReturnErrorToCaller: ERRORRESUMEACTION = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ERRORRESUMEACTION_SkipErrorStatement: ERRORRESUMEACTION = 2i32;
 pub const ERROR_DBG_CANCELLED: u32 = 3221226695u32;
 pub const ERROR_DBG_TIMEOUT: u32 = 3221226932u32;
@@ -5150,6 +5905,7 @@ pub const EVENT_SRCSPEW: u32 = 100u32;
 pub const EVENT_SRCSPEW_END: u32 = 199u32;
 pub const EVENT_SRCSPEW_START: u32 = 100u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXCEPTION_DEBUG_INFO {
     pub ExceptionRecord: EXCEPTION_RECORD,
@@ -5182,6 +5938,7 @@ impl ::core::default::Default for EXCEPTION_DEBUG_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct EXCEPTION_POINTERS {
     pub ExceptionRecord: *mut EXCEPTION_RECORD,
@@ -5214,6 +5971,7 @@ impl ::core::default::Default for EXCEPTION_POINTERS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXCEPTION_RECORD {
     pub ExceptionCode: super::super::super::Foundation::NTSTATUS,
@@ -5250,6 +6008,7 @@ impl ::core::default::Default for EXCEPTION_RECORD {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXCEPTION_RECORD32 {
     pub ExceptionCode: super::super::super::Foundation::NTSTATUS,
@@ -5286,6 +6045,7 @@ impl ::core::default::Default for EXCEPTION_RECORD32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXCEPTION_RECORD64 {
     pub ExceptionCode: super::super::super::Foundation::NTSTATUS,
@@ -5324,6 +6084,7 @@ impl ::core::default::Default for EXCEPTION_RECORD64 {
 }
 pub const EXIT_ON_CONTROLC: u32 = 8u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct EXIT_PROCESS_DEBUG_INFO {
     pub dwExitCode: u32,
 }
@@ -5348,6 +6109,7 @@ impl ::core::default::Default for EXIT_PROCESS_DEBUG_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct EXIT_THREAD_DEBUG_INFO {
     pub dwExitCode: u32,
 }
@@ -5372,6 +6134,7 @@ impl ::core::default::Default for EXIT_THREAD_DEBUG_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct EXTSTACKTRACE {
     pub FramePointer: u32,
     pub ProgramCounter: u32,
@@ -5399,6 +6162,7 @@ impl ::core::default::Default for EXTSTACKTRACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct EXTSTACKTRACE32 {
     pub FramePointer: u32,
     pub ProgramCounter: u32,
@@ -5426,6 +6190,7 @@ impl ::core::default::Default for EXTSTACKTRACE32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct EXTSTACKTRACE64 {
     pub FramePointer: u64,
     pub ProgramCounter: u64,
@@ -5453,6 +6218,7 @@ impl ::core::default::Default for EXTSTACKTRACE64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct EXT_API_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
@@ -5483,6 +6249,7 @@ pub const EXT_API_VERSION_NUMBER: u32 = 5u32;
 pub const EXT_API_VERSION_NUMBER32: u32 = 5u32;
 pub const EXT_API_VERSION_NUMBER64: u32 = 6u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXT_FIND_FILE {
     pub FileName: super::super::super::Foundation::PWSTR,
@@ -5526,6 +6293,7 @@ impl ::core::default::Default for EXT_FIND_FILE {
 }
 pub const EXT_FIND_FILE_ALLOW_GIVEN_PATH: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXT_MATCH_PATTERN_A {
     pub Str: super::super::super::Foundation::PSTR,
@@ -5564,28 +6332,50 @@ pub const EXT_TDF_PHYSICAL_DEFAULT: u32 = 2u32;
 pub const EXT_TDF_PHYSICAL_MEMORY: u32 = 14u32;
 pub const EXT_TDF_PHYSICAL_UNCACHED: u32 = 6u32;
 pub const EXT_TDF_PHYSICAL_WRITE_COMBINED: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type EXT_TDOP = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_COPY: EXT_TDOP = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_RELEASE: EXT_TDOP = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_SET_FROM_EXPR: EXT_TDOP = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_SET_FROM_U64_EXPR: EXT_TDOP = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_GET_FIELD: EXT_TDOP = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_EVALUATE: EXT_TDOP = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_GET_TYPE_NAME: EXT_TDOP = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_OUTPUT_TYPE_NAME: EXT_TDOP = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_OUTPUT_SIMPLE_VALUE: EXT_TDOP = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_OUTPUT_FULL_VALUE: EXT_TDOP = 9i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_HAS_FIELD: EXT_TDOP = 10i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_GET_FIELD_OFFSET: EXT_TDOP = 11i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_GET_ARRAY_ELEMENT: EXT_TDOP = 12i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_GET_DEREFERENCE: EXT_TDOP = 13i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_GET_TYPE_SIZE: EXT_TDOP = 14i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_OUTPUT_TYPE_DEFINITION: EXT_TDOP = 15i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_GET_POINTER_TO: EXT_TDOP = 16i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_SET_FROM_TYPE_ID_AND_U64: EXT_TDOP = 17i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_SET_PTR_FROM_TYPE_ID_AND_U64: EXT_TDOP = 18i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EXT_TDOP_COUNT: EXT_TDOP = 19i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct EXT_TYPED_DATA {
     pub Operation: EXT_TDOP,
     pub Flags: u32,
@@ -5625,18 +6415,31 @@ impl ::core::default::Default for EXT_TYPED_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type EX_PROP_INFO_FLAGS = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EX_PROP_INFO_ID: EX_PROP_INFO_FLAGS = 256i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EX_PROP_INFO_NTYPE: EX_PROP_INFO_FLAGS = 512i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EX_PROP_INFO_NVALUE: EX_PROP_INFO_FLAGS = 1024i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EX_PROP_INFO_LOCKBYTES: EX_PROP_INFO_FLAGS = 2048i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const EX_PROP_INFO_DEBUGEXTPROP: EX_PROP_INFO_FLAGS = 4096i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const E_JsDEBUG_INVALID_MEMORY_ADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338171i32);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const E_JsDEBUG_MISMATCHED_RUNTIME: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338175i32);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const E_JsDEBUG_OUTSIDE_OF_VM: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338172i32);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const E_JsDEBUG_RUNTIME_NOT_IN_DEBUG_MODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338169i32);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const E_JsDEBUG_SOURCE_LOCATION_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338170i32);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const E_JsDEBUG_UNKNOWN_THREAD: ::windows::core::HRESULT = ::windows::core::HRESULT(-1916338174i32);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn EncodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -5650,6 +6453,7 @@ pub unsafe fn EncodePointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EncodeRemotePointer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processhandle: Param0, ptr: *const ::core::ffi::c_void, encodedptr: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -5664,6 +6468,7 @@ pub unsafe fn EncodeRemotePointer<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn EncodeSystemPointer(ptr: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -5677,6 +6482,7 @@ pub unsafe fn EncodeSystemPointer(ptr: *const ::core::ffi::c_void) -> *mut ::cor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDirTree<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, rootpath: Param1, inputpathname: Param2, outputpathbuffer: super::super::super::Foundation::PSTR, cb: PENUMDIRTREE_CALLBACK, data: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -5691,6 +6497,7 @@ pub unsafe fn EnumDirTree<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDirTreeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, rootpath: Param1, inputpathname: Param2, outputpathbuffer: super::super::super::Foundation::PWSTR, cb: PENUMDIRTREE_CALLBACKW, data: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -5705,6 +6512,7 @@ pub unsafe fn EnumDirTreeW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -5720,6 +6528,7 @@ pub unsafe fn EnumerateLoadedModules<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumerateLoadedModules64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -5734,6 +6543,7 @@ pub unsafe fn EnumerateLoadedModules64<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumerateLoadedModulesEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -5748,6 +6558,7 @@ pub unsafe fn EnumerateLoadedModulesEx<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumerateLoadedModulesExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -5762,6 +6573,7 @@ pub unsafe fn EnumerateLoadedModulesExW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumerateLoadedModulesW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACKW64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -5776,10 +6588,14 @@ pub unsafe fn EnumerateLoadedModulesW64<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type ErrorClass = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ErrorClassWarning: ErrorClass = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ErrorClassError: ErrorClass = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage', 'Win32_System_Ole'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub struct ExtendedDebugPropertyInfo {
     pub dwValidFields: u32,
@@ -5832,163 +6648,318 @@ impl ::core::default::Default for ExtendedDebugPropertyInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type FACILITY_CODE = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_NULL: FACILITY_CODE = 0u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_RPC: FACILITY_CODE = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DISPATCH: FACILITY_CODE = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_STORAGE: FACILITY_CODE = 3u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_ITF: FACILITY_CODE = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WIN32: FACILITY_CODE = 7u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WINDOWS: FACILITY_CODE = 8u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_SSPI: FACILITY_CODE = 9u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_SECURITY: FACILITY_CODE = 9u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_CONTROL: FACILITY_CODE = 10u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_CERT: FACILITY_CODE = 11u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_INTERNET: FACILITY_CODE = 12u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_MEDIASERVER: FACILITY_CODE = 13u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_MSMQ: FACILITY_CODE = 14u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_SETUPAPI: FACILITY_CODE = 15u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_SCARD: FACILITY_CODE = 16u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_COMPLUS: FACILITY_CODE = 17u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_AAF: FACILITY_CODE = 18u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_URT: FACILITY_CODE = 19u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_ACS: FACILITY_CODE = 20u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DPLAY: FACILITY_CODE = 21u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_UMI: FACILITY_CODE = 22u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_SXS: FACILITY_CODE = 23u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WINDOWS_CE: FACILITY_CODE = 24u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_HTTP: FACILITY_CODE = 25u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_USERMODE_COMMONLOG: FACILITY_CODE = 26u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WER: FACILITY_CODE = 27u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_USERMODE_FILTER_MANAGER: FACILITY_CODE = 31u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_BACKGROUNDCOPY: FACILITY_CODE = 32u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_CONFIGURATION: FACILITY_CODE = 33u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WIA: FACILITY_CODE = 33u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_STATE_MANAGEMENT: FACILITY_CODE = 34u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_METADIRECTORY: FACILITY_CODE = 35u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WINDOWSUPDATE: FACILITY_CODE = 36u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DIRECTORYSERVICE: FACILITY_CODE = 37u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_GRAPHICS: FACILITY_CODE = 38u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_SHELL: FACILITY_CODE = 39u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_NAP: FACILITY_CODE = 39u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_TPM_SERVICES: FACILITY_CODE = 40u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_TPM_SOFTWARE: FACILITY_CODE = 41u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_UI: FACILITY_CODE = 42u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_XAML: FACILITY_CODE = 43u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_ACTION_QUEUE: FACILITY_CODE = 44u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_PLA: FACILITY_CODE = 48u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WINDOWS_SETUP: FACILITY_CODE = 48u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_FVE: FACILITY_CODE = 49u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_FWP: FACILITY_CODE = 50u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WINRM: FACILITY_CODE = 51u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_NDIS: FACILITY_CODE = 52u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_USERMODE_HYPERVISOR: FACILITY_CODE = 53u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_CMI: FACILITY_CODE = 54u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_USERMODE_VIRTUALIZATION: FACILITY_CODE = 55u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_USERMODE_VOLMGR: FACILITY_CODE = 56u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_BCD: FACILITY_CODE = 57u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_USERMODE_VHD: FACILITY_CODE = 58u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_USERMODE_HNS: FACILITY_CODE = 59u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_SDIAG: FACILITY_CODE = 60u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WEBSERVICES: FACILITY_CODE = 61u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WINPE: FACILITY_CODE = 61u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WPN: FACILITY_CODE = 62u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WINDOWS_STORE: FACILITY_CODE = 63u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_INPUT: FACILITY_CODE = 64u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_QUIC: FACILITY_CODE = 65u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_EAP: FACILITY_CODE = 66u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_IORING: FACILITY_CODE = 70u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WINDOWS_DEFENDER: FACILITY_CODE = 80u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_OPC: FACILITY_CODE = 81u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_XPS: FACILITY_CODE = 82u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_MBN: FACILITY_CODE = 84u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_POWERSHELL: FACILITY_CODE = 84u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_RAS: FACILITY_CODE = 83u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_P2P_INT: FACILITY_CODE = 98u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_P2P: FACILITY_CODE = 99u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DAF: FACILITY_CODE = 100u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_BLUETOOTH_ATT: FACILITY_CODE = 101u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_AUDIO: FACILITY_CODE = 102u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_STATEREPOSITORY: FACILITY_CODE = 103u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_VISUALCPP: FACILITY_CODE = 109u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_SCRIPT: FACILITY_CODE = 112u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_PARSE: FACILITY_CODE = 113u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_BLB: FACILITY_CODE = 120u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_BLB_CLI: FACILITY_CODE = 121u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WSBAPP: FACILITY_CODE = 122u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_BLBUI: FACILITY_CODE = 128u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_USN: FACILITY_CODE = 129u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_USERMODE_VOLSNAP: FACILITY_CODE = 130u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_TIERING: FACILITY_CODE = 131u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WSB_ONLINE: FACILITY_CODE = 133u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_ONLINE_ID: FACILITY_CODE = 134u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DEVICE_UPDATE_AGENT: FACILITY_CODE = 135u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DRVSERVICING: FACILITY_CODE = 136u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DLS: FACILITY_CODE = 153u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DELIVERY_OPTIMIZATION: FACILITY_CODE = 208u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_USERMODE_SPACES: FACILITY_CODE = 231u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_USER_MODE_SECURITY_CORE: FACILITY_CODE = 232u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_USERMODE_LICENSING: FACILITY_CODE = 234u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_SOS: FACILITY_CODE = 160u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_OCP_UPDATE_AGENT: FACILITY_CODE = 173u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DEBUGGERS: FACILITY_CODE = 176u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_SPP: FACILITY_CODE = 256u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_RESTORE: FACILITY_CODE = 256u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DMSERVER: FACILITY_CODE = 256u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DEPLOYMENT_SERVICES_SERVER: FACILITY_CODE = 257u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DEPLOYMENT_SERVICES_IMAGING: FACILITY_CODE = 258u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DEPLOYMENT_SERVICES_MANAGEMENT: FACILITY_CODE = 259u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DEPLOYMENT_SERVICES_UTIL: FACILITY_CODE = 260u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DEPLOYMENT_SERVICES_BINLSVC: FACILITY_CODE = 261u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DEPLOYMENT_SERVICES_PXE: FACILITY_CODE = 263u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DEPLOYMENT_SERVICES_TFTP: FACILITY_CODE = 264u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DEPLOYMENT_SERVICES_TRANSPORT_MANAGEMENT: FACILITY_CODE = 272u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DEPLOYMENT_SERVICES_DRIVER_PROVISIONING: FACILITY_CODE = 278u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DEPLOYMENT_SERVICES_MULTICAST_SERVER: FACILITY_CODE = 289u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DEPLOYMENT_SERVICES_MULTICAST_CLIENT: FACILITY_CODE = 290u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DEPLOYMENT_SERVICES_CONTENT_PROVIDER: FACILITY_CODE = 293u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_HSP_SERVICES: FACILITY_CODE = 296u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_HSP_SOFTWARE: FACILITY_CODE = 297u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_LINGUISTIC_SERVICES: FACILITY_CODE = 305u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_AUDIOSTREAMING: FACILITY_CODE = 1094u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_TTD: FACILITY_CODE = 1490u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_ACCELERATOR: FACILITY_CODE = 1536u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WMAAECMA: FACILITY_CODE = 1996u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DIRECTMUSIC: FACILITY_CODE = 2168u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DIRECT3D10: FACILITY_CODE = 2169u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DXGI: FACILITY_CODE = 2170u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DXGI_DDI: FACILITY_CODE = 2171u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DIRECT3D11: FACILITY_CODE = 2172u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DIRECT3D11_DEBUG: FACILITY_CODE = 2173u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DIRECT3D12: FACILITY_CODE = 2174u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DIRECT3D12_DEBUG: FACILITY_CODE = 2175u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DXCORE: FACILITY_CODE = 2176u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_PRESENTATION: FACILITY_CODE = 2177u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_LEAP: FACILITY_CODE = 2184u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_AUDCLNT: FACILITY_CODE = 2185u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WINCODEC_DWRITE_DWM: FACILITY_CODE = 2200u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WINML: FACILITY_CODE = 2192u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DIRECT2D: FACILITY_CODE = 2201u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_DEFRAG: FACILITY_CODE = 2304u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_USERMODE_SDBUS: FACILITY_CODE = 2305u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_JSCRIPT: FACILITY_CODE = 2306u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_PIDGENX: FACILITY_CODE = 2561u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_EAS: FACILITY_CODE = 85u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WEB: FACILITY_CODE = 885u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WEB_SOCKET: FACILITY_CODE = 886u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_MOBILE: FACILITY_CODE = 1793u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_SQLITE: FACILITY_CODE = 1967u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_SERVICE_FABRIC: FACILITY_CODE = 1968u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_UTC: FACILITY_CODE = 1989u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_WEP: FACILITY_CODE = 2049u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_SYNCENGINE: FACILITY_CODE = 2050u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_XBOX: FACILITY_CODE = 2339u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_GAME: FACILITY_CODE = 2340u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_PIX: FACILITY_CODE = 2748u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FACILITY_NT_BIT: FACILITY_CODE = 268435456u32;
 pub const FACILITY_JsDEBUG: u32 = 3527u32;
 pub const FIELDS_DID_NOT_MATCH: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct FIELD_INFO {
     pub fName: *mut u8,
     pub printName: *mut u8,
@@ -6023,6 +6994,7 @@ impl ::core::default::Default for FIELD_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union FIELD_INFO_0 {
     pub fieldCallBack: *mut ::core::ffi::c_void,
     pub pBuffer: *mut ::core::ffi::c_void,
@@ -6048,6 +7020,7 @@ impl ::core::default::Default for FIELD_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct FIELD_INFO_1 {
     pub Position: u16,
     pub Size: u16,
@@ -6075,14 +7048,22 @@ impl ::core::default::Default for FIELD_INFO_1 {
 pub const FLAG_ENGINE_PRESENT: u32 = 4u32;
 pub const FLAG_ENGOPT_DISALLOW_NETWORK_PATHS: u32 = 8u32;
 pub const FLAG_OVERRIDE_ARM_MACHINE_TYPE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type FORMAT_MESSAGE_OPTIONS = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: FORMAT_MESSAGE_OPTIONS = 256u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FORMAT_MESSAGE_ARGUMENT_ARRAY: FORMAT_MESSAGE_OPTIONS = 8192u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FORMAT_MESSAGE_FROM_HMODULE: FORMAT_MESSAGE_OPTIONS = 2048u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FORMAT_MESSAGE_FROM_STRING: FORMAT_MESSAGE_OPTIONS = 1024u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FORMAT_MESSAGE_FROM_SYSTEM: FORMAT_MESSAGE_OPTIONS = 4096u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FORMAT_MESSAGE_IGNORE_INSERTS: FORMAT_MESSAGE_OPTIONS = 512u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct FPO_DATA {
     pub ulOffStart: u32,
     pub cbProcSize: u32,
@@ -6110,6 +7091,7 @@ impl ::core::default::Default for FPO_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FatalAppExitA<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(uaction: u32, lpmessagetext: Param1) {
@@ -6124,6 +7106,7 @@ pub unsafe fn FatalAppExitA<'a, Param1: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FatalAppExitW<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(uaction: u32, lpmessagetext: Param1) {
@@ -6138,6 +7121,7 @@ pub unsafe fn FatalAppExitW<'a, Param1: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn FatalExit(exitcode: i32) {
     #[cfg(windows)]
@@ -6151,6 +7135,7 @@ pub unsafe fn FatalExit(exitcode: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindDebugInfoFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(filename: Param0, symbolpath: Param1, debugfilepath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::HANDLE {
@@ -6165,6 +7150,7 @@ pub unsafe fn FindDebugInfoFile<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindDebugInfoFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(filename: Param0, symbolpath: Param1, debugfilepath: super::super::super::Foundation::PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
@@ -6179,6 +7165,7 @@ pub unsafe fn FindDebugInfoFileEx<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindDebugInfoFileExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(filename: Param0, symbolpath: Param1, debugfilepath: super::super::super::Foundation::PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
@@ -6193,6 +7180,7 @@ pub unsafe fn FindDebugInfoFileExW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindExecutableImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(filename: Param0, symbolpath: Param1, imagefilepath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::HANDLE {
@@ -6207,6 +7195,7 @@ pub unsafe fn FindExecutableImage<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindExecutableImageEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(filename: Param0, symbolpath: Param1, imagefilepath: super::super::super::Foundation::PSTR, callback: PFIND_EXE_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
@@ -6221,6 +7210,7 @@ pub unsafe fn FindExecutableImageEx<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindExecutableImageExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(filename: Param0, symbolpath: Param1, imagefilepath: super::super::super::Foundation::PWSTR, callback: PFIND_EXE_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
@@ -6235,6 +7225,7 @@ pub unsafe fn FindExecutableImageExW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFileInPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, searchpatha: Param1, filename: Param2, id: *const ::core::ffi::c_void, two: u32, three: u32, flags: u32, filepath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL {
@@ -6249,6 +7240,7 @@ pub unsafe fn FindFileInPath<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFileInSearchPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, searchpatha: Param1, filename: Param2, one: u32, two: u32, three: u32, filepath: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL {
@@ -6263,6 +7255,7 @@ pub unsafe fn FindFileInSearchPath<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FlushInstructionCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, lpbaseaddress: *const ::core::ffi::c_void, dwsize: usize) -> super::super::super::Foundation::BOOL {
@@ -6277,6 +7270,7 @@ pub unsafe fn FlushInstructionCache<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FormatMessageA(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: super::super::super::Foundation::PSTR, nsize: u32, arguments: *const *const i8) -> u32 {
@@ -6291,6 +7285,7 @@ pub unsafe fn FormatMessageA(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: super::super::super::Foundation::PWSTR, nsize: u32, arguments: *const *const i8) -> u32 {
@@ -6310,6 +7305,7 @@ pub const GETATTRFLAG_THIS: u32 = 256u32;
 pub const GETATTRTYPE_DEPSCAN: u32 = 1u32;
 pub const GETATTRTYPE_NORMAL: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct GET_CONTEXT_EX {
     pub Status: u32,
     pub ContextSize: u32,
@@ -6336,6 +7332,7 @@ impl ::core::default::Default for GET_CONTEXT_EX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct GET_CURRENT_PROCESS_ADDRESS {
     pub Processor: u32,
     pub CurrentThread: u64,
@@ -6362,6 +7359,7 @@ impl ::core::default::Default for GET_CURRENT_PROCESS_ADDRESS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct GET_CURRENT_THREAD_ADDRESS {
     pub Processor: u32,
     pub Address: u64,
@@ -6387,6 +7385,7 @@ impl ::core::default::Default for GET_CURRENT_THREAD_ADDRESS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GET_EXPRESSION_EX {
     pub Expression: super::super::super::Foundation::PSTR,
@@ -6420,6 +7419,7 @@ impl ::core::default::Default for GET_EXPRESSION_EX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GET_INPUT_LINE {
     pub Prompt: super::super::super::Foundation::PSTR,
@@ -6454,6 +7454,7 @@ impl ::core::default::Default for GET_INPUT_LINE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct GET_PEB_ADDRESS {
     pub CurrentThread: u64,
     pub Address: u64,
@@ -6479,6 +7480,7 @@ impl ::core::default::Default for GET_PEB_ADDRESS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GET_SET_SYMPATH {
     pub Args: super::super::super::Foundation::PSTR,
@@ -6512,6 +7514,7 @@ impl ::core::default::Default for GET_SET_SYMPATH {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct GET_TEB_ADDRESS {
     pub Address: u64,
 }
@@ -6535,6 +7538,7 @@ impl ::core::default::Default for GET_TEB_ADDRESS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn GetEnabledXStateFeatures() -> u64 {
@@ -6549,6 +7553,7 @@ pub unsafe fn GetEnabledXStateFeatures() -> u64 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn GetErrorMode() -> u32 {
     #[cfg(windows)]
@@ -6562,6 +7567,7 @@ pub unsafe fn GetErrorMode() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -6577,6 +7583,7 @@ pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imagec
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -6592,6 +7599,7 @@ pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imagec
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn GetImageUnusedHeaderBytes(loadedimage: *const LOADED_IMAGE, sizeunusedheaderbytes: *mut u32) -> u32 {
@@ -6606,6 +7614,7 @@ pub unsafe fn GetImageUnusedHeaderBytes(loadedimage: *const LOADED_IMAGE, sizeun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn GetSymLoadError() -> u32 {
     #[cfg(windows)]
@@ -6619,6 +7628,7 @@ pub unsafe fn GetSymLoadError() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn GetThreadContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hthread: Param0, lpcontext: *mut CONTEXT) -> super::super::super::Foundation::BOOL {
@@ -6633,6 +7643,7 @@ pub unsafe fn GetThreadContext<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn GetThreadErrorMode() -> u32 {
     #[cfg(windows)]
@@ -6646,6 +7657,7 @@ pub unsafe fn GetThreadErrorMode() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetThreadSelectorEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hthread: Param0, dwselector: u32, lpselectorentry: *mut LDT_ENTRY) -> super::super::super::Foundation::BOOL {
@@ -6660,6 +7672,7 @@ pub unsafe fn GetThreadSelectorEntry<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetThreadWaitChain(wcthandle: *const ::core::ffi::c_void, context: usize, flags: WAIT_CHAIN_THREAD_OPTIONS, threadid: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut i32) -> super::super::super::Foundation::BOOL {
@@ -6674,6 +7687,7 @@ pub unsafe fn GetThreadWaitChain(wcthandle: *const ::core::ffi::c_void, context:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTimestampForLoadedLibrary<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HINSTANCE>>(module: Param0) -> u32 {
@@ -6688,6 +7702,7 @@ pub unsafe fn GetTimestampForLoadedLibrary<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -6703,6 +7718,7 @@ pub unsafe fn GetXStateFeaturesMask(context: *const CONTEXT, featuremask: *mut u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScript(::windows::core::IUnknown);
 impl IActiveScript {
@@ -6814,6 +7830,7 @@ pub struct IActiveScriptVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppscript: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptAuthor(::windows::core::IUnknown);
 impl IActiveScriptAuthor {
@@ -6941,6 +7958,7 @@ pub struct IActiveScriptAuthorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ch: u16, pfcommit: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptAuthorProcedure(::windows::core::IUnknown);
 impl IActiveScriptAuthorProcedure {
@@ -6993,6 +8011,7 @@ pub struct IActiveScriptAuthorProcedureVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcode: super::super::super::Foundation::PWSTR, pszformalparams: super::super::super::Foundation::PWSTR, pszprocedurename: super::super::super::Foundation::PWSTR, pszitemname: super::super::super::Foundation::PWSTR, pszdelimiter: super::super::super::Foundation::PWSTR, dwcookie: u32, dwflags: u32, pdispfor: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptDebug32(::windows::core::IUnknown);
 impl IActiveScriptDebug32 {
@@ -7056,6 +8075,7 @@ pub struct IActiveScriptDebug32Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourcecontext: u32, ucharacteroffset: u32, unumchars: u32, ppescc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptDebug64(::windows::core::IUnknown);
 impl IActiveScriptDebug64 {
@@ -7119,6 +8139,7 @@ pub struct IActiveScriptDebug64Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsourcecontext: u64, ucharacteroffset: u32, unumchars: u32, ppescc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptEncode(::windows::core::IUnknown);
 impl IActiveScriptEncode {
@@ -7183,6 +8204,7 @@ pub struct IActiveScriptEncodeVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrout: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptError(::windows::core::IUnknown);
 impl IActiveScriptError {
@@ -7247,6 +8269,7 @@ pub struct IActiveScriptErrorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsourceline: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptError64(::windows::core::IUnknown);
 impl IActiveScriptError64 {
@@ -7335,6 +8358,7 @@ pub struct IActiveScriptError64Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsourcecontext: *mut u64, pullinenumber: *mut u32, plcharacterposition: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptErrorDebug(::windows::core::IUnknown);
 impl IActiveScriptErrorDebug {
@@ -7429,6 +8453,7 @@ pub struct IActiveScriptErrorDebugVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppssc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdsf: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptErrorDebug110(::windows::core::IUnknown);
 impl IActiveScriptErrorDebug110 {
@@ -7475,6 +8500,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptErrorDebug110 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptErrorDebug110Vtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexceptionkind: *mut SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptGarbageCollector(::windows::core::IUnknown);
 impl IActiveScriptGarbageCollector {
@@ -7520,6 +8546,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptGarbageCollector {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptGarbageCollectorVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scriptgctype: SCRIPTGCTYPE) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptHostEncode(::windows::core::IUnknown);
 impl IActiveScriptHostEncode {
@@ -7572,6 +8599,7 @@ pub struct IActiveScriptHostEncodeVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinfile: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstroutfile: *mut super::super::super::Foundation::BSTR, cflags: u32, bstrdefaultlang: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptParse32(::windows::core::IUnknown);
 impl IActiveScriptParse32 {
@@ -7647,6 +8675,7 @@ pub struct IActiveScriptParse32Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptParse64(::windows::core::IUnknown);
 impl IActiveScriptParse64 {
@@ -7722,6 +8751,7 @@ pub struct IActiveScriptParse64Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptParseProcedure2_32(::windows::core::IUnknown);
 impl IActiveScriptParseProcedure2_32 {
@@ -7795,6 +8825,7 @@ pub struct IActiveScriptParseProcedure2_32Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstrprocedurename: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptParseProcedure2_64(::windows::core::IUnknown);
 impl IActiveScriptParseProcedure2_64 {
@@ -7868,6 +8899,7 @@ pub struct IActiveScriptParseProcedure2_64Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstrprocedurename: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptParseProcedure32(::windows::core::IUnknown);
 impl IActiveScriptParseProcedure32 {
@@ -7921,6 +8953,7 @@ pub struct IActiveScriptParseProcedure32Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstrprocedurename: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptParseProcedure64(::windows::core::IUnknown);
 impl IActiveScriptParseProcedure64 {
@@ -7974,6 +9007,7 @@ pub struct IActiveScriptParseProcedure64Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstrprocedurename: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptParseProcedureOld32(::windows::core::IUnknown);
 impl IActiveScriptParseProcedureOld32 {
@@ -8027,6 +9061,7 @@ pub struct IActiveScriptParseProcedureOld32Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptParseProcedureOld64(::windows::core::IUnknown);
 impl IActiveScriptParseProcedureOld64 {
@@ -8080,6 +9115,7 @@ pub struct IActiveScriptParseProcedureOld64Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptProfilerCallback(::windows::core::IUnknown);
 impl IActiveScriptProfilerCallback {
@@ -8152,6 +9188,7 @@ pub struct IActiveScriptProfilerCallbackVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scriptid: i32, functionid: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scriptid: i32, functionid: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptProfilerCallback2(::windows::core::IUnknown);
 impl IActiveScriptProfilerCallback2 {
@@ -8256,6 +9293,7 @@ pub struct IActiveScriptProfilerCallback2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszfunctionname: super::super::super::Foundation::PWSTR, r#type: PROFILER_SCRIPT_TYPE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptProfilerCallback3(::windows::core::IUnknown);
 impl IActiveScriptProfilerCallback3 {
@@ -8384,6 +9422,7 @@ pub struct IActiveScriptProfilerCallback3Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webworkerid: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptProfilerControl(::windows::core::IUnknown);
 impl IActiveScriptProfilerControl {
@@ -8442,6 +9481,7 @@ pub struct IActiveScriptProfilerControlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dweventmask: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrshutdownreason: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptProfilerControl2(::windows::core::IUnknown);
 impl IActiveScriptProfilerControl2 {
@@ -8528,6 +9568,7 @@ pub struct IActiveScriptProfilerControl2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptProfilerControl3(::windows::core::IUnknown);
 impl IActiveScriptProfilerControl3 {
@@ -8639,6 +9680,7 @@ pub struct IActiveScriptProfilerControl3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptProfilerControl4(::windows::core::IUnknown);
 impl IActiveScriptProfilerControl4 {
@@ -8774,6 +9816,7 @@ pub struct IActiveScriptProfilerControl4Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, heapsummary: *mut PROFILER_HEAP_SUMMARY) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptProfilerControl5(::windows::core::IUnknown);
 impl IActiveScriptProfilerControl5 {
@@ -8934,6 +9977,7 @@ pub struct IActiveScriptProfilerControl5Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, heapsummary: *mut PROFILER_HEAP_SUMMARY) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumflags: PROFILER_HEAP_ENUM_FLAGS, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptProfilerHeapEnum(::windows::core::IUnknown);
 impl IActiveScriptProfilerHeapEnum {
@@ -9000,6 +10044,7 @@ pub struct IActiveScriptProfilerHeapEnumVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnamelist: *mut *mut *mut super::super::super::Foundation::PWSTR, pcelt: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptProperty(::windows::core::IUnknown);
 impl IActiveScriptProperty {
@@ -9059,6 +10104,7 @@ pub struct IActiveScriptPropertyVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproperty: u32, pvarindex: *const super::super::Com::VARIANT, pvarvalue: *const super::super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptSIPInfo(::windows::core::IUnknown);
 impl IActiveScriptSIPInfo {
@@ -9105,6 +10151,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptSIPInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptSIPInfoVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poid_sip: *mut ::windows::core::GUID) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptSite(::windows::core::IUnknown);
 impl IActiveScriptSite {
@@ -9191,6 +10238,7 @@ pub struct IActiveScriptSiteVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptSiteDebug32(::windows::core::IUnknown);
 impl IActiveScriptSiteDebug32 {
@@ -9258,6 +10306,7 @@ pub struct IActiveScriptSiteDebug32Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrordebug: ::windows::core::RawPtr, pfenterdebugger: *mut super::super::super::Foundation::BOOL, pfcallonscripterrorwhencontinuing: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptSiteDebug64(::windows::core::IUnknown);
 impl IActiveScriptSiteDebug64 {
@@ -9325,6 +10374,7 @@ pub struct IActiveScriptSiteDebug64Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrordebug: ::windows::core::RawPtr, pfenterdebugger: *mut super::super::super::Foundation::BOOL, pfcallonscripterrorwhencontinuing: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptSiteDebugEx(::windows::core::IUnknown);
 impl IActiveScriptSiteDebugEx {
@@ -9378,6 +10428,7 @@ pub struct IActiveScriptSiteDebugExVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perrordebug: ::windows::core::RawPtr, pfcallonscripterrorwhencontinuing: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptSiteInterruptPoll(::windows::core::IUnknown);
 impl IActiveScriptSiteInterruptPoll {
@@ -9423,6 +10474,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptSiteInterruptPoll {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptSiteInterruptPollVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptSiteTraceInfo(::windows::core::IUnknown);
 impl IActiveScriptSiteTraceInfo {
@@ -9473,6 +10525,7 @@ pub struct IActiveScriptSiteTraceInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stieventtype: SCRIPTTRACEINFO, guidcontextid: ::windows::core::GUID, dwscriptcontextcookie: u32, lscriptstatementstart: i32, lscriptstatementend: i32, dwreserved: u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptSiteUIControl(::windows::core::IUnknown);
 impl IActiveScriptSiteUIControl {
@@ -9519,6 +10572,7 @@ unsafe impl ::windows::core::Interface for IActiveScriptSiteUIControl {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IActiveScriptSiteUIControlVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uicitem: SCRIPTUICITEM, puichandling: *mut SCRIPTUICHANDLING) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptSiteWindow(::windows::core::IUnknown);
 impl IActiveScriptSiteWindow {
@@ -9578,6 +10632,7 @@ pub struct IActiveScriptSiteWindowVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fenable: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptStats(::windows::core::IUnknown);
 impl IActiveScriptStats {
@@ -9636,6 +10691,7 @@ pub struct IActiveScriptStatsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pluhi: *mut u32, plulo: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptStringCompare(::windows::core::IUnknown);
 impl IActiveScriptStringCompare {
@@ -9689,6 +10745,7 @@ pub struct IActiveScriptStringCompareVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bszstr1: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bszstr2: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, iret: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptTraceInfo(::windows::core::IUnknown);
 impl IActiveScriptTraceInfo {
@@ -9743,6 +10800,7 @@ pub struct IActiveScriptTraceInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psitetraceinfo: ::windows::core::RawPtr, guidcontextid: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IActiveScriptWinRTErrorDebug(::windows::core::IUnknown);
 impl IActiveScriptWinRTErrorDebug {
@@ -9848,6 +10906,7 @@ pub struct IActiveScriptWinRTErrorDebugVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilitysid: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IApplicationDebugger(::windows::core::IUnknown);
 impl IApplicationDebugger {
@@ -9921,6 +10980,7 @@ pub struct IApplicationDebuggerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IApplicationDebuggerUI(::windows::core::IUnknown);
 impl IApplicationDebuggerUI {
@@ -9975,6 +11035,7 @@ pub struct IApplicationDebuggerUIVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pddt: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pddc: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IBindEventHandler(::windows::core::IUnknown);
 impl IBindEventHandler {
@@ -10027,6 +11088,7 @@ pub struct IBindEventHandlerVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrevent: super::super::super::Foundation::PWSTR, pdisp: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct ICodeAddressConcept(::windows::core::IUnknown);
 impl ICodeAddressConcept {
@@ -10073,6 +11135,7 @@ unsafe impl ::windows::core::Interface for ICodeAddressConcept {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICodeAddressConceptVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontextobject: ::windows::core::RawPtr, ppsymbol: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IComparableConcept(::windows::core::IUnknown);
 impl IComparableConcept {
@@ -10124,6 +11187,7 @@ pub struct IComparableConceptVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: ::windows::core::RawPtr, otherobject: ::windows::core::RawPtr, comparisonresult: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelConcept(::windows::core::IUnknown);
 impl IDataModelConcept {
@@ -10181,6 +11245,7 @@ pub struct IDataModelConceptVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelManager(::windows::core::IUnknown);
 impl IDataModelManager {
@@ -10331,6 +11396,7 @@ pub struct IDataModelManagerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelname: super::super::super::Foundation::PWSTR, modelobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelManager2(::windows::core::IUnknown);
 impl IDataModelManager2 {
@@ -10515,6 +11581,7 @@ pub struct IDataModelManager2Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, intrinsicdata: *const super::super::Com::VARIANT, r#type: ::windows::core::RawPtr, object: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelNameBinder(::windows::core::IUnknown);
 impl IDataModelNameBinder {
@@ -10583,6 +11650,7 @@ pub struct IDataModelNameBinderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: ::windows::core::RawPtr, enumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: ::windows::core::RawPtr, enumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelScript(::windows::core::IUnknown);
 impl IDataModelScript {
@@ -10665,6 +11733,7 @@ pub struct IDataModelScriptVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isinvocable: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, client: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelScriptClient(::windows::core::IUnknown);
 impl IDataModelScriptClient {
@@ -10717,6 +11786,7 @@ pub struct IDataModelScriptClientVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errclass: ErrorClass, hrfail: ::windows::core::HRESULT, message: super::super::super::Foundation::PWSTR, line: u32, position: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelScriptDebug(::windows::core::IUnknown);
 impl IDataModelScriptDebug {
@@ -10810,6 +11880,7 @@ pub struct IDataModelScriptDebugVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, debugclient: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, debugclient: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelScriptDebug2(::windows::core::IUnknown);
 impl IDataModelScriptDebug2 {
@@ -10930,6 +12001,7 @@ pub struct IDataModelScriptDebug2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, functionname: super::super::super::Foundation::PWSTR, breakpoint: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelScriptDebugBreakpoint(::windows::core::IUnknown);
 impl IDataModelScriptDebugBreakpoint {
@@ -11002,6 +12074,7 @@ pub struct IDataModelScriptDebugBreakpointVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelScriptDebugBreakpointEnumerator(::windows::core::IUnknown);
 impl IDataModelScriptDebugBreakpointEnumerator {
@@ -11057,6 +12130,7 @@ pub struct IDataModelScriptDebugBreakpointEnumeratorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, breakpoint: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelScriptDebugClient(::windows::core::IUnknown);
 impl IDataModelScriptDebugClient {
@@ -11107,6 +12181,7 @@ pub struct IDataModelScriptDebugClientVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventinfo: *const ScriptDebugEventInformation, pscript: ::windows::core::RawPtr, peventdataobject: ::windows::core::RawPtr, resumeeventkind: *mut ScriptExecutionKind) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelScriptDebugStack(::windows::core::IUnknown);
 impl IDataModelScriptDebugStack {
@@ -11162,6 +12237,7 @@ pub struct IDataModelScriptDebugStackVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framenumber: u64, stackframe: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelScriptDebugStackFrame(::windows::core::IUnknown);
 impl IDataModelScriptDebugStackFrame {
@@ -11247,6 +12323,7 @@ pub struct IDataModelScriptDebugStackFrameVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variablesenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variablesenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelScriptDebugVariableSetEnumerator(::windows::core::IUnknown);
 impl IDataModelScriptDebugVariableSetEnumerator {
@@ -11303,6 +12380,7 @@ pub struct IDataModelScriptDebugVariableSetEnumeratorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variablename: *mut super::super::super::Foundation::BSTR, variablevalue: *mut ::windows::core::RawPtr, variablemetadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelScriptHostContext(::windows::core::IUnknown);
 impl IDataModelScriptHostContext {
@@ -11358,6 +12436,7 @@ pub struct IDataModelScriptHostContextVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, script: ::windows::core::RawPtr, changekind: ScriptChangeKind) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelScriptManager(::windows::core::IUnknown);
 impl IDataModelScriptManager {
@@ -11436,6 +12515,7 @@ pub struct IDataModelScriptManagerVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelScriptProvider(::windows::core::IUnknown);
 impl IDataModelScriptProvider {
@@ -11511,6 +12591,7 @@ pub struct IDataModelScriptProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, templatecontent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelScriptProviderEnumerator(::windows::core::IUnknown);
 impl IDataModelScriptProviderEnumerator {
@@ -11566,6 +12647,7 @@ pub struct IDataModelScriptProviderEnumeratorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, provider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelScriptTemplate(::windows::core::IUnknown);
 impl IDataModelScriptTemplate {
@@ -11633,6 +12715,7 @@ pub struct IDataModelScriptTemplateVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDataModelScriptTemplateEnumerator(::windows::core::IUnknown);
 impl IDataModelScriptTemplateEnumerator {
@@ -11688,6 +12771,7 @@ pub struct IDataModelScriptTemplateEnumeratorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, templatecontent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugAdvanced(::windows::core::IUnknown);
 impl IDebugAdvanced {
@@ -11742,6 +12826,7 @@ pub struct IDebugAdvancedVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::core::ffi::c_void, contextsize: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugAdvanced2(::windows::core::IUnknown);
 impl IDebugAdvanced2 {
@@ -11822,6 +12907,7 @@ pub struct IDebugAdvanced2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, which: u32, arg64: u64, arg32: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, infosize: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugAdvanced3(::windows::core::IUnknown);
 impl IDebugAdvanced3 {
@@ -11920,6 +13006,7 @@ pub struct IDebugAdvanced3Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, which: u32, arg64: u64, arg32: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: super::super::super::Foundation::PWSTR, stringbuffersize: u32, stringsize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugAdvanced4(::windows::core::IUnknown);
 impl IDebugAdvanced4 {
@@ -12024,6 +13111,7 @@ pub struct IDebugAdvanced4Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, which: u32, arg64: u64, arg32: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, infosize: *mut u32, stringbuffer: super::super::super::Foundation::PWSTR, stringbuffersize: u32, stringsize: *mut u32, pinfoex: *mut SYMBOL_INFO_EX) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugApplication11032(::windows::core::IUnknown);
 impl IDebugApplication11032 {
@@ -12119,6 +13207,7 @@ pub struct IDebugApplication11032Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handlecount: u32, phandles: *const super::super::super::Foundation::HANDLE, pindex: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugApplication11064(::windows::core::IUnknown);
 impl IDebugApplication11064 {
@@ -12214,6 +13303,7 @@ pub struct IDebugApplication11064Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handlecount: u32, phandles: *const super::super::super::Foundation::HANDLE, pindex: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugApplication32(::windows::core::IUnknown);
 impl IDebugApplication32 {
@@ -12428,6 +13518,7 @@ pub struct IDebugApplication32Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsfs: ::windows::core::RawPtr, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugApplication64(::windows::core::IUnknown);
 impl IDebugApplication64 {
@@ -12642,6 +13733,7 @@ pub struct IDebugApplication64Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdsfs: ::windows::core::RawPtr, pdwcookie: *mut u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugApplicationNode(::windows::core::IUnknown);
 impl IDebugApplicationNode {
@@ -12771,6 +13863,7 @@ pub struct IDebugApplicationNodeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdanparent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugApplicationNode100(::windows::core::IUnknown);
 impl IDebugApplicationNode100 {
@@ -12830,6 +13923,7 @@ pub struct IDebugApplicationNode100Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filter: APPLICATION_NODE_EVENT_FILTER, pdocuments: *mut TEXT_DOCUMENT_ARRAY) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psearchkey: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugApplicationNodeEvents(::windows::core::IUnknown);
 impl IDebugApplicationNodeEvents {
@@ -12892,6 +13986,7 @@ pub struct IDebugApplicationNodeEventsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prddpparent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugApplicationThread(::windows::core::IUnknown);
 impl IDebugApplicationThread {
@@ -13027,6 +14122,7 @@ pub struct IDebugApplicationThreadVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrstate: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugApplicationThread11032(::windows::core::IUnknown);
 impl IDebugApplicationThread11032 {
@@ -13096,6 +14192,7 @@ pub struct IDebugApplicationThread11032Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptc: ::windows::core::RawPtr, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugApplicationThread11064(::windows::core::IUnknown);
 impl IDebugApplicationThread11064 {
@@ -13165,6 +14262,7 @@ pub struct IDebugApplicationThread11064Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptc: ::windows::core::RawPtr, dwparam1: usize, dwparam2: usize, dwparam3: usize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugApplicationThread64(::windows::core::IUnknown);
 impl IDebugApplicationThread64 {
@@ -13324,6 +14422,7 @@ pub struct IDebugApplicationThread64Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstcb: ::windows::core::RawPtr, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugApplicationThreadEvents110(::windows::core::IUnknown);
 impl IDebugApplicationThreadEvents110 {
@@ -13386,6 +14485,7 @@ pub struct IDebugApplicationThreadEvents110Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugAsyncOperation(::windows::core::IUnknown);
 impl IDebugAsyncOperation {
@@ -13453,6 +14553,7 @@ pub struct IDebugAsyncOperationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT, ppunkresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugAsyncOperationCallBack(::windows::core::IUnknown);
 impl IDebugAsyncOperationCallBack {
@@ -13498,6 +14599,7 @@ unsafe impl ::windows::core::Interface for IDebugAsyncOperationCallBack {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugAsyncOperationCallBackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugBreakpoint(::windows::core::IUnknown);
 impl IDebugBreakpoint {
@@ -13644,6 +14746,7 @@ pub struct IDebugBreakpointVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugBreakpoint2(::windows::core::IUnknown);
 impl IDebugBreakpoint2 {
@@ -13814,6 +14917,7 @@ pub struct IDebugBreakpoint2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expression: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugBreakpoint3(::windows::core::IUnknown);
 impl IDebugBreakpoint3 {
@@ -13989,6 +15093,7 @@ pub struct IDebugBreakpoint3Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugClient(::windows::core::IUnknown);
 impl IDebugClient {
@@ -14260,6 +15365,7 @@ pub struct IDebugClientVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbacks: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugClient2(::windows::core::IUnknown);
 impl IDebugClient2 {
@@ -14567,6 +15673,7 @@ pub struct IDebugClient2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugClient3(::windows::core::IUnknown);
 impl IDebugClient3 {
@@ -14899,6 +16006,7 @@ pub struct IDebugClient3Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: u64, commandline: super::super::super::Foundation::PWSTR, createflags: u32, processid: u32, attachflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugClient4(::windows::core::IUnknown);
 impl IDebugClient4 {
@@ -15266,6 +16374,7 @@ pub struct IDebugClient4Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, buffer: super::super::super::Foundation::PWSTR, buffersize: u32, namesize: *mut u32, handle: *mut u64, r#type: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugClient5(::windows::core::IUnknown);
 impl IDebugClient5 {
@@ -15799,6 +16908,7 @@ pub struct IDebugClient5Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, string: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugClient6(::windows::core::IUnknown);
 impl IDebugClient6 {
@@ -16336,6 +17446,7 @@ pub struct IDebugClient6Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbacks: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugClient7(::windows::core::IUnknown);
 impl IDebugClient7 {
@@ -16877,6 +17988,7 @@ pub struct IDebugClient7Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callbacks: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugClient8(::windows::core::IUnknown);
 impl IDebugClient8 {
@@ -17424,6 +18536,7 @@ pub struct IDebugClient8Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, filehandle: u64, alternatearch: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugCodeContext(::windows::core::IUnknown);
 impl IDebugCodeContext {
@@ -17479,6 +18592,7 @@ pub struct IDebugCodeContextVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bps: BREAKPOINT_STATE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugControl(::windows::core::IUnknown);
 impl IDebugControl {
@@ -17995,6 +19109,7 @@ pub struct IDebugControlVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: *mut ::core::ffi::c_void, extrainformationsize: u32, extrainformationused: *mut u32, description: super::super::super::Foundation::PSTR, descriptionsize: u32, descriptionused: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugControl2(::windows::core::IUnknown);
 impl IDebugControl2 {
@@ -18551,6 +19666,7 @@ pub struct IDebugControl2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputcontrol: u32, flags: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugControl3(::windows::core::IUnknown);
 impl IDebugControl3 {
@@ -19172,6 +20288,7 @@ pub struct IDebugControl3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relation: u32, value: u32, nextindex: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugControl4(::windows::core::IUnknown);
 impl IDebugControl4 {
@@ -20104,6 +21221,7 @@ pub struct IDebugControl4Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugControl5(::windows::core::IUnknown);
 impl IDebugControl5 {
@@ -21065,6 +22183,7 @@ pub struct IDebugControl5Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, bp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugControl6(::windows::core::IUnknown);
 impl IDebugControl6 {
@@ -22035,6 +23154,7 @@ pub struct IDebugControl6Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sendsattempted: *mut u32, secondssincelastresponse: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugControl7(::windows::core::IUnknown);
 impl IDebugControl7 {
@@ -23009,6 +24129,7 @@ pub struct IDebugControl7Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sendsattempted: *mut u32, secondssincelastresponse: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, class: *mut u32, qualifier: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugCookie(::windows::core::IUnknown);
 impl IDebugCookie {
@@ -23054,6 +24175,7 @@ unsafe impl ::windows::core::Interface for IDebugCookie {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugCookieVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdebugappcookie: u32) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugDataSpaces(::windows::core::IUnknown);
 impl IDebugDataSpaces {
@@ -23188,6 +24310,7 @@ pub struct IDebugDataSpacesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, datasize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, processor: u32, index: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, datasize: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugDataSpaces2(::windows::core::IUnknown);
 impl IDebugDataSpaces2 {
@@ -23352,6 +24475,7 @@ pub struct IDebugDataSpaces2Vtbl(
     #[cfg(feature = "Win32_System_Memory")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64, info: *mut super::super::Memory::MEMORY_BASIC_INFORMATION64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Memory"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugDataSpaces3(::windows::core::IUnknown);
 impl IDebugDataSpaces3 {
@@ -23538,6 +24662,7 @@ pub struct IDebugDataSpaces3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: u64, tag: *mut ::windows::core::GUID, size: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugDataSpaces4(::windows::core::IUnknown);
 impl IDebugDataSpaces4 {
@@ -23775,6 +24900,7 @@ pub struct IDebugDataSpaces4Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64, flags: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64, flags: u32, buffer: *const ::core::ffi::c_void, buffersize: u32, byteswritten: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugDocument(::windows::core::IUnknown);
 impl IDebugDocument {
@@ -23853,6 +24979,7 @@ pub struct IDebugDocumentVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsiddocument: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugDocumentContext(::windows::core::IUnknown);
 impl IDebugDocumentContext {
@@ -23909,6 +25036,7 @@ pub struct IDebugDocumentContextVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsd: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppescc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugDocumentHelper32(::windows::core::IUnknown);
 impl IDebugDocumentHelper32 {
@@ -24042,6 +25170,7 @@ pub struct IDebugDocumentHelper32Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pddc: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugDocumentHelper64(::windows::core::IUnknown);
 impl IDebugDocumentHelper64 {
@@ -24175,6 +25304,7 @@ pub struct IDebugDocumentHelper64Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pddc: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugDocumentHost(::windows::core::IUnknown);
 impl IDebugDocumentHost {
@@ -24255,6 +25385,7 @@ pub struct IDebugDocumentHostVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugDocumentInfo(::windows::core::IUnknown);
 impl IDebugDocumentInfo {
@@ -24313,6 +25444,7 @@ pub struct IDebugDocumentInfoVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsiddocument: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugDocumentProvider(::windows::core::IUnknown);
 impl IDebugDocumentProvider {
@@ -24396,6 +25528,7 @@ pub struct IDebugDocumentProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsiddocument: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppssd: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugDocumentText(::windows::core::IUnknown);
 impl IDebugDocumentText {
@@ -24527,6 +25660,7 @@ pub struct IDebugDocumentTextVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psc: ::windows::core::RawPtr, pccharacterposition: *mut u32, cnumchars: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccharacterposition: u32, cnumchars: u32, ppsc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugDocumentTextAuthor(::windows::core::IUnknown);
 impl IDebugDocumentTextAuthor {
@@ -24694,6 +25828,7 @@ pub struct IDebugDocumentTextAuthorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccharacterposition: u32, cnumtoreplace: u32, pchartext: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugDocumentTextEvents(::windows::core::IUnknown);
 impl IDebugDocumentTextEvents {
@@ -24764,6 +25899,7 @@ pub struct IDebugDocumentTextEventsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccharacterposition: u32, cnumtoupdate: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textdocattr: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugDocumentTextExternalAuthor(::windows::core::IUnknown);
 impl IDebugDocumentTextExternalAuthor {
@@ -24827,6 +25963,7 @@ pub struct IDebugDocumentTextExternalAuthorVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugEventCallbacks(::windows::core::IUnknown);
 impl IDebugEventCallbacks {
@@ -24938,6 +26075,7 @@ pub struct IDebugEventCallbacksVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, argument: u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, argument: u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugEventCallbacksWide(::windows::core::IUnknown);
 impl IDebugEventCallbacksWide {
@@ -25049,6 +26187,7 @@ pub struct IDebugEventCallbacksWideVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, argument: u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, argument: u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugEventContextCallbacks(::windows::core::IUnknown);
 impl IDebugEventContextCallbacks {
@@ -25176,6 +26315,7 @@ pub struct IDebugEventContextCallbacksVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, argument: u64, context: *const ::core::ffi::c_void, contextsize: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, argument: u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugExpression(::windows::core::IUnknown);
 impl IDebugExpression {
@@ -25244,6 +26384,7 @@ pub struct IDebugExpressionVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT, ppdp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugExpressionCallBack(::windows::core::IUnknown);
 impl IDebugExpressionCallBack {
@@ -25289,6 +26430,7 @@ unsafe impl ::windows::core::Interface for IDebugExpressionCallBack {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugExpressionCallBackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugExpressionContext(::windows::core::IUnknown);
 impl IDebugExpressionContext {
@@ -25348,6 +26490,7 @@ pub struct IDebugExpressionContextVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlanguagename: *mut super::super::super::Foundation::BSTR, planguageid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugExtendedProperty(::windows::core::IUnknown);
 impl IDebugExtendedProperty {
@@ -25455,6 +26598,7 @@ pub struct IDebugExtendedPropertyVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, ppeepi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugFormatter(::windows::core::IUnknown);
 impl IDebugFormatter {
@@ -25522,6 +26666,7 @@ pub struct IDebugFormatterVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vt: u16, ptdescarraytype: *const super::super::Com::TYPEDESC, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHelper(::windows::core::IUnknown);
 impl IDebugHelper {
@@ -25589,6 +26734,7 @@ pub struct IDebugHelperVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdisp: ::windows::core::RawPtr, ppscp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHost(::windows::core::IUnknown);
 impl IDebugHost {
@@ -25650,6 +26796,7 @@ pub struct IDebugHostVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, defaultmetadatastore: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostBaseClass(::windows::core::IUnknown);
 impl IDebugHostBaseClass {
@@ -25760,6 +26907,7 @@ pub struct IDebugHostBaseClassVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcomparisonsymbol: ::windows::core::RawPtr, comparisonflags: u32, pmatches: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: *mut u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostConstant(::windows::core::IUnknown);
 impl IDebugHostConstant {
@@ -25872,6 +27020,7 @@ pub struct IDebugHostConstantVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostContext(::windows::core::IUnknown);
 impl IDebugHostContext {
@@ -25918,6 +27067,7 @@ unsafe impl ::windows::core::Interface for IDebugHostContext {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostContextVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: ::windows::core::RawPtr, pisequal: *mut bool) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostData(::windows::core::IUnknown);
 impl IDebugHostData {
@@ -26040,6 +27190,7 @@ pub struct IDebugHostDataVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostErrorSink(::windows::core::IUnknown);
 impl IDebugHostErrorSink {
@@ -26092,6 +27243,7 @@ pub struct IDebugHostErrorSinkVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errclass: ErrorClass, hrerror: ::windows::core::HRESULT, message: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostEvaluator(::windows::core::IUnknown);
 impl IDebugHostEvaluator {
@@ -26150,6 +27302,7 @@ pub struct IDebugHostEvaluatorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, expression: super::super::super::Foundation::PWSTR, bindingcontext: ::windows::core::RawPtr, result: *mut ::windows::core::RawPtr, metadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostEvaluator2(::windows::core::IUnknown);
 impl IDebugHostEvaluator2 {
@@ -26232,6 +27385,7 @@ pub struct IDebugHostEvaluator2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, assignmentreference: ::windows::core::RawPtr, assignmentvalue: ::windows::core::RawPtr, assignmentresult: *mut ::windows::core::RawPtr, assignmentmetadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostExtensibility(::windows::core::IUnknown);
 impl IDebugHostExtensibility {
@@ -26290,6 +27444,7 @@ pub struct IDebugHostExtensibilityVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aliasname: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostField(::windows::core::IUnknown);
 impl IDebugHostField {
@@ -26417,6 +27572,7 @@ pub struct IDebugHostFieldVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostMemory(::windows::core::IUnknown);
 impl IDebugHostMemory {
@@ -26487,6 +27643,7 @@ pub struct IDebugHostMemoryVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, location: Location, verbose: u8, locationname: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostMemory2(::windows::core::IUnknown);
 impl IDebugHostMemory2 {
@@ -26582,6 +27739,7 @@ pub struct IDebugHostMemory2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, location: Location, plinearizedlocation: *mut Location) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostModule(::windows::core::IUnknown);
 impl IDebugHostModule {
@@ -26722,6 +27880,7 @@ pub struct IDebugHostModuleVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, symbolname: super::super::super::Foundation::PWSTR, symbol: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostModule2(::windows::core::IUnknown);
 impl IDebugHostModule2 {
@@ -26886,6 +28045,7 @@ pub struct IDebugHostModule2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rva: u64, symbol: *mut ::windows::core::RawPtr, offset: *mut u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostModuleSignature(::windows::core::IUnknown);
 impl IDebugHostModuleSignature {
@@ -26932,6 +28092,7 @@ unsafe impl ::windows::core::Interface for IDebugHostModuleSignature {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostModuleSignatureVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmodule: ::windows::core::RawPtr, ismatch: *mut bool) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostPublic(::windows::core::IUnknown);
 impl IDebugHostPublic {
@@ -27047,6 +28208,7 @@ pub struct IDebugHostPublicVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, locationkind: *mut LocationKind) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: *mut Location) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostScriptHost(::windows::core::IUnknown);
 impl IDebugHostScriptHost {
@@ -27093,6 +28255,7 @@ unsafe impl ::windows::core::Interface for IDebugHostScriptHost {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostScriptHostVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, script: ::windows::core::RawPtr, scriptcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostStatus(::windows::core::IUnknown);
 impl IDebugHostStatus {
@@ -27139,6 +28302,7 @@ unsafe impl ::windows::core::Interface for IDebugHostStatus {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugHostStatusVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interruptrequested: *mut bool) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostSymbol(::windows::core::IUnknown);
 impl IDebugHostSymbol {
@@ -27224,6 +28388,7 @@ pub struct IDebugHostSymbolVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, containingmodule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcomparisonsymbol: ::windows::core::RawPtr, comparisonflags: u32, pmatches: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostSymbol2(::windows::core::IUnknown);
 impl IDebugHostSymbol2 {
@@ -27334,6 +28499,7 @@ pub struct IDebugHostSymbol2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcomparisonsymbol: ::windows::core::RawPtr, comparisonflags: u32, pmatches: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkind: *mut LanguageKind) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostSymbolEnumerator(::windows::core::IUnknown);
 impl IDebugHostSymbolEnumerator {
@@ -27389,6 +28555,7 @@ pub struct IDebugHostSymbolEnumeratorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, symbol: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostSymbols(::windows::core::IUnknown);
 impl IDebugHostSymbols {
@@ -27477,6 +28644,7 @@ pub struct IDebugHostSymbolsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, modulelocation: Location, module: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: ::windows::core::RawPtr, location: Location, objecttype: ::windows::core::RawPtr, derivedlocation: *mut Location, derivedtype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostType(::windows::core::IUnknown);
 impl IDebugHostType {
@@ -27674,6 +28842,7 @@ pub struct IDebugHostTypeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, argcount: *mut u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: u64, argument: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostType2(::windows::core::IUnknown);
 impl IDebugHostType2 {
@@ -27916,6 +29085,7 @@ pub struct IDebugHostType2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, varargskind: *mut VarArgsKind) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instancepointertype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugHostTypeSignature(::windows::core::IUnknown);
 impl IDebugHostTypeSignature {
@@ -27976,6 +29146,7 @@ pub struct IDebugHostTypeSignatureVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: ::windows::core::RawPtr, ismatch: *mut bool, wildcardmatches: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typesignature: ::windows::core::RawPtr, result: *mut SignatureComparison) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugInputCallbacks(::windows::core::IUnknown);
 impl IDebugInputCallbacks {
@@ -28030,6 +29201,7 @@ pub struct IDebugInputCallbacksVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugOutputCallbacks(::windows::core::IUnknown);
 impl IDebugOutputCallbacks {
@@ -28082,6 +29254,7 @@ pub struct IDebugOutputCallbacksVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mask: u32, text: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugOutputCallbacks2(::windows::core::IUnknown);
 impl IDebugOutputCallbacks2 {
@@ -28145,6 +29318,7 @@ pub struct IDebugOutputCallbacks2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, which: u32, flags: u32, arg: u64, text: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugOutputCallbacksWide(::windows::core::IUnknown);
 impl IDebugOutputCallbacksWide {
@@ -28197,6 +29371,7 @@ pub struct IDebugOutputCallbacksWideVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mask: u32, text: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugOutputStream(::windows::core::IUnknown);
 impl IDebugOutputStream {
@@ -28249,6 +29424,7 @@ pub struct IDebugOutputStreamVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugPlmClient(::windows::core::IUnknown);
 impl IDebugPlmClient {
@@ -28301,6 +29477,7 @@ pub struct IDebugPlmClientVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: u64, timeout: u32, packagefullname: super::super::super::Foundation::PWSTR, appname: super::super::super::Foundation::PWSTR, arguments: super::super::super::Foundation::PWSTR, processid: *mut u32, threadid: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugPlmClient2(::windows::core::IUnknown);
 impl IDebugPlmClient2 {
@@ -28359,6 +29536,7 @@ pub struct IDebugPlmClient2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: u64, timeout: u32, packagefullname: super::super::super::Foundation::PWSTR, backgroundtaskid: super::super::super::Foundation::PWSTR, processid: *mut u32, threadid: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugPlmClient3(::windows::core::IUnknown);
 impl IDebugPlmClient3 {
@@ -28469,6 +29647,7 @@ pub struct IDebugPlmClient3Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: u64, packagefullname: super::super::super::Foundation::PWSTR, backgroundtaskid: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugProperty(::windows::core::IUnknown);
 impl IDebugProperty {
@@ -28544,6 +29723,7 @@ pub struct IDebugPropertyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, refiid: *const ::windows::core::GUID, ppepi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdebugprop: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugPropertyEnumType_All(::windows::core::IUnknown);
 impl IDebugPropertyEnumType_All {
@@ -28597,6 +29777,7 @@ pub struct IDebugPropertyEnumType_AllVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__idebugpropertyenumtype_all0000: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugPropertyEnumType_Arguments(::windows::core::IUnknown);
 impl IDebugPropertyEnumType_Arguments {
@@ -28670,6 +29851,7 @@ pub struct IDebugPropertyEnumType_ArgumentsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__idebugpropertyenumtype_all0000: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugPropertyEnumType_Locals(::windows::core::IUnknown);
 impl IDebugPropertyEnumType_Locals {
@@ -28743,6 +29925,7 @@ pub struct IDebugPropertyEnumType_LocalsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__idebugpropertyenumtype_all0000: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugPropertyEnumType_LocalsPlusArgs(::windows::core::IUnknown);
 impl IDebugPropertyEnumType_LocalsPlusArgs {
@@ -28816,6 +29999,7 @@ pub struct IDebugPropertyEnumType_LocalsPlusArgsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__idebugpropertyenumtype_all0000: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugPropertyEnumType_Registers(::windows::core::IUnknown);
 impl IDebugPropertyEnumType_Registers {
@@ -28889,6 +30073,7 @@ pub struct IDebugPropertyEnumType_RegistersVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__idebugpropertyenumtype_all0000: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugRegisters(::windows::core::IUnknown);
 impl IDebugRegisters {
@@ -28997,6 +30182,7 @@ pub struct IDebugRegistersVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: *mut u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: *mut u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugRegisters2(::windows::core::IUnknown);
 impl IDebugRegisters2 {
@@ -29192,6 +30378,7 @@ pub struct IDebugRegisters2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: u32, offset: *mut u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: u32, offset: *mut u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugSessionProvider(::windows::core::IUnknown);
 impl IDebugSessionProvider {
@@ -29237,6 +30424,7 @@ unsafe impl ::windows::core::Interface for IDebugSessionProvider {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugSessionProviderVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pda: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugStackFrame(::windows::core::IUnknown);
 impl IDebugStackFrame {
@@ -29312,6 +30500,7 @@ pub struct IDebugStackFrameVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppat: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdebugprop: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugStackFrame110(::windows::core::IUnknown);
 impl IDebugStackFrame110 {
@@ -29417,6 +30606,7 @@ pub struct IDebugStackFrame110Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstackframekind: *mut DEBUG_STACKFRAME_TYPE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppinvocationcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugStackFrameSniffer(::windows::core::IUnknown);
 impl IDebugStackFrameSniffer {
@@ -29463,6 +30653,7 @@ unsafe impl ::windows::core::Interface for IDebugStackFrameSniffer {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugStackFrameSnifferVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppedsf: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugStackFrameSnifferEx32(::windows::core::IUnknown);
 impl IDebugStackFrameSnifferEx32 {
@@ -29539,6 +30730,7 @@ pub struct IDebugStackFrameSnifferEx32Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppedsf: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwspmin: u32, ppedsf: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugStackFrameSnifferEx64(::windows::core::IUnknown);
 impl IDebugStackFrameSnifferEx64 {
@@ -29615,6 +30807,7 @@ pub struct IDebugStackFrameSnifferEx64Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppedsf: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwspmin: u64, ppedsf: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugSymbolGroup(::windows::core::IUnknown);
 impl IDebugSymbolGroup {
@@ -29714,6 +30907,7 @@ pub struct IDebugSymbolGroupVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, r#type: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugSymbolGroup2(::windows::core::IUnknown);
 impl IDebugSymbolGroup2 {
@@ -29887,6 +31081,7 @@ pub struct IDebugSymbolGroup2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, entry: *mut DEBUG_SYMBOL_ENTRY) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugSymbols(::windows::core::IUnknown);
 impl IDebugSymbols {
@@ -30214,6 +31409,7 @@ pub struct IDebugSymbolsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: super::super::super::Foundation::PSTR, buffer: *mut u64, bufferlines: u32, filelines: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugSymbols2(::windows::core::IUnknown);
 impl IDebugSymbols2 {
@@ -30582,6 +31778,7 @@ pub struct IDebugSymbols2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugSymbols3(::windows::core::IUnknown);
 impl IDebugSymbols3 {
@@ -31321,6 +32518,7 @@ pub struct IDebugSymbols3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, regions: *mut DEBUG_OFFSET_REGION, regionscount: u32, regionsavail: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fromentry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, toentry: *mut DEBUG_SYMBOL_SOURCE_ENTRY) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugSymbols4(::windows::core::IUnknown);
 impl IDebugSymbols4 {
@@ -32100,6 +33298,7 @@ pub struct IDebugSymbols4Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputcontrol: u32, flags: u32, offset: u64, inlinecontext: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugSymbols5(::windows::core::IUnknown);
 impl IDebugSymbols5 {
@@ -32888,6 +34087,7 @@ pub struct IDebugSymbols5Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, index: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32, index: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugSyncOperation(::windows::core::IUnknown);
 impl IDebugSyncOperation {
@@ -32948,6 +34148,7 @@ pub struct IDebugSyncOperationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugSystemObjects(::windows::core::IUnknown);
 impl IDebugSystemObjects {
@@ -33135,6 +34336,7 @@ pub struct IDebugSystemObjectsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: super::super::super::Foundation::PSTR, buffersize: u32, exesize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugSystemObjects2(::windows::core::IUnknown);
 impl IDebugSystemObjects2 {
@@ -33345,6 +34547,7 @@ pub struct IDebugSystemObjects2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: *mut u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugSystemObjects3(::windows::core::IUnknown);
 impl IDebugSystemObjects3 {
@@ -33598,6 +34801,7 @@ pub struct IDebugSystemObjects3Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: super::super::super::Foundation::PSTR, buffersize: u32, namesize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugSystemObjects4(::windows::core::IUnknown);
 impl IDebugSystemObjects4 {
@@ -33863,6 +35067,7 @@ pub struct IDebugSystemObjects4Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: super::super::super::Foundation::PWSTR, buffersize: u32, namesize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugThreadCall32(::windows::core::IUnknown);
 impl IDebugThreadCall32 {
@@ -33908,6 +35113,7 @@ unsafe impl ::windows::core::Interface for IDebugThreadCall32 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugThreadCall32Vtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDebugThreadCall64(::windows::core::IUnknown);
 impl IDebugThreadCall64 {
@@ -33953,6 +35159,7 @@ unsafe impl ::windows::core::Interface for IDebugThreadCall64 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDebugThreadCall64Vtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwparam1: u64, dwparam2: u64, dwparam3: u64) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDynamicConceptProviderConcept(::windows::core::IUnknown);
 impl IDynamicConceptProviderConcept {
@@ -34019,6 +35226,7 @@ pub struct IDynamicConceptProviderConceptVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parentmodel: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IDynamicKeyProviderConcept(::windows::core::IUnknown);
 impl IDynamicKeyProviderConcept {
@@ -34082,6 +35290,7 @@ pub struct IDynamicKeyProviderConceptVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: ::windows::core::RawPtr, ppenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IEnumDebugApplicationNodes(::windows::core::IUnknown);
 impl IEnumDebugApplicationNodes {
@@ -34145,6 +35354,7 @@ pub struct IEnumDebugApplicationNodesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pperddp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IEnumDebugCodeContexts(::windows::core::IUnknown);
 impl IEnumDebugCodeContexts {
@@ -34208,6 +35418,7 @@ pub struct IEnumDebugCodeContextsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppescc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IEnumDebugExpressionContexts(::windows::core::IUnknown);
 impl IEnumDebugExpressionContexts {
@@ -34271,6 +35482,7 @@ pub struct IEnumDebugExpressionContextsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppedec: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IEnumDebugExtendedPropertyInfo(::windows::core::IUnknown);
 impl IEnumDebugExtendedPropertyInfo {
@@ -34341,6 +35553,7 @@ pub struct IEnumDebugExtendedPropertyInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pedpe: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IEnumDebugPropertyInfo(::windows::core::IUnknown);
 impl IEnumDebugPropertyInfo {
@@ -34411,6 +35624,7 @@ pub struct IEnumDebugPropertyInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppepi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IEnumDebugStackFrames(::windows::core::IUnknown);
 impl IEnumDebugStackFrames {
@@ -34476,6 +35690,7 @@ pub struct IEnumDebugStackFramesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppedsf: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IEnumDebugStackFrames64(::windows::core::IUnknown);
 impl IEnumDebugStackFrames64 {
@@ -34567,6 +35782,7 @@ pub struct IEnumDebugStackFrames64Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, prgdsfd: *mut DebugStackFrameDescriptor64, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IEnumJsStackFrames(::windows::core::IUnknown);
 impl IEnumJsStackFrames {
@@ -34621,6 +35837,7 @@ pub struct IEnumJsStackFramesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cframecount: u32, pframes: *mut __MIDL___MIDL_itf_jscript9diag_0000_0007_0001, pcfetched: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IEnumRemoteDebugApplicationThreads(::windows::core::IUnknown);
 impl IEnumRemoteDebugApplicationThreads {
@@ -34684,6 +35901,7 @@ pub struct IEnumRemoteDebugApplicationThreadsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pperdat: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IEnumRemoteDebugApplications(::windows::core::IUnknown);
 impl IEnumRemoteDebugApplications {
@@ -34747,6 +35965,7 @@ pub struct IEnumRemoteDebugApplicationsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppessd: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IEquatableConcept(::windows::core::IUnknown);
 impl IEquatableConcept {
@@ -34848,6 +36067,7 @@ pub const IG_WRITE_IO_SPACE_EX: u32 = 9u32;
 pub const IG_WRITE_MSR: u32 = 13u32;
 pub const IG_WRITE_PHYSICAL: u32 = 7u32;
 pub const IG_WRITE_PHYSICAL_WITH_FLAGS: u32 = 34u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IHostDataModelAccess(::windows::core::IUnknown);
 impl IHostDataModelAccess {
@@ -34893,6 +36113,7 @@ unsafe impl ::windows::core::Interface for IHostDataModelAccess {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHostDataModelAccessVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manager: *mut ::windows::core::RawPtr, host: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IIndexableConcept(::windows::core::IUnknown);
 impl IIndexableConcept {
@@ -34952,6 +36173,7 @@ pub struct IIndexableConceptVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: ::windows::core::RawPtr, indexercount: u64, indexers: *const ::windows::core::RawPtr, object: *mut ::windows::core::RawPtr, metadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: ::windows::core::RawPtr, indexercount: u64, indexers: *const ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IIterableConcept(::windows::core::IUnknown);
 impl IIterableConcept {
@@ -35008,6 +36230,7 @@ pub struct IIterableConceptVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: ::windows::core::RawPtr, dimensionality: *mut u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: ::windows::core::RawPtr, iterator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IJsDebug(::windows::core::IUnknown);
 impl IJsDebug {
@@ -35059,6 +36282,7 @@ pub struct IJsDebugVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, processid: u32, runtimejsbaseaddress: u64, pdatatarget: ::windows::core::RawPtr, ppprocess: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IJsDebugBreakPoint(::windows::core::IUnknown);
 impl IJsDebugBreakPoint {
@@ -35128,6 +36352,7 @@ pub struct IJsDebugBreakPointVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdocumentid: *mut u64, pcharacteroffset: *mut u32, pstatementcharcount: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IJsDebugDataTarget(::windows::core::IUnknown);
 impl IJsDebugDataTarget {
@@ -35219,6 +36444,7 @@ pub struct IJsDebugDataTargetVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: u32, ppenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: u32, contextflags: u32, contextsize: u32, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IJsDebugFrame(::windows::core::IUnknown);
 impl IJsDebugFrame {
@@ -35302,6 +36528,7 @@ pub struct IJsDebugFrameVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexpressiontext: super::super::super::Foundation::PWSTR, ppdebugproperty: *mut ::windows::core::RawPtr, perror: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IJsDebugProcess(::windows::core::IUnknown);
 impl IJsDebugProcess {
@@ -35369,6 +36596,7 @@ pub struct IJsDebugProcessVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadid: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcodeaddress: *mut u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IJsDebugProperty(::windows::core::IUnknown);
 impl IJsDebugProperty {
@@ -35427,6 +36655,7 @@ pub struct IJsDebugPropertyVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, members: JS_PROPERTY_MEMBERS, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IJsDebugStackWalker(::windows::core::IUnknown);
 impl IJsDebugStackWalker {
@@ -35473,6 +36702,7 @@ unsafe impl ::windows::core::Interface for IJsDebugStackWalker {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IJsDebugStackWalkerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppframe: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IJsEnumDebugProperty(::windows::core::IUnknown);
 impl IJsEnumDebugProperty {
@@ -35528,6 +36758,7 @@ pub struct IJsEnumDebugPropertyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, ppdebugproperty: *mut ::windows::core::RawPtr, pactualcount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IKeyEnumerator(::windows::core::IUnknown);
 impl IKeyEnumerator {
@@ -35584,6 +36815,7 @@ pub struct IKeyEnumeratorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *mut super::super::super::Foundation::BSTR, value: *mut ::windows::core::RawPtr, metadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IKeyStore(::windows::core::IUnknown);
 impl IKeyStore {
@@ -35659,6 +36891,7 @@ pub struct IKeyStoreVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_CBA_EVENT {
     pub severity: IMAGEHLP_CBA_EVENT_SEVERITY,
@@ -35693,6 +36926,7 @@ impl ::core::default::Default for IMAGEHLP_CBA_EVENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_CBA_EVENTW {
     pub severity: IMAGEHLP_CBA_EVENT_SEVERITY,
@@ -35726,12 +36960,18 @@ impl ::core::default::Default for IMAGEHLP_CBA_EVENTW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type IMAGEHLP_CBA_EVENT_SEVERITY = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const sevInfo: IMAGEHLP_CBA_EVENT_SEVERITY = 0u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const sevProblem: IMAGEHLP_CBA_EVENT_SEVERITY = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const sevAttn: IMAGEHLP_CBA_EVENT_SEVERITY = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const sevFatal: IMAGEHLP_CBA_EVENT_SEVERITY = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGEHLP_CBA_READ_MEMORY {
     pub addr: u64,
     pub buf: *mut ::core::ffi::c_void,
@@ -35759,6 +36999,7 @@ impl ::core::default::Default for IMAGEHLP_CBA_READ_MEMORY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD {
@@ -35803,6 +37044,7 @@ impl ::core::default::Default for IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     pub SizeOfStruct: u32,
@@ -35841,6 +37083,7 @@ impl ::core::default::Default for IMAGEHLP_DEFERRED_SYMBOL_LOAD64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
     pub SizeOfStruct: u32,
@@ -35879,6 +37122,7 @@ impl ::core::default::Default for IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL {
@@ -35920,6 +37164,7 @@ impl ::core::default::Default for IMAGEHLP_DUPLICATE_SYMBOL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL64 {
     pub SizeOfStruct: u32,
@@ -35953,16 +37198,26 @@ impl ::core::default::Default for IMAGEHLP_DUPLICATE_SYMBOL64 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type IMAGEHLP_EXTENDED_OPTIONS = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMOPT_EX_DISABLEACCESSTIMEUPDATE: IMAGEHLP_EXTENDED_OPTIONS = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMOPT_EX_LASTVALIDDEBUGDIRECTORY: IMAGEHLP_EXTENDED_OPTIONS = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMOPT_EX_NOIMPLICITPATTERNSEARCH: IMAGEHLP_EXTENDED_OPTIONS = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMOPT_EX_NEVERLOADSYMBOLS: IMAGEHLP_EXTENDED_OPTIONS = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMOPT_EX_MAX: IMAGEHLP_EXTENDED_OPTIONS = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type IMAGEHLP_GET_TYPE_INFO_FLAGS = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGEHLP_GET_TYPE_INFO_CHILDREN: IMAGEHLP_GET_TYPE_INFO_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGEHLP_GET_TYPE_INFO_UNCACHED: IMAGEHLP_GET_TYPE_INFO_FLAGS = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGEHLP_GET_TYPE_INFO_PARAMS {
     pub SizeOfStruct: u32,
     pub Flags: IMAGEHLP_GET_TYPE_INFO_FLAGS,
@@ -36003,12 +37258,18 @@ impl ::core::default::Default for IMAGEHLP_GET_TYPE_INFO_PARAMS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type IMAGEHLP_HD_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const hdBase: IMAGEHLP_HD_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const hdSym: IMAGEHLP_HD_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const hdSrc: IMAGEHLP_HD_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const hdMax: IMAGEHLP_HD_TYPE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_LINE {
@@ -36051,6 +37312,7 @@ impl ::core::default::Default for IMAGEHLP_LINE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_LINE64 {
     pub SizeOfStruct: u32,
@@ -36086,6 +37348,7 @@ impl ::core::default::Default for IMAGEHLP_LINE64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_LINEW {
@@ -36128,6 +37391,7 @@ impl ::core::default::Default for IMAGEHLP_LINEW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_LINEW64 {
     pub SizeOfStruct: u32,
@@ -36163,6 +37427,7 @@ impl ::core::default::Default for IMAGEHLP_LINEW64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_MODULE {
@@ -36210,6 +37475,7 @@ impl ::core::default::Default for IMAGEHLP_MODULE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_MODULE64 {
     pub SizeOfStruct: u32,
@@ -36265,6 +37531,7 @@ impl ::core::default::Default for IMAGEHLP_MODULE64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_MODULE64_EX {
     pub Module: IMAGEHLP_MODULE64,
@@ -36297,6 +37564,7 @@ impl ::core::default::Default for IMAGEHLP_MODULE64_EX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86")]
 pub struct IMAGEHLP_MODULEW {
     pub SizeOfStruct: u32,
@@ -36337,6 +37605,7 @@ impl ::core::default::Default for IMAGEHLP_MODULEW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_MODULEW64 {
     pub SizeOfStruct: u32,
@@ -36392,6 +37661,7 @@ impl ::core::default::Default for IMAGEHLP_MODULEW64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_MODULEW64_EX {
     pub Module: IMAGEHLP_MODULEW64,
@@ -36435,13 +37705,20 @@ pub const IMAGEHLP_RMAP_IGNORE_MISCOMPARE: u32 = 4u32;
 pub const IMAGEHLP_RMAP_LOAD_RW_DATA_SECTIONS: u32 = 536870912u32;
 pub const IMAGEHLP_RMAP_MAPPED_FLAT: u32 = 1u32;
 pub const IMAGEHLP_RMAP_OMIT_SHARED_RW_DATA_SECTIONS: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type IMAGEHLP_SF_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const sfImage: IMAGEHLP_SF_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const sfDbg: IMAGEHLP_SF_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const sfPdb: IMAGEHLP_SF_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const sfMpd: IMAGEHLP_SF_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const sfMax: IMAGEHLP_SF_TYPE = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_STACK_FRAME {
     pub InstructionOffset: u64,
@@ -36481,28 +37758,50 @@ impl ::core::default::Default for IMAGEHLP_STACK_FRAME {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type IMAGEHLP_STATUS_REASON = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindOutOfMemory: IMAGEHLP_STATUS_REASON = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindRvaToVaFailed: IMAGEHLP_STATUS_REASON = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindNoRoomInImage: IMAGEHLP_STATUS_REASON = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindImportModuleFailed: IMAGEHLP_STATUS_REASON = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindImportProcedureFailed: IMAGEHLP_STATUS_REASON = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindImportModule: IMAGEHLP_STATUS_REASON = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindImportProcedure: IMAGEHLP_STATUS_REASON = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindForwarder: IMAGEHLP_STATUS_REASON = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindForwarderNOT: IMAGEHLP_STATUS_REASON = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindImageModified: IMAGEHLP_STATUS_REASON = 9i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindExpandFileHeaders: IMAGEHLP_STATUS_REASON = 10i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindImageComplete: IMAGEHLP_STATUS_REASON = 11i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindMismatchedSymbols: IMAGEHLP_STATUS_REASON = 12i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindSymbolsNotUpdated: IMAGEHLP_STATUS_REASON = 13i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindImportProcedure32: IMAGEHLP_STATUS_REASON = 14i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindImportProcedure64: IMAGEHLP_STATUS_REASON = 15i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindForwarder32: IMAGEHLP_STATUS_REASON = 16i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindForwarder64: IMAGEHLP_STATUS_REASON = 17i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindForwarderNOT32: IMAGEHLP_STATUS_REASON = 18i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const BindForwarderNOT64: IMAGEHLP_STATUS_REASON = 19i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_SYMBOL {
@@ -36546,6 +37845,7 @@ impl ::core::default::Default for IMAGEHLP_SYMBOL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_SYMBOL64 {
     pub SizeOfStruct: u32,
@@ -36582,6 +37882,7 @@ impl ::core::default::Default for IMAGEHLP_SYMBOL64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_SYMBOL64_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL64,
@@ -36614,6 +37915,7 @@ impl ::core::default::Default for IMAGEHLP_SYMBOL64_PACKAGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86")]
 pub struct IMAGEHLP_SYMBOLW {
     pub SizeOfStruct: u32,
@@ -36650,6 +37952,7 @@ impl ::core::default::Default for IMAGEHLP_SYMBOLW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGEHLP_SYMBOLW64 {
     pub SizeOfStruct: u32,
     pub Address: u64,
@@ -36679,6 +37982,7 @@ impl ::core::default::Default for IMAGEHLP_SYMBOLW64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGEHLP_SYMBOLW64_PACKAGE {
     pub sym: IMAGEHLP_SYMBOLW64,
     pub name: [u16; 2001],
@@ -36704,6 +38008,7 @@ impl ::core::default::Default for IMAGEHLP_SYMBOLW64_PACKAGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86")]
 pub struct IMAGEHLP_SYMBOLW_PACKAGE {
     pub sym: IMAGEHLP_SYMBOLW,
@@ -36745,6 +38050,7 @@ pub const IMAGEHLP_SYMBOL_INFO_REGRELATIVE: u32 = 16u32;
 pub const IMAGEHLP_SYMBOL_INFO_TLSRELATIVE: u32 = 16384u32;
 pub const IMAGEHLP_SYMBOL_INFO_VALUEPRESENT: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_SYMBOL_PACKAGE {
@@ -36784,6 +38090,7 @@ impl ::core::default::Default for IMAGEHLP_SYMBOL_PACKAGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_SYMBOL_SRC {
     pub sizeofstruct: u32,
@@ -36817,45 +38124,83 @@ impl ::core::default::Default for IMAGEHLP_SYMBOL_SRC {
     }
 }
 pub const IMAGEHLP_SYMBOL_THUNK: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type IMAGEHLP_SYMBOL_TYPE_INFO = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_SYMTAG: IMAGEHLP_SYMBOL_TYPE_INFO = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_SYMNAME: IMAGEHLP_SYMBOL_TYPE_INFO = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_LENGTH: IMAGEHLP_SYMBOL_TYPE_INFO = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_TYPE: IMAGEHLP_SYMBOL_TYPE_INFO = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_TYPEID: IMAGEHLP_SYMBOL_TYPE_INFO = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_BASETYPE: IMAGEHLP_SYMBOL_TYPE_INFO = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_ARRAYINDEXTYPEID: IMAGEHLP_SYMBOL_TYPE_INFO = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_FINDCHILDREN: IMAGEHLP_SYMBOL_TYPE_INFO = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_DATAKIND: IMAGEHLP_SYMBOL_TYPE_INFO = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_ADDRESSOFFSET: IMAGEHLP_SYMBOL_TYPE_INFO = 9i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_OFFSET: IMAGEHLP_SYMBOL_TYPE_INFO = 10i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_VALUE: IMAGEHLP_SYMBOL_TYPE_INFO = 11i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_COUNT: IMAGEHLP_SYMBOL_TYPE_INFO = 12i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_CHILDRENCOUNT: IMAGEHLP_SYMBOL_TYPE_INFO = 13i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_BITPOSITION: IMAGEHLP_SYMBOL_TYPE_INFO = 14i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_VIRTUALBASECLASS: IMAGEHLP_SYMBOL_TYPE_INFO = 15i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_VIRTUALTABLESHAPEID: IMAGEHLP_SYMBOL_TYPE_INFO = 16i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_VIRTUALBASEPOINTEROFFSET: IMAGEHLP_SYMBOL_TYPE_INFO = 17i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_CLASSPARENTID: IMAGEHLP_SYMBOL_TYPE_INFO = 18i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_NESTED: IMAGEHLP_SYMBOL_TYPE_INFO = 19i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_SYMINDEX: IMAGEHLP_SYMBOL_TYPE_INFO = 20i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_LEXICALPARENT: IMAGEHLP_SYMBOL_TYPE_INFO = 21i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_ADDRESS: IMAGEHLP_SYMBOL_TYPE_INFO = 22i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_THISADJUST: IMAGEHLP_SYMBOL_TYPE_INFO = 23i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_UDTKIND: IMAGEHLP_SYMBOL_TYPE_INFO = 24i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_IS_EQUIV_TO: IMAGEHLP_SYMBOL_TYPE_INFO = 25i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_CALLING_CONVENTION: IMAGEHLP_SYMBOL_TYPE_INFO = 26i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_IS_CLOSE_EQUIV_TO: IMAGEHLP_SYMBOL_TYPE_INFO = 27i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GTIEX_REQS_VALID: IMAGEHLP_SYMBOL_TYPE_INFO = 28i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_VIRTUALBASEOFFSET: IMAGEHLP_SYMBOL_TYPE_INFO = 29i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_VIRTUALBASEDISPINDEX: IMAGEHLP_SYMBOL_TYPE_INFO = 30i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_IS_REFERENCE: IMAGEHLP_SYMBOL_TYPE_INFO = 31i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_INDIRECTVIRTUALBASECLASS: IMAGEHLP_SYMBOL_TYPE_INFO = 32i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_VIRTUALBASETABLETYPE: IMAGEHLP_SYMBOL_TYPE_INFO = 33i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TI_GET_OBJECTPOINTERTYPE: IMAGEHLP_SYMBOL_TYPE_INFO = 34i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGEHLP_SYMBOL_TYPE_INFO_MAX: IMAGEHLP_SYMBOL_TYPE_INFO = 35i32;
 pub const IMAGEHLP_SYMBOL_VIRTUAL: u32 = 4096u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0,
@@ -36881,6 +38226,7 @@ impl ::core::default::Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindData: u32,
     pub Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0,
@@ -36906,6 +38252,7 @@ impl ::core::default::Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
     pub _bitfield: u32,
 }
@@ -36930,6 +38277,7 @@ impl ::core::default::Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_COFF_SYMBOLS_HEADER {
     pub NumberOfSymbols: u32,
     pub LvaToFirstSymbol: u32,
@@ -36961,6 +38309,7 @@ impl ::core::default::Default for IMAGE_COFF_SYMBOLS_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_COR20_HEADER {
     pub cb: u32,
     pub MajorRuntimeVersion: u16,
@@ -36996,6 +38345,7 @@ impl ::core::default::Default for IMAGE_COR20_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union IMAGE_COR20_HEADER_0 {
     pub EntryPointToken: u32,
     pub EntryPointRVA: u32,
@@ -37021,6 +38371,7 @@ impl ::core::default::Default for IMAGE_COR20_HEADER_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_DATA_DIRECTORY {
     pub VirtualAddress: u32,
     pub Size: u32,
@@ -37046,6 +38397,7 @@ impl ::core::default::Default for IMAGE_DATA_DIRECTORY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_DEBUG_DIRECTORY {
     pub Characteristics: u32,
     pub TimeDateStamp: u32,
@@ -37077,6 +38429,7 @@ impl ::core::default::Default for IMAGE_DEBUG_DIRECTORY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct IMAGE_DEBUG_INFORMATION {
@@ -37144,82 +38497,158 @@ impl ::core::default::Default for IMAGE_DEBUG_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type IMAGE_DEBUG_TYPE = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DEBUG_TYPE_UNKNOWN: IMAGE_DEBUG_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DEBUG_TYPE_COFF: IMAGE_DEBUG_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DEBUG_TYPE_CODEVIEW: IMAGE_DEBUG_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DEBUG_TYPE_FPO: IMAGE_DEBUG_TYPE = 3u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DEBUG_TYPE_MISC: IMAGE_DEBUG_TYPE = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DEBUG_TYPE_EXCEPTION: IMAGE_DEBUG_TYPE = 5u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DEBUG_TYPE_FIXUP: IMAGE_DEBUG_TYPE = 6u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DEBUG_TYPE_BORLAND: IMAGE_DEBUG_TYPE = 9u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type IMAGE_DIRECTORY_ENTRY = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DIRECTORY_ENTRY_ARCHITECTURE: IMAGE_DIRECTORY_ENTRY = 7u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DIRECTORY_ENTRY_BASERELOC: IMAGE_DIRECTORY_ENTRY = 5u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DIRECTORY_ENTRY_BOUND_IMPORT: IMAGE_DIRECTORY_ENTRY = 11u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR: IMAGE_DIRECTORY_ENTRY = 14u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DIRECTORY_ENTRY_DEBUG: IMAGE_DIRECTORY_ENTRY = 6u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DIRECTORY_ENTRY_DELAY_IMPORT: IMAGE_DIRECTORY_ENTRY = 13u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DIRECTORY_ENTRY_EXCEPTION: IMAGE_DIRECTORY_ENTRY = 3u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DIRECTORY_ENTRY_EXPORT: IMAGE_DIRECTORY_ENTRY = 0u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DIRECTORY_ENTRY_GLOBALPTR: IMAGE_DIRECTORY_ENTRY = 8u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DIRECTORY_ENTRY_IAT: IMAGE_DIRECTORY_ENTRY = 12u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DIRECTORY_ENTRY_IMPORT: IMAGE_DIRECTORY_ENTRY = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DIRECTORY_ENTRY_LOAD_CONFIG: IMAGE_DIRECTORY_ENTRY = 10u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DIRECTORY_ENTRY_RESOURCE: IMAGE_DIRECTORY_ENTRY = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DIRECTORY_ENTRY_SECURITY: IMAGE_DIRECTORY_ENTRY = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DIRECTORY_ENTRY_TLS: IMAGE_DIRECTORY_ENTRY = 9u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type IMAGE_DLL_CHARACTERISTICS = u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DLLCHARACTERISTICS_HIGH_ENTROPY_VA: IMAGE_DLL_CHARACTERISTICS = 32u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE: IMAGE_DLL_CHARACTERISTICS = 64u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DLLCHARACTERISTICS_FORCE_INTEGRITY: IMAGE_DLL_CHARACTERISTICS = 128u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DLLCHARACTERISTICS_NX_COMPAT: IMAGE_DLL_CHARACTERISTICS = 256u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DLLCHARACTERISTICS_NO_ISOLATION: IMAGE_DLL_CHARACTERISTICS = 512u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DLLCHARACTERISTICS_NO_SEH: IMAGE_DLL_CHARACTERISTICS = 1024u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DLLCHARACTERISTICS_NO_BIND: IMAGE_DLL_CHARACTERISTICS = 2048u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DLLCHARACTERISTICS_APPCONTAINER: IMAGE_DLL_CHARACTERISTICS = 4096u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DLLCHARACTERISTICS_WDM_DRIVER: IMAGE_DLL_CHARACTERISTICS = 8192u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DLLCHARACTERISTICS_GUARD_CF: IMAGE_DLL_CHARACTERISTICS = 16384u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DLLCHARACTERISTICS_TERMINAL_SERVER_AWARE: IMAGE_DLL_CHARACTERISTICS = 32768u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DLLCHARACTERISTICS_EX_CET_COMPAT: IMAGE_DLL_CHARACTERISTICS = 1u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DLLCHARACTERISTICS_EX_CET_COMPAT_STRICT_MODE: IMAGE_DLL_CHARACTERISTICS = 2u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DLLCHARACTERISTICS_EX_CET_SET_CONTEXT_IP_VALIDATION_RELAXED_MODE: IMAGE_DLL_CHARACTERISTICS = 4u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DLLCHARACTERISTICS_EX_CET_DYNAMIC_APIS_ALLOW_IN_PROC: IMAGE_DLL_CHARACTERISTICS = 8u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DLLCHARACTERISTICS_EX_CET_RESERVED_1: IMAGE_DLL_CHARACTERISTICS = 16u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_DLLCHARACTERISTICS_EX_CET_RESERVED_2: IMAGE_DLL_CHARACTERISTICS = 32u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type IMAGE_FILE_CHARACTERISTICS = u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_RELOCS_STRIPPED: IMAGE_FILE_CHARACTERISTICS = 1u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_EXECUTABLE_IMAGE: IMAGE_FILE_CHARACTERISTICS = 2u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_LINE_NUMS_STRIPPED: IMAGE_FILE_CHARACTERISTICS = 4u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_LOCAL_SYMS_STRIPPED: IMAGE_FILE_CHARACTERISTICS = 8u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_AGGRESIVE_WS_TRIM: IMAGE_FILE_CHARACTERISTICS = 16u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_LARGE_ADDRESS_AWARE: IMAGE_FILE_CHARACTERISTICS = 32u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_BYTES_REVERSED_LO: IMAGE_FILE_CHARACTERISTICS = 128u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_32BIT_MACHINE: IMAGE_FILE_CHARACTERISTICS = 256u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_DEBUG_STRIPPED: IMAGE_FILE_CHARACTERISTICS = 512u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_REMOVABLE_RUN_FROM_SWAP: IMAGE_FILE_CHARACTERISTICS = 1024u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_NET_RUN_FROM_SWAP: IMAGE_FILE_CHARACTERISTICS = 2048u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_SYSTEM: IMAGE_FILE_CHARACTERISTICS = 4096u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_DLL: IMAGE_FILE_CHARACTERISTICS = 8192u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_UP_SYSTEM_ONLY: IMAGE_FILE_CHARACTERISTICS = 16384u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_BYTES_REVERSED_HI: IMAGE_FILE_CHARACTERISTICS = 32768u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type IMAGE_FILE_CHARACTERISTICS2 = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_RELOCS_STRIPPED2: IMAGE_FILE_CHARACTERISTICS2 = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_EXECUTABLE_IMAGE2: IMAGE_FILE_CHARACTERISTICS2 = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_LINE_NUMS_STRIPPED2: IMAGE_FILE_CHARACTERISTICS2 = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_LOCAL_SYMS_STRIPPED2: IMAGE_FILE_CHARACTERISTICS2 = 8u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_AGGRESIVE_WS_TRIM2: IMAGE_FILE_CHARACTERISTICS2 = 16u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_LARGE_ADDRESS_AWARE2: IMAGE_FILE_CHARACTERISTICS2 = 32u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_BYTES_REVERSED_LO2: IMAGE_FILE_CHARACTERISTICS2 = 128u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_32BIT_MACHINE2: IMAGE_FILE_CHARACTERISTICS2 = 256u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_DEBUG_STRIPPED2: IMAGE_FILE_CHARACTERISTICS2 = 512u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_REMOVABLE_RUN_FROM_SWAP2: IMAGE_FILE_CHARACTERISTICS2 = 1024u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_NET_RUN_FROM_SWAP2: IMAGE_FILE_CHARACTERISTICS2 = 2048u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_SYSTEM_2: IMAGE_FILE_CHARACTERISTICS2 = 4096u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_DLL_2: IMAGE_FILE_CHARACTERISTICS2 = 8192u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_UP_SYSTEM_ONLY_2: IMAGE_FILE_CHARACTERISTICS2 = 16384u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_BYTES_REVERSED_HI_2: IMAGE_FILE_CHARACTERISTICS2 = 32768u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_FILE_HEADER {
     pub Machine: IMAGE_FILE_MACHINE,
     pub NumberOfSections: u16,
@@ -37249,40 +38678,74 @@ impl ::core::default::Default for IMAGE_FILE_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type IMAGE_FILE_MACHINE = u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_AXP64: IMAGE_FILE_MACHINE = 644u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_I386: IMAGE_FILE_MACHINE = 332u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_IA64: IMAGE_FILE_MACHINE = 512u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_AMD64: IMAGE_FILE_MACHINE = 34404u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_UNKNOWN: IMAGE_FILE_MACHINE = 0u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_TARGET_HOST: IMAGE_FILE_MACHINE = 1u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_R3000: IMAGE_FILE_MACHINE = 354u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_R4000: IMAGE_FILE_MACHINE = 358u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_R10000: IMAGE_FILE_MACHINE = 360u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_WCEMIPSV2: IMAGE_FILE_MACHINE = 361u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_ALPHA: IMAGE_FILE_MACHINE = 388u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_SH3: IMAGE_FILE_MACHINE = 418u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_SH3DSP: IMAGE_FILE_MACHINE = 419u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_SH3E: IMAGE_FILE_MACHINE = 420u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_SH4: IMAGE_FILE_MACHINE = 422u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_SH5: IMAGE_FILE_MACHINE = 424u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_ARM: IMAGE_FILE_MACHINE = 448u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_THUMB: IMAGE_FILE_MACHINE = 450u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_ARMNT: IMAGE_FILE_MACHINE = 452u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_AM33: IMAGE_FILE_MACHINE = 467u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_POWERPC: IMAGE_FILE_MACHINE = 496u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_POWERPCFP: IMAGE_FILE_MACHINE = 497u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_MIPS16: IMAGE_FILE_MACHINE = 614u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_ALPHA64: IMAGE_FILE_MACHINE = 644u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_MIPSFPU: IMAGE_FILE_MACHINE = 870u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_MIPSFPU16: IMAGE_FILE_MACHINE = 1126u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_TRICORE: IMAGE_FILE_MACHINE = 1312u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_CEF: IMAGE_FILE_MACHINE = 3311u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_EBC: IMAGE_FILE_MACHINE = 3772u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_M32R: IMAGE_FILE_MACHINE = 36929u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_ARM64: IMAGE_FILE_MACHINE = 43620u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_FILE_MACHINE_CEE: IMAGE_FILE_MACHINE = 49390u16;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_FUNCTION_ENTRY {
     pub StartingAddress: u32,
     pub EndingAddress: u32,
@@ -37309,6 +38772,7 @@ impl ::core::default::Default for IMAGE_FUNCTION_ENTRY {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_FUNCTION_ENTRY64 {
     pub StartingAddress: u64,
     pub EndingAddress: u64,
@@ -37335,6 +38799,7 @@ impl ::core::default::Default for IMAGE_FUNCTION_ENTRY64 {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union IMAGE_FUNCTION_ENTRY64_0 {
     pub EndOfPrologue: u64,
     pub UnwindInfoAddress: u64,
@@ -37360,6 +38825,7 @@ impl ::core::default::Default for IMAGE_FUNCTION_ENTRY64_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
     pub Flags: u16,
     pub Catalog: u16,
@@ -37387,6 +38853,7 @@ impl ::core::default::Default for IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_LOAD_CONFIG_DIRECTORY32 {
     pub Size: u32,
     pub TimeDateStamp: u32,
@@ -37458,6 +38925,7 @@ impl ::core::default::Default for IMAGE_LOAD_CONFIG_DIRECTORY32 {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_LOAD_CONFIG_DIRECTORY64 {
     pub Size: u32,
     pub TimeDateStamp: u32,
@@ -37529,6 +38997,7 @@ impl ::core::default::Default for IMAGE_LOAD_CONFIG_DIRECTORY64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_NT_HEADERS32 {
     pub Signature: u32,
     pub FileHeader: IMAGE_FILE_HEADER,
@@ -37555,6 +39024,7 @@ impl ::core::default::Default for IMAGE_NT_HEADERS32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_NT_HEADERS64 {
     pub Signature: u32,
     pub FileHeader: IMAGE_FILE_HEADER,
@@ -37581,6 +39051,7 @@ impl ::core::default::Default for IMAGE_NT_HEADERS64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_OPTIONAL_HEADER32 {
     pub Magic: IMAGE_OPTIONAL_HEADER_MAGIC,
     pub MajorLinkerVersion: u8,
@@ -37635,6 +39106,7 @@ impl ::core::default::Default for IMAGE_OPTIONAL_HEADER32 {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_OPTIONAL_HEADER64 {
     pub Magic: IMAGE_OPTIONAL_HEADER_MAGIC,
     pub MajorLinkerVersion: u8,
@@ -37687,12 +39159,18 @@ impl ::core::default::Default for IMAGE_OPTIONAL_HEADER64 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type IMAGE_OPTIONAL_HEADER_MAGIC = u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_NT_OPTIONAL_HDR_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = 523u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_NT_OPTIONAL_HDR32_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = 267u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_NT_OPTIONAL_HDR64_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = 523u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_ROM_OPTIONAL_HDR_MAGIC: IMAGE_OPTIONAL_HEADER_MAGIC = 263u16;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_ROM_HEADERS {
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_ROM_OPTIONAL_HEADER,
@@ -37718,6 +39196,7 @@ impl ::core::default::Default for IMAGE_ROM_HEADERS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_ROM_OPTIONAL_HEADER {
     pub Magic: u16,
     pub MajorLinkerVersion: u8,
@@ -37754,6 +39233,7 @@ impl ::core::default::Default for IMAGE_ROM_OPTIONAL_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub EndAddress: u32,
@@ -37780,6 +39260,7 @@ impl ::core::default::Default for IMAGE_RUNTIME_FUNCTION_ENTRY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindInfoAddress: u32,
     pub UnwindData: u32,
@@ -37804,47 +39285,88 @@ impl ::core::default::Default for IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type IMAGE_SECTION_CHARACTERISTICS = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_TYPE_NO_PAD: IMAGE_SECTION_CHARACTERISTICS = 8u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_CNT_CODE: IMAGE_SECTION_CHARACTERISTICS = 32u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_CNT_INITIALIZED_DATA: IMAGE_SECTION_CHARACTERISTICS = 64u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_CNT_UNINITIALIZED_DATA: IMAGE_SECTION_CHARACTERISTICS = 128u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_LNK_OTHER: IMAGE_SECTION_CHARACTERISTICS = 256u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_LNK_INFO: IMAGE_SECTION_CHARACTERISTICS = 512u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_LNK_REMOVE: IMAGE_SECTION_CHARACTERISTICS = 2048u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_LNK_COMDAT: IMAGE_SECTION_CHARACTERISTICS = 4096u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_NO_DEFER_SPEC_EXC: IMAGE_SECTION_CHARACTERISTICS = 16384u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_GPREL: IMAGE_SECTION_CHARACTERISTICS = 32768u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_MEM_FARDATA: IMAGE_SECTION_CHARACTERISTICS = 32768u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_MEM_PURGEABLE: IMAGE_SECTION_CHARACTERISTICS = 131072u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_MEM_16BIT: IMAGE_SECTION_CHARACTERISTICS = 131072u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_MEM_LOCKED: IMAGE_SECTION_CHARACTERISTICS = 262144u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_MEM_PRELOAD: IMAGE_SECTION_CHARACTERISTICS = 524288u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_ALIGN_1BYTES: IMAGE_SECTION_CHARACTERISTICS = 1048576u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_ALIGN_2BYTES: IMAGE_SECTION_CHARACTERISTICS = 2097152u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_ALIGN_4BYTES: IMAGE_SECTION_CHARACTERISTICS = 3145728u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_ALIGN_8BYTES: IMAGE_SECTION_CHARACTERISTICS = 4194304u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_ALIGN_16BYTES: IMAGE_SECTION_CHARACTERISTICS = 5242880u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_ALIGN_32BYTES: IMAGE_SECTION_CHARACTERISTICS = 6291456u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_ALIGN_64BYTES: IMAGE_SECTION_CHARACTERISTICS = 7340032u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_ALIGN_128BYTES: IMAGE_SECTION_CHARACTERISTICS = 8388608u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_ALIGN_256BYTES: IMAGE_SECTION_CHARACTERISTICS = 9437184u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_ALIGN_512BYTES: IMAGE_SECTION_CHARACTERISTICS = 10485760u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_ALIGN_1024BYTES: IMAGE_SECTION_CHARACTERISTICS = 11534336u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_ALIGN_2048BYTES: IMAGE_SECTION_CHARACTERISTICS = 12582912u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_ALIGN_4096BYTES: IMAGE_SECTION_CHARACTERISTICS = 13631488u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_ALIGN_8192BYTES: IMAGE_SECTION_CHARACTERISTICS = 14680064u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_ALIGN_MASK: IMAGE_SECTION_CHARACTERISTICS = 15728640u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_LNK_NRELOC_OVFL: IMAGE_SECTION_CHARACTERISTICS = 16777216u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_MEM_DISCARDABLE: IMAGE_SECTION_CHARACTERISTICS = 33554432u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_MEM_NOT_CACHED: IMAGE_SECTION_CHARACTERISTICS = 67108864u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_MEM_NOT_PAGED: IMAGE_SECTION_CHARACTERISTICS = 134217728u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_MEM_SHARED: IMAGE_SECTION_CHARACTERISTICS = 268435456u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_MEM_EXECUTE: IMAGE_SECTION_CHARACTERISTICS = 536870912u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_MEM_READ: IMAGE_SECTION_CHARACTERISTICS = 1073741824u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_MEM_WRITE: IMAGE_SECTION_CHARACTERISTICS = 2147483648u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SCN_SCALE_INDEX: IMAGE_SECTION_CHARACTERISTICS = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IMAGE_SECTION_HEADER {
     pub Name: [u8; 8],
     pub Misc: IMAGE_SECTION_HEADER_0,
@@ -37878,6 +39400,7 @@ impl ::core::default::Default for IMAGE_SECTION_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union IMAGE_SECTION_HEADER_0 {
     pub PhysicalAddress: u32,
     pub VirtualSize: u32,
@@ -37902,22 +39425,39 @@ impl ::core::default::Default for IMAGE_SECTION_HEADER_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type IMAGE_SUBSYSTEM = u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SUBSYSTEM_UNKNOWN: IMAGE_SUBSYSTEM = 0u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SUBSYSTEM_NATIVE: IMAGE_SUBSYSTEM = 1u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SUBSYSTEM_WINDOWS_GUI: IMAGE_SUBSYSTEM = 2u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SUBSYSTEM_WINDOWS_CUI: IMAGE_SUBSYSTEM = 3u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SUBSYSTEM_OS2_CUI: IMAGE_SUBSYSTEM = 5u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SUBSYSTEM_POSIX_CUI: IMAGE_SUBSYSTEM = 7u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SUBSYSTEM_NATIVE_WINDOWS: IMAGE_SUBSYSTEM = 8u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SUBSYSTEM_WINDOWS_CE_GUI: IMAGE_SUBSYSTEM = 9u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SUBSYSTEM_EFI_APPLICATION: IMAGE_SUBSYSTEM = 10u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SUBSYSTEM_EFI_BOOT_SERVICE_DRIVER: IMAGE_SUBSYSTEM = 11u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SUBSYSTEM_EFI_RUNTIME_DRIVER: IMAGE_SUBSYSTEM = 12u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SUBSYSTEM_EFI_ROM: IMAGE_SUBSYSTEM = 13u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SUBSYSTEM_XBOX: IMAGE_SUBSYSTEM = 14u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SUBSYSTEM_WINDOWS_BOOT_APPLICATION: IMAGE_SUBSYSTEM = 16u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IMAGE_SUBSYSTEM_XBOX_CODE_CATALOG: IMAGE_SUBSYSTEM = 17u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IMachineDebugManager(::windows::core::IUnknown);
 impl IMachineDebugManager {
@@ -37978,6 +39518,7 @@ pub struct IMachineDebugManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwappcookie: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppeda: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IMachineDebugManagerCookie(::windows::core::IUnknown);
 impl IMachineDebugManagerCookie {
@@ -38038,6 +39579,7 @@ pub struct IMachineDebugManagerCookieVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwdebugappcookie: u32, dwappcookie: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppeda: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IMachineDebugManagerEvents(::windows::core::IUnknown);
 impl IMachineDebugManagerEvents {
@@ -38092,6 +39634,7 @@ pub struct IMachineDebugManagerEventsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pda: ::windows::core::RawPtr, dwappcookie: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pda: ::windows::core::RawPtr, dwappcookie: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IModelIterator(::windows::core::IUnknown);
 impl IModelIterator {
@@ -38146,6 +39689,7 @@ pub struct IModelIteratorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut ::windows::core::RawPtr, dimensions: u64, indexers: *mut ::windows::core::RawPtr, metadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IModelKeyReference(::windows::core::IUnknown);
 impl IModelKeyReference {
@@ -38225,6 +39769,7 @@ pub struct IModelKeyReferenceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr, metadata: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IModelKeyReference2(::windows::core::IUnknown);
 impl IModelKeyReference2 {
@@ -38328,6 +39873,7 @@ pub struct IModelKeyReference2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newcontextobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IModelMethod(::windows::core::IUnknown);
 impl IModelMethod {
@@ -38378,6 +39924,7 @@ pub struct IModelMethodVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontextobject: ::windows::core::RawPtr, argcount: u64, pparguments: *const ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr, ppmetadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IModelObject(::windows::core::IUnknown);
 impl IModelObject {
@@ -38593,6 +40140,7 @@ pub struct IModelObjectVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, other: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, other: ::windows::core::RawPtr, equal: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IModelPropertyAccessor(::windows::core::IUnknown);
 impl IModelPropertyAccessor {
@@ -38654,6 +40202,7 @@ pub struct IModelPropertyAccessorVtbl(
 );
 pub const INCORRECT_VERSION_INFO: u32 = 7u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union INLINE_FRAME_CONTEXT {
     pub ContextValue: u32,
     pub Anonymous: INLINE_FRAME_CONTEXT_0,
@@ -38679,6 +40228,7 @@ impl ::core::default::Default for INLINE_FRAME_CONTEXT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct INLINE_FRAME_CONTEXT_0 {
     pub FrameId: u8,
     pub FrameType: u8,
@@ -38713,6 +40263,7 @@ pub const INTERFACE_USES_DISPEX: u32 = 4u32;
 pub const INTERFACE_USES_SECURITY_MANAGER: u32 = 8u32;
 pub const IOCTL_IPMI_INTERNAL_RECORD_SEL_EVENT: u32 = 2232320u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IOSPACE {
     pub Address: u32,
     pub Length: u32,
@@ -38739,6 +40290,7 @@ impl ::core::default::Default for IOSPACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IOSPACE32 {
     pub Address: u32,
     pub Length: u32,
@@ -38765,6 +40317,7 @@ impl ::core::default::Default for IOSPACE32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IOSPACE64 {
     pub Address: u64,
     pub Length: u32,
@@ -38791,6 +40344,7 @@ impl ::core::default::Default for IOSPACE64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IOSPACE_EX {
     pub Address: u32,
     pub Length: u32,
@@ -38820,6 +40374,7 @@ impl ::core::default::Default for IOSPACE_EX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IOSPACE_EX32 {
     pub Address: u32,
     pub Length: u32,
@@ -38849,6 +40404,7 @@ impl ::core::default::Default for IOSPACE_EX32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IOSPACE_EX64 {
     pub Address: u64,
     pub Length: u32,
@@ -38877,6 +40433,7 @@ impl ::core::default::Default for IOSPACE_EX64 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IObjectSafety(::windows::core::IUnknown);
 impl IObjectSafety {
@@ -38933,6 +40490,7 @@ pub struct IObjectSafetyVtbl(
 );
 pub const IPMI_IOCTL_INDEX: u32 = 1024u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct IPMI_OS_SEL_RECORD {
     pub Signature: u32,
     pub Version: u32,
@@ -38962,20 +40520,33 @@ impl ::core::default::Default for IPMI_OS_SEL_RECORD {
     }
 }
 pub const IPMI_OS_SEL_RECORD_MASK: u32 = 65535u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type IPMI_OS_SEL_RECORD_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IpmiOsSelRecordTypeWhea: IPMI_OS_SEL_RECORD_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IpmiOsSelRecordTypeOther: IPMI_OS_SEL_RECORD_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IpmiOsSelRecordTypeWheaErrorXpfMca: IPMI_OS_SEL_RECORD_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IpmiOsSelRecordTypeWheaErrorPci: IPMI_OS_SEL_RECORD_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IpmiOsSelRecordTypeWheaErrorNmi: IPMI_OS_SEL_RECORD_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IpmiOsSelRecordTypeWheaErrorOther: IPMI_OS_SEL_RECORD_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IpmiOsSelRecordTypeRaw: IPMI_OS_SEL_RECORD_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IpmiOsSelRecordTypeDriver: IPMI_OS_SEL_RECORD_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IpmiOsSelRecordTypeBugcheckRecovery: IPMI_OS_SEL_RECORD_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IpmiOsSelRecordTypeBugcheckData: IPMI_OS_SEL_RECORD_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IpmiOsSelRecordTypeMax: IPMI_OS_SEL_RECORD_TYPE = 10i32;
 pub const IPMI_OS_SEL_RECORD_VERSION: u32 = 1u32;
 pub const IPMI_OS_SEL_RECORD_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IPerPropertyBrowsing2(::windows::core::IUnknown);
 impl IPerPropertyBrowsing2 {
@@ -39044,6 +40615,7 @@ pub struct IPerPropertyBrowsing2Vtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, dwcookie: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IPreferredRuntimeTypeConcept(::windows::core::IUnknown);
 impl IPreferredRuntimeTypeConcept {
@@ -39090,6 +40662,7 @@ unsafe impl ::windows::core::Interface for IPreferredRuntimeTypeConcept {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPreferredRuntimeTypeConceptVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: ::windows::core::RawPtr, object: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IProcessDebugManager32(::windows::core::IUnknown);
 impl IProcessDebugManager32 {
@@ -39160,6 +40733,7 @@ pub struct IProcessDebugManager32Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwappcookie: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, pddh: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IProcessDebugManager64(::windows::core::IUnknown);
 impl IProcessDebugManager64 {
@@ -39230,6 +40804,7 @@ pub struct IProcessDebugManager64Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwappcookie: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, pddh: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IProvideExpressionContexts(::windows::core::IUnknown);
 impl IProvideExpressionContexts {
@@ -39276,6 +40851,7 @@ unsafe impl ::windows::core::Interface for IProvideExpressionContexts {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvideExpressionContextsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppedec: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IRawEnumerator(::windows::core::IUnknown);
 impl IRawEnumerator {
@@ -39332,6 +40908,7 @@ pub struct IRawEnumeratorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut super::super::super::Foundation::BSTR, kind: *mut SymbolKind, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IRemoteDebugApplication(::windows::core::IUnknown);
 impl IRemoteDebugApplication {
@@ -39430,6 +41007,7 @@ pub struct IRemoteDebugApplicationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdanroot: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppedec: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IRemoteDebugApplication110(::windows::core::IUnknown);
 impl IRemoteDebugApplication110 {
@@ -39490,6 +41068,7 @@ pub struct IRemoteDebugApplication110Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcurrentoptions: *mut SCRIPT_DEBUGGER_OPTIONS) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppthread: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IRemoteDebugApplicationEvents(::windows::core::IUnknown);
 impl IRemoteDebugApplicationEvents {
@@ -39580,6 +41159,7 @@ pub struct IRemoteDebugApplicationEventsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prdat: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, abf: u32, prdatsteppingthread: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IRemoteDebugApplicationThread(::windows::core::IUnknown);
 impl IRemoteDebugApplicationThread {
@@ -39671,6 +41251,7 @@ pub struct IRemoteDebugApplicationThreadVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IRemoteDebugCriticalErrorEvent110(::windows::core::IUnknown);
 impl IRemoteDebugCriticalErrorEvent110 {
@@ -39723,6 +41304,7 @@ pub struct IRemoteDebugCriticalErrorEvent110Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsource: *mut super::super::super::Foundation::BSTR, pmessageid: *mut i32, pbstrmessage: *mut super::super::super::Foundation::BSTR, pplocation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IRemoteDebugInfoEvent110(::windows::core::IUnknown);
 impl IRemoteDebugInfoEvent110 {
@@ -39775,6 +41357,7 @@ pub struct IRemoteDebugInfoEvent110Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmessagetype: *mut DEBUG_EVENT_INFO_TYPE, pbstrmessage: *mut super::super::super::Foundation::BSTR, pbstrurl: *mut super::super::super::Foundation::BSTR, pplocation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IScriptEntry(::windows::core::IUnknown);
 impl IScriptEntry {
@@ -39963,6 +41546,7 @@ pub struct IScriptEntryVtbl(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pichmin: *mut u32, pcch: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IScriptInvocationContext(::windows::core::IUnknown);
 impl IScriptInvocationContext {
@@ -40026,6 +41610,7 @@ pub struct IScriptInvocationContextVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontextobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IScriptNode(::windows::core::IUnknown);
 impl IScriptNode {
@@ -40126,6 +41711,7 @@ pub struct IScriptNodeVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdefaultname: super::super::super::Foundation::PWSTR, prgpsznames: *const super::super::super::Foundation::PWSTR, cpsznames: u32, pszevent: super::super::super::Foundation::PWSTR, pszdelimiter: super::super::super::Foundation::PWSTR, ptisignature: ::windows::core::RawPtr, imethodsignature: u32, isn: u32, dwcookie: u32, ppse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IScriptScriptlet(::windows::core::IUnknown);
 impl IScriptScriptlet {
@@ -40373,6 +41959,7 @@ pub struct IScriptScriptletVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct ISimpleConnectionPoint(::windows::core::IUnknown);
 impl ISimpleConnectionPoint {
@@ -40441,6 +42028,7 @@ pub struct ISimpleConnectionPointVtbl(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IStringDisplayableConcept(::windows::core::IUnknown);
 impl IStringDisplayableConcept {
@@ -40494,6 +42082,7 @@ pub struct IStringDisplayableConceptVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contextobject: ::windows::core::RawPtr, metadata: ::windows::core::RawPtr, displaystring: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct ITridentEventSink(::windows::core::IUnknown);
 impl ITridentEventSink {
@@ -40546,6 +42135,7 @@ pub struct ITridentEventSinkVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrevent: super::super::super::Foundation::PWSTR, pdp: *const super::super::Com::DISPPARAMS, pvarres: *mut super::super::Com::VARIANT, pei: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IWebAppDiagnosticsObjectInitialization(::windows::core::IUnknown);
 impl IWebAppDiagnosticsObjectInitialization {
@@ -40598,6 +42188,7 @@ pub struct IWebAppDiagnosticsObjectInitializationVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hpassedhandle: super::super::super::Foundation::HANDLE_PTR, pdebugapplication: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[repr(transparent)]
 pub struct IWebAppDiagnosticsSetup(::windows::core::IUnknown);
 impl IWebAppDiagnosticsSetup {
@@ -40653,6 +42244,7 @@ pub struct IWebAppDiagnosticsSetupVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, dwclscontext: u32, riid: *const ::windows::core::GUID, hpasstoobject: usize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_Security_WinTrust'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_WinTrust"))]
 #[inline]
 pub unsafe fn ImageAddCertificate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filehandle: Param0, certificate: *const super::super::super::Security::WinTrust::WIN_CERTIFICATE, index: *mut u32) -> super::super::super::Foundation::BOOL {
@@ -40667,6 +42259,7 @@ pub unsafe fn ImageAddCertificate<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImageDirectoryEntryToData<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(base: *const ::core::ffi::c_void, mappedasimage: Param1, directoryentry: IMAGE_DIRECTORY_ENTRY, size: *mut u32) -> *mut ::core::ffi::c_void {
@@ -40681,6 +42274,7 @@ pub unsafe fn ImageDirectoryEntryToData<'a, Param1: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImageDirectoryEntryToDataEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(base: *const ::core::ffi::c_void, mappedasimage: Param1, directoryentry: IMAGE_DIRECTORY_ENTRY, size: *mut u32, foundheader: *mut *mut IMAGE_SECTION_HEADER) -> *mut ::core::ffi::c_void {
@@ -40695,6 +42289,7 @@ pub unsafe fn ImageDirectoryEntryToDataEx<'a, Param1: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImageEnumerateCertificates<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filehandle: Param0, typefilter: u16, certificatecount: *mut u32, indices: *mut u32, indexcount: u32) -> super::super::super::Foundation::BOOL {
@@ -40709,6 +42304,7 @@ pub unsafe fn ImageEnumerateCertificates<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_Security_WinTrust'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_WinTrust"))]
 #[inline]
 pub unsafe fn ImageGetCertificateData<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filehandle: Param0, certificateindex: u32, certificate: *mut super::super::super::Security::WinTrust::WIN_CERTIFICATE, requiredlength: *mut u32) -> super::super::super::Foundation::BOOL {
@@ -40723,6 +42319,7 @@ pub unsafe fn ImageGetCertificateData<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_Security_WinTrust'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_WinTrust"))]
 #[inline]
 pub unsafe fn ImageGetCertificateHeader<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filehandle: Param0, certificateindex: u32, certificateheader: *mut super::super::super::Security::WinTrust::WIN_CERTIFICATE) -> super::super::super::Foundation::BOOL {
@@ -40737,6 +42334,7 @@ pub unsafe fn ImageGetCertificateHeader<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImageGetDigestStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filehandle: Param0, digestlevel: u32, digestfunction: DIGEST_FUNCTION, digesthandle: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -40751,6 +42349,7 @@ pub unsafe fn ImageGetDigestStream<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ImageLoad<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(dllname: Param0, dllpath: Param1) -> *mut LOADED_IMAGE {
@@ -40765,6 +42364,7 @@ pub unsafe fn ImageLoad<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_HEADERS64 {
@@ -40779,6 +42379,7 @@ pub unsafe fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_HEADERS32 {
@@ -40793,6 +42394,7 @@ pub unsafe fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImageRemoveCertificate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filehandle: Param0, index: u32) -> super::super::super::Foundation::BOOL {
@@ -40807,6 +42409,7 @@ pub unsafe fn ImageRemoveCertificate<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS64, base: *const ::core::ffi::c_void, rva: u32) -> *mut IMAGE_SECTION_HEADER {
@@ -40821,6 +42424,7 @@ pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS64, base: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS32, base: *const ::core::ffi::c_void, rva: u32) -> *mut IMAGE_SECTION_HEADER {
@@ -40835,6 +42439,7 @@ pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS32, base: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS64, base: *const ::core::ffi::c_void, rva: u32, lastrvasection: *const *const IMAGE_SECTION_HEADER) -> *mut ::core::ffi::c_void {
@@ -40849,6 +42454,7 @@ pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS64, base: *const ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS32, base: *const ::core::ffi::c_void, rva: u32, lastrvasection: *const *const IMAGE_SECTION_HEADER) -> *mut ::core::ffi::c_void {
@@ -40863,6 +42469,7 @@ pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS32, base: *const ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn ImageUnload(loadedimage: *mut LOADED_IMAGE) -> super::super::super::Foundation::BOOL {
@@ -40877,6 +42484,7 @@ pub unsafe fn ImageUnload(loadedimage: *mut LOADED_IMAGE) -> super::super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn ImagehlpApiVersion() -> *mut API_VERSION {
     #[cfg(windows)]
@@ -40890,6 +42498,7 @@ pub unsafe fn ImagehlpApiVersion() -> *mut API_VERSION {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn ImagehlpApiVersionEx(appversion: *const API_VERSION) -> *mut API_VERSION {
     #[cfg(windows)]
@@ -40903,6 +42512,7 @@ pub unsafe fn ImagehlpApiVersionEx(appversion: *const API_VERSION) -> *mut API_V
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn InitializeContext(buffer: *mut ::core::ffi::c_void, contextflags: u32, context: *mut *mut CONTEXT, contextlength: *mut u32) -> super::super::super::Foundation::BOOL {
@@ -40917,6 +42527,7 @@ pub unsafe fn InitializeContext(buffer: *mut ::core::ffi::c_void, contextflags: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn InitializeContext2(buffer: *mut ::core::ffi::c_void, contextflags: u32, context: *mut *mut CONTEXT, contextlength: *mut u32, xstatecompactionmask: u64) -> super::super::super::Foundation::BOOL {
@@ -40931,19 +42542,33 @@ pub unsafe fn InitializeContext2(buffer: *mut ::core::ffi::c_void, contextflags:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type IntrinsicKind = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IntrinsicVoid: IntrinsicKind = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IntrinsicBool: IntrinsicKind = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IntrinsicChar: IntrinsicKind = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IntrinsicWChar: IntrinsicKind = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IntrinsicInt: IntrinsicKind = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IntrinsicUInt: IntrinsicKind = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IntrinsicLong: IntrinsicKind = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IntrinsicULong: IntrinsicKind = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IntrinsicFloat: IntrinsicKind = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IntrinsicHRESULT: IntrinsicKind = 9i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IntrinsicChar16: IntrinsicKind = 10i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IntrinsicChar32: IntrinsicKind = 11i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsDebuggerPresent() -> super::super::super::Foundation::BOOL {
@@ -40958,20 +42583,34 @@ pub unsafe fn IsDebuggerPresent() -> super::super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type JS_PROPERTY_ATTRIBUTES = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const JS_PROPERTY_ATTRIBUTE_NONE: JS_PROPERTY_ATTRIBUTES = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const JS_PROPERTY_HAS_CHILDREN: JS_PROPERTY_ATTRIBUTES = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const JS_PROPERTY_FAKE: JS_PROPERTY_ATTRIBUTES = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const JS_PROPERTY_METHOD: JS_PROPERTY_ATTRIBUTES = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const JS_PROPERTY_READONLY: JS_PROPERTY_ATTRIBUTES = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const JS_PROPERTY_NATIVE_WINRT_POINTER: JS_PROPERTY_ATTRIBUTES = 16i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const JS_PROPERTY_FRAME_INTRYBLOCK: JS_PROPERTY_ATTRIBUTES = 32i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const JS_PROPERTY_FRAME_INCATCHBLOCK: JS_PROPERTY_ATTRIBUTES = 64i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const JS_PROPERTY_FRAME_INFINALLYBLOCK: JS_PROPERTY_ATTRIBUTES = 128i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type JS_PROPERTY_MEMBERS = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const JS_PROPERTY_MEMBERS_ALL: JS_PROPERTY_MEMBERS = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const JS_PROPERTY_MEMBERS_ARGUMENTS: JS_PROPERTY_MEMBERS = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JsDebugPropertyInfo {
     pub name: super::super::super::Foundation::BSTR,
@@ -41004,10 +42643,14 @@ impl ::core::default::Default for JsDebugPropertyInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type JsDebugReadMemoryFlags = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const None: JsDebugReadMemoryFlags = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const JsDebugAllowPartialRead: JsDebugReadMemoryFlags = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct KDDEBUGGER_DATA32 {
     pub Header: DBGKD_DEBUG_DATA_HEADER32,
@@ -41104,6 +42747,7 @@ impl ::core::default::Default for KDDEBUGGER_DATA32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct KDDEBUGGER_DATA64 {
     pub Header: DBGKD_DEBUG_DATA_HEADER64,
@@ -41292,6 +42936,7 @@ impl ::core::default::Default for KDDEBUGGER_DATA64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86")]
 pub struct KDHELP {
     pub Thread: u32,
@@ -41334,6 +42979,7 @@ impl ::core::default::Default for KDHELP {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct KDHELP64 {
     pub Thread: u64,
     pub ThCallbackStack: u32,
@@ -41378,6 +43024,7 @@ pub const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_1: u32 = 0u32;
 pub const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_2: u32 = 1u32;
 pub const KD_SECONDARY_VERSION_DEFAULT: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86_64")]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub Anonymous1: KNONVOLATILE_CONTEXT_POINTERS_0,
@@ -41410,6 +43057,7 @@ impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86_64")]
 pub union KNONVOLATILE_CONTEXT_POINTERS_0 {
     pub FloatingContext: [*mut M128A; 16],
@@ -41442,6 +43090,7 @@ impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86_64")]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     pub Xmm0: *mut M128A,
@@ -41488,6 +43137,7 @@ impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86_64")]
 pub union KNONVOLATILE_CONTEXT_POINTERS_1 {
     pub IntegerContext: [*mut u64; 16],
@@ -41520,6 +43170,7 @@ impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86_64")]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     pub Rax: *mut u64,
@@ -41566,6 +43217,7 @@ impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86")]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub Dummy: u32,
@@ -41597,6 +43249,7 @@ impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "aarch64")]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     pub X19: *mut u64,
@@ -41647,6 +43300,7 @@ impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct LDT_ENTRY {
     pub LimitLow: u16,
     pub BaseLow: u16,
@@ -41673,6 +43327,7 @@ impl ::core::default::Default for LDT_ENTRY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union LDT_ENTRY_0 {
     pub Bytes: LDT_ENTRY_0_1,
     pub Bits: LDT_ENTRY_0_0,
@@ -41698,6 +43353,7 @@ impl ::core::default::Default for LDT_ENTRY_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct LDT_ENTRY_0_0 {
     pub _bitfield: u32,
 }
@@ -41722,6 +43378,7 @@ impl ::core::default::Default for LDT_ENTRY_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct LDT_ENTRY_0_1 {
     pub BaseMid: u8,
     pub Flags1: u8,
@@ -41749,6 +43406,7 @@ impl ::core::default::Default for LDT_ENTRY_0_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct LOADED_IMAGE {
@@ -41800,6 +43458,7 @@ impl ::core::default::Default for LOADED_IMAGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct LOADED_IMAGE {
@@ -41851,6 +43510,7 @@ impl ::core::default::Default for LOADED_IMAGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOAD_DLL_DEBUG_INFO {
     pub hFile: super::super::super::Foundation::HANDLE,
@@ -41886,14 +43546,22 @@ impl ::core::default::Default for LOAD_DLL_DEBUG_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type LPCALL_BACK_USER_INTERRUPT_ROUTINE = ::core::option::Option<unsafe extern "system" fn() -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type LPTOP_LEVEL_EXCEPTION_FILTER = ::core::option::Option<unsafe extern "system" fn(exceptioninfo: *const EXCEPTION_POINTERS) -> i32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type LanguageKind = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const LanguageUnknown: LanguageKind = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const LanguageC: LanguageKind = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const LanguageCPP: LanguageKind = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const LanguageAssembly: LanguageKind = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
@@ -41910,6 +43578,7 @@ pub unsafe fn LocateXStateFeature(context: *const CONTEXT, featureid: u32, lengt
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct Location {
     pub HostDefined: u64,
     pub Offset: u64,
@@ -41934,12 +43603,18 @@ impl ::core::default::Default for Location {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type LocationKind = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const LocationMember: LocationKind = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const LocationStatic: LocationKind = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const LocationConstant: LocationKind = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const LocationNone: LocationKind = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct M128A {
     pub Low: u64,
     pub High: i64,
@@ -41967,6 +43642,7 @@ impl ::core::default::Default for M128A {
 pub const MAX_SYM_NAME: u32 = 2000u32;
 pub const MEMORY_READ_ERROR: u32 = 1u32;
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_Storage_FileSystem', 'Win32_System_Kernel', 'Win32_System_Memory'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_INFORMATION {
     pub CallbackRoutine: MINIDUMP_CALLBACK_ROUTINE,
@@ -41999,6 +43675,7 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_INFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_Storage_FileSystem', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_CALLBACK_INPUT {
     pub ProcessId: u32,
@@ -42033,6 +43710,7 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_INPUT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_Storage_FileSystem', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel"))]
 pub union MINIDUMP_CALLBACK_INPUT_0 {
     pub Status: ::windows::core::HRESULT,
@@ -42075,6 +43753,7 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_INPUT_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Memory'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_OUTPUT {
     pub Anonymous: MINIDUMP_CALLBACK_OUTPUT_0,
@@ -42106,6 +43785,7 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Memory'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub union MINIDUMP_CALLBACK_OUTPUT_0 {
     pub ModuleWriteFlags: u32,
@@ -42146,6 +43826,7 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0 {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Memory'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_0 {
     pub MemoryBase: u64,
@@ -42178,6 +43859,7 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Memory'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_1 {
     pub CheckCancel: super::super::super::Foundation::BOOL,
@@ -42210,6 +43892,7 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Memory'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_2 {
     pub VmRegion: MINIDUMP_MEMORY_INFO,
@@ -42242,6 +43925,7 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Memory'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_3 {
     pub VmQueryStatus: ::windows::core::HRESULT,
@@ -42274,6 +43958,7 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0_3 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Memory'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_4 {
     pub VmReadStatus: ::windows::core::HRESULT,
@@ -42305,31 +43990,55 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0_4 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_Storage_FileSystem', 'Win32_System_Kernel', 'Win32_System_Memory'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 pub type MINIDUMP_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn(callbackparam: *mut ::core::ffi::c_void, callbackinput: *const MINIDUMP_CALLBACK_INPUT, callbackoutput: *mut MINIDUMP_CALLBACK_OUTPUT) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type MINIDUMP_CALLBACK_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ModuleCallback: MINIDUMP_CALLBACK_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ThreadCallback: MINIDUMP_CALLBACK_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ThreadExCallback: MINIDUMP_CALLBACK_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IncludeThreadCallback: MINIDUMP_CALLBACK_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IncludeModuleCallback: MINIDUMP_CALLBACK_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MemoryCallback: MINIDUMP_CALLBACK_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CancelCallback: MINIDUMP_CALLBACK_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WriteKernelMinidumpCallback: MINIDUMP_CALLBACK_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const KernelMinidumpStatusCallback: MINIDUMP_CALLBACK_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const RemoveMemoryCallback: MINIDUMP_CALLBACK_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IncludeVmRegionCallback: MINIDUMP_CALLBACK_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IoStartCallback: MINIDUMP_CALLBACK_TYPE = 11i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IoWriteAllCallback: MINIDUMP_CALLBACK_TYPE = 12i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IoFinishCallback: MINIDUMP_CALLBACK_TYPE = 13i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ReadMemoryFailureCallback: MINIDUMP_CALLBACK_TYPE = 14i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SecondaryFlagsCallback: MINIDUMP_CALLBACK_TYPE = 15i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IsProcessSnapshotCallback: MINIDUMP_CALLBACK_TYPE = 16i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VmStartCallback: MINIDUMP_CALLBACK_TYPE = 17i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VmQueryCallback: MINIDUMP_CALLBACK_TYPE = 18i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VmPreReadCallback: MINIDUMP_CALLBACK_TYPE = 19i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VmPostReadCallback: MINIDUMP_CALLBACK_TYPE = 20i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_DIRECTORY {
     pub StreamType: u32,
     pub Location: MINIDUMP_LOCATION_DESCRIPTOR,
@@ -42355,6 +44064,7 @@ impl ::core::default::Default for MINIDUMP_DIRECTORY {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_EXCEPTION {
     pub ExceptionCode: u32,
     pub ExceptionFlags: u32,
@@ -42385,6 +44095,7 @@ impl ::core::default::Default for MINIDUMP_EXCEPTION {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_EXCEPTION_INFORMATION {
     pub ThreadId: u32,
@@ -42418,6 +44129,7 @@ impl ::core::default::Default for MINIDUMP_EXCEPTION_INFORMATION {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MINIDUMP_EXCEPTION_INFORMATION64 {
     pub ThreadId: u32,
@@ -42452,6 +44164,7 @@ impl ::core::default::Default for MINIDUMP_EXCEPTION_INFORMATION64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_EXCEPTION_STREAM {
     pub ThreadId: u32,
     pub __alignment: u32,
@@ -42479,6 +44192,7 @@ impl ::core::default::Default for MINIDUMP_EXCEPTION_STREAM {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
     pub MinimumAddress: u64,
     pub MaximumAddress: u64,
@@ -42507,6 +44221,7 @@ impl ::core::default::Default for MINIDUMP_FUNCTION_TABLE_DESCRIPTOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_FUNCTION_TABLE_STREAM {
     pub SizeOfHeader: u32,
     pub SizeOfDescriptor: u32,
@@ -42536,6 +44251,7 @@ impl ::core::default::Default for MINIDUMP_FUNCTION_TABLE_STREAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_HANDLE_DATA_STREAM {
     pub SizeOfHeader: u32,
     pub SizeOfDescriptor: u32,
@@ -42563,6 +44279,7 @@ impl ::core::default::Default for MINIDUMP_HANDLE_DATA_STREAM {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_HANDLE_DESCRIPTOR {
     pub Handle: u64,
     pub TypeNameRva: u32,
@@ -42593,6 +44310,7 @@ impl ::core::default::Default for MINIDUMP_HANDLE_DESCRIPTOR {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_HANDLE_DESCRIPTOR_2 {
     pub Handle: u64,
     pub TypeNameRva: u32,
@@ -42625,6 +44343,7 @@ impl ::core::default::Default for MINIDUMP_HANDLE_DESCRIPTOR_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_HANDLE_OBJECT_INFORMATION {
     pub NextInfoRva: u32,
     pub InfoType: u32,
@@ -42650,18 +44369,30 @@ impl ::core::default::Default for MINIDUMP_HANDLE_OBJECT_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniHandleObjectInformationNone: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniThreadInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniMutantInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniMutantInformation2: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniProcessInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniProcessInformation2: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniEventInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniSectionInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniSemaphoreInformation1: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniHandleObjectInformationTypeMax: MINIDUMP_HANDLE_OBJECT_INFORMATION_TYPE = 9i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_HANDLE_OPERATION_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
@@ -42689,6 +44420,7 @@ impl ::core::default::Default for MINIDUMP_HANDLE_OPERATION_LIST {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_HEADER {
     pub Signature: u32,
     pub Version: u32,
@@ -42719,6 +44451,7 @@ impl ::core::default::Default for MINIDUMP_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union MINIDUMP_HEADER_0 {
     pub Reserved: u32,
     pub TimeDateStamp: u32,
@@ -42744,6 +44477,7 @@ impl ::core::default::Default for MINIDUMP_HEADER_0 {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_INCLUDE_MODULE_CALLBACK {
     pub BaseOfImage: u64,
 }
@@ -42768,6 +44502,7 @@ impl ::core::default::Default for MINIDUMP_INCLUDE_MODULE_CALLBACK {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_INCLUDE_THREAD_CALLBACK {
     pub ThreadId: u32,
 }
@@ -42792,6 +44527,7 @@ impl ::core::default::Default for MINIDUMP_INCLUDE_THREAD_CALLBACK {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MINIDUMP_IO_CALLBACK {
     pub Handle: super::super::super::Foundation::HANDLE,
@@ -42826,6 +44562,7 @@ impl ::core::default::Default for MINIDUMP_IO_CALLBACK {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR {
     pub DataSize: u32,
     pub Rva: u32,
@@ -42851,6 +44588,7 @@ impl ::core::default::Default for MINIDUMP_LOCATION_DESCRIPTOR {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_LOCATION_DESCRIPTOR64 {
     pub DataSize: u64,
     pub Rva: u64,
@@ -42876,6 +44614,7 @@ impl ::core::default::Default for MINIDUMP_LOCATION_DESCRIPTOR64 {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_MEMORY64_LIST {
     pub NumberOfMemoryRanges: u64,
     pub BaseRva: u64,
@@ -42902,6 +44641,7 @@ impl ::core::default::Default for MINIDUMP_MEMORY64_LIST {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_MEMORY_DESCRIPTOR {
     pub StartOfMemoryRange: u64,
     pub Memory: MINIDUMP_LOCATION_DESCRIPTOR,
@@ -42927,6 +44667,7 @@ impl ::core::default::Default for MINIDUMP_MEMORY_DESCRIPTOR {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_MEMORY_DESCRIPTOR64 {
     pub StartOfMemoryRange: u64,
     pub DataSize: u64,
@@ -42952,6 +44693,7 @@ impl ::core::default::Default for MINIDUMP_MEMORY_DESCRIPTOR64 {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Memory'*"]
 #[cfg(feature = "Win32_System_Memory")]
 pub struct MINIDUMP_MEMORY_INFO {
     pub BaseAddress: u64,
@@ -42991,6 +44733,7 @@ impl ::core::default::Default for MINIDUMP_MEMORY_INFO {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_MEMORY_INFO_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
@@ -43017,6 +44760,7 @@ impl ::core::default::Default for MINIDUMP_MEMORY_INFO_LIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_MEMORY_LIST {
     pub NumberOfMemoryRanges: u32,
     pub MemoryRanges: [MINIDUMP_MEMORY_DESCRIPTOR; 1],
@@ -43049,6 +44793,7 @@ pub const MINIDUMP_MISC3_TIMEZONE: u32 = 64u32;
 pub const MINIDUMP_MISC4_BUILDSTRING: u32 = 256u32;
 pub const MINIDUMP_MISC5_PROCESS_COOKIE: u32 = 512u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_MISC_INFO {
     pub SizeOfInfo: u32,
     pub Flags1: MINIDUMP_MISC_INFO_FLAGS,
@@ -43078,6 +44823,7 @@ impl ::core::default::Default for MINIDUMP_MISC_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_MISC_INFO_2 {
     pub SizeOfInfo: u32,
     pub Flags1: u32,
@@ -43112,6 +44858,7 @@ impl ::core::default::Default for MINIDUMP_MISC_INFO_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct MINIDUMP_MISC_INFO_3 {
     pub SizeOfInfo: u32,
@@ -43158,6 +44905,7 @@ impl ::core::default::Default for MINIDUMP_MISC_INFO_3 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct MINIDUMP_MISC_INFO_4 {
     pub SizeOfInfo: u32,
@@ -43206,6 +44954,7 @@ impl ::core::default::Default for MINIDUMP_MISC_INFO_4 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct MINIDUMP_MISC_INFO_5 {
     pub SizeOfInfo: u32,
@@ -43255,10 +45004,14 @@ impl ::core::default::Default for MINIDUMP_MISC_INFO_5 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type MINIDUMP_MISC_INFO_FLAGS = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MINIDUMP_MISC1_PROCESS_ID: MINIDUMP_MISC_INFO_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MINIDUMP_MISC1_PROCESS_TIMES: MINIDUMP_MISC_INFO_FLAGS = 2u32;
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Storage_FileSystem'*"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct MINIDUMP_MODULE {
     pub BaseOfImage: u64,
@@ -43299,6 +45052,7 @@ impl ::core::default::Default for MINIDUMP_MODULE {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_Storage_FileSystem'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 pub struct MINIDUMP_MODULE_CALLBACK {
     pub FullPath: super::super::super::Foundation::PWSTR,
@@ -43339,6 +45093,7 @@ impl ::core::default::Default for MINIDUMP_MODULE_CALLBACK {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Storage_FileSystem'*"]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct MINIDUMP_MODULE_LIST {
     pub NumberOfModules: u32,
@@ -43372,6 +45127,7 @@ impl ::core::default::Default for MINIDUMP_MODULE_LIST {
 }
 pub const MINIDUMP_PROCESS_VM_COUNTERS: u32 = 1u32;
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_PROCESS_VM_COUNTERS_1 {
     pub Revision: u16,
     pub PageFaultCount: u32,
@@ -43406,6 +45162,7 @@ impl ::core::default::Default for MINIDUMP_PROCESS_VM_COUNTERS_1 {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_PROCESS_VM_COUNTERS_2 {
     pub Revision: u16,
     pub Flags: u16,
@@ -43454,6 +45211,7 @@ pub const MINIDUMP_PROCESS_VM_COUNTERS_EX2: u32 = 8u32;
 pub const MINIDUMP_PROCESS_VM_COUNTERS_JOB: u32 = 16u32;
 pub const MINIDUMP_PROCESS_VM_COUNTERS_VIRTUALSIZE: u32 = 2u32;
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
     pub Offset: u64,
     pub Bytes: u32,
@@ -43479,50 +45237,94 @@ impl ::core::default::Default for MINIDUMP_READ_MEMORY_FAILURE_CALLBACK {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type MINIDUMP_SECONDARY_FLAGS = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniSecondaryWithoutPowerInfo: MINIDUMP_SECONDARY_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniSecondaryValidFlags: MINIDUMP_SECONDARY_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type MINIDUMP_STREAM_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UnusedStream: MINIDUMP_STREAM_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ReservedStream0: MINIDUMP_STREAM_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ReservedStream1: MINIDUMP_STREAM_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ThreadListStream: MINIDUMP_STREAM_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ModuleListStream: MINIDUMP_STREAM_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MemoryListStream: MINIDUMP_STREAM_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ExceptionStream: MINIDUMP_STREAM_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SystemInfoStream: MINIDUMP_STREAM_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ThreadExListStream: MINIDUMP_STREAM_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const Memory64ListStream: MINIDUMP_STREAM_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CommentStreamA: MINIDUMP_STREAM_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const CommentStreamW: MINIDUMP_STREAM_TYPE = 11i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const HandleDataStream: MINIDUMP_STREAM_TYPE = 12i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FunctionTableStream: MINIDUMP_STREAM_TYPE = 13i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UnloadedModuleListStream: MINIDUMP_STREAM_TYPE = 14i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiscInfoStream: MINIDUMP_STREAM_TYPE = 15i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MemoryInfoListStream: MINIDUMP_STREAM_TYPE = 16i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ThreadInfoListStream: MINIDUMP_STREAM_TYPE = 17i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const HandleOperationListStream: MINIDUMP_STREAM_TYPE = 18i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TokenStream: MINIDUMP_STREAM_TYPE = 19i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const JavaScriptDataStream: MINIDUMP_STREAM_TYPE = 20i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SystemMemoryInfoStream: MINIDUMP_STREAM_TYPE = 21i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ProcessVmCountersStream: MINIDUMP_STREAM_TYPE = 22i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const IptTraceStream: MINIDUMP_STREAM_TYPE = 23i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ThreadNamesStream: MINIDUMP_STREAM_TYPE = 24i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ceStreamNull: MINIDUMP_STREAM_TYPE = 32768i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ceStreamSystemInfo: MINIDUMP_STREAM_TYPE = 32769i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ceStreamException: MINIDUMP_STREAM_TYPE = 32770i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ceStreamModuleList: MINIDUMP_STREAM_TYPE = 32771i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ceStreamProcessList: MINIDUMP_STREAM_TYPE = 32772i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ceStreamThreadList: MINIDUMP_STREAM_TYPE = 32773i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ceStreamThreadContextList: MINIDUMP_STREAM_TYPE = 32774i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ceStreamThreadCallStackList: MINIDUMP_STREAM_TYPE = 32775i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ceStreamMemoryVirtualList: MINIDUMP_STREAM_TYPE = 32776i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ceStreamMemoryPhysicalList: MINIDUMP_STREAM_TYPE = 32777i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ceStreamBucketParameters: MINIDUMP_STREAM_TYPE = 32778i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ceStreamProcessModuleMap: MINIDUMP_STREAM_TYPE = 32779i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ceStreamDiagnosisList: MINIDUMP_STREAM_TYPE = 32780i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const LastReservedStream: MINIDUMP_STREAM_TYPE = 65535i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_STRING {
     pub Length: u32,
     pub Buffer: [u16; 1],
@@ -43552,6 +45354,7 @@ pub const MINIDUMP_SYSMEMINFO1_FILECACHE_TRANSITIONREPURPOSECOUNT_FLAGS: u32 = 1
 pub const MINIDUMP_SYSMEMINFO1_PERF_CCTOTALDIRTYPAGES_CCDIRTYPAGETHRESHOLD: u32 = 4u32;
 pub const MINIDUMP_SYSMEMINFO1_PERF_RESIDENTAVAILABLEPAGES_SHAREDCOMMITPAGES: u32 = 8u32;
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_SYSTEM_BASIC_INFORMATION {
     pub TimerResolution: u32,
     pub PageSize: u32,
@@ -43585,6 +45388,7 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_BASIC_INFORMATION {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION {
     pub AvailablePages: u64,
     pub CommittedPages: u64,
@@ -43612,6 +45416,7 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION 
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
     pub CurrentSize: u64,
     pub PeakSize: u64,
@@ -43644,6 +45449,7 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_FILECACHE_INFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_SYSTEM_INFO {
     pub ProcessorArchitecture: PROCESSOR_ARCHITECTURE,
     pub ProcessorLevel: u16,
@@ -43678,6 +45484,7 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union MINIDUMP_SYSTEM_INFO_0 {
     pub Reserved0: u16,
     pub Anonymous: MINIDUMP_SYSTEM_INFO_0_0,
@@ -43703,6 +45510,7 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_SYSTEM_INFO_0_0 {
     pub NumberOfProcessors: u8,
     pub ProductType: u8,
@@ -43728,6 +45536,7 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_INFO_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union MINIDUMP_SYSTEM_INFO_1 {
     pub Reserved1: u32,
     pub Anonymous: MINIDUMP_SYSTEM_INFO_1_0,
@@ -43753,6 +45562,7 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_INFO_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_SYSTEM_INFO_1_0 {
     pub SuiteMask: u16,
     pub Reserved2: u16,
@@ -43778,6 +45588,7 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_INFO_1_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_SYSTEM_MEMORY_INFO_1 {
     pub Revision: u16,
     pub Flags: u16,
@@ -43807,6 +45618,7 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_MEMORY_INFO_1 {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
     pub IdleProcessTime: u64,
     pub IoReadTransferCount: u64,
@@ -43908,6 +45720,7 @@ impl ::core::default::Default for MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_THREAD {
     pub ThreadId: u32,
     pub SuspendCount: u32,
@@ -43938,6 +45751,7 @@ impl ::core::default::Default for MINIDUMP_THREAD {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_CALLBACK {
@@ -43982,6 +45796,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_CALLBACK {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_CALLBACK {
@@ -44025,6 +45840,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_CALLBACK {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_CALLBACK {
@@ -44068,6 +45884,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_CALLBACK {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_THREAD_EX {
     pub ThreadId: u32,
     pub SuspendCount: u32,
@@ -44099,6 +45916,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_EX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
@@ -44145,6 +45963,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_EX_CALLBACK {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
@@ -44190,6 +46009,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_EX_CALLBACK {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
@@ -44235,6 +46055,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_EX_CALLBACK {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_THREAD_EX_LIST {
     pub NumberOfThreads: u32,
     pub Threads: [MINIDUMP_THREAD_EX; 1],
@@ -44260,6 +46081,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_EX_LIST {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_THREAD_INFO {
     pub ThreadId: u32,
     pub DumpFlags: MINIDUMP_THREAD_INFO_DUMP_FLAGS,
@@ -44292,14 +46114,22 @@ impl ::core::default::Default for MINIDUMP_THREAD_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type MINIDUMP_THREAD_INFO_DUMP_FLAGS = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MINIDUMP_THREAD_INFO_ERROR_THREAD: MINIDUMP_THREAD_INFO_DUMP_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MINIDUMP_THREAD_INFO_EXITED_THREAD: MINIDUMP_THREAD_INFO_DUMP_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MINIDUMP_THREAD_INFO_INVALID_CONTEXT: MINIDUMP_THREAD_INFO_DUMP_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MINIDUMP_THREAD_INFO_INVALID_INFO: MINIDUMP_THREAD_INFO_DUMP_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MINIDUMP_THREAD_INFO_INVALID_TEB: MINIDUMP_THREAD_INFO_DUMP_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MINIDUMP_THREAD_INFO_WRITING_THREAD: MINIDUMP_THREAD_INFO_DUMP_FLAGS = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_THREAD_INFO_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
@@ -44326,6 +46156,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_INFO_LIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_THREAD_LIST {
     pub NumberOfThreads: u32,
     pub Threads: [MINIDUMP_THREAD; 1],
@@ -44351,6 +46182,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_LIST {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_THREAD_NAME {
     pub ThreadId: u32,
     pub RvaOfThreadName: u64,
@@ -44376,6 +46208,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_NAME {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_THREAD_NAME_LIST {
     pub NumberOfThreadNames: u32,
     pub ThreadNames: [MINIDUMP_THREAD_NAME; 1],
@@ -44401,6 +46234,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_NAME_LIST {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_TOKEN_INFO_HEADER {
     pub TokenSize: u32,
     pub TokenId: u32,
@@ -44427,6 +46261,7 @@ impl ::core::default::Default for MINIDUMP_TOKEN_INFO_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_TOKEN_INFO_LIST {
     pub TokenListSize: u32,
     pub TokenListEntries: u32,
@@ -44453,35 +46288,64 @@ impl ::core::default::Default for MINIDUMP_TOKEN_INFO_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type MINIDUMP_TYPE = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpNormal: MINIDUMP_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpWithDataSegs: MINIDUMP_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpWithFullMemory: MINIDUMP_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpWithHandleData: MINIDUMP_TYPE = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpFilterMemory: MINIDUMP_TYPE = 8u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpScanMemory: MINIDUMP_TYPE = 16u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpWithUnloadedModules: MINIDUMP_TYPE = 32u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpWithIndirectlyReferencedMemory: MINIDUMP_TYPE = 64u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpFilterModulePaths: MINIDUMP_TYPE = 128u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpWithProcessThreadData: MINIDUMP_TYPE = 256u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpWithPrivateReadWriteMemory: MINIDUMP_TYPE = 512u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpWithoutOptionalData: MINIDUMP_TYPE = 1024u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpWithFullMemoryInfo: MINIDUMP_TYPE = 2048u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpWithThreadInfo: MINIDUMP_TYPE = 4096u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpWithCodeSegs: MINIDUMP_TYPE = 8192u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpWithoutAuxiliaryState: MINIDUMP_TYPE = 16384u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpWithFullAuxiliaryState: MINIDUMP_TYPE = 32768u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpWithPrivateWriteCopyMemory: MINIDUMP_TYPE = 65536u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpIgnoreInaccessibleMemory: MINIDUMP_TYPE = 131072u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpWithTokenInformation: MINIDUMP_TYPE = 262144u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpWithModuleHeaders: MINIDUMP_TYPE = 524288u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpFilterTriage: MINIDUMP_TYPE = 1048576u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpWithAvxXStateContext: MINIDUMP_TYPE = 2097152u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpWithIptTrace: MINIDUMP_TYPE = 4194304u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpScanInaccessiblePartialPages: MINIDUMP_TYPE = 8388608u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpFilterWriteCombinedMemory: MINIDUMP_TYPE = 16777216u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MiniDumpValidTypeFlags: MINIDUMP_TYPE = 33554431u32;
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_UNLOADED_MODULE {
     pub BaseOfImage: u64,
     pub SizeOfImage: u32,
@@ -44510,6 +46374,7 @@ impl ::core::default::Default for MINIDUMP_UNLOADED_MODULE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_UNLOADED_MODULE_LIST {
     pub SizeOfHeader: u32,
     pub SizeOfEntry: u32,
@@ -44536,6 +46401,7 @@ impl ::core::default::Default for MINIDUMP_UNLOADED_MODULE_LIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_USER_RECORD {
     pub Type: u32,
     pub Memory: MINIDUMP_LOCATION_DESCRIPTOR,
@@ -44561,6 +46427,7 @@ impl ::core::default::Default for MINIDUMP_USER_RECORD {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_USER_STREAM {
     pub Type: u32,
     pub BufferSize: u32,
@@ -44587,6 +46454,7 @@ impl ::core::default::Default for MINIDUMP_USER_STREAM {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_USER_STREAM_INFORMATION {
     pub UserStreamCount: u32,
     pub UserStreamArray: *mut MINIDUMP_USER_STREAM,
@@ -44613,6 +46481,7 @@ impl ::core::default::Default for MINIDUMP_USER_STREAM_INFORMATION {
 }
 pub const MINIDUMP_VERSION: u32 = 42899u32;
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_VM_POST_READ_CALLBACK {
     pub Offset: u64,
     pub Buffer: *mut ::core::ffi::c_void,
@@ -44641,6 +46510,7 @@ impl ::core::default::Default for MINIDUMP_VM_POST_READ_CALLBACK {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_VM_PRE_READ_CALLBACK {
     pub Offset: u64,
     pub Buffer: *mut ::core::ffi::c_void,
@@ -44667,6 +46537,7 @@ impl ::core::default::Default for MINIDUMP_VM_PRE_READ_CALLBACK {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MINIDUMP_VM_QUERY_CALLBACK {
     pub Offset: u64,
 }
@@ -44691,6 +46562,7 @@ impl ::core::default::Default for MINIDUMP_VM_QUERY_CALLBACK {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MODLOAD_CVMISC {
     pub oCV: u32,
     pub cCV: usize,
@@ -44720,6 +46592,7 @@ impl ::core::default::Default for MODLOAD_CVMISC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MODLOAD_DATA {
     pub ssize: u32,
     pub ssig: MODLOAD_DATA_TYPE,
@@ -44747,10 +46620,14 @@ impl ::core::default::Default for MODLOAD_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type MODLOAD_DATA_TYPE = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBHHEADER_DEBUGDIRS: MODLOAD_DATA_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DBHHEADER_CVMISC: MODLOAD_DATA_TYPE = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MODLOAD_PDBGUID_PDBAGE {
     pub PdbGuid: ::windows::core::GUID,
     pub PdbAge: u32,
@@ -44779,6 +46656,7 @@ pub const MODULE_ORDERS_LOADTIME: u32 = 268435456u32;
 pub const MODULE_ORDERS_MASK: u32 = 4026531840u32;
 pub const MODULE_ORDERS_MODULENAME: u32 = 536870912u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct MODULE_TYPE_INFO {
     pub dataLength: u16,
     pub leaf: u16,
@@ -44804,16 +46682,25 @@ impl ::core::default::Default for MODULE_TYPE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type MODULE_WRITE_FLAGS = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ModuleWriteModule: MODULE_WRITE_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ModuleWriteDataSeg: MODULE_WRITE_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ModuleWriteMiscRecord: MODULE_WRITE_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ModuleWriteCvRecord: MODULE_WRITE_FLAGS = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ModuleReferencedByMemory: MODULE_WRITE_FLAGS = 16i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ModuleWriteTlsData: MODULE_WRITE_FLAGS = 32i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ModuleWriteCodeSegs: MODULE_WRITE_FLAGS = 64i32;
 pub const MachineDebugManager_DEBUG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49769cec_3a55_4bb0_b697_88fede77e8ea);
 pub const MachineDebugManager_RETAIL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c0a3666_30c9_11d0_8f20_00805f2cd064);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MakeSureDirectoryPathExists<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(dirpath: Param0) -> super::super::super::Foundation::BOOL {
@@ -44828,6 +46715,7 @@ pub unsafe fn MakeSureDirectoryPathExists<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn MapAndLoad<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(imagename: Param0, dllpath: Param1, loadedimage: *mut LOADED_IMAGE, dotdll: Param3, readonly: Param4) -> super::super::super::Foundation::BOOL {
@@ -44842,6 +46730,7 @@ pub unsafe fn MapAndLoad<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MapFileAndCheckSumA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(filename: Param0, headersum: *mut u32, checksum: *mut u32) -> u32 {
@@ -44856,6 +46745,7 @@ pub unsafe fn MapFileAndCheckSumA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MapFileAndCheckSumW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(filename: Param0, headersum: *mut u32, checksum: *mut u32) -> u32 {
@@ -44870,6 +46760,7 @@ pub unsafe fn MapFileAndCheckSumW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MessageBeep(utype: u32) -> super::super::super::Foundation::BOOL {
@@ -44884,6 +46775,7 @@ pub unsafe fn MessageBeep(utype: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MiniDumpReadDumpStream(baseofdump: *const ::core::ffi::c_void, streamnumber: u32, dir: *mut *mut MINIDUMP_DIRECTORY, streampointer: *mut *mut ::core::ffi::c_void, streamsize: *mut u32) -> super::super::super::Foundation::BOOL {
@@ -44898,6 +46790,7 @@ pub unsafe fn MiniDumpReadDumpStream(baseofdump: *const ::core::ffi::c_void, str
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_Storage_FileSystem', 'Win32_System_Kernel', 'Win32_System_Memory'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
 #[inline]
 pub unsafe fn MiniDumpWriteDump<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, processid: u32, hfile: Param2, dumptype: MINIDUMP_TYPE, exceptionparam: *const MINIDUMP_EXCEPTION_INFORMATION, userstreamparam: *const MINIDUMP_USER_STREAM_INFORMATION, callbackparam: *const MINIDUMP_CALLBACK_INFORMATION) -> super::super::super::Foundation::BOOL {
@@ -44912,60 +46805,108 @@ pub unsafe fn MiniDumpWriteDump<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type ModelObjectKind = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ObjectPropertyAccessor: ModelObjectKind = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ObjectContext: ModelObjectKind = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ObjectTargetObject: ModelObjectKind = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ObjectTargetObjectReference: ModelObjectKind = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ObjectSynthetic: ModelObjectKind = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ObjectNoValue: ModelObjectKind = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ObjectError: ModelObjectKind = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ObjectIntrinsic: ModelObjectKind = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ObjectMethod: ModelObjectKind = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ObjectKeyReference: ModelObjectKind = 9i32;
 pub const NULL_FIELD_NAME: u32 = 6u32;
 pub const NULL_SYM_DUMP_PARAM: u32 = 5u32;
 pub const NUM_SSRVOPTS: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type OBJECT_ATTRIB_FLAG = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_NO_ATTRIB: OBJECT_ATTRIB_FLAG = 0u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_NO_NAME: OBJECT_ATTRIB_FLAG = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_NO_TYPE: OBJECT_ATTRIB_FLAG = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_NO_VALUE: OBJECT_ATTRIB_FLAG = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_VALUE_IS_INVALID: OBJECT_ATTRIB_FLAG = 8u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_VALUE_IS_OBJECT: OBJECT_ATTRIB_FLAG = 16u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_VALUE_IS_ENUM: OBJECT_ATTRIB_FLAG = 32u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_VALUE_IS_CUSTOM: OBJECT_ATTRIB_FLAG = 64u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_OBJECT_IS_EXPANDABLE: OBJECT_ATTRIB_FLAG = 112u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_VALUE_HAS_CODE: OBJECT_ATTRIB_FLAG = 128u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_TYPE_IS_OBJECT: OBJECT_ATTRIB_FLAG = 256u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_TYPE_HAS_CODE: OBJECT_ATTRIB_FLAG = 512u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_TYPE_IS_EXPANDABLE: OBJECT_ATTRIB_FLAG = 256u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_SLOT_IS_CATEGORY: OBJECT_ATTRIB_FLAG = 1024u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_VALUE_READONLY: OBJECT_ATTRIB_FLAG = 2048u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_ACCESS_PUBLIC: OBJECT_ATTRIB_FLAG = 4096u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_ACCESS_PRIVATE: OBJECT_ATTRIB_FLAG = 8192u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_ACCESS_PROTECTED: OBJECT_ATTRIB_FLAG = 16384u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_ACCESS_FINAL: OBJECT_ATTRIB_FLAG = 32768u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_STORAGE_GLOBAL: OBJECT_ATTRIB_FLAG = 65536u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_STORAGE_STATIC: OBJECT_ATTRIB_FLAG = 131072u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_STORAGE_FIELD: OBJECT_ATTRIB_FLAG = 262144u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_STORAGE_VIRTUAL: OBJECT_ATTRIB_FLAG = 524288u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_TYPE_IS_CONSTANT: OBJECT_ATTRIB_FLAG = 1048576u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_TYPE_IS_SYNCHRONIZED: OBJECT_ATTRIB_FLAG = 2097152u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_TYPE_IS_VOLATILE: OBJECT_ATTRIB_FLAG = 4194304u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_HAS_EXTENDED_ATTRIBS: OBJECT_ATTRIB_FLAG = 8388608u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_IS_CLASS: OBJECT_ATTRIB_FLAG = 16777216u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_IS_FUNCTION: OBJECT_ATTRIB_FLAG = 33554432u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_IS_VARIABLE: OBJECT_ATTRIB_FLAG = 67108864u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_IS_PROPERTY: OBJECT_ATTRIB_FLAG = 134217728u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_IS_MACRO: OBJECT_ATTRIB_FLAG = 268435456u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_IS_TYPE: OBJECT_ATTRIB_FLAG = 536870912u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_IS_INHERITED: OBJECT_ATTRIB_FLAG = 1073741824u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const OBJECT_ATTRIB_IS_INTERFACE: OBJECT_ATTRIB_FLAG = 2147483648u32;
 pub const OID_JSSIP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06c9e010_38ce_11d4_a2a3_00104bd35090);
 pub const OID_VBSSIP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1629f04e_2799_4db5_8fe5_ace10f17ebab);
 pub const OID_WSFSIP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a610570_38ce_11d4_a2a3_00104bd35090);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct OMAP {
     pub rva: u32,
     pub rvaTo: u32,
@@ -44990,9 +46931,12 @@ impl ::core::default::Default for OMAP {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WCT_ASYNC_OPEN_FLAG: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OUTPUT_DEBUG_STRING_INFO {
     pub lpDebugStringData: super::super::super::Foundation::PSTR,
@@ -45025,6 +46969,7 @@ impl ::core::default::Default for OUTPUT_DEBUG_STRING_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback: PWAITCHAINCALLBACK) -> *mut ::core::ffi::c_void {
@@ -45039,6 +46984,7 @@ pub unsafe fn OpenThreadWaitChainSession(flags: OPEN_THREAD_WAIT_CHAIN_SESSION_F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OutputDebugStringA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(lpoutputstring: Param0) {
@@ -45053,6 +46999,7 @@ pub unsafe fn OutputDebugStringA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OutputDebugStringW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(lpoutputstring: Param0) {
@@ -45067,71 +47014,107 @@ pub unsafe fn OutputDebugStringW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PCOGETACTIVATIONSTATE = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::GUID, param1: u32, param2: *mut u32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PCOGETCALLSTATE = ::core::option::Option<unsafe extern "system" fn(param0: i32, param1: *mut u32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDBGHELP_CREATE_USER_DUMP_CALLBACK = ::core::option::Option<unsafe extern "system" fn(datatype: u32, data: *const *const ::core::ffi::c_void, datalength: *mut u32, userdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDEBUG_EXTENSION_CALL = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, args: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PDEBUG_EXTENSION_CANUNLOAD = ::core::option::Option<unsafe extern "system" fn() -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PDEBUG_EXTENSION_INITIALIZE = ::core::option::Option<unsafe extern "system" fn(version: *mut u32, flags: *mut u32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDEBUG_EXTENSION_KNOWN_STRUCT = ::core::option::Option<unsafe extern "system" fn(flags: u32, offset: u64, typename: super::super::super::Foundation::PSTR, buffer: super::super::super::Foundation::PSTR, bufferchars: *mut u32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, flags: u32, offset: u64, typename: super::super::super::Foundation::PSTR, buffer: super::super::super::Foundation::PSTR, bufferchars: *mut u32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PDEBUG_EXTENSION_NOTIFY = ::core::option::Option<unsafe extern "system" fn(notify: u32, argument: u64)>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDEBUG_EXTENSION_PROVIDE_VALUE = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, flags: u32, name: super::super::super::Foundation::PWSTR, value: *mut u64, typemodbase: *mut u64, typeid: *mut u32, typeflags: *mut u32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = ::core::option::Option<unsafe extern "system" fn(client: ::core::option::Option<IDebugClient>, flags: u32, buffer: super::super::super::Foundation::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PDEBUG_EXTENSION_UNINITIALIZE = ::core::option::Option<unsafe extern "system" fn()>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PDEBUG_EXTENSION_UNLOAD = ::core::option::Option<unsafe extern "system" fn()>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = ::core::option::Option<unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const ::core::ffi::c_void, buffersize: u32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = ::core::option::Option<unsafe extern "system" fn() -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = ::core::option::Option<unsafe extern "system" fn(stacksymframes: *const STACK_SYM_FRAME_INFO) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = ::core::option::Option<unsafe extern "system" fn(systemthreadid: u32, nativeframes: *const DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut *mut STACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUMDIRTREE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filepath: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUMDIRTREE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(filepath: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUMLOADED_MODULES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, modulebase: u32, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUMLOADED_MODULES_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, modulebase: u64, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUMLOADED_MODULES_CALLBACKW64 = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PWSTR, modulebase: u64, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUMSOURCEFILETOKENSCALLBACK = ::core::option::Option<unsafe extern "system" fn(token: *const ::core::ffi::c_void, size: usize) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFINDFILEINPATHCALLBACK = ::core::option::Option<unsafe extern "system" fn(filename: super::super::super::Foundation::PSTR, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFINDFILEINPATHCALLBACKW = ::core::option::Option<unsafe extern "system" fn(filename: super::super::super::Foundation::PWSTR, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFIND_DEBUG_FILE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFIND_DEBUG_FILE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFIND_EXE_FILE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFIND_EXE_FILE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFUNCTION_TABLE_ACCESS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u32) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFUNCTION_TABLE_ACCESS_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(ahprocess: super::super::super::Foundation::HANDLE, addrbase: u64) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_MODULE_BASE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, address: u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_MODULE_BASE_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, address: u64) -> u64>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "aarch64")]
 pub type PGET_RUNTIME_FUNCTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(controlpc: u64, context: *const ::core::ffi::c_void) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86_64")]
 pub type PGET_RUNTIME_FUNCTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(controlpc: u64, context: *const ::core::ffi::c_void) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct PHYSICAL {
     pub Address: u64,
     pub BufLen: u32,
@@ -45158,6 +47141,7 @@ impl ::core::default::Default for PHYSICAL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct PHYSICAL_MEMORY_DESCRIPTOR32 {
     pub NumberOfRuns: u32,
     pub NumberOfPages: u32,
@@ -45184,6 +47168,7 @@ impl ::core::default::Default for PHYSICAL_MEMORY_DESCRIPTOR32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct PHYSICAL_MEMORY_DESCRIPTOR64 {
     pub NumberOfRuns: u32,
     pub NumberOfPages: u64,
@@ -45210,6 +47195,7 @@ impl ::core::default::Default for PHYSICAL_MEMORY_DESCRIPTOR64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct PHYSICAL_MEMORY_RUN32 {
     pub BasePage: u32,
     pub PageCount: u32,
@@ -45235,6 +47221,7 @@ impl ::core::default::Default for PHYSICAL_MEMORY_RUN32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct PHYSICAL_MEMORY_RUN64 {
     pub BasePage: u64,
     pub PageCount: u64,
@@ -45260,6 +47247,7 @@ impl ::core::default::Default for PHYSICAL_MEMORY_RUN64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct PHYSICAL_TO_VIRTUAL {
     pub Status: u32,
     pub Size: u32,
@@ -45286,6 +47274,7 @@ impl ::core::default::Default for PHYSICAL_TO_VIRTUAL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct PHYSICAL_WITH_FLAGS {
     pub Address: u64,
     pub BufLen: u32,
@@ -45316,13 +47305,17 @@ pub const PHYS_FLAG_CACHED: u32 = 1u32;
 pub const PHYS_FLAG_DEFAULT: u32 = 0u32;
 pub const PHYS_FLAG_UNCACHED: u32 = 2u32;
 pub const PHYS_FLAG_WRITE_COMBINED: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PIMAGEHLP_STATUS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: usize, parameter: usize) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PIMAGEHLP_STATUS_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: u32, parameter: usize) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PIMAGEHLP_STATUS_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(reason: IMAGEHLP_STATUS_REASON, imagename: super::super::super::Foundation::PSTR, dllname: super::super::super::Foundation::PSTR, va: u64, parameter: usize) -> super::super::super::Foundation::BOOL>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct POINTER_SEARCH_PHYSICAL {
     pub Offset: u64,
     pub Length: u64,
@@ -45353,12 +47346,15 @@ impl ::core::default::Default for POINTER_SEARCH_PHYSICAL {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PREAD_PROCESS_MEMORY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, lpbaseaddress: u32, lpbuffer: *mut ::core::ffi::c_void, nsize: u32, lpnumberofbytesread: *mut u32) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PREAD_PROCESS_MEMORY_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, qwbaseaddress: u64, lpbuffer: *mut ::core::ffi::c_void, nsize: u32, lpnumberofbytesread: *mut u32) -> super::super::super::Foundation::BOOL>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct PROCESSORINFO {
     pub Processor: u16,
     pub NumberProcessors: u16,
@@ -45383,13 +47379,20 @@ impl ::core::default::Default for PROCESSORINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PROCESSOR_ARCHITECTURE = u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROCESSOR_ARCHITECTURE_AMD64: PROCESSOR_ARCHITECTURE = 9u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROCESSOR_ARCHITECTURE_IA64: PROCESSOR_ARCHITECTURE = 6u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROCESSOR_ARCHITECTURE_INTEL: PROCESSOR_ARCHITECTURE = 0u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROCESSOR_ARCHITECTURE_ARM: PROCESSOR_ARCHITECTURE = 5u16;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROCESSOR_ARCHITECTURE_UNKNOWN: PROCESSOR_ARCHITECTURE = 65535u16;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct PROCESS_NAME_ENTRY {
     pub ProcessId: u32,
     pub NameOffset: u32,
@@ -45416,18 +47419,30 @@ impl ::core::default::Default for PROCESS_NAME_ENTRY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PROFILER_EVENT_MASK = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_EVENT_MASK_TRACE_SCRIPT_FUNCTION_CALL: PROFILER_EVENT_MASK = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_EVENT_MASK_TRACE_NATIVE_FUNCTION_CALL: PROFILER_EVENT_MASK = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_EVENT_MASK_TRACE_DOM_FUNCTION_CALL: PROFILER_EVENT_MASK = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_EVENT_MASK_TRACE_ALL: PROFILER_EVENT_MASK = 3u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_EVENT_MASK_TRACE_ALL_WITH_DOM: PROFILER_EVENT_MASK = 7u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PROFILER_HEAP_ENUM_FLAGS = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_ENUM_FLAGS_NONE: PROFILER_HEAP_ENUM_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_ENUM_FLAGS_STORE_RELATIONSHIP_FLAGS: PROFILER_HEAP_ENUM_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_ENUM_FLAGS_SUBSTRINGS: PROFILER_HEAP_ENUM_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_ENUM_FLAGS_RELATIONSHIP_SUBSTRINGS: PROFILER_HEAP_ENUM_FLAGS = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct PROFILER_HEAP_OBJECT {
     pub size: u32,
     pub Anonymous: PROFILER_HEAP_OBJECT_0,
@@ -45457,6 +47472,7 @@ impl ::core::default::Default for PROFILER_HEAP_OBJECT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union PROFILER_HEAP_OBJECT_0 {
     pub objectId: usize,
     pub externalObjectAddress: *mut ::core::ffi::c_void,
@@ -45481,22 +47497,37 @@ impl ::core::default::Default for PROFILER_HEAP_OBJECT_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PROFILER_HEAP_OBJECT_FLAGS = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_FLAGS_NEW_OBJECT: PROFILER_HEAP_OBJECT_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_FLAGS_IS_ROOT: PROFILER_HEAP_OBJECT_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_FLAGS_SITE_CLOSED: PROFILER_HEAP_OBJECT_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL: PROFILER_HEAP_OBJECT_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL_UNKNOWN: PROFILER_HEAP_OBJECT_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL_DISPATCH: PROFILER_HEAP_OBJECT_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_FLAGS_SIZE_APPROXIMATE: PROFILER_HEAP_OBJECT_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_FLAGS_SIZE_UNAVAILABLE: PROFILER_HEAP_OBJECT_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_FLAGS_NEW_STATE_UNAVAILABLE: PROFILER_HEAP_OBJECT_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_INSTANCE: PROFILER_HEAP_OBJECT_FLAGS = 512u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_RUNTIMECLASS: PROFILER_HEAP_OBJECT_FLAGS = 1024u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_DELEGATE: PROFILER_HEAP_OBJECT_FLAGS = 2048u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_NAMESPACE: PROFILER_HEAP_OBJECT_FLAGS = 4096u32;
 pub const PROFILER_HEAP_OBJECT_NAME_ID_UNAVAILABLE: u32 = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
     pub infoType: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE,
@@ -45529,6 +47560,7 @@ impl ::core::default::Default for PROFILER_HEAP_OBJECT_OPTIONAL_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
     pub prototype: usize,
@@ -45571,22 +47603,38 @@ impl ::core::default::Default for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_PROTOTYPE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_FUNCTION_NAME: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_SCOPE_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_INTERNAL_PROPERTY: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_NAME_PROPERTIES: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_INDEX_PROPERTIES: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_ELEMENT_ATTRIBUTES_SIZE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_ELEMENT_TEXT_CHILDREN_SIZE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_RELATIONSHIPS: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_WINRTEVENTS: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_WEAKMAP_COLLECTION_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = 11i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_MAP_COLLECTION_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = 12i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_SET_COLLECTION_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = 13i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_MAX_VALUE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = 13i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP {
     pub relationshipId: u32,
@@ -45618,6 +47666,7 @@ impl ::core::default::Default for PROFILER_HEAP_OBJECT_RELATIONSHIP {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
     pub numberValue: f64,
@@ -45651,13 +47700,20 @@ impl ::core::default::Default for PROFILER_HEAP_OBJECT_RELATIONSHIP_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_NONE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_GET_ACCESSOR: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = 65536u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_SET_ACCESSOR: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = 131072u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_LET_VARIABLE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = 262144u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_CONST_VARIABLE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = 524288u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     pub count: u32,
@@ -45688,6 +47744,7 @@ impl ::core::default::Default for PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct PROFILER_HEAP_OBJECT_SCOPE_LIST {
     pub count: u32,
     pub scopes: [usize; 1],
@@ -45713,6 +47770,7 @@ impl ::core::default::Default for PROFILER_HEAP_OBJECT_SCOPE_LIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct PROFILER_HEAP_SUMMARY {
     pub version: PROFILER_HEAP_SUMMARY_VERSION,
     pub totalHeapSize: u32,
@@ -45737,9 +47795,12 @@ impl ::core::default::Default for PROFILER_HEAP_SUMMARY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PROFILER_HEAP_SUMMARY_VERSION = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_HEAP_SUMMARY_VERSION_1: PROFILER_HEAP_SUMMARY_VERSION = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
     pub length: u32,
@@ -45771,136 +47832,211 @@ impl ::core::default::Default for PROFILER_PROPERTY_TYPE_SUBSTRING_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PROFILER_RELATIONSHIP_INFO = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_PROPERTY_TYPE_NUMBER: PROFILER_RELATIONSHIP_INFO = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_PROPERTY_TYPE_STRING: PROFILER_RELATIONSHIP_INFO = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_PROPERTY_TYPE_HEAP_OBJECT: PROFILER_RELATIONSHIP_INFO = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_PROPERTY_TYPE_EXTERNAL_OBJECT: PROFILER_RELATIONSHIP_INFO = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_PROPERTY_TYPE_BSTR: PROFILER_RELATIONSHIP_INFO = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_PROPERTY_TYPE_SUBSTRING: PROFILER_RELATIONSHIP_INFO = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PROFILER_SCRIPT_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_SCRIPT_TYPE_USER: PROFILER_SCRIPT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_SCRIPT_TYPE_DYNAMIC: PROFILER_SCRIPT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_SCRIPT_TYPE_NATIVE: PROFILER_SCRIPT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROFILER_SCRIPT_TYPE_DOM: PROFILER_SCRIPT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PROP_INFO_FLAGS = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROP_INFO_NAME: PROP_INFO_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROP_INFO_TYPE: PROP_INFO_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROP_INFO_VALUE: PROP_INFO_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROP_INFO_FULLNAME: PROP_INFO_FLAGS = 32i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROP_INFO_ATTRIBUTES: PROP_INFO_FLAGS = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROP_INFO_DEBUGPROP: PROP_INFO_FLAGS = 16i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PROP_INFO_AUTOEXPAND: PROP_INFO_FLAGS = 134217728i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERBYINDEXPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERBYINDEXPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERBYINDEXPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERCALLBACKPROC = ::core::option::Option<unsafe extern "system" fn(action: usize, data: u64, context: u64) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERCLOSEPROC = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERDELTANAME = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: u32, param7: super::super::super::Foundation::PSTR, param8: usize) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERDELTANAMEW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: *mut ::core::ffi::c_void, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void, param5: u32, param6: u32, param7: super::super::super::Foundation::PWSTR, param8: usize) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERGETINDEXSTRING = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: u32, param2: u32, param3: super::super::super::Foundation::PSTR, param4: usize) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERGETINDEXSTRINGW = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: u32, param2: u32, param3: super::super::super::Foundation::PWSTR, param4: usize) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERGETOPTIONDATAPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: *mut u64) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PSYMBOLSERVERGETOPTIONSPROC = ::core::option::Option<unsafe extern "system" fn() -> usize>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERGETSUPPLEMENT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR, param4: usize) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERGETSUPPLEMENTW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR, param4: usize) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERGETVERSION = ::core::option::Option<unsafe extern "system" fn(param0: *mut API_VERSION) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERISSTORE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERISSTOREW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERMESSAGEPROC = ::core::option::Option<unsafe extern "system" fn(action: usize, data: u64, context: u64) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVEROPENPROC = ::core::option::Option<unsafe extern "system" fn() -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERPINGPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERPINGPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERPINGPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERPINGPROCWEX = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERSETHTTPAUTHHEADER = ::core::option::Option<unsafe extern "system" fn(pszauthheader: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERSETOPTIONSPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u64) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERSETOPTIONSWPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: u64) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERSTOREFILE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PSTR, param6: usize, param7: u32) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERSTOREFILEW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR, param6: usize, param7: u32) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERSTORESUPPLEMENT = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PSTR, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: super::super::super::Foundation::PSTR, param4: usize, param5: u32) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERSTORESUPPLEMENTW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: super::super::super::Foundation::PWSTR, param4: usize, param5: u32) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PSYMBOLSERVERVERSION = ::core::option::Option<unsafe extern "system" fn() -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOLSERVERWEXPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::PWSTR, param1: super::super::super::Foundation::PWSTR, param2: *mut ::core::ffi::c_void, param3: u32, param4: u32, param5: super::super::super::Foundation::PWSTR, param6: *mut SYMSRV_EXTENDED_OUTPUT_DATA) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOL_FUNCENTRY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u32, usercontext: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOL_FUNCENTRY_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u64, usercontext: u64) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOL_REGISTERED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, actioncode: u32, callbackdata: *const ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOL_REGISTERED_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, actioncode: u32, callbackdata: u64, usercontext: u64) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PSYM_DUMP_FIELD_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pfield: *mut FIELD_INFO, usercontext: *mut ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMERATESYMBOLS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(psyminfo: *const SYMBOL_INFO, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMERATESYMBOLS_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(psyminfo: *const SYMBOL_INFOW, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMLINES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lineinfo: *const SRCCODEINFO, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMLINES_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(lineinfo: *const SRCCODEINFOW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMMODULES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, baseofdll: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMMODULES_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, baseofdll: u64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMMODULES_CALLBACKW64 = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PWSTR, baseofdll: u64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMPROCESSES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMSOURCEFILES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(psourcefile: *const SOURCEFILE, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMSOURCEFILES_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(psourcefile: *const SOURCEFILEW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMSYMBOLS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PSTR, symboladdress: u32, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMSYMBOLS_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PSTR, symboladdress: u64, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMSYMBOLS_CALLBACK64W = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PWSTR, symboladdress: u64, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMSYMBOLS_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PWSTR, symboladdress: u32, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PTRANSLATE_ADDRESS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *mut ADDRESS) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PTRANSLATE_ADDRESS_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *const ADDRESS64) -> u64>;
 pub const PTR_SEARCH_NO_SYMBOL_CHECK: u32 = 2147483648u32;
@@ -45908,90 +48044,151 @@ pub const PTR_SEARCH_PHYS_ALL_HITS: u32 = 1u32;
 pub const PTR_SEARCH_PHYS_PTE: u32 = 2u32;
 pub const PTR_SEARCH_PHYS_RANGE_CHECK_ONLY: u32 = 4u32;
 pub const PTR_SEARCH_PHYS_SIZE_SHIFT: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type PVECTORED_EXCEPTION_HANDLER = ::core::option::Option<unsafe extern "system" fn(exceptioninfo: *mut EXCEPTION_POINTERS) -> i32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWAITCHAINCALLBACK = ::core::option::Option<unsafe extern "system" fn(wcthandle: *mut ::core::ffi::c_void, context: usize, callbackstatus: u32, nodecount: *mut u32, nodeinfoarray: *mut WAITCHAIN_NODE_INFO, iscycle: *mut i32)>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PWINDBG_CHECK_CONTROL_C = ::core::option::Option<unsafe extern "system" fn() -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PWINDBG_CHECK_VERSION = ::core::option::Option<unsafe extern "system" fn() -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_DISASM = ::core::option::Option<unsafe extern "system" fn(lpoffset: *mut usize, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_DISASM32 = ::core::option::Option<unsafe extern "system" fn(lpoffset: *mut u32, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_DISASM64 = ::core::option::Option<unsafe extern "system" fn(lpoffset: *mut u64, lpbuffer: super::super::super::Foundation::PSTR, fshoweffectiveaddress: u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PWINDBG_EXTENSION_API_VERSION = ::core::option::Option<unsafe extern "system" fn() -> *mut EXT_API_VERSION>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type PWINDBG_EXTENSION_DLL_INIT = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS, majorversion: u16, minorversion: u16)>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type PWINDBG_EXTENSION_DLL_INIT32 = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS32, majorversion: u16, minorversion: u16)>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type PWINDBG_EXTENSION_DLL_INIT64 = ::core::option::Option<unsafe extern "system" fn(lpextensionapis: *mut WINDBG_EXTENSION_APIS64, majorversion: u16, minorversion: u16)>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR)>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_EXTENSION_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u32, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR)>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_EXTENSION_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hcurrentprocess: super::super::super::Foundation::HANDLE, hcurrentthread: super::super::super::Foundation::HANDLE, dwcurrentpc: u64, dwprocessor: u32, lpargumentstring: super::super::super::Foundation::PSTR)>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_GET_EXPRESSION = ::core::option::Option<unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> usize>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_GET_EXPRESSION32 = ::core::option::Option<unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_GET_EXPRESSION64 = ::core::option::Option<unsafe extern "system" fn(lpexpression: super::super::super::Foundation::PSTR) -> u64>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_GET_SYMBOL = ::core::option::Option<unsafe extern "system" fn(offset: *mut ::core::ffi::c_void, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut usize)>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_GET_SYMBOL32 = ::core::option::Option<unsafe extern "system" fn(offset: u32, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut u32)>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_GET_SYMBOL64 = ::core::option::Option<unsafe extern "system" fn(offset: u64, pchbuffer: super::super::super::Foundation::PSTR, pdisplacement: *mut u64)>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_GET_THREAD_CONTEXT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut CONTEXT, cbsizeofcontext: u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PWINDBG_IOCTL_ROUTINE = ::core::option::Option<unsafe extern "system" fn(ioctltype: u16, lpvdata: *mut ::core::ffi::c_void, cbsize: u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_OLDKD_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_OLDKD_EXTENSION_APIS, lpargumentstring: super::super::super::Foundation::PSTR)>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PWINDBG_OLDKD_READ_PHYSICAL_MEMORY = ::core::option::Option<unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, count: u32, bytesread: *mut u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY = ::core::option::Option<unsafe extern "system" fn(address: u64, buffer: *mut ::core::ffi::c_void, length: u32, byteswritten: *mut u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type PWINDBG_OLD_EXTENSION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(dwcurrentpc: u32, lpextensionapis: *mut WINDBG_EXTENSION_APIS, lpargumentstring: super::super::super::Foundation::PSTR)>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINDBG_OUTPUT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpformat: super::super::super::Foundation::PSTR)>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(offset: usize, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(offset: u32, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PWINDBG_READ_PROCESS_MEMORY_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(offset: u64, lpbuffer: *mut ::core::ffi::c_void, cb: u32, lpcbbytesread: *mut u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(feature = "Win32_System_Kernel")]
 pub type PWINDBG_SET_THREAD_CONTEXT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(processor: u32, lpcontext: *mut CONTEXT, cbsizeofcontext: u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PWINDBG_STACKTRACE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE, frames: u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PWINDBG_STACKTRACE_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(framepointer: u32, stackpointer: u32, programcounter: u32, stackframes: *mut EXTSTACKTRACE32, frames: u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PWINDBG_STACKTRACE_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(framepointer: u64, stackpointer: u64, programcounter: u64, stackframes: *mut EXTSTACKTRACE64, frames: u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(offset: usize, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32 = ::core::option::Option<unsafe extern "system" fn(offset: u32, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(offset: u64, lpbuffer: *const ::core::ffi::c_void, cb: u32, lpcbbyteswritten: *mut u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PointerKind = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PointerStandard: PointerKind = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PointerReference: PointerKind = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PointerRValueReference: PointerKind = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PointerCXHat: PointerKind = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const PointerManagedReference: PointerKind = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type PreferredFormat = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FormatNone: PreferredFormat = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FormatSingleCharacter: PreferredFormat = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FormatQuotedString: PreferredFormat = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FormatString: PreferredFormat = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FormatQuotedUnicodeString: PreferredFormat = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FormatUnicodeString: PreferredFormat = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FormatQuotedUTF8String: PreferredFormat = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FormatUTF8String: PreferredFormat = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FormatBSTRString: PreferredFormat = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FormatQuotedHString: PreferredFormat = 9i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FormatHString: PreferredFormat = 10i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FormatRaw: PreferredFormat = 11i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FormatEnumNameOnly: PreferredFormat = 12i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FormatEscapedStringWithQuote: PreferredFormat = 13i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FormatUTF32String: PreferredFormat = 14i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const FormatQuotedUTF32String: PreferredFormat = 15i32;
 pub const ProcessDebugManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78a51822_51f4_11d0_8f20_00805f2cd064);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct READCONTROLSPACE {
     pub Processor: u16,
     pub Address: u32,
@@ -46019,6 +48216,7 @@ impl ::core::default::Default for READCONTROLSPACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct READCONTROLSPACE32 {
     pub Processor: u16,
     pub Address: u32,
@@ -46046,6 +48244,7 @@ impl ::core::default::Default for READCONTROLSPACE32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct READCONTROLSPACE64 {
     pub Processor: u16,
     pub Address: u64,
@@ -46073,6 +48272,7 @@ impl ::core::default::Default for READCONTROLSPACE64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct READ_WRITE_MSR {
     pub Msr: u32,
     pub Value: i64,
@@ -46098,6 +48298,7 @@ impl ::core::default::Default for READ_WRITE_MSR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct RIP_INFO {
     pub dwError: u32,
     pub dwType: RIP_INFO_TYPE,
@@ -46122,15 +48323,25 @@ impl ::core::default::Default for RIP_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type RIP_INFO_TYPE = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SLE_ERROR: RIP_INFO_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SLE_MINORERROR: RIP_INFO_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SLE_WARNING: RIP_INFO_TYPE = 3u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type RTL_VIRTUAL_UNWIND_HANDLER_TYPE = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UNW_FLAG_NHANDLER: RTL_VIRTUAL_UNWIND_HANDLER_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UNW_FLAG_EHANDLER: RTL_VIRTUAL_UNWIND_HANDLER_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UNW_FLAG_UHANDLER: RTL_VIRTUAL_UNWIND_HANDLER_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const UNW_FLAG_CHAININFO: RTL_VIRTUAL_UNWIND_HANDLER_TYPE = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn RaiseException(dwexceptioncode: u32, dwexceptionflags: u32, nnumberofarguments: u32, lparguments: *const usize) {
     #[cfg(windows)]
@@ -46144,6 +48355,7 @@ pub unsafe fn RaiseException(dwexceptioncode: u32, dwexceptionflags: u32, nnumbe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn RaiseFailFastException(pexceptionrecord: *const EXCEPTION_RECORD, pcontextrecord: *const CONTEXT, dwflags: u32) {
@@ -46158,6 +48370,7 @@ pub unsafe fn RaiseFailFastException(pexceptionrecord: *const EXCEPTION_RECORD, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RangeMapAddPeImageSections<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(rmaphandle: *const ::core::ffi::c_void, imagename: Param1, mappedimage: *const ::core::ffi::c_void, mappingbytes: u32, imagebase: u64, usertag: u64, mappingflags: u32) -> super::super::super::Foundation::BOOL {
@@ -46172,6 +48385,7 @@ pub unsafe fn RangeMapAddPeImageSections<'a, Param1: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn RangeMapCreate() -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -46185,6 +48399,7 @@ pub unsafe fn RangeMapCreate() -> *mut ::core::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn RangeMapFree(rmaphandle: *const ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -46198,6 +48413,7 @@ pub unsafe fn RangeMapFree(rmaphandle: *const ::core::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RangeMapRead(rmaphandle: *const ::core::ffi::c_void, offset: u64, buffer: *mut ::core::ffi::c_void, requestbytes: u32, flags: u32, donebytes: *mut u32) -> super::super::super::Foundation::BOOL {
@@ -46212,6 +48428,7 @@ pub unsafe fn RangeMapRead(rmaphandle: *const ::core::ffi::c_void, offset: u64, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RangeMapRemove(rmaphandle: *const ::core::ffi::c_void, usertag: u64) -> super::super::super::Foundation::BOOL {
@@ -46226,6 +48443,7 @@ pub unsafe fn RangeMapRemove(rmaphandle: *const ::core::ffi::c_void, usertag: u6
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RangeMapWrite(rmaphandle: *const ::core::ffi::c_void, offset: u64, buffer: *const ::core::ffi::c_void, requestbytes: u32, flags: u32, donebytes: *mut u32) -> super::super::super::Foundation::BOOL {
@@ -46240,9 +48458,13 @@ pub unsafe fn RangeMapWrite(rmaphandle: *const ::core::ffi::c_void, offset: u64,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type RawSearchFlags = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const RawSearchNone: RawSearchFlags = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const RawSearchNoBases: RawSearchFlags = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReBaseImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(currentimagename: Param0, symbolpath: Param1, frebase: Param2, frebasesysfileok: Param3, fgoingdown: Param4, checkimagesize: u32, oldimagesize: *mut u32, oldimagebase: *mut usize, newimagesize: *mut u32, newimagebase: *mut usize, timestamp: u32) -> super::super::super::Foundation::BOOL {
@@ -46257,6 +48479,7 @@ pub unsafe fn ReBaseImage<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReBaseImage64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(currentimagename: Param0, symbolpath: Param1, frebase: Param2, frebasesysfileok: Param3, fgoingdown: Param4, checkimagesize: u32, oldimagesize: *mut u32, oldimagebase: *mut u64, newimagesize: *mut u32, newimagebase: *mut u64, timestamp: u32) -> super::super::super::Foundation::BOOL {
@@ -46271,6 +48494,7 @@ pub unsafe fn ReBaseImage64<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadProcessMemory<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, lpbaseaddress: *const ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, nsize: usize, lpnumberofbytesread: *mut usize) -> super::super::super::Foundation::BOOL {
@@ -46285,6 +48509,7 @@ pub unsafe fn ReadProcessMemory<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn RegisterWaitChainCOMCallback(callstatecallback: PCOGETCALLSTATE, activationstatecallback: PCOGETACTIVATIONSTATE) {
     #[cfg(windows)]
@@ -46298,6 +48523,7 @@ pub unsafe fn RegisterWaitChainCOMCallback(callstatecallback: PCOGETCALLSTATE, a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveInvalidModuleList<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0) {
@@ -46312,6 +48538,7 @@ pub unsafe fn RemoveInvalidModuleList<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn RemoveVectoredContinueHandler(handle: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -46325,6 +48552,7 @@ pub unsafe fn RemoveVectoredContinueHandler(handle: *const ::core::ffi::c_void) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn RemoveVectoredExceptionHandler(handle: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -46338,6 +48566,7 @@ pub unsafe fn RemoveVectoredExceptionHandler(handle: *const ::core::ffi::c_void)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReportSymbolLoadSummary<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, ploadmodule: Param1, psymboldata: *const DBGHELP_DATA_REPORT_STRUCT) -> super::super::super::Foundation::BOOL {
@@ -46352,6 +48581,7 @@ pub unsafe fn ReportSymbolLoadSummary<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -46367,6 +48597,7 @@ pub unsafe fn RtlAddFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -46382,6 +48613,7 @@ pub unsafe fn RtlAddFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_E
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "aarch64")]
 #[inline]
 pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut ::core::ffi::c_void, functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount: u32, maximumentrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
@@ -46396,6 +48628,7 @@ pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut ::core::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86_64")]
 #[inline]
 pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut ::core::ffi::c_void, functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount: u32, maximumentrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
@@ -46410,6 +48643,7 @@ pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut ::core::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlCaptureContext(contextrecord: *mut CONTEXT) {
@@ -46424,6 +48658,7 @@ pub unsafe fn RtlCaptureContext(contextrecord: *mut CONTEXT) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
@@ -46439,6 +48674,7 @@ pub unsafe fn RtlCaptureContext2(contextrecord: *mut CONTEXT) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, framestocapture: u32, backtrace: *mut *mut ::core::ffi::c_void, backtracehash: *mut u32) -> u16 {
     #[cfg(windows)]
@@ -46452,6 +48688,7 @@ pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, framestocapture: u32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -46467,6 +48704,7 @@ pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -46482,6 +48720,7 @@ pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTIO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlDeleteGrowableFunctionTable(dynamictable: *const ::core::ffi::c_void) {
@@ -46496,6 +48735,7 @@ pub unsafe fn RtlDeleteGrowableFunctionTable(dynamictable: *const ::core::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlGrowFunctionTable(dynamictable: *mut ::core::ffi::c_void, newentrycount: u32) {
@@ -46510,6 +48750,7 @@ pub unsafe fn RtlGrowFunctionTable(dynamictable: *mut ::core::ffi::c_void, newen
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -46525,6 +48766,7 @@ pub unsafe fn RtlInstallFunctionTableCallback<'a, Param5: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "aarch64")]
 #[inline]
 pub unsafe fn RtlLookupFunctionEntry(controlpc: usize, imagebase: *mut usize, historytable: *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
@@ -46539,6 +48781,7 @@ pub unsafe fn RtlLookupFunctionEntry(controlpc: usize, imagebase: *mut usize, hi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86_64")]
 #[inline]
 pub unsafe fn RtlLookupFunctionEntry(controlpc: u64, imagebase: *mut u64, historytable: *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY {
@@ -46553,6 +48796,7 @@ pub unsafe fn RtlLookupFunctionEntry(controlpc: u64, imagebase: *mut u64, histor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn RtlPcToFileHeader(pcvalue: *const ::core::ffi::c_void, baseofimage: *mut *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -46566,6 +48810,7 @@ pub unsafe fn RtlPcToFileHeader(pcvalue: *const ::core::ffi::c_void, baseofimage
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlRaiseException(exceptionrecord: *const EXCEPTION_RECORD) {
@@ -46580,6 +48825,7 @@ pub unsafe fn RtlRaiseException(exceptionrecord: *const EXCEPTION_RECORD) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn RtlRestoreContext(contextrecord: *const CONTEXT, exceptionrecord: *const EXCEPTION_RECORD) {
@@ -46594,6 +48840,7 @@ pub unsafe fn RtlRestoreContext(contextrecord: *const CONTEXT, exceptionrecord: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlUnwind(targetframe: *const ::core::ffi::c_void, targetip: *const ::core::ffi::c_void, exceptionrecord: *const EXCEPTION_RECORD, returnvalue: *const ::core::ffi::c_void) {
@@ -46608,6 +48855,7 @@ pub unsafe fn RtlUnwind(targetframe: *const ::core::ffi::c_void, targetip: *cons
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -46623,6 +48871,7 @@ pub unsafe fn RtlUnwindEx(targetframe: *const ::core::ffi::c_void, targetip: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -46638,6 +48887,7 @@ pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, ima
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -46653,8 +48903,11 @@ pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, ima
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type SCRIPTGCTYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTGCTYPE_NORMAL: SCRIPTGCTYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTGCTYPE_EXHAUSTIVE: SCRIPTGCTYPE = 1i32;
 pub const SCRIPTINFO_ITYPEINFO: u32 = 2u32;
 pub const SCRIPTINFO_IUNKNOWN: u32 = 1u32;
@@ -46666,10 +48919,15 @@ pub const SCRIPTITEM_ISPERSISTENT: u32 = 64u32;
 pub const SCRIPTITEM_ISSOURCE: u32 = 4u32;
 pub const SCRIPTITEM_ISVISIBLE: u32 = 2u32;
 pub const SCRIPTITEM_NOCODE: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type SCRIPTLANGUAGEVERSION = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTLANGUAGEVERSION_DEFAULT: SCRIPTLANGUAGEVERSION = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTLANGUAGEVERSION_5_7: SCRIPTLANGUAGEVERSION = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTLANGUAGEVERSION_5_8: SCRIPTLANGUAGEVERSION = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTLANGUAGEVERSION_MAX: SCRIPTLANGUAGEVERSION = 255i32;
 pub const SCRIPTPROC_HOSTMANAGESSOURCE: u32 = 128u32;
 pub const SCRIPTPROC_IMPLICIT_PARENTS: u32 = 512u32;
@@ -46695,12 +48953,19 @@ pub const SCRIPTPROP_MINORVERSION: u32 = 2u32;
 pub const SCRIPTPROP_NAME: u32 = 0u32;
 pub const SCRIPTPROP_SCRIPTSAREFULLYTRUSTED: u32 = 4100u32;
 pub const SCRIPTPROP_STRINGCOMPAREINSTANCE: u32 = 12289u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type SCRIPTSTATE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTSTATE_UNINITIALIZED: SCRIPTSTATE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTSTATE_INITIALIZED: SCRIPTSTATE = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTSTATE_STARTED: SCRIPTSTATE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTSTATE_CONNECTED: SCRIPTSTATE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTSTATE_DISCONNECTED: SCRIPTSTATE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTSTATE_CLOSED: SCRIPTSTATE = 4i32;
 pub const SCRIPTSTAT_INSTRUCTION_COUNT: u32 = 2u32;
 pub const SCRIPTSTAT_INTSTRUCTION_TIME: u32 = 3u32;
@@ -46713,26 +48978,45 @@ pub const SCRIPTTEXT_ISNONUSERCODE: u32 = 512u32;
 pub const SCRIPTTEXT_ISPERSISTENT: u32 = 64u32;
 pub const SCRIPTTEXT_ISVISIBLE: u32 = 2u32;
 pub const SCRIPTTEXT_ISXDOMAIN: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type SCRIPTTHREADSTATE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTTHREADSTATE_NOTINSCRIPT: SCRIPTTHREADSTATE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTTHREADSTATE_RUNNING: SCRIPTTHREADSTATE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type SCRIPTTRACEINFO = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTTRACEINFO_SCRIPTSTART: SCRIPTTRACEINFO = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTTRACEINFO_SCRIPTEND: SCRIPTTRACEINFO = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTTRACEINFO_COMCALLSTART: SCRIPTTRACEINFO = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTTRACEINFO_COMCALLEND: SCRIPTTRACEINFO = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTTRACEINFO_CREATEOBJSTART: SCRIPTTRACEINFO = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTTRACEINFO_CREATEOBJEND: SCRIPTTRACEINFO = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTTRACEINFO_GETOBJSTART: SCRIPTTRACEINFO = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTTRACEINFO_GETOBJEND: SCRIPTTRACEINFO = 7i32;
 pub const SCRIPTTYPELIB_ISCONTROL: u32 = 16u32;
 pub const SCRIPTTYPELIB_ISPERSISTENT: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type SCRIPTUICHANDLING = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTUICHANDLING_ALLOW: SCRIPTUICHANDLING = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTUICHANDLING_NOUIERROR: SCRIPTUICHANDLING = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTUICHANDLING_NOUIDEFAULT: SCRIPTUICHANDLING = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type SCRIPTUICITEM = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTUICITEM_INPUTBOX: SCRIPTUICITEM = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SCRIPTUICITEM_MSGBOX: SCRIPTUICITEM = 2i32;
 pub const SCRIPT_CMPL_COMMIT: u32 = 4u32;
 pub const SCRIPT_CMPL_ENUMLIST: u32 = 2u32;
@@ -46743,33 +49027,54 @@ pub const SCRIPT_CMPL_MEMBER_TRIGGER: u32 = 2u32;
 pub const SCRIPT_CMPL_NOLIST: u32 = 0u32;
 pub const SCRIPT_CMPL_PARAMTIP: u32 = 4u32;
 pub const SCRIPT_CMPL_PARAM_TRIGGER: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type SCRIPT_DEBUGGER_OPTIONS = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SDO_NONE: SCRIPT_DEBUGGER_OPTIONS = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SDO_ENABLE_FIRST_CHANCE_EXCEPTIONS: SCRIPT_DEBUGGER_OPTIONS = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SDO_ENABLE_WEB_WORKER_SUPPORT: SCRIPT_DEBUGGER_OPTIONS = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SDO_ENABLE_NONUSER_CODE_SUPPORT: SCRIPT_DEBUGGER_OPTIONS = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SDO_ENABLE_LIBRARY_STACK_FRAME: SCRIPT_DEBUGGER_OPTIONS = 8i32;
 pub const SCRIPT_ENCODE_DEFAULT_LANGUAGE: u32 = 1u32;
 pub const SCRIPT_ENCODE_NO_ASP_LANGUAGE: u32 = 2u32;
 pub const SCRIPT_ENCODE_SECTION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ETK_FIRST_CHANCE: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ETK_USER_UNHANDLED: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ETK_UNHANDLED: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = 2i32;
 pub const SCRIPT_E_PROPAGATE: i32 = -2147352318i32;
 pub const SCRIPT_E_RECORDED: i32 = -2040119292i32;
 pub const SCRIPT_E_REPORTED: i32 = -2147352319i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type SCRIPT_INVOCATION_CONTEXT_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SICT_Event: SCRIPT_INVOCATION_CONTEXT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SICT_SetTimeout: SCRIPT_INVOCATION_CONTEXT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SICT_SetInterval: SCRIPT_INVOCATION_CONTEXT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SICT_SetImmediate: SCRIPT_INVOCATION_CONTEXT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SICT_RequestAnimationFrame: SCRIPT_INVOCATION_CONTEXT_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SICT_ToString: SCRIPT_INVOCATION_CONTEXT_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SICT_MutationObserverCheckpoint: SCRIPT_INVOCATION_CONTEXT_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SICT_WWAExecUnsafeLocalFunction: SCRIPT_INVOCATION_CONTEXT_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SICT_WWAExecAtPriority: SCRIPT_INVOCATION_CONTEXT_TYPE = 8i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct SEARCHMEMORY {
     pub SearchAddress: u64,
     pub SearchLength: u64,
@@ -46798,6 +49103,7 @@ impl ::core::default::Default for SEARCHMEMORY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SOURCEFILE {
     pub ModBase: u64,
@@ -46830,6 +49136,7 @@ impl ::core::default::Default for SOURCEFILE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SOURCEFILEW {
     pub ModBase: u64,
@@ -46876,6 +49183,7 @@ pub const SPLITSYM_EXTRACT_ALL: u32 = 2u32;
 pub const SPLITSYM_REMOVE_PRIVATE: u32 = 1u32;
 pub const SPLITSYM_SYMBOLPATH_IS_SRC: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SRCCODEINFO {
     pub SizeOfStruct: u32,
@@ -46913,6 +49221,7 @@ impl ::core::default::Default for SRCCODEINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct SRCCODEINFOW {
     pub SizeOfStruct: u32,
     pub Key: *mut ::core::ffi::c_void,
@@ -46994,6 +49303,7 @@ pub const SSRVURI_UNC_FILEPTR: u32 = 64u32;
 pub const SSRVURI_UNC_MASK: u32 = 240u32;
 pub const SSRVURI_UNC_NORMAL: u32 = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STACKFRAME {
@@ -47042,6 +49352,7 @@ impl ::core::default::Default for STACKFRAME {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STACKFRAME64 {
     pub AddrPC: ADDRESS64,
@@ -47083,6 +49394,7 @@ impl ::core::default::Default for STACKFRAME64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STACKFRAME_EX {
     pub AddrPC: ADDRESS64,
@@ -47131,6 +49443,7 @@ pub const STACK_FRAME_TYPE_INLINE: u32 = 2u32;
 pub const STACK_FRAME_TYPE_RA: u32 = 128u32;
 pub const STACK_FRAME_TYPE_STACK: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STACK_SRC_INFO {
     pub ImagePath: super::super::super::Foundation::PWSTR,
@@ -47167,6 +49480,7 @@ impl ::core::default::Default for STACK_SRC_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STACK_SYM_FRAME_INFO {
     pub StackFrameEx: DEBUG_STACK_FRAME_EX,
@@ -47198,11 +49512,14 @@ impl ::core::default::Default for STACK_SYM_FRAME_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SYMADDSOURCESTREAM = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: super::super::super::Foundation::PSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SYMADDSOURCESTREAMA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HANDLE, param1: u64, param2: super::super::super::Foundation::PSTR, param3: *mut u8, param4: usize) -> super::super::super::Foundation::BOOL>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SYMBOL_INFO {
     pub SizeOfStruct: u32,
@@ -47248,6 +49565,7 @@ impl ::core::default::Default for SYMBOL_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct SYMBOL_INFOW {
     pub SizeOfStruct: u32,
     pub TypeIndex: u32,
@@ -47286,6 +49604,7 @@ impl ::core::default::Default for SYMBOL_INFOW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct SYMBOL_INFO_EX {
     pub SizeOfStruct: u32,
     pub TypeOfInfo: u32,
@@ -47314,25 +49633,44 @@ impl ::core::default::Default for SYMBOL_INFO_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type SYMBOL_INFO_FLAGS = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMFLAG_CLR_TOKEN: SYMBOL_INFO_FLAGS = 262144u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMFLAG_CONSTANT: SYMBOL_INFO_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMFLAG_EXPORT: SYMBOL_INFO_FLAGS = 512u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMFLAG_FORWARDER: SYMBOL_INFO_FLAGS = 1024u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMFLAG_FRAMEREL: SYMBOL_INFO_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMFLAG_FUNCTION: SYMBOL_INFO_FLAGS = 2048u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMFLAG_ILREL: SYMBOL_INFO_FLAGS = 65536u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMFLAG_LOCAL: SYMBOL_INFO_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMFLAG_METADATA: SYMBOL_INFO_FLAGS = 131072u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMFLAG_PARAMETER: SYMBOL_INFO_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMFLAG_REGISTER: SYMBOL_INFO_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMFLAG_REGREL: SYMBOL_INFO_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMFLAG_SLOT: SYMBOL_INFO_FLAGS = 32768u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMFLAG_THUNK: SYMBOL_INFO_FLAGS = 8192u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMFLAG_TLSREL: SYMBOL_INFO_FLAGS = 16384u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMFLAG_VALUEPRESENT: SYMBOL_INFO_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMFLAG_VIRTUAL: SYMBOL_INFO_FLAGS = 4096u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SYMBOL_INFO_PACKAGE {
     pub si: SYMBOL_INFO,
@@ -47365,6 +49703,7 @@ impl ::core::default::Default for SYMBOL_INFO_PACKAGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct SYMBOL_INFO_PACKAGEW {
     pub si: SYMBOL_INFOW,
     pub name: [u16; 2001],
@@ -47452,6 +49791,7 @@ pub const SYMSEARCH_GLOBALSONLY: u32 = 4u32;
 pub const SYMSEARCH_MASKOBJS: u32 = 1u32;
 pub const SYMSEARCH_RECURSE: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct SYMSRV_EXTENDED_OUTPUT_DATA {
     pub sizeOfStruct: u32,
     pub version: u32,
@@ -47478,6 +49818,7 @@ impl ::core::default::Default for SYMSRV_EXTENDED_OUTPUT_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SYMSRV_INDEX_INFO {
     pub sizeofstruct: u32,
@@ -47518,6 +49859,7 @@ impl ::core::default::Default for SYMSRV_INDEX_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SYMSRV_INDEX_INFOW {
     pub sizeofstruct: u32,
@@ -47561,6 +49903,7 @@ pub const SYMSRV_VERSION: u32 = 2u32;
 pub const SYMSTOREOPT_ALT_INDEX: u32 = 16u32;
 pub const SYMSTOREOPT_UNICODE: u32 = 32u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct SYM_DUMP_PARAM {
     pub size: u32,
     pub sName: *mut u8,
@@ -47598,6 +49941,7 @@ impl ::core::default::Default for SYM_DUMP_PARAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union SYM_DUMP_PARAM_0 {
     pub Context: *mut ::core::ffi::c_void,
     pub pBuffer: *mut ::core::ffi::c_void,
@@ -47622,9 +49966,13 @@ impl ::core::default::Default for SYM_DUMP_PARAM_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type SYM_FIND_ID_OPTION = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SSRVOPT_DWORD: SYM_FIND_ID_OPTION = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SSRVOPT_DWORDPTR: SYM_FIND_ID_OPTION = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SSRVOPT_GUIDPTR: SYM_FIND_ID_OPTION = 8u32;
 pub const SYM_INLINE_COMP_DIFFERENT: u32 = 5u32;
 pub const SYM_INLINE_COMP_ERROR: u32 = 0u32;
@@ -47632,44 +49980,79 @@ pub const SYM_INLINE_COMP_IDENTICAL: u32 = 1u32;
 pub const SYM_INLINE_COMP_STEPIN: u32 = 2u32;
 pub const SYM_INLINE_COMP_STEPOUT: u32 = 3u32;
 pub const SYM_INLINE_COMP_STEPOVER: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type SYM_LOAD_FLAGS = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SLMFLAG_NONE: SYM_LOAD_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SLMFLAG_VIRTUAL: SYM_LOAD_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SLMFLAG_ALT_INDEX: SYM_LOAD_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SLMFLAG_NO_SYMBOLS: SYM_LOAD_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type SYM_SRV_STORE_FILE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMSTOREOPT_COMPRESS: SYM_SRV_STORE_FILE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMSTOREOPT_OVERWRITE: SYM_SRV_STORE_FILE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMSTOREOPT_PASS_IF_EXISTS: SYM_SRV_STORE_FILE_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMSTOREOPT_POINTER: SYM_SRV_STORE_FILE_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SYMSTOREOPT_RETURNINDEX: SYM_SRV_STORE_FILE_FLAGS = 4u32;
 pub const SYM_STKWALK_DEFAULT: u32 = 0u32;
 pub const SYM_STKWALK_FORCE_FRAMEPTR: u32 = 1u32;
 pub const SYM_STKWALK_ZEROEXTEND_PTRS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type SYM_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymNone: SYM_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymCoff: SYM_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymCv: SYM_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymPdb: SYM_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymExport: SYM_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymDeferred: SYM_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymSym: SYM_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymDia: SYM_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymVirtual: SYM_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const NumSymTypes: SYM_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type ScriptChangeKind = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ScriptRename: ScriptChangeKind = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type ScriptDebugEvent = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ScriptDebugBreakpoint: ScriptDebugEvent = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ScriptDebugStep: ScriptDebugEvent = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ScriptDebugException: ScriptDebugEvent = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ScriptDebugAsyncBreak: ScriptDebugEvent = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type ScriptDebugEventFilter = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ScriptDebugEventFilterEntry: ScriptDebugEventFilter = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ScriptDebugEventFilterException: ScriptDebugEventFilter = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ScriptDebugEventFilterUnhandledException: ScriptDebugEventFilter = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ScriptDebugEventFilterAbort: ScriptDebugEventFilter = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct ScriptDebugEventInformation {
     pub DebugEvent: ScriptDebugEvent,
     pub EventPosition: ScriptDebugPosition,
@@ -47697,6 +50080,7 @@ impl ::core::default::Default for ScriptDebugEventInformation {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union ScriptDebugEventInformation_0 {
     pub ExceptionInformation: ScriptDebugEventInformation_0_1,
     pub BreakpointInformation: ScriptDebugEventInformation_0_0,
@@ -47722,6 +50106,7 @@ impl ::core::default::Default for ScriptDebugEventInformation_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct ScriptDebugEventInformation_0_0 {
     pub BreakpointId: u64,
 }
@@ -47746,6 +50131,7 @@ impl ::core::default::Default for ScriptDebugEventInformation_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct ScriptDebugEventInformation_0_1 {
     pub IsUncaught: bool,
 }
@@ -47770,6 +50156,7 @@ impl ::core::default::Default for ScriptDebugEventInformation_0_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct ScriptDebugPosition {
     pub Line: u32,
     pub Column: u32,
@@ -47794,16 +50181,27 @@ impl ::core::default::Default for ScriptDebugPosition {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type ScriptDebugState = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ScriptDebugNoDebugger: ScriptDebugState = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ScriptDebugNotExecuting: ScriptDebugState = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ScriptDebugExecuting: ScriptDebugState = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ScriptDebugBreak: ScriptDebugState = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type ScriptExecutionKind = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ScriptExecutionNormal: ScriptExecutionKind = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ScriptExecutionStepIn: ScriptExecutionKind = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ScriptExecutionStepOut: ScriptExecutionKind = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ScriptExecutionStepOver: ScriptExecutionKind = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SearchTreeForFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(rootpath: Param0, inputpathname: Param1, outputpathbuffer: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL {
@@ -47818,6 +50216,7 @@ pub unsafe fn SearchTreeForFile<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SearchTreeForFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(rootpath: Param0, inputpathname: Param1, outputpathbuffer: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL {
@@ -47832,6 +50231,7 @@ pub unsafe fn SearchTreeForFileW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn SetCheckUserInterruptShared(lpstartaddress: LPCALL_BACK_USER_INTERRUPT_ROUTINE) {
     #[cfg(windows)]
@@ -47845,6 +50245,7 @@ pub unsafe fn SetCheckUserInterruptShared(lpstartaddress: LPCALL_BACK_USER_INTER
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn SetErrorMode(umode: THREAD_ERROR_MODE) -> u32 {
     #[cfg(windows)]
@@ -47858,6 +50259,7 @@ pub unsafe fn SetErrorMode(umode: THREAD_ERROR_MODE) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -47873,6 +50275,7 @@ pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imagecon
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -47888,6 +50291,7 @@ pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imagecon
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn SetSymLoadError(error: u32) {
     #[cfg(windows)]
@@ -47901,6 +50305,7 @@ pub unsafe fn SetSymLoadError(error: u32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn SetThreadContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hthread: Param0, lpcontext: *const CONTEXT) -> super::super::super::Foundation::BOOL {
@@ -47915,6 +50320,7 @@ pub unsafe fn SetThreadContext<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadErrorMode(dwnewmode: THREAD_ERROR_MODE, lpoldmode: *const THREAD_ERROR_MODE) -> super::super::super::Foundation::BOOL {
@@ -47929,6 +50335,7 @@ pub unsafe fn SetThreadErrorMode(dwnewmode: THREAD_ERROR_MODE, lpoldmode: *const
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER {
@@ -47943,6 +50350,7 @@ pub unsafe fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: LPTOP_LEVEL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -47958,12 +50366,19 @@ pub unsafe fn SetXStateFeaturesMask(context: *mut CONTEXT, featuremask: u64) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type SignatureComparison = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const Unrelated: SignatureComparison = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const Ambiguous: SignatureComparison = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const LessSpecific: SignatureComparison = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const MoreSpecific: SignatureComparison = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const Identical: SignatureComparison = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -47979,6 +50394,7 @@ pub unsafe fn StackWalk<'a, Param1: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StackWalk64<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(machinetype: u32, hprocess: Param1, hthread: Param2, stackframe: *mut STACKFRAME64, contextrecord: *mut ::core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64) -> super::super::super::Foundation::BOOL {
@@ -47993,6 +50409,7 @@ pub unsafe fn StackWalk64<'a, Param1: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StackWalkEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(machinetype: u32, hprocess: Param1, hthread: Param2, stackframe: *mut STACKFRAME_EX, contextrecord: *mut ::core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64, translateaddress: PTRANSLATE_ADDRESS_ROUTINE64, flags: u32) -> super::super::super::Foundation::BOOL {
@@ -48007,6 +50424,7 @@ pub unsafe fn StackWalkEx<'a, Param1: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymAddSourceStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, base: u64, streamfile: Param2, buffer: *const u8, size: usize) -> super::super::super::Foundation::BOOL {
@@ -48021,6 +50439,7 @@ pub unsafe fn SymAddSourceStream<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymAddSourceStreamA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, base: u64, streamfile: Param2, buffer: *const u8, size: usize) -> super::super::super::Foundation::BOOL {
@@ -48035,6 +50454,7 @@ pub unsafe fn SymAddSourceStreamA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymAddSourceStreamW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, base: u64, filespec: Param2, buffer: *const u8, size: usize) -> super::super::super::Foundation::BOOL {
@@ -48049,6 +50469,7 @@ pub unsafe fn SymAddSourceStreamW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymAddSymbol<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, name: Param2, address: u64, size: u32, flags: u32) -> super::super::super::Foundation::BOOL {
@@ -48063,6 +50484,7 @@ pub unsafe fn SymAddSymbol<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymAddSymbolW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, name: Param2, address: u64, size: u32, flags: u32) -> super::super::super::Foundation::BOOL {
@@ -48077,6 +50499,7 @@ pub unsafe fn SymAddSymbolW<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymAddrIncludeInlineTrace<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, address: u64) -> u32 {
@@ -48091,6 +50514,7 @@ pub unsafe fn SymAddrIncludeInlineTrace<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymCleanup<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0) -> super::super::super::Foundation::BOOL {
@@ -48105,6 +50529,7 @@ pub unsafe fn SymCleanup<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymCompareInlineTrace<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, address1: u64, inlinecontext1: u32, retaddress1: u64, address2: u64, retaddress2: u64) -> u32 {
@@ -48119,6 +50544,7 @@ pub unsafe fn SymCompareInlineTrace<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymDeleteSymbol<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, name: Param2, address: u64, flags: u32) -> super::super::super::Foundation::BOOL {
@@ -48133,6 +50559,7 @@ pub unsafe fn SymDeleteSymbol<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymDeleteSymbolW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, name: Param2, address: u64, flags: u32) -> super::super::super::Foundation::BOOL {
@@ -48147,6 +50574,7 @@ pub unsafe fn SymDeleteSymbolW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumLines<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, base: u64, obj: Param2, file: Param3, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48161,6 +50589,7 @@ pub unsafe fn SymEnumLines<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumLinesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, base: u64, obj: Param2, file: Param3, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48175,6 +50604,7 @@ pub unsafe fn SymEnumLinesW<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumProcesses(enumprocessescallback: PSYM_ENUMPROCESSES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48189,6 +50619,7 @@ pub unsafe fn SymEnumProcesses(enumprocessescallback: PSYM_ENUMPROCESSES_CALLBAC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumSourceFileTokens<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, base: u64, callback: PENUMSOURCEFILETOKENSCALLBACK) -> super::super::super::Foundation::BOOL {
@@ -48203,6 +50634,7 @@ pub unsafe fn SymEnumSourceFileTokens<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumSourceFiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, modbase: u64, mask: Param2, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48217,6 +50649,7 @@ pub unsafe fn SymEnumSourceFiles<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumSourceFilesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, modbase: u64, mask: Param2, cbsrcfiles: PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48231,6 +50664,7 @@ pub unsafe fn SymEnumSourceFilesW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumSourceLines<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, base: u64, obj: Param2, file: Param3, line: u32, flags: u32, enumlinescallback: PSYM_ENUMLINES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48245,6 +50679,7 @@ pub unsafe fn SymEnumSourceLines<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumSourceLinesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, base: u64, obj: Param2, file: Param3, line: u32, flags: u32, enumlinescallback: PSYM_ENUMLINES_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48259,6 +50694,7 @@ pub unsafe fn SymEnumSourceLinesW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumSym<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48273,6 +50709,7 @@ pub unsafe fn SymEnumSym<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumSymbols<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48287,6 +50724,7 @@ pub unsafe fn SymEnumSymbols<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumSymbolsEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
@@ -48301,6 +50739,7 @@ pub unsafe fn SymEnumSymbolsEx<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumSymbolsExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
@@ -48315,6 +50754,7 @@ pub unsafe fn SymEnumSymbolsExW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumSymbolsForAddr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48329,6 +50769,7 @@ pub unsafe fn SymEnumSymbolsForAddr<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumSymbolsForAddrW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48343,6 +50784,7 @@ pub unsafe fn SymEnumSymbolsForAddrW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumSymbolsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48357,6 +50799,7 @@ pub unsafe fn SymEnumSymbolsW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumTypes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48371,6 +50814,7 @@ pub unsafe fn SymEnumTypes<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumTypesByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48385,6 +50829,7 @@ pub unsafe fn SymEnumTypesByName<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumTypesByNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, mask: Param2, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48399,6 +50844,7 @@ pub unsafe fn SymEnumTypesByNameW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumTypesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48413,6 +50859,7 @@ pub unsafe fn SymEnumTypesW<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -48428,6 +50875,7 @@ pub unsafe fn SymEnumerateModules<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumerateModules64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enummodulescallback: PSYM_ENUMMODULES_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48442,6 +50890,7 @@ pub unsafe fn SymEnumerateModules64<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumerateModulesW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enummodulescallback: PSYM_ENUMMODULES_CALLBACKW64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48456,6 +50905,7 @@ pub unsafe fn SymEnumerateModulesW64<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -48471,6 +50921,7 @@ pub unsafe fn SymEnumerateSymbols<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumerateSymbols64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48485,6 +50936,7 @@ pub unsafe fn SymEnumerateSymbols64<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -48500,6 +50952,7 @@ pub unsafe fn SymEnumerateSymbolsW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumerateSymbolsW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK64W, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48514,6 +50967,7 @@ pub unsafe fn SymEnumerateSymbolsW64<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymFindDebugInfoFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, filename: Param1, debugfilepath: super::super::super::Foundation::PSTR, callback: PFIND_DEBUG_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
@@ -48528,6 +50982,7 @@ pub unsafe fn SymFindDebugInfoFile<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymFindDebugInfoFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, filename: Param1, debugfilepath: super::super::super::Foundation::PWSTR, callback: PFIND_DEBUG_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
@@ -48542,6 +50997,7 @@ pub unsafe fn SymFindDebugInfoFileW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymFindExecutableImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, filename: Param1, imagefilepath: super::super::super::Foundation::PSTR, callback: PFIND_EXE_FILE_CALLBACK, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
@@ -48556,6 +51012,7 @@ pub unsafe fn SymFindExecutableImage<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymFindExecutableImageW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, filename: Param1, imagefilepath: super::super::super::Foundation::PWSTR, callback: PFIND_EXE_FILE_CALLBACKW, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::HANDLE {
@@ -48570,6 +51027,7 @@ pub unsafe fn SymFindExecutableImageW<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymFindFileInPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, searchpatha: Param1, filename: Param2, id: *const ::core::ffi::c_void, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: super::super::super::Foundation::PSTR, callback: PFINDFILEINPATHCALLBACK, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48584,6 +51042,7 @@ pub unsafe fn SymFindFileInPath<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymFindFileInPathW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, searchpatha: Param1, filename: Param2, id: *const ::core::ffi::c_void, two: u32, three: u32, flags: SYM_FIND_ID_OPTION, foundfile: super::super::super::Foundation::PWSTR, callback: PFINDFILEINPATHCALLBACKW, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48598,6 +51057,7 @@ pub unsafe fn SymFindFileInPathW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymFromAddr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, address: u64, displacement: *mut u64, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL {
@@ -48612,6 +51072,7 @@ pub unsafe fn SymFromAddr<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymFromAddrW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, address: u64, displacement: *mut u64, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL {
@@ -48626,6 +51087,7 @@ pub unsafe fn SymFromAddrW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymFromIndex<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL {
@@ -48640,6 +51102,7 @@ pub unsafe fn SymFromIndex<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymFromIndexW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL {
@@ -48654,6 +51117,7 @@ pub unsafe fn SymFromIndexW<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymFromInlineContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, address: u64, inlinecontext: u32, displacement: *mut u64, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL {
@@ -48668,6 +51132,7 @@ pub unsafe fn SymFromInlineContext<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymFromInlineContextW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, address: u64, inlinecontext: u32, displacement: *mut u64, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL {
@@ -48682,6 +51147,7 @@ pub unsafe fn SymFromInlineContextW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymFromName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, name: Param1, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL {
@@ -48696,6 +51162,7 @@ pub unsafe fn SymFromName<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymFromNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, name: Param1, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL {
@@ -48710,6 +51177,7 @@ pub unsafe fn SymFromNameW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymFromToken<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, base: u64, token: u32, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL {
@@ -48724,6 +51192,7 @@ pub unsafe fn SymFromToken<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymFromTokenW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, base: u64, token: u32, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL {
@@ -48738,6 +51207,7 @@ pub unsafe fn SymFromTokenW<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -48753,6 +51223,7 @@ pub unsafe fn SymFunctionTableAccess<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymFunctionTableAccess64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, addrbase: u64) -> *mut ::core::ffi::c_void {
@@ -48767,6 +51238,7 @@ pub unsafe fn SymFunctionTableAccess64<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymFunctionTableAccess64AccessRoutines<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, addrbase: u64, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE64, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE64) -> *mut ::core::ffi::c_void {
@@ -48781,6 +51253,7 @@ pub unsafe fn SymFunctionTableAccess64AccessRoutines<'a, Param0: ::windows::core
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS) -> super::super::super::Foundation::BOOL {
@@ -48795,6 +51268,7 @@ pub unsafe fn SymGetExtendedOption(option: IMAGEHLP_EXTENDED_OPTIONS) -> super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetFileLineOffsets64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, modulename: Param1, filename: Param2, buffer: *mut u64, bufferlines: u32) -> u32 {
@@ -48809,6 +51283,7 @@ pub unsafe fn SymGetFileLineOffsets64<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetHomeDirectory(r#type: IMAGEHLP_HD_TYPE, dir: super::super::super::Foundation::PSTR, size: usize) -> super::super::super::Foundation::PSTR {
@@ -48823,6 +51298,7 @@ pub unsafe fn SymGetHomeDirectory(r#type: IMAGEHLP_HD_TYPE, dir: super::super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetHomeDirectoryW(r#type: IMAGEHLP_HD_TYPE, dir: super::super::super::Foundation::PWSTR, size: usize) -> super::super::super::Foundation::PWSTR {
@@ -48837,6 +51313,7 @@ pub unsafe fn SymGetHomeDirectoryW(r#type: IMAGEHLP_HD_TYPE, dir: super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -48852,6 +51329,7 @@ pub unsafe fn SymGetLineFromAddr<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetLineFromAddr64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, qwaddr: u64, pdwdisplacement: *mut u32, line64: *mut IMAGEHLP_LINE64) -> super::super::super::Foundation::BOOL {
@@ -48866,6 +51344,7 @@ pub unsafe fn SymGetLineFromAddr64<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetLineFromAddrW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, dwaddr: u64, pdwdisplacement: *mut u32, line: *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation::BOOL {
@@ -48880,6 +51359,7 @@ pub unsafe fn SymGetLineFromAddrW64<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetLineFromInlineContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, qwaddr: u64, inlinecontext: u32, qwmodulebaseaddress: u64, pdwdisplacement: *mut u32, line64: *mut IMAGEHLP_LINE64) -> super::super::super::Foundation::BOOL {
@@ -48894,6 +51374,7 @@ pub unsafe fn SymGetLineFromInlineContext<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetLineFromInlineContextW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, dwaddr: u64, inlinecontext: u32, qwmodulebaseaddress: u64, pdwdisplacement: *mut u32, line: *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation::BOOL {
@@ -48908,6 +51389,7 @@ pub unsafe fn SymGetLineFromInlineContextW<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -48923,6 +51405,7 @@ pub unsafe fn SymGetLineFromName<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetLineFromName64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, modulename: Param1, filename: Param2, dwlinenumber: u32, pldisplacement: *mut i32, line: *mut IMAGEHLP_LINE64) -> super::super::super::Foundation::BOOL {
@@ -48937,6 +51420,7 @@ pub unsafe fn SymGetLineFromName64<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetLineFromNameW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, modulename: Param1, filename: Param2, dwlinenumber: u32, pldisplacement: *mut i32, line: *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation::BOOL {
@@ -48951,6 +51435,7 @@ pub unsafe fn SymGetLineFromNameW64<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -48966,6 +51451,7 @@ pub unsafe fn SymGetLineNext<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetLineNext64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, line: *mut IMAGEHLP_LINE64) -> super::super::super::Foundation::BOOL {
@@ -48980,6 +51466,7 @@ pub unsafe fn SymGetLineNext64<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetLineNextW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, line: *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation::BOOL {
@@ -48994,6 +51481,7 @@ pub unsafe fn SymGetLineNextW64<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -49009,6 +51497,7 @@ pub unsafe fn SymGetLinePrev<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetLinePrev64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, line: *mut IMAGEHLP_LINE64) -> super::super::super::Foundation::BOOL {
@@ -49023,6 +51512,7 @@ pub unsafe fn SymGetLinePrev64<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetLinePrevW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, line: *mut IMAGEHLP_LINEW64) -> super::super::super::Foundation::BOOL {
@@ -49037,6 +51527,7 @@ pub unsafe fn SymGetLinePrevW64<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -49052,6 +51543,7 @@ pub unsafe fn SymGetModuleBase<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetModuleBase64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, qwaddr: u64) -> u64 {
@@ -49066,6 +51558,7 @@ pub unsafe fn SymGetModuleBase64<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -49081,6 +51574,7 @@ pub unsafe fn SymGetModuleInfo<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetModuleInfo64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, qwaddr: u64, moduleinfo: *mut IMAGEHLP_MODULE64) -> super::super::super::Foundation::BOOL {
@@ -49095,6 +51589,7 @@ pub unsafe fn SymGetModuleInfo64<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -49110,6 +51605,7 @@ pub unsafe fn SymGetModuleInfoW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetModuleInfoW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, qwaddr: u64, moduleinfo: *mut IMAGEHLP_MODULEW64) -> super::super::super::Foundation::BOOL {
@@ -49124,6 +51620,7 @@ pub unsafe fn SymGetModuleInfoW64<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetOmaps<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, omapto: *mut *mut OMAP, comapto: *mut u64, omapfrom: *mut *mut OMAP, comapfrom: *mut u64) -> super::super::super::Foundation::BOOL {
@@ -49138,6 +51635,7 @@ pub unsafe fn SymGetOmaps<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn SymGetOptions() -> u32 {
     #[cfg(windows)]
@@ -49151,6 +51649,7 @@ pub unsafe fn SymGetOptions() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetScope<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL {
@@ -49165,6 +51664,7 @@ pub unsafe fn SymGetScope<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetScopeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, index: u32, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL {
@@ -49179,6 +51679,7 @@ pub unsafe fn SymGetScopeW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSearchPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, searchpatha: super::super::super::Foundation::PSTR, searchpathlength: u32) -> super::super::super::Foundation::BOOL {
@@ -49193,6 +51694,7 @@ pub unsafe fn SymGetSearchPath<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSearchPathW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, searchpatha: super::super::super::Foundation::PWSTR, searchpathlength: u32) -> super::super::super::Foundation::BOOL {
@@ -49207,6 +51709,7 @@ pub unsafe fn SymGetSearchPathW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSourceFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, base: u64, params: Param2, filespec: Param3, filepath: super::super::super::Foundation::PSTR, size: u32) -> super::super::super::Foundation::BOOL {
@@ -49221,6 +51724,7 @@ pub unsafe fn SymGetSourceFile<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSourceFileChecksum<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, base: u64, filespec: Param2, pchecksumtype: *mut u32, pchecksum: *mut u8, checksumsize: u32, pactualbyteswritten: *mut u32) -> super::super::super::Foundation::BOOL {
@@ -49235,6 +51739,7 @@ pub unsafe fn SymGetSourceFileChecksum<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSourceFileChecksumW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, base: u64, filespec: Param2, pchecksumtype: *mut u32, pchecksum: *mut u8, checksumsize: u32, pactualbyteswritten: *mut u32) -> super::super::super::Foundation::BOOL {
@@ -49249,6 +51754,7 @@ pub unsafe fn SymGetSourceFileChecksumW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSourceFileFromToken<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, token: *const ::core::ffi::c_void, params: Param2, filepath: super::super::super::Foundation::PSTR, size: u32) -> super::super::super::Foundation::BOOL {
@@ -49263,6 +51769,7 @@ pub unsafe fn SymGetSourceFileFromToken<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSourceFileFromTokenByTokenName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, token: *const ::core::ffi::c_void, tokenname: Param2, params: Param3, filepath: super::super::super::Foundation::PSTR, size: u32) -> super::super::super::Foundation::BOOL {
@@ -49277,6 +51784,7 @@ pub unsafe fn SymGetSourceFileFromTokenByTokenName<'a, Param0: ::windows::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSourceFileFromTokenByTokenNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, token: *const ::core::ffi::c_void, tokenname: Param2, params: Param3, filepath: super::super::super::Foundation::PWSTR, size: u32) -> super::super::super::Foundation::BOOL {
@@ -49291,6 +51799,7 @@ pub unsafe fn SymGetSourceFileFromTokenByTokenNameW<'a, Param0: ::windows::core:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSourceFileFromTokenW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, token: *const ::core::ffi::c_void, params: Param2, filepath: super::super::super::Foundation::PWSTR, size: u32) -> super::super::super::Foundation::BOOL {
@@ -49305,6 +51814,7 @@ pub unsafe fn SymGetSourceFileFromTokenW<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSourceFileToken<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, base: u64, filespec: Param2, token: *mut *mut ::core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL {
@@ -49319,6 +51829,7 @@ pub unsafe fn SymGetSourceFileToken<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSourceFileTokenByTokenName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, base: u64, filespec: Param2, tokenname: Param3, tokenparameters: Param4, token: *mut *mut ::core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL {
@@ -49333,6 +51844,7 @@ pub unsafe fn SymGetSourceFileTokenByTokenName<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSourceFileTokenByTokenNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, base: u64, filespec: Param2, tokenname: Param3, tokenparameters: Param4, token: *mut *mut ::core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL {
@@ -49347,6 +51859,7 @@ pub unsafe fn SymGetSourceFileTokenByTokenNameW<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSourceFileTokenW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, base: u64, filespec: Param2, token: *mut *mut ::core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL {
@@ -49361,6 +51874,7 @@ pub unsafe fn SymGetSourceFileTokenW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSourceFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, base: u64, params: Param2, filespec: Param3, filepath: super::super::super::Foundation::PWSTR, size: u32) -> super::super::super::Foundation::BOOL {
@@ -49375,6 +51889,7 @@ pub unsafe fn SymGetSourceFileW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSourceVarFromToken<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, token: *const ::core::ffi::c_void, params: Param2, varname: Param3, value: super::super::super::Foundation::PSTR, size: u32) -> super::super::super::Foundation::BOOL {
@@ -49389,6 +51904,7 @@ pub unsafe fn SymGetSourceVarFromToken<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSourceVarFromTokenW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, token: *const ::core::ffi::c_void, params: Param2, varname: Param3, value: super::super::super::Foundation::PWSTR, size: u32) -> super::super::super::Foundation::BOOL {
@@ -49403,6 +51919,7 @@ pub unsafe fn SymGetSourceVarFromTokenW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -49418,6 +51935,7 @@ pub unsafe fn SymGetSymFromAddr<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSymFromAddr64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, qwaddr: u64, pdwdisplacement: *mut u64, symbol: *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation::BOOL {
@@ -49432,6 +51950,7 @@ pub unsafe fn SymGetSymFromAddr64<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -49447,6 +51966,7 @@ pub unsafe fn SymGetSymFromName<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSymFromName64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, name: Param1, symbol: *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation::BOOL {
@@ -49461,6 +51981,7 @@ pub unsafe fn SymGetSymFromName64<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -49476,6 +51997,7 @@ pub unsafe fn SymGetSymNext<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSymNext64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, symbol: *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation::BOOL {
@@ -49490,6 +52012,7 @@ pub unsafe fn SymGetSymNext64<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -49505,6 +52028,7 @@ pub unsafe fn SymGetSymPrev<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSymPrev64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, symbol: *mut IMAGEHLP_SYMBOL64) -> super::super::super::Foundation::BOOL {
@@ -49519,6 +52043,7 @@ pub unsafe fn SymGetSymPrev64<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSymbolFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, sympath: Param1, imagefile: Param2, r#type: IMAGEHLP_SF_TYPE, symbolfile: super::super::super::Foundation::PSTR, csymbolfile: usize, dbgfile: super::super::super::Foundation::PSTR, cdbgfile: usize) -> super::super::super::Foundation::BOOL {
@@ -49533,6 +52058,7 @@ pub unsafe fn SymGetSymbolFile<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSymbolFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, sympath: Param1, imagefile: Param2, r#type: IMAGEHLP_SF_TYPE, symbolfile: super::super::super::Foundation::PWSTR, csymbolfile: usize, dbgfile: super::super::super::Foundation::PWSTR, cdbgfile: usize) -> super::super::super::Foundation::BOOL {
@@ -49547,6 +52073,7 @@ pub unsafe fn SymGetSymbolFileW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetTypeFromName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, name: Param2, symbol: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL {
@@ -49561,6 +52088,7 @@ pub unsafe fn SymGetTypeFromName<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetTypeFromNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, name: Param2, symbol: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL {
@@ -49575,6 +52103,7 @@ pub unsafe fn SymGetTypeFromNameW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetTypeInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, modbase: u64, typeid: u32, gettype: IMAGEHLP_SYMBOL_TYPE_INFO, pinfo: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -49589,6 +52118,7 @@ pub unsafe fn SymGetTypeInfo<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetTypeInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, modbase: u64, params: *mut IMAGEHLP_GET_TYPE_INFO_PARAMS) -> super::super::super::Foundation::BOOL {
@@ -49603,6 +52133,7 @@ pub unsafe fn SymGetTypeInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetUnwindInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, address: u64, buffer: *mut ::core::ffi::c_void, size: *mut u32) -> super::super::super::Foundation::BOOL {
@@ -49617,6 +52148,7 @@ pub unsafe fn SymGetUnwindInfo<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymInitialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(hprocess: Param0, usersearchpath: Param1, finvadeprocess: Param2) -> super::super::super::Foundation::BOOL {
@@ -49631,6 +52163,7 @@ pub unsafe fn SymInitialize<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymInitializeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(hprocess: Param0, usersearchpath: Param1, finvadeprocess: Param2) -> super::super::super::Foundation::BOOL {
@@ -49645,6 +52178,7 @@ pub unsafe fn SymInitializeW<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -49660,6 +52194,7 @@ pub unsafe fn SymLoadModule<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymLoadModule64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, hfile: Param1, imagename: Param2, modulename: Param3, baseofdll: u64, sizeofdll: u32) -> u64 {
@@ -49674,6 +52209,7 @@ pub unsafe fn SymLoadModule64<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymLoadModuleEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, hfile: Param1, imagename: Param2, modulename: Param3, baseofdll: u64, dllsize: u32, data: *const MODLOAD_DATA, flags: SYM_LOAD_FLAGS) -> u64 {
@@ -49688,6 +52224,7 @@ pub unsafe fn SymLoadModuleEx<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymLoadModuleExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, hfile: Param1, imagename: Param2, modulename: Param3, baseofdll: u64, dllsize: u32, data: *const MODLOAD_DATA, flags: SYM_LOAD_FLAGS) -> u64 {
@@ -49702,6 +52239,7 @@ pub unsafe fn SymLoadModuleExW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymMatchFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(filename: Param0, r#match: Param1, filenamestop: *mut super::super::super::Foundation::PSTR, matchstop: *mut super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL {
@@ -49716,6 +52254,7 @@ pub unsafe fn SymMatchFileName<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymMatchFileNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(filename: Param0, r#match: Param1, filenamestop: *mut super::super::super::Foundation::PWSTR, matchstop: *mut super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL {
@@ -49730,6 +52269,7 @@ pub unsafe fn SymMatchFileNameW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymMatchString<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(string: Param0, expression: Param1, fcase: Param2) -> super::super::super::Foundation::BOOL {
@@ -49744,6 +52284,7 @@ pub unsafe fn SymMatchString<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymMatchStringA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(string: Param0, expression: Param1, fcase: Param2) -> super::super::super::Foundation::BOOL {
@@ -49758,6 +52299,7 @@ pub unsafe fn SymMatchStringA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymMatchStringW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(string: Param0, expression: Param1, fcase: Param2) -> super::super::super::Foundation::BOOL {
@@ -49772,6 +52314,7 @@ pub unsafe fn SymMatchStringW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, si: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL {
@@ -49786,6 +52329,7 @@ pub unsafe fn SymNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymNextW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, siw: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL {
@@ -49800,6 +52344,7 @@ pub unsafe fn SymNextW<'a, Param0: ::windows::core::IntoParam<'a, super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymPrev<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, si: *mut SYMBOL_INFO) -> super::super::super::Foundation::BOOL {
@@ -49814,6 +52359,7 @@ pub unsafe fn SymPrev<'a, Param0: ::windows::core::IntoParam<'a, super::super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymPrevW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, siw: *mut SYMBOL_INFOW) -> super::super::super::Foundation::BOOL {
@@ -49828,6 +52374,7 @@ pub unsafe fn SymPrevW<'a, Param0: ::windows::core::IntoParam<'a, super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymQueryInlineTrace<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, startaddress: u64, startcontext: u32, startretaddress: u64, curaddress: u64, curcontext: *mut u32, curframeindex: *mut u32) -> super::super::super::Foundation::BOOL {
@@ -49842,6 +52389,7 @@ pub unsafe fn SymQueryInlineTrace<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymRefreshModuleList<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0) -> super::super::super::Foundation::BOOL {
@@ -49856,6 +52404,7 @@ pub unsafe fn SymRefreshModuleList<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -49871,6 +52420,7 @@ pub unsafe fn SymRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymRegisterCallback64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: u64) -> super::super::super::Foundation::BOOL {
@@ -49885,6 +52435,7 @@ pub unsafe fn SymRegisterCallback64<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymRegisterCallbackW64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: PSYMBOL_REGISTERED_CALLBACK64, usercontext: u64) -> super::super::super::Foundation::BOOL {
@@ -49899,6 +52450,7 @@ pub unsafe fn SymRegisterCallbackW64<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -49914,6 +52466,7 @@ pub unsafe fn SymRegisterFunctionEntryCallback<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymRegisterFunctionEntryCallback64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: PSYMBOL_FUNCENTRY_CALLBACK64, usercontext: u64) -> super::super::super::Foundation::BOOL {
@@ -49928,6 +52481,7 @@ pub unsafe fn SymRegisterFunctionEntryCallback64<'a, Param0: ::windows::core::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSearch<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, baseofdll: u64, index: u32, symtag: u32, mask: Param4, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
@@ -49942,6 +52496,7 @@ pub unsafe fn SymSearch<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSearchW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, baseofdll: u64, index: u32, symtag: u32, mask: Param4, address: u64, enumsymbolscallback: PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void, options: u32) -> super::super::super::Foundation::BOOL {
@@ -49956,6 +52511,7 @@ pub unsafe fn SymSearchW<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSetContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, stackframe: *const IMAGEHLP_STACK_FRAME, context: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -49970,6 +52526,7 @@ pub unsafe fn SymSetContext<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSetExtendedOption<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(option: IMAGEHLP_EXTENDED_OPTIONS, value: Param1) -> super::super::super::Foundation::BOOL {
@@ -49984,6 +52541,7 @@ pub unsafe fn SymSetExtendedOption<'a, Param1: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSetHomeDirectory<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, dir: Param1) -> super::super::super::Foundation::PSTR {
@@ -49998,6 +52556,7 @@ pub unsafe fn SymSetHomeDirectory<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSetHomeDirectoryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, dir: Param1) -> super::super::super::Foundation::PWSTR {
@@ -50012,6 +52571,7 @@ pub unsafe fn SymSetHomeDirectoryW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn SymSetOptions(symoptions: u32) -> u32 {
     #[cfg(windows)]
@@ -50025,6 +52585,7 @@ pub unsafe fn SymSetOptions(symoptions: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSetParentWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::BOOL {
@@ -50039,6 +52600,7 @@ pub unsafe fn SymSetParentWindow<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSetScopeFromAddr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, address: u64) -> super::super::super::Foundation::BOOL {
@@ -50053,6 +52615,7 @@ pub unsafe fn SymSetScopeFromAddr<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSetScopeFromIndex<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64, index: u32) -> super::super::super::Foundation::BOOL {
@@ -50067,6 +52630,7 @@ pub unsafe fn SymSetScopeFromIndex<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSetScopeFromInlineContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, address: u64, inlinecontext: u32) -> super::super::super::Foundation::BOOL {
@@ -50081,6 +52645,7 @@ pub unsafe fn SymSetScopeFromInlineContext<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSetSearchPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, searchpatha: Param1) -> super::super::super::Foundation::BOOL {
@@ -50095,6 +52660,7 @@ pub unsafe fn SymSetSearchPath<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSetSearchPathW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, searchpatha: Param1) -> super::super::super::Foundation::BOOL {
@@ -50109,6 +52675,7 @@ pub unsafe fn SymSetSearchPathW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSrvDeltaName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, sympath: Param1, r#type: Param2, file1: Param3, file2: Param4) -> super::super::super::Foundation::PSTR {
@@ -50123,6 +52690,7 @@ pub unsafe fn SymSrvDeltaName<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSrvDeltaNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, sympath: Param1, r#type: Param2, file1: Param3, file2: Param4) -> super::super::super::Foundation::PWSTR {
@@ -50137,6 +52705,7 @@ pub unsafe fn SymSrvDeltaNameW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSrvGetFileIndexInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(file: Param0, info: *mut SYMSRV_INDEX_INFO, flags: u32) -> super::super::super::Foundation::BOOL {
@@ -50151,6 +52720,7 @@ pub unsafe fn SymSrvGetFileIndexInfo<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSrvGetFileIndexInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(file: Param0, info: *mut SYMSRV_INDEX_INFOW, flags: u32) -> super::super::super::Foundation::BOOL {
@@ -50165,6 +52735,7 @@ pub unsafe fn SymSrvGetFileIndexInfoW<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSrvGetFileIndexString<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, srvpath: Param1, file: Param2, index: super::super::super::Foundation::PSTR, size: usize, flags: u32) -> super::super::super::Foundation::BOOL {
@@ -50179,6 +52750,7 @@ pub unsafe fn SymSrvGetFileIndexString<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSrvGetFileIndexStringW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, srvpath: Param1, file: Param2, index: super::super::super::Foundation::PWSTR, size: usize, flags: u32) -> super::super::super::Foundation::BOOL {
@@ -50193,6 +52765,7 @@ pub unsafe fn SymSrvGetFileIndexStringW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSrvGetFileIndexes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(file: Param0, id: *mut ::windows::core::GUID, val1: *mut u32, val2: *mut u32, flags: u32) -> super::super::super::Foundation::BOOL {
@@ -50207,6 +52780,7 @@ pub unsafe fn SymSrvGetFileIndexes<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSrvGetFileIndexesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(file: Param0, id: *mut ::windows::core::GUID, val1: *mut u32, val2: *mut u32, flags: u32) -> super::super::super::Foundation::BOOL {
@@ -50221,6 +52795,7 @@ pub unsafe fn SymSrvGetFileIndexesW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSrvGetSupplement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, sympath: Param1, node: Param2, file: Param3) -> super::super::super::Foundation::PSTR {
@@ -50235,6 +52810,7 @@ pub unsafe fn SymSrvGetSupplement<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSrvGetSupplementW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, sympath: Param1, node: Param2, file: Param3) -> super::super::super::Foundation::PWSTR {
@@ -50249,6 +52825,7 @@ pub unsafe fn SymSrvGetSupplementW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSrvIsStore<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, path: Param1) -> super::super::super::Foundation::BOOL {
@@ -50263,6 +52840,7 @@ pub unsafe fn SymSrvIsStore<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSrvIsStoreW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, path: Param1) -> super::super::super::Foundation::BOOL {
@@ -50277,6 +52855,7 @@ pub unsafe fn SymSrvIsStoreW<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSrvStoreFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, srvpath: Param1, file: Param2, flags: SYM_SRV_STORE_FILE_FLAGS) -> super::super::super::Foundation::PSTR {
@@ -50291,6 +52870,7 @@ pub unsafe fn SymSrvStoreFile<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSrvStoreFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, srvpath: Param1, file: Param2, flags: SYM_SRV_STORE_FILE_FLAGS) -> super::super::super::Foundation::PWSTR {
@@ -50305,6 +52885,7 @@ pub unsafe fn SymSrvStoreFileW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSrvStoreSupplement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, srvpath: Param1, node: Param2, file: Param3, flags: u32) -> super::super::super::Foundation::PSTR {
@@ -50319,6 +52900,7 @@ pub unsafe fn SymSrvStoreSupplement<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymSrvStoreSupplementW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hprocess: Param0, sympath: Param1, node: Param2, file: Param3, flags: u32) -> super::super::super::Foundation::PWSTR {
@@ -50333,6 +52915,7 @@ pub unsafe fn SymSrvStoreSupplementW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -50348,6 +52931,7 @@ pub unsafe fn SymUnDName(sym: *const IMAGEHLP_SYMBOL, undecname: super::super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymUnDName64(sym: *const IMAGEHLP_SYMBOL64, undecname: super::super::super::Foundation::PSTR, undecnamelength: u32) -> super::super::super::Foundation::BOOL {
@@ -50362,6 +52946,7 @@ pub unsafe fn SymUnDName64(sym: *const IMAGEHLP_SYMBOL64, undecname: super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -50377,6 +52962,7 @@ pub unsafe fn SymUnloadModule<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymUnloadModule64<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u64) -> super::super::super::Foundation::BOOL {
@@ -50391,21 +52977,36 @@ pub unsafe fn SymUnloadModule64<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type SymbolKind = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const Symbol: SymbolKind = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymbolModule: SymbolKind = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymbolType: SymbolKind = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymbolField: SymbolKind = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymbolConstant: SymbolKind = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymbolData: SymbolKind = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymbolBaseClass: SymbolKind = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymbolPublic: SymbolKind = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymbolFunction: SymbolKind = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type SymbolSearchOptions = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymbolSearchNone: SymbolSearchOptions = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymbolSearchCompletion: SymbolSearchOptions = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SymbolSearchCaseInsensitive: SymbolSearchOptions = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct TEXT_DOCUMENT_ARRAY {
     pub dwCount: u32,
     pub Members: *mut ::core::option::Option<IDebugDocumentText>,
@@ -50435,24 +53036,39 @@ pub const TEXT_DOC_ATTR_TYPE_PRIMARY: u32 = 2u32;
 pub const TEXT_DOC_ATTR_TYPE_SCRIPT: u32 = 8u32;
 pub const TEXT_DOC_ATTR_TYPE_WORKER: u32 = 4u32;
 pub const THREAD_BLOCKED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type THREAD_ERROR_MODE = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SEM_ALL_ERRORS: THREAD_ERROR_MODE = 0u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SEM_FAILCRITICALERRORS: THREAD_ERROR_MODE = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SEM_NOGPFAULTERRORBOX: THREAD_ERROR_MODE = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SEM_NOOPENFILEERRORBOX: THREAD_ERROR_MODE = 32768u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const SEM_NOALIGNMENTFAULTEXCEPT: THREAD_ERROR_MODE = 4u32;
 pub const THREAD_OUT_OF_CONTEXT: u32 = 8u32;
 pub const THREAD_STATE_RUNNING: u32 = 1u32;
 pub const THREAD_STATE_SUSPENDED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type THREAD_WRITE_FLAGS = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ThreadWriteThread: THREAD_WRITE_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ThreadWriteStack: THREAD_WRITE_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ThreadWriteContext: THREAD_WRITE_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ThreadWriteBackingStore: THREAD_WRITE_FLAGS = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ThreadWriteInstructionWindow: THREAD_WRITE_FLAGS = 16i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ThreadWriteThreadData: THREAD_WRITE_FLAGS = 32i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const ThreadWriteThreadInfo: THREAD_WRITE_FLAGS = 64i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct TI_FINDCHILDREN_PARAMS {
     pub Count: u32,
     pub Start: u32,
@@ -50479,6 +53095,7 @@ impl ::core::default::Default for TI_FINDCHILDREN_PARAMS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct TRANSLATE_VIRTUAL_TO_PHYSICAL {
     pub Virtual: u64,
     pub Physical: u64,
@@ -50503,6 +53120,7 @@ impl ::core::default::Default for TRANSLATE_VIRTUAL_TO_PHYSICAL {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[inline]
 pub unsafe fn TerminateProcessOnMemoryExhaustion(failedallocationsize: usize) {
     #[cfg(windows)]
@@ -50516,6 +53134,7 @@ pub unsafe fn TerminateProcessOnMemoryExhaustion(failedallocationsize: usize) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TouchFileTimes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filehandle: Param0, psystemtime: *const super::super::super::Foundation::SYSTEMTIME) -> super::super::super::Foundation::BOOL {
@@ -50530,15 +53149,25 @@ pub unsafe fn TouchFileTimes<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type TypeKind = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TypeUDT: TypeKind = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TypePointer: TypeKind = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TypeMemberPointer: TypeKind = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TypeArray: TypeKind = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TypeFunction: TypeKind = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TypeTypedef: TypeKind = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TypeEnum: TypeKind = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TypeIntrinsic: TypeKind = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const TypeExtendedArray: TypeKind = 8i32;
 pub const UNAVAILABLE_ERROR: u32 = 12u32;
 pub const UNDNAME_32_BIT_DECODE: u32 = 2048u32;
@@ -50559,6 +53188,7 @@ pub const UNDNAME_NO_SPECIAL_SYMS: u32 = 16384u32;
 pub const UNDNAME_NO_THISTYPE: u32 = 96u32;
 pub const UNDNAME_NO_THROW_SIGNATURES: u32 = 256u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct UNLOAD_DLL_DEBUG_INFO {
     pub lpBaseOfDll: *mut ::core::ffi::c_void,
 }
@@ -50583,6 +53213,7 @@ impl ::core::default::Default for UNLOAD_DLL_DEBUG_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct UNWIND_HISTORY_TABLE {
     pub Count: u32,
@@ -50621,6 +53252,7 @@ impl ::core::default::Default for UNWIND_HISTORY_TABLE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "aarch64")]
 pub struct UNWIND_HISTORY_TABLE_ENTRY {
     pub ImageBase: usize,
@@ -50653,6 +53285,7 @@ impl ::core::default::Default for UNWIND_HISTORY_TABLE_ENTRY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86_64")]
 pub struct UNWIND_HISTORY_TABLE_ENTRY {
     pub ImageBase: usize,
@@ -50684,6 +53317,7 @@ impl ::core::default::Default for UNWIND_HISTORY_TABLE_ENTRY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnDecorateSymbolName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(name: Param0, outputstring: super::super::super::Foundation::PSTR, maxstringlength: u32, flags: u32) -> u32 {
@@ -50698,6 +53332,7 @@ pub unsafe fn UnDecorateSymbolName<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnDecorateSymbolNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(name: Param0, outputstring: super::super::super::Foundation::PWSTR, maxstringlength: u32, flags: u32) -> u32 {
@@ -50712,6 +53347,7 @@ pub unsafe fn UnDecorateSymbolNameW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn UnMapAndLoad(loadedimage: *mut LOADED_IMAGE) -> super::super::super::Foundation::BOOL {
@@ -50726,6 +53362,7 @@ pub unsafe fn UnMapAndLoad(loadedimage: *mut LOADED_IMAGE) -> super::super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn UnhandledExceptionFilter(exceptioninfo: *const EXCEPTION_POINTERS) -> i32 {
@@ -50740,6 +53377,7 @@ pub unsafe fn UnhandledExceptionFilter(exceptioninfo: *const EXCEPTION_POINTERS)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UpdateDebugInfoFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(imagefilename: Param0, symbolpath: Param1, debugfilepath: super::super::super::Foundation::PSTR, ntheaders: *const IMAGE_NT_HEADERS32) -> super::super::super::Foundation::BOOL {
@@ -50754,6 +53392,7 @@ pub unsafe fn UpdateDebugInfoFile<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UpdateDebugInfoFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(imagefilename: Param0, symbolpath: Param1, debugfilepath: super::super::super::Foundation::PSTR, ntheaders: *const IMAGE_NT_HEADERS32, oldchecksum: u32) -> super::super::super::Foundation::BOOL {
@@ -50768,11 +53407,16 @@ pub unsafe fn UpdateDebugInfoFileEx<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type VER_PLATFORM = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VER_PLATFORM_WIN32s: VER_PLATFORM = 0u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VER_PLATFORM_WIN32_WINDOWS: VER_PLATFORM = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VER_PLATFORM_WIN32_NT: VER_PLATFORM = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct VIRTUAL_TO_PHYSICAL {
     pub Status: u32,
     pub Size: u32,
@@ -50800,10 +53444,14 @@ impl ::core::default::Default for VIRTUAL_TO_PHYSICAL {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type VarArgsKind = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VarArgsNone: VarArgsKind = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const VarArgsCStyle: VarArgsKind = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WAITCHAIN_NODE_INFO {
     pub ObjectType: WCT_OBJECT_TYPE,
@@ -50837,6 +53485,7 @@ impl ::core::default::Default for WAITCHAIN_NODE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union WAITCHAIN_NODE_INFO_0 {
     pub LockObject: WAITCHAIN_NODE_INFO_0_0,
@@ -50869,6 +53518,7 @@ impl ::core::default::Default for WAITCHAIN_NODE_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WAITCHAIN_NODE_INFO_0_0 {
     pub ObjectName: [u16; 128],
@@ -50902,6 +53552,7 @@ impl ::core::default::Default for WAITCHAIN_NODE_INFO_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WAITCHAIN_NODE_INFO_0_1 {
     pub ProcessId: u32,
@@ -50935,37 +53586,67 @@ impl ::core::default::Default for WAITCHAIN_NODE_INFO_0_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type WAIT_CHAIN_THREAD_OPTIONS = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WCT_OUT_OF_PROC_COM_FLAG: WAIT_CHAIN_THREAD_OPTIONS = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WCT_OUT_OF_PROC_CS_FLAG: WAIT_CHAIN_THREAD_OPTIONS = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WCT_OUT_OF_PROC_FLAG: WAIT_CHAIN_THREAD_OPTIONS = 1u32;
 pub const WCT_MAX_NODE_COUNT: u32 = 16u32;
 pub const WCT_NETWORK_IO_FLAG: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type WCT_OBJECT_STATUS = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctStatusNoAccess: WCT_OBJECT_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctStatusRunning: WCT_OBJECT_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctStatusBlocked: WCT_OBJECT_STATUS = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctStatusPidOnly: WCT_OBJECT_STATUS = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctStatusPidOnlyRpcss: WCT_OBJECT_STATUS = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctStatusOwned: WCT_OBJECT_STATUS = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctStatusNotOwned: WCT_OBJECT_STATUS = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctStatusAbandoned: WCT_OBJECT_STATUS = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctStatusUnknown: WCT_OBJECT_STATUS = 9i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctStatusError: WCT_OBJECT_STATUS = 10i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctStatusMax: WCT_OBJECT_STATUS = 11i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type WCT_OBJECT_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctCriticalSectionType: WCT_OBJECT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctSendMessageType: WCT_OBJECT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctMutexType: WCT_OBJECT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctAlpcType: WCT_OBJECT_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctComType: WCT_OBJECT_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctThreadWaitType: WCT_OBJECT_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctProcessWaitType: WCT_OBJECT_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctThreadType: WCT_OBJECT_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctComActivationType: WCT_OBJECT_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctUnknownType: WCT_OBJECT_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctSocketIoType: WCT_OBJECT_TYPE = 11i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctSmbIoType: WCT_OBJECT_TYPE = 12i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WctMaxType: WCT_OBJECT_TYPE = 13i32;
 pub const WCT_OBJNAME_LENGTH: u32 = 128u32;
 pub const WDBGEXTS_ADDRESS_DEFAULT: u32 = 0u32;
@@ -50973,6 +53654,7 @@ pub const WDBGEXTS_ADDRESS_RESERVED0: u32 = 2147483648u32;
 pub const WDBGEXTS_ADDRESS_SEG16: u32 = 1u32;
 pub const WDBGEXTS_ADDRESS_SEG32: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WDBGEXTS_CLR_DATA_INTERFACE {
     pub Iid: *mut ::windows::core::GUID,
     pub Iface: *mut ::core::ffi::c_void,
@@ -50998,6 +53680,7 @@ impl ::core::default::Default for WDBGEXTS_CLR_DATA_INTERFACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WDBGEXTS_DISASSEMBLE_BUFFER {
     pub InOffset: u64,
@@ -51037,6 +53720,7 @@ impl ::core::default::Default for WDBGEXTS_DISASSEMBLE_BUFFER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WDBGEXTS_MODULE_IN_RANGE {
     pub Start: u64,
     pub End: u64,
@@ -51064,6 +53748,7 @@ impl ::core::default::Default for WDBGEXTS_MODULE_IN_RANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WDBGEXTS_QUERY_INTERFACE {
     pub Iid: *mut ::windows::core::GUID,
     pub Iface: *mut ::core::ffi::c_void,
@@ -51089,6 +53774,7 @@ impl ::core::default::Default for WDBGEXTS_QUERY_INTERFACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WDBGEXTS_THREAD_OS_INFO {
     pub ThreadId: u32,
     pub ExitStatus: u32,
@@ -51122,6 +53808,7 @@ impl ::core::default::Default for WDBGEXTS_THREAD_OS_INFO {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_AER_BRIDGE_DESCRIPTOR {
     pub Type: u16,
@@ -51166,6 +53853,7 @@ impl ::core::default::Default for WHEA_AER_BRIDGE_DESCRIPTOR {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_AER_ENDPOINT_DESCRIPTOR {
     pub Type: u16,
@@ -51207,6 +53895,7 @@ impl ::core::default::Default for WHEA_AER_ENDPOINT_DESCRIPTOR {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_AER_ROOTPORT_DESCRIPTOR {
     pub Type: u16,
@@ -51261,6 +53950,7 @@ pub const WHEA_DEVICE_DRIVER_CONFIG_MIN: u32 = 1u32;
 pub const WHEA_DEVICE_DRIVER_CONFIG_V1: u32 = 1u32;
 pub const WHEA_DEVICE_DRIVER_CONFIG_V2: u32 = 2u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_DEVICE_DRIVER_DESCRIPTOR {
     pub Type: u16,
@@ -51309,6 +53999,7 @@ impl ::core::default::Default for WHEA_DEVICE_DRIVER_DESCRIPTOR {
 pub const WHEA_DISABLE_DUMMY_WRITE: u32 = 6u32;
 pub const WHEA_DISABLE_OFFLINE: u32 = 0u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WHEA_DRIVER_BUFFER_SET {
     pub Version: u32,
     pub Data: *mut u8,
@@ -51338,6 +54029,7 @@ impl ::core::default::Default for WHEA_DRIVER_BUFFER_SET {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DD {
     pub Initialize: WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER,
@@ -51371,6 +54063,7 @@ impl ::core::default::Default for WHEA_ERROR_SOURCE_CONFIGURATION_DD {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER {
     pub Version: u32,
@@ -51411,6 +54104,7 @@ impl ::core::default::Default for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER 
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
     pub Version: u32,
@@ -51446,9 +54140,11 @@ impl ::core::default::Default for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER = ::core::option::Option<unsafe extern "system" fn(errorsourcedesc: *mut ::core::ffi::c_void, maximumsectionlength: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_ERROR_SOURCE_DESCRIPTOR {
     pub Length: u32,
@@ -51490,6 +54186,7 @@ impl ::core::default::Default for WHEA_ERROR_SOURCE_DESCRIPTOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union WHEA_ERROR_SOURCE_DESCRIPTOR_0 {
     pub XpfMceDescriptor: WHEA_XPF_MCE_DESCRIPTOR,
@@ -51548,35 +54245,62 @@ pub const WHEA_ERROR_SOURCE_FLAG_DEFAULTSOURCE: u32 = 2147483648u32;
 pub const WHEA_ERROR_SOURCE_FLAG_FIRMWAREFIRST: u32 = 1u32;
 pub const WHEA_ERROR_SOURCE_FLAG_GHES_ASSIST: u32 = 4u32;
 pub const WHEA_ERROR_SOURCE_FLAG_GLOBAL: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, errorsourceid: u32) -> super::super::super::Foundation::NTSTATUS>;
 pub const WHEA_ERROR_SOURCE_INVALID_RELATED_SOURCE: u32 = 65535u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type WHEA_ERROR_SOURCE_STATE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcStateStopped: WHEA_ERROR_SOURCE_STATE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcStateStarted: WHEA_ERROR_SOURCE_STATE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcStateRemoved: WHEA_ERROR_SOURCE_STATE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcStateRemovePending: WHEA_ERROR_SOURCE_STATE = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type WHEA_ERROR_SOURCE_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcTypeMCE: WHEA_ERROR_SOURCE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcTypeCMC: WHEA_ERROR_SOURCE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcTypeCPE: WHEA_ERROR_SOURCE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcTypeNMI: WHEA_ERROR_SOURCE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcTypePCIe: WHEA_ERROR_SOURCE_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcTypeGeneric: WHEA_ERROR_SOURCE_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcTypeINIT: WHEA_ERROR_SOURCE_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcTypeBOOT: WHEA_ERROR_SOURCE_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcTypeSCIGeneric: WHEA_ERROR_SOURCE_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcTypeIPFMCA: WHEA_ERROR_SOURCE_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcTypeIPFCMC: WHEA_ERROR_SOURCE_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcTypeIPFCPE: WHEA_ERROR_SOURCE_TYPE = 11i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcTypeGenericV2: WHEA_ERROR_SOURCE_TYPE = 12i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcTypeSCIGenericV2: WHEA_ERROR_SOURCE_TYPE = 13i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcTypeBMC: WHEA_ERROR_SOURCE_TYPE = 14i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcTypePMEM: WHEA_ERROR_SOURCE_TYPE = 15i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcTypeDeviceDriver: WHEA_ERROR_SOURCE_TYPE = 16i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const WheaErrSrcTypeMax: WHEA_ERROR_SOURCE_TYPE = 17i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void)>;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WHEA_GENERIC_ERROR_DESCRIPTOR {
     pub Type: u16,
     pub Reserved: u8,
@@ -51611,6 +54335,7 @@ impl ::core::default::Default for WHEA_GENERIC_ERROR_DESCRIPTOR {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
     pub Type: u16,
     pub Reserved: u8,
@@ -51652,6 +54377,7 @@ impl ::core::default::Default for WHEA_GENERIC_ERROR_DESCRIPTOR_V2 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WHEA_IPF_CMC_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: u8,
@@ -51678,6 +54404,7 @@ impl ::core::default::Default for WHEA_IPF_CMC_DESCRIPTOR {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WHEA_IPF_CPE_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: u8,
@@ -51704,6 +54431,7 @@ impl ::core::default::Default for WHEA_IPF_CPE_DESCRIPTOR {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WHEA_IPF_MCA_DESCRIPTOR {
     pub Type: u16,
     pub Enabled: u8,
@@ -51736,6 +54464,7 @@ pub const WHEA_MEM_PFA_PAGECOUNT: u32 = 3u32;
 pub const WHEA_MEM_PFA_THRESHOLD: u32 = 4u32;
 pub const WHEA_MEM_PFA_TIMEOUT: u32 = 5u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR {
     pub Type: u8,
     pub Length: u8,
@@ -51763,6 +54492,7 @@ impl ::core::default::Default for WHEA_NOTIFICATION_DESCRIPTOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union WHEA_NOTIFICATION_DESCRIPTOR_0 {
     pub Polled: WHEA_NOTIFICATION_DESCRIPTOR_0_4,
     pub Interrupt: WHEA_NOTIFICATION_DESCRIPTOR_0_1,
@@ -51794,6 +54524,7 @@ impl ::core::default::Default for WHEA_NOTIFICATION_DESCRIPTOR_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -51823,6 +54554,7 @@ impl ::core::default::Default for WHEA_NOTIFICATION_DESCRIPTOR_0_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -51852,6 +54584,7 @@ impl ::core::default::Default for WHEA_NOTIFICATION_DESCRIPTOR_0_1 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -51881,6 +54614,7 @@ impl ::core::default::Default for WHEA_NOTIFICATION_DESCRIPTOR_0_2 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -51910,6 +54644,7 @@ impl ::core::default::Default for WHEA_NOTIFICATION_DESCRIPTOR_0_3 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
     pub PollInterval: u32,
 }
@@ -51934,6 +54669,7 @@ impl ::core::default::Default for WHEA_NOTIFICATION_DESCRIPTOR_0_4 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -51963,6 +54699,7 @@ impl ::core::default::Default for WHEA_NOTIFICATION_DESCRIPTOR_0_5 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -51992,6 +54729,7 @@ impl ::core::default::Default for WHEA_NOTIFICATION_DESCRIPTOR_0_6 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     pub PollInterval: u32,
     pub Vector: u32,
@@ -52021,6 +54759,7 @@ impl ::core::default::Default for WHEA_NOTIFICATION_DESCRIPTOR_0_7 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union WHEA_NOTIFICATION_FLAGS {
     pub Anonymous: WHEA_NOTIFICATION_FLAGS_0,
     pub AsUSHORT: u16,
@@ -52046,6 +54785,7 @@ impl ::core::default::Default for WHEA_NOTIFICATION_FLAGS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WHEA_NOTIFICATION_FLAGS_0 {
     pub _bitfield: u16,
 }
@@ -52083,6 +54823,7 @@ pub const WHEA_NOTIFICATION_TYPE_SCI: u32 = 3u32;
 pub const WHEA_NOTIFICATION_TYPE_SDEI: u32 = 11u32;
 pub const WHEA_NOTIFY_ALL_OFFLINES: u32 = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WHEA_PCI_SLOT_NUMBER {
     pub u: WHEA_PCI_SLOT_NUMBER_0,
 }
@@ -52107,6 +54848,7 @@ impl ::core::default::Default for WHEA_PCI_SLOT_NUMBER {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union WHEA_PCI_SLOT_NUMBER_0 {
     pub bits: WHEA_PCI_SLOT_NUMBER_0_0,
     pub AsULONG: u32,
@@ -52132,6 +54874,7 @@ impl ::core::default::Default for WHEA_PCI_SLOT_NUMBER_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WHEA_PCI_SLOT_NUMBER_0_0 {
     pub _bitfield: u32,
 }
@@ -52160,6 +54903,7 @@ pub const WHEA_RESTORE_CMCI_ATTEMPTS: u32 = 8u32;
 pub const WHEA_RESTORE_CMCI_ENABLED: u32 = 7u32;
 pub const WHEA_RESTORE_CMCI_ERR_LIMIT: u32 = 9u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_XPF_CMC_DESCRIPTOR {
     pub Type: u16,
@@ -52196,6 +54940,7 @@ impl ::core::default::Default for WHEA_XPF_CMC_DESCRIPTOR {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_XPF_MCE_DESCRIPTOR {
     pub Type: u16,
@@ -52233,6 +54978,7 @@ impl ::core::default::Default for WHEA_XPF_MCE_DESCRIPTOR {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_XPF_MC_BANK_DESCRIPTOR {
     pub BankNumber: u8,
@@ -52275,6 +55021,7 @@ pub const WHEA_XPF_MC_BANK_STATUSFORMAT_AMD64MCA: u32 = 2u32;
 pub const WHEA_XPF_MC_BANK_STATUSFORMAT_IA32MCA: u32 = 0u32;
 pub const WHEA_XPF_MC_BANK_STATUSFORMAT_Intel64MCA: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WHEA_XPF_NMI_DESCRIPTOR {
     pub Type: u16,
@@ -52307,6 +55054,7 @@ impl ::core::default::Default for WHEA_XPF_NMI_DESCRIPTOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct WINDBG_EXTENSION_APIS {
     pub nSize: u32,
@@ -52349,6 +55097,7 @@ impl ::core::default::Default for WINDBG_EXTENSION_APIS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct WINDBG_EXTENSION_APIS32 {
     pub nSize: u32,
@@ -52391,6 +55140,7 @@ impl ::core::default::Default for WINDBG_EXTENSION_APIS32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct WINDBG_EXTENSION_APIS64 {
     pub nSize: u32,
@@ -52433,6 +55183,7 @@ impl ::core::default::Default for WINDBG_EXTENSION_APIS64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINDBG_OLDKD_EXTENSION_APIS {
     pub nSize: u32,
@@ -52473,6 +55224,7 @@ impl ::core::default::Default for WINDBG_OLDKD_EXTENSION_APIS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINDBG_OLD_EXTENSION_APIS {
     pub nSize: u32,
@@ -52509,6 +55261,7 @@ impl ::core::default::Default for WINDBG_OLD_EXTENSION_APIS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WOW64_CONTEXT {
     pub ContextFlags: u32,
     pub Dr0: u32,
@@ -52563,6 +55316,7 @@ pub const WOW64_CONTEXT_SERVICE_ACTIVE: u32 = 268435456u32;
 pub const WOW64_CONTEXT_i386: u32 = 65536u32;
 pub const WOW64_CONTEXT_i486: u32 = 65536u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WOW64_DESCRIPTOR_TABLE_ENTRY {
     pub Selector: u32,
     pub Descriptor: WOW64_LDT_ENTRY,
@@ -52588,6 +55342,7 @@ impl ::core::default::Default for WOW64_DESCRIPTOR_TABLE_ENTRY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WOW64_FLOATING_SAVE_AREA {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -52620,6 +55375,7 @@ impl ::core::default::Default for WOW64_FLOATING_SAVE_AREA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WOW64_LDT_ENTRY {
     pub LimitLow: u16,
     pub BaseLow: u16,
@@ -52646,6 +55402,7 @@ impl ::core::default::Default for WOW64_LDT_ENTRY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union WOW64_LDT_ENTRY_0 {
     pub Bytes: WOW64_LDT_ENTRY_0_1,
     pub Bits: WOW64_LDT_ENTRY_0_0,
@@ -52671,6 +55428,7 @@ impl ::core::default::Default for WOW64_LDT_ENTRY_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WOW64_LDT_ENTRY_0_0 {
     pub _bitfield: u32,
 }
@@ -52695,6 +55453,7 @@ impl ::core::default::Default for WOW64_LDT_ENTRY_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct WOW64_LDT_ENTRY_0_1 {
     pub BaseMid: u8,
     pub Flags1: u8,
@@ -52723,6 +55482,7 @@ impl ::core::default::Default for WOW64_LDT_ENTRY_0_1 {
 }
 pub const WOW64_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512u32;
 pub const WOW64_SIZE_OF_80387_REGISTERS: u32 = 80u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Threading'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 #[inline]
 pub unsafe fn WaitForDebugEvent(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> super::super::super::Foundation::BOOL {
@@ -52737,6 +55497,7 @@ pub unsafe fn WaitForDebugEvent(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Threading'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Threading"))]
 #[inline]
 pub unsafe fn WaitForDebugEventEx(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds: u32) -> super::super::super::Foundation::BOOL {
@@ -52751,6 +55512,7 @@ pub unsafe fn WaitForDebugEventEx(lpdebugevent: *mut DEBUG_EVENT, dwmilliseconds
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Wow64GetThreadContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hthread: Param0, lpcontext: *mut WOW64_CONTEXT) -> super::super::super::Foundation::BOOL {
@@ -52765,6 +55527,7 @@ pub unsafe fn Wow64GetThreadContext<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Wow64GetThreadSelectorEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hthread: Param0, dwselector: u32, lpselectorentry: *mut WOW64_LDT_ENTRY) -> super::super::super::Foundation::BOOL {
@@ -52779,6 +55542,7 @@ pub unsafe fn Wow64GetThreadSelectorEntry<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Wow64SetThreadContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hthread: Param0, lpcontext: *const WOW64_CONTEXT) -> super::super::super::Foundation::BOOL {
@@ -52793,6 +55557,7 @@ pub unsafe fn Wow64SetThreadContext<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteProcessMemory<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, lpbaseaddress: *const ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void, nsize: usize, lpnumberofbyteswritten: *mut usize) -> super::super::super::Foundation::BOOL {
@@ -52808,6 +55573,7 @@ pub unsafe fn WriteProcessMemory<'a, Param0: ::windows::core::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union XPF_MCE_FLAGS {
     pub Anonymous: XPF_MCE_FLAGS_0,
     pub AsULONG: u32,
@@ -52833,6 +55599,7 @@ impl ::core::default::Default for XPF_MCE_FLAGS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct XPF_MCE_FLAGS_0 {
     pub _bitfield: u32,
 }
@@ -52857,6 +55624,7 @@ impl ::core::default::Default for XPF_MCE_FLAGS_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union XPF_MC_BANK_FLAGS {
     pub Anonymous: XPF_MC_BANK_FLAGS_0,
     pub AsUCHAR: u8,
@@ -52882,6 +55650,7 @@ impl ::core::default::Default for XPF_MC_BANK_FLAGS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct XPF_MC_BANK_FLAGS_0 {
     pub _bitfield: u8,
 }
@@ -52906,6 +55675,7 @@ impl ::core::default::Default for XPF_MC_BANK_FLAGS_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct XSAVE_AREA {
     pub LegacyState: XSAVE_FORMAT,
     pub Header: XSAVE_AREA_HEADER,
@@ -52931,6 +55701,7 @@ impl ::core::default::Default for XSAVE_AREA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct XSAVE_AREA_HEADER {
     pub Mask: u64,
     pub CompactionMask: u64,
@@ -52957,6 +55728,7 @@ impl ::core::default::Default for XSAVE_AREA_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct XSAVE_FORMAT {
     pub ControlWord: u16,
@@ -53003,6 +55775,7 @@ impl ::core::default::Default for XSAVE_FORMAT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86")]
 pub struct XSAVE_FORMAT {
     pub ControlWord: u16,
@@ -53049,6 +55822,7 @@ impl ::core::default::Default for XSAVE_FORMAT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct XSTATE_CONFIGURATION {
     pub EnabledFeatures: u64,
     pub EnabledVolatileFeatures: u64,
@@ -53085,6 +55859,7 @@ impl ::core::default::Default for XSTATE_CONFIGURATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub union XSTATE_CONFIGURATION_0 {
     pub ControlFlags: u32,
     pub Anonymous: XSTATE_CONFIGURATION_0_0,
@@ -53110,6 +55885,7 @@ impl ::core::default::Default for XSTATE_CONFIGURATION_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct XSTATE_CONFIGURATION_0_0 {
     pub _bitfield: u32,
 }
@@ -53134,6 +55910,7 @@ impl ::core::default::Default for XSTATE_CONFIGURATION_0_0 {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct XSTATE_CONFIG_FEATURE_MSC_INFO {
     pub SizeOfInfo: u32,
     pub ContextSize: u32,
@@ -53161,6 +55938,7 @@ impl ::core::default::Default for XSTATE_CONFIG_FEATURE_MSC_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct XSTATE_CONTEXT {
     pub Mask: u64,
@@ -53196,6 +55974,7 @@ impl ::core::default::Default for XSTATE_CONTEXT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 #[cfg(target_arch = "x86")]
 pub struct XSTATE_CONTEXT {
     pub Mask: u64,
@@ -53233,6 +56012,7 @@ impl ::core::default::Default for XSTATE_CONTEXT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct XSTATE_FEATURE {
     pub Offset: u32,
     pub Size: u32,
@@ -53257,17 +56037,28 @@ impl ::core::default::Default for XSTATE_FEATURE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub type _DUMP_TYPES = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DUMP_TYPE_INVALID: _DUMP_TYPES = -1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DUMP_TYPE_UNKNOWN: _DUMP_TYPES = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DUMP_TYPE_FULL: _DUMP_TYPES = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DUMP_TYPE_SUMMARY: _DUMP_TYPES = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DUMP_TYPE_HEADER: _DUMP_TYPES = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DUMP_TYPE_TRIAGE: _DUMP_TYPES = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DUMP_TYPE_BITMAP_FULL: _DUMP_TYPES = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DUMP_TYPE_BITMAP_KERNEL: _DUMP_TYPES = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub const DUMP_TYPE_AUTOMATIC: _DUMP_TYPES = 7i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct _GETSETBUSDATA {
     pub BusDataType: u32,
     pub BusNumber: u32,
@@ -53297,6 +56088,7 @@ impl ::core::default::Default for _GETSETBUSDATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct _IMAGEHLP_JIT_SYMBOL_MAP {
     pub SizeOfStruct: u32,
     pub Address: u64,
@@ -53323,6 +56115,7 @@ impl ::core::default::Default for _IMAGEHLP_JIT_SYMBOL_MAP {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
 pub struct __MIDL___MIDL_itf_jscript9diag_0000_0007_0001 {
     pub InstructionOffset: u64,
     pub ReturnOffset: u64,

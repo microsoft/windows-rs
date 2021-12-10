@@ -53,6 +53,7 @@ pub mod SpeechSynthesis;
 pub mod Streaming;
 #[cfg(feature = "Media_Transcoding")]
 pub mod Transcoding;
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct AudioBuffer(::windows::core::IUnknown);
 impl AudioBuffer {
@@ -203,6 +204,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IMemoryBuffer> for &A
 }
 unsafe impl ::core::marker::Send for AudioBuffer {}
 unsafe impl ::core::marker::Sync for AudioBuffer {}
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct AudioBufferAccessMode(pub i32);
 impl AudioBufferAccessMode {
@@ -231,6 +233,7 @@ unsafe impl ::windows::core::RuntimeType for AudioBufferAccessMode {
 impl ::windows::core::DefaultType for AudioBufferAccessMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct AudioFrame(::windows::core::IUnknown);
 impl AudioFrame {
@@ -440,6 +443,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaFrame> for &AudioFrame {
 }
 unsafe impl ::core::marker::Send for AudioFrame {}
 unsafe impl ::core::marker::Sync for AudioFrame {}
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct AudioProcessing(pub i32);
 impl AudioProcessing {
@@ -467,6 +471,7 @@ unsafe impl ::windows::core::RuntimeType for AudioProcessing {
 impl ::windows::core::DefaultType for AudioProcessing {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct AutoRepeatModeChangeRequestedEventArgs(::windows::core::IUnknown);
 impl AutoRepeatModeChangeRequestedEventArgs {
@@ -721,6 +726,7 @@ pub struct IMediaControlVtbl(
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
 );
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct IMediaExtension(::windows::core::IUnknown);
 impl IMediaExtension {
@@ -854,6 +860,7 @@ pub struct IMediaExtensionManager2Vtbl(
     #[cfg(feature = "ApplicationModel_AppService")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extension: ::windows::core::RawPtr, connection: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_AppService"))] usize,
 );
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct IMediaFrame(::windows::core::IUnknown);
 impl IMediaFrame {
@@ -1047,6 +1054,7 @@ pub struct IMediaFrameVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct IMediaMarker(::windows::core::IUnknown);
 impl IMediaMarker {
@@ -1163,6 +1171,7 @@ pub struct IMediaMarkerTypesStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct IMediaMarkers(::windows::core::IUnknown);
 impl IMediaMarkers {
@@ -1828,6 +1837,7 @@ pub struct IVideoFrameStaticsVtbl(
     #[cfg(feature = "Graphics_DirectX_Direct3D11")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, surface: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))] usize,
 );
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct ImageDisplayProperties(::windows::core::IUnknown);
 impl ImageDisplayProperties {
@@ -2110,6 +2120,7 @@ impl MediaControl {
 impl ::windows::core::RuntimeName for MediaControl {
     const NAME: &'static str = "Windows.Media.MediaControl";
 }
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct MediaExtensionManager(::windows::core::IUnknown);
 impl MediaExtensionManager {
@@ -2259,6 +2270,7 @@ impl MediaMarkerTypes {
 impl ::windows::core::RuntimeName for MediaMarkerTypes {
     const NAME: &'static str = "Windows.Media.MediaMarkerTypes";
 }
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackAutoRepeatMode(pub i32);
 impl MediaPlaybackAutoRepeatMode {
@@ -2287,6 +2299,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackAutoRepeatMode {
 impl ::windows::core::DefaultType for MediaPlaybackAutoRepeatMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackStatus(pub i32);
 impl MediaPlaybackStatus {
@@ -2317,6 +2330,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackStatus {
 impl ::windows::core::DefaultType for MediaPlaybackStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackType(pub i32);
 impl MediaPlaybackType {
@@ -2346,6 +2360,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackType {
 impl ::windows::core::DefaultType for MediaPlaybackType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct MediaProcessingTriggerDetails(::windows::core::IUnknown);
 impl MediaProcessingTriggerDetails {
@@ -2422,6 +2437,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 unsafe impl ::core::marker::Send for MediaProcessingTriggerDetails {}
 unsafe impl ::core::marker::Sync for MediaProcessingTriggerDetails {}
 #[repr(C)]
+#[doc = "*Required features: 'Media', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct MediaTimeRange {
     pub Start: super::Foundation::TimeSpan,
@@ -2461,6 +2477,7 @@ impl ::core::default::Default for MediaTimeRange {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct MediaTimelineController(::windows::core::IUnknown);
 impl MediaTimelineController {
@@ -2654,6 +2671,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaTimelineController {}
 unsafe impl ::core::marker::Sync for MediaTimelineController {}
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct MediaTimelineControllerFailedEventArgs(::windows::core::IUnknown);
 impl MediaTimelineControllerFailedEventArgs {
@@ -2728,6 +2746,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaTimelineControllerFailedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaTimelineControllerFailedEventArgs {}
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct MediaTimelineControllerState(pub i32);
 impl MediaTimelineControllerState {
@@ -2757,6 +2776,7 @@ unsafe impl ::windows::core::RuntimeType for MediaTimelineControllerState {
 impl ::windows::core::DefaultType for MediaTimelineControllerState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct MusicDisplayProperties(::windows::core::IUnknown);
 impl MusicDisplayProperties {
@@ -2898,6 +2918,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Musi
 }
 unsafe impl ::core::marker::Send for MusicDisplayProperties {}
 unsafe impl ::core::marker::Sync for MusicDisplayProperties {}
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct PlaybackPositionChangeRequestedEventArgs(::windows::core::IUnknown);
 impl PlaybackPositionChangeRequestedEventArgs {
@@ -2973,6 +2994,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
 }
 unsafe impl ::core::marker::Send for PlaybackPositionChangeRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PlaybackPositionChangeRequestedEventArgs {}
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct PlaybackRateChangeRequestedEventArgs(::windows::core::IUnknown);
 impl PlaybackRateChangeRequestedEventArgs {
@@ -3047,6 +3069,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
 }
 unsafe impl ::core::marker::Send for PlaybackRateChangeRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PlaybackRateChangeRequestedEventArgs {}
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct ShuffleEnabledChangeRequestedEventArgs(::windows::core::IUnknown);
 impl ShuffleEnabledChangeRequestedEventArgs {
@@ -3121,6 +3144,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shuf
 }
 unsafe impl ::core::marker::Send for ShuffleEnabledChangeRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ShuffleEnabledChangeRequestedEventArgs {}
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct SoundLevel(pub i32);
 impl SoundLevel {
@@ -3149,6 +3173,7 @@ unsafe impl ::windows::core::RuntimeType for SoundLevel {
 impl ::windows::core::DefaultType for SoundLevel {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct SystemMediaTransportControls(::windows::core::IUnknown);
 impl SystemMediaTransportControls {
@@ -3487,6 +3512,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemMediaTransportControls {}
 unsafe impl ::core::marker::Sync for SystemMediaTransportControls {}
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsButton(pub i32);
 impl SystemMediaTransportControlsButton {
@@ -3522,6 +3548,7 @@ unsafe impl ::windows::core::RuntimeType for SystemMediaTransportControlsButton 
 impl ::windows::core::DefaultType for SystemMediaTransportControlsButton {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsButtonPressedEventArgs(::windows::core::IUnknown);
 impl SystemMediaTransportControlsButtonPressedEventArgs {
@@ -3596,6 +3623,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemMediaTransportControlsButtonPressedEventArgs {}
 unsafe impl ::core::marker::Sync for SystemMediaTransportControlsButtonPressedEventArgs {}
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsDisplayUpdater(::windows::core::IUnknown);
 impl SystemMediaTransportControlsDisplayUpdater {
@@ -3735,6 +3763,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemMediaTransportControlsDisplayUpdater {}
 unsafe impl ::core::marker::Sync for SystemMediaTransportControlsDisplayUpdater {}
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsProperty(pub i32);
 impl SystemMediaTransportControlsProperty {
@@ -3761,6 +3790,7 @@ unsafe impl ::windows::core::RuntimeType for SystemMediaTransportControlsPropert
 impl ::windows::core::DefaultType for SystemMediaTransportControlsProperty {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsPropertyChangedEventArgs(::windows::core::IUnknown);
 impl SystemMediaTransportControlsPropertyChangedEventArgs {
@@ -3835,6 +3865,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemMediaTransportControlsPropertyChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SystemMediaTransportControlsPropertyChangedEventArgs {}
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsTimelineProperties(::windows::core::IUnknown);
 impl SystemMediaTransportControlsTimelineProperties {
@@ -3974,6 +4005,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemMediaTransportControlsTimelineProperties {}
 unsafe impl ::core::marker::Sync for SystemMediaTransportControlsTimelineProperties {}
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct VideoDisplayProperties(::windows::core::IUnknown);
 impl VideoDisplayProperties {
@@ -4087,6 +4119,7 @@ impl VideoEffects {
 impl ::windows::core::RuntimeName for VideoEffects {
     const NAME: &'static str = "Windows.Media.VideoEffects";
 }
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct VideoFrame(::windows::core::IUnknown);
 impl VideoFrame {

@@ -99,6 +99,7 @@ pub struct ISearchSuggestionsRequestedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
 #[repr(transparent)]
 pub struct RequestingFocusOnKeyboardInputEventArgs(::windows::core::IUnknown);
 impl RequestingFocusOnKeyboardInputEventArgs {}
@@ -165,6 +166,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Requ
 }
 unsafe impl ::core::marker::Send for RequestingFocusOnKeyboardInputEventArgs {}
 unsafe impl ::core::marker::Sync for RequestingFocusOnKeyboardInputEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
 #[repr(transparent)]
 pub struct SearchSuggestion(::windows::core::IUnknown);
 impl SearchSuggestion {
@@ -273,6 +275,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
 #[repr(transparent)]
 pub struct SearchSuggestionKind(pub i32);
 impl SearchSuggestionKind {
@@ -301,6 +304,7 @@ unsafe impl ::windows::core::RuntimeType for SearchSuggestionKind {
 impl ::windows::core::DefaultType for SearchSuggestionKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
 #[repr(transparent)]
 pub struct SearchSuggestionManager(::windows::core::IUnknown);
 impl SearchSuggestionManager {
@@ -457,6 +461,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
 #[repr(transparent)]
 pub struct SearchSuggestionsRequestedEventArgs(::windows::core::IUnknown);
 impl SearchSuggestionsRequestedEventArgs {

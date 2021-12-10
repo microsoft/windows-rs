@@ -891,6 +891,7 @@ pub struct IPrinting3DTextureResourceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Print3DManager(::windows::core::IUnknown);
 impl Print3DManager {
@@ -988,6 +989,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Print3DManager {}
 unsafe impl ::core::marker::Sync for Print3DManager {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Print3DTask(::windows::core::IUnknown);
 impl Print3DTask {
@@ -1101,6 +1103,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Print3DTask {}
 unsafe impl ::core::marker::Sync for Print3DTask {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Print3DTaskCompletedEventArgs(::windows::core::IUnknown);
 impl Print3DTaskCompletedEventArgs {
@@ -1182,6 +1185,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Print3DTaskCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskCompletedEventArgs {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Print3DTaskCompletion(pub i32);
 impl Print3DTaskCompletion {
@@ -1212,6 +1216,7 @@ unsafe impl ::windows::core::RuntimeType for Print3DTaskCompletion {
 impl ::windows::core::DefaultType for Print3DTaskCompletion {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Print3DTaskDetail(pub i32);
 impl Print3DTaskDetail {
@@ -1244,6 +1249,7 @@ unsafe impl ::windows::core::RuntimeType for Print3DTaskDetail {
 impl ::windows::core::DefaultType for Print3DTaskDetail {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Print3DTaskRequest(::windows::core::IUnknown);
 impl Print3DTaskRequest {
@@ -1318,6 +1324,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Print3DTaskRequest {}
 unsafe impl ::core::marker::Sync for Print3DTaskRequest {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Print3DTaskRequestedEventArgs(::windows::core::IUnknown);
 impl Print3DTaskRequestedEventArgs {
@@ -1392,6 +1399,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Print3DTaskRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskRequestedEventArgs {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Print3DTaskSourceChangedEventArgs(::windows::core::IUnknown);
 impl Print3DTaskSourceChangedEventArgs {
@@ -1466,6 +1474,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Print3DTaskSourceChangedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskSourceChangedEventArgs {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Print3DTaskSourceRequestedArgs(::windows::core::IUnknown);
 impl Print3DTaskSourceRequestedArgs {
@@ -1537,6 +1546,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Print3DTaskSourceRequestedArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskSourceRequestedArgs {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Print3DTaskSourceRequestedHandler(pub ::windows::core::IUnknown);
 impl Print3DTaskSourceRequestedHandler {
@@ -1605,6 +1615,7 @@ unsafe impl ::windows::core::RuntimeType for Print3DTaskSourceRequestedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct Print3DTaskSourceRequestedHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3D3MFPackage(::windows::core::IUnknown);
 impl Printing3D3MFPackage {
@@ -1770,6 +1781,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Printing3D3MFPackage {}
 unsafe impl ::core::marker::Sync for Printing3D3MFPackage {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DBaseMaterial(::windows::core::IUnknown);
 impl Printing3DBaseMaterial {
@@ -1882,6 +1894,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Printing3DBaseMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DBaseMaterial {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DBaseMaterialGroup(::windows::core::IUnknown);
 impl Printing3DBaseMaterialGroup {
@@ -1975,6 +1988,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 unsafe impl ::core::marker::Send for Printing3DBaseMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DBaseMaterialGroup {}
 #[repr(C)]
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 pub struct Printing3DBufferDescription {
     pub Format: Printing3DBufferFormat,
     pub Stride: u32,
@@ -2005,6 +2019,7 @@ impl ::core::default::Default for Printing3DBufferDescription {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DBufferFormat(pub i32);
 impl Printing3DBufferFormat {
@@ -2037,6 +2052,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DBufferFormat {
 impl ::windows::core::DefaultType for Printing3DBufferFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DColorMaterial(::windows::core::IUnknown);
 impl Printing3DColorMaterial {
@@ -2135,6 +2151,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Printing3DColorMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DColorMaterial {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DColorMaterialGroup(::windows::core::IUnknown);
 impl Printing3DColorMaterialGroup {
@@ -2227,6 +2244,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Printing3DColorMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DColorMaterialGroup {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DComponent(::windows::core::IUnknown);
 impl Printing3DComponent {
@@ -2364,6 +2382,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Printing3DComponent {}
 unsafe impl ::core::marker::Sync for Printing3DComponent {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DComponentWithMatrix(::windows::core::IUnknown);
 impl Printing3DComponentWithMatrix {
@@ -2462,6 +2481,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Printing3DComponentWithMatrix {}
 unsafe impl ::core::marker::Sync for Printing3DComponentWithMatrix {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DCompositeMaterial(::windows::core::IUnknown);
 impl Printing3DCompositeMaterial {
@@ -2544,6 +2564,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Printing3DCompositeMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DCompositeMaterial {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DCompositeMaterialGroup(::windows::core::IUnknown);
 impl Printing3DCompositeMaterialGroup {
@@ -2655,6 +2676,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Printing3DCompositeMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DCompositeMaterialGroup {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DFaceReductionOptions(::windows::core::IUnknown);
 impl Printing3DFaceReductionOptions {
@@ -2762,6 +2784,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Printing3DFaceReductionOptions {}
 unsafe impl ::core::marker::Sync for Printing3DFaceReductionOptions {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DMaterial(::windows::core::IUnknown);
 impl Printing3DMaterial {
@@ -2876,6 +2899,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Printing3DMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DMaterial {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DMesh(::windows::core::IUnknown);
 impl Printing3DMesh {
@@ -3088,6 +3112,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Printing3DMesh {}
 unsafe impl ::core::marker::Sync for Printing3DMesh {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DMeshVerificationMode(pub i32);
 impl Printing3DMeshVerificationMode {
@@ -3115,6 +3140,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DMeshVerificationMode {
 impl ::windows::core::DefaultType for Printing3DMeshVerificationMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DMeshVerificationResult(::windows::core::IUnknown);
 impl Printing3DMeshVerificationResult {
@@ -3205,6 +3231,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Printing3DMeshVerificationResult {}
 unsafe impl ::core::marker::Sync for Printing3DMeshVerificationResult {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DModel(::windows::core::IUnknown);
 impl Printing3DModel {
@@ -3426,6 +3453,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Printing3DModel {}
 unsafe impl ::core::marker::Sync for Printing3DModel {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DModelTexture(::windows::core::IUnknown);
 impl Printing3DModelTexture {
@@ -3533,6 +3561,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Printing3DModelTexture {}
 unsafe impl ::core::marker::Sync for Printing3DModelTexture {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DModelUnit(pub i32);
 impl Printing3DModelUnit {
@@ -3564,6 +3593,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DModelUnit {
 impl ::windows::core::DefaultType for Printing3DModelUnit {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DMultiplePropertyMaterial(::windows::core::IUnknown);
 impl Printing3DMultiplePropertyMaterial {
@@ -3646,6 +3676,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Printing3DMultiplePropertyMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DMultiplePropertyMaterial {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DMultiplePropertyMaterialGroup(::windows::core::IUnknown);
 impl Printing3DMultiplePropertyMaterialGroup {
@@ -3746,6 +3777,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Printing3DMultiplePropertyMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DMultiplePropertyMaterialGroup {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DObjectType(pub i32);
 impl Printing3DObjectType {
@@ -3774,6 +3806,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DObjectType {
 impl ::windows::core::DefaultType for Printing3DObjectType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DPackageCompression(pub i32);
 impl Printing3DPackageCompression {
@@ -3802,6 +3835,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DPackageCompression {
 impl ::windows::core::DefaultType for Printing3DPackageCompression {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DTexture2CoordMaterial(::windows::core::IUnknown);
 impl Printing3DTexture2CoordMaterial {
@@ -3909,6 +3943,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Printing3DTexture2CoordMaterial {}
 unsafe impl ::core::marker::Sync for Printing3DTexture2CoordMaterial {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DTexture2CoordMaterialGroup(::windows::core::IUnknown);
 impl Printing3DTexture2CoordMaterialGroup {
@@ -4012,6 +4047,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Printing3DTexture2CoordMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DTexture2CoordMaterialGroup {}
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DTextureEdgeBehavior(pub i32);
 impl Printing3DTextureEdgeBehavior {
@@ -4041,6 +4077,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DTextureEdgeBehavior {
 impl ::windows::core::DefaultType for Printing3DTextureEdgeBehavior {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DTextureResource(::windows::core::IUnknown);
 impl Printing3DTextureResource {

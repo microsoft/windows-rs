@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct BindableVectorChangedEventHandler(pub ::windows::core::IUnknown);
 impl BindableVectorChangedEventHandler {
@@ -67,6 +68,7 @@ unsafe impl ::windows::core::RuntimeType for BindableVectorChangedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct BindableVectorChangedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vector: ::windows::core::RawPtr, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct IBindableIterable(::windows::core::IUnknown);
 impl IBindableIterable {
@@ -147,6 +149,7 @@ pub struct IBindableIterableVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct IBindableIterator(::windows::core::IUnknown);
 impl IBindableIterator {
@@ -243,6 +246,7 @@ pub struct IBindableIteratorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct IBindableObservableVector(::windows::core::IUnknown);
 impl IBindableObservableVector {
@@ -435,6 +439,7 @@ pub struct IBindableObservableVectorVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct IBindableVector(::windows::core::IUnknown);
 impl IBindableVector {
@@ -598,6 +603,7 @@ pub struct IBindableVectorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct IBindableVectorView(::windows::core::IUnknown);
 impl IBindableVectorView {
@@ -723,6 +729,7 @@ pub struct IBindableVectorViewVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, index: *mut u32, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct INotifyCollectionChanged(::windows::core::IUnknown);
 impl INotifyCollectionChanged {
@@ -852,6 +859,7 @@ pub struct INotifyCollectionChangedEventArgsFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, action: NotifyCollectionChangedAction, newitems: ::windows::core::RawPtr, olditems: ::windows::core::RawPtr, newindex: i32, oldindex: i32, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct NotifyCollectionChangedAction(pub i32);
 impl NotifyCollectionChangedAction {
@@ -882,6 +890,7 @@ unsafe impl ::windows::core::RuntimeType for NotifyCollectionChangedAction {
 impl ::windows::core::DefaultType for NotifyCollectionChangedAction {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct NotifyCollectionChangedEventArgs(::windows::core::IUnknown);
 impl NotifyCollectionChangedEventArgs {
@@ -994,6 +1003,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Noti
 }
 unsafe impl ::core::marker::Send for NotifyCollectionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for NotifyCollectionChangedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct NotifyCollectionChangedEventHandler(pub ::windows::core::IUnknown);
 impl NotifyCollectionChangedEventHandler {
@@ -1062,6 +1072,7 @@ unsafe impl ::windows::core::RuntimeType for NotifyCollectionChangedEventHandler
 #[repr(C)]
 #[doc(hidden)]
 pub struct NotifyCollectionChangedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct TypeKind(pub i32);
 impl TypeKind {
@@ -1091,6 +1102,7 @@ impl ::windows::core::DefaultType for TypeKind {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 pub struct TypeName {
     pub Name: ::windows::core::HSTRING,
     pub Kind: TypeKind,

@@ -52,6 +52,7 @@ pub struct IInstalledClassicAppInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Management_Deployment_Preview'*"]
 #[repr(transparent)]
 pub struct InstalledClassicAppInfo(::windows::core::IUnknown);
 impl InstalledClassicAppInfo {

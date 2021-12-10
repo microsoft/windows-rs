@@ -3,6 +3,7 @@
 pub mod Core;
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer_DragDrop'*"]
 #[repr(transparent)]
 pub struct DragDropModifiers(pub u32);
 impl DragDropModifiers {

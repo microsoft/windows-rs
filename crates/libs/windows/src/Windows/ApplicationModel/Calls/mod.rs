@@ -3,6 +3,7 @@
 pub mod Background;
 #[cfg(feature = "ApplicationModel_Calls_Provider")]
 pub mod Provider;
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct CallAnswerEventArgs(::windows::core::IUnknown);
 impl CallAnswerEventArgs {
@@ -77,6 +78,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Call
 }
 unsafe impl ::core::marker::Send for CallAnswerEventArgs {}
 unsafe impl ::core::marker::Sync for CallAnswerEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct CallRejectEventArgs(::windows::core::IUnknown);
 impl CallRejectEventArgs {
@@ -151,6 +153,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Call
 }
 unsafe impl ::core::marker::Send for CallRejectEventArgs {}
 unsafe impl ::core::marker::Sync for CallRejectEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct CallStateChangeEventArgs(::windows::core::IUnknown);
 impl CallStateChangeEventArgs {
@@ -225,6 +228,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Call
 }
 unsafe impl ::core::marker::Send for CallStateChangeEventArgs {}
 unsafe impl ::core::marker::Sync for CallStateChangeEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct CellularDtmfMode(pub i32);
 impl CellularDtmfMode {
@@ -252,6 +256,7 @@ unsafe impl ::windows::core::RuntimeType for CellularDtmfMode {
 impl ::windows::core::DefaultType for CellularDtmfMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct DtmfKey(pub i32);
 impl DtmfKey {
@@ -289,6 +294,7 @@ unsafe impl ::windows::core::RuntimeType for DtmfKey {
 impl ::windows::core::DefaultType for DtmfKey {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct DtmfToneAudioPlayback(pub i32);
 impl DtmfToneAudioPlayback {
@@ -1485,6 +1491,7 @@ pub struct IVoipPhoneCall3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, media: VoipPhoneCallMedia) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct LockScreenCallEndCallDeferral(::windows::core::IUnknown);
 impl LockScreenCallEndCallDeferral {
@@ -1556,6 +1563,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lock
 }
 unsafe impl ::core::marker::Send for LockScreenCallEndCallDeferral {}
 unsafe impl ::core::marker::Sync for LockScreenCallEndCallDeferral {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct LockScreenCallEndRequestedEventArgs(::windows::core::IUnknown);
 impl LockScreenCallEndRequestedEventArgs {
@@ -1638,6 +1646,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lock
 }
 unsafe impl ::core::marker::Send for LockScreenCallEndRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for LockScreenCallEndRequestedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct LockScreenCallUI(::windows::core::IUnknown);
 impl LockScreenCallUI {
@@ -1746,6 +1755,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lock
 }
 unsafe impl ::core::marker::Send for LockScreenCallUI {}
 unsafe impl ::core::marker::Sync for LockScreenCallUI {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct MuteChangeEventArgs(::windows::core::IUnknown);
 impl MuteChangeEventArgs {
@@ -1820,6 +1830,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mute
 }
 unsafe impl ::core::marker::Send for MuteChangeEventArgs {}
 unsafe impl ::core::marker::Sync for MuteChangeEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneAudioRoutingEndpoint(pub i32);
 impl PhoneAudioRoutingEndpoint {
@@ -1848,6 +1859,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneAudioRoutingEndpoint {
 impl ::windows::core::DefaultType for PhoneAudioRoutingEndpoint {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCall(::windows::core::IUnknown);
 impl PhoneCall {
@@ -2142,6 +2154,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneCall {}
 unsafe impl ::core::marker::Sync for PhoneCall {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallAudioDevice(pub i32);
 impl PhoneCallAudioDevice {
@@ -2205,6 +2218,7 @@ impl PhoneCallBlocking {
 impl ::windows::core::RuntimeName for PhoneCallBlocking {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallBlocking";
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallDirection(pub i32);
 impl PhoneCallDirection {
@@ -2233,6 +2247,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallDirection {
 impl ::windows::core::DefaultType for PhoneCallDirection {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntry(::windows::core::IUnknown);
 impl PhoneCallHistoryEntry {
@@ -2501,6 +2516,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneCallHistoryEntry {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryEntry {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryAddress(::windows::core::IUnknown);
 impl PhoneCallHistoryEntryAddress {
@@ -2629,6 +2645,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneCallHistoryEntryAddress {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryEntryAddress {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryMedia(pub i32);
 impl PhoneCallHistoryEntryMedia {
@@ -2656,6 +2673,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryMedia {
 impl ::windows::core::DefaultType for PhoneCallHistoryEntryMedia {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryOtherAppReadAccess(pub i32);
 impl PhoneCallHistoryEntryOtherAppReadAccess {
@@ -2683,6 +2701,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryOtherAppReadAc
 impl ::windows::core::DefaultType for PhoneCallHistoryEntryOtherAppReadAccess {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryQueryDesiredMedia(pub u32);
 impl PhoneCallHistoryEntryQueryDesiredMedia {
@@ -2712,6 +2731,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryQueryDesiredMe
 impl ::windows::core::DefaultType for PhoneCallHistoryEntryQueryDesiredMedia {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryQueryOptions(::windows::core::IUnknown);
 impl PhoneCallHistoryEntryQueryOptions {
@@ -2805,6 +2825,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneCallHistoryEntryQueryOptions {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryEntryQueryOptions {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryRawAddressKind(pub i32);
 impl PhoneCallHistoryEntryRawAddressKind {
@@ -2832,6 +2853,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryRawAddressKind
 impl ::windows::core::DefaultType for PhoneCallHistoryEntryRawAddressKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryReader(::windows::core::IUnknown);
 impl PhoneCallHistoryEntryReader {
@@ -2935,6 +2957,7 @@ impl PhoneCallHistoryManager {
 impl ::windows::core::RuntimeName for PhoneCallHistoryManager {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryManager";
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallHistoryManagerForUser(::windows::core::IUnknown);
 impl PhoneCallHistoryManagerForUser {
@@ -3018,6 +3041,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneCallHistoryManagerForUser {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryManagerForUser {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallHistorySourceIdKind(pub i32);
 impl PhoneCallHistorySourceIdKind {
@@ -3045,6 +3069,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistorySourceIdKind {
 impl ::windows::core::DefaultType for PhoneCallHistorySourceIdKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallHistoryStore(::windows::core::IUnknown);
 impl PhoneCallHistoryStore {
@@ -3206,6 +3231,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneCallHistoryStore {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryStore {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallHistoryStoreAccessType(pub i32);
 impl PhoneCallHistoryStoreAccessType {
@@ -3234,6 +3260,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryStoreAccessType {
 impl ::windows::core::DefaultType for PhoneCallHistoryStoreAccessType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallInfo(::windows::core::IUnknown);
 impl PhoneCallInfo {
@@ -3394,6 +3421,7 @@ impl PhoneCallManager {
 impl ::windows::core::RuntimeName for PhoneCallManager {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallManager";
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallMedia(pub i32);
 impl PhoneCallMedia {
@@ -3422,6 +3450,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallMedia {
 impl ::windows::core::DefaultType for PhoneCallMedia {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallOperationStatus(pub i32);
 impl PhoneCallOperationStatus {
@@ -3452,6 +3481,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallOperationStatus {
 impl ::windows::core::DefaultType for PhoneCallOperationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallStatus(pub i32);
 impl PhoneCallStatus {
@@ -3483,6 +3513,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallStatus {
 impl ::windows::core::DefaultType for PhoneCallStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallStore(::windows::core::IUnknown);
 impl PhoneCallStore {
@@ -3573,6 +3604,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneCallStore {}
 unsafe impl ::core::marker::Sync for PhoneCallStore {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallVideoCapabilities(::windows::core::IUnknown);
 impl PhoneCallVideoCapabilities {
@@ -3664,6 +3696,7 @@ impl PhoneCallVideoCapabilitiesManager {
 impl ::windows::core::RuntimeName for PhoneCallVideoCapabilitiesManager {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallVideoCapabilitiesManager";
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneCallsResult(::windows::core::IUnknown);
 impl PhoneCallsResult {
@@ -3746,6 +3779,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneCallsResult {}
 unsafe impl ::core::marker::Sync for PhoneCallsResult {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneDialOptions(::windows::core::IUnknown);
 impl PhoneDialOptions {
@@ -3890,6 +3924,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneDialOptions {}
 unsafe impl ::core::marker::Sync for PhoneDialOptions {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneLine(::windows::core::IUnknown);
 impl PhoneLine {
@@ -4123,6 +4158,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneLine {}
 unsafe impl ::core::marker::Sync for PhoneLine {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneLineCellularDetails(::windows::core::IUnknown);
 impl PhoneLineCellularDetails {
@@ -4225,6 +4261,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneLineCellularDetails {}
 unsafe impl ::core::marker::Sync for PhoneLineCellularDetails {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneLineConfiguration(::windows::core::IUnknown);
 impl PhoneLineConfiguration {
@@ -4307,6 +4344,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneLineConfiguration {}
 unsafe impl ::core::marker::Sync for PhoneLineConfiguration {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneLineDialResult(::windows::core::IUnknown);
 impl PhoneLineDialResult {
@@ -4388,6 +4426,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneLineDialResult {}
 unsafe impl ::core::marker::Sync for PhoneLineDialResult {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneLineNetworkOperatorDisplayTextLocation(pub i32);
 impl PhoneLineNetworkOperatorDisplayTextLocation {
@@ -4417,6 +4456,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineNetworkOperatorDisplayText
 impl ::windows::core::DefaultType for PhoneLineNetworkOperatorDisplayTextLocation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneLineOperationStatus(pub i32);
 impl PhoneLineOperationStatus {
@@ -4447,6 +4487,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineOperationStatus {
 impl ::windows::core::DefaultType for PhoneLineOperationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneLineTransport(pub i32);
 impl PhoneLineTransport {
@@ -4475,6 +4516,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineTransport {
 impl ::windows::core::DefaultType for PhoneLineTransport {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneLineTransportDevice(::windows::core::IUnknown);
 impl PhoneLineTransportDevice {
@@ -4666,6 +4708,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneLineTransportDevice {}
 unsafe impl ::core::marker::Sync for PhoneLineTransportDevice {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneLineWatcher(::windows::core::IUnknown);
 impl PhoneLineWatcher {
@@ -4813,6 +4856,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneLineWatcher {}
 unsafe impl ::core::marker::Sync for PhoneLineWatcher {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneLineWatcherEventArgs(::windows::core::IUnknown);
 impl PhoneLineWatcherEventArgs {
@@ -4887,6 +4931,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneLineWatcherEventArgs {}
 unsafe impl ::core::marker::Sync for PhoneLineWatcherEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneLineWatcherStatus(pub i32);
 impl PhoneLineWatcherStatus {
@@ -4916,6 +4961,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineWatcherStatus {
 impl ::windows::core::DefaultType for PhoneLineWatcherStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneNetworkState(pub i32);
 impl PhoneNetworkState {
@@ -4949,6 +4995,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneNetworkState {
 impl ::windows::core::DefaultType for PhoneNetworkState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneSimState(pub i32);
 impl PhoneSimState {
@@ -4982,6 +5029,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneSimState {
 impl ::windows::core::DefaultType for PhoneSimState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneVoicemail(::windows::core::IUnknown);
 impl PhoneVoicemail {
@@ -5078,6 +5126,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneVoicemail {}
 unsafe impl ::core::marker::Sync for PhoneVoicemail {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct PhoneVoicemailType(pub i32);
 impl PhoneVoicemailType {
@@ -5106,6 +5155,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneVoicemailType {
 impl ::windows::core::DefaultType for PhoneVoicemailType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct TransportDeviceAudioRoutingStatus(pub i32);
 impl TransportDeviceAudioRoutingStatus {
@@ -5134,6 +5184,7 @@ unsafe impl ::windows::core::RuntimeType for TransportDeviceAudioRoutingStatus {
 impl ::windows::core::DefaultType for TransportDeviceAudioRoutingStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct VoipCallCoordinator(::windows::core::IUnknown);
 impl VoipCallCoordinator {
@@ -5344,6 +5395,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voip
 }
 unsafe impl ::core::marker::Send for VoipCallCoordinator {}
 unsafe impl ::core::marker::Sync for VoipCallCoordinator {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct VoipPhoneCall(::windows::core::IUnknown);
 impl VoipPhoneCall {
@@ -5535,6 +5587,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voip
 }
 unsafe impl ::core::marker::Send for VoipPhoneCall {}
 unsafe impl ::core::marker::Sync for VoipPhoneCall {}
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct VoipPhoneCallMedia(pub u32);
 impl VoipPhoneCallMedia {
@@ -5563,6 +5616,7 @@ unsafe impl ::windows::core::RuntimeType for VoipPhoneCallMedia {
 impl ::windows::core::DefaultType for VoipPhoneCallMedia {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct VoipPhoneCallRejectReason(pub i32);
 impl VoipPhoneCallRejectReason {
@@ -5593,6 +5647,7 @@ unsafe impl ::windows::core::RuntimeType for VoipPhoneCallRejectReason {
 impl ::windows::core::DefaultType for VoipPhoneCallRejectReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct VoipPhoneCallResourceReservationStatus(pub i32);
 impl VoipPhoneCallResourceReservationStatus {
@@ -5620,6 +5675,7 @@ unsafe impl ::windows::core::RuntimeType for VoipPhoneCallResourceReservationSta
 impl ::windows::core::DefaultType for VoipPhoneCallResourceReservationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
 pub struct VoipPhoneCallState(pub i32);
 impl VoipPhoneCallState {

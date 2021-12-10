@@ -1,124 +1,205 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn CloseTrace(tracehandle: u64) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ControlTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ControlTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES, controlcode: EVENT_TRACE_CONTROL) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateTraceInstanceId(reghandle: super::super::super::Foundation::HANDLE, instinfo: *mut EVENT_INSTANCE_INFO) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CveEventWrite(cveid: super::super::super::Foundation::PWSTR, additionaldetails: super::super::super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn EnableTrace(enable: u32, enableflag: u32, enablelevel: u32, controlguid: *const ::windows_sys::core::GUID, tracehandle: u64) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn EnableTraceEx(providerid: *const ::windows_sys::core::GUID, sourceid: *const ::windows_sys::core::GUID, tracehandle: u64, isenabled: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, enableproperty: u32, enablefilterdesc: *const EVENT_FILTER_DESCRIPTOR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn EnableTraceEx2(tracehandle: u64, providerid: *const ::windows_sys::core::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, timeout: u32, enableparameters: *const ENABLE_TRACE_PARAMETERS) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EnumerateTraceGuids(guidpropertiesarray: *mut *mut TRACE_GUID_PROPERTIES, propertyarraycount: u32, guidcount: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn EnumerateTraceGuidsEx(tracequeryinfoclass: TRACE_QUERY_INFO_CLASS, inbuffer: *const ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, returnlength: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EventAccessControl(guid: *const ::windows_sys::core::GUID, operation: u32, sid: super::super::super::Foundation::PSID, rights: u32, allowordeny: super::super::super::Foundation::BOOLEAN) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn EventAccessQuery(guid: *const ::windows_sys::core::GUID, buffer: *mut super::super::super::Security::SECURITY_DESCRIPTOR, buffersize: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn EventAccessRemove(guid: *const ::windows_sys::core::GUID) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn EventActivityIdControl(controlcode: u32, activityid: *mut ::windows_sys::core::GUID) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EventEnabled(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR) -> super::super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EventProviderEnabled(reghandle: u64, level: u8, keyword: u64) -> super::super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn EventRegister(providerid: *const ::windows_sys::core::GUID, enablecallback: PENABLECALLBACK, callbackcontext: *const ::core::ffi::c_void, reghandle: *mut u64) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn EventSetInformation(reghandle: u64, informationclass: EVENT_INFO_CLASS, eventinformation: *const ::core::ffi::c_void, informationlength: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn EventUnregister(reghandle: u64) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn EventWrite(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn EventWriteEx(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: *const ::windows_sys::core::GUID, relatedactivityid: *const ::windows_sys::core::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EventWriteString(reghandle: u64, level: u8, keyword: u64, string: super::super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn EventWriteTransfer(reghandle: u64, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: *const ::windows_sys::core::GUID, relatedactivityid: *const ::windows_sys::core::GUID, userdatacount: u32, userdata: *const EVENT_DATA_DESCRIPTOR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FlushTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FlushTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn GetTraceEnableFlags(tracehandle: u64) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn GetTraceEnableLevel(tracehandle: u64) -> u8;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn GetTraceLoggerHandle(buffer: *const ::core::ffi::c_void) -> u64;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
     pub fn OpenTraceA(logfile: *mut EVENT_TRACE_LOGFILEA) -> u64;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
     pub fn OpenTraceW(logfile: *mut EVENT_TRACE_LOGFILEW) -> u64;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ProcessTrace(handlearray: *const u64, handlecount: u32, starttime: *const super::super::super::Foundation::FILETIME, endtime: *const super::super::super::Foundation::FILETIME) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn QueryAllTracesA(propertyarray: *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount: u32, loggercount: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn QueryAllTracesW(propertyarray: *mut *mut EVENT_TRACE_PROPERTIES, propertyarraycount: u32, loggercount: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn QueryTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn QueryTraceProcessingHandle(processinghandle: u64, informationclass: ETW_PROCESS_HANDLE_INFO_TYPE, inbuffer: *const ::core::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::core::ffi::c_void, outbuffersize: u32, returnlength: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn QueryTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegisterTraceGuidsA(requestaddress: WMIDPREQUEST, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows_sys::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PSTR, mofresourcename: super::super::super::Foundation::PSTR, registrationhandle: *mut u64) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegisterTraceGuidsW(requestaddress: WMIDPREQUEST, requestcontext: *const ::core::ffi::c_void, controlguid: *const ::windows_sys::core::GUID, guidcount: u32, traceguidreg: *const TRACE_GUID_REGISTRATION, mofimagepath: super::super::super::Foundation::PWSTR, mofresourcename: super::super::super::Foundation::PWSTR, registrationhandle: *mut u64) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn RemoveTraceCallback(pguid: *const ::windows_sys::core::GUID) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn SetTraceCallback(pguid: *const ::windows_sys::core::GUID, eventcallback: PEVENT_CALLBACK) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StartTraceA(tracehandle: *mut u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StartTraceW(tracehandle: *mut u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StopTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StopTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TdhAggregatePayloadFilters(payloadfiltercount: u32, payloadfilterptrs: *const *const ::core::ffi::c_void, eventmatchallflags: *const super::super::super::Foundation::BOOLEAN, eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: *mut EVENT_FILTER_DESCRIPTOR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhCloseDecodingHandle(handle: TDH_HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TdhCreatePayloadFilter(providerguid: *const ::windows_sys::core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, eventmatchany: super::super::super::Foundation::BOOLEAN, payloadpredicatecount: u32, payloadpredicates: *const PAYLOAD_FILTER_PREDICATE, payloadfilter: *mut *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhDeletePayloadFilter(payloadfilter: *mut *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhEnumerateManifestProviderEvents(providerguid: *const ::windows_sys::core::GUID, buffer: *mut PROVIDER_EVENT_INFO, buffersize: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhEnumerateProviderFieldInformation(pguid: *const ::windows_sys::core::GUID, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhEnumerateProviderFilters(guid: *const ::windows_sys::core::GUID, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, filtercount: *mut u32, buffer: *mut *mut PROVIDER_FILTER_INFO, buffersize: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhEnumerateProviders(pbuffer: *mut PROVIDER_ENUMERATION_INFO, pbuffersize: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhEnumerateProvidersForDecodingSource(filter: DECODING_SOURCE, buffer: *mut PROVIDER_ENUMERATION_INFO, buffersize: u32, bufferrequired: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TdhFormatProperty(eventinfo: *const TRACE_EVENT_INFO, mapinfo: *const EVENT_MAP_INFO, pointersize: u32, propertyintype: u16, propertyouttype: u16, propertylength: u16, userdatalength: u16, userdata: *const u8, buffersize: *mut u32, buffer: super::super::super::Foundation::PWSTR, userdataconsumed: *mut u16) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhGetDecodingParameter(handle: TDH_HANDLE, tdhcontext: *mut TDH_CONTEXT) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhGetEventInformation(event: *const EVENT_RECORD, tdhcontextcount: u32, tdhcontext: *const TDH_CONTEXT, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TdhGetEventMapInformation(pevent: *const EVENT_RECORD, pmapname: super::super::super::Foundation::PWSTR, pbuffer: *mut EVENT_MAP_INFO, pbuffersize: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhGetManifestEventInformation(providerguid: *const ::windows_sys::core::GUID, eventdescriptor: *const EVENT_DESCRIPTOR, buffer: *mut TRACE_EVENT_INFO, buffersize: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhGetProperty(pevent: *const EVENT_RECORD, tdhcontextcount: u32, ptdhcontext: *const TDH_CONTEXT, propertydatacount: u32, ppropertydata: *const PROPERTY_DATA_DESCRIPTOR, buffersize: u32, pbuffer: *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhGetPropertySize(pevent: *const EVENT_RECORD, tdhcontextcount: u32, ptdhcontext: *const TDH_CONTEXT, propertydatacount: u32, ppropertydata: *const PROPERTY_DATA_DESCRIPTOR, ppropertysize: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhGetWppMessage(handle: TDH_HANDLE, eventrecord: *const EVENT_RECORD, buffersize: *mut u32, buffer: *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TdhGetWppProperty(handle: TDH_HANDLE, eventrecord: *const EVENT_RECORD, propertyname: super::super::super::Foundation::PWSTR, buffersize: *mut u32, buffer: *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TdhLoadManifest(manifest: super::super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TdhLoadManifestFromBinary(binarypath: super::super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhLoadManifestFromMemory(pdata: *const ::core::ffi::c_void, cbdata: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhOpenDecodingHandle(handle: *mut TDH_HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhQueryProviderFieldInformation(pguid: *const ::windows_sys::core::GUID, eventfieldvalue: u64, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: *mut PROVIDER_FIELD_INFOARRAY, pbuffersize: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhSetDecodingParameter(handle: TDH_HANDLE, tdhcontext: *const TDH_CONTEXT) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TdhUnloadManifest(manifest: super::super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TdhUnloadManifestFromMemory(pdata: *const ::core::ffi::c_void, cbdata: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TraceEvent(tracehandle: u64, eventtrace: *const EVENT_TRACE_HEADER) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TraceEventInstance(tracehandle: u64, eventtrace: *const EVENT_INSTANCE_HEADER, instinfo: *const EVENT_INSTANCE_INFO, parentinstinfo: *const EVENT_INSTANCE_INFO) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TraceMessage(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows_sys::core::GUID, messagenumber: u16) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TraceMessageVa(loggerhandle: u64, messageflags: TRACE_MESSAGE_FLAGS, messageguid: *const ::windows_sys::core::GUID, messagenumber: u16, messagearglist: *const i8) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TraceQueryInformation(sessionhandle: u64, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: *mut ::core::ffi::c_void, informationlength: u32, returnlength: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn TraceSetInformation(sessionhandle: u64, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: *const ::core::ffi::c_void, informationlength: u32) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
     pub fn UnregisterTraceGuids(registrationhandle: u64) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn UpdateTraceA(tracehandle: u64, instancename: super::super::super::Foundation::PSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn UpdateTraceW(tracehandle: u64, instancename: super::super::super::Foundation::PWSTR, properties: *mut EVENT_TRACE_PROPERTIES) -> u32;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct CLASSIC_EVENT_ID {
     pub EventGuid: ::windows_sys::core::GUID,
     pub Type: u8,
@@ -132,18 +213,29 @@ impl ::core::clone::Clone for CLASSIC_EVENT_ID {
 }
 pub const CLSID_TraceRelogger: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2067822893, data2: 1535, data3: 17604, data4: [144, 88, 244, 64, 199, 31, 23, 212] };
 pub const CTraceRelogger: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2067822893, data2: 1535, data3: 17604, data4: [144, 88, 244, 64, 199, 31, 23, 212] };
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type DECODING_SOURCE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const DecodingSourceXMLFile: DECODING_SOURCE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const DecodingSourceWbem: DECODING_SOURCE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const DecodingSourceWPP: DECODING_SOURCE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const DecodingSourceTlg: DECODING_SOURCE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const DecodingSourceMax: DECODING_SOURCE = 4i32;
 pub const DefaultTraceSecurityGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 135381423, data2: 31239, data3: 18950, data4: [130, 237, 134, 148, 85, 205, 247, 19] };
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type ENABLECALLBACK_ENABLED_STATE = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_CONTROL_CODE_DISABLE_PROVIDER: ENABLECALLBACK_ENABLED_STATE = 0u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_CONTROL_CODE_ENABLE_PROVIDER: ENABLECALLBACK_ENABLED_STATE = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_CONTROL_CODE_CAPTURE_STATE: ENABLECALLBACK_ENABLED_STATE = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct ENABLE_TRACE_PARAMETERS {
     pub Version: u32,
     pub EnableProperty: u32,
@@ -159,6 +251,7 @@ impl ::core::clone::Clone for ENABLE_TRACE_PARAMETERS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct ENABLE_TRACE_PARAMETERS_V1 {
     pub Version: u32,
     pub EnableProperty: u32,
@@ -179,6 +272,7 @@ pub const ETW_ASCIISTRING_TYPE_VALUE: u32 = 103u32;
 pub const ETW_BOOLEAN_TYPE_VALUE: u32 = 14u32;
 pub const ETW_BOOL_TYPE_VALUE: u32 = 108u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct ETW_BUFFER_CONTEXT {
     pub Anonymous: ETW_BUFFER_CONTEXT_0,
     pub LoggerId: u16,
@@ -190,6 +284,7 @@ impl ::core::clone::Clone for ETW_BUFFER_CONTEXT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union ETW_BUFFER_CONTEXT_0 {
     pub Anonymous: ETW_BUFFER_CONTEXT_0_0,
     pub ProcessorIndex: u16,
@@ -201,6 +296,7 @@ impl ::core::clone::Clone for ETW_BUFFER_CONTEXT_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct ETW_BUFFER_CONTEXT_0_0 {
     pub ProcessorNumber: u8,
     pub Alignment: u8,
@@ -213,9 +309,13 @@ impl ::core::clone::Clone for ETW_BUFFER_CONTEXT_0_0 {
 }
 pub const ETW_BYTE_TYPE_VALUE: u32 = 4u32;
 pub const ETW_CHAR_TYPE_VALUE: u32 = 11u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type ETW_COMPRESSION_RESUMPTION_MODE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EtwCompressionModeRestart: ETW_COMPRESSION_RESUMPTION_MODE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EtwCompressionModeNoDisable: ETW_COMPRESSION_RESUMPTION_MODE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EtwCompressionModeNoRestart: ETW_COMPRESSION_RESUMPTION_MODE = 2i32;
 pub const ETW_COUNTED_ANSISTRING_TYPE_VALUE: u32 = 109u32;
 pub const ETW_COUNTED_STRING_TYPE_VALUE: u32 = 104u32;
@@ -231,6 +331,7 @@ pub const ETW_NON_NULL_TERMINATED_STRING_TYPE_VALUE: u32 = 112u32;
 pub const ETW_NULL_TYPE_VALUE: u32 = 0u32;
 pub const ETW_OBJECT_TYPE_VALUE: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct ETW_PMC_COUNTER_OWNER {
     pub OwnerType: ETW_PMC_COUNTER_OWNER_TYPE,
     pub ProfileSource: u32,
@@ -243,6 +344,7 @@ impl ::core::clone::Clone for ETW_PMC_COUNTER_OWNER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct ETW_PMC_COUNTER_OWNERSHIP_STATUS {
     pub ProcessorNumber: u32,
     pub NumberOfCounters: u32,
@@ -254,20 +356,34 @@ impl ::core::clone::Clone for ETW_PMC_COUNTER_OWNERSHIP_STATUS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type ETW_PMC_COUNTER_OWNER_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EtwPmcOwnerFree: ETW_PMC_COUNTER_OWNER_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EtwPmcOwnerUntagged: ETW_PMC_COUNTER_OWNER_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EtwPmcOwnerTagged: ETW_PMC_COUNTER_OWNER_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EtwPmcOwnerTaggedWithSource: ETW_PMC_COUNTER_OWNER_TYPE = 3i32;
 pub const ETW_POINTER_TYPE_VALUE: u32 = 105u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type ETW_PROCESS_HANDLE_INFO_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EtwQueryPartitionInformation: ETW_PROCESS_HANDLE_INFO_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EtwQueryPartitionInformationV2: ETW_PROCESS_HANDLE_INFO_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EtwQueryLastDroppedTimes: ETW_PROCESS_HANDLE_INFO_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EtwQueryProcessHandleInfoMax: ETW_PROCESS_HANDLE_INFO_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type ETW_PROVIDER_TRAIT_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EtwProviderTraitTypeGroup: ETW_PROVIDER_TRAIT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EtwProviderTraitDecodeGuid: ETW_PROVIDER_TRAIT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EtwProviderTraitTypeMax: ETW_PROVIDER_TRAIT_TYPE = 3i32;
 pub const ETW_PTVECTOR_TYPE_VALUE: u32 = 117u32;
 pub const ETW_REDUCED_ANSISTRING_TYPE_VALUE: u32 = 113u32;
@@ -281,6 +397,7 @@ pub const ETW_SINGLE_TYPE_VALUE: u32 = 12u32;
 pub const ETW_SIZET_TYPE_VALUE: u32 = 106u32;
 pub const ETW_STRING_TYPE_VALUE: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct ETW_TRACE_PARTITION_INFORMATION {
     pub PartitionId: ::windows_sys::core::GUID,
     pub ParentId: ::windows_sys::core::GUID,
@@ -294,6 +411,7 @@ impl ::core::clone::Clone for ETW_TRACE_PARTITION_INFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ETW_TRACE_PARTITION_INFORMATION_V2 {
     pub QpcOffsetFromRoot: i64,
@@ -314,11 +432,17 @@ pub const ETW_UINT32_TYPE_VALUE: u32 = 8u32;
 pub const ETW_UINT64_TYPE_VALUE: u32 = 10u32;
 pub const ETW_VARIANT_TYPE_VALUE: u32 = 116u32;
 pub const ETW_WMITIME_TYPE_VALUE: u32 = 118u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type EVENTSECURITYOPERATION = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EventSecuritySetDACL: EVENTSECURITYOPERATION = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EventSecuritySetSACL: EVENTSECURITYOPERATION = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EventSecurityAddDACL: EVENTSECURITYOPERATION = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EventSecurityAddSACL: EVENTSECURITYOPERATION = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EventSecurityMax: EVENTSECURITYOPERATION = 4i32;
 pub const EVENT_ACTIVITY_CTRL_CREATE_ID: u32 = 3u32;
 pub const EVENT_ACTIVITY_CTRL_CREATE_SET_ID: u32 = 5u32;
@@ -326,6 +450,7 @@ pub const EVENT_ACTIVITY_CTRL_GET_ID: u32 = 1u32;
 pub const EVENT_ACTIVITY_CTRL_GET_SET_ID: u32 = 4u32;
 pub const EVENT_ACTIVITY_CTRL_SET_ID: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_DATA_DESCRIPTOR {
     pub Ptr: u64,
     pub Size: u32,
@@ -338,6 +463,7 @@ impl ::core::clone::Clone for EVENT_DATA_DESCRIPTOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union EVENT_DATA_DESCRIPTOR_0 {
     pub Reserved: u32,
     pub Anonymous: EVENT_DATA_DESCRIPTOR_0_0,
@@ -349,6 +475,7 @@ impl ::core::clone::Clone for EVENT_DATA_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_DATA_DESCRIPTOR_0_0 {
     pub Type: u8,
     pub Reserved1: u8,
@@ -365,6 +492,7 @@ pub const EVENT_DATA_DESCRIPTOR_TYPE_NONE: u32 = 0u32;
 pub const EVENT_DATA_DESCRIPTOR_TYPE_PROVIDER_METADATA: u32 = 2u32;
 pub const EVENT_DATA_DESCRIPTOR_TYPE_TIMESTAMP_OVERRIDE: u32 = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_DESCRIPTOR {
     pub Id: u16,
     pub Version: u8,
@@ -393,6 +521,7 @@ pub const EVENT_ENABLE_PROPERTY_SOURCE_CONTAINER_TRACKING: u32 = 2048u32;
 pub const EVENT_ENABLE_PROPERTY_STACK_TRACE: u32 = 4u32;
 pub const EVENT_ENABLE_PROPERTY_TS_ID: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_EXTENDED_ITEM_EVENT_KEY {
     pub Key: u64,
 }
@@ -403,6 +532,7 @@ impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_EVENT_KEY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_EXTENDED_ITEM_INSTANCE {
     pub InstanceId: u32,
     pub ParentInstanceId: u32,
@@ -415,6 +545,7 @@ impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_INSTANCE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_EXTENDED_ITEM_PEBS_INDEX {
     pub PebsIndex: u64,
 }
@@ -425,6 +556,7 @@ impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_PEBS_INDEX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_EXTENDED_ITEM_PMC_COUNTERS {
     pub Counter: [u64; 1],
 }
@@ -435,6 +567,7 @@ impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
     pub ProcessStartKey: u64,
 }
@@ -445,6 +578,7 @@ impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
     pub RelatedActivityId: ::windows_sys::core::GUID,
 }
@@ -455,6 +589,7 @@ impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_EXTENDED_ITEM_STACK_KEY32 {
     pub MatchId: u64,
     pub StackKey: u32,
@@ -467,6 +602,7 @@ impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_STACK_KEY32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_EXTENDED_ITEM_STACK_KEY64 {
     pub MatchId: u64,
     pub StackKey: u64,
@@ -478,6 +614,7 @@ impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_STACK_KEY64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_EXTENDED_ITEM_STACK_TRACE32 {
     pub MatchId: u64,
     pub Address: [u32; 1],
@@ -489,6 +626,7 @@ impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_EXTENDED_ITEM_STACK_TRACE64 {
     pub MatchId: u64,
     pub Address: [u64; 1],
@@ -500,6 +638,7 @@ impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_EXTENDED_ITEM_TS_ID {
     pub SessionId: u32,
 }
@@ -509,14 +648,22 @@ impl ::core::clone::Clone for EVENT_EXTENDED_ITEM_TS_ID {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type EVENT_FIELD_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EventKeywordInformation: EVENT_FIELD_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EventLevelInformation: EVENT_FIELD_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EventChannelInformation: EVENT_FIELD_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EventTaskInformation: EVENT_FIELD_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EventOpcodeInformation: EVENT_FIELD_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EventInformationMax: EVENT_FIELD_TYPE = 5i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_FILTER_DESCRIPTOR {
     pub Ptr: u64,
     pub Size: u32,
@@ -529,6 +676,7 @@ impl ::core::clone::Clone for EVENT_FILTER_DESCRIPTOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_FILTER_EVENT_ID {
     pub FilterIn: super::super::super::Foundation::BOOLEAN,
@@ -545,6 +693,7 @@ impl ::core::clone::Clone for EVENT_FILTER_EVENT_ID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_FILTER_EVENT_NAME {
     pub MatchAnyKeyword: u64,
@@ -563,6 +712,7 @@ impl ::core::clone::Clone for EVENT_FILTER_EVENT_NAME {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_FILTER_HEADER {
     pub Id: u16,
     pub Version: u8,
@@ -578,6 +728,7 @@ impl ::core::clone::Clone for EVENT_FILTER_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_FILTER_LEVEL_KW {
     pub MatchAnyKeyword: u64,
@@ -609,6 +760,7 @@ pub const EVENT_FILTER_TYPE_STACKWALK_NAME: u32 = 2147491840u32;
 pub const EVENT_FILTER_TYPE_SYSTEM_FLAGS: u32 = 2147483649u32;
 pub const EVENT_FILTER_TYPE_TRACEHANDLE: u32 = 2147483650u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_HEADER {
     pub Size: u16,
     pub HeaderType: u16,
@@ -629,6 +781,7 @@ impl ::core::clone::Clone for EVENT_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union EVENT_HEADER_0 {
     pub Anonymous: EVENT_HEADER_0_0,
     pub ProcessorTime: u64,
@@ -640,6 +793,7 @@ impl ::core::clone::Clone for EVENT_HEADER_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_HEADER_0_0 {
     pub KernelTime: u32,
     pub UserTime: u32,
@@ -651,6 +805,7 @@ impl ::core::clone::Clone for EVENT_HEADER_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_HEADER_EXTENDED_DATA_ITEM {
     pub Reserved1: u16,
     pub ExtType: u16,
@@ -665,6 +820,7 @@ impl ::core::clone::Clone for EVENT_HEADER_EXTENDED_DATA_ITEM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
     pub _bitfield: u16,
 }
@@ -707,13 +863,20 @@ pub const EVENT_HEADER_PROPERTY_FORWARDED_XML: u32 = 2u32;
 pub const EVENT_HEADER_PROPERTY_LEGACY_EVENTLOG: u32 = 4u32;
 pub const EVENT_HEADER_PROPERTY_RELOGGABLE: u32 = 8u32;
 pub const EVENT_HEADER_PROPERTY_XML: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type EVENT_INFO_CLASS = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EventProviderBinaryTrackInfo: EVENT_INFO_CLASS = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EventProviderSetReserved1: EVENT_INFO_CLASS = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EventProviderSetTraits: EVENT_INFO_CLASS = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EventProviderUseDescriptorType: EVENT_INFO_CLASS = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const MaxEventInfo: EVENT_INFO_CLASS = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_INSTANCE_HEADER {
     pub Size: u16,
     pub Anonymous1: EVENT_INSTANCE_HEADER_0,
@@ -734,6 +897,7 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union EVENT_INSTANCE_HEADER_0 {
     pub FieldTypeFlags: u16,
     pub Anonymous: EVENT_INSTANCE_HEADER_0_0,
@@ -745,6 +909,7 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_INSTANCE_HEADER_0_0 {
     pub HeaderType: u8,
     pub MarkerFlags: u8,
@@ -756,6 +921,7 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union EVENT_INSTANCE_HEADER_1 {
     pub Version: u32,
     pub Class: EVENT_INSTANCE_HEADER_1_0,
@@ -767,6 +933,7 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_INSTANCE_HEADER_1_0 {
     pub Type: u8,
     pub Level: u8,
@@ -779,6 +946,7 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER_1_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union EVENT_INSTANCE_HEADER_2 {
     pub Anonymous1: EVENT_INSTANCE_HEADER_2_0,
     pub ProcessorTime: u64,
@@ -791,6 +959,7 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_INSTANCE_HEADER_2_0 {
     pub KernelTime: u32,
     pub UserTime: u32,
@@ -802,6 +971,7 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER_2_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_INSTANCE_HEADER_2_1 {
     pub EventId: u32,
     pub Flags: u32,
@@ -813,6 +983,7 @@ impl ::core::clone::Clone for EVENT_INSTANCE_HEADER_2_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_INSTANCE_INFO {
     pub RegHandle: super::super::super::Foundation::HANDLE,
@@ -827,6 +998,7 @@ impl ::core::clone::Clone for EVENT_INSTANCE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_MAP_ENTRY {
     pub OutputOffset: u32,
     pub Anonymous: EVENT_MAP_ENTRY_0,
@@ -838,6 +1010,7 @@ impl ::core::clone::Clone for EVENT_MAP_ENTRY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union EVENT_MAP_ENTRY_0 {
     pub Value: u32,
     pub InputOffset: u32,
@@ -849,6 +1022,7 @@ impl ::core::clone::Clone for EVENT_MAP_ENTRY_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_MAP_INFO {
     pub NameOffset: u32,
     pub Flag: MAP_FLAGS,
@@ -863,6 +1037,7 @@ impl ::core::clone::Clone for EVENT_MAP_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union EVENT_MAP_INFO_0 {
     pub MapEntryValueType: MAP_VALUETYPE,
     pub FormatStringOffset: u32,
@@ -876,6 +1051,7 @@ impl ::core::clone::Clone for EVENT_MAP_INFO_0 {
 pub const EVENT_MAX_LEVEL: u32 = 255u32;
 pub const EVENT_MIN_LEVEL: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_PROPERTY_INFO {
     pub Flags: PROPERTY_FLAGS,
     pub NameOffset: u32,
@@ -891,6 +1067,7 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union EVENT_PROPERTY_INFO_0 {
     pub nonStructType: EVENT_PROPERTY_INFO_0_1,
     pub structType: EVENT_PROPERTY_INFO_0_2,
@@ -903,6 +1080,7 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_PROPERTY_INFO_0_0 {
     pub InType: u16,
     pub OutType: u16,
@@ -915,6 +1093,7 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_PROPERTY_INFO_0_1 {
     pub InType: u16,
     pub OutType: u16,
@@ -927,6 +1106,7 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO_0_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_PROPERTY_INFO_0_2 {
     pub StructStartIndex: u16,
     pub NumOfStructMembers: u16,
@@ -939,6 +1119,7 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO_0_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union EVENT_PROPERTY_INFO_1 {
     pub count: u16,
     pub countPropertyIndex: u16,
@@ -950,6 +1131,7 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union EVENT_PROPERTY_INFO_2 {
     pub length: u16,
     pub lengthPropertyIndex: u16,
@@ -961,6 +1143,7 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union EVENT_PROPERTY_INFO_3 {
     pub Reserved: u32,
     pub Anonymous: EVENT_PROPERTY_INFO_3_0,
@@ -972,6 +1155,7 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO_3 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_PROPERTY_INFO_3_0 {
     pub _bitfield: u32,
 }
@@ -982,6 +1166,7 @@ impl ::core::clone::Clone for EVENT_PROPERTY_INFO_3_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_RECORD {
     pub EventHeader: EVENT_HEADER,
     pub BufferContext: ETW_BUFFER_CONTEXT,
@@ -998,6 +1183,7 @@ impl ::core::clone::Clone for EVENT_RECORD {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_TRACE {
     pub Header: EVENT_TRACE_HEADER,
     pub InstanceId: u32,
@@ -1014,6 +1200,7 @@ impl ::core::clone::Clone for EVENT_TRACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union EVENT_TRACE_0 {
     pub ClientContext: u32,
     pub BufferContext: ETW_BUFFER_CONTEXT,
@@ -1028,10 +1215,15 @@ pub const EVENT_TRACE_ADDTO_TRIAGE_DUMP: u32 = 2147483648u32;
 pub const EVENT_TRACE_ADD_HEADER_MODE: u32 = 4096u32;
 pub const EVENT_TRACE_BUFFERING_MODE: u32 = 1024u32;
 pub const EVENT_TRACE_COMPRESSED_MODE: u32 = 67108864u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type EVENT_TRACE_CONTROL = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_CONTROL_FLUSH: EVENT_TRACE_CONTROL = 3u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_CONTROL_QUERY: EVENT_TRACE_CONTROL = 0u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_CONTROL_STOP: EVENT_TRACE_CONTROL = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_CONTROL_UPDATE: EVENT_TRACE_CONTROL = 2u32;
 pub const EVENT_TRACE_CONTROL_CONVERT_TO_REALTIME: u32 = 5u32;
 pub const EVENT_TRACE_CONTROL_INCREMENT_FILE: u32 = 4u32;
@@ -1042,39 +1234,68 @@ pub const EVENT_TRACE_FILE_MODE_NEWFILE: u32 = 8u32;
 pub const EVENT_TRACE_FILE_MODE_NONE: u32 = 0u32;
 pub const EVENT_TRACE_FILE_MODE_PREALLOCATE: u32 = 32u32;
 pub const EVENT_TRACE_FILE_MODE_SEQUENTIAL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type EVENT_TRACE_FLAG = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_ALPC: EVENT_TRACE_FLAG = 1048576u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_CSWITCH: EVENT_TRACE_FLAG = 16u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_DBGPRINT: EVENT_TRACE_FLAG = 262144u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_DISK_FILE_IO: EVENT_TRACE_FLAG = 512u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_DISK_IO: EVENT_TRACE_FLAG = 256u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_DISK_IO_INIT: EVENT_TRACE_FLAG = 1024u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_DISPATCHER: EVENT_TRACE_FLAG = 2048u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_DPC: EVENT_TRACE_FLAG = 32u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_DRIVER: EVENT_TRACE_FLAG = 8388608u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_FILE_IO: EVENT_TRACE_FLAG = 33554432u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_FILE_IO_INIT: EVENT_TRACE_FLAG = 67108864u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_IMAGE_LOAD: EVENT_TRACE_FLAG = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_INTERRUPT: EVENT_TRACE_FLAG = 64u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_JOB: EVENT_TRACE_FLAG = 524288u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_MEMORY_HARD_FAULTS: EVENT_TRACE_FLAG = 8192u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_MEMORY_PAGE_FAULTS: EVENT_TRACE_FLAG = 4096u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_NETWORK_TCPIP: EVENT_TRACE_FLAG = 65536u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_NO_SYSCONFIG: EVENT_TRACE_FLAG = 268435456u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_PROCESS: EVENT_TRACE_FLAG = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_PROCESS_COUNTERS: EVENT_TRACE_FLAG = 8u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_PROFILE: EVENT_TRACE_FLAG = 16777216u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_REGISTRY: EVENT_TRACE_FLAG = 131072u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_SPLIT_IO: EVENT_TRACE_FLAG = 2097152u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_SYSTEMCALL: EVENT_TRACE_FLAG = 128u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_THREAD: EVENT_TRACE_FLAG = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_VAMAP: EVENT_TRACE_FLAG = 32768u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENT_TRACE_FLAG_VIRTUAL_ALLOC: EVENT_TRACE_FLAG = 16384u32;
 pub const EVENT_TRACE_FLAG_DEBUG_EVENTS: u32 = 4194304u32;
 pub const EVENT_TRACE_FLAG_ENABLE_RESERVE: u32 = 536870912u32;
 pub const EVENT_TRACE_FLAG_EXTENSION: u32 = 2147483648u32;
 pub const EVENT_TRACE_FLAG_FORWARD_WMI: u32 = 1073741824u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_TRACE_HEADER {
     pub Size: u16,
     pub Anonymous1: EVENT_TRACE_HEADER_0,
@@ -1092,6 +1313,7 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union EVENT_TRACE_HEADER_0 {
     pub FieldTypeFlags: u16,
     pub Anonymous: EVENT_TRACE_HEADER_0_0,
@@ -1103,6 +1325,7 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_TRACE_HEADER_0_0 {
     pub HeaderType: u8,
     pub MarkerFlags: u8,
@@ -1114,6 +1337,7 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union EVENT_TRACE_HEADER_1 {
     pub Version: u32,
     pub Class: EVENT_TRACE_HEADER_1_0,
@@ -1125,6 +1349,7 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_TRACE_HEADER_1_0 {
     pub Type: u8,
     pub Level: u8,
@@ -1137,6 +1362,7 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER_1_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union EVENT_TRACE_HEADER_2 {
     pub Guid: ::windows_sys::core::GUID,
     pub GuidPtr: u64,
@@ -1148,6 +1374,7 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union EVENT_TRACE_HEADER_3 {
     pub Anonymous1: EVENT_TRACE_HEADER_3_0,
     pub ProcessorTime: u64,
@@ -1160,6 +1387,7 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER_3 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_TRACE_HEADER_3_0 {
     pub KernelTime: u32,
     pub UserTime: u32,
@@ -1171,6 +1399,7 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER_3_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct EVENT_TRACE_HEADER_3_1 {
     pub ClientContext: u32,
     pub Flags: u32,
@@ -1183,6 +1412,7 @@ impl ::core::clone::Clone for EVENT_TRACE_HEADER_3_1 {
 }
 pub const EVENT_TRACE_INDEPENDENT_SESSION_MODE: u32 = 134217728u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct EVENT_TRACE_LOGFILEA {
     pub LogFileName: super::super::super::Foundation::PSTR,
@@ -1209,6 +1439,7 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub union EVENT_TRACE_LOGFILEA_0 {
     pub LogFileMode: u32,
@@ -1223,6 +1454,7 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEA_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub union EVENT_TRACE_LOGFILEA_1 {
     pub EventCallback: PEVENT_CALLBACK,
@@ -1237,6 +1469,7 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEA_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct EVENT_TRACE_LOGFILEW {
     pub LogFileName: super::super::super::Foundation::PWSTR,
@@ -1263,6 +1496,7 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub union EVENT_TRACE_LOGFILEW_0 {
     pub LogFileMode: u32,
@@ -1277,6 +1511,7 @@ impl ::core::clone::Clone for EVENT_TRACE_LOGFILEW_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub union EVENT_TRACE_LOGFILEW_1 {
     pub EventCallback: PEVENT_CALLBACK,
@@ -1297,6 +1532,7 @@ pub const EVENT_TRACE_PERSIST_ON_HYBRID_SHUTDOWN: u32 = 8388608u32;
 pub const EVENT_TRACE_PRIVATE_IN_PROC: u32 = 131072u32;
 pub const EVENT_TRACE_PRIVATE_LOGGER_MODE: u32 = 2048u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_TRACE_PROPERTIES {
     pub Wnode: WNODE_HEADER,
@@ -1327,6 +1563,7 @@ impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union EVENT_TRACE_PROPERTIES_0 {
     pub AgeLimit: i32,
@@ -1341,6 +1578,7 @@ impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_TRACE_PROPERTIES_V2 {
     pub Wnode: WNODE_HEADER,
@@ -1375,6 +1613,7 @@ impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union EVENT_TRACE_PROPERTIES_V2_0 {
     pub AgeLimit: i32,
@@ -1389,6 +1628,7 @@ impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union EVENT_TRACE_PROPERTIES_V2_1 {
     pub Anonymous: EVENT_TRACE_PROPERTIES_V2_1_0,
@@ -1403,6 +1643,7 @@ impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_TRACE_PROPERTIES_V2_1_0 {
     pub _bitfield: u32,
@@ -1416,6 +1657,7 @@ impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2_1_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union EVENT_TRACE_PROPERTIES_V2_2 {
     pub Anonymous: EVENT_TRACE_PROPERTIES_V2_2_0,
@@ -1430,6 +1672,7 @@ impl ::core::clone::Clone for EVENT_TRACE_PROPERTIES_V2_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EVENT_TRACE_PROPERTIES_V2_2_0 {
     pub _bitfield: u32,
@@ -1569,16 +1812,27 @@ pub const EventTraceGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID 
 pub type ITraceEvent = *mut ::core::ffi::c_void;
 pub type ITraceEventCallback = *mut ::core::ffi::c_void;
 pub type ITraceRelogger = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type MAP_FLAGS = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENTMAP_INFO_FLAG_MANIFEST_VALUEMAP: MAP_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENTMAP_INFO_FLAG_MANIFEST_BITMAP: MAP_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENTMAP_INFO_FLAG_MANIFEST_PATTERNMAP: MAP_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENTMAP_INFO_FLAG_WBEM_VALUEMAP: MAP_FLAGS = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENTMAP_INFO_FLAG_WBEM_BITMAP: MAP_FLAGS = 16i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENTMAP_INFO_FLAG_WBEM_FLAG: MAP_FLAGS = 32i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENTMAP_INFO_FLAG_WBEM_NO_MAP: MAP_FLAGS = 64i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type MAP_VALUETYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENTMAP_ENTRY_VALUETYPE_ULONG: MAP_VALUETYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const EVENTMAP_ENTRY_VALUETYPE_STRING: MAP_VALUETYPE = 1i32;
 pub const MAX_EVENT_DATA_DESCRIPTORS: u32 = 128u32;
 pub const MAX_EVENT_FILTERS_COUNT: u32 = 13u32;
@@ -1590,6 +1844,7 @@ pub const MAX_EVENT_FILTER_PID_COUNT: u32 = 8u32;
 pub const MAX_MOF_FIELDS: u32 = 16u32;
 pub const MAX_PAYLOAD_PREDICATES: u32 = 8u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct MOF_FIELD {
     pub DataPtr: u64,
     pub Length: u32,
@@ -1602,6 +1857,7 @@ impl ::core::clone::Clone for MOF_FIELD {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct OFFSETINSTANCEDATAANDLENGTH {
     pub OffsetInstanceData: u32,
     pub LengthInstanceData: u32,
@@ -1613,6 +1869,7 @@ impl ::core::clone::Clone for OFFSETINSTANCEDATAANDLENGTH {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PAYLOAD_FILTER_PREDICATE {
     pub FieldName: super::super::super::Foundation::PWSTR,
@@ -1627,32 +1884,53 @@ impl ::core::clone::Clone for PAYLOAD_FILTER_PREDICATE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type PAYLOAD_OPERATOR = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PAYLOADFIELD_EQ: PAYLOAD_OPERATOR = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PAYLOADFIELD_NE: PAYLOAD_OPERATOR = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PAYLOADFIELD_LE: PAYLOAD_OPERATOR = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PAYLOADFIELD_GT: PAYLOAD_OPERATOR = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PAYLOADFIELD_LT: PAYLOAD_OPERATOR = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PAYLOADFIELD_GE: PAYLOAD_OPERATOR = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PAYLOADFIELD_BETWEEN: PAYLOAD_OPERATOR = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PAYLOADFIELD_NOTBETWEEN: PAYLOAD_OPERATOR = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PAYLOADFIELD_MODULO: PAYLOAD_OPERATOR = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PAYLOADFIELD_CONTAINS: PAYLOAD_OPERATOR = 20i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PAYLOADFIELD_DOESNTCONTAIN: PAYLOAD_OPERATOR = 21i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PAYLOADFIELD_IS: PAYLOAD_OPERATOR = 30i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PAYLOADFIELD_ISNOT: PAYLOAD_OPERATOR = 31i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PAYLOADFIELD_INVALID: PAYLOAD_OPERATOR = 32i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type PENABLECALLBACK = ::core::option::Option<unsafe extern "system" fn(sourceid: *const ::windows_sys::core::GUID, isenabled: ENABLECALLBACK_ENABLED_STATE, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut ::core::ffi::c_void)>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type PEVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pevent: *mut EVENT_TRACE)>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type PEVENT_RECORD_CALLBACK = ::core::option::Option<unsafe extern "system" fn(eventrecord: *mut EVENT_RECORD)>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub type PEVENT_TRACE_BUFFER_CALLBACKA = ::core::option::Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEA) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub type PEVENT_TRACE_BUFFER_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEW) -> u32>;
 pub const PROCESS_TRACE_MODE_EVENT_RECORD: u32 = 268435456u32;
 pub const PROCESS_TRACE_MODE_RAW_TIMESTAMP: u32 = 4096u32;
 pub const PROCESS_TRACE_MODE_REAL_TIME: u32 = 256u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct PROFILE_SOURCE_INFO {
     pub NextEntryOffset: u32,
     pub Source: u32,
@@ -1668,6 +1946,7 @@ impl ::core::clone::Clone for PROFILE_SOURCE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct PROPERTY_DATA_DESCRIPTOR {
     pub PropertyName: u64,
     pub ArrayIndex: u32,
@@ -1679,16 +1958,26 @@ impl ::core::clone::Clone for PROPERTY_DATA_DESCRIPTOR {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type PROPERTY_FLAGS = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PropertyStruct: PROPERTY_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PropertyParamLength: PROPERTY_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PropertyParamCount: PROPERTY_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PropertyWBEMXmlFragment: PROPERTY_FLAGS = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PropertyParamFixedLength: PROPERTY_FLAGS = 16i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PropertyParamFixedCount: PROPERTY_FLAGS = 32i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PropertyHasTags: PROPERTY_FLAGS = 64i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const PropertyHasCustomSchema: PROPERTY_FLAGS = 128i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct PROVIDER_ENUMERATION_INFO {
     pub NumberOfProviders: u32,
     pub Reserved: u32,
@@ -1701,6 +1990,7 @@ impl ::core::clone::Clone for PROVIDER_ENUMERATION_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct PROVIDER_EVENT_INFO {
     pub NumberOfEvents: u32,
     pub Reserved: u32,
@@ -1713,6 +2003,7 @@ impl ::core::clone::Clone for PROVIDER_EVENT_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct PROVIDER_FIELD_INFO {
     pub NameOffset: u32,
     pub DescriptionOffset: u32,
@@ -1725,6 +2016,7 @@ impl ::core::clone::Clone for PROVIDER_FIELD_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct PROVIDER_FIELD_INFOARRAY {
     pub NumberOfElements: u32,
     pub FieldType: EVENT_FIELD_TYPE,
@@ -1737,6 +2029,7 @@ impl ::core::clone::Clone for PROVIDER_FIELD_INFOARRAY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct PROVIDER_FILTER_INFO {
     pub Id: u8,
     pub Version: u8,
@@ -1866,6 +2159,7 @@ pub const SystemSyscallProviderGuid: ::windows_sys::core::GUID = ::windows_sys::
 pub const SystemTimerProviderGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1325798760, data2: 57877, data3: 18847, data4: [171, 46, 237, 160, 174, 137, 10, 91] };
 pub const SystemTraceControlGuid: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2659273389, data2: 12804, data3: 4562, data4: [154, 130, 0, 96, 8, 168, 105, 57] };
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct TDH_CONTEXT {
     pub ParameterValue: u64,
     pub ParameterType: TDH_CONTEXT_TYPE,
@@ -1877,17 +2171,28 @@ impl ::core::clone::Clone for TDH_CONTEXT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type TDH_CONTEXT_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_CONTEXT_WPP_TMFFILE: TDH_CONTEXT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_CONTEXT_WPP_TMFSEARCHPATH: TDH_CONTEXT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_CONTEXT_WPP_GMT: TDH_CONTEXT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_CONTEXT_POINTERSIZE: TDH_CONTEXT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_CONTEXT_PDB_PATH: TDH_CONTEXT_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_CONTEXT_MAXIMUM: TDH_CONTEXT_TYPE = 5i32;
 pub type TDH_HANDLE = isize;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type TEMPLATE_FLAGS = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TEMPLATE_EVENT_DATA: TEMPLATE_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TEMPLATE_USER_DATA: TEMPLATE_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TEMPLATE_CONTROL_GUID: TEMPLATE_FLAGS = 4i32;
 pub const TRACELOG_ACCESS_KERNEL_LOGGER: u32 = 256u32;
 pub const TRACELOG_ACCESS_REALTIME: u32 = 1024u32;
@@ -1899,6 +2204,7 @@ pub const TRACELOG_JOIN_GROUP: u32 = 4096u32;
 pub const TRACELOG_LOG_EVENT: u32 = 512u32;
 pub const TRACELOG_REGISTER_GUIDS: u32 = 2048u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct TRACE_ENABLE_INFO {
     pub IsEnabled: u32,
     pub Level: u8,
@@ -1916,6 +2222,7 @@ impl ::core::clone::Clone for TRACE_ENABLE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct TRACE_EVENT_INFO {
     pub ProviderGuid: ::windows_sys::core::GUID,
     pub EventGuid: ::windows_sys::core::GUID,
@@ -1945,6 +2252,7 @@ impl ::core::clone::Clone for TRACE_EVENT_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union TRACE_EVENT_INFO_0 {
     pub EventNameOffset: u32,
     pub ActivityIDNameOffset: u32,
@@ -1956,6 +2264,7 @@ impl ::core::clone::Clone for TRACE_EVENT_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union TRACE_EVENT_INFO_1 {
     pub EventAttributesOffset: u32,
     pub RelatedActivityIDNameOffset: u32,
@@ -1967,6 +2276,7 @@ impl ::core::clone::Clone for TRACE_EVENT_INFO_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union TRACE_EVENT_INFO_2 {
     pub Flags: TEMPLATE_FLAGS,
     pub Anonymous: TRACE_EVENT_INFO_2_0,
@@ -1978,6 +2288,7 @@ impl ::core::clone::Clone for TRACE_EVENT_INFO_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct TRACE_EVENT_INFO_2_0 {
     pub _bitfield: u32,
 }
@@ -1988,6 +2299,7 @@ impl ::core::clone::Clone for TRACE_EVENT_INFO_2_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct TRACE_GUID_INFO {
     pub InstanceCount: u32,
     pub Reserved: u32,
@@ -1999,6 +2311,7 @@ impl ::core::clone::Clone for TRACE_GUID_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TRACE_GUID_PROPERTIES {
     pub Guid: ::windows_sys::core::GUID,
@@ -2017,6 +2330,7 @@ impl ::core::clone::Clone for TRACE_GUID_PROPERTIES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TRACE_GUID_REGISTRATION {
     pub Guid: *mut ::windows_sys::core::GUID,
@@ -2047,6 +2361,7 @@ pub const TRACE_LEVEL_RESERVED9: u32 = 9u32;
 pub const TRACE_LEVEL_VERBOSE: u32 = 5u32;
 pub const TRACE_LEVEL_WARNING: u32 = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct TRACE_LOGFILE_HEADER {
     pub BufferSize: u32,
@@ -2077,6 +2392,7 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub union TRACE_LOGFILE_HEADER_0 {
     pub Version: u32,
@@ -2091,6 +2407,7 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct TRACE_LOGFILE_HEADER_0_0 {
     pub MajorVersion: u8,
@@ -2107,6 +2424,7 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub union TRACE_LOGFILE_HEADER_1 {
     pub LogInstanceGuid: ::windows_sys::core::GUID,
@@ -2121,6 +2439,7 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct TRACE_LOGFILE_HEADER_1_0 {
     pub StartBuffers: u32,
@@ -2137,6 +2456,7 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER_1_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct TRACE_LOGFILE_HEADER32 {
     pub BufferSize: u32,
@@ -2167,6 +2487,7 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub union TRACE_LOGFILE_HEADER32_0 {
     pub Version: u32,
@@ -2181,6 +2502,7 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct TRACE_LOGFILE_HEADER32_0_0 {
     pub MajorVersion: u8,
@@ -2197,6 +2519,7 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub union TRACE_LOGFILE_HEADER32_1 {
     pub LogInstanceGuid: ::windows_sys::core::GUID,
@@ -2211,6 +2534,7 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct TRACE_LOGFILE_HEADER32_1_0 {
     pub StartBuffers: u32,
@@ -2227,6 +2551,7 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER32_1_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct TRACE_LOGFILE_HEADER64 {
     pub BufferSize: u32,
@@ -2257,6 +2582,7 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub union TRACE_LOGFILE_HEADER64_0 {
     pub Version: u32,
@@ -2271,6 +2597,7 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct TRACE_LOGFILE_HEADER64_0_0 {
     pub MajorVersion: u8,
@@ -2287,6 +2614,7 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub union TRACE_LOGFILE_HEADER64_1 {
     pub LogInstanceGuid: ::windows_sys::core::GUID,
@@ -2301,6 +2629,7 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation', 'Win32_System_Time'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Time"))]
 pub struct TRACE_LOGFILE_HEADER64_1_0 {
     pub StartBuffers: u32,
@@ -2316,17 +2645,24 @@ impl ::core::clone::Clone for TRACE_LOGFILE_HEADER64_1_0 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type TRACE_MESSAGE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TRACE_MESSAGE_COMPONENTID: TRACE_MESSAGE_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TRACE_MESSAGE_GUID: TRACE_MESSAGE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TRACE_MESSAGE_SEQUENCE: TRACE_MESSAGE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TRACE_MESSAGE_SYSTEMINFO: TRACE_MESSAGE_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TRACE_MESSAGE_TIMESTAMP: TRACE_MESSAGE_FLAGS = 8u32;
 pub const TRACE_MESSAGE_FLAG_MASK: u32 = 65535u32;
 pub const TRACE_MESSAGE_PERFORMANCE_TIMESTAMP: u32 = 16u32;
 pub const TRACE_MESSAGE_POINTER32: u32 = 64u32;
 pub const TRACE_MESSAGE_POINTER64: u32 = 128u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct TRACE_PERIODIC_CAPTURE_STATE_INFO {
     pub CaptureStateFrequencyInSeconds: u32,
     pub ProviderCount: u16,
@@ -2339,6 +2675,7 @@ impl ::core::clone::Clone for TRACE_PERIODIC_CAPTURE_STATE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct TRACE_PROFILE_INTERVAL {
     pub Source: u32,
     pub Interval: u32,
@@ -2352,6 +2689,7 @@ impl ::core::clone::Clone for TRACE_PROFILE_INTERVAL {
 pub const TRACE_PROVIDER_FLAG_LEGACY: u32 = 1u32;
 pub const TRACE_PROVIDER_FLAG_PRE_ENABLE: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct TRACE_PROVIDER_INFO {
     pub ProviderGuid: ::windows_sys::core::GUID,
     pub SchemaSource: u32,
@@ -2364,6 +2702,7 @@ impl ::core::clone::Clone for TRACE_PROVIDER_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct TRACE_PROVIDER_INSTANCE_INFO {
     pub NextOffset: u32,
     pub EnableCount: u32,
@@ -2376,36 +2715,66 @@ impl ::core::clone::Clone for TRACE_PROVIDER_INSTANCE_INFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type TRACE_QUERY_INFO_CLASS = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceGuidQueryList: TRACE_QUERY_INFO_CLASS = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceGuidQueryInfo: TRACE_QUERY_INFO_CLASS = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceGuidQueryProcess: TRACE_QUERY_INFO_CLASS = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceStackTracingInfo: TRACE_QUERY_INFO_CLASS = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceSystemTraceEnableFlagsInfo: TRACE_QUERY_INFO_CLASS = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceSampledProfileIntervalInfo: TRACE_QUERY_INFO_CLASS = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceProfileSourceConfigInfo: TRACE_QUERY_INFO_CLASS = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceProfileSourceListInfo: TRACE_QUERY_INFO_CLASS = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TracePmcEventListInfo: TRACE_QUERY_INFO_CLASS = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TracePmcCounterListInfo: TRACE_QUERY_INFO_CLASS = 9i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceSetDisallowList: TRACE_QUERY_INFO_CLASS = 10i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceVersionInfo: TRACE_QUERY_INFO_CLASS = 11i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceGroupQueryList: TRACE_QUERY_INFO_CLASS = 12i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceGroupQueryInfo: TRACE_QUERY_INFO_CLASS = 13i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceDisallowListQuery: TRACE_QUERY_INFO_CLASS = 14i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceInfoReserved15: TRACE_QUERY_INFO_CLASS = 15i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TracePeriodicCaptureStateListInfo: TRACE_QUERY_INFO_CLASS = 16i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TracePeriodicCaptureStateInfo: TRACE_QUERY_INFO_CLASS = 17i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceProviderBinaryTracking: TRACE_QUERY_INFO_CLASS = 18i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceMaxLoggersQuery: TRACE_QUERY_INFO_CLASS = 19i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceLbrConfigurationInfo: TRACE_QUERY_INFO_CLASS = 20i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceLbrEventListInfo: TRACE_QUERY_INFO_CLASS = 21i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceMaxPmcCounterQuery: TRACE_QUERY_INFO_CLASS = 22i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceStreamCount: TRACE_QUERY_INFO_CLASS = 23i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceStackCachingInfo: TRACE_QUERY_INFO_CLASS = 24i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TracePmcCounterOwners: TRACE_QUERY_INFO_CLASS = 25i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TraceUnifiedStackCachingInfo: TRACE_QUERY_INFO_CLASS = 26i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const MaxTraceSetInfoClass: TRACE_QUERY_INFO_CLASS = 27i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TRACE_STACK_CACHING_INFO {
     pub Enabled: super::super::super::Foundation::BOOLEAN,
@@ -2421,6 +2790,7 @@ impl ::core::clone::Clone for TRACE_STACK_CACHING_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct TRACE_VERSION_INFO {
     pub EtwTraceProcessingVersion: u32,
     pub Reserved: u32,
@@ -2431,18 +2801,31 @@ impl ::core::clone::Clone for TRACE_VERSION_INFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type WMIDPREQUEST = ::core::option::Option<unsafe extern "system" fn(requestcode: WMIDPREQUESTCODE, requestcontext: *const ::core::ffi::c_void, buffersize: *mut u32, buffer: *mut ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type WMIDPREQUESTCODE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const WMI_GET_ALL_DATA: WMIDPREQUESTCODE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const WMI_GET_SINGLE_INSTANCE: WMIDPREQUESTCODE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const WMI_SET_SINGLE_INSTANCE: WMIDPREQUESTCODE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const WMI_SET_SINGLE_ITEM: WMIDPREQUESTCODE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const WMI_ENABLE_EVENTS: WMIDPREQUESTCODE = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const WMI_DISABLE_EVENTS: WMIDPREQUESTCODE = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const WMI_ENABLE_COLLECTION: WMIDPREQUESTCODE = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const WMI_DISABLE_COLLECTION: WMIDPREQUESTCODE = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const WMI_REGINFO: WMIDPREQUESTCODE = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const WMI_EXECUTE_METHOD: WMIDPREQUESTCODE = 9i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const WMI_CAPTURE_STATE: WMIDPREQUESTCODE = 10i32;
 pub const WMIGUID_EXECUTE: u32 = 16u32;
 pub const WMIGUID_NOTIFICATION: u32 = 4u32;
@@ -2450,6 +2833,7 @@ pub const WMIGUID_QUERY: u32 = 1u32;
 pub const WMIGUID_READ_DESCRIPTION: u32 = 8u32;
 pub const WMIGUID_SET: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct WMIREGGUIDW {
     pub Guid: ::windows_sys::core::GUID,
     pub Flags: u32,
@@ -2463,6 +2847,7 @@ impl ::core::clone::Clone for WMIREGGUIDW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub union WMIREGGUIDW_0 {
     pub InstanceNameList: u32,
     pub BaseNameOffset: u32,
@@ -2476,6 +2861,7 @@ impl ::core::clone::Clone for WMIREGGUIDW_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub struct WMIREGINFOW {
     pub BufferSize: u32,
     pub NextWmiRegInfo: u32,
@@ -2506,6 +2892,7 @@ pub const WMI_GUIDTYPE_EVENT: u32 = 3u32;
 pub const WMI_GUIDTYPE_TRACE: u32 = 1u32;
 pub const WMI_GUIDTYPE_TRACECONTROL: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_ALL_DATA {
     pub WnodeHeader: WNODE_HEADER,
@@ -2523,6 +2910,7 @@ impl ::core::clone::Clone for WNODE_ALL_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union WNODE_ALL_DATA_0 {
     pub FixedInstanceSize: u32,
@@ -2537,6 +2925,7 @@ impl ::core::clone::Clone for WNODE_ALL_DATA_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_EVENT_ITEM {
     pub WnodeHeader: WNODE_HEADER,
@@ -2550,6 +2939,7 @@ impl ::core::clone::Clone for WNODE_EVENT_ITEM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_EVENT_REFERENCE {
     pub WnodeHeader: WNODE_HEADER,
@@ -2566,6 +2956,7 @@ impl ::core::clone::Clone for WNODE_EVENT_REFERENCE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union WNODE_EVENT_REFERENCE_0 {
     pub TargetInstanceIndex: u32,
@@ -2603,6 +2994,7 @@ pub const WNODE_FLAG_USE_MOF_PTR: u32 = 1048576u32;
 pub const WNODE_FLAG_USE_TIMESTAMP: u32 = 512u32;
 pub const WNODE_FLAG_VERSIONED_PROPERTIES: u32 = 8388608u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_HEADER {
     pub BufferSize: u32,
@@ -2622,6 +3014,7 @@ impl ::core::clone::Clone for WNODE_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union WNODE_HEADER_0 {
     pub HistoricalContext: u64,
@@ -2636,6 +3029,7 @@ impl ::core::clone::Clone for WNODE_HEADER_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_HEADER_0_0 {
     pub Version: u32,
@@ -2650,6 +3044,7 @@ impl ::core::clone::Clone for WNODE_HEADER_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union WNODE_HEADER_1 {
     pub CountLost: u32,
@@ -2665,6 +3060,7 @@ impl ::core::clone::Clone for WNODE_HEADER_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_METHOD_ITEM {
     pub WnodeHeader: WNODE_HEADER,
@@ -2684,6 +3080,7 @@ impl ::core::clone::Clone for WNODE_METHOD_ITEM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_SINGLE_INSTANCE {
     pub WnodeHeader: WNODE_HEADER,
@@ -2702,6 +3099,7 @@ impl ::core::clone::Clone for WNODE_SINGLE_INSTANCE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_SINGLE_ITEM {
     pub WnodeHeader: WNODE_HEADER,
@@ -2721,6 +3119,7 @@ impl ::core::clone::Clone for WNODE_SINGLE_ITEM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WNODE_TOO_SMALL {
     pub WnodeHeader: WNODE_HEADER,
@@ -2734,83 +3133,163 @@ impl ::core::clone::Clone for WNODE_TOO_SMALL {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type _TDH_IN_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_NULL: _TDH_IN_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_UNICODESTRING: _TDH_IN_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_ANSISTRING: _TDH_IN_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_INT8: _TDH_IN_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_UINT8: _TDH_IN_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_INT16: _TDH_IN_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_UINT16: _TDH_IN_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_INT32: _TDH_IN_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_UINT32: _TDH_IN_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_INT64: _TDH_IN_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_UINT64: _TDH_IN_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_FLOAT: _TDH_IN_TYPE = 11i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_DOUBLE: _TDH_IN_TYPE = 12i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_BOOLEAN: _TDH_IN_TYPE = 13i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_BINARY: _TDH_IN_TYPE = 14i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_GUID: _TDH_IN_TYPE = 15i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_POINTER: _TDH_IN_TYPE = 16i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_FILETIME: _TDH_IN_TYPE = 17i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_SYSTEMTIME: _TDH_IN_TYPE = 18i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_SID: _TDH_IN_TYPE = 19i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_HEXINT32: _TDH_IN_TYPE = 20i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_HEXINT64: _TDH_IN_TYPE = 21i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_MANIFEST_COUNTEDSTRING: _TDH_IN_TYPE = 22i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_MANIFEST_COUNTEDANSISTRING: _TDH_IN_TYPE = 23i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_RESERVED24: _TDH_IN_TYPE = 24i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_MANIFEST_COUNTEDBINARY: _TDH_IN_TYPE = 25i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_COUNTEDSTRING: _TDH_IN_TYPE = 300i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_COUNTEDANSISTRING: _TDH_IN_TYPE = 301i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_REVERSEDCOUNTEDSTRING: _TDH_IN_TYPE = 302i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_REVERSEDCOUNTEDANSISTRING: _TDH_IN_TYPE = 303i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_NONNULLTERMINATEDSTRING: _TDH_IN_TYPE = 304i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_NONNULLTERMINATEDANSISTRING: _TDH_IN_TYPE = 305i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_UNICODECHAR: _TDH_IN_TYPE = 306i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_ANSICHAR: _TDH_IN_TYPE = 307i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_SIZET: _TDH_IN_TYPE = 308i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_HEXDUMP: _TDH_IN_TYPE = 309i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_INTYPE_WBEMSID: _TDH_IN_TYPE = 310i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type _TDH_OUT_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_NULL: _TDH_OUT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_STRING: _TDH_OUT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_DATETIME: _TDH_OUT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_BYTE: _TDH_OUT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_UNSIGNEDBYTE: _TDH_OUT_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_SHORT: _TDH_OUT_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_UNSIGNEDSHORT: _TDH_OUT_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_INT: _TDH_OUT_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_UNSIGNEDINT: _TDH_OUT_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_LONG: _TDH_OUT_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_UNSIGNEDLONG: _TDH_OUT_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_FLOAT: _TDH_OUT_TYPE = 11i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_DOUBLE: _TDH_OUT_TYPE = 12i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_BOOLEAN: _TDH_OUT_TYPE = 13i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_GUID: _TDH_OUT_TYPE = 14i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_HEXBINARY: _TDH_OUT_TYPE = 15i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_HEXINT8: _TDH_OUT_TYPE = 16i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_HEXINT16: _TDH_OUT_TYPE = 17i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_HEXINT32: _TDH_OUT_TYPE = 18i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_HEXINT64: _TDH_OUT_TYPE = 19i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_PID: _TDH_OUT_TYPE = 20i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_TID: _TDH_OUT_TYPE = 21i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_PORT: _TDH_OUT_TYPE = 22i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_IPV4: _TDH_OUT_TYPE = 23i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_IPV6: _TDH_OUT_TYPE = 24i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_SOCKETADDRESS: _TDH_OUT_TYPE = 25i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_CIMDATETIME: _TDH_OUT_TYPE = 26i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_ETWTIME: _TDH_OUT_TYPE = 27i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_XML: _TDH_OUT_TYPE = 28i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_ERRORCODE: _TDH_OUT_TYPE = 29i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_WIN32ERROR: _TDH_OUT_TYPE = 30i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_NTSTATUS: _TDH_OUT_TYPE = 31i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_HRESULT: _TDH_OUT_TYPE = 32i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_CULTURE_INSENSITIVE_DATETIME: _TDH_OUT_TYPE = 33i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_JSON: _TDH_OUT_TYPE = 34i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_UTF8: _TDH_OUT_TYPE = 35i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_PKCS7_WITH_TYPE_INFO: _TDH_OUT_TYPE = 36i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_CODE_POINTER: _TDH_OUT_TYPE = 37i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_DATETIME_UTC: _TDH_OUT_TYPE = 38i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_REDUCEDSTRING: _TDH_OUT_TYPE = 300i32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_OUTTYPE_NOPRINT: _TDH_OUT_TYPE = 301i32;

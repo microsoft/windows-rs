@@ -5,6 +5,7 @@ pub mod Provider;
 extern "system" {}
 pub type PwmController = *mut ::core::ffi::c_void;
 pub type PwmPin = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Pwm'*"]
 #[repr(transparent)]
 pub struct PwmPulsePolarity(pub i32);
 impl PwmPulsePolarity {

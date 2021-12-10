@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_Gpio_Provider'*"]
 #[repr(transparent)]
 pub struct GpioPinProviderValueChangedEventArgs(::windows::core::IUnknown);
 impl GpioPinProviderValueChangedEventArgs {
@@ -83,6 +84,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gpio
 }
 unsafe impl ::core::marker::Send for GpioPinProviderValueChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GpioPinProviderValueChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Gpio_Provider'*"]
 #[repr(transparent)]
 pub struct IGpioControllerProvider(::windows::core::IUnknown);
 impl IGpioControllerProvider {
@@ -171,6 +173,7 @@ pub struct IGpioControllerProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: i32, sharingmode: ProviderGpioSharingMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Gpio_Provider'*"]
 #[repr(transparent)]
 pub struct IGpioPinProvider(::windows::core::IUnknown);
 impl IGpioPinProvider {
@@ -363,6 +366,7 @@ pub struct IGpioPinProviderValueChangedEventArgsFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, edge: ProviderGpioPinEdge, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Gpio_Provider'*"]
 #[repr(transparent)]
 pub struct IGpioProvider(::windows::core::IUnknown);
 impl IGpioProvider {
@@ -445,6 +449,7 @@ pub struct IGpioProviderVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Devices_Gpio_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderGpioPinDriveMode(pub i32);
 impl ProviderGpioPinDriveMode {
@@ -478,6 +483,7 @@ unsafe impl ::windows::core::RuntimeType for ProviderGpioPinDriveMode {
 impl ::windows::core::DefaultType for ProviderGpioPinDriveMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Gpio_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderGpioPinEdge(pub i32);
 impl ProviderGpioPinEdge {
@@ -505,6 +511,7 @@ unsafe impl ::windows::core::RuntimeType for ProviderGpioPinEdge {
 impl ::windows::core::DefaultType for ProviderGpioPinEdge {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Gpio_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderGpioPinValue(pub i32);
 impl ProviderGpioPinValue {
@@ -532,6 +539,7 @@ unsafe impl ::windows::core::RuntimeType for ProviderGpioPinValue {
 impl ::windows::core::DefaultType for ProviderGpioPinValue {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Gpio_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderGpioSharingMode(pub i32);
 impl ProviderGpioSharingMode {

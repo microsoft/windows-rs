@@ -5,6 +5,7 @@ pub mod Core;
 extern "system" {}
 pub type AdvancedPhotoCaptureSettings = *mut ::core::ffi::c_void;
 pub type AdvancedPhotoControl = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct AdvancedPhotoMode(pub i32);
 impl AdvancedPhotoMode {
@@ -23,6 +24,7 @@ pub type AudioDeviceController = *mut ::core::ffi::c_void;
 pub type AudioDeviceModule = *mut ::core::ffi::c_void;
 pub type AudioDeviceModuleNotificationEventArgs = *mut ::core::ffi::c_void;
 pub type AudioDeviceModulesManager = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct AudioDeviceRole(pub i32);
 impl AudioDeviceRole {
@@ -35,6 +37,7 @@ impl ::core::clone::Clone for AudioDeviceRole {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct AutoFocusRange(pub i32);
 impl AutoFocusRange {
@@ -51,6 +54,7 @@ impl ::core::clone::Clone for AutoFocusRange {
 pub type CallControl = *mut ::core::ffi::c_void;
 pub type CallControlEventHandler = *mut ::core::ffi::c_void;
 pub type CameraOcclusionInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct CameraOcclusionKind(pub i32);
 impl CameraOcclusionKind {
@@ -65,6 +69,7 @@ impl ::core::clone::Clone for CameraOcclusionKind {
 }
 pub type CameraOcclusionState = *mut ::core::ffi::c_void;
 pub type CameraOcclusionStateChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct CameraStreamState(pub i32);
 impl CameraStreamState {
@@ -79,6 +84,7 @@ impl ::core::clone::Clone for CameraStreamState {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct CaptureSceneMode(pub i32);
 impl CaptureSceneMode {
@@ -102,6 +108,7 @@ impl ::core::clone::Clone for CaptureSceneMode {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct CaptureUse(pub i32);
 impl CaptureUse {
@@ -115,6 +122,7 @@ impl ::core::clone::Clone for CaptureUse {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct ColorTemperaturePreset(pub i32);
 impl ColorTemperaturePreset {
@@ -140,6 +148,7 @@ pub type DialRequestedEventHandler = *mut ::core::ffi::c_void;
 pub type DigitalWindowBounds = *mut ::core::ffi::c_void;
 pub type DigitalWindowCapability = *mut ::core::ffi::c_void;
 pub type DigitalWindowControl = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct DigitalWindowMode(pub i32);
 impl DigitalWindowMode {
@@ -158,6 +167,7 @@ pub type ExposureControl = *mut ::core::ffi::c_void;
 pub type ExposurePriorityVideoControl = *mut ::core::ffi::c_void;
 pub type FlashControl = *mut ::core::ffi::c_void;
 pub type FocusControl = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct FocusMode(pub i32);
 impl FocusMode {
@@ -172,6 +182,7 @@ impl ::core::clone::Clone for FocusMode {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct FocusPreset(pub i32);
 impl FocusPreset {
@@ -190,6 +201,7 @@ impl ::core::clone::Clone for FocusPreset {
 }
 pub type FocusSettings = *mut ::core::ffi::c_void;
 pub type HdrVideoControl = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct HdrVideoMode(pub i32);
 impl HdrVideoMode {
@@ -206,6 +218,7 @@ impl ::core::clone::Clone for HdrVideoMode {
 pub type IDefaultAudioDeviceChangedEventArgs = *mut ::core::ffi::c_void;
 pub type IMediaDeviceController = *mut ::core::ffi::c_void;
 pub type InfraredTorchControl = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct InfraredTorchMode(pub i32);
 impl InfraredTorchMode {
@@ -220,6 +233,7 @@ impl ::core::clone::Clone for InfraredTorchMode {
     }
 }
 pub type IsoSpeedControl = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Devices', 'deprecated'*"]
 #[repr(transparent)]
 pub struct IsoSpeedPreset(pub i32);
 impl IsoSpeedPreset {
@@ -246,6 +260,7 @@ pub type KeypadPressedEventArgs = *mut ::core::ffi::c_void;
 pub type KeypadPressedEventHandler = *mut ::core::ffi::c_void;
 pub type LowLagPhotoControl = *mut ::core::ffi::c_void;
 pub type LowLagPhotoSequenceControl = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct ManualFocusDistance(pub i32);
 impl ManualFocusDistance {
@@ -259,6 +274,7 @@ impl ::core::clone::Clone for ManualFocusDistance {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct MediaCaptureFocusState(pub i32);
 impl MediaCaptureFocusState {
@@ -274,6 +290,7 @@ impl ::core::clone::Clone for MediaCaptureFocusState {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct MediaCaptureOptimization(pub i32);
 impl MediaCaptureOptimization {
@@ -291,6 +308,7 @@ impl ::core::clone::Clone for MediaCaptureOptimization {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct MediaCapturePauseBehavior(pub i32);
 impl MediaCapturePauseBehavior {
@@ -307,6 +325,7 @@ pub type MediaDeviceControl = *mut ::core::ffi::c_void;
 pub type MediaDeviceControlCapabilities = *mut ::core::ffi::c_void;
 pub type ModuleCommandResult = *mut ::core::ffi::c_void;
 pub type OpticalImageStabilizationControl = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct OpticalImageStabilizationMode(pub i32);
 impl OpticalImageStabilizationMode {
@@ -325,6 +344,7 @@ pub type PhotoConfirmationControl = *mut ::core::ffi::c_void;
 pub type RedialRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type RedialRequestedEventHandler = *mut ::core::ffi::c_void;
 pub type RegionOfInterest = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct RegionOfInterestType(pub i32);
 impl RegionOfInterestType {
@@ -339,6 +359,7 @@ impl ::core::clone::Clone for RegionOfInterestType {
 }
 pub type RegionsOfInterestControl = *mut ::core::ffi::c_void;
 pub type SceneModeControl = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct SendCommandStatus(pub i32);
 impl SendCommandStatus {
@@ -351,6 +372,7 @@ impl ::core::clone::Clone for SendCommandStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct TelephonyKey(pub i32);
 impl TelephonyKey {
@@ -380,6 +402,7 @@ impl ::core::clone::Clone for TelephonyKey {
 pub type TorchControl = *mut ::core::ffi::c_void;
 pub type VideoDeviceController = *mut ::core::ffi::c_void;
 pub type VideoDeviceControllerGetDevicePropertyResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct VideoDeviceControllerGetDevicePropertyStatus(pub i32);
 impl VideoDeviceControllerGetDevicePropertyStatus {
@@ -397,6 +420,7 @@ impl ::core::clone::Clone for VideoDeviceControllerGetDevicePropertyStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct VideoDeviceControllerSetDevicePropertyStatus(pub i32);
 impl VideoDeviceControllerSetDevicePropertyStatus {
@@ -414,6 +438,7 @@ impl ::core::clone::Clone for VideoDeviceControllerSetDevicePropertyStatus {
     }
 }
 pub type VideoTemporalDenoisingControl = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct VideoTemporalDenoisingMode(pub i32);
 impl VideoTemporalDenoisingMode {
@@ -430,6 +455,7 @@ impl ::core::clone::Clone for VideoTemporalDenoisingMode {
 pub type WhiteBalanceControl = *mut ::core::ffi::c_void;
 pub type ZoomControl = *mut ::core::ffi::c_void;
 pub type ZoomSettings = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct ZoomTransitionMode(pub i32);
 impl ZoomTransitionMode {

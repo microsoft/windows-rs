@@ -267,6 +267,7 @@ pub const GUID_WICPixelFormat96bppRGBFixedPoint: ::windows::core::GUID = ::windo
 pub const GUID_WICPixelFormat96bppRGBFloat: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3fed78f_e8db_4acf_84c1_e97f6136b327);
 pub const GUID_WICPixelFormatBlackWhite: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc905);
 pub const GUID_WICPixelFormatDontCare: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc900);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICBitmap(::windows::core::IUnknown);
 impl IWICBitmap {
@@ -367,6 +368,7 @@ pub struct IWICBitmapVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pipalette: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dpix: f64, dpiy: f64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICBitmapClipper(::windows::core::IUnknown);
 impl IWICBitmapClipper {
@@ -458,6 +460,7 @@ pub struct IWICBitmapClipperVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisource: ::windows::core::RawPtr, prc: *const WICRect) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICBitmapCodecInfo(::windows::core::IUnknown);
 impl IWICBitmapCodecInfo {
@@ -642,6 +645,7 @@ pub struct IWICBitmapCodecInfoVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wzmimetype: super::super::Foundation::PWSTR, pfmatches: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICBitmapCodecProgressNotification(::windows::core::IUnknown);
 impl IWICBitmapCodecProgressNotification {
@@ -692,6 +696,7 @@ pub struct IWICBitmapCodecProgressNotificationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfnprogressnotification: ::windows::core::RawPtr, pvdata: *const ::core::ffi::c_void, dwprogressflags: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICBitmapDecoder(::windows::core::IUnknown);
 impl IWICBitmapDecoder {
@@ -794,6 +799,7 @@ pub struct IWICBitmapDecoderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, ppibitmapframe: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICBitmapDecoderInfo(::windows::core::IUnknown);
 impl IWICBitmapDecoderInfo {
@@ -1016,6 +1022,7 @@ pub struct IWICBitmapDecoderInfoVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppibitmapdecoder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICBitmapEncoder(::windows::core::IUnknown);
 impl IWICBitmapEncoder {
@@ -1109,6 +1116,7 @@ pub struct IWICBitmapEncoderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppimetadataquerywriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICBitmapEncoderInfo(::windows::core::IUnknown);
 impl IWICBitmapEncoderInfo {
@@ -1318,6 +1326,7 @@ pub struct IWICBitmapEncoderInfoVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppibitmapencoder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICBitmapFlipRotator(::windows::core::IUnknown);
 impl IWICBitmapFlipRotator {
@@ -1409,6 +1418,7 @@ pub struct IWICBitmapFlipRotatorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisource: ::windows::core::RawPtr, options: WICBitmapTransformOptions) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICBitmapFrameDecode(::windows::core::IUnknown);
 impl IWICBitmapFrameDecode {
@@ -1510,6 +1520,7 @@ pub struct IWICBitmapFrameDecodeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccount: u32, ppicolorcontexts: *mut ::windows::core::RawPtr, pcactualcount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppithumbnail: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICBitmapFrameEncode(::windows::core::IUnknown);
 impl IWICBitmapFrameEncode {
@@ -1603,6 +1614,7 @@ pub struct IWICBitmapFrameEncodeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppimetadataquerywriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICBitmapLock(::windows::core::IUnknown);
 impl IWICBitmapLock {
@@ -1667,6 +1679,7 @@ pub struct IWICBitmapLockVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbbuffersize: *mut u32, ppbdata: *mut *mut u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppixelformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICBitmapScaler(::windows::core::IUnknown);
 impl IWICBitmapScaler {
@@ -1758,6 +1771,7 @@ pub struct IWICBitmapScalerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pisource: ::windows::core::RawPtr, uiwidth: u32, uiheight: u32, mode: WICBitmapInterpolationMode) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICBitmapSource(::windows::core::IUnknown);
 impl IWICBitmapSource {
@@ -1825,6 +1839,7 @@ pub struct IWICBitmapSourceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pipalette: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICBitmapSourceTransform(::windows::core::IUnknown);
 impl IWICBitmapSourceTransform {
@@ -1890,6 +1905,7 @@ pub struct IWICBitmapSourceTransformVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dsttransform: WICBitmapTransformOptions, pfissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICColorContext(::windows::core::IUnknown);
 impl IWICColorContext {
@@ -1964,6 +1980,7 @@ pub struct IWICColorContextVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbbuffer: u32, pbbuffer: *mut u8, pcbactual: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICColorTransform(::windows::core::IUnknown);
 impl IWICColorTransform {
@@ -2055,6 +2072,7 @@ pub struct IWICColorTransformVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pibitmapsource: ::windows::core::RawPtr, picontextsource: ::windows::core::RawPtr, picontextdest: ::windows::core::RawPtr, pixelfmtdest: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICComponentFactory(::windows::core::IUnknown);
 impl IWICComponentFactory {
@@ -2297,6 +2315,7 @@ pub struct IWICComponentFactoryVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropoptions: *const super::super::System::Com::StructuredStorage::PROPBAG2, ccount: u32, ppipropertybag: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICComponentInfo(::windows::core::IUnknown);
 impl IWICComponentInfo {
@@ -2387,6 +2406,7 @@ pub struct IWICComponentInfoVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchfriendlyname: u32, wzfriendlyname: super::super::Foundation::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICDdsDecoder(::windows::core::IUnknown);
 impl IWICDdsDecoder {
@@ -2445,6 +2465,7 @@ pub struct IWICDdsDecoderVtbl(
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, arrayindex: u32, miplevel: u32, sliceindex: u32, ppibitmapframe: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICDdsEncoder(::windows::core::IUnknown);
 impl IWICDdsEncoder {
@@ -2508,6 +2529,7 @@ pub struct IWICDdsEncoderVtbl(
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiframeencode: *mut ::windows::core::RawPtr, parrayindex: *mut u32, pmiplevel: *mut u32, psliceindex: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICDdsFrameDecode(::windows::core::IUnknown);
 impl IWICDdsFrameDecode {
@@ -2569,6 +2591,7 @@ pub struct IWICDdsFrameDecodeVtbl(
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prcboundsinblocks: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICDevelopRaw(::windows::core::IUnknown);
 impl IWICDevelopRaw {
@@ -2832,6 +2855,7 @@ pub struct IWICDevelopRawVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prendermode: *mut WICRawRenderMode) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICDevelopRawNotificationCallback(::windows::core::IUnknown);
 impl IWICDevelopRawNotificationCallback {
@@ -2877,6 +2901,7 @@ unsafe impl ::windows::core::Interface for IWICDevelopRawNotificationCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICDevelopRawNotificationCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, notificationmask: u32) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICEnumMetadataItem(::windows::core::IUnknown);
 impl IWICEnumMetadataItem {
@@ -2942,6 +2967,7 @@ pub struct IWICEnumMetadataItemVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienummetadataitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICFastMetadataEncoder(::windows::core::IUnknown);
 impl IWICFastMetadataEncoder {
@@ -2997,6 +3023,7 @@ pub struct IWICFastMetadataEncoderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppimetadataquerywriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICFormatConverter(::windows::core::IUnknown);
 impl IWICFormatConverter {
@@ -3095,6 +3122,7 @@ pub struct IWICFormatConverterVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, srcpixelformat: *const ::windows::core::GUID, dstpixelformat: *const ::windows::core::GUID, pfcanconvert: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICFormatConverterInfo(::windows::core::IUnknown);
 impl IWICFormatConverterInfo {
@@ -3214,6 +3242,7 @@ pub struct IWICFormatConverterInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cformats: u32, ppixelformatguids: *mut ::windows::core::GUID, pcactual: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiconverter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICImagingFactory(::windows::core::IUnknown);
 impl IWICImagingFactory {
@@ -3395,6 +3424,7 @@ pub struct IWICImagingFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, ppiquerywriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piqueryreader: ::windows::core::RawPtr, pguidvendor: *const ::windows::core::GUID, ppiquerywriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICJpegFrameDecode(::windows::core::IUnknown);
 impl IWICJpegFrameDecode {
@@ -3495,6 +3525,7 @@ pub struct IWICJpegFrameDecodeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scanindex: u32, scanoffset: u32, cbscandata: u32, pbscandata: *mut u8, pcbscandataactual: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamoffset: u32, cbstreamdata: u32, pbstreamdata: *mut u8, pcbstreamdataactual: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICJpegFrameEncode(::windows::core::IUnknown);
 impl IWICJpegFrameEncode {
@@ -3566,6 +3597,7 @@ pub struct IWICJpegFrameEncodeVtbl(
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbscandata: u32, pbscandata: *const u8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICMetadataBlockReader(::windows::core::IUnknown);
 impl IWICMetadataBlockReader {
@@ -3634,6 +3666,7 @@ pub struct IWICMetadataBlockReaderVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienummetadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICMetadataBlockWriter(::windows::core::IUnknown);
 impl IWICMetadataBlockWriter {
@@ -3743,6 +3776,7 @@ pub struct IWICMetadataBlockWriterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32, pimetadatawriter: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICMetadataHandlerInfo(::windows::core::IUnknown);
 impl IWICMetadataHandlerInfo {
@@ -3895,6 +3929,7 @@ pub struct IWICMetadataHandlerInfoVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pffixedsize: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICMetadataQueryReader(::windows::core::IUnknown);
 impl IWICMetadataQueryReader {
@@ -3965,6 +4000,7 @@ pub struct IWICMetadataQueryReaderVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienumstring: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICMetadataQueryWriter(::windows::core::IUnknown);
 impl IWICMetadataQueryWriter {
@@ -4067,6 +4103,7 @@ pub struct IWICMetadataQueryWriterVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wzname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICMetadataReader(::windows::core::IUnknown);
 impl IWICMetadataReader {
@@ -4145,6 +4182,7 @@ pub struct IWICMetadataReaderVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppienummetadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICMetadataReaderInfo(::windows::core::IUnknown);
 impl IWICMetadataReaderInfo {
@@ -4333,6 +4371,7 @@ pub struct IWICMetadataReaderInfoVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppireader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICMetadataWriter(::windows::core::IUnknown);
 impl IWICMetadataWriter {
@@ -4453,6 +4492,7 @@ pub struct IWICMetadataWriterVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICMetadataWriterInfo(::windows::core::IUnknown);
 impl IWICMetadataWriterInfo {
@@ -4634,6 +4674,7 @@ pub struct IWICMetadataWriterInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidcontainerformat: *const ::windows::core::GUID, cbsize: u32, pheader: *mut WICMetadataHeader, pcbactual: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppiwriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICPalette(::windows::core::IUnknown);
 impl IWICPalette {
@@ -4735,6 +4776,7 @@ pub struct IWICPaletteVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfhasalpha: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICPersistStream(::windows::core::IUnknown);
 impl IWICPersistStream {
@@ -4873,6 +4915,7 @@ pub struct IWICPersistStreamVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistream: ::windows::core::RawPtr, dwpersistoptions: u32, fcleardirty: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICPixelFormatInfo(::windows::core::IUnknown);
 impl IWICPixelFormatInfo {
@@ -5007,6 +5050,7 @@ pub struct IWICPixelFormatInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puichannelcount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uichannelindex: u32, cbmaskbuffer: u32, pbmaskbuffer: *mut u8, pcbactual: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICPixelFormatInfo2(::windows::core::IUnknown);
 impl IWICPixelFormatInfo2 {
@@ -5173,6 +5217,7 @@ pub struct IWICPixelFormatInfo2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnumericrepresentation: *mut WICPixelFormatNumericRepresentation) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICPlanarBitmapFrameEncode(::windows::core::IUnknown);
 impl IWICPlanarBitmapFrameEncode {
@@ -5227,6 +5272,7 @@ pub struct IWICPlanarBitmapFrameEncodeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linecount: u32, pplanes: *const WICBitmapPlane, cplanes: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppplanes: *const ::windows::core::RawPtr, cplanes: u32, prcsource: *const WICRect) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICPlanarBitmapSourceTransform(::windows::core::IUnknown);
 impl IWICPlanarBitmapSourceTransform {
@@ -5283,6 +5329,7 @@ pub struct IWICPlanarBitmapSourceTransformVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prcsource: *const WICRect, uiwidth: u32, uiheight: u32, dsttransform: WICBitmapTransformOptions, dstplanaroptions: WICPlanarOptions, pdstplanes: *const WICBitmapPlane, cplanes: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICPlanarFormatConverter(::windows::core::IUnknown);
 impl IWICPlanarFormatConverter {
@@ -5381,6 +5428,7 @@ pub struct IWICPlanarFormatConverterVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psrcpixelformats: *const ::windows::core::GUID, csrcplanes: u32, dstpixelformat: *const ::windows::core::GUID, pfcanconvert: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICProgressCallback(::windows::core::IUnknown);
 impl IWICProgressCallback {
@@ -5426,6 +5474,7 @@ unsafe impl ::windows::core::Interface for IWICProgressCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICProgressCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uframenum: u32, operation: WICProgressOperation, dblprogress: f64) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICProgressiveLevelControl(::windows::core::IUnknown);
 impl IWICProgressiveLevelControl {
@@ -5486,6 +5535,7 @@ pub struct IWICProgressiveLevelControlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnlevel: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nlevel: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICStream(::windows::core::IUnknown);
 impl IWICStream {
@@ -5671,6 +5721,7 @@ pub struct IWICStreamVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pistream: ::windows::core::RawPtr, uloffset: u64, ulmaxsize: u64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct IWICStreamProvider(::windows::core::IUnknown);
 impl IWICStreamProvider {
@@ -5738,86 +5789,166 @@ pub struct IWICStreamProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidpreferredvendor: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type PFNProgressNotification = ::core::option::Option<unsafe extern "system" fn(pvdata: *const ::core::ffi::c_void, uframenum: u32, operation: WICProgressOperation, dblprogress: f64) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WIC8BIMIptcDigestProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WIC8BIMIptcDigestPString: WIC8BIMIptcDigestProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WIC8BIMIptcDigestIptcDigest: WIC8BIMIptcDigestProperties = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WIC8BIMIptcDigestProperties_FORCE_DWORD: WIC8BIMIptcDigestProperties = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WIC8BIMIptcProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WIC8BIMIptcPString: WIC8BIMIptcProperties = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WIC8BIMIptcEmbeddedIPTC: WIC8BIMIptcProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WIC8BIMIptcProperties_FORCE_DWORD: WIC8BIMIptcProperties = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WIC8BIMResolutionInfoProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WIC8BIMResolutionInfoPString: WIC8BIMResolutionInfoProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WIC8BIMResolutionInfoHResolution: WIC8BIMResolutionInfoProperties = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WIC8BIMResolutionInfoHResolutionUnit: WIC8BIMResolutionInfoProperties = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WIC8BIMResolutionInfoWidthUnit: WIC8BIMResolutionInfoProperties = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WIC8BIMResolutionInfoVResolution: WIC8BIMResolutionInfoProperties = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WIC8BIMResolutionInfoVResolutionUnit: WIC8BIMResolutionInfoProperties = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WIC8BIMResolutionInfoHeightUnit: WIC8BIMResolutionInfoProperties = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WIC8BIMResolutionInfoProperties_FORCE_DWORD: WIC8BIMResolutionInfoProperties = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICBitmapAlphaChannelOption = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapUseAlpha: WICBitmapAlphaChannelOption = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapUsePremultipliedAlpha: WICBitmapAlphaChannelOption = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapIgnoreAlpha: WICBitmapAlphaChannelOption = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBITMAPALPHACHANNELOPTIONS_FORCE_DWORD: WICBitmapAlphaChannelOption = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICBitmapCreateCacheOption = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapNoCache: WICBitmapCreateCacheOption = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapCacheOnDemand: WICBitmapCreateCacheOption = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapCacheOnLoad: WICBitmapCreateCacheOption = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBITMAPCREATECACHEOPTION_FORCE_DWORD: WICBitmapCreateCacheOption = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICBitmapDecoderCapabilities = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapDecoderCapabilitySameEncoder: WICBitmapDecoderCapabilities = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapDecoderCapabilityCanDecodeAllImages: WICBitmapDecoderCapabilities = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapDecoderCapabilityCanDecodeSomeImages: WICBitmapDecoderCapabilities = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapDecoderCapabilityCanEnumerateMetadata: WICBitmapDecoderCapabilities = 8i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapDecoderCapabilityCanDecodeThumbnail: WICBitmapDecoderCapabilities = 16i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBITMAPDECODERCAPABILITIES_FORCE_DWORD: WICBitmapDecoderCapabilities = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICBitmapDitherType = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapDitherTypeNone: WICBitmapDitherType = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapDitherTypeSolid: WICBitmapDitherType = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapDitherTypeOrdered4x4: WICBitmapDitherType = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapDitherTypeOrdered8x8: WICBitmapDitherType = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapDitherTypeOrdered16x16: WICBitmapDitherType = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapDitherTypeSpiral4x4: WICBitmapDitherType = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapDitherTypeSpiral8x8: WICBitmapDitherType = 5i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapDitherTypeDualSpiral4x4: WICBitmapDitherType = 6i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapDitherTypeDualSpiral8x8: WICBitmapDitherType = 7i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapDitherTypeErrorDiffusion: WICBitmapDitherType = 8i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBITMAPDITHERTYPE_FORCE_DWORD: WICBitmapDitherType = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICBitmapEncoderCacheOption = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapEncoderCacheInMemory: WICBitmapEncoderCacheOption = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapEncoderCacheTempFile: WICBitmapEncoderCacheOption = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapEncoderNoCache: WICBitmapEncoderCacheOption = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBITMAPENCODERCACHEOPTION_FORCE_DWORD: WICBitmapEncoderCacheOption = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICBitmapInterpolationMode = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapInterpolationModeNearestNeighbor: WICBitmapInterpolationMode = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapInterpolationModeLinear: WICBitmapInterpolationMode = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapInterpolationModeCubic: WICBitmapInterpolationMode = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapInterpolationModeFant: WICBitmapInterpolationMode = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapInterpolationModeHighQualityCubic: WICBitmapInterpolationMode = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBITMAPINTERPOLATIONMODE_FORCE_DWORD: WICBitmapInterpolationMode = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICBitmapLockFlags = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapLockRead: WICBitmapLockFlags = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapLockWrite: WICBitmapLockFlags = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBITMAPLOCKFLAGS_FORCE_DWORD: WICBitmapLockFlags = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICBitmapPaletteType = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapPaletteTypeCustom: WICBitmapPaletteType = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapPaletteTypeMedianCut: WICBitmapPaletteType = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapPaletteTypeFixedBW: WICBitmapPaletteType = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapPaletteTypeFixedHalftone8: WICBitmapPaletteType = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapPaletteTypeFixedHalftone27: WICBitmapPaletteType = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapPaletteTypeFixedHalftone64: WICBitmapPaletteType = 5i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapPaletteTypeFixedHalftone125: WICBitmapPaletteType = 6i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapPaletteTypeFixedHalftone216: WICBitmapPaletteType = 7i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapPaletteTypeFixedWebPalette: WICBitmapPaletteType = 7i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapPaletteTypeFixedHalftone252: WICBitmapPaletteType = 8i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapPaletteTypeFixedHalftone256: WICBitmapPaletteType = 9i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapPaletteTypeFixedGray4: WICBitmapPaletteType = 10i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapPaletteTypeFixedGray16: WICBitmapPaletteType = 11i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapPaletteTypeFixedGray256: WICBitmapPaletteType = 12i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBITMAPPALETTETYPE_FORCE_DWORD: WICBitmapPaletteType = 2147483647i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WICBitmapPattern {
     pub Position: u64,
@@ -5853,6 +5984,7 @@ impl ::core::default::Default for WICBitmapPattern {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub struct WICBitmapPlane {
     pub Format: ::windows::core::GUID,
     pub pbBuffer: *mut u8,
@@ -5880,6 +6012,7 @@ impl ::core::default::Default for WICBitmapPlane {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub struct WICBitmapPlaneDescription {
     pub Format: ::windows::core::GUID,
     pub Width: u32,
@@ -5905,40 +6038,75 @@ impl ::core::default::Default for WICBitmapPlaneDescription {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICBitmapTransformOptions = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapTransformRotate0: WICBitmapTransformOptions = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapTransformRotate90: WICBitmapTransformOptions = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapTransformRotate180: WICBitmapTransformOptions = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapTransformRotate270: WICBitmapTransformOptions = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapTransformFlipHorizontal: WICBitmapTransformOptions = 8i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBitmapTransformFlipVertical: WICBitmapTransformOptions = 16i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICBITMAPTRANSFORMOPTIONS_FORCE_DWORD: WICBitmapTransformOptions = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICColorContextType = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICColorContextUninitialized: WICColorContextType = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICColorContextProfile: WICColorContextType = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICColorContextExifColorSpace: WICColorContextType = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICComponentEnumerateOptions = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICComponentEnumerateDefault: WICComponentEnumerateOptions = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICComponentEnumerateRefresh: WICComponentEnumerateOptions = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICComponentEnumerateDisabled: WICComponentEnumerateOptions = -2147483648i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICComponentEnumerateUnsigned: WICComponentEnumerateOptions = 1073741824i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICComponentEnumerateBuiltInOnly: WICComponentEnumerateOptions = 536870912i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICCOMPONENTENUMERATEOPTIONS_FORCE_DWORD: WICComponentEnumerateOptions = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICComponentSigning = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICComponentSigned: WICComponentSigning = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICComponentUnsigned: WICComponentSigning = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICComponentSafe: WICComponentSigning = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICComponentDisabled: WICComponentSigning = -2147483648i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICCOMPONENTSIGNING_FORCE_DWORD: WICComponentSigning = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICComponentType = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICDecoder: WICComponentType = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICEncoder: WICComponentType = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPixelFormatConverter: WICComponentType = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICMetadataReader: WICComponentType = 8i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICMetadataWriter: WICComponentType = 16i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPixelFormat: WICComponentType = 32i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICAllComponents: WICComponentType = 63i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICCOMPONENTTYPE_FORCE_DWORD: WICComponentType = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[inline]
 pub unsafe fn WICConvertBitmapSource<'a, Param1: ::windows::core::IntoParam<'a, IWICBitmapSource>>(dstformat: *const ::windows::core::GUID, pisrc: Param1) -> ::windows::core::Result<IWICBitmapSource> {
     #[cfg(windows)]
@@ -5953,6 +6121,7 @@ pub unsafe fn WICConvertBitmapSource<'a, Param1: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WICCreateBitmapFromSection<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(width: u32, height: u32, pixelformat: *const ::windows::core::GUID, hsection: Param3, stride: u32, offset: u32) -> ::windows::core::Result<IWICBitmap> {
@@ -5968,6 +6137,7 @@ pub unsafe fn WICCreateBitmapFromSection<'a, Param3: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WICCreateBitmapFromSectionEx<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(width: u32, height: u32, pixelformat: *const ::windows::core::GUID, hsection: Param3, stride: u32, offset: u32, desiredaccesslevel: WICSectionAccessLevel) -> ::windows::core::Result<IWICBitmap> {
@@ -5983,20 +6153,34 @@ pub unsafe fn WICCreateBitmapFromSectionEx<'a, Param3: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICDdsAlphaMode = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICDdsAlphaModeUnknown: WICDdsAlphaMode = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICDdsAlphaModeStraight: WICDdsAlphaMode = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICDdsAlphaModePremultiplied: WICDdsAlphaMode = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICDdsAlphaModeOpaque: WICDdsAlphaMode = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICDdsAlphaModeCustom: WICDdsAlphaMode = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICDDSALPHAMODE_FORCE_DWORD: WICDdsAlphaMode = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICDdsDimension = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICDdsTexture1D: WICDdsDimension = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICDdsTexture2D: WICDdsDimension = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICDdsTexture3D: WICDdsDimension = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICDdsTextureCube: WICDdsDimension = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICDDSTEXTURE_FORCE_DWORD: WICDdsDimension = 2147483647i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct WICDdsFormatInfo {
     pub DxgiFormat: super::Dxgi::Common::DXGI_FORMAT,
@@ -6031,6 +6215,7 @@ impl ::core::default::Default for WICDdsFormatInfo {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct WICDdsParameters {
     pub Width: u32,
@@ -6068,10 +6253,15 @@ impl ::core::default::Default for WICDdsParameters {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICDecodeOptions = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICDecodeMetadataCacheOnDemand: WICDecodeOptions = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICDecodeMetadataCacheOnLoad: WICDecodeOptions = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICMETADATACACHEOPTION_FORCE_DWORD: WICDecodeOptions = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[inline]
 pub unsafe fn WICGetMetadataContentSize<'a, Param1: ::windows::core::IntoParam<'a, IWICMetadataWriter>>(guidcontainerformat: *const ::windows::core::GUID, piwriter: Param1) -> ::windows::core::Result<u64> {
     #[cfg(windows)]
@@ -6086,52 +6276,98 @@ pub unsafe fn WICGetMetadataContentSize<'a, Param1: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICGifApplicationExtensionProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifApplicationExtensionApplication: WICGifApplicationExtensionProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifApplicationExtensionData: WICGifApplicationExtensionProperties = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifApplicationExtensionProperties_FORCE_DWORD: WICGifApplicationExtensionProperties = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICGifCommentExtensionProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifCommentExtensionText: WICGifCommentExtensionProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifCommentExtensionProperties_FORCE_DWORD: WICGifCommentExtensionProperties = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICGifGraphicControlExtensionProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifGraphicControlExtensionDisposal: WICGifGraphicControlExtensionProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifGraphicControlExtensionUserInputFlag: WICGifGraphicControlExtensionProperties = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifGraphicControlExtensionTransparencyFlag: WICGifGraphicControlExtensionProperties = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifGraphicControlExtensionDelay: WICGifGraphicControlExtensionProperties = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifGraphicControlExtensionTransparentColorIndex: WICGifGraphicControlExtensionProperties = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifGraphicControlExtensionProperties_FORCE_DWORD: WICGifGraphicControlExtensionProperties = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICGifImageDescriptorProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifImageDescriptorLeft: WICGifImageDescriptorProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifImageDescriptorTop: WICGifImageDescriptorProperties = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifImageDescriptorWidth: WICGifImageDescriptorProperties = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifImageDescriptorHeight: WICGifImageDescriptorProperties = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifImageDescriptorLocalColorTableFlag: WICGifImageDescriptorProperties = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifImageDescriptorInterlaceFlag: WICGifImageDescriptorProperties = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifImageDescriptorSortFlag: WICGifImageDescriptorProperties = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifImageDescriptorLocalColorTableSize: WICGifImageDescriptorProperties = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifImageDescriptorProperties_FORCE_DWORD: WICGifImageDescriptorProperties = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICGifLogicalScreenDescriptorProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifLogicalScreenSignature: WICGifLogicalScreenDescriptorProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifLogicalScreenDescriptorWidth: WICGifLogicalScreenDescriptorProperties = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifLogicalScreenDescriptorHeight: WICGifLogicalScreenDescriptorProperties = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifLogicalScreenDescriptorGlobalColorTableFlag: WICGifLogicalScreenDescriptorProperties = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifLogicalScreenDescriptorColorResolution: WICGifLogicalScreenDescriptorProperties = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifLogicalScreenDescriptorSortFlag: WICGifLogicalScreenDescriptorProperties = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifLogicalScreenDescriptorGlobalColorTableSize: WICGifLogicalScreenDescriptorProperties = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifLogicalScreenDescriptorBackgroundColorIndex: WICGifLogicalScreenDescriptorProperties = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifLogicalScreenDescriptorPixelAspectRatio: WICGifLogicalScreenDescriptorProperties = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICGifLogicalScreenDescriptorProperties_FORCE_DWORD: WICGifLogicalScreenDescriptorProperties = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICHeifHdrProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICHeifHdrMaximumLuminanceLevel: WICHeifHdrProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICHeifHdrMaximumFrameAverageLuminanceLevel: WICHeifHdrProperties = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICHeifHdrMinimumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICHeifHdrMaximumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICHeifHdrCustomVideoPrimaries: WICHeifHdrProperties = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICHeifHdrProperties_FORCE_DWORD: WICHeifHdrProperties = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICHeifProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICHeifOrientation: WICHeifProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICHeifProperties_FORCE_DWORD: WICHeifProperties = 2147483647u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct WICImageParameters {
     pub PixelFormat: super::Direct2D::Common::D2D1_PIXEL_FORMAT,
@@ -6168,13 +6404,20 @@ impl ::core::default::Default for WICImageParameters {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICJpegChrominanceProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegChrominanceTable: WICJpegChrominanceProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegChrominanceProperties_FORCE_DWORD: WICJpegChrominanceProperties = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICJpegCommentProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegCommentText: WICJpegCommentProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegCommentProperties_FORCE_DWORD: WICJpegCommentProperties = 2147483647u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub struct WICJpegFrameHeader {
     pub Width: u32,
     pub Height: u32,
@@ -6205,14 +6448,22 @@ impl ::core::default::Default for WICJpegFrameHeader {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICJpegIndexingOptions = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegIndexingOptionsGenerateOnDemand: WICJpegIndexingOptions = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegIndexingOptionsGenerateOnLoad: WICJpegIndexingOptions = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegIndexingOptions_FORCE_DWORD: WICJpegIndexingOptions = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICJpegLuminanceProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegLuminanceTable: WICJpegLuminanceProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegLuminanceProperties_FORCE_DWORD: WICJpegLuminanceProperties = 2147483647u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub struct WICJpegScanHeader {
     pub cComponents: u32,
     pub RestartInterval: u32,
@@ -6243,22 +6494,39 @@ impl ::core::default::Default for WICJpegScanHeader {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICJpegScanType = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegScanTypeInterleaved: WICJpegScanType = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegScanTypePlanarComponents: WICJpegScanType = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegScanTypeProgressive: WICJpegScanType = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegScanType_FORCE_DWORD: WICJpegScanType = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICJpegTransferMatrix = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegTransferMatrixIdentity: WICJpegTransferMatrix = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegTransferMatrixBT601: WICJpegTransferMatrix = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegTransferMatrix_FORCE_DWORD: WICJpegTransferMatrix = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICJpegYCrCbSubsamplingOption = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegYCrCbSubsamplingDefault: WICJpegYCrCbSubsamplingOption = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegYCrCbSubsampling420: WICJpegYCrCbSubsamplingOption = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegYCrCbSubsampling422: WICJpegYCrCbSubsamplingOption = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegYCrCbSubsampling444: WICJpegYCrCbSubsamplingOption = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJpegYCrCbSubsampling440: WICJpegYCrCbSubsamplingOption = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICJPEGYCRCBSUBSAMPLING_FORCE_DWORD: WICJpegYCrCbSubsamplingOption = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WICMapGuidToShortName<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(guid: *const ::windows::core::GUID, cchname: u32, wzname: Param2, pcchactual: *mut u32) -> ::windows::core::Result<()> {
@@ -6273,6 +6541,7 @@ pub unsafe fn WICMapGuidToShortName<'a, Param2: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WICMapSchemaToName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(guidmetadataformat: *const ::windows::core::GUID, pwzschema: Param1, cchname: u32, wzname: Param3, pcchactual: *mut u32) -> ::windows::core::Result<()> {
@@ -6287,6 +6556,7 @@ pub unsafe fn WICMapSchemaToName<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WICMapShortNameToGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(wzname: Param0) -> ::windows::core::Result<::windows::core::GUID> {
@@ -6302,6 +6572,7 @@ pub unsafe fn WICMapShortNameToGuid<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WICMatchMetadataContent<'a, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, pistream: Param2) -> ::windows::core::Result<::windows::core::GUID> {
@@ -6317,12 +6588,18 @@ pub unsafe fn WICMatchMetadataContent<'a, Param2: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICMetadataCreationOptions = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICMetadataCreationDefault: WICMetadataCreationOptions = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICMetadataCreationAllowUnknown: WICMetadataCreationOptions = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICMetadataCreationFailUnknown: WICMetadataCreationOptions = 65536i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICMetadataCreationMask: WICMetadataCreationOptions = -65536i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub struct WICMetadataHeader {
     pub Position: u64,
     pub Length: u32,
@@ -6350,6 +6627,7 @@ impl ::core::default::Default for WICMetadataHeader {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub struct WICMetadataPattern {
     pub Position: u64,
     pub Length: u32,
@@ -6377,106 +6655,206 @@ impl ::core::default::Default for WICMetadataPattern {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICNamedWhitePoint = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICWhitePointDefault: WICNamedWhitePoint = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICWhitePointDaylight: WICNamedWhitePoint = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICWhitePointCloudy: WICNamedWhitePoint = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICWhitePointShade: WICNamedWhitePoint = 8i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICWhitePointTungsten: WICNamedWhitePoint = 16i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICWhitePointFluorescent: WICNamedWhitePoint = 32i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICWhitePointFlash: WICNamedWhitePoint = 64i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICWhitePointUnderwater: WICNamedWhitePoint = 128i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICWhitePointCustom: WICNamedWhitePoint = 256i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICWhitePointAutoWhiteBalance: WICNamedWhitePoint = 512i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICWhitePointAsShot: WICNamedWhitePoint = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICNAMEDWHITEPOINT_FORCE_DWORD: WICNamedWhitePoint = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICPersistOptions = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPersistOptionDefault: WICPersistOptions = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPersistOptionLittleEndian: WICPersistOptions = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPersistOptionBigEndian: WICPersistOptions = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPersistOptionStrictFormat: WICPersistOptions = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPersistOptionNoCacheStream: WICPersistOptions = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPersistOptionPreferUTF8: WICPersistOptions = 8i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPersistOptionMask: WICPersistOptions = 65535i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICPixelFormatNumericRepresentation = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPixelFormatNumericRepresentationUnspecified: WICPixelFormatNumericRepresentation = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPixelFormatNumericRepresentationIndexed: WICPixelFormatNumericRepresentation = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPixelFormatNumericRepresentationUnsignedInteger: WICPixelFormatNumericRepresentation = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPixelFormatNumericRepresentationSignedInteger: WICPixelFormatNumericRepresentation = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPixelFormatNumericRepresentationFixed: WICPixelFormatNumericRepresentation = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPixelFormatNumericRepresentationFloat: WICPixelFormatNumericRepresentation = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPixelFormatNumericRepresentation_FORCE_DWORD: WICPixelFormatNumericRepresentation = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICPlanarOptions = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPlanarOptionsDefault: WICPlanarOptions = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPlanarOptionsPreserveSubsampling: WICPlanarOptions = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPLANAROPTIONS_FORCE_DWORD: WICPlanarOptions = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICPngBkgdProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngBkgdBackgroundColor: WICPngBkgdProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngBkgdProperties_FORCE_DWORD: WICPngBkgdProperties = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICPngChrmProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngChrmWhitePointX: WICPngChrmProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngChrmWhitePointY: WICPngChrmProperties = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngChrmRedX: WICPngChrmProperties = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngChrmRedY: WICPngChrmProperties = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngChrmGreenX: WICPngChrmProperties = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngChrmGreenY: WICPngChrmProperties = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngChrmBlueX: WICPngChrmProperties = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngChrmBlueY: WICPngChrmProperties = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngChrmProperties_FORCE_DWORD: WICPngChrmProperties = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICPngFilterOption = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngFilterUnspecified: WICPngFilterOption = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngFilterNone: WICPngFilterOption = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngFilterSub: WICPngFilterOption = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngFilterUp: WICPngFilterOption = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngFilterAverage: WICPngFilterOption = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngFilterPaeth: WICPngFilterOption = 5i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngFilterAdaptive: WICPngFilterOption = 6i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPNGFILTEROPTION_FORCE_DWORD: WICPngFilterOption = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICPngGamaProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngGamaGamma: WICPngGamaProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngGamaProperties_FORCE_DWORD: WICPngGamaProperties = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICPngHistProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngHistFrequencies: WICPngHistProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngHistProperties_FORCE_DWORD: WICPngHistProperties = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICPngIccpProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngIccpProfileName: WICPngIccpProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngIccpProfileData: WICPngIccpProperties = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngIccpProperties_FORCE_DWORD: WICPngIccpProperties = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICPngItxtProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngItxtKeyword: WICPngItxtProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngItxtCompressionFlag: WICPngItxtProperties = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngItxtLanguageTag: WICPngItxtProperties = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngItxtTranslatedKeyword: WICPngItxtProperties = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngItxtText: WICPngItxtProperties = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngItxtProperties_FORCE_DWORD: WICPngItxtProperties = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICPngSrgbProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngSrgbRenderingIntent: WICPngSrgbProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngSrgbProperties_FORCE_DWORD: WICPngSrgbProperties = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICPngTimeProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngTimeYear: WICPngTimeProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngTimeMonth: WICPngTimeProperties = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngTimeDay: WICPngTimeProperties = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngTimeHour: WICPngTimeProperties = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngTimeMinute: WICPngTimeProperties = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngTimeSecond: WICPngTimeProperties = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPngTimeProperties_FORCE_DWORD: WICPngTimeProperties = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICProgressNotification = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICProgressNotificationBegin: WICProgressNotification = 65536i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICProgressNotificationEnd: WICProgressNotification = 131072i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICProgressNotificationFrequent: WICProgressNotification = 262144i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICProgressNotificationAll: WICProgressNotification = -65536i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPROGRESSNOTIFICATION_FORCE_DWORD: WICProgressNotification = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICProgressOperation = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICProgressOperationCopyPixels: WICProgressOperation = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICProgressOperationWritePixels: WICProgressOperation = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICProgressOperationAll: WICProgressOperation = 65535i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICPROGRESSOPERATION_FORCE_DWORD: WICProgressOperation = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICRawCapabilities = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICRawCapabilityNotSupported: WICRawCapabilities = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICRawCapabilityGetSupported: WICRawCapabilities = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICRawCapabilityFullySupported: WICRawCapabilities = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICRAWCAPABILITIES_FORCE_DWORD: WICRawCapabilities = 2147483647i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub struct WICRawCapabilitiesInfo {
     pub cbSize: u32,
     pub CodecMajorVersion: u32,
@@ -6531,23 +6909,40 @@ pub const WICRawChangeNotification_Saturation: u32 = 128u32;
 pub const WICRawChangeNotification_Sharpness: u32 = 64u32;
 pub const WICRawChangeNotification_Tint: u32 = 256u32;
 pub const WICRawChangeNotification_ToneCurve: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICRawParameterSet = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICAsShotParameterSet: WICRawParameterSet = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICUserAdjustedParameterSet: WICRawParameterSet = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICAutoAdjustedParameterSet: WICRawParameterSet = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICRAWPARAMETERSET_FORCE_DWORD: WICRawParameterSet = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICRawRenderMode = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICRawRenderModeDraft: WICRawRenderMode = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICRawRenderModeNormal: WICRawRenderMode = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICRawRenderModeBestQuality: WICRawRenderMode = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICRAWRENDERMODE_FORCE_DWORD: WICRawRenderMode = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICRawRotationCapabilities = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICRawRotationCapabilityNotSupported: WICRawRotationCapabilities = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICRawRotationCapabilityGetSupported: WICRawRotationCapabilities = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICRawRotationCapabilityNinetyDegreesSupported: WICRawRotationCapabilities = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICRawRotationCapabilityFullySupported: WICRawRotationCapabilities = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICRAWROTATIONCAPABILITIES_FORCE_DWORD: WICRawRotationCapabilities = 2147483647i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub struct WICRawToneCurve {
     pub cPoints: u32,
     pub aPoints: [WICRawToneCurvePoint; 1],
@@ -6573,6 +6968,7 @@ impl ::core::default::Default for WICRawToneCurve {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub struct WICRawToneCurvePoint {
     pub Input: f64,
     pub Output: f64,
@@ -6598,6 +6994,7 @@ impl ::core::default::Default for WICRawToneCurvePoint {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub struct WICRect {
     pub X: i32,
     pub Y: i32,
@@ -6624,10 +7021,15 @@ impl ::core::default::Default for WICRect {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICSectionAccessLevel = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICSectionAccessLevelRead: WICSectionAccessLevel = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICSectionAccessLevelReadWrite: WICSectionAccessLevel = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICSectionAccessLevel_FORCE_DWORD: WICSectionAccessLevel = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WICSerializeMetadataContent<'a, Param1: ::windows::core::IntoParam<'a, IWICMetadataWriter>, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(guidcontainerformat: *const ::windows::core::GUID, piwriter: Param1, dwpersistoptions: u32, pistream: Param3) -> ::windows::core::Result<()> {
@@ -6642,21 +7044,37 @@ pub unsafe fn WICSerializeMetadataContent<'a, Param1: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICTiffCompressionOption = i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICTiffCompressionDontCare: WICTiffCompressionOption = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICTiffCompressionNone: WICTiffCompressionOption = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICTiffCompressionCCITT3: WICTiffCompressionOption = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICTiffCompressionCCITT4: WICTiffCompressionOption = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICTiffCompressionLZW: WICTiffCompressionOption = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICTiffCompressionRLE: WICTiffCompressionOption = 5i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICTiffCompressionZIP: WICTiffCompressionOption = 6i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICTiffCompressionLZWHDifferencing: WICTiffCompressionOption = 7i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICTIFFCOMPRESSIONOPTION_FORCE_DWORD: WICTiffCompressionOption = 2147483647i32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICWebpAnimProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICWebpAnimLoopCount: WICWebpAnimProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICWebpAnimProperties_FORCE_DWORD: WICWebpAnimProperties = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type WICWebpAnmfProperties = u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICWebpAnmfFrameDuration: WICWebpAnmfProperties = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICWebpAnmfProperties_FORCE_DWORD: WICWebpAnmfProperties = 2147483647u32;
 pub const WIC_JPEG_HUFFMAN_BASELINE_ONE: u32 = 0u32;
 pub const WIC_JPEG_HUFFMAN_BASELINE_THREE: u32 = 1118464u32;

@@ -5,6 +5,7 @@ pub mod Provider;
 extern "system" {}
 pub type PaymentAddress = *mut ::core::ffi::c_void;
 pub type PaymentCanMakePaymentResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentCanMakePaymentResultStatus(pub i32);
 impl PaymentCanMakePaymentResultStatus {
@@ -29,6 +30,7 @@ pub type PaymentItem = *mut ::core::ffi::c_void;
 pub type PaymentMediator = *mut ::core::ffi::c_void;
 pub type PaymentMerchantInfo = *mut ::core::ffi::c_void;
 pub type PaymentMethodData = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentOptionPresence(pub i32);
 impl PaymentOptionPresence {
@@ -44,6 +46,7 @@ impl ::core::clone::Clone for PaymentOptionPresence {
 }
 pub type PaymentOptions = *mut ::core::ffi::c_void;
 pub type PaymentRequest = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentRequestChangeKind(pub i32);
 impl PaymentRequestChangeKind {
@@ -59,6 +62,7 @@ impl ::core::clone::Clone for PaymentRequestChangeKind {
 pub type PaymentRequestChangedArgs = *mut ::core::ffi::c_void;
 pub type PaymentRequestChangedHandler = *mut ::core::ffi::c_void;
 pub type PaymentRequestChangedResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentRequestCompletionStatus(pub i32);
 impl PaymentRequestCompletionStatus {
@@ -72,6 +76,7 @@ impl ::core::clone::Clone for PaymentRequestCompletionStatus {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentRequestStatus(pub i32);
 impl PaymentRequestStatus {
@@ -88,6 +93,7 @@ impl ::core::clone::Clone for PaymentRequestStatus {
 pub type PaymentRequestSubmitResult = *mut ::core::ffi::c_void;
 pub type PaymentResponse = *mut ::core::ffi::c_void;
 pub type PaymentShippingOption = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentShippingType(pub i32);
 impl PaymentShippingType {

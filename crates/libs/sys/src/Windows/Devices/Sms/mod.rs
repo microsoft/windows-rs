@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct CellularClass(pub i32);
 impl CellularClass {
@@ -28,6 +29,7 @@ pub type SendSmsMessageOperation = *mut ::core::ffi::c_void;
 pub type SmsAppMessage = *mut ::core::ffi::c_void;
 pub type SmsBinaryMessage = *mut ::core::ffi::c_void;
 pub type SmsBroadcastMessage = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsBroadcastType(pub i32);
 impl SmsBroadcastType {
@@ -53,6 +55,7 @@ impl ::core::clone::Clone for SmsBroadcastType {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsDataFormat(pub i32);
 impl SmsDataFormat {
@@ -71,6 +74,7 @@ impl ::core::clone::Clone for SmsDataFormat {
 pub type SmsDevice = *mut ::core::ffi::c_void;
 pub type SmsDevice2 = *mut ::core::ffi::c_void;
 pub type SmsDeviceMessageStore = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsDeviceStatus(pub i32);
 impl SmsDeviceStatus {
@@ -91,6 +95,7 @@ impl ::core::clone::Clone for SmsDeviceStatus {
 }
 pub type SmsDeviceStatusChangedEventHandler = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Devices_Sms'*"]
 pub struct SmsEncodedLength {
     pub SegmentCount: u32,
     pub CharacterCountLastSegment: u32,
@@ -104,6 +109,7 @@ impl ::core::clone::Clone for SmsEncodedLength {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsEncoding(pub i32);
 impl SmsEncoding {
@@ -125,6 +131,7 @@ impl ::core::clone::Clone for SmsEncoding {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsFilterActionType(pub i32);
 impl SmsFilterActionType {
@@ -141,6 +148,7 @@ impl ::core::clone::Clone for SmsFilterActionType {
 }
 pub type SmsFilterRule = *mut ::core::ffi::c_void;
 pub type SmsFilterRules = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsGeographicalScope(pub i32);
 impl SmsGeographicalScope {
@@ -156,6 +164,7 @@ impl ::core::clone::Clone for SmsGeographicalScope {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsMessageClass(pub i32);
 impl SmsMessageClass {
@@ -171,6 +180,7 @@ impl ::core::clone::Clone for SmsMessageClass {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SmsMessageFilter(pub i32);
 impl SmsMessageFilter {
@@ -190,6 +200,7 @@ pub type SmsMessageReceivedEventArgs = *mut ::core::ffi::c_void;
 pub type SmsMessageReceivedEventHandler = *mut ::core::ffi::c_void;
 pub type SmsMessageReceivedTriggerDetails = *mut ::core::ffi::c_void;
 pub type SmsMessageRegistration = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsMessageType(pub i32);
 impl SmsMessageType {
@@ -207,6 +218,7 @@ impl ::core::clone::Clone for SmsMessageType {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsModemErrorCode(pub i32);
 impl SmsModemErrorCode {

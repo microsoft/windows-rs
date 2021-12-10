@@ -3,6 +3,7 @@
 extern "system" {}
 pub type NamedResource = *mut ::core::ffi::c_void;
 pub type ResourceCandidate = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Resources_Core'*"]
 #[repr(transparent)]
 pub struct ResourceCandidateKind(pub i32);
 impl ResourceCandidateKind {
@@ -20,6 +21,7 @@ pub type ResourceCandidateVectorView = *mut ::core::ffi::c_void;
 pub type ResourceContext = *mut ::core::ffi::c_void;
 pub type ResourceContextLanguagesVectorView = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'ApplicationModel_Resources_Core'*"]
 pub struct ResourceLayoutInfo {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
@@ -41,6 +43,7 @@ pub type ResourceMapMapViewIterator = *mut ::core::ffi::c_void;
 pub type ResourceQualifier = *mut ::core::ffi::c_void;
 pub type ResourceQualifierMapView = *mut ::core::ffi::c_void;
 pub type ResourceQualifierObservableMap = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Resources_Core'*"]
 #[repr(transparent)]
 pub struct ResourceQualifierPersistence(pub i32);
 impl ResourceQualifierPersistence {

@@ -59,6 +59,7 @@ pub struct IPreviewBuildsStateVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Management_Update'*"]
 #[repr(transparent)]
 pub struct PreviewBuildsManager(::windows::core::IUnknown);
 impl PreviewBuildsManager {
@@ -168,6 +169,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prev
 }
 unsafe impl ::core::marker::Send for PreviewBuildsManager {}
 unsafe impl ::core::marker::Sync for PreviewBuildsManager {}
+#[doc = "*Required features: 'Management_Update'*"]
 #[repr(transparent)]
 pub struct PreviewBuildsState(::windows::core::IUnknown);
 impl PreviewBuildsState {

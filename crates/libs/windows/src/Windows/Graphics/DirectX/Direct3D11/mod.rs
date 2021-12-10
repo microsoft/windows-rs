@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
 #[repr(transparent)]
 pub struct Direct3DBindings(pub u32);
 impl Direct3DBindings {
@@ -35,6 +36,7 @@ impl ::windows::core::DefaultType for Direct3DBindings {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
 pub struct Direct3DMultisampleDescription {
     pub Count: i32,
     pub Quality: i32,
@@ -66,6 +68,7 @@ impl ::core::default::Default for Direct3DMultisampleDescription {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
 pub struct Direct3DSurfaceDescription {
     pub Width: i32,
     pub Height: i32,
@@ -98,6 +101,7 @@ impl ::core::default::Default for Direct3DSurfaceDescription {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
 #[repr(transparent)]
 pub struct Direct3DUsage(pub i32);
 impl Direct3DUsage {
@@ -127,6 +131,7 @@ unsafe impl ::windows::core::RuntimeType for Direct3DUsage {
 impl ::windows::core::DefaultType for Direct3DUsage {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
 #[repr(transparent)]
 pub struct IDirect3DDevice(::windows::core::IUnknown);
 impl IDirect3DDevice {
@@ -235,6 +240,7 @@ pub struct IDirect3DDeviceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
 #[repr(transparent)]
 pub struct IDirect3DSurface(::windows::core::IUnknown);
 impl IDirect3DSurface {

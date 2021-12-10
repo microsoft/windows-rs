@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationInterpolator(::windows::core::IUnknown);
 impl IUIAnimationInterpolator {
@@ -77,6 +78,7 @@ pub struct IUIAnimationInterpolatorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: f64, velocity: *mut f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationInterpolator2(::windows::core::IUnknown);
 impl IUIAnimationInterpolator2 {
@@ -161,6 +163,7 @@ pub struct IUIAnimationInterpolator2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interpolation: ::windows::core::RawPtr, cdimension: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationLoopIterationChangeHandler2(::windows::core::IUnknown);
 impl IUIAnimationLoopIterationChangeHandler2 {
@@ -211,6 +214,7 @@ pub struct IUIAnimationLoopIterationChangeHandler2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: ::windows::core::RawPtr, id: usize, newiterationcount: u32, olditerationcount: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationManager(::windows::core::IUnknown);
 impl IUIAnimationManager {
@@ -339,6 +343,7 @@ pub struct IUIAnimationManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, delay: f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationManager2(::windows::core::IUnknown);
 impl IUIAnimationManager2 {
@@ -479,6 +484,7 @@ pub struct IUIAnimationManager2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, delay: f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationManagerEventHandler(::windows::core::IUnknown);
 impl IUIAnimationManagerEventHandler {
@@ -524,6 +530,7 @@ unsafe impl ::windows::core::Interface for IUIAnimationManagerEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationManagerEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationManagerEventHandler2(::windows::core::IUnknown);
 impl IUIAnimationManagerEventHandler2 {
@@ -569,6 +576,7 @@ unsafe impl ::windows::core::Interface for IUIAnimationManagerEventHandler2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationManagerEventHandler2Vtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationPrimitiveInterpolation(::windows::core::IUnknown);
 impl IUIAnimationPrimitiveInterpolation {
@@ -623,6 +631,7 @@ pub struct IUIAnimationPrimitiveInterpolationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dimension: u32, beginoffset: f64, constantcoefficient: f32, linearcoefficient: f32, quadraticcoefficient: f32, cubiccoefficient: f32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dimension: u32, beginoffset: f64, bias: f32, amplitude: f32, frequency: f32, phase: f32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationPriorityComparison(::windows::core::IUnknown);
 impl IUIAnimationPriorityComparison {
@@ -673,6 +682,7 @@ pub struct IUIAnimationPriorityComparisonVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scheduledstoryboard: ::windows::core::RawPtr, newstoryboard: ::windows::core::RawPtr, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationPriorityComparison2(::windows::core::IUnknown);
 impl IUIAnimationPriorityComparison2 {
@@ -723,6 +733,7 @@ pub struct IUIAnimationPriorityComparison2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scheduledstoryboard: ::windows::core::RawPtr, newstoryboard: ::windows::core::RawPtr, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationStoryboard(::windows::core::IUnknown);
 impl IUIAnimationStoryboard {
@@ -842,6 +853,7 @@ pub struct IUIAnimationStoryboardVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, elapsedtime: *mut f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationStoryboard2(::windows::core::IUnknown);
 impl IUIAnimationStoryboard2 {
@@ -969,6 +981,7 @@ pub struct IUIAnimationStoryboard2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, fregisterstatuschangefornextanimationevent: super::super::Foundation::BOOL, fregisterupdatefornextanimationevent: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationStoryboardEventHandler(::windows::core::IUnknown);
 impl IUIAnimationStoryboardEventHandler {
@@ -1023,6 +1036,7 @@ pub struct IUIAnimationStoryboardEventHandlerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: ::windows::core::RawPtr, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationStoryboardEventHandler2(::windows::core::IUnknown);
 impl IUIAnimationStoryboardEventHandler2 {
@@ -1077,6 +1091,7 @@ pub struct IUIAnimationStoryboardEventHandler2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: ::windows::core::RawPtr, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationTimer(::windows::core::IUnknown);
 impl IUIAnimationTimer {
@@ -1152,6 +1167,7 @@ pub struct IUIAnimationTimerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, seconds: *mut f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framespersecond: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationTimerClientEventHandler(::windows::core::IUnknown);
 impl IUIAnimationTimerClientEventHandler {
@@ -1202,6 +1218,7 @@ pub struct IUIAnimationTimerClientEventHandlerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newstatus: UI_ANIMATION_TIMER_CLIENT_STATUS, previousstatus: UI_ANIMATION_TIMER_CLIENT_STATUS) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationTimerEventHandler(::windows::core::IUnknown);
 impl IUIAnimationTimerEventHandler {
@@ -1260,6 +1277,7 @@ pub struct IUIAnimationTimerEventHandlerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framespersecond: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationTimerUpdateHandler(::windows::core::IUnknown);
 impl IUIAnimationTimerUpdateHandler {
@@ -1319,6 +1337,7 @@ pub struct IUIAnimationTimerUpdateHandlerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationTransition(::windows::core::IUnknown);
 impl IUIAnimationTransition {
@@ -1382,6 +1401,7 @@ pub struct IUIAnimationTransitionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: *mut f64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationTransition2(::windows::core::IUnknown);
 impl IUIAnimationTransition2 {
@@ -1458,6 +1478,7 @@ pub struct IUIAnimationTransition2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: *mut f64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationTransitionFactory(::windows::core::IUnknown);
 impl IUIAnimationTransitionFactory {
@@ -1504,6 +1525,7 @@ unsafe impl ::windows::core::Interface for IUIAnimationTransitionFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationTransitionFactoryVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interpolator: ::windows::core::RawPtr, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationTransitionFactory2(::windows::core::IUnknown);
 impl IUIAnimationTransitionFactory2 {
@@ -1550,6 +1572,7 @@ unsafe impl ::windows::core::Interface for IUIAnimationTransitionFactory2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationTransitionFactory2Vtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interpolator: ::windows::core::RawPtr, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationTransitionLibrary(::windows::core::IUnknown);
 impl IUIAnimationTransitionLibrary {
@@ -1656,6 +1679,7 @@ pub struct IUIAnimationTransitionLibraryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maximumduration: f64, finalvalue: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, finalvalue: f64, finalvelocity: f64, acceleration: f64, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationTransitionLibrary2(::windows::core::IUnknown);
 impl IUIAnimationTransitionLibrary2 {
@@ -1797,6 +1821,7 @@ pub struct IUIAnimationTransitionLibrary2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: f64, x1: f64, y1: f64, x2: f64, y2: f64, pptransition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: *const f64, cdimension: u32, x1: f64, y1: f64, x2: f64, y2: f64, pptransition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationVariable(::windows::core::IUnknown);
 impl IUIAnimationVariable {
@@ -1906,6 +1931,7 @@ pub struct IUIAnimationVariableVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationVariable2(::windows::core::IUnknown);
 impl IUIAnimationVariable2 {
@@ -2072,6 +2098,7 @@ pub struct IUIAnimationVariable2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationVariableChangeHandler(::windows::core::IUnknown);
 impl IUIAnimationVariableChangeHandler {
@@ -2122,6 +2149,7 @@ pub struct IUIAnimationVariableChangeHandlerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: ::windows::core::RawPtr, variable: ::windows::core::RawPtr, newvalue: f64, previousvalue: f64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationVariableChangeHandler2(::windows::core::IUnknown);
 impl IUIAnimationVariableChangeHandler2 {
@@ -2172,6 +2200,7 @@ pub struct IUIAnimationVariableChangeHandler2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: ::windows::core::RawPtr, variable: ::windows::core::RawPtr, newvalue: *const f64, previousvalue: *const f64, cdimension: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationVariableCurveChangeHandler2(::windows::core::IUnknown);
 impl IUIAnimationVariableCurveChangeHandler2 {
@@ -2217,6 +2246,7 @@ unsafe impl ::windows::core::Interface for IUIAnimationVariableCurveChangeHandle
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUIAnimationVariableCurveChangeHandler2Vtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variable: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationVariableIntegerChangeHandler(::windows::core::IUnknown);
 impl IUIAnimationVariableIntegerChangeHandler {
@@ -2267,6 +2297,7 @@ pub struct IUIAnimationVariableIntegerChangeHandlerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: ::windows::core::RawPtr, variable: ::windows::core::RawPtr, newvalue: i32, previousvalue: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 #[repr(transparent)]
 pub struct IUIAnimationVariableIntegerChangeHandler2(::windows::core::IUnknown);
 impl IUIAnimationVariableIntegerChangeHandler2 {
@@ -2324,59 +2355,109 @@ pub const UIAnimationTransitionFactory: ::windows::core::GUID = ::windows::core:
 pub const UIAnimationTransitionFactory2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84302f97_7f7b_4040_b190_72ac9d18e420);
 pub const UIAnimationTransitionLibrary: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d6322ad_aa85_4ef5_a828_86d71067d145);
 pub const UIAnimationTransitionLibrary2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x812f944a_c5c8_4cd9_b0a6_b3da802f228d);
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub type UI_ANIMATION_DEPENDENCIES = u32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_DEPENDENCY_NONE: UI_ANIMATION_DEPENDENCIES = 0u32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_DEPENDENCY_INTERMEDIATE_VALUES: UI_ANIMATION_DEPENDENCIES = 1u32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_DEPENDENCY_FINAL_VALUE: UI_ANIMATION_DEPENDENCIES = 2u32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_DEPENDENCY_FINAL_VELOCITY: UI_ANIMATION_DEPENDENCIES = 4u32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_DEPENDENCY_DURATION: UI_ANIMATION_DEPENDENCIES = 8u32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub type UI_ANIMATION_IDLE_BEHAVIOR = i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_IDLE_BEHAVIOR_CONTINUE: UI_ANIMATION_IDLE_BEHAVIOR = 0i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_IDLE_BEHAVIOR_DISABLE: UI_ANIMATION_IDLE_BEHAVIOR = 1i32;
 pub type UI_ANIMATION_KEYFRAME = isize;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub type UI_ANIMATION_MANAGER_STATUS = i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_MANAGER_IDLE: UI_ANIMATION_MANAGER_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_MANAGER_BUSY: UI_ANIMATION_MANAGER_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub type UI_ANIMATION_MODE = i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_MODE_DISABLED: UI_ANIMATION_MODE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_MODE_SYSTEM_DEFAULT: UI_ANIMATION_MODE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_MODE_ENABLED: UI_ANIMATION_MODE = 2i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub type UI_ANIMATION_PRIORITY_EFFECT = i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_PRIORITY_EFFECT_FAILURE: UI_ANIMATION_PRIORITY_EFFECT = 0i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_PRIORITY_EFFECT_DELAY: UI_ANIMATION_PRIORITY_EFFECT = 1i32;
 pub const UI_ANIMATION_REPEAT_INDEFINITELY: i32 = -1i32;
 pub const UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_END: i32 = -1i32;
 pub const UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_START: i32 = -2i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub type UI_ANIMATION_REPEAT_MODE = i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_REPEAT_MODE_NORMAL: UI_ANIMATION_REPEAT_MODE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_REPEAT_MODE_ALTERNATE: UI_ANIMATION_REPEAT_MODE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub type UI_ANIMATION_ROUNDING_MODE = i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_ROUNDING_NEAREST: UI_ANIMATION_ROUNDING_MODE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_ROUNDING_FLOOR: UI_ANIMATION_ROUNDING_MODE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_ROUNDING_CEILING: UI_ANIMATION_ROUNDING_MODE = 2i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub type UI_ANIMATION_SCHEDULING_RESULT = i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_SCHEDULING_UNEXPECTED_FAILURE: UI_ANIMATION_SCHEDULING_RESULT = 0i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_SCHEDULING_INSUFFICIENT_PRIORITY: UI_ANIMATION_SCHEDULING_RESULT = 1i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_SCHEDULING_ALREADY_SCHEDULED: UI_ANIMATION_SCHEDULING_RESULT = 2i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_SCHEDULING_SUCCEEDED: UI_ANIMATION_SCHEDULING_RESULT = 3i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_SCHEDULING_DEFERRED: UI_ANIMATION_SCHEDULING_RESULT = 4i32;
 pub const UI_ANIMATION_SECONDS_EVENTUALLY: i32 = -1i32;
 pub const UI_ANIMATION_SECONDS_INFINITE: i32 = -1i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub type UI_ANIMATION_SLOPE = i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_SLOPE_INCREASING: UI_ANIMATION_SLOPE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_SLOPE_DECREASING: UI_ANIMATION_SLOPE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub type UI_ANIMATION_STORYBOARD_STATUS = i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_STORYBOARD_BUILDING: UI_ANIMATION_STORYBOARD_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_STORYBOARD_SCHEDULED: UI_ANIMATION_STORYBOARD_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_STORYBOARD_CANCELLED: UI_ANIMATION_STORYBOARD_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_STORYBOARD_PLAYING: UI_ANIMATION_STORYBOARD_STATUS = 3i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_STORYBOARD_TRUNCATED: UI_ANIMATION_STORYBOARD_STATUS = 4i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_STORYBOARD_FINISHED: UI_ANIMATION_STORYBOARD_STATUS = 5i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_STORYBOARD_READY: UI_ANIMATION_STORYBOARD_STATUS = 6i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_STORYBOARD_INSUFFICIENT_PRIORITY: UI_ANIMATION_STORYBOARD_STATUS = 7i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub type UI_ANIMATION_TIMER_CLIENT_STATUS = i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_TIMER_CLIENT_IDLE: UI_ANIMATION_TIMER_CLIENT_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_TIMER_CLIENT_BUSY: UI_ANIMATION_TIMER_CLIENT_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub type UI_ANIMATION_UPDATE_RESULT = i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_UPDATE_NO_CHANGE: UI_ANIMATION_UPDATE_RESULT = 0i32;
+#[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_UPDATE_VARIABLES_CHANGED: UI_ANIMATION_UPDATE_RESULT = 1i32;

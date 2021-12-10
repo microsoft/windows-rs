@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_Com_UI'*"]
 #[repr(transparent)]
 pub struct IDummyHICONIncluder(::windows::core::IUnknown);
 impl IDummyHICONIncluder {
@@ -51,6 +52,7 @@ pub struct IDummyHICONIncluderVtbl(
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, h1: super::super::super::UI::WindowsAndMessaging::HICON, h2: super::super::super::Graphics::Gdi::HDC) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_UI'*"]
 #[repr(transparent)]
 pub struct IThumbnailExtractor(::windows::core::IUnknown);
 impl IThumbnailExtractor {

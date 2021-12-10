@@ -1,212 +1,317 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WFDCancelOpenSession(hsessionhandle: super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WFDCloseHandle(hclienthandle: super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WFDCloseSession(hsessionhandle: super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WFDOpenHandle(dwclientversion: u32, pdwnegotiatedversion: *mut u32, phclienthandle: *mut super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WFDOpenLegacySession(hclienthandle: super::super::Foundation::HANDLE, plegacymacaddress: *const *const u8, phsessionhandle: *mut super::super::Foundation::HANDLE, pguidsessioninterface: *mut ::windows_sys::core::GUID) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WFDStartOpenSession(hclienthandle: super::super::Foundation::HANDLE, pdeviceaddress: *const *const u8, pvcontext: *const ::core::ffi::c_void, pfncallback: WFD_OPEN_SESSION_COMPLETE_CALLBACK, phsessionhandle: *mut super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub fn WFDUpdateDeviceVisibility(pdeviceaddress: *const *const u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub fn WlanAllocateMemory(dwmemorysize: u32) -> *mut ::core::ffi::c_void;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanCloseHandle(hclienthandle: super::super::Foundation::HANDLE, preserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
     pub fn WlanConnect(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, pconnectionparameters: *const WLAN_CONNECTION_PARAMETERS, preserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
     pub fn WlanConnect2(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, pconnectionparameters: *const WLAN_CONNECTION_PARAMETERS_V2, preserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanDeleteProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, strprofilename: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanDeviceServiceCommand(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, pdeviceserviceguid: *const ::windows_sys::core::GUID, dwopcode: u32, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanDisconnect(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, preserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanEnumInterfaces(hclienthandle: super::super::Foundation::HANDLE, preserved: *mut ::core::ffi::c_void, ppinterfacelist: *mut *mut WLAN_INTERFACE_INFO_LIST) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanExtractPsdIEDataList(hclienthandle: super::super::Foundation::HANDLE, dwiedatasize: u32, prawiedata: *const u8, strformat: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void, pppsdiedatalist: *mut *mut WLAN_RAW_DATA_LIST) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
     pub fn WlanFreeMemory(pmemory: *const ::core::ffi::c_void);
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanGetAvailableNetworkList(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, dwflags: u32, preserved: *mut ::core::ffi::c_void, ppavailablenetworklist: *mut *mut WLAN_AVAILABLE_NETWORK_LIST) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanGetAvailableNetworkList2(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, dwflags: u32, preserved: *mut ::core::ffi::c_void, ppavailablenetworklist: *mut *mut WLAN_AVAILABLE_NETWORK_LIST_V2) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanGetFilterList(hclienthandle: super::super::Foundation::HANDLE, wlanfilterlisttype: WLAN_FILTER_LIST_TYPE, preserved: *mut ::core::ffi::c_void, ppnetworklist: *mut *mut DOT11_NETWORK_LIST) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanGetInterfaceCapability(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, preserved: *mut ::core::ffi::c_void, ppcapability: *mut *mut WLAN_INTERFACE_CAPABILITY) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanGetNetworkBssList(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, pdot11ssid: *const DOT11_SSID, dot11bsstype: DOT11_BSS_TYPE, bsecurityenabled: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void, ppwlanbsslist: *mut *mut WLAN_BSS_LIST) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanGetProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, strprofilename: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void, pstrprofilexml: *mut super::super::Foundation::PWSTR, pdwflags: *mut u32, pdwgrantedaccess: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanGetProfileCustomUserData(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, strprofilename: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanGetProfileList(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, preserved: *mut ::core::ffi::c_void, ppprofilelist: *mut *mut WLAN_PROFILE_INFO_LIST) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanGetSecuritySettings(hclienthandle: super::super::Foundation::HANDLE, securableobject: WLAN_SECURABLE_OBJECT, pvaluetype: *mut WLAN_OPCODE_VALUE_TYPE, pstrcurrentsddl: *mut super::super::Foundation::PWSTR, pdwgrantedaccess: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanGetSupportedDeviceServices(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, ppdevsvcguidlist: *mut *mut WLAN_DEVICE_SERVICE_GUID_LIST) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanHostedNetworkForceStart(hclienthandle: super::super::Foundation::HANDLE, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanHostedNetworkForceStop(hclienthandle: super::super::Foundation::HANDLE, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanHostedNetworkInitSettings(hclienthandle: super::super::Foundation::HANDLE, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanHostedNetworkQueryProperty(hclienthandle: super::super::Foundation::HANDLE, opcode: WLAN_HOSTED_NETWORK_OPCODE, pdwdatasize: *mut u32, ppvdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: *mut WLAN_OPCODE_VALUE_TYPE, pvreserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanHostedNetworkQuerySecondaryKey(hclienthandle: super::super::Foundation::HANDLE, pdwkeylength: *mut u32, ppuckeydata: *mut *mut u8, pbispassphrase: *mut super::super::Foundation::BOOL, pbpersistent: *mut super::super::Foundation::BOOL, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanHostedNetworkQueryStatus(hclienthandle: super::super::Foundation::HANDLE, ppwlanhostednetworkstatus: *mut *mut WLAN_HOSTED_NETWORK_STATUS, pvreserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanHostedNetworkRefreshSecuritySettings(hclienthandle: super::super::Foundation::HANDLE, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanHostedNetworkSetProperty(hclienthandle: super::super::Foundation::HANDLE, opcode: WLAN_HOSTED_NETWORK_OPCODE, dwdatasize: u32, pvdata: *const ::core::ffi::c_void, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanHostedNetworkSetSecondaryKey(hclienthandle: super::super::Foundation::HANDLE, dwkeylength: u32, puckeydata: *const u8, bispassphrase: super::super::Foundation::BOOL, bpersistent: super::super::Foundation::BOOL, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanHostedNetworkStartUsing(hclienthandle: super::super::Foundation::HANDLE, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanHostedNetworkStopUsing(hclienthandle: super::super::Foundation::HANDLE, pfailreason: *mut WLAN_HOSTED_NETWORK_REASON, pvreserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanIhvControl(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, r#type: WLAN_IHV_CONTROL_TYPE, dwinbuffersize: u32, pinbuffer: *const ::core::ffi::c_void, dwoutbuffersize: u32, poutbuffer: *mut ::core::ffi::c_void, pdwbytesreturned: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanOpenHandle(dwclientversion: u32, preserved: *mut ::core::ffi::c_void, pdwnegotiatedversion: *mut u32, phclienthandle: *mut super::super::Foundation::HANDLE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanQueryAutoConfigParameter(hclienthandle: super::super::Foundation::HANDLE, opcode: WLAN_AUTOCONF_OPCODE, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: *mut WLAN_OPCODE_VALUE_TYPE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanQueryInterface(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, opcode: WLAN_INTF_OPCODE, preserved: *mut ::core::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut ::core::ffi::c_void, pwlanopcodevaluetype: *mut WLAN_OPCODE_VALUE_TYPE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanReasonCodeToString(dwreasoncode: u32, dwbuffersize: u32, pstringbuffer: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanRegisterDeviceServiceNotification(hclienthandle: super::super::Foundation::HANDLE, pdevsvcguidlist: *const WLAN_DEVICE_SERVICE_GUID_LIST) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanRegisterNotification(hclienthandle: super::super::Foundation::HANDLE, dwnotifsource: u32, bignoreduplicate: super::super::Foundation::BOOL, funccallback: WLAN_NOTIFICATION_CALLBACK, pcallbackcontext: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void, pdwprevnotifsource: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanRegisterVirtualStationNotification(hclienthandle: super::super::Foundation::HANDLE, bregister: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanRenameProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, stroldprofilename: super::super::Foundation::PWSTR, strnewprofilename: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanSaveTemporaryProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, strprofilename: super::super::Foundation::PWSTR, stralluserprofilesecurity: super::super::Foundation::PWSTR, dwflags: u32, boverwrite: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanScan(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, pdot11ssid: *const DOT11_SSID, piedata: *const WLAN_RAW_DATA, preserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanSetAutoConfigParameter(hclienthandle: super::super::Foundation::HANDLE, opcode: WLAN_AUTOCONF_OPCODE, dwdatasize: u32, pdata: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanSetFilterList(hclienthandle: super::super::Foundation::HANDLE, wlanfilterlisttype: WLAN_FILTER_LIST_TYPE, pnetworklist: *const DOT11_NETWORK_LIST, preserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanSetInterface(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, opcode: WLAN_INTF_OPCODE, dwdatasize: u32, pdata: *const ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanSetProfile(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, dwflags: u32, strprofilexml: super::super::Foundation::PWSTR, stralluserprofilesecurity: super::super::Foundation::PWSTR, boverwrite: super::super::Foundation::BOOL, preserved: *mut ::core::ffi::c_void, pdwreasoncode: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanSetProfileCustomUserData(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, strprofilename: super::super::Foundation::PWSTR, dwdatasize: u32, pdata: *const u8, preserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
     pub fn WlanSetProfileEapUserData(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, strprofilename: super::super::Foundation::PWSTR, eaptype: super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE, dwflags: WLAN_SET_EAPHOST_FLAGS, dweapuserdatasize: u32, pbeapuserdata: *const u8, preserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanSetProfileEapXmlUserData(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, strprofilename: super::super::Foundation::PWSTR, dwflags: WLAN_SET_EAPHOST_FLAGS, streapxmluserdata: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanSetProfileList(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, dwitems: u32, strprofilenames: *const super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanSetProfilePosition(hclienthandle: super::super::Foundation::HANDLE, pinterfaceguid: *const ::windows_sys::core::GUID, strprofilename: super::super::Foundation::PWSTR, dwposition: u32, preserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanSetPsdIEDataList(hclienthandle: super::super::Foundation::HANDLE, strformat: super::super::Foundation::PWSTR, ppsdiedatalist: *const WLAN_RAW_DATA_LIST, preserved: *mut ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanSetSecuritySettings(hclienthandle: super::super::Foundation::HANDLE, securableobject: WLAN_SECURABLE_OBJECT, strmodifiedsddl: super::super::Foundation::PWSTR) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WlanUIEditProfile(dwclientversion: u32, wstrprofilename: super::super::Foundation::PWSTR, pinterfaceguid: *const ::windows_sys::core::GUID, hwnd: super::super::Foundation::HWND, wlstartpage: WL_DISPLAY_PAGES, preserved: *mut ::core::ffi::c_void, pwlanreasoncode: *mut u32) -> u32;
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type CH_DESCRIPTION_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ch_description_type_logical: CH_DESCRIPTION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ch_description_type_center_frequency: CH_DESCRIPTION_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ch_description_type_phy_specific: CH_DESCRIPTION_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_InfraCast_AccessPointBssid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 19u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_InfraCast_ChallengeAep: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 21u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_InfraCast_DevnodeAep: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 23u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_InfraCast_HostName_ResolutionMode: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 25u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_InfraCast_PinSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 29u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_InfraCast_RtspTcpConnectionParametersSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 30u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_InfraCast_SinkHostName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 20u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_InfraCast_SinkIpAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 26u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_InfraCast_StreamSecuritySupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 18u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_InfraCast_Supported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 17u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirectServices_AdvertisementId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 833845059, data2: 31838, data3: 16389, data4: [147, 230, 233, 83, 249, 43, 130, 233] }, pid: 5u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirectServices_RequestServiceInformation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 833845059, data2: 31838, data3: 16389, data4: [147, 230, 233, 83, 249, 43, 130, 233] }, pid: 7u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirectServices_ServiceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 833845059, data2: 31838, data3: 16389, data4: [147, 230, 233, 83, 249, 43, 130, 233] }, pid: 2u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirectServices_ServiceConfigMethods: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 833845059, data2: 31838, data3: 16389, data4: [147, 230, 233, 83, 249, 43, 130, 233] }, pid: 6u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirectServices_ServiceInformation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 833845059, data2: 31838, data3: 16389, data4: [147, 230, 233, 83, 249, 43, 130, 233] }, pid: 4u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirectServices_ServiceName: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 833845059, data2: 31838, data3: 16389, data4: [147, 230, 233, 83, 249, 43, 130, 233] }, pid: 3u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_DeviceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 1u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_DeviceAddressCopy: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 13u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_FoundWsbService: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 24u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_GroupId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 4u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_InformationElements: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 12u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_InterfaceAddress: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 2u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_InterfaceGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 3u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_IsConnected: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 5u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_IsDMGCapable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 22u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_IsLegacyDevice: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 7u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_IsMiracastLCPSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 9u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_IsRecentlyAssociated: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 14u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_IsVisible: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 6u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_LinkQuality: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 28u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_MiracastVersion: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 8u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_Miracast_SessionMgmtControlPort: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 31u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_NoMiracastAutoProject: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 16u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_RtspTcpConnectionParametersSupported: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 32u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_Service_Aeps: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 15u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_Services: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 10u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_SupportedChannelList: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 11u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFiDirect_TransientAssociation: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 352752477, data2: 58343, data3: 17679, data4: [134, 55, 130, 35, 62, 190, 95, 110] }, pid: 27u32 };
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_WiFi_InterfaceGuid: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 4010895339, data2: 52220, data3: 17217, data4: [165, 104, 167, 201, 26, 104, 152, 44] }, pid: 2u32 };
 pub const DISCOVERY_FILTER_BITMASK_ANY: u32 = 15u32;
 pub const DISCOVERY_FILTER_BITMASK_DEVICE: u32 = 1u32;
 pub const DISCOVERY_FILTER_BITMASK_GO: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_ACCESSNETWORKOPTIONS {
     pub AccessNetworkType: u8,
     pub Internet: u8,
@@ -220,13 +325,20 @@ impl ::core::clone::Clone for DOT11_ACCESSNETWORKOPTIONS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_AC_PARAM = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_AC_param_BE: DOT11_AC_PARAM = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_AC_param_BK: DOT11_AC_PARAM = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_AC_param_VI: DOT11_AC_PARAM = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_AC_param_VO: DOT11_AC_PARAM = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_AC_param_max: DOT11_AC_PARAM = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_ADDITIONAL_IE {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -244,26 +356,46 @@ impl ::core::clone::Clone for DOT11_ADDITIONAL_IE {
     }
 }
 pub const DOT11_ADDITIONAL_IE_REVISION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_ADHOC_AUTH_ALGORITHM = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_ADHOC_AUTH_ALGO_INVALID: DOT11_ADHOC_AUTH_ALGORITHM = -1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_ADHOC_AUTH_ALGO_80211_OPEN: DOT11_ADHOC_AUTH_ALGORITHM = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_ADHOC_AUTH_ALGO_RSNA_PSK: DOT11_ADHOC_AUTH_ALGORITHM = 7i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_ADHOC_CIPHER_ALGORITHM = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_ADHOC_CIPHER_ALGO_INVALID: DOT11_ADHOC_CIPHER_ALGORITHM = -1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_ADHOC_CIPHER_ALGO_NONE: DOT11_ADHOC_CIPHER_ALGORITHM = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_ADHOC_CIPHER_ALGO_CCMP: DOT11_ADHOC_CIPHER_ALGORITHM = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_ADHOC_CIPHER_ALGO_WEP: DOT11_ADHOC_CIPHER_ALGORITHM = 257i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_ADHOC_CONNECT_FAIL_REASON = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_ADHOC_CONNECT_FAIL_DOMAIN_MISMATCH: DOT11_ADHOC_CONNECT_FAIL_REASON = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_ADHOC_CONNECT_FAIL_PASSPHRASE_MISMATCH: DOT11_ADHOC_CONNECT_FAIL_REASON = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_ADHOC_CONNECT_FAIL_OTHER: DOT11_ADHOC_CONNECT_FAIL_REASON = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_ADHOC_NETWORK_CONNECTION_STATUS = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_INVALID: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_DISCONNECTED: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = 11i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_CONNECTING: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = 12i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_CONNECTED: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = 13i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_ADHOC_NETWORK_CONNECTION_STATUS_FORMED: DOT11_ADHOC_NETWORK_CONNECTION_STATUS = 14i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -280,16 +412,26 @@ impl ::core::clone::Clone for DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     }
 }
 pub const DOT11_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_ANQP_QUERY_RESULT = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_ANQP_query_result_success: DOT11_ANQP_QUERY_RESULT = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_ANQP_query_result_failure: DOT11_ANQP_QUERY_RESULT = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_ANQP_query_result_timed_out: DOT11_ANQP_QUERY_RESULT = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_ANQP_query_result_resources: DOT11_ANQP_QUERY_RESULT = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_ANQP_query_result_advertisement_protocol_not_supported_on_remote: DOT11_ANQP_QUERY_RESULT = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_ANQP_query_result_gas_protocol_failure: DOT11_ANQP_QUERY_RESULT = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_ANQP_query_result_advertisement_server_not_responding: DOT11_ANQP_QUERY_RESULT = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_ANQP_query_result_access_issues: DOT11_ANQP_QUERY_RESULT = 7i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_AP_JOIN_REQUEST {
     pub uJoinFailureTimeout: u32,
     pub OperationalRateSet: DOT11_RATE_SET,
@@ -303,6 +445,7 @@ impl ::core::clone::Clone for DOT11_AP_JOIN_REQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -343,6 +486,7 @@ impl ::core::clone::Clone for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
 pub const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_2: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_ASSOCIATION_INFO_EX {
     pub PeerMacAddress: [u8; 6],
     pub BSSID: [u8; 6],
@@ -365,6 +509,7 @@ impl ::core::clone::Clone for DOT11_ASSOCIATION_INFO_EX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_ASSOCIATION_INFO_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -382,6 +527,7 @@ impl ::core::clone::Clone for DOT11_ASSOCIATION_INFO_LIST {
 }
 pub const DOT11_ASSOCIATION_INFO_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_ASSOCIATION_PARAMS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -399,6 +545,7 @@ impl ::core::clone::Clone for DOT11_ASSOCIATION_PARAMS {
 }
 pub const DOT11_ASSOCIATION_PARAMS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_ASSOCIATION_START_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -416,31 +563,52 @@ impl ::core::clone::Clone for DOT11_ASSOCIATION_START_PARAMETERS {
     }
 }
 pub const DOT11_ASSOCIATION_START_PARAMETERS_REVISION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_ASSOCIATION_STATE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_assoc_state_zero: DOT11_ASSOCIATION_STATE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_assoc_state_unauth_unassoc: DOT11_ASSOCIATION_STATE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_assoc_state_auth_unassoc: DOT11_ASSOCIATION_STATE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_assoc_state_auth_assoc: DOT11_ASSOCIATION_STATE = 3i32;
 pub const DOT11_ASSOC_ERROR_SOURCE_OS: u32 = 0u32;
 pub const DOT11_ASSOC_ERROR_SOURCE_OTHER: u32 = 255u32;
 pub const DOT11_ASSOC_ERROR_SOURCE_REMOTE: u32 = 1u32;
 pub const DOT11_ASSOC_STATUS_SUCCESS: u32 = 0u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_AUTH_ALGORITHM = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_AUTH_ALGO_80211_OPEN: DOT11_AUTH_ALGORITHM = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_AUTH_ALGO_80211_SHARED_KEY: DOT11_AUTH_ALGORITHM = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_AUTH_ALGO_WPA: DOT11_AUTH_ALGORITHM = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_AUTH_ALGO_WPA_PSK: DOT11_AUTH_ALGORITHM = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_AUTH_ALGO_WPA_NONE: DOT11_AUTH_ALGORITHM = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_AUTH_ALGO_RSNA: DOT11_AUTH_ALGORITHM = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_AUTH_ALGO_RSNA_PSK: DOT11_AUTH_ALGORITHM = 7i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_AUTH_ALGO_WPA3: DOT11_AUTH_ALGORITHM = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_AUTH_ALGO_WPA3_ENT_192: DOT11_AUTH_ALGORITHM = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_AUTH_ALGO_WPA3_SAE: DOT11_AUTH_ALGORITHM = 9i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_AUTH_ALGO_OWE: DOT11_AUTH_ALGORITHM = 10i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_AUTH_ALGO_WPA3_ENT: DOT11_AUTH_ALGORITHM = 11i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_AUTH_ALGO_IHV_START: DOT11_AUTH_ALGORITHM = -2147483648i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_AUTH_ALGO_IHV_END: DOT11_AUTH_ALGORITHM = -1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_AUTH_ALGORITHM_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -459,6 +627,7 @@ impl ::core::clone::Clone for DOT11_AUTH_ALGORITHM_LIST {
 pub const DOT11_AUTH_ALGORITHM_LIST_REVISION_1: u32 = 1u32;
 pub const DOT11_AUTH_ALGO_MICHAEL: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_AUTH_CIPHER_PAIR {
     pub AuthAlgoId: DOT11_AUTH_ALGORITHM,
     pub CipherAlgoId: DOT11_CIPHER_ALGORITHM,
@@ -470,6 +639,7 @@ impl ::core::clone::Clone for DOT11_AUTH_CIPHER_PAIR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_AUTH_CIPHER_PAIR_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -487,6 +657,7 @@ impl ::core::clone::Clone for DOT11_AUTH_CIPHER_PAIR_LIST {
 }
 pub const DOT11_AUTH_CIPHER_PAIR_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_AVAILABLE_CHANNEL_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -504,6 +675,7 @@ impl ::core::clone::Clone for DOT11_AVAILABLE_CHANNEL_LIST {
 }
 pub const DOT11_AVAILABLE_CHANNEL_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_AVAILABLE_FREQUENCY_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -520,11 +692,16 @@ impl ::core::clone::Clone for DOT11_AVAILABLE_FREQUENCY_LIST {
     }
 }
 pub const DOT11_AVAILABLE_FREQUENCY_LIST_REVISION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_BAND = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_band_2p4g: DOT11_BAND = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_band_4p9g: DOT11_BAND = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_band_5g: DOT11_BAND = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_BSSID_CANDIDATE {
     pub BSSID: [u8; 6],
     pub uFlags: u32,
@@ -536,6 +713,7 @@ impl ::core::clone::Clone for DOT11_BSSID_CANDIDATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_BSSID_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -553,6 +731,7 @@ impl ::core::clone::Clone for DOT11_BSSID_LIST {
 }
 pub const DOT11_BSSID_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_BSS_DESCRIPTION {
     pub uReserved: u32,
     pub dot11BSSID: [u8; 6],
@@ -570,6 +749,7 @@ impl ::core::clone::Clone for DOT11_BSS_DESCRIPTION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_BSS_ENTRY {
     pub uPhyId: u32,
@@ -596,6 +776,7 @@ impl ::core::clone::Clone for DOT11_BSS_ENTRY {
 }
 pub const DOT11_BSS_ENTRY_BYTE_ARRAY_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub union DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
     pub uChCenterFrequency: u32,
     pub FHSS: DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0,
@@ -607,6 +788,7 @@ impl ::core::clone::Clone for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
     pub uHopPattern: u32,
     pub uHopSet: u32,
@@ -618,11 +800,16 @@ impl ::core::clone::Clone for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_BSS_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_BSS_type_infrastructure: DOT11_BSS_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_BSS_type_independent: DOT11_BSS_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_BSS_type_any: DOT11_BSS_TYPE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_BYTE_ARRAY {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -639,6 +826,7 @@ impl ::core::clone::Clone for DOT11_BYTE_ARRAY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_CAN_SUSTAIN_AP_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -671,6 +859,7 @@ pub const DOT11_CCA_MODE_ED_ONLY: u32 = 1u32;
 pub const DOT11_CCA_MODE_ED_and_CS: u32 = 4u32;
 pub const DOT11_CCA_MODE_HRCS_AND_ED: u32 = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_CHANNEL_HINT {
     pub Dot11PhyType: DOT11_PHY_TYPE,
     pub uChannelNumber: u32,
@@ -681,25 +870,44 @@ impl ::core::clone::Clone for DOT11_CHANNEL_HINT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_CIPHER_ALGORITHM = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_CIPHER_ALGO_NONE: DOT11_CIPHER_ALGORITHM = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_CIPHER_ALGO_WEP40: DOT11_CIPHER_ALGORITHM = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_CIPHER_ALGO_TKIP: DOT11_CIPHER_ALGORITHM = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_CIPHER_ALGO_CCMP: DOT11_CIPHER_ALGORITHM = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_CIPHER_ALGO_WEP104: DOT11_CIPHER_ALGORITHM = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_CIPHER_ALGO_BIP: DOT11_CIPHER_ALGORITHM = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_CIPHER_ALGO_GCMP: DOT11_CIPHER_ALGORITHM = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_CIPHER_ALGO_GCMP_256: DOT11_CIPHER_ALGORITHM = 9i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_CIPHER_ALGO_CCMP_256: DOT11_CIPHER_ALGORITHM = 10i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_CIPHER_ALGO_BIP_GMAC_128: DOT11_CIPHER_ALGORITHM = 11i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_CIPHER_ALGO_BIP_GMAC_256: DOT11_CIPHER_ALGORITHM = 12i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_CIPHER_ALGO_BIP_CMAC_256: DOT11_CIPHER_ALGORITHM = 13i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_CIPHER_ALGO_WPA_USE_GROUP: DOT11_CIPHER_ALGORITHM = 256i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_CIPHER_ALGO_RSN_USE_GROUP: DOT11_CIPHER_ALGORITHM = 256i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_CIPHER_ALGO_WEP: DOT11_CIPHER_ALGORITHM = 257i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_CIPHER_ALGO_IHV_START: DOT11_CIPHER_ALGORITHM = -2147483648i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_CIPHER_ALGO_IHV_END: DOT11_CIPHER_ALGORITHM = -1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_CIPHER_ALGORITHM_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -717,6 +925,7 @@ impl ::core::clone::Clone for DOT11_CIPHER_ALGORITHM_LIST {
 }
 pub const DOT11_CIPHER_ALGORITHM_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_CIPHER_DEFAULT_KEY_VALUE {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -738,6 +947,7 @@ impl ::core::clone::Clone for DOT11_CIPHER_DEFAULT_KEY_VALUE {
 }
 pub const DOT11_CIPHER_DEFAULT_KEY_VALUE_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     pub PeerMacAddr: [u8; 6],
@@ -760,6 +970,7 @@ pub const DOT11_CIPHER_KEY_MAPPING_KEY_VALUE_BYTE_ARRAY_REVISION_1: u32 = 1u32;
 pub const DOT11_CONF_ALGO_TKIP: u32 = 2u32;
 pub const DOT11_CONF_ALGO_WEP_RC4: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_CONNECTION_COMPLETION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -775,6 +986,7 @@ impl ::core::clone::Clone for DOT11_CONNECTION_COMPLETION_PARAMETERS {
 }
 pub const DOT11_CONNECTION_COMPLETION_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_CONNECTION_START_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -793,6 +1005,7 @@ impl ::core::clone::Clone for DOT11_CONNECTION_START_PARAMETERS {
 pub const DOT11_CONNECTION_START_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_CONNECTION_STATUS_SUCCESS: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_COUNTERS_ENTRY {
     pub uTransmittedFragmentCount: u32,
     pub uMulticastTransmittedFrameCount: u32,
@@ -815,6 +1028,7 @@ impl ::core::clone::Clone for DOT11_COUNTERS_ENTRY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_COUNTRY_OR_REGION_STRING_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -832,6 +1046,7 @@ impl ::core::clone::Clone for DOT11_COUNTRY_OR_REGION_STRING_LIST {
 }
 pub const DOT11_COUNTRY_OR_REGION_STRING_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_CURRENT_OFFLOAD_CAPABILITY {
     pub uReserved: u32,
     pub uFlags: u32,
@@ -843,6 +1058,7 @@ impl ::core::clone::Clone for DOT11_CURRENT_OFFLOAD_CAPABILITY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_CURRENT_OPERATION_MODE {
     pub uReserved: u32,
     pub uCurrentOpMode: u32,
@@ -854,6 +1070,7 @@ impl ::core::clone::Clone for DOT11_CURRENT_OPERATION_MODE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_CURRENT_OPTIONAL_CAPABILITY {
     pub uReserved: u32,
@@ -871,6 +1088,7 @@ impl ::core::clone::Clone for DOT11_CURRENT_OPTIONAL_CAPABILITY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_DATA_RATE_MAPPING_ENTRY {
     pub ucDataRateIndex: u8,
     pub ucDataRateFlag: u8,
@@ -883,6 +1101,7 @@ impl ::core::clone::Clone for DOT11_DATA_RATE_MAPPING_ENTRY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_DATA_RATE_MAPPING_TABLE {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -899,6 +1118,7 @@ impl ::core::clone::Clone for DOT11_DATA_RATE_MAPPING_TABLE {
 }
 pub const DOT11_DATA_RATE_MAPPING_TABLE_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_DEFAULT_WEP_OFFLOAD {
     pub uReserved: u32,
@@ -925,6 +1145,7 @@ impl ::core::clone::Clone for DOT11_DEFAULT_WEP_OFFLOAD {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_DEFAULT_WEP_UPLOAD {
     pub uReserved: u32,
@@ -943,11 +1164,16 @@ impl ::core::clone::Clone for DOT11_DEFAULT_WEP_UPLOAD {
     }
 }
 pub const DOT11_DEVICE_ENTRY_BYTE_ARRAY_REVISION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_DIRECTION = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_DIR_INBOUND: DOT11_DIRECTION = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_DIR_OUTBOUND: DOT11_DIRECTION = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_DIR_BOTH: DOT11_DIRECTION = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_DISASSOCIATE_PEER_REQUEST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -964,6 +1190,7 @@ impl ::core::clone::Clone for DOT11_DISASSOCIATE_PEER_REQUEST {
 }
 pub const DOT11_DISASSOCIATE_PEER_REQUEST_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_DISASSOCIATION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -982,6 +1209,7 @@ impl ::core::clone::Clone for DOT11_DISASSOCIATION_PARAMETERS {
 }
 pub const DOT11_DISASSOCIATION_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_DIVERSITY_SELECTION_RX {
     pub uAntennaListIndex: u32,
@@ -996,6 +1224,7 @@ impl ::core::clone::Clone for DOT11_DIVERSITY_SELECTION_RX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_DIVERSITY_SELECTION_RX_LIST {
     pub uNumOfEntries: u32,
@@ -1010,17 +1239,27 @@ impl ::core::clone::Clone for DOT11_DIVERSITY_SELECTION_RX_LIST {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_DIVERSITY_SUPPORT = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_diversity_support_unknown: DOT11_DIVERSITY_SUPPORT = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_diversity_support_fixedlist: DOT11_DIVERSITY_SUPPORT = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_diversity_support_notsupported: DOT11_DIVERSITY_SUPPORT = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_diversity_support_dynamic: DOT11_DIVERSITY_SUPPORT = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_DS_INFO = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_DS_CHANGED: DOT11_DS_INFO = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_DS_UNCHANGED: DOT11_DS_INFO = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_DS_UNKNOWN: DOT11_DS_INFO = 2i32;
 pub const DOT11_ENCAP_802_1H: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_ENCAP_ENTRY {
     pub usEtherType: u16,
     pub usEncapType: u16,
@@ -1033,6 +1272,7 @@ impl ::core::clone::Clone for DOT11_ENCAP_ENTRY {
 }
 pub const DOT11_ENCAP_RFC_1042: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_ERP_PHY_ATTRIBUTES {
     pub HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
@@ -1055,6 +1295,7 @@ pub const DOT11_EXEMPT_NO_EXEMPTION: u32 = 0u32;
 pub const DOT11_EXEMPT_ON_KEY_MAPPING_KEY_UNAVAILABLE: u32 = 2u32;
 pub const DOT11_EXEMPT_UNICAST: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_EXTAP_ATTRIBUTES {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1084,6 +1325,7 @@ pub const DOT11_EXTAP_ATTRIBUTES_REVISION_1: u32 = 1u32;
 pub const DOT11_EXTAP_RECV_CONTEXT_REVISION_1: u32 = 1u32;
 pub const DOT11_EXTAP_SEND_CONTEXT_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_EXTSTA_ATTRIBUTES {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1137,6 +1379,7 @@ pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_CERTIFIED: u32 = 2u32;
 pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_OID_SUPPORTED: u32 = 1u32;
 pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_RESERVED: u32 = 12u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_EXTSTA_CAPABILITY {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1161,6 +1404,7 @@ impl ::core::clone::Clone for DOT11_EXTSTA_CAPABILITY {
 }
 pub const DOT11_EXTSTA_CAPABILITY_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_EXTSTA_RECV_CONTEXT {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1184,6 +1428,7 @@ impl ::core::clone::Clone for DOT11_EXTSTA_RECV_CONTEXT {
 }
 pub const DOT11_EXTSTA_RECV_CONTEXT_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_EXTSTA_SEND_CONTEXT {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1211,6 +1456,7 @@ pub const DOT11_FLAGS_80211G_NON_ERP_PRESENT: u32 = 64u32;
 pub const DOT11_FLAGS_80211G_USE_PROTECTION: u32 = 32u32;
 pub const DOT11_FLAGS_PS_ON: u32 = 8u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_FRAGMENT_DESCRIPTOR {
     pub uOffset: u32,
     pub uLength: u32,
@@ -1225,6 +1471,7 @@ pub const DOT11_FREQUENCY_BANDS_LOWER: u32 = 1u32;
 pub const DOT11_FREQUENCY_BANDS_MIDDLE: u32 = 2u32;
 pub const DOT11_FREQUENCY_BANDS_UPPER: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1244,6 +1491,7 @@ impl ::core::clone::Clone for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PA
 }
 pub const DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1263,6 +1511,7 @@ impl ::core::clone::Clone for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMET
 }
 pub const DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1283,6 +1532,7 @@ impl ::core::clone::Clone for DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAME
 pub const DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_HESSID_LENGTH: u32 = 6u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_HOPPING_PATTERN_ENTRY {
     pub uHoppingPatternIndex: u32,
     pub uRandomTableFieldNumber: u32,
@@ -1294,6 +1544,7 @@ impl ::core::clone::Clone for DOT11_HOPPING_PATTERN_ENTRY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_HOPPING_PATTERN_ENTRY_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
@@ -1305,11 +1556,16 @@ impl ::core::clone::Clone for DOT11_HOPPING_PATTERN_ENTRY_LIST {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_HOP_ALGO_ADOPTED = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_hop_algo_current: DOT11_HOP_ALGO_ADOPTED = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_hop_algo_hop_index: DOT11_HOP_ALGO_ADOPTED = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_hop_algo_hcc: DOT11_HOP_ALGO_ADOPTED = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_HRDSSS_PHY_ATTRIBUTES {
     pub bShortPreambleOptionImplemented: super::super::Foundation::BOOLEAN,
@@ -1337,6 +1593,7 @@ pub const DOT11_HW_MSDU_AUTH_SUPPORTED_TX: u32 = 16u32;
 pub const DOT11_HW_WEP_SUPPORTED_RX: u32 = 2u32;
 pub const DOT11_HW_WEP_SUPPORTED_TX: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_IBSS_PARAMS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1354,6 +1611,7 @@ impl ::core::clone::Clone for DOT11_IBSS_PARAMS {
 }
 pub const DOT11_IBSS_PARAMS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1384,6 +1642,7 @@ impl ::core::clone::Clone for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
 }
 pub const DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_INCOMING_ASSOC_DECISION {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1404,6 +1663,7 @@ impl ::core::clone::Clone for DOT11_INCOMING_ASSOC_DECISION {
 pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_1: u32 = 1u32;
 pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_2: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_INCOMING_ASSOC_DECISION_V2 {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1423,6 +1683,7 @@ impl ::core::clone::Clone for DOT11_INCOMING_ASSOC_DECISION_V2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1441,6 +1702,7 @@ impl ::core::clone::Clone for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
 }
 pub const DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1457,6 +1719,7 @@ impl ::core::clone::Clone for DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
 pub const DOT11_INCOMING_ASSOC_STARTED_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_INVALID_CHANNEL_NUMBER: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1477,6 +1740,7 @@ impl ::core::clone::Clone for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS 
 }
 pub const DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1496,6 +1760,7 @@ impl ::core::clone::Clone for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS
 }
 pub const DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_IV48_COUNTER {
     pub uIV32Counter: u32,
     pub usIV16Counter: u16,
@@ -1507,6 +1772,7 @@ impl ::core::clone::Clone for DOT11_IV48_COUNTER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_JOIN_REQUEST {
     pub uJoinFailureTimeout: u32,
     pub OperationalRateSet: DOT11_RATE_SET,
@@ -1520,6 +1786,7 @@ impl ::core::clone::Clone for DOT11_JOIN_REQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_KEY_ALGO_BIP {
     pub ucIPN: [u8; 6],
     pub ulBIPKeyLength: u32,
@@ -1532,6 +1799,7 @@ impl ::core::clone::Clone for DOT11_KEY_ALGO_BIP {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_KEY_ALGO_BIP_GMAC_256 {
     pub ucIPN: [u8; 6],
     pub ulBIPGmac256KeyLength: u32,
@@ -1544,6 +1812,7 @@ impl ::core::clone::Clone for DOT11_KEY_ALGO_BIP_GMAC_256 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_KEY_ALGO_CCMP {
     pub ucIV48Counter: [u8; 6],
     pub ulCCMPKeyLength: u32,
@@ -1556,6 +1825,7 @@ impl ::core::clone::Clone for DOT11_KEY_ALGO_CCMP {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_KEY_ALGO_GCMP {
     pub ucIV48Counter: [u8; 6],
     pub ulGCMPKeyLength: u32,
@@ -1568,6 +1838,7 @@ impl ::core::clone::Clone for DOT11_KEY_ALGO_GCMP {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_KEY_ALGO_GCMP_256 {
     pub ucIV48Counter: [u8; 6],
     pub ulGCMP256KeyLength: u32,
@@ -1580,6 +1851,7 @@ impl ::core::clone::Clone for DOT11_KEY_ALGO_GCMP_256 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_KEY_ALGO_TKIP_MIC {
     pub ucIV48Counter: [u8; 6],
     pub ulTKIPKeyLength: u32,
@@ -1592,11 +1864,16 @@ impl ::core::clone::Clone for DOT11_KEY_ALGO_TKIP_MIC {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_KEY_DIRECTION = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_key_direction_both: DOT11_KEY_DIRECTION = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_key_direction_inbound: DOT11_KEY_DIRECTION = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_key_direction_outbound: DOT11_KEY_DIRECTION = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_LINK_QUALITY_ENTRY {
     pub PeerMacAddr: [u8; 6],
     pub ucLinkQuality: u8,
@@ -1608,6 +1885,7 @@ impl ::core::clone::Clone for DOT11_LINK_QUALITY_ENTRY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_LINK_QUALITY_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1624,6 +1902,7 @@ impl ::core::clone::Clone for DOT11_LINK_QUALITY_PARAMETERS {
 }
 pub const DOT11_LINK_QUALITY_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_MAC_ADDRESS_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1641,6 +1920,7 @@ impl ::core::clone::Clone for DOT11_MAC_ADDRESS_LIST {
 }
 pub const DOT11_MAC_ADDRESS_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_MAC_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
     pub ullReceivedFrameCount: u64,
@@ -1664,6 +1944,7 @@ impl ::core::clone::Clone for DOT11_MAC_FRAME_STATISTICS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_MAC_INFO {
     pub uReserved: u32,
     pub uNdisPortNumber: u32,
@@ -1676,6 +1957,7 @@ impl ::core::clone::Clone for DOT11_MAC_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_MAC_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1691,6 +1973,7 @@ impl ::core::clone::Clone for DOT11_MAC_PARAMETERS {
 }
 pub const DOT11_MAC_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1707,13 +1990,20 @@ impl ::core::clone::Clone for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     }
 }
 pub const DOT11_MANUFACTURING_CALLBACK_REVISION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_MANUFACTURING_CALLBACK_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_manufacturing_callback_unknown: DOT11_MANUFACTURING_CALLBACK_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_manufacturing_callback_self_test_complete: DOT11_MANUFACTURING_CALLBACK_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_manufacturing_callback_sleep_complete: DOT11_MANUFACTURING_CALLBACK_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_manufacturing_callback_IHV_start: DOT11_MANUFACTURING_CALLBACK_TYPE = -2147483648i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_manufacturing_callback_IHV_end: DOT11_MANUFACTURING_CALLBACK_TYPE = -1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
     pub Dot11Band: DOT11_BAND,
     pub uChannel: u32,
@@ -1726,6 +2016,7 @@ impl ::core::clone::Clone for DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
     pub bEnabled: super::super::Foundation::BOOLEAN,
@@ -1742,6 +2033,7 @@ impl ::core::clone::Clone for DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
     pub bEnable: super::super::Foundation::BOOLEAN,
@@ -1760,6 +2052,7 @@ impl ::core::clone::Clone for DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
     pub SelfTestType: DOT11_MANUFACTURING_SELF_TEST_TYPE,
@@ -1779,6 +2072,7 @@ impl ::core::clone::Clone for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
     pub SelfTestType: DOT11_MANUFACTURING_SELF_TEST_TYPE,
     pub uTestID: u32,
@@ -1793,11 +2087,16 @@ impl ::core::clone::Clone for DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_MANUFACTURING_SELF_TEST_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_INTERFACE: DOT11_MANUFACTURING_SELF_TEST_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_RF_INTERFACE: DOT11_MANUFACTURING_SELF_TEST_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_BT_COEXISTENCE: DOT11_MANUFACTURING_SELF_TEST_TYPE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_MANUFACTURING_TEST {
     pub dot11ManufacturingTestType: DOT11_MANUFACTURING_TEST_TYPE,
     pub uBufferLength: u32,
@@ -1810,6 +2109,7 @@ impl ::core::clone::Clone for DOT11_MANUFACTURING_TEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_MANUFACTURING_TEST_QUERY_DATA {
     pub uKey: u32,
     pub uOffset: u32,
@@ -1825,6 +2125,7 @@ impl ::core::clone::Clone for DOT11_MANUFACTURING_TEST_QUERY_DATA {
 }
 pub const DOT11_MANUFACTURING_TEST_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_MANUFACTURING_TEST_SET_DATA {
     pub uKey: u32,
     pub uOffset: u32,
@@ -1838,6 +2139,7 @@ impl ::core::clone::Clone for DOT11_MANUFACTURING_TEST_SET_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_MANUFACTURING_TEST_SLEEP {
     pub uSleepTime: u32,
     pub pvContext: *mut ::core::ffi::c_void,
@@ -1848,18 +2150,31 @@ impl ::core::clone::Clone for DOT11_MANUFACTURING_TEST_SLEEP {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_MANUFACTURING_TEST_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_manufacturing_test_unknown: DOT11_MANUFACTURING_TEST_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_manufacturing_test_self_start: DOT11_MANUFACTURING_TEST_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_manufacturing_test_self_query_result: DOT11_MANUFACTURING_TEST_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_manufacturing_test_rx: DOT11_MANUFACTURING_TEST_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_manufacturing_test_tx: DOT11_MANUFACTURING_TEST_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_manufacturing_test_query_adc: DOT11_MANUFACTURING_TEST_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_manufacturing_test_set_data: DOT11_MANUFACTURING_TEST_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_manufacturing_test_query_data: DOT11_MANUFACTURING_TEST_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_manufacturing_test_sleep: DOT11_MANUFACTURING_TEST_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_manufacturing_test_awake: DOT11_MANUFACTURING_TEST_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_manufacturing_test_IHV_start: DOT11_MANUFACTURING_TEST_TYPE = -2147483648i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_manufacturing_test_IHV_end: DOT11_MANUFACTURING_TEST_TYPE = -1i32;
 pub const DOT11_MAX_CHANNEL_HINTS: u32 = 4u32;
 pub const DOT11_MAX_NUM_DEFAULT_KEY: u32 = 4u32;
@@ -1868,6 +2183,7 @@ pub const DOT11_MAX_NUM_OF_FRAGMENTS: u32 = 16u32;
 pub const DOT11_MAX_PDU_SIZE: u32 = 2346u32;
 pub const DOT11_MAX_REQUESTED_SERVICE_INFORMATION_LENGTH: u32 = 255u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_MD_CAPABILITY_ENTRY_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
@@ -1881,6 +2197,7 @@ impl ::core::clone::Clone for DOT11_MD_CAPABILITY_ENTRY_LIST {
 }
 pub const DOT11_MIN_PDU_SIZE: u32 = 256u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_MPDU_MAX_LENGTH_INDICATION {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -1897,6 +2214,7 @@ impl ::core::clone::Clone for DOT11_MPDU_MAX_LENGTH_INDICATION {
 }
 pub const DOT11_MPDU_MAX_LENGTH_INDICATION_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
     pub uMultiDomainCapabilityIndex: u32,
     pub uFirstChannelNumber: u32,
@@ -1910,6 +2228,7 @@ impl ::core::clone::Clone for DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_NETWORK {
     pub dot11Ssid: DOT11_SSID,
     pub dot11BssType: DOT11_BSS_TYPE,
@@ -1921,6 +2240,7 @@ impl ::core::clone::Clone for DOT11_NETWORK {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_NETWORK_LIST {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
@@ -1933,6 +2253,7 @@ impl ::core::clone::Clone for DOT11_NETWORK_LIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_NIC_SPECIFIC_EXTENSION {
     pub uBufferLength: u32,
     pub uTotalBufferLength: u32,
@@ -1948,6 +2269,7 @@ pub const DOT11_NLO_FLAG_SCAN_AT_SYSTEM_RESUME: u32 = 4u32;
 pub const DOT11_NLO_FLAG_SCAN_ON_AOAC_PLATFORM: u32 = 2u32;
 pub const DOT11_NLO_FLAG_STOP_NLO_INDICATION: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_OFDM_PHY_ATTRIBUTES {
     pub uFrequencyBandsSupported: u32,
 }
@@ -1958,6 +2280,7 @@ impl ::core::clone::Clone for DOT11_OFDM_PHY_ATTRIBUTES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_OFFLOAD_CAPABILITY {
     pub uReserved: u32,
     pub uFlags: u32,
@@ -1974,6 +2297,7 @@ impl ::core::clone::Clone for DOT11_OFFLOAD_CAPABILITY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_OFFLOAD_NETWORK {
     pub Ssid: DOT11_SSID,
     pub UnicastCipher: DOT11_CIPHER_ALGORITHM,
@@ -1987,6 +2311,7 @@ impl ::core::clone::Clone for DOT11_OFFLOAD_NETWORK {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_OFFLOAD_NETWORK_LIST_INFO {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2007,6 +2332,7 @@ impl ::core::clone::Clone for DOT11_OFFLOAD_NETWORK_LIST_INFO {
 }
 pub const DOT11_OFFLOAD_NETWORK_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2021,10 +2347,14 @@ impl ::core::clone::Clone for DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     }
 }
 pub const DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS_REVISION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_OFFLOAD_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_offload_type_wep: DOT11_OFFLOAD_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_offload_type_auth: DOT11_OFFLOAD_TYPE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_OI {
     pub OILength: u16,
     pub OI: [u8; 5],
@@ -2039,6 +2369,7 @@ pub const DOT11_OI_MAX_LENGTH: u32 = 5u32;
 pub const DOT11_OI_MIN_LENGTH: u32 = 3u32;
 pub const DOT11_OPERATION_MODE_AP: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_OPERATION_MODE_CAPABILITY {
     pub uReserved: u32,
     pub uMajorVersion: u32,
@@ -2063,6 +2394,7 @@ pub const DOT11_OPERATION_MODE_WFD_CLIENT: u32 = 64u32;
 pub const DOT11_OPERATION_MODE_WFD_DEVICE: u32 = 16u32;
 pub const DOT11_OPERATION_MODE_WFD_GROUP_OWNER: u32 = 32u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_OPTIONAL_CAPABILITY {
     pub uReserved: u32,
@@ -2094,6 +2426,7 @@ pub const DOT11_PACKET_TYPE_PROMISCUOUS_CTRL: u32 = 512u32;
 pub const DOT11_PACKET_TYPE_PROMISCUOUS_DATA: u32 = 2048u32;
 pub const DOT11_PACKET_TYPE_PROMISCUOUS_MGMT: u32 = 1024u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_PEER_INFO {
     pub MacAddress: [u8; 6],
@@ -2119,6 +2452,7 @@ impl ::core::clone::Clone for DOT11_PEER_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_PEER_INFO_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2136,6 +2470,7 @@ impl ::core::clone::Clone for DOT11_PEER_INFO_LIST {
 }
 pub const DOT11_PEER_INFO_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_PEER_STATISTICS {
     pub ullDecryptSuccessCount: u64,
     pub ullDecryptFailureCount: u64,
@@ -2151,6 +2486,7 @@ impl ::core::clone::Clone for DOT11_PEER_STATISTICS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_PER_MSDU_COUNTERS {
     pub uTransmittedFragmentCount: u32,
     pub uRetryCount: u32,
@@ -2165,6 +2501,7 @@ impl ::core::clone::Clone for DOT11_PER_MSDU_COUNTERS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_PHY_ATTRIBUTES {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2191,6 +2528,7 @@ impl ::core::clone::Clone for DOT11_PHY_ATTRIBUTES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub union DOT11_PHY_ATTRIBUTES_0 {
     pub HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
@@ -2207,6 +2545,7 @@ impl ::core::clone::Clone for DOT11_PHY_ATTRIBUTES_0 {
 }
 pub const DOT11_PHY_ATTRIBUTES_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_PHY_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
     pub ullMulticastTransmittedFrameCount: u64,
@@ -2234,6 +2573,7 @@ impl ::core::clone::Clone for DOT11_PHY_FRAME_STATISTICS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2249,6 +2589,7 @@ impl ::core::clone::Clone for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub union DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     pub ulChannel: u32,
@@ -2264,6 +2605,7 @@ impl ::core::clone::Clone for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
 }
 pub const DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_PHY_ID_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2281,6 +2623,7 @@ impl ::core::clone::Clone for DOT11_PHY_ID_LIST {
 }
 pub const DOT11_PHY_ID_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_PHY_STATE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2297,22 +2640,38 @@ impl ::core::clone::Clone for DOT11_PHY_STATE_PARAMETERS {
     }
 }
 pub const DOT11_PHY_STATE_PARAMETERS_REVISION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_PHY_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_phy_type_unknown: DOT11_PHY_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_phy_type_any: DOT11_PHY_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_phy_type_fhss: DOT11_PHY_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_phy_type_dsss: DOT11_PHY_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_phy_type_irbaseband: DOT11_PHY_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_phy_type_ofdm: DOT11_PHY_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_phy_type_hrdsss: DOT11_PHY_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_phy_type_erp: DOT11_PHY_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_phy_type_ht: DOT11_PHY_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_phy_type_vht: DOT11_PHY_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_phy_type_dmg: DOT11_PHY_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_phy_type_he: DOT11_PHY_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_phy_type_IHV_start: DOT11_PHY_TYPE = -2147483648i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_phy_type_IHV_end: DOT11_PHY_TYPE = -1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_PHY_TYPE_INFO {
     pub dot11PhyType: DOT11_PHY_TYPE,
@@ -2333,6 +2692,7 @@ impl ::core::clone::Clone for DOT11_PHY_TYPE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_PHY_TYPE_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2350,6 +2710,7 @@ impl ::core::clone::Clone for DOT11_PHY_TYPE_LIST {
 }
 pub const DOT11_PHY_TYPE_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2366,6 +2727,7 @@ impl ::core::clone::Clone for DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
 }
 pub const DOT11_PMKID_CANDIDATE_LIST_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_PMKID_ENTRY {
     pub BSSID: [u8; 6],
     pub PMKID: [u8; 16],
@@ -2378,6 +2740,7 @@ impl ::core::clone::Clone for DOT11_PMKID_ENTRY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_PMKID_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2395,6 +2758,7 @@ impl ::core::clone::Clone for DOT11_PMKID_LIST {
 }
 pub const DOT11_PMKID_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_PORT_STATE_NOTIFICATION {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2411,6 +2775,7 @@ impl ::core::clone::Clone for DOT11_PORT_STATE_NOTIFICATION {
 }
 pub const DOT11_PORT_STATE_NOTIFICATION_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2426,6 +2791,7 @@ impl ::core::clone::Clone for DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
 }
 pub const DOT11_POWER_MGMT_AUTO_MODE_ENABLED_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_POWER_MGMT_MODE {
     pub dot11PowerMode: DOT11_POWER_MODE,
@@ -2443,6 +2809,7 @@ impl ::core::clone::Clone for DOT11_POWER_MGMT_MODE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_POWER_MGMT_MODE_STATUS_INFO {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2459,16 +2826,27 @@ impl ::core::clone::Clone for DOT11_POWER_MGMT_MODE_STATUS_INFO {
     }
 }
 pub const DOT11_POWER_MGMT_MODE_STATUS_INFO_REVISION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_POWER_MODE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_power_mode_unknown: DOT11_POWER_MODE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_power_mode_active: DOT11_POWER_MODE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_power_mode_powersave: DOT11_POWER_MODE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_POWER_MODE_REASON = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_power_mode_reason_no_change: DOT11_POWER_MODE_REASON = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_power_mode_reason_noncompliant_AP: DOT11_POWER_MODE_REASON = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_power_mode_reason_legacy_WFD_device: DOT11_POWER_MODE_REASON = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_power_mode_reason_compliant_AP: DOT11_POWER_MODE_REASON = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_power_mode_reason_compliant_WFD_device: DOT11_POWER_MODE_REASON = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_power_mode_reason_others: DOT11_POWER_MODE_REASON = 5i32;
 pub const DOT11_POWER_SAVE_LEVEL_FAST_PSP: u32 = 2u32;
 pub const DOT11_POWER_SAVE_LEVEL_MAX_PSP: u32 = 1u32;
@@ -2479,6 +2857,7 @@ pub const DOT11_POWER_SAVING_NO_POWER_SAVING: u32 = 0u32;
 pub const DOT11_PRIORITY_CONTENTION: u32 = 0u32;
 pub const DOT11_PRIORITY_CONTENTION_FREE: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_PRIVACY_EXEMPTION {
     pub usEtherType: u16,
     pub usExemptionActionType: u16,
@@ -2491,6 +2870,7 @@ impl ::core::clone::Clone for DOT11_PRIVACY_EXEMPTION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_PRIVACY_EXEMPTION_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2508,6 +2888,7 @@ impl ::core::clone::Clone for DOT11_PRIVACY_EXEMPTION_LIST {
 }
 pub const DOT11_PRIVACY_EXEMPTION_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2528,6 +2909,7 @@ impl ::core::clone::Clone for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PA
 }
 pub const DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2549,6 +2931,7 @@ pub const DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1
 pub const DOT11_PSD_IE_MAX_DATA_SIZE: u32 = 240u32;
 pub const DOT11_PSD_IE_MAX_ENTRY_NUMBER: u32 = 5u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_QOS_PARAMS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2564,6 +2947,7 @@ impl ::core::clone::Clone for DOT11_QOS_PARAMS {
 }
 pub const DOT11_QOS_PARAMS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_QOS_TX_DURATION {
     pub uNominalMSDUSize: u32,
     pub uMinPHYRate: u32,
@@ -2576,6 +2960,7 @@ impl ::core::clone::Clone for DOT11_QOS_TX_DURATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_QOS_TX_MEDIUM_TIME {
     pub dot11PeerAddress: [u8; 6],
     pub ucQoSPriority: u8,
@@ -2587,11 +2972,16 @@ impl ::core::clone::Clone for DOT11_QOS_TX_MEDIUM_TIME {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_RADIO_STATE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_radio_state_unknown: DOT11_RADIO_STATE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_radio_state_on: DOT11_RADIO_STATE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_radio_state_off: DOT11_RADIO_STATE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_RATE_SET {
     pub uRateSetLength: u32,
     pub ucRateSet: [u8; 126],
@@ -2604,6 +2994,7 @@ impl ::core::clone::Clone for DOT11_RATE_SET {
 }
 pub const DOT11_RATE_SET_MAX_LENGTH: u32 = 126u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2622,6 +3013,7 @@ impl ::core::clone::Clone for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMET
 }
 pub const DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2641,6 +3033,7 @@ impl ::core::clone::Clone for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
 }
 pub const DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2660,6 +3053,7 @@ impl ::core::clone::Clone for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS 
 }
 pub const DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2680,6 +3074,7 @@ impl ::core::clone::Clone for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
 }
 pub const DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2699,6 +3094,7 @@ impl ::core::clone::Clone for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
 }
 pub const DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2719,6 +3115,7 @@ impl ::core::clone::Clone for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMET
 }
 pub const DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2739,6 +3136,7 @@ impl ::core::clone::Clone for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAME
 pub const DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const DOT11_RECV_CONTEXT_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_RECV_EXTENSION_INFO {
     pub uVersion: u32,
@@ -2774,6 +3172,7 @@ impl ::core::clone::Clone for DOT11_RECV_EXTENSION_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_RECV_EXTENSION_INFO_V2 {
     pub uVersion: u32,
@@ -2807,6 +3206,7 @@ impl ::core::clone::Clone for DOT11_RECV_EXTENSION_INFO_V2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_RECV_SENSITIVITY {
     pub ucDataRate: u8,
     pub lRSSIMin: i32,
@@ -2819,6 +3219,7 @@ impl ::core::clone::Clone for DOT11_RECV_SENSITIVITY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_RECV_SENSITIVITY_LIST {
     pub Anonymous: DOT11_RECV_SENSITIVITY_LIST_0,
     pub uNumOfEntries: u32,
@@ -2832,6 +3233,7 @@ impl ::core::clone::Clone for DOT11_RECV_SENSITIVITY_LIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub union DOT11_RECV_SENSITIVITY_LIST_0 {
     pub dot11PhyType: DOT11_PHY_TYPE,
     pub uPhyId: u32,
@@ -2843,6 +3245,7 @@ impl ::core::clone::Clone for DOT11_RECV_SENSITIVITY_LIST_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_REG_DOMAINS_SUPPORT_VALUE {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
@@ -2862,6 +3265,7 @@ pub const DOT11_REG_DOMAIN_MKK: u32 = 64u32;
 pub const DOT11_REG_DOMAIN_OTHER: u32 = 0u32;
 pub const DOT11_REG_DOMAIN_SPAIN: u32 = 49u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_REG_DOMAIN_VALUE {
     pub uRegDomainsSupportIndex: u32,
     pub uRegDomainsSupportValue: u32,
@@ -2873,6 +3277,7 @@ impl ::core::clone::Clone for DOT11_REG_DOMAIN_VALUE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_RESET_REQUEST {
     pub dot11ResetType: DOT11_RESET_TYPE,
@@ -2887,11 +3292,16 @@ impl ::core::clone::Clone for DOT11_RESET_REQUEST {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_RESET_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_reset_type_phy: DOT11_RESET_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_reset_type_mac: DOT11_RESET_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_reset_type_phy_and_mac: DOT11_RESET_TYPE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_ROAMING_COMPLETION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2907,6 +3317,7 @@ impl ::core::clone::Clone for DOT11_ROAMING_COMPLETION_PARAMETERS {
 }
 pub const DOT11_ROAMING_COMPLETION_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_ROAMING_START_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -2924,6 +3335,7 @@ impl ::core::clone::Clone for DOT11_ROAMING_START_PARAMETERS {
 }
 pub const DOT11_ROAMING_START_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_RSSI_RANGE {
     pub dot11PhyType: DOT11_PHY_TYPE,
     pub uRSSIMin: u32,
@@ -2936,6 +3348,7 @@ impl ::core::clone::Clone for DOT11_RSSI_RANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_SCAN_REQUEST {
     pub dot11BSSType: DOT11_BSS_TYPE,
@@ -2961,6 +3374,7 @@ impl ::core::clone::Clone for DOT11_SCAN_REQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_SCAN_REQUEST_V2 {
     pub dot11BSSType: DOT11_BSS_TYPE,
@@ -2986,13 +3400,19 @@ impl ::core::clone::Clone for DOT11_SCAN_REQUEST_V2 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_SCAN_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_scan_type_active: DOT11_SCAN_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_scan_type_passive: DOT11_SCAN_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_scan_type_auto: DOT11_SCAN_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_scan_type_forced: DOT11_SCAN_TYPE = -2147483648i32;
 pub const DOT11_SEND_CONTEXT_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3017,6 +3437,7 @@ impl ::core::clone::Clone for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS 
 }
 pub const DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3040,6 +3461,7 @@ impl ::core::clone::Clone for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
 }
 pub const DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3067,6 +3489,7 @@ impl ::core::clone::Clone for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
 }
 pub const DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3094,6 +3517,7 @@ impl ::core::clone::Clone for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
 }
 pub const DOT11_SEND_INVITATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3120,6 +3544,7 @@ impl ::core::clone::Clone for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
 }
 pub const DOT11_SEND_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3142,6 +3567,7 @@ impl ::core::clone::Clone for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS 
 }
 pub const DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3164,6 +3590,7 @@ pub const DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: u32 = 1
 pub const DOT11_SERVICE_CLASS_REORDERABLE_MULTICAST: u32 = 0u32;
 pub const DOT11_SERVICE_CLASS_STRICTLY_ORDERED: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_SSID {
     pub uSSIDLength: u32,
     pub ucSSID: [u8; 32],
@@ -3175,6 +3602,7 @@ impl ::core::clone::Clone for DOT11_SSID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_SSID_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3193,6 +3621,7 @@ impl ::core::clone::Clone for DOT11_SSID_LIST {
 pub const DOT11_SSID_LIST_REVISION_1: u32 = 1u32;
 pub const DOT11_SSID_MAX_LENGTH: u32 = 32u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_START_REQUEST {
     pub uStartFailureTimeout: u32,
     pub OperationalRateSet: DOT11_RATE_SET,
@@ -3206,6 +3635,7 @@ impl ::core::clone::Clone for DOT11_START_REQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_STATISTICS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3234,6 +3664,7 @@ pub const DOT11_STATUS_EXCESSIVE_DATA_LENGTH: u32 = 256u32;
 pub const DOT11_STATUS_GENERATE_AUTH_FAILED: u32 = 16384u32;
 pub const DOT11_STATUS_ICV_VERIFIED: u32 = 2048u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_STATUS_INDICATION {
     pub uStatusType: u32,
     pub ndisStatus: i32,
@@ -3262,6 +3693,7 @@ pub const DOT11_STATUS_UNSUPPORTED_SERVICE_CLASS: u32 = 8u32;
 pub const DOT11_STATUS_WEP_KEY_UNAVAILABLE: u32 = 1024u32;
 pub const DOT11_STATUS_XMIT_MSDU_TIMER_EXPIRED: u32 = 64u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_STOP_AP_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3282,6 +3714,7 @@ pub const DOT11_STOP_AP_REASON_FREQUENCY_NOT_AVAILABLE: u32 = 1u32;
 pub const DOT11_STOP_AP_REASON_IHV_END: u32 = 4294967295u32;
 pub const DOT11_STOP_AP_REASON_IHV_START: u32 = 4278190080u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_SUPPORTED_ANTENNA {
     pub uAntennaListIndex: u32,
@@ -3296,6 +3729,7 @@ impl ::core::clone::Clone for DOT11_SUPPORTED_ANTENNA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_SUPPORTED_ANTENNA_LIST {
     pub uNumOfEntries: u32,
@@ -3311,6 +3745,7 @@ impl ::core::clone::Clone for DOT11_SUPPORTED_ANTENNA_LIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_SUPPORTED_DATA_RATES_VALUE {
     pub ucSupportedTxDataRatesValue: [u8; 8],
     pub ucSupportedRxDataRatesValue: [u8; 8],
@@ -3322,6 +3757,7 @@ impl ::core::clone::Clone for DOT11_SUPPORTED_DATA_RATES_VALUE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
     pub ucSupportedTxDataRatesValue: [u8; 255],
     pub ucSupportedRxDataRatesValue: [u8; 255],
@@ -3333,6 +3769,7 @@ impl ::core::clone::Clone for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_SUPPORTED_DSSS_CHANNEL {
     pub uChannel: u32,
 }
@@ -3343,6 +3780,7 @@ impl ::core::clone::Clone for DOT11_SUPPORTED_DSSS_CHANNEL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
@@ -3355,6 +3793,7 @@ impl ::core::clone::Clone for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_SUPPORTED_OFDM_FREQUENCY {
     pub uCenterFrequency: u32,
 }
@@ -3365,6 +3804,7 @@ impl ::core::clone::Clone for DOT11_SUPPORTED_OFDM_FREQUENCY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
@@ -3377,6 +3817,7 @@ impl ::core::clone::Clone for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_SUPPORTED_PHY_TYPES {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
@@ -3389,6 +3830,7 @@ impl ::core::clone::Clone for DOT11_SUPPORTED_PHY_TYPES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_SUPPORTED_POWER_LEVELS {
     pub uNumOfSupportedPowerLevels: u32,
     pub uTxPowerLevelValues: [u32; 8],
@@ -3399,11 +3841,16 @@ impl ::core::clone::Clone for DOT11_SUPPORTED_POWER_LEVELS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_TEMP_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_temp_type_unknown: DOT11_TEMP_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_temp_type_1: DOT11_TEMP_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_temp_type_2: DOT11_TEMP_TYPE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_TKIPMIC_FAILURE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3421,6 +3868,7 @@ impl ::core::clone::Clone for DOT11_TKIPMIC_FAILURE_PARAMETERS {
 }
 pub const DOT11_TKIPMIC_FAILURE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_UPDATE_IE {
     pub dot11UpdateIEOp: DOT11_UPDATE_IE_OP,
     pub uBufferLength: u32,
@@ -3432,10 +3880,14 @@ impl ::core::clone::Clone for DOT11_UPDATE_IE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_UPDATE_IE_OP = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_update_ie_op_create_replace: DOT11_UPDATE_IE_OP = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_update_ie_op_delete: DOT11_UPDATE_IE_OP = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_VENUEINFO {
     pub VenueGroup: u8,
     pub VenueType: u8,
@@ -3447,6 +3899,7 @@ impl ::core::clone::Clone for DOT11_VENUEINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_VWIFI_ATTRIBUTES {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3463,6 +3916,7 @@ impl ::core::clone::Clone for DOT11_VWIFI_ATTRIBUTES {
 }
 pub const DOT11_VWIFI_ATTRIBUTES_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_VWIFI_COMBINATION {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3482,6 +3936,7 @@ pub const DOT11_VWIFI_COMBINATION_REVISION_1: u32 = 1u32;
 pub const DOT11_VWIFI_COMBINATION_REVISION_2: u32 = 2u32;
 pub const DOT11_VWIFI_COMBINATION_REVISION_3: u32 = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_VWIFI_COMBINATION_V2 {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3499,6 +3954,7 @@ impl ::core::clone::Clone for DOT11_VWIFI_COMBINATION_V2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_VWIFI_COMBINATION_V3 {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3517,6 +3973,7 @@ impl ::core::clone::Clone for DOT11_VWIFI_COMBINATION_V3 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_WEP_OFFLOAD {
     pub uReserved: u32,
@@ -3544,6 +4001,7 @@ impl ::core::clone::Clone for DOT11_WEP_OFFLOAD {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_WEP_UPLOAD {
     pub uReserved: u32,
@@ -3562,6 +4020,7 @@ impl ::core::clone::Clone for DOT11_WEP_UPLOAD {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_WFD_ADDITIONAL_IE {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3582,6 +4041,7 @@ impl ::core::clone::Clone for DOT11_WFD_ADDITIONAL_IE {
 }
 pub const DOT11_WFD_ADDITIONAL_IE_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
     pub AdvertisementID: u32,
     pub ConfigMethods: u16,
@@ -3595,6 +4055,7 @@ impl ::core::clone::Clone for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_WFD_ADVERTISED_SERVICE_LIST {
     pub ServiceCount: u16,
     pub AdvertisedService: [DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR; 1],
@@ -3606,6 +4067,7 @@ impl ::core::clone::Clone for DOT11_WFD_ADVERTISED_SERVICE_LIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_WFD_ADVERTISEMENT_ID {
     pub AdvertisementID: u32,
     pub ServiceAddress: [u8; 6],
@@ -3619,6 +4081,7 @@ impl ::core::clone::Clone for DOT11_WFD_ADVERTISEMENT_ID {
 pub const DOT11_WFD_APS2_SERVICE_TYPE_MAX_LENGTH: u32 = 21u32;
 pub const DOT11_WFD_ASP2_INSTANCE_NAME_MAX_LENGTH: u32 = 63u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_WFD_ATTRIBUTES {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3647,6 +4110,7 @@ impl ::core::clone::Clone for DOT11_WFD_ATTRIBUTES {
 }
 pub const DOT11_WFD_ATTRIBUTES_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_WFD_CHANNEL {
     pub CountryRegionString: [u8; 3],
     pub OperatingClass: u8,
@@ -3659,6 +4123,7 @@ impl ::core::clone::Clone for DOT11_WFD_CHANNEL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_WFD_CONFIGURATION_TIMEOUT {
     pub GOTimeout: u8,
     pub ClientTimeout: u8,
@@ -3672,6 +4137,7 @@ impl ::core::clone::Clone for DOT11_WFD_CONFIGURATION_TIMEOUT {
 pub const DOT11_WFD_DEVICE_AUTO_AVAILABILITY: u32 = 16u32;
 pub const DOT11_WFD_DEVICE_CAPABILITY_CONCURRENT_OPERATION: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3700,6 +4166,7 @@ pub const DOT11_WFD_DEVICE_CAPABILITY_RESERVED_6: u32 = 64u32;
 pub const DOT11_WFD_DEVICE_CAPABILITY_RESERVED_7: u32 = 128u32;
 pub const DOT11_WFD_DEVICE_CAPABILITY_SERVICE_DISCOVERY: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_WFD_DEVICE_ENTRY {
     pub uPhyId: u32,
     pub PhySpecificInfo: DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO,
@@ -3726,6 +4193,7 @@ impl ::core::clone::Clone for DOT11_WFD_DEVICE_ENTRY {
 }
 pub const DOT11_WFD_DEVICE_HIGH_AVAILABILITY: u32 = 24u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_WFD_DEVICE_INFO {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3744,6 +4212,7 @@ impl ::core::clone::Clone for DOT11_WFD_DEVICE_INFO {
 }
 pub const DOT11_WFD_DEVICE_INFO_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_WFD_DEVICE_LISTEN_CHANNEL {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3760,6 +4229,7 @@ impl ::core::clone::Clone for DOT11_WFD_DEVICE_LISTEN_CHANNEL {
 pub const DOT11_WFD_DEVICE_LISTEN_CHANNEL_REVISION_1: u32 = 1u32;
 pub const DOT11_WFD_DEVICE_NOT_DISCOVERABLE: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_WFD_DEVICE_TYPE {
     pub CategoryID: u16,
     pub SubCategoryID: u16,
@@ -3773,6 +4243,7 @@ impl ::core::clone::Clone for DOT11_WFD_DEVICE_TYPE {
 }
 pub const DOT11_WFD_DISCOVER_COMPLETE_MAX_LIST_SIZE: u32 = 128u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3792,6 +4263,7 @@ impl ::core::clone::Clone for DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
 }
 pub const DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_WFD_DISCOVER_DEVICE_FILTER {
     pub DeviceID: [u8; 6],
     pub ucBitmask: u8,
@@ -3804,6 +4276,7 @@ impl ::core::clone::Clone for DOT11_WFD_DISCOVER_DEVICE_FILTER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_WFD_DISCOVER_REQUEST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3825,13 +4298,20 @@ impl ::core::clone::Clone for DOT11_WFD_DISCOVER_REQUEST {
     }
 }
 pub const DOT11_WFD_DISCOVER_REQUEST_REVISION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_WFD_DISCOVER_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_wfd_discover_type_scan_only: DOT11_WFD_DISCOVER_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_wfd_discover_type_find_only: DOT11_WFD_DISCOVER_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_wfd_discover_type_auto: DOT11_WFD_DISCOVER_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_wfd_discover_type_scan_social_channels: DOT11_WFD_DISCOVER_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_wfd_discover_type_forced: DOT11_WFD_DISCOVER_TYPE = -2147483648i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_WFD_GO_INTENT {
     pub _bitfield: u8,
 }
@@ -3852,6 +4332,7 @@ pub const DOT11_WFD_GROUP_CAPABILITY_PERSISTENT_GROUP: u32 = 2u32;
 pub const DOT11_WFD_GROUP_CAPABILITY_PERSISTENT_RECONNECT_SUPPORTED: u32 = 32u32;
 pub const DOT11_WFD_GROUP_CAPABILITY_RESERVED_7: u32 = 128u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_WFD_GROUP_ID {
     pub DeviceAddress: [u8; 6],
     pub SSID: DOT11_SSID,
@@ -3863,6 +4344,7 @@ impl ::core::clone::Clone for DOT11_WFD_GROUP_ID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_WFD_GROUP_JOIN_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3881,6 +4363,7 @@ impl ::core::clone::Clone for DOT11_WFD_GROUP_JOIN_PARAMETERS {
 }
 pub const DOT11_WFD_GROUP_JOIN_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3902,6 +4385,7 @@ impl ::core::clone::Clone for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
 pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_1: u32 = 1u32;
 pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_2: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3922,6 +4406,7 @@ impl ::core::clone::Clone for DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_WFD_GROUP_START_PARAMETERS {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3937,6 +4422,7 @@ impl ::core::clone::Clone for DOT11_WFD_GROUP_START_PARAMETERS {
 }
 pub const DOT11_WFD_GROUP_START_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_WFD_INVITATION_FLAGS {
     pub _bitfield: u8,
 }
@@ -3951,11 +4437,16 @@ pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_INFRASTRUCTURE_MANAGED_POLICY: u3
 pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_NOT_MANAGED_INFRASTRUCTURE_CAPABLE: u32 = 2u32;
 pub const DOT11_WFD_MINOR_REASON_DISASSOCIATED_WFD_COEXISTENCE_POLICY: u32 = 3u32;
 pub const DOT11_WFD_MINOR_REASON_SUCCESS: u32 = 0u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_WFD_SCAN_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_wfd_scan_type_active: DOT11_WFD_SCAN_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_wfd_scan_type_passive: DOT11_WFD_SCAN_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const dot11_wfd_scan_type_auto: DOT11_WFD_SCAN_TYPE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
     pub Header: super::Ndis::NDIS_OBJECT_HEADER,
@@ -3973,6 +4464,7 @@ impl ::core::clone::Clone for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
 }
 pub const DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_WFD_SERVICE_HASH_LIST {
     pub ServiceHashCount: u16,
     pub ServiceHash: [u8; 6],
@@ -3986,6 +4478,7 @@ impl ::core::clone::Clone for DOT11_WFD_SERVICE_HASH_LIST {
 pub const DOT11_WFD_SERVICE_INFORMATION_MAX_LENGTH: u32 = 65535u32;
 pub const DOT11_WFD_SERVICE_NAME_MAX_LENGTH: u32 = 255u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_WFD_SESSION_ID {
     pub SessionID: u32,
     pub SessionAddress: [u8; 6],
@@ -3997,6 +4490,7 @@ impl ::core::clone::Clone for DOT11_WFD_SESSION_ID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_WFD_SESSION_INFO {
     pub uSessionInfoLength: u16,
     pub ucSessionInfo: [u8; 144],
@@ -4022,6 +4516,7 @@ pub const DOT11_WFD_STATUS_FAILED_UNKNOWN_WFD_GROUP: u32 = 8u32;
 pub const DOT11_WFD_STATUS_SUCCESS: u32 = 0u32;
 pub const DOT11_WFD_STATUS_SUCCESS_ACCEPTED_BY_USER: u32 = 12u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_WME_AC_PARAMETERS {
     pub ucAccessCategoryIndex: u8,
     pub ucAIFSN: u8,
@@ -4037,6 +4532,7 @@ impl ::core::clone::Clone for DOT11_WME_AC_PARAMETERS {
 }
 pub const DOT11_WME_PACKET: u32 = 256u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_WME_UPDATE_IE {
     pub uParamElemMinBeaconIntervals: u32,
     pub uWMEInfoElemOffset: u32,
@@ -4052,6 +4548,7 @@ impl ::core::clone::Clone for DOT11_WME_UPDATE_IE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOT11_WPA_TSC {
     pub uReserved: u32,
@@ -4067,15 +4564,24 @@ impl ::core::clone::Clone for DOT11_WPA_TSC {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_WPS_CONFIG_METHOD = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_WPS_CONFIG_METHOD_NULL: DOT11_WPS_CONFIG_METHOD = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_WPS_CONFIG_METHOD_DISPLAY: DOT11_WPS_CONFIG_METHOD = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_WPS_CONFIG_METHOD_NFC_TAG: DOT11_WPS_CONFIG_METHOD = 32i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_WPS_CONFIG_METHOD_NFC_INTERFACE: DOT11_WPS_CONFIG_METHOD = 64i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_WPS_CONFIG_METHOD_PUSHBUTTON: DOT11_WPS_CONFIG_METHOD = 128i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_WPS_CONFIG_METHOD_KEYPAD: DOT11_WPS_CONFIG_METHOD = 256i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_WPS_CONFIG_METHOD_WFDS_DEFAULT: DOT11_WPS_CONFIG_METHOD = 4096i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct DOT11_WPS_DEVICE_NAME {
     pub uDeviceNameLength: u32,
     pub ucDeviceName: [u8; 32],
@@ -4087,16 +4593,27 @@ impl ::core::clone::Clone for DOT11_WPS_DEVICE_NAME {
     }
 }
 pub const DOT11_WPS_DEVICE_NAME_MAX_LENGTH: u32 = 32u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type DOT11_WPS_DEVICE_PASSWORD_ID = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_WPS_PASSWORD_ID_DEFAULT: DOT11_WPS_DEVICE_PASSWORD_ID = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_WPS_PASSWORD_ID_USER_SPECIFIED: DOT11_WPS_DEVICE_PASSWORD_ID = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_WPS_PASSWORD_ID_MACHINE_SPECIFIED: DOT11_WPS_DEVICE_PASSWORD_ID = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_WPS_PASSWORD_ID_REKEY: DOT11_WPS_DEVICE_PASSWORD_ID = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_WPS_PASSWORD_ID_PUSHBUTTON: DOT11_WPS_DEVICE_PASSWORD_ID = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_WPS_PASSWORD_ID_REGISTRAR_SPECIFIED: DOT11_WPS_DEVICE_PASSWORD_ID = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_WPS_PASSWORD_ID_NFC_CONNECTION_HANDOVER: DOT11_WPS_DEVICE_PASSWORD_ID = 7i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_WPS_PASSWORD_ID_WFD_SERVICES: DOT11_WPS_DEVICE_PASSWORD_ID = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_WPS_PASSWORD_ID_OOB_RANGE_MIN: DOT11_WPS_DEVICE_PASSWORD_ID = 16i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const DOT11_WPS_PASSWORD_ID_OOB_RANGE_MAX: DOT11_WPS_DEVICE_PASSWORD_ID = 65535i32;
 pub const DOT11_WPS_MAX_MODEL_NAME_LENGTH: u32 = 32u32;
 pub const DOT11_WPS_MAX_MODEL_NUMBER_LENGTH: u32 = 32u32;
@@ -4209,6 +4726,7 @@ pub type IEnumDot11AdHocSecuritySettings = *mut ::core::ffi::c_void;
 pub const L2_NOTIFICATION_CODE_GROUP_SIZE: u32 = 4096u32;
 pub const L2_NOTIFICATION_CODE_PUBLIC_BEGIN: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct L2_NOTIFICATION_DATA {
     pub NotificationSource: u32,
     pub NotificationCode: u32,
@@ -4376,14 +4894,22 @@ pub const OID_DOT11_WME_ENABLED: u32 = 218170215u32;
 pub const OID_DOT11_WME_IMPLEMENTED: u32 = 218170214u32;
 pub const OID_DOT11_WME_UPDATE_IE: u32 = 218170217u32;
 pub const OID_DOT11_WPA_TSC: u32 = 218170201u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type ONEX_AUTH_IDENTITY = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXAuthIdentityNone: ONEX_AUTH_IDENTITY = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXAuthIdentityMachine: ONEX_AUTH_IDENTITY = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXAuthIdentityUser: ONEX_AUTH_IDENTITY = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXAuthIdentityExplicitUser: ONEX_AUTH_IDENTITY = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXAuthIdentityGuest: ONEX_AUTH_IDENTITY = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXAuthIdentityInvalid: ONEX_AUTH_IDENTITY = 5i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ONEX_AUTH_PARAMS {
     pub fUpdatePending: super::super::Foundation::BOOL,
@@ -4406,24 +4932,42 @@ impl ::core::clone::Clone for ONEX_AUTH_PARAMS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type ONEX_AUTH_RESTART_REASON = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXRestartReasonPeerInitiated: ONEX_AUTH_RESTART_REASON = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXRestartReasonMsmInitiated: ONEX_AUTH_RESTART_REASON = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXRestartReasonOneXHeldStateTimeout: ONEX_AUTH_RESTART_REASON = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXRestartReasonOneXAuthTimeout: ONEX_AUTH_RESTART_REASON = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXRestartReasonOneXConfigurationChanged: ONEX_AUTH_RESTART_REASON = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXRestartReasonOneXUserChanged: ONEX_AUTH_RESTART_REASON = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXRestartReasonQuarantineStateChanged: ONEX_AUTH_RESTART_REASON = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXRestartReasonAltCredsTrial: ONEX_AUTH_RESTART_REASON = 7i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXRestartReasonInvalid: ONEX_AUTH_RESTART_REASON = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type ONEX_AUTH_STATUS = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXAuthNotStarted: ONEX_AUTH_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXAuthInProgress: ONEX_AUTH_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXAuthNoAuthenticatorFound: ONEX_AUTH_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXAuthSuccess: ONEX_AUTH_STATUS = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXAuthFailure: ONEX_AUTH_STATUS = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXAuthInvalid: ONEX_AUTH_STATUS = 5i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Security_ExtensibleAuthenticationProtocol'*"]
 #[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
 pub struct ONEX_EAP_ERROR {
     pub dwWinError: u32,
@@ -4444,40 +4988,74 @@ impl ::core::clone::Clone for ONEX_EAP_ERROR {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type ONEX_EAP_METHOD_BACKEND_SUPPORT = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXEapMethodBackendSupportUnknown: ONEX_EAP_METHOD_BACKEND_SUPPORT = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXEapMethodBackendSupported: ONEX_EAP_METHOD_BACKEND_SUPPORT = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXEapMethodBackendUnsupported: ONEX_EAP_METHOD_BACKEND_SUPPORT = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type ONEX_NOTIFICATION_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXPublicNotificationBase: ONEX_NOTIFICATION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXNotificationTypeResultUpdate: ONEX_NOTIFICATION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXNotificationTypeAuthRestarted: ONEX_NOTIFICATION_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXNotificationTypeEventInvalid: ONEX_NOTIFICATION_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const OneXNumNotifications: ONEX_NOTIFICATION_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type ONEX_REASON_CODE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_REASON_CODE_SUCCESS: ONEX_REASON_CODE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_REASON_START: ONEX_REASON_CODE = 327680i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_UNABLE_TO_IDENTIFY_USER: ONEX_REASON_CODE = 327681i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_IDENTITY_NOT_FOUND: ONEX_REASON_CODE = 327682i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_UI_DISABLED: ONEX_REASON_CODE = 327683i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_UI_FAILURE: ONEX_REASON_CODE = 327684i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_EAP_FAILURE_RECEIVED: ONEX_REASON_CODE = 327685i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_AUTHENTICATOR_NO_LONGER_PRESENT: ONEX_REASON_CODE = 327686i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_NO_RESPONSE_TO_IDENTITY: ONEX_REASON_CODE = 327687i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_PROFILE_VERSION_NOT_SUPPORTED: ONEX_REASON_CODE = 327688i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_PROFILE_INVALID_LENGTH: ONEX_REASON_CODE = 327689i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_PROFILE_DISALLOWED_EAP_TYPE: ONEX_REASON_CODE = 327690i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_PROFILE_INVALID_EAP_TYPE_OR_FLAG: ONEX_REASON_CODE = 327691i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_PROFILE_INVALID_ONEX_FLAGS: ONEX_REASON_CODE = 327692i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_PROFILE_INVALID_TIMER_VALUE: ONEX_REASON_CODE = 327693i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_PROFILE_INVALID_SUPPLICANT_MODE: ONEX_REASON_CODE = 327694i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_PROFILE_INVALID_AUTH_MODE: ONEX_REASON_CODE = 327695i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_PROFILE_INVALID_EAP_CONNECTION_PROPERTIES: ONEX_REASON_CODE = 327696i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_UI_CANCELLED: ONEX_REASON_CODE = 327697i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_PROFILE_INVALID_EXPLICIT_CREDENTIALS: ONEX_REASON_CODE = 327698i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_PROFILE_EXPIRED_EXPLICIT_CREDENTIALS: ONEX_REASON_CODE = 327699i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const ONEX_UI_NOT_PERMITTED: ONEX_REASON_CODE = 327700i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ONEX_RESULT_UPDATE_DATA {
     pub oneXStatus: ONEX_STATUS,
@@ -4496,6 +5074,7 @@ impl ::core::clone::Clone for ONEX_RESULT_UPDATE_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct ONEX_STATUS {
     pub authStatus: ONEX_AUTH_STATUS,
     pub dwReason: u32,
@@ -4508,6 +5087,7 @@ impl ::core::clone::Clone for ONEX_STATUS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct ONEX_USER_INFO {
     pub authIdentity: ONEX_AUTH_IDENTITY,
     pub _bitfield: u32,
@@ -4521,6 +5101,7 @@ impl ::core::clone::Clone for ONEX_USER_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct ONEX_VARIABLE_BLOB {
     pub dwSize: u32,
     pub dwOffset: u32,
@@ -4532,6 +5113,7 @@ impl ::core::clone::Clone for ONEX_VARIABLE_BLOB {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WFDSVC_CONNECTION_CAPABILITY {
     pub bNew: super::super::Foundation::BOOLEAN,
@@ -4552,6 +5134,7 @@ pub const WFDSVC_CONNECTION_CAPABILITY_NEW: u32 = 1u32;
 pub const WFD_API_VERSION: u32 = 1u32;
 pub const WFD_API_VERSION_1_0: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WFD_GROUP_ID {
     pub DeviceAddress: [u8; 6],
     pub GroupSSID: DOT11_SSID,
@@ -4562,21 +5145,32 @@ impl ::core::clone::Clone for WFD_GROUP_ID {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WFD_OPEN_SESSION_COMPLETE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hsessionhandle: super::super::Foundation::HANDLE, pvcontext: *const ::core::ffi::c_void, guidsessioninterface: ::windows_sys::core::GUID, dwerror: u32, dwreasoncode: u32)>;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WFD_ROLE_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const WFD_ROLE_TYPE_NONE: WFD_ROLE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const WFD_ROLE_TYPE_DEVICE: WFD_ROLE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const WFD_ROLE_TYPE_GROUP_OWNER: WFD_ROLE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const WFD_ROLE_TYPE_CLIENT: WFD_ROLE_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const WFD_ROLE_TYPE_MAX: WFD_ROLE_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_ADHOC_NETWORK_STATE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_adhoc_network_state_formed: WLAN_ADHOC_NETWORK_STATE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_adhoc_network_state_connected: WLAN_ADHOC_NETWORK_STATE = 1i32;
 pub const WLAN_API_VERSION: u32 = 2u32;
 pub const WLAN_API_VERSION_1_0: u32 = 1u32;
 pub const WLAN_API_VERSION_2_0: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_ASSOCIATION_ATTRIBUTES {
     pub dot11Ssid: DOT11_SSID,
     pub dot11BssType: DOT11_BSS_TYPE,
@@ -4594,6 +5188,7 @@ impl ::core::clone::Clone for WLAN_ASSOCIATION_ATTRIBUTES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_AUTH_CIPHER_PAIR_LIST {
     pub dwNumberOfItems: u32,
     pub pAuthCipherPairList: [DOT11_AUTH_CIPHER_PAIR; 1],
@@ -4604,16 +5199,26 @@ impl ::core::clone::Clone for WLAN_AUTH_CIPHER_PAIR_LIST {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_AUTOCONF_OPCODE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_autoconf_opcode_start: WLAN_AUTOCONF_OPCODE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_autoconf_opcode_show_denied_networks: WLAN_AUTOCONF_OPCODE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_autoconf_opcode_power_setting: WLAN_AUTOCONF_OPCODE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_autoconf_opcode_only_use_gp_profiles_for_allowed_networks: WLAN_AUTOCONF_OPCODE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_autoconf_opcode_allow_explicit_creds: WLAN_AUTOCONF_OPCODE = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_autoconf_opcode_block_period: WLAN_AUTOCONF_OPCODE = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_autoconf_opcode_allow_virtual_station_extensibility: WLAN_AUTOCONF_OPCODE = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_autoconf_opcode_end: WLAN_AUTOCONF_OPCODE = 7i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_AVAILABLE_NETWORK {
     pub strProfileName: [u16; 256],
@@ -4652,6 +5257,7 @@ pub const WLAN_AVAILABLE_NETWORK_INCLUDE_ALL_ADHOC_PROFILES: u32 = 1u32;
 pub const WLAN_AVAILABLE_NETWORK_INCLUDE_ALL_MANUAL_HIDDEN_PROFILES: u32 = 2u32;
 pub const WLAN_AVAILABLE_NETWORK_INTERWORKING_SUPPORTED: u32 = 8u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_AVAILABLE_NETWORK_LIST {
     pub dwNumberOfItems: u32,
@@ -4667,6 +5273,7 @@ impl ::core::clone::Clone for WLAN_AVAILABLE_NETWORK_LIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_AVAILABLE_NETWORK_LIST_V2 {
     pub dwNumberOfItems: u32,
@@ -4682,6 +5289,7 @@ impl ::core::clone::Clone for WLAN_AVAILABLE_NETWORK_LIST_V2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_AVAILABLE_NETWORK_V2 {
     pub strProfileName: [u16; 256],
@@ -4712,6 +5320,7 @@ impl ::core::clone::Clone for WLAN_AVAILABLE_NETWORK_V2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_BSS_ENTRY {
     pub dot11Ssid: DOT11_SSID,
@@ -4740,6 +5349,7 @@ impl ::core::clone::Clone for WLAN_BSS_ENTRY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_BSS_LIST {
     pub dwTotalSize: u32,
@@ -4756,6 +5366,7 @@ impl ::core::clone::Clone for WLAN_BSS_LIST {
 }
 pub const WLAN_CONNECTION_ADHOC_JOIN_ONLY: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_CONNECTION_ATTRIBUTES {
     pub isState: WLAN_INTERFACE_STATE,
@@ -4775,14 +5386,22 @@ impl ::core::clone::Clone for WLAN_CONNECTION_ATTRIBUTES {
 pub const WLAN_CONNECTION_EAPOL_PASSTHROUGH: u32 = 8u32;
 pub const WLAN_CONNECTION_HIDDEN_NETWORK: u32 = 1u32;
 pub const WLAN_CONNECTION_IGNORE_PRIVACY_BIT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_CONNECTION_MODE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_connection_mode_profile: WLAN_CONNECTION_MODE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_connection_mode_temporary_profile: WLAN_CONNECTION_MODE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_connection_mode_discovery_secure: WLAN_CONNECTION_MODE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_connection_mode_discovery_unsecure: WLAN_CONNECTION_MODE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_connection_mode_auto: WLAN_CONNECTION_MODE = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_connection_mode_invalid: WLAN_CONNECTION_MODE = 5i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_CONNECTION_NOTIFICATION_DATA {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
@@ -4802,10 +5421,14 @@ impl ::core::clone::Clone for WLAN_CONNECTION_NOTIFICATION_DATA {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_CONNECTION_NOTIFICATION_FLAGS = u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const WLAN_CONNECTION_NOTIFICATION_ADHOC_NETWORK_FORMED: WLAN_CONNECTION_NOTIFICATION_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const WLAN_CONNECTION_NOTIFICATION_CONSOLE_USER_PROFILE: WLAN_CONNECTION_NOTIFICATION_FLAGS = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct WLAN_CONNECTION_PARAMETERS {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
@@ -4824,6 +5447,7 @@ impl ::core::clone::Clone for WLAN_CONNECTION_PARAMETERS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub struct WLAN_CONNECTION_PARAMETERS_V2 {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
@@ -4847,6 +5471,7 @@ pub const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE: u32 = 16u32;
 pub const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE_CONNECTION_MODE_AUTO: u32 = 32u32;
 pub const WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE_OVERWRITE_EXISTING: u32 = 64u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_COUNTRY_OR_REGION_STRING_LIST {
     pub dwNumberOfItems: u32,
     pub pCountryOrRegionStringList: [u8; 3],
@@ -4858,6 +5483,7 @@ impl ::core::clone::Clone for WLAN_COUNTRY_OR_REGION_STRING_LIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_DEVICE_SERVICE_GUID_LIST {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
@@ -4870,6 +5496,7 @@ impl ::core::clone::Clone for WLAN_DEVICE_SERVICE_GUID_LIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
     pub DeviceService: ::windows_sys::core::GUID,
     pub dwOpCode: u32,
@@ -4882,12 +5509,18 @@ impl ::core::clone::Clone for WLAN_DEVICE_SERVICE_NOTIFICATION_DATA {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_FILTER_LIST_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_filter_list_type_gp_permit: WLAN_FILTER_LIST_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_filter_list_type_gp_deny: WLAN_FILTER_LIST_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_filter_list_type_user_permit: WLAN_FILTER_LIST_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_filter_list_type_user_deny: WLAN_FILTER_LIST_TYPE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
     pub hostedNetworkSSID: DOT11_SSID,
     pub dwMaxNumberOfPeers: u32,
@@ -4899,6 +5532,7 @@ impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
     pub OldState: WLAN_HOSTED_NETWORK_PEER_STATE,
     pub NewState: WLAN_HOSTED_NETWORK_PEER_STATE,
@@ -4910,19 +5544,32 @@ impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_HOSTED_NETWORK_NOTIFICATION_CODE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_state_change: WLAN_HOSTED_NETWORK_NOTIFICATION_CODE = 4096i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_peer_state_change: WLAN_HOSTED_NETWORK_NOTIFICATION_CODE = 4097i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_radio_state_change: WLAN_HOSTED_NETWORK_NOTIFICATION_CODE = 4098i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_HOSTED_NETWORK_OPCODE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_opcode_connection_settings: WLAN_HOSTED_NETWORK_OPCODE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_opcode_security_settings: WLAN_HOSTED_NETWORK_OPCODE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_opcode_station_profile: WLAN_HOSTED_NETWORK_OPCODE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_opcode_enable: WLAN_HOSTED_NETWORK_OPCODE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_HOSTED_NETWORK_PEER_AUTH_STATE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_peer_state_invalid: WLAN_HOSTED_NETWORK_PEER_AUTH_STATE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_peer_state_authenticated: WLAN_HOSTED_NETWORK_PEER_AUTH_STATE = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_HOSTED_NETWORK_PEER_STATE {
     pub PeerMacAddress: [u8; 6],
     pub PeerAuthState: WLAN_HOSTED_NETWORK_PEER_AUTH_STATE,
@@ -4934,6 +5581,7 @@ impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_PEER_STATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_HOSTED_NETWORK_RADIO_STATE {
     pub dot11SoftwareRadioState: DOT11_RADIO_STATE,
     pub dot11HardwareRadioState: DOT11_RADIO_STATE,
@@ -4944,37 +5592,68 @@ impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_RADIO_STATE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_HOSTED_NETWORK_REASON = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_success: WLAN_HOSTED_NETWORK_REASON = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_unspecified: WLAN_HOSTED_NETWORK_REASON = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_bad_parameters: WLAN_HOSTED_NETWORK_REASON = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_service_shutting_down: WLAN_HOSTED_NETWORK_REASON = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_insufficient_resources: WLAN_HOSTED_NETWORK_REASON = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_elevation_required: WLAN_HOSTED_NETWORK_REASON = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_read_only: WLAN_HOSTED_NETWORK_REASON = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_persistence_failed: WLAN_HOSTED_NETWORK_REASON = 7i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_crypt_error: WLAN_HOSTED_NETWORK_REASON = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_impersonation: WLAN_HOSTED_NETWORK_REASON = 9i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_stop_before_start: WLAN_HOSTED_NETWORK_REASON = 10i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_interface_available: WLAN_HOSTED_NETWORK_REASON = 11i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_interface_unavailable: WLAN_HOSTED_NETWORK_REASON = 12i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_miniport_stopped: WLAN_HOSTED_NETWORK_REASON = 13i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_miniport_started: WLAN_HOSTED_NETWORK_REASON = 14i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_incompatible_connection_started: WLAN_HOSTED_NETWORK_REASON = 15i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_incompatible_connection_stopped: WLAN_HOSTED_NETWORK_REASON = 16i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_user_action: WLAN_HOSTED_NETWORK_REASON = 17i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_client_abort: WLAN_HOSTED_NETWORK_REASON = 18i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_ap_start_failed: WLAN_HOSTED_NETWORK_REASON = 19i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_peer_arrived: WLAN_HOSTED_NETWORK_REASON = 20i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_peer_departed: WLAN_HOSTED_NETWORK_REASON = 21i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_peer_timeout: WLAN_HOSTED_NETWORK_REASON = 22i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_gp_denied: WLAN_HOSTED_NETWORK_REASON = 23i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_service_unavailable: WLAN_HOSTED_NETWORK_REASON = 24i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_device_change: WLAN_HOSTED_NETWORK_REASON = 25i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_properties_change: WLAN_HOSTED_NETWORK_REASON = 26i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_virtual_station_blocking_use: WLAN_HOSTED_NETWORK_REASON = 27i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_reason_service_available_on_virtual_station: WLAN_HOSTED_NETWORK_REASON = 28i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
     pub dot11AuthAlgo: DOT11_AUTH_ALGORITHM,
     pub dot11CipherAlgo: DOT11_CIPHER_ALGORITHM,
@@ -4985,11 +5664,16 @@ impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_SECURITY_SETTINGS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_HOSTED_NETWORK_STATE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_unavailable: WLAN_HOSTED_NETWORK_STATE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_idle: WLAN_HOSTED_NETWORK_STATE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_hosted_network_active: WLAN_HOSTED_NETWORK_STATE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_HOSTED_NETWORK_STATE_CHANGE {
     pub OldState: WLAN_HOSTED_NETWORK_STATE,
     pub NewState: WLAN_HOSTED_NETWORK_STATE,
@@ -5002,6 +5686,7 @@ impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_STATE_CHANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_HOSTED_NETWORK_STATUS {
     pub HostedNetworkState: WLAN_HOSTED_NETWORK_STATE,
     pub IPDeviceID: ::windows_sys::core::GUID,
@@ -5017,10 +5702,14 @@ impl ::core::clone::Clone for WLAN_HOSTED_NETWORK_STATUS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_IHV_CONTROL_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_ihv_control_type_service: WLAN_IHV_CONTROL_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_ihv_control_type_driver: WLAN_IHV_CONTROL_TYPE = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_INTERFACE_CAPABILITY {
     pub interfaceType: WLAN_INTERFACE_TYPE,
@@ -5039,6 +5728,7 @@ impl ::core::clone::Clone for WLAN_INTERFACE_CAPABILITY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_INTERFACE_INFO {
     pub InterfaceGuid: ::windows_sys::core::GUID,
     pub strInterfaceDescription: [u16; 256],
@@ -5051,6 +5741,7 @@ impl ::core::clone::Clone for WLAN_INTERFACE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_INTERFACE_INFO_LIST {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
@@ -5062,49 +5753,92 @@ impl ::core::clone::Clone for WLAN_INTERFACE_INFO_LIST {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_INTERFACE_STATE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_interface_state_not_ready: WLAN_INTERFACE_STATE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_interface_state_connected: WLAN_INTERFACE_STATE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_interface_state_ad_hoc_network_formed: WLAN_INTERFACE_STATE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_interface_state_disconnecting: WLAN_INTERFACE_STATE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_interface_state_disconnected: WLAN_INTERFACE_STATE = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_interface_state_associating: WLAN_INTERFACE_STATE = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_interface_state_discovering: WLAN_INTERFACE_STATE = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_interface_state_authenticating: WLAN_INTERFACE_STATE = 7i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_INTERFACE_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_interface_type_emulated_802_11: WLAN_INTERFACE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_interface_type_native_802_11: WLAN_INTERFACE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_interface_type_invalid: WLAN_INTERFACE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_INTF_OPCODE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_autoconf_start: WLAN_INTF_OPCODE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_autoconf_enabled: WLAN_INTF_OPCODE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_background_scan_enabled: WLAN_INTF_OPCODE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_media_streaming_mode: WLAN_INTF_OPCODE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_radio_state: WLAN_INTF_OPCODE = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_bss_type: WLAN_INTF_OPCODE = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_interface_state: WLAN_INTF_OPCODE = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_current_connection: WLAN_INTF_OPCODE = 7i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_channel_number: WLAN_INTF_OPCODE = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_supported_infrastructure_auth_cipher_pairs: WLAN_INTF_OPCODE = 9i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_supported_adhoc_auth_cipher_pairs: WLAN_INTF_OPCODE = 10i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_supported_country_or_region_string_list: WLAN_INTF_OPCODE = 11i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_current_operation_mode: WLAN_INTF_OPCODE = 12i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_supported_safe_mode: WLAN_INTF_OPCODE = 13i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_certified_safe_mode: WLAN_INTF_OPCODE = 14i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_hosted_network_capable: WLAN_INTF_OPCODE = 15i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_management_frame_protection_capable: WLAN_INTF_OPCODE = 16i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_secondary_sta_interfaces: WLAN_INTF_OPCODE = 17i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_secondary_sta_synchronized_connections: WLAN_INTF_OPCODE = 18i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_autoconf_end: WLAN_INTF_OPCODE = 268435455i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_msm_start: WLAN_INTF_OPCODE = 268435712i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_statistics: WLAN_INTF_OPCODE = 268435713i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_rssi: WLAN_INTF_OPCODE = 268435714i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_msm_end: WLAN_INTF_OPCODE = 536870911i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_security_start: WLAN_INTF_OPCODE = 536936448i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_security_end: WLAN_INTF_OPCODE = 805306367i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_ihv_start: WLAN_INTF_OPCODE = 805306368i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_intf_opcode_ihv_end: WLAN_INTF_OPCODE = 1073741823i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_MAC_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
     pub ullReceivedFrameCount: u64,
@@ -5129,6 +5863,7 @@ pub const WLAN_MAX_NAME_LENGTH: u32 = 256u32;
 pub const WLAN_MAX_PHY_INDEX: u32 = 64u32;
 pub const WLAN_MAX_PHY_TYPE_NUMBER: u32 = 8u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_MSM_NOTIFICATION_DATA {
     pub wlanConnectionMode: WLAN_CONNECTION_MODE,
@@ -5149,58 +5884,111 @@ impl ::core::clone::Clone for WLAN_MSM_NOTIFICATION_DATA {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_NOTIFICATION_ACM = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_start: WLAN_NOTIFICATION_ACM = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_autoconf_enabled: WLAN_NOTIFICATION_ACM = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_autoconf_disabled: WLAN_NOTIFICATION_ACM = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_background_scan_enabled: WLAN_NOTIFICATION_ACM = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_background_scan_disabled: WLAN_NOTIFICATION_ACM = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_bss_type_change: WLAN_NOTIFICATION_ACM = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_power_setting_change: WLAN_NOTIFICATION_ACM = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_scan_complete: WLAN_NOTIFICATION_ACM = 7i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_scan_fail: WLAN_NOTIFICATION_ACM = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_connection_start: WLAN_NOTIFICATION_ACM = 9i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_connection_complete: WLAN_NOTIFICATION_ACM = 10i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_connection_attempt_fail: WLAN_NOTIFICATION_ACM = 11i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_filter_list_change: WLAN_NOTIFICATION_ACM = 12i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_interface_arrival: WLAN_NOTIFICATION_ACM = 13i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_interface_removal: WLAN_NOTIFICATION_ACM = 14i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_profile_change: WLAN_NOTIFICATION_ACM = 15i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_profile_name_change: WLAN_NOTIFICATION_ACM = 16i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_profiles_exhausted: WLAN_NOTIFICATION_ACM = 17i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_network_not_available: WLAN_NOTIFICATION_ACM = 18i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_network_available: WLAN_NOTIFICATION_ACM = 19i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_disconnecting: WLAN_NOTIFICATION_ACM = 20i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_disconnected: WLAN_NOTIFICATION_ACM = 21i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_adhoc_network_state_change: WLAN_NOTIFICATION_ACM = 22i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_profile_unblocked: WLAN_NOTIFICATION_ACM = 23i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_screen_power_change: WLAN_NOTIFICATION_ACM = 24i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_profile_blocked: WLAN_NOTIFICATION_ACM = 25i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_scan_list_refresh: WLAN_NOTIFICATION_ACM = 26i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_operational_state_change: WLAN_NOTIFICATION_ACM = 27i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_acm_end: WLAN_NOTIFICATION_ACM = 28i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut L2_NOTIFICATION_DATA, param1: *mut ::core::ffi::c_void)>;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_NOTIFICATION_MSM = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_msm_start: WLAN_NOTIFICATION_MSM = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_msm_associating: WLAN_NOTIFICATION_MSM = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_msm_associated: WLAN_NOTIFICATION_MSM = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_msm_authenticating: WLAN_NOTIFICATION_MSM = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_msm_connected: WLAN_NOTIFICATION_MSM = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_msm_roaming_start: WLAN_NOTIFICATION_MSM = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_msm_roaming_end: WLAN_NOTIFICATION_MSM = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_msm_radio_state_change: WLAN_NOTIFICATION_MSM = 7i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_msm_signal_quality_change: WLAN_NOTIFICATION_MSM = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_msm_disassociating: WLAN_NOTIFICATION_MSM = 9i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_msm_disconnected: WLAN_NOTIFICATION_MSM = 10i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_msm_peer_join: WLAN_NOTIFICATION_MSM = 11i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_msm_peer_leave: WLAN_NOTIFICATION_MSM = 12i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_msm_adapter_removal: WLAN_NOTIFICATION_MSM = 13i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_msm_adapter_operation_mode_change: WLAN_NOTIFICATION_MSM = 14i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_msm_link_degraded: WLAN_NOTIFICATION_MSM = 15i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_msm_link_improved: WLAN_NOTIFICATION_MSM = 16i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_msm_end: WLAN_NOTIFICATION_MSM = 17i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_NOTIFICATION_SECURITY = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_security_start: WLAN_NOTIFICATION_SECURITY = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_notification_security_end: WLAN_NOTIFICATION_SECURITY = 1i32;
 pub const WLAN_NOTIFICATION_SOURCE_ACM: u32 = 8u32;
 pub const WLAN_NOTIFICATION_SOURCE_ALL: u32 = 65535u32;
@@ -5211,18 +5999,30 @@ pub const WLAN_NOTIFICATION_SOURCE_MSM: u32 = 16u32;
 pub const WLAN_NOTIFICATION_SOURCE_NONE: u32 = 0u32;
 pub const WLAN_NOTIFICATION_SOURCE_ONEX: u32 = 4u32;
 pub const WLAN_NOTIFICATION_SOURCE_SECURITY: u32 = 32u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_OPCODE_VALUE_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_opcode_value_type_query_only: WLAN_OPCODE_VALUE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_opcode_value_type_set_by_group_policy: WLAN_OPCODE_VALUE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_opcode_value_type_set_by_user: WLAN_OPCODE_VALUE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_opcode_value_type_invalid: WLAN_OPCODE_VALUE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_OPERATIONAL_STATE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_operational_state_unknown: WLAN_OPERATIONAL_STATE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_operational_state_off: WLAN_OPERATIONAL_STATE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_operational_state_on: WLAN_OPERATIONAL_STATE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_operational_state_going_off: WLAN_OPERATIONAL_STATE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_operational_state_going_on: WLAN_OPERATIONAL_STATE = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_PHY_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
     pub ullMulticastTransmittedFrameCount: u64,
@@ -5250,6 +6050,7 @@ impl ::core::clone::Clone for WLAN_PHY_FRAME_STATISTICS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_PHY_RADIO_STATE {
     pub dwPhyIndex: u32,
     pub dot11SoftwareRadioState: DOT11_RADIO_STATE,
@@ -5261,17 +6062,24 @@ impl ::core::clone::Clone for WLAN_PHY_RADIO_STATE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_POWER_SETTING = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_power_setting_no_saving: WLAN_POWER_SETTING = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_power_setting_low_saving: WLAN_POWER_SETTING = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_power_setting_medium_saving: WLAN_POWER_SETTING = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_power_setting_maximum_saving: WLAN_POWER_SETTING = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_power_setting_invalid: WLAN_POWER_SETTING = 4i32;
 pub const WLAN_PROFILE_CONNECTION_MODE_AUTO: u32 = 131072u32;
 pub const WLAN_PROFILE_CONNECTION_MODE_SET_BY_CLIENT: u32 = 65536u32;
 pub const WLAN_PROFILE_GET_PLAINTEXT_KEY: u32 = 4u32;
 pub const WLAN_PROFILE_GROUP_POLICY: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_PROFILE_INFO {
     pub strProfileName: [u16; 256],
     pub dwFlags: u32,
@@ -5283,6 +6091,7 @@ impl ::core::clone::Clone for WLAN_PROFILE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_PROFILE_INFO_LIST {
     pub dwNumberOfItems: u32,
     pub dwIndex: u32,
@@ -5296,6 +6105,7 @@ impl ::core::clone::Clone for WLAN_PROFILE_INFO_LIST {
 }
 pub const WLAN_PROFILE_USER: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_RADIO_STATE {
     pub dwNumberOfPhys: u32,
     pub PhyRadioState: [WLAN_PHY_RADIO_STATE; 64],
@@ -5307,6 +6117,7 @@ impl ::core::clone::Clone for WLAN_RADIO_STATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_RATE_SET {
     pub uRateSetLength: u32,
     pub usRateSet: [u16; 126],
@@ -5318,6 +6129,7 @@ impl ::core::clone::Clone for WLAN_RATE_SET {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_RAW_DATA {
     pub dwDataSize: u32,
     pub DataBlob: [u8; 1],
@@ -5329,6 +6141,7 @@ impl ::core::clone::Clone for WLAN_RAW_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_RAW_DATA_LIST {
     pub dwTotalSize: u32,
     pub dwNumberOfItems: u32,
@@ -5341,6 +6154,7 @@ impl ::core::clone::Clone for WLAN_RAW_DATA_LIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_RAW_DATA_LIST_0 {
     pub dwDataOffset: u32,
     pub dwDataSize: u32,
@@ -5506,26 +6320,46 @@ pub const WLAN_REASON_CODE_UNSUPPORTED_SECURITY_SET_BY_OS: u32 = 196609u32;
 pub const WLAN_REASON_CODE_USER_CANCELLED: u32 = 229377u32;
 pub const WLAN_REASON_CODE_USER_DENIED: u32 = 163844u32;
 pub const WLAN_REASON_CODE_USER_NOT_RESPOND: u32 = 163854u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_SECURABLE_OBJECT = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_secure_permit_list: WLAN_SECURABLE_OBJECT = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_secure_deny_list: WLAN_SECURABLE_OBJECT = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_secure_ac_enabled: WLAN_SECURABLE_OBJECT = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_secure_bc_scan_enabled: WLAN_SECURABLE_OBJECT = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_secure_bss_type: WLAN_SECURABLE_OBJECT = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_secure_show_denied: WLAN_SECURABLE_OBJECT = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_secure_interface_properties: WLAN_SECURABLE_OBJECT = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_secure_ihv_control: WLAN_SECURABLE_OBJECT = 7i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_secure_all_user_profiles_order: WLAN_SECURABLE_OBJECT = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_secure_add_new_all_user_profiles: WLAN_SECURABLE_OBJECT = 9i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_secure_add_new_per_user_profiles: WLAN_SECURABLE_OBJECT = 10i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_secure_media_streaming_mode_enabled: WLAN_SECURABLE_OBJECT = 11i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_secure_current_operation_mode: WLAN_SECURABLE_OBJECT = 12i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_secure_get_plaintext_key: WLAN_SECURABLE_OBJECT = 13i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_secure_hosted_network_elevated_access: WLAN_SECURABLE_OBJECT = 14i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_secure_virtual_station_extensibility: WLAN_SECURABLE_OBJECT = 15i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const wlan_secure_wfd_elevated_access: WLAN_SECURABLE_OBJECT = 16i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const WLAN_SECURABLE_OBJECT_COUNT: WLAN_SECURABLE_OBJECT = 17i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WLAN_SECURITY_ATTRIBUTES {
     pub bSecurityEnabled: super::super::Foundation::BOOL,
@@ -5541,9 +6375,12 @@ impl ::core::clone::Clone for WLAN_SECURITY_ATTRIBUTES {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WLAN_SET_EAPHOST_FLAGS = u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const WLAN_SET_EAPHOST_DATA_ALL_USERS: WLAN_SET_EAPHOST_FLAGS = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct WLAN_STATISTICS {
     pub ullFourWayHandshakeFailures: u64,
     pub ullTKIPCounterMeasuresInvoked: u64,
@@ -5561,11 +6398,16 @@ impl ::core::clone::Clone for WLAN_STATISTICS {
 }
 pub const WLAN_UI_API_INITIAL_VERSION: u32 = 1u32;
 pub const WLAN_UI_API_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub type WL_DISPLAY_PAGES = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const WLConnectionPage: WL_DISPLAY_PAGES = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const WLSecurityPage: WL_DISPLAY_PAGES = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub const WLAdvPage: WL_DISPLAY_PAGES = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
 pub struct _DOT11_WME_AC_PARAMTERS_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,

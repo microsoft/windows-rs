@@ -143,6 +143,7 @@ pub struct ILockScreenUnlockingEventArgsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'ApplicationModel_LockScreen'*"]
 #[repr(transparent)]
 pub struct LockApplicationHost(::windows::core::IUnknown);
 impl LockApplicationHost {
@@ -237,6 +238,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lock
 }
 unsafe impl ::core::marker::Send for LockApplicationHost {}
 unsafe impl ::core::marker::Sync for LockApplicationHost {}
+#[doc = "*Required features: 'ApplicationModel_LockScreen'*"]
 #[repr(transparent)]
 pub struct LockScreenBadge(::windows::core::IUnknown);
 impl LockScreenBadge {
@@ -339,6 +341,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lock
 }
 unsafe impl ::core::marker::Send for LockScreenBadge {}
 unsafe impl ::core::marker::Sync for LockScreenBadge {}
+#[doc = "*Required features: 'ApplicationModel_LockScreen'*"]
 #[repr(transparent)]
 pub struct LockScreenInfo(::windows::core::IUnknown);
 impl LockScreenInfo {
@@ -490,6 +493,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lock
 }
 unsafe impl ::core::marker::Send for LockScreenInfo {}
 unsafe impl ::core::marker::Sync for LockScreenInfo {}
+#[doc = "*Required features: 'ApplicationModel_LockScreen'*"]
 #[repr(transparent)]
 pub struct LockScreenUnlockingDeferral(::windows::core::IUnknown);
 impl LockScreenUnlockingDeferral {
@@ -561,6 +565,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lock
 }
 unsafe impl ::core::marker::Send for LockScreenUnlockingDeferral {}
 unsafe impl ::core::marker::Sync for LockScreenUnlockingDeferral {}
+#[doc = "*Required features: 'ApplicationModel_LockScreen'*"]
 #[repr(transparent)]
 pub struct LockScreenUnlockingEventArgs(::windows::core::IUnknown);
 impl LockScreenUnlockingEventArgs {

@@ -27,6 +27,7 @@ pub mod Printing;
 pub mod Resources;
 #[cfg(feature = "UI_Xaml_Shapes")]
 pub mod Shapes;
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct AdaptiveTrigger(::windows::core::IUnknown);
 impl AdaptiveTrigger {
@@ -182,6 +183,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &AdaptiveTrigger {
 }
 unsafe impl ::core::marker::Send for AdaptiveTrigger {}
 unsafe impl ::core::marker::Sync for AdaptiveTrigger {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct Application(::windows::core::IUnknown);
 impl Application {
@@ -411,6 +413,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appl
 }
 unsafe impl ::core::marker::Send for Application {}
 unsafe impl ::core::marker::Sync for Application {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ApplicationHighContrastAdjustment(pub u32);
 impl ApplicationHighContrastAdjustment {
@@ -438,6 +441,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationHighContrastAdjustment {
 impl ::windows::core::DefaultType for ApplicationHighContrastAdjustment {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ApplicationInitializationCallback(pub ::windows::core::IUnknown);
 impl ApplicationInitializationCallback {
@@ -506,6 +510,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationInitializationCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ApplicationInitializationCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, p: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ApplicationInitializationCallbackParams(::windows::core::IUnknown);
 impl ApplicationInitializationCallbackParams {}
@@ -572,6 +577,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appl
 }
 unsafe impl ::core::marker::Send for ApplicationInitializationCallbackParams {}
 unsafe impl ::core::marker::Sync for ApplicationInitializationCallbackParams {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ApplicationRequiresPointerMode(pub i32);
 impl ApplicationRequiresPointerMode {
@@ -599,6 +605,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationRequiresPointerMode {
 impl ::windows::core::DefaultType for ApplicationRequiresPointerMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ApplicationTheme(pub i32);
 impl ApplicationTheme {
@@ -626,6 +633,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationTheme {
 impl ::windows::core::DefaultType for ApplicationTheme {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct AutomationTextAttributesEnum(pub i32);
 impl AutomationTextAttributesEnum {
@@ -691,6 +699,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationTextAttributesEnum {
 impl ::windows::core::DefaultType for AutomationTextAttributesEnum {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct BindingFailedEventArgs(::windows::core::IUnknown);
 impl BindingFailedEventArgs {
@@ -765,6 +774,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Bind
 }
 unsafe impl ::core::marker::Send for BindingFailedEventArgs {}
 unsafe impl ::core::marker::Sync for BindingFailedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct BindingFailedEventHandler(pub ::windows::core::IUnknown);
 impl BindingFailedEventHandler {
@@ -833,6 +843,7 @@ unsafe impl ::windows::core::RuntimeType for BindingFailedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct BindingFailedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct BringIntoViewOptions(::windows::core::IUnknown);
 impl BringIntoViewOptions {
@@ -975,6 +986,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Brin
 }
 unsafe impl ::core::marker::Send for BringIntoViewOptions {}
 unsafe impl ::core::marker::Sync for BringIntoViewOptions {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct BringIntoViewRequestedEventArgs(::windows::core::IUnknown);
 impl BringIntoViewRequestedEventArgs {
@@ -1144,6 +1156,7 @@ impl<'a> ::windows::core::IntoParam<'a, RoutedEventArgs> for &BringIntoViewReque
 }
 unsafe impl ::core::marker::Send for BringIntoViewRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for BringIntoViewRequestedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct BrushTransition(::windows::core::IUnknown);
 impl BrushTransition {
@@ -1234,6 +1247,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Brus
 }
 unsafe impl ::core::marker::Send for BrushTransition {}
 unsafe impl ::core::marker::Sync for BrushTransition {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ColorPaletteResources(::windows::core::IUnknown);
 impl ColorPaletteResources {
@@ -1829,6 +1843,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &ColorPaletteResou
 unsafe impl ::core::marker::Send for ColorPaletteResources {}
 unsafe impl ::core::marker::Sync for ColorPaletteResources {}
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml'*"]
 pub struct CornerRadius {
     pub TopLeft: f64,
     pub TopRight: f64,
@@ -1861,6 +1876,7 @@ impl ::core::default::Default for CornerRadius {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct CornerRadiusHelper(::windows::core::IUnknown);
 impl CornerRadiusHelper {
@@ -1944,6 +1960,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Corn
 }
 unsafe impl ::core::marker::Send for CornerRadiusHelper {}
 unsafe impl ::core::marker::Sync for CornerRadiusHelper {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct CreateDefaultValueCallback(pub ::windows::core::IUnknown);
 impl CreateDefaultValueCallback {
@@ -2022,6 +2039,7 @@ unsafe impl ::windows::core::RuntimeType for CreateDefaultValueCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct CreateDefaultValueCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DataContextChangedEventArgs(::windows::core::IUnknown);
 impl DataContextChangedEventArgs {
@@ -2107,6 +2125,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
 }
 unsafe impl ::core::marker::Send for DataContextChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DataContextChangedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DataTemplate(::windows::core::IUnknown);
 impl DataTemplate {
@@ -2283,6 +2302,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &DataTemplate {
 }
 unsafe impl ::core::marker::Send for DataTemplate {}
 unsafe impl ::core::marker::Sync for DataTemplate {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DataTemplateKey(::windows::core::IUnknown);
 impl DataTemplateKey {
@@ -2377,6 +2397,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
 }
 unsafe impl ::core::marker::Send for DataTemplateKey {}
 unsafe impl ::core::marker::Sync for DataTemplateKey {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DebugSettings(::windows::core::IUnknown);
 impl DebugSettings {
@@ -2523,6 +2544,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Debu
 }
 unsafe impl ::core::marker::Send for DebugSettings {}
 unsafe impl ::core::marker::Sync for DebugSettings {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DependencyObject(::windows::core::IUnknown);
 impl DependencyObject {
@@ -2638,6 +2660,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Depe
 }
 unsafe impl ::core::marker::Send for DependencyObject {}
 unsafe impl ::core::marker::Sync for DependencyObject {}
+#[doc = "*Required features: 'UI_Xaml', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct DependencyObjectCollection(::windows::core::IUnknown);
@@ -2948,6 +2971,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &DependencyObjectC
 unsafe impl ::core::marker::Send for DependencyObjectCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for DependencyObjectCollection {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DependencyProperty(::windows::core::IUnknown);
 impl DependencyProperty {
@@ -3047,6 +3071,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Depe
 }
 unsafe impl ::core::marker::Send for DependencyProperty {}
 unsafe impl ::core::marker::Sync for DependencyProperty {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DependencyPropertyChangedCallback(pub ::windows::core::IUnknown);
 impl DependencyPropertyChangedCallback {
@@ -3115,6 +3140,7 @@ unsafe impl ::windows::core::RuntimeType for DependencyPropertyChangedCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DependencyPropertyChangedCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, dp: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DependencyPropertyChangedEventArgs(::windows::core::IUnknown);
 impl DependencyPropertyChangedEventArgs {
@@ -3203,6 +3229,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Depe
 }
 unsafe impl ::core::marker::Send for DependencyPropertyChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DependencyPropertyChangedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DependencyPropertyChangedEventHandler(pub ::windows::core::IUnknown);
 impl DependencyPropertyChangedEventHandler {
@@ -3271,6 +3298,7 @@ unsafe impl ::windows::core::RuntimeType for DependencyPropertyChangedEventHandl
 #[repr(C)]
 #[doc(hidden)]
 pub struct DependencyPropertyChangedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DispatcherTimer(::windows::core::IUnknown);
 impl DispatcherTimer {
@@ -3389,6 +3417,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DispatcherTimer {}
 unsafe impl ::core::marker::Sync for DispatcherTimer {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DragEventArgs(::windows::core::IUnknown);
 impl DragEventArgs {
@@ -3559,6 +3588,7 @@ impl<'a> ::windows::core::IntoParam<'a, RoutedEventArgs> for &DragEventArgs {
 }
 unsafe impl ::core::marker::Send for DragEventArgs {}
 unsafe impl ::core::marker::Sync for DragEventArgs {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DragEventHandler(pub ::windows::core::IUnknown);
 impl DragEventHandler {
@@ -3627,6 +3657,7 @@ unsafe impl ::windows::core::RuntimeType for DragEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DragEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DragOperationDeferral(::windows::core::IUnknown);
 impl DragOperationDeferral {
@@ -3698,6 +3729,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Drag
 }
 unsafe impl ::core::marker::Send for DragOperationDeferral {}
 unsafe impl ::core::marker::Sync for DragOperationDeferral {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DragStartingEventArgs(::windows::core::IUnknown);
 impl DragStartingEventArgs {
@@ -3839,6 +3871,7 @@ impl<'a> ::windows::core::IntoParam<'a, RoutedEventArgs> for &DragStartingEventA
 }
 unsafe impl ::core::marker::Send for DragStartingEventArgs {}
 unsafe impl ::core::marker::Sync for DragStartingEventArgs {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DragUI(::windows::core::IUnknown);
 impl DragUI {
@@ -3930,6 +3963,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Drag
 }
 unsafe impl ::core::marker::Send for DragUI {}
 unsafe impl ::core::marker::Sync for DragUI {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DragUIOverride(::windows::core::IUnknown);
 impl DragUIOverride {
@@ -4065,6 +4099,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Drag
 }
 unsafe impl ::core::marker::Send for DragUIOverride {}
 unsafe impl ::core::marker::Sync for DragUIOverride {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DropCompletedEventArgs(::windows::core::IUnknown);
 impl DropCompletedEventArgs {
@@ -4161,6 +4196,7 @@ impl<'a> ::windows::core::IntoParam<'a, RoutedEventArgs> for &DropCompletedEvent
 unsafe impl ::core::marker::Send for DropCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for DropCompletedEventArgs {}
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct Duration {
     pub TimeSpan: super::super::Foundation::TimeSpan,
@@ -4200,6 +4236,7 @@ impl ::core::default::Default for Duration {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DurationHelper(::windows::core::IUnknown);
 impl DurationHelper {
@@ -4327,6 +4364,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dura
 }
 unsafe impl ::core::marker::Send for DurationHelper {}
 unsafe impl ::core::marker::Sync for DurationHelper {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DurationType(pub i32);
 impl DurationType {
@@ -4355,6 +4393,7 @@ unsafe impl ::windows::core::RuntimeType for DurationType {
 impl ::windows::core::DefaultType for DurationType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct EffectiveViewportChangedEventArgs(::windows::core::IUnknown);
 impl EffectiveViewportChangedEventArgs {
@@ -4452,6 +4491,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Effe
 }
 unsafe impl ::core::marker::Send for EffectiveViewportChangedEventArgs {}
 unsafe impl ::core::marker::Sync for EffectiveViewportChangedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ElementFactoryGetArgs(::windows::core::IUnknown);
 impl ElementFactoryGetArgs {
@@ -4551,6 +4591,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Elem
 }
 unsafe impl ::core::marker::Send for ElementFactoryGetArgs {}
 unsafe impl ::core::marker::Sync for ElementFactoryGetArgs {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ElementFactoryRecycleArgs(::windows::core::IUnknown);
 impl ElementFactoryRecycleArgs {
@@ -4650,6 +4691,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Elem
 }
 unsafe impl ::core::marker::Send for ElementFactoryRecycleArgs {}
 unsafe impl ::core::marker::Sync for ElementFactoryRecycleArgs {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ElementHighContrastAdjustment(pub u32);
 impl ElementHighContrastAdjustment {
@@ -4678,6 +4720,7 @@ unsafe impl ::windows::core::RuntimeType for ElementHighContrastAdjustment {
 impl ::windows::core::DefaultType for ElementHighContrastAdjustment {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ElementSoundKind(pub i32);
 impl ElementSoundKind {
@@ -4710,6 +4753,7 @@ unsafe impl ::windows::core::RuntimeType for ElementSoundKind {
 impl ::windows::core::DefaultType for ElementSoundKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ElementSoundMode(pub i32);
 impl ElementSoundMode {
@@ -4738,6 +4782,7 @@ unsafe impl ::windows::core::RuntimeType for ElementSoundMode {
 impl ::windows::core::DefaultType for ElementSoundMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ElementSoundPlayer(::windows::core::IUnknown);
 impl ElementSoundPlayer {
@@ -4843,6 +4888,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Elem
 }
 unsafe impl ::core::marker::Send for ElementSoundPlayer {}
 unsafe impl ::core::marker::Sync for ElementSoundPlayer {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ElementSoundPlayerState(pub i32);
 impl ElementSoundPlayerState {
@@ -4871,6 +4917,7 @@ unsafe impl ::windows::core::RuntimeType for ElementSoundPlayerState {
 impl ::windows::core::DefaultType for ElementSoundPlayerState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ElementSpatialAudioMode(pub i32);
 impl ElementSpatialAudioMode {
@@ -4899,6 +4946,7 @@ unsafe impl ::windows::core::RuntimeType for ElementSpatialAudioMode {
 impl ::windows::core::DefaultType for ElementSpatialAudioMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ElementTheme(pub i32);
 impl ElementTheme {
@@ -4927,6 +4975,7 @@ unsafe impl ::windows::core::RuntimeType for ElementTheme {
 impl ::windows::core::DefaultType for ElementTheme {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml', 'ApplicationModel'*"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 pub struct EnteredBackgroundEventHandler(pub ::windows::core::IUnknown);
@@ -5012,6 +5061,7 @@ pub struct EnteredBackgroundEventHandlerVtbl(
     #[cfg(feature = "ApplicationModel")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel"))] usize,
 );
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct EventTrigger(::windows::core::IUnknown);
 impl EventTrigger {
@@ -5145,6 +5195,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &EventTrigger {
 }
 unsafe impl ::core::marker::Send for EventTrigger {}
 unsafe impl ::core::marker::Sync for EventTrigger {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ExceptionRoutedEventArgs(::windows::core::IUnknown);
 impl ExceptionRoutedEventArgs {
@@ -5239,6 +5290,7 @@ impl<'a> ::windows::core::IntoParam<'a, RoutedEventArgs> for &ExceptionRoutedEve
 }
 unsafe impl ::core::marker::Send for ExceptionRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for ExceptionRoutedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ExceptionRoutedEventHandler(pub ::windows::core::IUnknown);
 impl ExceptionRoutedEventHandler {
@@ -5307,6 +5359,7 @@ unsafe impl ::windows::core::RuntimeType for ExceptionRoutedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ExceptionRoutedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FlowDirection(pub i32);
 impl FlowDirection {
@@ -5334,6 +5387,7 @@ unsafe impl ::windows::core::RuntimeType for FlowDirection {
 impl ::windows::core::DefaultType for FlowDirection {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FocusState(pub i32);
 impl FocusState {
@@ -5363,6 +5417,7 @@ unsafe impl ::windows::core::RuntimeType for FocusState {
 impl ::windows::core::DefaultType for FocusState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FocusVisualKind(pub i32);
 impl FocusVisualKind {
@@ -5391,6 +5446,7 @@ unsafe impl ::windows::core::RuntimeType for FocusVisualKind {
 impl ::windows::core::DefaultType for FocusVisualKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FontCapitals(pub i32);
 impl FontCapitals {
@@ -5423,6 +5479,7 @@ unsafe impl ::windows::core::RuntimeType for FontCapitals {
 impl ::windows::core::DefaultType for FontCapitals {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FontEastAsianLanguage(pub i32);
 impl FontEastAsianLanguage {
@@ -5458,6 +5515,7 @@ unsafe impl ::windows::core::RuntimeType for FontEastAsianLanguage {
 impl ::windows::core::DefaultType for FontEastAsianLanguage {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FontEastAsianWidths(pub i32);
 impl FontEastAsianWidths {
@@ -5489,6 +5547,7 @@ unsafe impl ::windows::core::RuntimeType for FontEastAsianWidths {
 impl ::windows::core::DefaultType for FontEastAsianWidths {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FontFraction(pub i32);
 impl FontFraction {
@@ -5517,6 +5576,7 @@ unsafe impl ::windows::core::RuntimeType for FontFraction {
 impl ::windows::core::DefaultType for FontFraction {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FontNumeralAlignment(pub i32);
 impl FontNumeralAlignment {
@@ -5545,6 +5605,7 @@ unsafe impl ::windows::core::RuntimeType for FontNumeralAlignment {
 impl ::windows::core::DefaultType for FontNumeralAlignment {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FontNumeralStyle(pub i32);
 impl FontNumeralStyle {
@@ -5573,6 +5634,7 @@ unsafe impl ::windows::core::RuntimeType for FontNumeralStyle {
 impl ::windows::core::DefaultType for FontNumeralStyle {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FontVariants(pub i32);
 impl FontVariants {
@@ -5604,6 +5666,7 @@ unsafe impl ::windows::core::RuntimeType for FontVariants {
 impl ::windows::core::DefaultType for FontVariants {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FrameworkElement(::windows::core::IUnknown);
 impl FrameworkElement {
@@ -6389,6 +6452,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &FrameworkElement 
 }
 unsafe impl ::core::marker::Send for FrameworkElement {}
 unsafe impl ::core::marker::Sync for FrameworkElement {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FrameworkTemplate(::windows::core::IUnknown);
 impl FrameworkTemplate {}
@@ -6475,6 +6539,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &FrameworkTemplate
 }
 unsafe impl ::core::marker::Send for FrameworkTemplate {}
 unsafe impl ::core::marker::Sync for FrameworkTemplate {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FrameworkView(::windows::core::IUnknown);
 impl FrameworkView {
@@ -6600,6 +6665,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Core::IF
 }
 unsafe impl ::core::marker::Send for FrameworkView {}
 unsafe impl ::core::marker::Sync for FrameworkView {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FrameworkViewSource(::windows::core::IUnknown);
 impl FrameworkViewSource {
@@ -6709,6 +6775,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Core::IF
 unsafe impl ::core::marker::Send for FrameworkViewSource {}
 unsafe impl ::core::marker::Sync for FrameworkViewSource {}
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml'*"]
 pub struct GridLength {
     pub Value: f64,
     pub GridUnitType: GridUnitType,
@@ -6739,6 +6806,7 @@ impl ::core::default::Default for GridLength {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct GridLengthHelper(::windows::core::IUnknown);
 impl GridLengthHelper {
@@ -6852,6 +6920,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Grid
 }
 unsafe impl ::core::marker::Send for GridLengthHelper {}
 unsafe impl ::core::marker::Sync for GridLengthHelper {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct GridUnitType(pub i32);
 impl GridUnitType {
@@ -6880,6 +6949,7 @@ unsafe impl ::windows::core::RuntimeType for GridUnitType {
 impl ::windows::core::DefaultType for GridUnitType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct HorizontalAlignment(pub i32);
 impl HorizontalAlignment {
@@ -7516,6 +7586,7 @@ pub struct IDataTemplateVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct IDataTemplateExtension(::windows::core::IUnknown);
 impl IDataTemplateExtension {
@@ -8245,6 +8316,7 @@ pub struct IEffectiveViewportChangedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct IElementFactory(::windows::core::IUnknown);
 impl IElementFactory {
@@ -11189,6 +11261,7 @@ pub struct IXamlRootChangedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml', 'ApplicationModel'*"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 pub struct LeavingBackgroundEventHandler(pub ::windows::core::IUnknown);
@@ -11274,6 +11347,7 @@ pub struct LeavingBackgroundEventHandlerVtbl(
     #[cfg(feature = "ApplicationModel")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel"))] usize,
 );
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct LineStackingStrategy(pub i32);
 impl LineStackingStrategy {
@@ -11302,6 +11376,7 @@ unsafe impl ::windows::core::RuntimeType for LineStackingStrategy {
 impl ::windows::core::DefaultType for LineStackingStrategy {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct MediaFailedRoutedEventArgs(::windows::core::IUnknown);
 impl MediaFailedRoutedEventArgs {
@@ -11416,6 +11491,7 @@ impl<'a> ::windows::core::IntoParam<'a, RoutedEventArgs> for &MediaFailedRoutedE
 }
 unsafe impl ::core::marker::Send for MediaFailedRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaFailedRoutedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct OpticalMarginAlignment(pub i32);
 impl OpticalMarginAlignment {
@@ -11443,6 +11519,7 @@ unsafe impl ::windows::core::RuntimeType for OpticalMarginAlignment {
 impl ::windows::core::DefaultType for OpticalMarginAlignment {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct PointHelper(::windows::core::IUnknown);
 impl PointHelper {
@@ -11521,6 +11598,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Poin
 }
 unsafe impl ::core::marker::Send for PointHelper {}
 unsafe impl ::core::marker::Sync for PointHelper {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct PropertyChangedCallback(pub ::windows::core::IUnknown);
 impl PropertyChangedCallback {
@@ -11589,6 +11667,7 @@ unsafe impl ::windows::core::RuntimeType for PropertyChangedCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct PropertyChangedCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, d: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct PropertyMetadata(::windows::core::IUnknown);
 impl PropertyMetadata {
@@ -11714,6 +11793,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prop
 }
 unsafe impl ::core::marker::Send for PropertyMetadata {}
 unsafe impl ::core::marker::Sync for PropertyMetadata {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct PropertyPath(::windows::core::IUnknown);
 impl PropertyPath {
@@ -11818,6 +11898,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &PropertyPath {
 }
 unsafe impl ::core::marker::Send for PropertyPath {}
 unsafe impl ::core::marker::Sync for PropertyPath {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct RectHelper(::windows::core::IUnknown);
 impl RectHelper {
@@ -11987,6 +12068,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rect
 }
 unsafe impl ::core::marker::Send for RectHelper {}
 unsafe impl ::core::marker::Sync for RectHelper {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ResourceDictionary(::windows::core::IUnknown);
 impl ResourceDictionary {
@@ -12239,6 +12321,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &ResourceDictionar
 }
 unsafe impl ::core::marker::Send for ResourceDictionary {}
 unsafe impl ::core::marker::Sync for ResourceDictionary {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct RoutedEvent(::windows::core::IUnknown);
 impl RoutedEvent {}
@@ -12305,6 +12388,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rout
 }
 unsafe impl ::core::marker::Send for RoutedEvent {}
 unsafe impl ::core::marker::Sync for RoutedEvent {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct RoutedEventArgs(::windows::core::IUnknown);
 impl RoutedEventArgs {
@@ -12389,6 +12473,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rout
 }
 unsafe impl ::core::marker::Send for RoutedEventArgs {}
 unsafe impl ::core::marker::Sync for RoutedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct RoutedEventHandler(pub ::windows::core::IUnknown);
 impl RoutedEventHandler {
@@ -12457,6 +12542,7 @@ unsafe impl ::windows::core::RuntimeType for RoutedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct RoutedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ScalarTransition(::windows::core::IUnknown);
 impl ScalarTransition {
@@ -12547,6 +12633,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Scal
 }
 unsafe impl ::core::marker::Send for ScalarTransition {}
 unsafe impl ::core::marker::Sync for ScalarTransition {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct Setter(::windows::core::IUnknown);
 impl Setter {
@@ -12704,6 +12791,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &Setter {
 }
 unsafe impl ::core::marker::Send for Setter {}
 unsafe impl ::core::marker::Sync for Setter {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct SetterBase(::windows::core::IUnknown);
 impl SetterBase {
@@ -12798,6 +12886,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &SetterBase {
 }
 unsafe impl ::core::marker::Send for SetterBase {}
 unsafe impl ::core::marker::Sync for SetterBase {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct SetterBaseCollection(::windows::core::IUnknown);
 impl SetterBaseCollection {
@@ -13030,6 +13119,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 }
 unsafe impl ::core::marker::Send for SetterBaseCollection {}
 unsafe impl ::core::marker::Sync for SetterBaseCollection {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct SizeChangedEventArgs(::windows::core::IUnknown);
 impl SizeChangedEventArgs {
@@ -13133,6 +13223,7 @@ impl<'a> ::windows::core::IntoParam<'a, RoutedEventArgs> for &SizeChangedEventAr
 }
 unsafe impl ::core::marker::Send for SizeChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SizeChangedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct SizeChangedEventHandler(pub ::windows::core::IUnknown);
 impl SizeChangedEventHandler {
@@ -13201,6 +13292,7 @@ unsafe impl ::windows::core::RuntimeType for SizeChangedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct SizeChangedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct SizeHelper(::windows::core::IUnknown);
 impl SizeHelper {
@@ -13300,6 +13392,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Size
 }
 unsafe impl ::core::marker::Send for SizeHelper {}
 unsafe impl ::core::marker::Sync for SizeHelper {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct StateTrigger(::windows::core::IUnknown);
 impl StateTrigger {
@@ -13435,6 +13528,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &StateTrigger {
 }
 unsafe impl ::core::marker::Send for StateTrigger {}
 unsafe impl ::core::marker::Sync for StateTrigger {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct StateTriggerBase(::windows::core::IUnknown);
 impl StateTriggerBase {
@@ -13526,6 +13620,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &StateTriggerBase 
 }
 unsafe impl ::core::marker::Send for StateTriggerBase {}
 unsafe impl ::core::marker::Sync for StateTriggerBase {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct Style(::windows::core::IUnknown);
 impl Style {
@@ -13673,6 +13768,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &Style {
 }
 unsafe impl ::core::marker::Send for Style {}
 unsafe impl ::core::marker::Sync for Style {}
+#[doc = "*Required features: 'UI_Xaml', 'ApplicationModel'*"]
 #[cfg(feature = "ApplicationModel")]
 #[repr(transparent)]
 pub struct SuspendingEventHandler(pub ::windows::core::IUnknown);
@@ -13758,6 +13854,7 @@ pub struct SuspendingEventHandlerVtbl(
     #[cfg(feature = "ApplicationModel")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel"))] usize,
 );
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct TargetPropertyPath(::windows::core::IUnknown);
 impl TargetPropertyPath {
@@ -13864,6 +13961,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
 }
 unsafe impl ::core::marker::Send for TargetPropertyPath {}
 unsafe impl ::core::marker::Sync for TargetPropertyPath {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct TextAlignment(pub i32);
 impl TextAlignment {
@@ -13896,6 +13994,7 @@ unsafe impl ::windows::core::RuntimeType for TextAlignment {
 impl ::windows::core::DefaultType for TextAlignment {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct TextLineBounds(pub i32);
 impl TextLineBounds {
@@ -13925,6 +14024,7 @@ unsafe impl ::windows::core::RuntimeType for TextLineBounds {
 impl ::windows::core::DefaultType for TextLineBounds {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct TextReadingOrder(pub i32);
 impl TextReadingOrder {
@@ -13953,6 +14053,7 @@ unsafe impl ::windows::core::RuntimeType for TextReadingOrder {
 impl ::windows::core::DefaultType for TextReadingOrder {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct TextTrimming(pub i32);
 impl TextTrimming {
@@ -13982,6 +14083,7 @@ unsafe impl ::windows::core::RuntimeType for TextTrimming {
 impl ::windows::core::DefaultType for TextTrimming {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct TextWrapping(pub i32);
 impl TextWrapping {
@@ -14011,6 +14113,7 @@ impl ::windows::core::DefaultType for TextWrapping {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml'*"]
 pub struct Thickness {
     pub Left: f64,
     pub Top: f64,
@@ -14043,6 +14146,7 @@ impl ::core::default::Default for Thickness {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ThicknessHelper(::windows::core::IUnknown);
 impl ThicknessHelper {
@@ -14126,6 +14230,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Thic
 }
 unsafe impl ::core::marker::Send for ThicknessHelper {}
 unsafe impl ::core::marker::Sync for ThicknessHelper {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct TriggerAction(::windows::core::IUnknown);
 impl TriggerAction {}
@@ -14212,6 +14317,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &TriggerAction {
 }
 unsafe impl ::core::marker::Send for TriggerAction {}
 unsafe impl ::core::marker::Sync for TriggerAction {}
+#[doc = "*Required features: 'UI_Xaml', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct TriggerActionCollection(::windows::core::IUnknown);
@@ -14455,6 +14561,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 unsafe impl ::core::marker::Send for TriggerActionCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for TriggerActionCollection {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct TriggerBase(::windows::core::IUnknown);
 impl TriggerBase {}
@@ -14541,6 +14648,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &TriggerBase {
 }
 unsafe impl ::core::marker::Send for TriggerBase {}
 unsafe impl ::core::marker::Sync for TriggerBase {}
+#[doc = "*Required features: 'UI_Xaml', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct TriggerCollection(::windows::core::IUnknown);
@@ -14777,6 +14885,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 unsafe impl ::core::marker::Send for TriggerCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for TriggerCollection {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct UIElement(::windows::core::IUnknown);
 impl UIElement {
@@ -16677,6 +16786,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &UIElement {
 }
 unsafe impl ::core::marker::Send for UIElement {}
 unsafe impl ::core::marker::Sync for UIElement {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct UIElementWeakCollection(::windows::core::IUnknown);
 impl UIElementWeakCollection {
@@ -16905,6 +17015,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 }
 unsafe impl ::core::marker::Send for UIElementWeakCollection {}
 unsafe impl ::core::marker::Sync for UIElementWeakCollection {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct UnhandledExceptionEventArgs(::windows::core::IUnknown);
 impl UnhandledExceptionEventArgs {
@@ -16997,6 +17108,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Unha
 }
 unsafe impl ::core::marker::Send for UnhandledExceptionEventArgs {}
 unsafe impl ::core::marker::Sync for UnhandledExceptionEventArgs {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct UnhandledExceptionEventHandler(pub ::windows::core::IUnknown);
 impl UnhandledExceptionEventHandler {
@@ -17065,6 +17177,7 @@ unsafe impl ::windows::core::RuntimeType for UnhandledExceptionEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct UnhandledExceptionEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct Vector3Transition(::windows::core::IUnknown);
 impl Vector3Transition {
@@ -17166,6 +17279,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vect
 }
 unsafe impl ::core::marker::Send for Vector3Transition {}
 unsafe impl ::core::marker::Sync for Vector3Transition {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct Vector3TransitionComponents(pub u32);
 impl Vector3TransitionComponents {
@@ -17194,6 +17308,7 @@ unsafe impl ::windows::core::RuntimeType for Vector3TransitionComponents {
 impl ::windows::core::DefaultType for Vector3TransitionComponents {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct VerticalAlignment(pub i32);
 impl VerticalAlignment {
@@ -17223,6 +17338,7 @@ unsafe impl ::windows::core::RuntimeType for VerticalAlignment {
 impl ::windows::core::DefaultType for VerticalAlignment {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct Visibility(pub i32);
 impl Visibility {
@@ -17250,6 +17366,7 @@ unsafe impl ::windows::core::RuntimeType for Visibility {
 impl ::windows::core::DefaultType for Visibility {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct VisualState(::windows::core::IUnknown);
 impl VisualState {
@@ -17379,6 +17496,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &VisualState {
 }
 unsafe impl ::core::marker::Send for VisualState {}
 unsafe impl ::core::marker::Sync for VisualState {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct VisualStateChangedEventArgs(::windows::core::IUnknown);
 impl VisualStateChangedEventArgs {
@@ -17488,6 +17606,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Visu
 }
 unsafe impl ::core::marker::Send for VisualStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for VisualStateChangedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct VisualStateChangedEventHandler(pub ::windows::core::IUnknown);
 impl VisualStateChangedEventHandler {
@@ -17556,6 +17675,7 @@ unsafe impl ::windows::core::RuntimeType for VisualStateChangedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct VisualStateChangedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct VisualStateGroup(::windows::core::IUnknown);
 impl VisualStateGroup {
@@ -17706,6 +17826,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &VisualStateGroup 
 }
 unsafe impl ::core::marker::Send for VisualStateGroup {}
 unsafe impl ::core::marker::Sync for VisualStateGroup {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct VisualStateManager(::windows::core::IUnknown);
 impl VisualStateManager {
@@ -17846,6 +17967,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &VisualStateManage
 }
 unsafe impl ::core::marker::Send for VisualStateManager {}
 unsafe impl ::core::marker::Sync for VisualStateManager {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct VisualTransition(::windows::core::IUnknown);
 impl VisualTransition {
@@ -18004,6 +18126,7 @@ impl<'a> ::windows::core::IntoParam<'a, DependencyObject> for &VisualTransition 
 }
 unsafe impl ::core::marker::Send for VisualTransition {}
 unsafe impl ::core::marker::Sync for VisualTransition {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct Window(::windows::core::IUnknown);
 impl Window {
@@ -18202,6 +18325,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wind
 }
 unsafe impl ::core::marker::Send for Window {}
 unsafe impl ::core::marker::Sync for Window {}
+#[doc = "*Required features: 'UI_Xaml', 'UI_Core'*"]
 #[cfg(feature = "UI_Core")]
 #[repr(transparent)]
 pub struct WindowActivatedEventHandler(pub ::windows::core::IUnknown);
@@ -18287,6 +18411,7 @@ pub struct WindowActivatedEventHandlerVtbl(
     #[cfg(feature = "UI_Core")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Core"))] usize,
 );
+#[doc = "*Required features: 'UI_Xaml', 'UI_Core'*"]
 #[cfg(feature = "UI_Core")]
 #[repr(transparent)]
 pub struct WindowClosedEventHandler(pub ::windows::core::IUnknown);
@@ -18372,6 +18497,7 @@ pub struct WindowClosedEventHandlerVtbl(
     #[cfg(feature = "UI_Core")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Core"))] usize,
 );
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct WindowCreatedEventArgs(::windows::core::IUnknown);
 impl WindowCreatedEventArgs {
@@ -18446,6 +18572,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wind
 }
 unsafe impl ::core::marker::Send for WindowCreatedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowCreatedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml', 'UI_Core'*"]
 #[cfg(feature = "UI_Core")]
 #[repr(transparent)]
 pub struct WindowSizeChangedEventHandler(pub ::windows::core::IUnknown);
@@ -18531,6 +18658,7 @@ pub struct WindowSizeChangedEventHandlerVtbl(
     #[cfg(feature = "UI_Core")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Core"))] usize,
 );
+#[doc = "*Required features: 'UI_Xaml', 'UI_Core'*"]
 #[cfg(feature = "UI_Core")]
 #[repr(transparent)]
 pub struct WindowVisibilityChangedEventHandler(pub ::windows::core::IUnknown);
@@ -18616,6 +18744,7 @@ pub struct WindowVisibilityChangedEventHandlerVtbl(
     #[cfg(feature = "UI_Core")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Core"))] usize,
 );
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct XamlRoot(::windows::core::IUnknown);
 impl XamlRoot {
@@ -18732,6 +18861,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
 }
 unsafe impl ::core::marker::Send for XamlRoot {}
 unsafe impl ::core::marker::Sync for XamlRoot {}
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct XamlRootChangedEventArgs(::windows::core::IUnknown);
 impl XamlRootChangedEventArgs {}

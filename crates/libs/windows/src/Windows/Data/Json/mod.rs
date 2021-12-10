@@ -124,6 +124,7 @@ pub struct IJsonObjectWithDefaultValuesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, defaultvalue: f64, result__: *mut f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, defaultvalue: bool, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Data_Json'*"]
 #[repr(transparent)]
 pub struct IJsonValue(::windows::core::IUnknown);
 impl IJsonValue {
@@ -292,6 +293,7 @@ pub struct IJsonValueStatics2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Data_Json'*"]
 #[repr(transparent)]
 pub struct JsonArray(::windows::core::IUnknown);
 impl JsonArray {
@@ -689,6 +691,7 @@ impl JsonError {
 impl ::windows::core::RuntimeName for JsonError {
     const NAME: &'static str = "Windows.Data.Json.JsonError";
 }
+#[doc = "*Required features: 'Data_Json'*"]
 #[repr(transparent)]
 pub struct JsonErrorStatus(pub i32);
 impl JsonErrorStatus {
@@ -719,6 +722,7 @@ unsafe impl ::windows::core::RuntimeType for JsonErrorStatus {
 impl ::windows::core::DefaultType for JsonErrorStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Data_Json'*"]
 #[repr(transparent)]
 pub struct JsonObject(::windows::core::IUnknown);
 impl JsonObject {
@@ -1128,6 +1132,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for JsonObject {}
 unsafe impl ::core::marker::Sync for JsonObject {}
+#[doc = "*Required features: 'Data_Json'*"]
 #[repr(transparent)]
 pub struct JsonValue(::windows::core::IUnknown);
 impl JsonValue {
@@ -1344,6 +1349,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for JsonValue {}
 unsafe impl ::core::marker::Sync for JsonValue {}
+#[doc = "*Required features: 'Data_Json'*"]
 #[repr(transparent)]
 pub struct JsonValueType(pub i32);
 impl JsonValueType {

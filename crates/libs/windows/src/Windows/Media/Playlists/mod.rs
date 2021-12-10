@@ -43,6 +43,7 @@ pub struct IPlaylistStaticsVtbl(
     #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "Storage")))] usize,
 );
+#[doc = "*Required features: 'Media_Playlists'*"]
 #[repr(transparent)]
 pub struct Playlist(::windows::core::IUnknown);
 impl Playlist {
@@ -158,6 +159,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Playlists'*"]
 #[repr(transparent)]
 pub struct PlaylistFormat(pub i32);
 impl PlaylistFormat {

@@ -11,6 +11,7 @@ pub mod Effects;
 pub mod Interactions;
 #[cfg(feature = "UI_Composition_Scenes")]
 pub mod Scenes;
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct AmbientLight(::windows::core::IUnknown);
 impl AmbientLight {
@@ -297,6 +298,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &AmbientLight {
 }
 unsafe impl ::core::marker::Send for AmbientLight {}
 unsafe impl ::core::marker::Sync for AmbientLight {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct AnimationController(::windows::core::IUnknown);
 impl AnimationController {
@@ -573,6 +575,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &AnimationControl
 }
 unsafe impl ::core::marker::Send for AnimationController {}
 unsafe impl ::core::marker::Sync for AnimationController {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct AnimationControllerProgressBehavior(pub i32);
 impl AnimationControllerProgressBehavior {
@@ -600,6 +603,7 @@ unsafe impl ::windows::core::RuntimeType for AnimationControllerProgressBehavior
 impl ::windows::core::DefaultType for AnimationControllerProgressBehavior {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct AnimationDelayBehavior(pub i32);
 impl AnimationDelayBehavior {
@@ -627,6 +631,7 @@ unsafe impl ::windows::core::RuntimeType for AnimationDelayBehavior {
 impl ::windows::core::DefaultType for AnimationDelayBehavior {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct AnimationDirection(pub i32);
 impl AnimationDirection {
@@ -656,6 +661,7 @@ unsafe impl ::windows::core::RuntimeType for AnimationDirection {
 impl ::windows::core::DefaultType for AnimationDirection {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct AnimationIterationBehavior(pub i32);
 impl AnimationIterationBehavior {
@@ -683,6 +689,7 @@ unsafe impl ::windows::core::RuntimeType for AnimationIterationBehavior {
 impl ::windows::core::DefaultType for AnimationIterationBehavior {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct AnimationPropertyAccessMode(pub i32);
 impl AnimationPropertyAccessMode {
@@ -712,6 +719,7 @@ unsafe impl ::windows::core::RuntimeType for AnimationPropertyAccessMode {
 impl ::windows::core::DefaultType for AnimationPropertyAccessMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct AnimationPropertyInfo(::windows::core::IUnknown);
 impl AnimationPropertyInfo {
@@ -956,6 +964,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &AnimationPropert
 }
 unsafe impl ::core::marker::Send for AnimationPropertyInfo {}
 unsafe impl ::core::marker::Sync for AnimationPropertyInfo {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct AnimationStopBehavior(pub i32);
 impl AnimationStopBehavior {
@@ -984,6 +993,7 @@ unsafe impl ::windows::core::RuntimeType for AnimationStopBehavior {
 impl ::windows::core::DefaultType for AnimationStopBehavior {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct BackEasingFunction(::windows::core::IUnknown);
 impl BackEasingFunction {
@@ -1237,6 +1247,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &BackEasingFuncti
 }
 unsafe impl ::core::marker::Send for BackEasingFunction {}
 unsafe impl ::core::marker::Sync for BackEasingFunction {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct BooleanKeyFrameAnimation(::windows::core::IUnknown);
 impl BooleanKeyFrameAnimation {
@@ -1695,6 +1706,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &BooleanKeyFrameA
 }
 unsafe impl ::core::marker::Send for BooleanKeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for BooleanKeyFrameAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct BounceEasingFunction(::windows::core::IUnknown);
 impl BounceEasingFunction {
@@ -1955,6 +1967,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &BounceEasingFunc
 }
 unsafe impl ::core::marker::Send for BounceEasingFunction {}
 unsafe impl ::core::marker::Sync for BounceEasingFunction {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct BounceScalarNaturalMotionAnimation(::windows::core::IUnknown);
 impl BounceScalarNaturalMotionAnimation {
@@ -2427,6 +2440,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &BounceScalarNatu
 }
 unsafe impl ::core::marker::Send for BounceScalarNaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for BounceScalarNaturalMotionAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct BounceVector2NaturalMotionAnimation(::windows::core::IUnknown);
 impl BounceVector2NaturalMotionAnimation {
@@ -2901,6 +2915,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &BounceVector2Nat
 }
 unsafe impl ::core::marker::Send for BounceVector2NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for BounceVector2NaturalMotionAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct BounceVector3NaturalMotionAnimation(::windows::core::IUnknown);
 impl BounceVector3NaturalMotionAnimation {
@@ -3375,6 +3390,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &BounceVector3Nat
 }
 unsafe impl ::core::marker::Send for BounceVector3NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for BounceVector3NaturalMotionAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CircleEasingFunction(::windows::core::IUnknown);
 impl CircleEasingFunction {
@@ -3621,6 +3637,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CircleEasingFunc
 }
 unsafe impl ::core::marker::Send for CircleEasingFunction {}
 unsafe impl ::core::marker::Sync for CircleEasingFunction {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct ColorKeyFrameAnimation(::windows::core::IUnknown);
 impl ColorKeyFrameAnimation {
@@ -4094,6 +4111,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ColorKeyFrameAni
 }
 unsafe impl ::core::marker::Send for ColorKeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for ColorKeyFrameAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionAnimation(::windows::core::IUnknown);
 impl CompositionAnimation {
@@ -4412,6 +4430,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionAnima
 }
 unsafe impl ::core::marker::Send for CompositionAnimation {}
 unsafe impl ::core::marker::Sync for CompositionAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionAnimationGroup(::windows::core::IUnknown);
 impl CompositionAnimationGroup {
@@ -4722,6 +4741,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionAnima
 }
 unsafe impl ::core::marker::Send for CompositionAnimationGroup {}
 unsafe impl ::core::marker::Sync for CompositionAnimationGroup {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionBackdropBrush(::windows::core::IUnknown);
 impl CompositionBackdropBrush {
@@ -4961,6 +4981,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionBackd
 }
 unsafe impl ::core::marker::Send for CompositionBackdropBrush {}
 unsafe impl ::core::marker::Sync for CompositionBackdropBrush {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionBackfaceVisibility(pub i32);
 impl CompositionBackfaceVisibility {
@@ -4989,6 +5010,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionBackfaceVisibility {
 impl ::windows::core::DefaultType for CompositionBackfaceVisibility {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionBatchCompletedEventArgs(::windows::core::IUnknown);
 impl CompositionBatchCompletedEventArgs {
@@ -5208,6 +5230,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionBatch
 }
 unsafe impl ::core::marker::Send for CompositionBatchCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for CompositionBatchCompletedEventArgs {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionBatchTypes(pub u32);
 impl CompositionBatchTypes {
@@ -5238,6 +5261,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionBatchTypes {
 impl ::windows::core::DefaultType for CompositionBatchTypes {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionBitmapInterpolationMode(pub i32);
 impl CompositionBitmapInterpolationMode {
@@ -5273,6 +5297,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionBitmapInterpolationMode 
 impl ::windows::core::DefaultType for CompositionBitmapInterpolationMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionBorderMode(pub i32);
 impl CompositionBorderMode {
@@ -5301,6 +5326,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionBorderMode {
 impl ::windows::core::DefaultType for CompositionBorderMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionBrush(::windows::core::IUnknown);
 impl CompositionBrush {
@@ -5520,6 +5546,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionBrush
 }
 unsafe impl ::core::marker::Send for CompositionBrush {}
 unsafe impl ::core::marker::Sync for CompositionBrush {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionCapabilities(::windows::core::IUnknown);
 impl CompositionCapabilities {
@@ -5624,6 +5651,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comp
 }
 unsafe impl ::core::marker::Send for CompositionCapabilities {}
 unsafe impl ::core::marker::Sync for CompositionCapabilities {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionClip(::windows::core::IUnknown);
 impl CompositionClip {
@@ -5930,6 +5958,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionClip 
 }
 unsafe impl ::core::marker::Send for CompositionClip {}
 unsafe impl ::core::marker::Sync for CompositionClip {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionColorBrush(::windows::core::IUnknown);
 impl CompositionColorBrush {
@@ -6180,6 +6209,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionColor
 }
 unsafe impl ::core::marker::Send for CompositionColorBrush {}
 unsafe impl ::core::marker::Sync for CompositionColorBrush {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionColorGradientStop(::windows::core::IUnknown);
 impl CompositionColorGradientStop {
@@ -6421,6 +6451,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionColor
 }
 unsafe impl ::core::marker::Send for CompositionColorGradientStop {}
 unsafe impl ::core::marker::Sync for CompositionColorGradientStop {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionColorGradientStopCollection(::windows::core::IUnknown);
 impl CompositionColorGradientStopCollection {
@@ -6639,6 +6670,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 }
 unsafe impl ::core::marker::Send for CompositionColorGradientStopCollection {}
 unsafe impl ::core::marker::Sync for CompositionColorGradientStopCollection {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionColorSpace(pub i32);
 impl CompositionColorSpace {
@@ -6669,6 +6701,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionColorSpace {
 impl ::windows::core::DefaultType for CompositionColorSpace {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionCommitBatch(::windows::core::IUnknown);
 impl CompositionCommitBatch {
@@ -6915,6 +6948,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionCommi
 }
 unsafe impl ::core::marker::Send for CompositionCommitBatch {}
 unsafe impl ::core::marker::Sync for CompositionCommitBatch {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionCompositeMode(pub i32);
 impl CompositionCompositeMode {
@@ -6944,6 +6978,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionCompositeMode {
 impl ::windows::core::DefaultType for CompositionCompositeMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionContainerShape(::windows::core::IUnknown);
 impl CompositionContainerShape {
@@ -7265,6 +7300,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionConta
 }
 unsafe impl ::core::marker::Send for CompositionContainerShape {}
 unsafe impl ::core::marker::Sync for CompositionContainerShape {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionDrawingSurface(::windows::core::IUnknown);
 impl CompositionDrawingSurface {
@@ -7563,6 +7599,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionDrawi
 }
 unsafe impl ::core::marker::Send for CompositionDrawingSurface {}
 unsafe impl ::core::marker::Sync for CompositionDrawingSurface {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionDropShadowSourcePolicy(pub i32);
 impl CompositionDropShadowSourcePolicy {
@@ -7590,6 +7627,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionDropShadowSourcePolicy {
 impl ::windows::core::DefaultType for CompositionDropShadowSourcePolicy {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionEasingFunction(::windows::core::IUnknown);
 impl CompositionEasingFunction {
@@ -7880,6 +7918,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionEasin
 }
 unsafe impl ::core::marker::Send for CompositionEasingFunction {}
 unsafe impl ::core::marker::Sync for CompositionEasingFunction {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionEasingFunctionMode(pub i32);
 impl CompositionEasingFunctionMode {
@@ -7908,6 +7947,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionEasingFunctionMode {
 impl ::windows::core::DefaultType for CompositionEasingFunctionMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionEffectBrush(::windows::core::IUnknown);
 impl CompositionEffectBrush {
@@ -8158,6 +8198,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionEffec
 }
 unsafe impl ::core::marker::Send for CompositionEffectBrush {}
 unsafe impl ::core::marker::Sync for CompositionEffectBrush {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionEffectFactory(::windows::core::IUnknown);
 impl CompositionEffectFactory {
@@ -8398,6 +8439,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionEffec
 }
 unsafe impl ::core::marker::Send for CompositionEffectFactory {}
 unsafe impl ::core::marker::Sync for CompositionEffectFactory {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionEffectFactoryLoadStatus(pub i32);
 impl CompositionEffectFactoryLoadStatus {
@@ -8427,6 +8469,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionEffectFactoryLoadStatus 
 impl ::windows::core::DefaultType for CompositionEffectFactoryLoadStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionEffectSourceParameter(::windows::core::IUnknown);
 impl CompositionEffectSourceParameter {
@@ -8537,6 +8580,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::Effects::IGraphi
 }
 unsafe impl ::core::marker::Send for CompositionEffectSourceParameter {}
 unsafe impl ::core::marker::Sync for CompositionEffectSourceParameter {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionEllipseGeometry(::windows::core::IUnknown);
 impl CompositionEllipseGeometry {
@@ -8835,6 +8879,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionEllip
 }
 unsafe impl ::core::marker::Send for CompositionEllipseGeometry {}
 unsafe impl ::core::marker::Sync for CompositionEllipseGeometry {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionGeometricClip(::windows::core::IUnknown);
 impl CompositionGeometricClip {
@@ -9183,6 +9228,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionGeome
 }
 unsafe impl ::core::marker::Send for CompositionGeometricClip {}
 unsafe impl ::core::marker::Sync for CompositionGeometricClip {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionGeometry(::windows::core::IUnknown);
 impl CompositionGeometry {
@@ -9435,6 +9481,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionGeome
 }
 unsafe impl ::core::marker::Send for CompositionGeometry {}
 unsafe impl ::core::marker::Sync for CompositionGeometry {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionGetValueStatus(pub i32);
 impl CompositionGetValueStatus {
@@ -9463,6 +9510,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionGetValueStatus {
 impl ::windows::core::DefaultType for CompositionGetValueStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionGradientBrush(::windows::core::IUnknown);
 impl CompositionGradientBrush {
@@ -9829,6 +9877,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionGradi
 }
 unsafe impl ::core::marker::Send for CompositionGradientBrush {}
 unsafe impl ::core::marker::Sync for CompositionGradientBrush {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionGradientExtendMode(pub i32);
 impl CompositionGradientExtendMode {
@@ -9857,6 +9906,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionGradientExtendMode {
 impl ::windows::core::DefaultType for CompositionGradientExtendMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionGraphicsDevice(::windows::core::IUnknown);
 impl CompositionGraphicsDevice {
@@ -10133,6 +10183,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionGraph
 }
 unsafe impl ::core::marker::Send for CompositionGraphicsDevice {}
 unsafe impl ::core::marker::Sync for CompositionGraphicsDevice {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionLight(::windows::core::IUnknown);
 impl CompositionLight {
@@ -10377,6 +10428,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionLight
 }
 unsafe impl ::core::marker::Send for CompositionLight {}
 unsafe impl ::core::marker::Sync for CompositionLight {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionLineGeometry(::windows::core::IUnknown);
 impl CompositionLineGeometry {
@@ -10675,6 +10727,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionLineG
 }
 unsafe impl ::core::marker::Send for CompositionLineGeometry {}
 unsafe impl ::core::marker::Sync for CompositionLineGeometry {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionLinearGradientBrush(::windows::core::IUnknown);
 impl CompositionLinearGradientBrush {
@@ -11087,6 +11140,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionLinea
 }
 unsafe impl ::core::marker::Send for CompositionLinearGradientBrush {}
 unsafe impl ::core::marker::Sync for CompositionLinearGradientBrush {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionMappingMode(pub i32);
 impl CompositionMappingMode {
@@ -11114,6 +11168,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionMappingMode {
 impl ::windows::core::DefaultType for CompositionMappingMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionMaskBrush(::windows::core::IUnknown);
 impl CompositionMaskBrush {
@@ -11375,6 +11430,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionMaskB
 }
 unsafe impl ::core::marker::Send for CompositionMaskBrush {}
 unsafe impl ::core::marker::Sync for CompositionMaskBrush {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionMipmapSurface(::windows::core::IUnknown);
 impl CompositionMipmapSurface {
@@ -11654,6 +11710,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionMipma
 }
 unsafe impl ::core::marker::Send for CompositionMipmapSurface {}
 unsafe impl ::core::marker::Sync for CompositionMipmapSurface {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionNineGridBrush(::windows::core::IUnknown);
 impl CompositionNineGridBrush {
@@ -12019,6 +12076,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionNineG
 }
 unsafe impl ::core::marker::Send for CompositionNineGridBrush {}
 unsafe impl ::core::marker::Sync for CompositionNineGridBrush {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionObject(::windows::core::IUnknown);
 impl CompositionObject {
@@ -12228,6 +12286,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for CompositionObject {}
 unsafe impl ::core::marker::Sync for CompositionObject {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionPath(::windows::core::IUnknown);
 impl CompositionPath {
@@ -12332,6 +12391,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Graphics::IGeometrySource2
 }
 unsafe impl ::core::marker::Send for CompositionPath {}
 unsafe impl ::core::marker::Sync for CompositionPath {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionPathGeometry(::windows::core::IUnknown);
 impl CompositionPathGeometry {
@@ -12615,6 +12675,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionPathG
 }
 unsafe impl ::core::marker::Send for CompositionPathGeometry {}
 unsafe impl ::core::marker::Sync for CompositionPathGeometry {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionProjectedShadow(::windows::core::IUnknown);
 impl CompositionProjectedShadow {
@@ -12892,6 +12953,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionProje
 }
 unsafe impl ::core::marker::Send for CompositionProjectedShadow {}
 unsafe impl ::core::marker::Sync for CompositionProjectedShadow {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionProjectedShadowCaster(::windows::core::IUnknown);
 impl CompositionProjectedShadowCaster {
@@ -13133,6 +13195,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionProje
 }
 unsafe impl ::core::marker::Send for CompositionProjectedShadowCaster {}
 unsafe impl ::core::marker::Sync for CompositionProjectedShadowCaster {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionProjectedShadowCasterCollection(::windows::core::IUnknown);
 impl CompositionProjectedShadowCasterCollection {
@@ -13443,6 +13506,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionProje
 }
 unsafe impl ::core::marker::Send for CompositionProjectedShadowCasterCollection {}
 unsafe impl ::core::marker::Sync for CompositionProjectedShadowCasterCollection {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionProjectedShadowReceiver(::windows::core::IUnknown);
 impl CompositionProjectedShadowReceiver {
@@ -13673,6 +13737,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionProje
 }
 unsafe impl ::core::marker::Send for CompositionProjectedShadowReceiver {}
 unsafe impl ::core::marker::Sync for CompositionProjectedShadowReceiver {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionProjectedShadowReceiverUnorderedCollection(::windows::core::IUnknown);
 impl CompositionProjectedShadowReceiverUnorderedCollection {
@@ -13961,6 +14026,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionProje
 }
 unsafe impl ::core::marker::Send for CompositionProjectedShadowReceiverUnorderedCollection {}
 unsafe impl ::core::marker::Sync for CompositionProjectedShadowReceiverUnorderedCollection {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionPropertySet(::windows::core::IUnknown);
 impl CompositionPropertySet {
@@ -14291,6 +14357,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionPrope
 }
 unsafe impl ::core::marker::Send for CompositionPropertySet {}
 unsafe impl ::core::marker::Sync for CompositionPropertySet {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionRadialGradientBrush(::windows::core::IUnknown);
 impl CompositionRadialGradientBrush {
@@ -14716,6 +14783,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionRadia
 }
 unsafe impl ::core::marker::Send for CompositionRadialGradientBrush {}
 unsafe impl ::core::marker::Sync for CompositionRadialGradientBrush {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionRectangleGeometry(::windows::core::IUnknown);
 impl CompositionRectangleGeometry {
@@ -15014,6 +15082,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionRecta
 }
 unsafe impl ::core::marker::Send for CompositionRectangleGeometry {}
 unsafe impl ::core::marker::Sync for CompositionRectangleGeometry {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionRoundedRectangleGeometry(::windows::core::IUnknown);
 impl CompositionRoundedRectangleGeometry {
@@ -15325,6 +15394,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionRound
 }
 unsafe impl ::core::marker::Send for CompositionRoundedRectangleGeometry {}
 unsafe impl ::core::marker::Sync for CompositionRoundedRectangleGeometry {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionScopedBatch(::windows::core::IUnknown);
 impl CompositionScopedBatch {
@@ -15583,6 +15653,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionScope
 }
 unsafe impl ::core::marker::Send for CompositionScopedBatch {}
 unsafe impl ::core::marker::Sync for CompositionScopedBatch {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionShadow(::windows::core::IUnknown);
 impl CompositionShadow {
@@ -15802,6 +15873,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionShado
 }
 unsafe impl ::core::marker::Send for CompositionShadow {}
 unsafe impl ::core::marker::Sync for CompositionShadow {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionShape(::windows::core::IUnknown);
 impl CompositionShape {
@@ -16095,6 +16167,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionShape
 }
 unsafe impl ::core::marker::Send for CompositionShape {}
 unsafe impl ::core::marker::Sync for CompositionShape {}
+#[doc = "*Required features: 'UI_Composition', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct CompositionShapeCollection(::windows::core::IUnknown);
@@ -16491,6 +16564,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionShape
 unsafe impl ::core::marker::Send for CompositionShapeCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for CompositionShapeCollection {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionSpriteShape(::windows::core::IUnknown);
 impl CompositionSpriteShape {
@@ -16933,6 +17007,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionSprit
 }
 unsafe impl ::core::marker::Send for CompositionSpriteShape {}
 unsafe impl ::core::marker::Sync for CompositionSpriteShape {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionStretch(pub i32);
 impl CompositionStretch {
@@ -16962,6 +17037,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionStretch {
 impl ::windows::core::DefaultType for CompositionStretch {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionStrokeCap(pub i32);
 impl CompositionStrokeCap {
@@ -16991,6 +17067,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionStrokeCap {
 impl ::windows::core::DefaultType for CompositionStrokeCap {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct CompositionStrokeDashArray(::windows::core::IUnknown);
@@ -17387,6 +17464,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionStrok
 unsafe impl ::core::marker::Send for CompositionStrokeDashArray {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for CompositionStrokeDashArray {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionStrokeLineJoin(pub i32);
 impl CompositionStrokeLineJoin {
@@ -17416,6 +17494,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionStrokeLineJoin {
 impl ::windows::core::DefaultType for CompositionStrokeLineJoin {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionSurfaceBrush(::windows::core::IUnknown);
 impl CompositionSurfaceBrush {
@@ -17808,6 +17887,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionSurfa
 }
 unsafe impl ::core::marker::Send for CompositionSurfaceBrush {}
 unsafe impl ::core::marker::Sync for CompositionSurfaceBrush {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionTarget(::windows::core::IUnknown);
 impl CompositionTarget {
@@ -18038,6 +18118,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionTarge
 }
 unsafe impl ::core::marker::Send for CompositionTarget {}
 unsafe impl ::core::marker::Sync for CompositionTarget {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionTransform(::windows::core::IUnknown);
 impl CompositionTransform {
@@ -18257,6 +18338,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionTrans
 }
 unsafe impl ::core::marker::Send for CompositionTransform {}
 unsafe impl ::core::marker::Sync for CompositionTransform {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionViewBox(::windows::core::IUnknown);
 impl CompositionViewBox {
@@ -18535,6 +18617,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionViewB
 }
 unsafe impl ::core::marker::Send for CompositionViewBox {}
 unsafe impl ::core::marker::Sync for CompositionViewBox {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionVirtualDrawingSurface(::windows::core::IUnknown);
 impl CompositionVirtualDrawingSurface {
@@ -18858,6 +18941,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionVirtu
 }
 unsafe impl ::core::marker::Send for CompositionVirtualDrawingSurface {}
 unsafe impl ::core::marker::Sync for CompositionVirtualDrawingSurface {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionVisualSurface(::windows::core::IUnknown);
 impl CompositionVisualSurface {
@@ -19136,6 +19220,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CompositionVisua
 }
 unsafe impl ::core::marker::Send for CompositionVisualSurface {}
 unsafe impl ::core::marker::Sync for CompositionVisualSurface {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct Compositor(::windows::core::IUnknown);
 impl Compositor {
@@ -19817,6 +19902,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for Compositor {}
 unsafe impl ::core::marker::Sync for Compositor {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct ContainerVisual(::windows::core::IUnknown);
 impl ContainerVisual {
@@ -20321,6 +20407,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ContainerVisual 
 }
 unsafe impl ::core::marker::Send for ContainerVisual {}
 unsafe impl ::core::marker::Sync for ContainerVisual {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CubicBezierEasingFunction(::windows::core::IUnknown);
 impl CubicBezierEasingFunction {
@@ -20576,6 +20663,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &CubicBezierEasin
 }
 unsafe impl ::core::marker::Send for CubicBezierEasingFunction {}
 unsafe impl ::core::marker::Sync for CubicBezierEasingFunction {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct DelegatedInkTrailVisual(::windows::core::IUnknown);
 impl DelegatedInkTrailVisual {
@@ -21113,6 +21201,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &DelegatedInkTrai
 }
 unsafe impl ::core::marker::Send for DelegatedInkTrailVisual {}
 unsafe impl ::core::marker::Sync for DelegatedInkTrailVisual {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct DistantLight(::windows::core::IUnknown);
 impl DistantLight {
@@ -21423,6 +21512,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &DistantLight {
 }
 unsafe impl ::core::marker::Send for DistantLight {}
 unsafe impl ::core::marker::Sync for DistantLight {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct DropShadow(::windows::core::IUnknown);
 impl DropShadow {
@@ -21730,6 +21820,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &DropShadow {
 }
 unsafe impl ::core::marker::Send for DropShadow {}
 unsafe impl ::core::marker::Sync for DropShadow {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct ElasticEasingFunction(::windows::core::IUnknown);
 impl ElasticEasingFunction {
@@ -21990,6 +22081,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ElasticEasingFun
 }
 unsafe impl ::core::marker::Send for ElasticEasingFunction {}
 unsafe impl ::core::marker::Sync for ElasticEasingFunction {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct ExponentialEasingFunction(::windows::core::IUnknown);
 impl ExponentialEasingFunction {
@@ -22243,6 +22335,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ExponentialEasin
 }
 unsafe impl ::core::marker::Send for ExponentialEasingFunction {}
 unsafe impl ::core::marker::Sync for ExponentialEasingFunction {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct ExpressionAnimation(::windows::core::IUnknown);
 impl ExpressionAnimation {
@@ -22674,6 +22767,7 @@ pub struct IAnimationControllerStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct IAnimationObject(::windows::core::IUnknown);
 impl IAnimationObject {
@@ -23039,6 +23133,7 @@ pub struct ICompositionAnimation4Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parametername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, source: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct ICompositionAnimationBase(::windows::core::IUnknown);
 impl ICompositionAnimationBase {}
@@ -24704,6 +24799,7 @@ pub struct ICompositionSpriteShapeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct ICompositionSupportsSystemBackdrop(::windows::core::IUnknown);
 impl ICompositionSupportsSystemBackdrop {
@@ -24789,6 +24885,7 @@ pub struct ICompositionSupportsSystemBackdropVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct ICompositionSurface(::windows::core::IUnknown);
 impl ICompositionSurface {}
@@ -24947,6 +25044,7 @@ pub struct ICompositionSurfaceBrush3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct ICompositionSurfaceFacade(::windows::core::IUnknown);
 impl ICompositionSurfaceFacade {
@@ -26800,6 +26898,7 @@ pub struct IVisualCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, child: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct IVisualElement(::windows::core::IUnknown);
 impl IVisualElement {}
@@ -26871,6 +26970,7 @@ pub struct IVisualElementVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct IVisualElement2(::windows::core::IUnknown);
 impl IVisualElement2 {
@@ -26989,6 +27089,7 @@ pub struct IVisualUnorderedCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct ImplicitAnimationCollection(::windows::core::IUnknown);
 impl ImplicitAnimationCollection {
@@ -27334,6 +27435,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ImplicitAnimatio
 }
 unsafe impl ::core::marker::Send for ImplicitAnimationCollection {}
 unsafe impl ::core::marker::Sync for ImplicitAnimationCollection {}
+#[doc = "*Required features: 'UI_Composition', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct InitialValueExpressionCollection(::windows::core::IUnknown);
@@ -27706,6 +27808,7 @@ unsafe impl ::core::marker::Send for InitialValueExpressionCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for InitialValueExpressionCollection {}
 #[repr(C)]
+#[doc = "*Required features: 'UI_Composition', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct InkTrailPoint {
     pub Point: super::super::Foundation::Point,
@@ -27745,6 +27848,7 @@ impl ::core::default::Default for InkTrailPoint {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct InsetClip(::windows::core::IUnknown);
 impl InsetClip {
@@ -28115,6 +28219,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &InsetClip {
 }
 unsafe impl ::core::marker::Send for InsetClip {}
 unsafe impl ::core::marker::Sync for InsetClip {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct KeyFrameAnimation(::windows::core::IUnknown);
 impl KeyFrameAnimation {
@@ -28549,6 +28654,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &KeyFrameAnimatio
 }
 unsafe impl ::core::marker::Send for KeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for KeyFrameAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct LayerVisual(::windows::core::IUnknown);
 impl LayerVisual {
@@ -29095,6 +29201,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &LayerVisual {
 }
 unsafe impl ::core::marker::Send for LayerVisual {}
 unsafe impl ::core::marker::Sync for LayerVisual {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct LinearEasingFunction(::windows::core::IUnknown);
 impl LinearEasingFunction {
@@ -29334,6 +29441,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &LinearEasingFunc
 }
 unsafe impl ::core::marker::Send for LinearEasingFunction {}
 unsafe impl ::core::marker::Sync for LinearEasingFunction {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct NaturalMotionAnimation(::windows::core::IUnknown);
 impl NaturalMotionAnimation {
@@ -29707,6 +29815,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &NaturalMotionAni
 }
 unsafe impl ::core::marker::Send for NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for NaturalMotionAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct PathKeyFrameAnimation(::windows::core::IUnknown);
 impl PathKeyFrameAnimation {
@@ -30169,6 +30278,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &PathKeyFrameAnim
 }
 unsafe impl ::core::marker::Send for PathKeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for PathKeyFrameAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct PointLight(::windows::core::IUnknown);
 impl PointLight {
@@ -30534,6 +30644,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &PointLight {
 }
 unsafe impl ::core::marker::Send for PointLight {}
 unsafe impl ::core::marker::Sync for PointLight {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct PowerEasingFunction(::windows::core::IUnknown);
 impl PowerEasingFunction {
@@ -30787,6 +30898,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &PowerEasingFunct
 }
 unsafe impl ::core::marker::Send for PowerEasingFunction {}
 unsafe impl ::core::marker::Sync for PowerEasingFunction {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct QuaternionKeyFrameAnimation(::windows::core::IUnknown);
 impl QuaternionKeyFrameAnimation {
@@ -31251,6 +31363,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &QuaternionKeyFra
 }
 unsafe impl ::core::marker::Send for QuaternionKeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for QuaternionKeyFrameAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct RectangleClip(::windows::core::IUnknown);
 impl RectangleClip {
@@ -31673,6 +31786,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &RectangleClip {
 }
 unsafe impl ::core::marker::Send for RectangleClip {}
 unsafe impl ::core::marker::Sync for RectangleClip {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct RedirectVisual(::windows::core::IUnknown);
 impl RedirectVisual {
@@ -32208,6 +32322,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &RedirectVisual {
 }
 unsafe impl ::core::marker::Send for RedirectVisual {}
 unsafe impl ::core::marker::Sync for RedirectVisual {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct RenderingDeviceReplacedEventArgs(::windows::core::IUnknown);
 impl RenderingDeviceReplacedEventArgs {
@@ -32434,6 +32549,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &RenderingDeviceR
 }
 unsafe impl ::core::marker::Send for RenderingDeviceReplacedEventArgs {}
 unsafe impl ::core::marker::Sync for RenderingDeviceReplacedEventArgs {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct ScalarKeyFrameAnimation(::windows::core::IUnknown);
 impl ScalarKeyFrameAnimation {
@@ -32896,6 +33012,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ScalarKeyFrameAn
 }
 unsafe impl ::core::marker::Send for ScalarKeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for ScalarKeyFrameAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct ScalarNaturalMotionAnimation(::windows::core::IUnknown);
 impl ScalarNaturalMotionAnimation {
@@ -33326,6 +33443,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ScalarNaturalMot
 }
 unsafe impl ::core::marker::Send for ScalarNaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for ScalarNaturalMotionAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct ShapeVisual(::windows::core::IUnknown);
 impl ShapeVisual {
@@ -33869,6 +33987,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &ShapeVisual {
 }
 unsafe impl ::core::marker::Send for ShapeVisual {}
 unsafe impl ::core::marker::Sync for ShapeVisual {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct SineEasingFunction(::windows::core::IUnknown);
 impl SineEasingFunction {
@@ -34115,6 +34234,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &SineEasingFuncti
 }
 unsafe impl ::core::marker::Send for SineEasingFunction {}
 unsafe impl ::core::marker::Sync for SineEasingFunction {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct SpotLight(::windows::core::IUnknown);
 impl SpotLight {
@@ -34559,6 +34679,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &SpotLight {
 }
 unsafe impl ::core::marker::Send for SpotLight {}
 unsafe impl ::core::marker::Sync for SpotLight {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct SpringScalarNaturalMotionAnimation(::windows::core::IUnknown);
 impl SpringScalarNaturalMotionAnimation {
@@ -35033,6 +35154,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &SpringScalarNatu
 }
 unsafe impl ::core::marker::Send for SpringScalarNaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for SpringScalarNaturalMotionAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct SpringVector2NaturalMotionAnimation(::windows::core::IUnknown);
 impl SpringVector2NaturalMotionAnimation {
@@ -35509,6 +35631,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &SpringVector2Nat
 }
 unsafe impl ::core::marker::Send for SpringVector2NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for SpringVector2NaturalMotionAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct SpringVector3NaturalMotionAnimation(::windows::core::IUnknown);
 impl SpringVector3NaturalMotionAnimation {
@@ -35985,6 +36108,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &SpringVector3Nat
 }
 unsafe impl ::core::marker::Send for SpringVector3NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for SpringVector3NaturalMotionAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct SpriteVisual(::windows::core::IUnknown);
 impl SpriteVisual {
@@ -36531,6 +36655,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &SpriteVisual {
 }
 unsafe impl ::core::marker::Send for SpriteVisual {}
 unsafe impl ::core::marker::Sync for SpriteVisual {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct StepEasingFunction(::windows::core::IUnknown);
 impl StepEasingFunction {
@@ -36825,6 +36950,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &StepEasingFuncti
 }
 unsafe impl ::core::marker::Send for StepEasingFunction {}
 unsafe impl ::core::marker::Sync for StepEasingFunction {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct Vector2KeyFrameAnimation(::windows::core::IUnknown);
 impl Vector2KeyFrameAnimation {
@@ -37289,6 +37415,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &Vector2KeyFrameA
 }
 unsafe impl ::core::marker::Send for Vector2KeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for Vector2KeyFrameAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct Vector2NaturalMotionAnimation(::windows::core::IUnknown);
 impl Vector2NaturalMotionAnimation {
@@ -37721,6 +37848,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &Vector2NaturalMo
 }
 unsafe impl ::core::marker::Send for Vector2NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for Vector2NaturalMotionAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct Vector3KeyFrameAnimation(::windows::core::IUnknown);
 impl Vector3KeyFrameAnimation {
@@ -38185,6 +38313,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &Vector3KeyFrameA
 }
 unsafe impl ::core::marker::Send for Vector3KeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for Vector3KeyFrameAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct Vector3NaturalMotionAnimation(::windows::core::IUnknown);
 impl Vector3NaturalMotionAnimation {
@@ -38617,6 +38746,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &Vector3NaturalMo
 }
 unsafe impl ::core::marker::Send for Vector3NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for Vector3NaturalMotionAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct Vector4KeyFrameAnimation(::windows::core::IUnknown);
 impl Vector4KeyFrameAnimation {
@@ -39081,6 +39211,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &Vector4KeyFrameA
 }
 unsafe impl ::core::marker::Send for Vector4KeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for Vector4KeyFrameAnimation {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct Visual(::windows::core::IUnknown);
 impl Visual {
@@ -39558,6 +39689,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &Visual {
 }
 unsafe impl ::core::marker::Send for Visual {}
 unsafe impl ::core::marker::Sync for Visual {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct VisualCollection(::windows::core::IUnknown);
 impl VisualCollection {
@@ -39858,6 +39990,7 @@ impl<'a> ::windows::core::IntoParam<'a, CompositionObject> for &VisualCollection
 }
 unsafe impl ::core::marker::Send for VisualCollection {}
 unsafe impl ::core::marker::Sync for VisualCollection {}
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct VisualUnorderedCollection(::windows::core::IUnknown);
 impl VisualUnorderedCollection {

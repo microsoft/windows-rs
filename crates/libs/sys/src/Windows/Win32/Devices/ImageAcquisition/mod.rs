@@ -72,6 +72,7 @@ pub const DETECT_FLAT: u32 = 8u32;
 pub const DETECT_SCAN: u32 = 16u32;
 pub const DETECT_STOR: u32 = 4096u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVICEDIALOGDATA {
     pub cbSize: u32,
@@ -91,6 +92,7 @@ impl ::core::clone::Clone for DEVICEDIALOGDATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVICEDIALOGDATA2 {
     pub cbSize: u32,
@@ -115,6 +117,7 @@ pub const DEVICE_ATTENTION: u32 = 1024u32;
 pub const DUP: u32 = 4u32;
 pub const DUPLEX: u32 = 4u32;
 pub const DUP_READY: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DeviceDialogFunction = ::core::option::Option<unsafe extern "system" fn(param0: *mut DEVICEDIALOGDATA) -> ::windows_sys::core::HRESULT>;
 pub const EFFECTMODE_BW: u32 = 2u32;
@@ -226,6 +229,7 @@ pub const MCRO_STATUS_OK: u32 = 1u32;
 pub const MICR_READER: u32 = 1048576u32;
 pub const MICR_READER_READY: u32 = 65536u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MINIDRV_TRANSFER_CONTEXT {
     pub lSize: i32,
@@ -276,6 +280,7 @@ pub const POWERMODE_BATTERY: u32 = 2u32;
 pub const POWERMODE_LINE: u32 = 1u32;
 pub const PREFEED: u32 = 256u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub struct RANGEVALUE {
     pub lMin: i32,
     pub lMax: i32,
@@ -291,6 +296,7 @@ pub const RIGHT_JUSTIFIED: u32 = 2u32;
 pub const ROT180: u32 = 2u32;
 pub const ROT270: u32 = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SCANINFO {
     pub ADF: i32,
@@ -341,6 +347,7 @@ impl ::core::clone::Clone for SCANINFO {
 pub const SCANMODE_FINALSCAN: u32 = 0u32;
 pub const SCANMODE_PREVIEWSCAN: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub struct SCANWINDOW {
     pub xPos: i32,
     pub yPos: i32,
@@ -366,6 +373,7 @@ pub const TOP_JUSTIFIED: u32 = 0u32;
 pub const TRANSPARENCY_DYNAMIC_FRAME_SUPPORT: u32 = 1u32;
 pub const TRANSPARENCY_STATIC_FRAME_SUPPORT: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub struct TWAIN_CAPABILITY {
     pub lSize: i32,
     pub lMSG: i32,
@@ -386,6 +394,7 @@ pub const TYMED_CALLBACK: u32 = 128u32;
 pub const TYMED_MULTIPAGE_CALLBACK: u32 = 512u32;
 pub const TYMED_MULTIPAGE_FILE: u32 = 256u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VAL {
     pub lVal: i32,
@@ -414,6 +423,7 @@ pub const WHITEBALANCE_MANUAL: u32 = 1u32;
 pub const WHITEBALANCE_ONEPUSH_AUTO: u32 = 3u32;
 pub const WHITEBALANCE_TUNGSTEN: u32 = 6u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIAS_CHANGED_VALUE_INFO {
     pub bChanged: super::super::Foundation::BOOL,
@@ -430,6 +440,7 @@ impl ::core::clone::Clone for WIAS_CHANGED_VALUE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union WIAS_CHANGED_VALUE_INFO_0 {
     pub lVal: i32,
@@ -446,6 +457,7 @@ impl ::core::clone::Clone for WIAS_CHANGED_VALUE_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union WIAS_CHANGED_VALUE_INFO_1 {
     pub lVal: i32,
@@ -462,6 +474,7 @@ impl ::core::clone::Clone for WIAS_CHANGED_VALUE_INFO_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub struct WIAS_DOWN_SAMPLE_INFO {
     pub ulOriginalWidth: u32,
     pub ulOriginalHeight: u32,
@@ -483,6 +496,7 @@ impl ::core::clone::Clone for WIAS_DOWN_SAMPLE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIAS_ENDORSER_INFO {
     pub ulPageCount: u32,
@@ -498,6 +512,7 @@ impl ::core::clone::Clone for WIAS_ENDORSER_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIAS_ENDORSER_VALUE {
     pub wszTokenName: super::super::Foundation::PWSTR,
@@ -511,12 +526,19 @@ impl ::core::clone::Clone for WIAS_ENDORSER_VALUE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub type WIAVIDEO_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIAVIDEO_NO_VIDEO: WIAVIDEO_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIAVIDEO_CREATING_VIDEO: WIAVIDEO_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIAVIDEO_VIDEO_CREATED: WIAVIDEO_STATE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIAVIDEO_VIDEO_PLAYING: WIAVIDEO_STATE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIAVIDEO_VIDEO_PAUSED: WIAVIDEO_STATE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIAVIDEO_DESTROYING_VIDEO: WIAVIDEO_STATE = 6i32;
 pub const WIA_ACTION_EVENT: u32 = 2u32;
 pub const WIA_ADVANCED_PREVIEW: u32 = 0u32;
@@ -537,6 +559,7 @@ pub const WIA_AUTO_CROP_SINGLE: u32 = 1u32;
 pub const WIA_AUTO_DESKEW_OFF: u32 = 1u32;
 pub const WIA_AUTO_DESKEW_ON: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub struct WIA_BARCODES {
     pub Tag: u32,
     pub Version: u32,
@@ -575,6 +598,7 @@ pub const WIA_BARCODE_HIGH_CAPACITY_COLOR: u32 = 26u32;
 pub const WIA_BARCODE_HORIZONTAL_SEARCH: u32 = 0u32;
 pub const WIA_BARCODE_HORIZONTAL_VERTICAL_SEARCH: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub struct WIA_BARCODE_INFO {
     pub Size: u32,
     pub Type: u32,
@@ -671,6 +695,7 @@ pub const WIA_COMPRESSION_NONE: u32 = 0u32;
 pub const WIA_COMPRESSION_PNG: u32 = 8u32;
 pub const WIA_DATA_AUTO: u32 = 100u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub struct WIA_DATA_CALLBACK_HEADER {
     pub lSize: i32,
     pub guidFormatID: ::windows_sys::core::GUID,
@@ -696,6 +721,7 @@ pub const WIA_DATA_RAW_YUV: u32 = 8u32;
 pub const WIA_DATA_RAW_YUVK: u32 = 9u32;
 pub const WIA_DATA_THRESHOLD: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIA_DATA_TRANSFER_INFO {
     pub ulSize: u32,
@@ -724,6 +750,7 @@ pub const WIA_DEVICE_NOT_CONNECTED: u32 = 0u32;
 pub const WIA_DEVINFO_ENUM_ALL: u32 = 15u32;
 pub const WIA_DEVINFO_ENUM_LOCAL: u32 = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIA_DEV_CAP {
     pub guid: ::windows_sys::core::GUID,
@@ -742,6 +769,7 @@ impl ::core::clone::Clone for WIA_DEV_CAP {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIA_DEV_CAP_DRV {
     pub guid: *mut ::windows_sys::core::GUID,
@@ -776,6 +804,7 @@ pub const WIA_DIP_UI_CLSID: u32 = 10u32;
 pub const WIA_DIP_VEND_DESC: u32 = 3u32;
 pub const WIA_DIP_WIA_VERSION: u32 = 14u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIA_DITHER_PATTERN_DATA {
     pub lSize: i32,
@@ -886,26 +915,47 @@ pub const WIA_DPS_VERTICAL_SHEET_FEED_SIZE: u32 = 3077u32;
 pub const WIA_DPV_DSHOW_DEVICE_PATH: u32 = 3588u32;
 pub const WIA_DPV_IMAGES_DIRECTORY: u32 = 3587u32;
 pub const WIA_DPV_LAST_PICTURE_TAKEN: u32 = 3586u32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_BUSY: ::windows_sys::core::HRESULT = -2145320954i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_COVER_OPEN: ::windows_sys::core::HRESULT = -2145320944i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_DESTINATION: ::windows_sys::core::HRESULT = -2145320942i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_DEVICE_COMMUNICATION: ::windows_sys::core::HRESULT = -2145320950i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_DEVICE_LOCKED: ::windows_sys::core::HRESULT = -2145320947i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_EXCEPTION_IN_DRIVER: ::windows_sys::core::HRESULT = -2145320946i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_GENERAL_ERROR: ::windows_sys::core::HRESULT = -2145320959i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_INCORRECT_HARDWARE_SETTING: ::windows_sys::core::HRESULT = -2145320948i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_INVALID_COMMAND: ::windows_sys::core::HRESULT = -2145320949i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_INVALID_DRIVER_RESPONSE: ::windows_sys::core::HRESULT = -2145320945i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_ITEM_DELETED: ::windows_sys::core::HRESULT = -2145320951i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_LAMP_OFF: ::windows_sys::core::HRESULT = -2145320943i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_MAXIMUM_PRINTER_ENDORSER_COUNTER: ::windows_sys::core::HRESULT = -2145320939i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_MULTI_FEED: ::windows_sys::core::HRESULT = -2145320940i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_NETWORK_RESERVATION_FAILED: ::windows_sys::core::HRESULT = -2145320941i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_OFFLINE: ::windows_sys::core::HRESULT = -2145320955i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_PAPER_EMPTY: ::windows_sys::core::HRESULT = -2145320957i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_PAPER_JAM: ::windows_sys::core::HRESULT = -2145320958i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_PAPER_PROBLEM: ::windows_sys::core::HRESULT = -2145320956i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_USER_INTERVENTION: ::windows_sys::core::HRESULT = -2145320952i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_ERROR_WARMING_UP: ::windows_sys::core::HRESULT = -2145320953i32;
 pub const WIA_EVENT_CANCEL_IO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3361798072, data2: 40141, data3: 16874, data4: [187, 191, 77, 208, 156, 91, 23, 149] };
 pub const WIA_EVENT_COVER_CLOSED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1729405414, data2: 57989, data3: 18060, data4: [155, 140, 218, 125, 196, 203, 170, 5] };
@@ -939,6 +989,7 @@ pub const WIA_EVENT_STORAGE_DELETED: ::windows_sys::core::GUID = ::windows_sys::
 pub const WIA_EVENT_TREE_UPDATED: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3380976529, data2: 19122, data3: 19670, data4: [161, 252, 88, 46, 236, 85, 229, 133] };
 pub const WIA_EVENT_VOLUME_INSERT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2520300541, data2: 53693, data3: 4562, data4: [179, 31, 0, 192, 79, 104, 206, 97] };
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub struct WIA_EXTENDED_TRANSFER_INFO {
     pub ulSize: u32,
     pub ulMinBufferSize: u32,
@@ -962,6 +1013,7 @@ pub const WIA_FLAG_NOM: u32 = 0u32;
 pub const WIA_FLAG_NUM_ELEMS: u32 = 2u32;
 pub const WIA_FLAG_VALUES: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub struct WIA_FORMAT_INFO {
     pub guidFormatID: ::windows_sys::core::GUID,
     pub lTymed: i32,
@@ -1149,6 +1201,7 @@ pub const WIA_MAJOR_EVENT_PICTURE_DELETED: u32 = 4u32;
 pub const WIA_MAJOR_EVENT_PICTURE_TAKEN: u32 = 3u32;
 pub const WIA_MAX_CTX_SIZE: u32 = 16777216u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub struct WIA_MICR {
     pub Tag: u32,
     pub Version: u32,
@@ -1165,6 +1218,7 @@ impl ::core::clone::Clone for WIA_MICR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub struct WIA_MICR_INFO {
     pub Size: u32,
     pub Page: u32,
@@ -1258,6 +1312,7 @@ pub const WIA_PAGE_USLEGAL: u32 = 3u32;
 pub const WIA_PAGE_USLETTER: u32 = 1u32;
 pub const WIA_PAGE_USSTATEMENT: u32 = 5u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub struct WIA_PATCH_CODES {
     pub Tag: u32,
     pub Version: u32,
@@ -1286,6 +1341,7 @@ pub const WIA_PATCH_CODE_8: u32 = 8u32;
 pub const WIA_PATCH_CODE_9: u32 = 9u32;
 pub const WIA_PATCH_CODE_CUSTOM_BASE: u32 = 32768u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub struct WIA_PATCH_CODE_INFO {
     pub Type: u32,
 }
@@ -1368,6 +1424,7 @@ pub const WIA_PRINT_YEAR: u32 = 1u32;
 pub const WIA_PRIVATE_DEVPROP: u32 = 38914u32;
 pub const WIA_PRIVATE_ITEMPROP: u32 = 71682u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_CONTEXT {
     pub cProps: u32,
@@ -1383,6 +1440,7 @@ impl ::core::clone::Clone for WIA_PROPERTY_CONTEXT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_INFO {
     pub lAccessFlags: u32,
@@ -1398,6 +1456,7 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union WIA_PROPERTY_INFO_0 {
     pub Range: WIA_PROPERTY_INFO_0_7,
@@ -1418,6 +1477,7 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_INFO_0_0 {
     pub Nom: i32,
@@ -1432,6 +1492,7 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_INFO_0_1 {
     pub cNumList: i32,
@@ -1447,6 +1508,7 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_INFO_0_2 {
     pub cNumList: i32,
@@ -1462,6 +1524,7 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_INFO_0_3 {
     pub cNumList: i32,
@@ -1477,6 +1540,7 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_3 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_INFO_0_4 {
     pub cNumList: i32,
@@ -1492,6 +1556,7 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_4 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_INFO_0_5 {
     pub Dummy: i32,
@@ -1505,6 +1570,7 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_5 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_INFO_0_6 {
     pub Min: f64,
@@ -1521,6 +1587,7 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_6 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_INFO_0_7 {
     pub Min: i32,
@@ -1537,6 +1604,7 @@ impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_7 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPID_TO_NAME {
     pub propid: u32,
@@ -1567,6 +1635,7 @@ pub const WIA_RANGE_NOM: u32 = 1u32;
 pub const WIA_RANGE_NUM_ELEMS: u32 = 4u32;
 pub const WIA_RANGE_STEP: u32 = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub struct WIA_RAW_HEADER {
     pub Tag: u32,
     pub Version: u32,
@@ -1607,15 +1676,25 @@ pub const WIA_SEPARATOR_DETECT_SCAN_STOP: u32 = 2u32;
 pub const WIA_SEPARATOR_DISABLED: u32 = 0u32;
 pub const WIA_SET_DEFAULT_HANDLER: u32 = 4u32;
 pub const WIA_SHOW_PREVIEW_CONTROL: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_STATUS_CALIBRATING: ::windows_sys::core::HRESULT = 2162691i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_STATUS_CLEAR: ::windows_sys::core::HRESULT = 2162696i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_STATUS_END_OF_MEDIA: ::windows_sys::core::HRESULT = 2162689i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_STATUS_NETWORK_DEVICE_RESERVED: ::windows_sys::core::HRESULT = 2162695i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_STATUS_NOT_HANDLED: ::windows_sys::core::HRESULT = 2162698i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_STATUS_RESERVING_NETWORK_DEVICE: ::windows_sys::core::HRESULT = 2162694i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_STATUS_SKIP_ITEM: ::windows_sys::core::HRESULT = 2162697i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_STATUS_WARMING_UP: ::windows_sys::core::HRESULT = 2162690i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_S_CHANGE_DEVICE: ::windows_sys::core::HRESULT = 2162699i32;
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub const WIA_S_NO_DEVICE_AVAILABLE: ::windows_sys::core::HRESULT = -2145320939i32;
 pub const WIA_TRANSFER_ACQUIRE_CHILDREN: u32 = 1u32;
 pub const WIA_TRANSFER_CHILDREN_SINGLE_SCAN: u32 = 1u32;
@@ -1708,6 +1787,7 @@ pub const WiaItemTypeVPanorama: u32 = 1024u32;
 pub const WiaItemTypeVideo: u32 = 65536u32;
 pub const WiaLog: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2716291927, data2: 34842, data3: 16798, data4: [131, 226, 187, 22, 219, 25, 124, 104] };
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_ImageAcquisition'*"]
 pub struct WiaTransferParams {
     pub lMessage: i32,
     pub lPercentComplete: i32,

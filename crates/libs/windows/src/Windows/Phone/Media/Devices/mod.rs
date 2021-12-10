@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Phone_Media_Devices'*"]
 #[repr(transparent)]
 pub struct AudioRoutingEndpoint(pub i32);
 impl AudioRoutingEndpoint {
@@ -32,6 +33,7 @@ unsafe impl ::windows::core::RuntimeType for AudioRoutingEndpoint {
 impl ::windows::core::DefaultType for AudioRoutingEndpoint {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_Media_Devices'*"]
 #[repr(transparent)]
 pub struct AudioRoutingManager(::windows::core::IUnknown);
 impl AudioRoutingManager {
@@ -140,6 +142,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioRoutingManager {}
 unsafe impl ::core::marker::Sync for AudioRoutingManager {}
+#[doc = "*Required features: 'Phone_Media_Devices'*"]
 #[repr(transparent)]
 pub struct AvailableAudioRoutingEndpoints(pub u32);
 impl AvailableAudioRoutingEndpoints {

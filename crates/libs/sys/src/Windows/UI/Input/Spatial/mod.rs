@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 pub type SpatialGestureRecognizer = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialGestureSettings(pub u32);
 impl SpatialGestureSettings {
@@ -31,6 +32,7 @@ pub type SpatialInteractionController = *mut ::core::ffi::c_void;
 pub type SpatialInteractionControllerProperties = *mut ::core::ffi::c_void;
 pub type SpatialInteractionDetectedEventArgs = *mut ::core::ffi::c_void;
 pub type SpatialInteractionManager = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialInteractionPressKind(pub i32);
 impl SpatialInteractionPressKind {
@@ -49,6 +51,7 @@ impl ::core::clone::Clone for SpatialInteractionPressKind {
 }
 pub type SpatialInteractionSource = *mut ::core::ffi::c_void;
 pub type SpatialInteractionSourceEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialInteractionSourceHandedness(pub i32);
 impl SpatialInteractionSourceHandedness {
@@ -62,6 +65,7 @@ impl ::core::clone::Clone for SpatialInteractionSourceHandedness {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialInteractionSourceKind(pub i32);
 impl SpatialInteractionSourceKind {
@@ -77,6 +81,7 @@ impl ::core::clone::Clone for SpatialInteractionSourceKind {
     }
 }
 pub type SpatialInteractionSourceLocation = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialInteractionSourcePositionAccuracy(pub i32);
 impl SpatialInteractionSourcePositionAccuracy {

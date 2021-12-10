@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactDataProviderConnection(::windows::core::IUnknown);
 impl ContactDataProviderConnection {
@@ -122,6 +123,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactDataProviderConnection {}
 unsafe impl ::core::marker::Sync for ContactDataProviderConnection {}
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactDataProviderTriggerDetails(::windows::core::IUnknown);
 impl ContactDataProviderTriggerDetails {
@@ -196,6 +198,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactDataProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for ContactDataProviderTriggerDetails {}
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactListCreateOrUpdateContactRequest(::windows::core::IUnknown);
 impl ContactListCreateOrUpdateContactRequest {
@@ -293,6 +296,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactListCreateOrUpdateContactRequest {}
 unsafe impl ::core::marker::Sync for ContactListCreateOrUpdateContactRequest {}
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactListCreateOrUpdateContactRequestEventArgs(::windows::core::IUnknown);
 impl ContactListCreateOrUpdateContactRequestEventArgs {
@@ -375,6 +379,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactListCreateOrUpdateContactRequestEventArgs {}
 unsafe impl ::core::marker::Sync for ContactListCreateOrUpdateContactRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactListDeleteContactRequest(::windows::core::IUnknown);
 impl ContactListDeleteContactRequest {
@@ -472,6 +477,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactListDeleteContactRequest {}
 unsafe impl ::core::marker::Sync for ContactListDeleteContactRequest {}
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactListDeleteContactRequestEventArgs(::windows::core::IUnknown);
 impl ContactListDeleteContactRequestEventArgs {
@@ -554,6 +560,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactListDeleteContactRequestEventArgs {}
 unsafe impl ::core::marker::Sync for ContactListDeleteContactRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactListServerSearchReadBatchRequest(::windows::core::IUnknown);
 impl ContactListServerSearchReadBatchRequest {
@@ -673,6 +680,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactListServerSearchReadBatchRequest {}
 unsafe impl ::core::marker::Sync for ContactListServerSearchReadBatchRequest {}
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactListServerSearchReadBatchRequestEventArgs(::windows::core::IUnknown);
 impl ContactListServerSearchReadBatchRequestEventArgs {
@@ -755,6 +763,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactListServerSearchReadBatchRequestEventArgs {}
 unsafe impl ::core::marker::Sync for ContactListServerSearchReadBatchRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactListSyncManagerSyncRequest(::windows::core::IUnknown);
 impl ContactListSyncManagerSyncRequest {
@@ -845,6 +854,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactListSyncManagerSyncRequest {}
 unsafe impl ::core::marker::Sync for ContactListSyncManagerSyncRequest {}
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactListSyncManagerSyncRequestEventArgs(::windows::core::IUnknown);
 impl ContactListSyncManagerSyncRequestEventArgs {

@@ -9,6 +9,7 @@ pub type BarcodeScannerDataReceivedEventArgs = *mut ::core::ffi::c_void;
 pub type BarcodeScannerErrorOccurredEventArgs = *mut ::core::ffi::c_void;
 pub type BarcodeScannerImagePreviewReceivedEventArgs = *mut ::core::ffi::c_void;
 pub type BarcodeScannerReport = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerStatus(pub i32);
 impl BarcodeScannerStatus {
@@ -26,6 +27,7 @@ impl ::core::clone::Clone for BarcodeScannerStatus {
 }
 pub type BarcodeScannerStatusUpdatedEventArgs = *mut ::core::ffi::c_void;
 pub type BarcodeSymbologyAttributes = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeSymbologyDecodeLengthKind(pub i32);
 impl BarcodeSymbologyDecodeLengthKind {
@@ -46,6 +48,7 @@ pub type CashDrawerClosedEventArgs = *mut ::core::ffi::c_void;
 pub type CashDrawerEventSource = *mut ::core::ffi::c_void;
 pub type CashDrawerOpenedEventArgs = *mut ::core::ffi::c_void;
 pub type CashDrawerStatus = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct CashDrawerStatusKind(pub i32);
 impl CashDrawerStatusKind {
@@ -88,6 +91,7 @@ pub type LineDisplayAttributes = *mut ::core::ffi::c_void;
 pub type LineDisplayCapabilities = *mut ::core::ffi::c_void;
 pub type LineDisplayCursor = *mut ::core::ffi::c_void;
 pub type LineDisplayCursorAttributes = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayCursorType(pub i32);
 impl LineDisplayCursorType {
@@ -105,6 +109,7 @@ impl ::core::clone::Clone for LineDisplayCursorType {
     }
 }
 pub type LineDisplayCustomGlyphs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayDescriptorState(pub i32);
 impl LineDisplayDescriptorState {
@@ -118,6 +123,7 @@ impl ::core::clone::Clone for LineDisplayDescriptorState {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayHorizontalAlignment(pub i32);
 impl LineDisplayHorizontalAlignment {
@@ -132,6 +138,7 @@ impl ::core::clone::Clone for LineDisplayHorizontalAlignment {
     }
 }
 pub type LineDisplayMarquee = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayMarqueeFormat(pub i32);
 impl LineDisplayMarqueeFormat {
@@ -145,6 +152,7 @@ impl ::core::clone::Clone for LineDisplayMarqueeFormat {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayPowerStatus(pub i32);
 impl LineDisplayPowerStatus {
@@ -160,6 +168,7 @@ impl ::core::clone::Clone for LineDisplayPowerStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayScrollDirection(pub i32);
 impl LineDisplayScrollDirection {
@@ -177,6 +186,7 @@ impl ::core::clone::Clone for LineDisplayScrollDirection {
 pub type LineDisplayStatisticsCategorySelector = *mut ::core::ffi::c_void;
 pub type LineDisplayStatusUpdatedEventArgs = *mut ::core::ffi::c_void;
 pub type LineDisplayStoredBitmap = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayTextAttribute(pub i32);
 impl LineDisplayTextAttribute {
@@ -191,6 +201,7 @@ impl ::core::clone::Clone for LineDisplayTextAttribute {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayTextAttributeGranularity(pub i32);
 impl LineDisplayTextAttributeGranularity {
@@ -204,6 +215,7 @@ impl ::core::clone::Clone for LineDisplayTextAttributeGranularity {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayVerticalAlignment(pub i32);
 impl LineDisplayVerticalAlignment {
@@ -220,6 +232,7 @@ impl ::core::clone::Clone for LineDisplayVerticalAlignment {
 pub type LineDisplayWindow = *mut ::core::ffi::c_void;
 pub type MagneticStripeReader = *mut ::core::ffi::c_void;
 pub type MagneticStripeReaderAamvaCardDataReceivedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderAuthenticationLevel(pub i32);
 impl MagneticStripeReaderAuthenticationLevel {
@@ -233,6 +246,7 @@ impl ::core::clone::Clone for MagneticStripeReaderAuthenticationLevel {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderAuthenticationProtocol(pub i32);
 impl MagneticStripeReaderAuthenticationProtocol {
@@ -248,6 +262,7 @@ impl ::core::clone::Clone for MagneticStripeReaderAuthenticationProtocol {
 pub type MagneticStripeReaderBankCardDataReceivedEventArgs = *mut ::core::ffi::c_void;
 pub type MagneticStripeReaderCapabilities = *mut ::core::ffi::c_void;
 pub type MagneticStripeReaderErrorOccurredEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderErrorReportingType(pub i32);
 impl MagneticStripeReaderErrorReportingType {
@@ -261,6 +276,7 @@ impl ::core::clone::Clone for MagneticStripeReaderErrorReportingType {
     }
 }
 pub type MagneticStripeReaderReport = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderStatus(pub i32);
 impl MagneticStripeReaderStatus {
@@ -276,6 +292,7 @@ impl ::core::clone::Clone for MagneticStripeReaderStatus {
 }
 pub type MagneticStripeReaderStatusUpdatedEventArgs = *mut ::core::ffi::c_void;
 pub type MagneticStripeReaderTrackData = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderTrackErrorType(pub i32);
 impl MagneticStripeReaderTrackErrorType {
@@ -292,6 +309,7 @@ impl ::core::clone::Clone for MagneticStripeReaderTrackErrorType {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderTrackIds(pub i32);
 impl MagneticStripeReaderTrackIds {
@@ -308,6 +326,7 @@ impl ::core::clone::Clone for MagneticStripeReaderTrackIds {
     }
 }
 pub type MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosConnectionTypes(pub u32);
 impl PosConnectionTypes {
@@ -323,6 +342,7 @@ impl ::core::clone::Clone for PosConnectionTypes {
     }
 }
 pub type PosPrinter = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterAlignment(pub i32);
 impl PosPrinterAlignment {
@@ -336,6 +356,7 @@ impl ::core::clone::Clone for PosPrinterAlignment {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterBarcodeTextPosition(pub i32);
 impl PosPrinterBarcodeTextPosition {
@@ -350,6 +371,7 @@ impl ::core::clone::Clone for PosPrinterBarcodeTextPosition {
     }
 }
 pub type PosPrinterCapabilities = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterCartridgeSensors(pub u32);
 impl PosPrinterCartridgeSensors {
@@ -365,6 +387,7 @@ impl ::core::clone::Clone for PosPrinterCartridgeSensors {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterColorCapabilities(pub u32);
 impl PosPrinterColorCapabilities {
@@ -387,6 +410,7 @@ impl ::core::clone::Clone for PosPrinterColorCapabilities {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterColorCartridge(pub i32);
 impl PosPrinterColorCartridge {
@@ -409,6 +433,7 @@ impl ::core::clone::Clone for PosPrinterColorCartridge {
     }
 }
 pub type PosPrinterFontProperty = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterLineDirection(pub i32);
 impl PosPrinterLineDirection {
@@ -421,6 +446,7 @@ impl ::core::clone::Clone for PosPrinterLineDirection {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterLineStyle(pub i32);
 impl PosPrinterLineStyle {
@@ -435,6 +461,7 @@ impl ::core::clone::Clone for PosPrinterLineStyle {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterMapMode(pub i32);
 impl PosPrinterMapMode {
@@ -449,6 +476,7 @@ impl ::core::clone::Clone for PosPrinterMapMode {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterMarkFeedCapabilities(pub u32);
 impl PosPrinterMarkFeedCapabilities {
@@ -464,6 +492,7 @@ impl ::core::clone::Clone for PosPrinterMarkFeedCapabilities {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterMarkFeedKind(pub i32);
 impl PosPrinterMarkFeedKind {
@@ -479,6 +508,7 @@ impl ::core::clone::Clone for PosPrinterMarkFeedKind {
     }
 }
 pub type PosPrinterPrintOptions = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterPrintSide(pub i32);
 impl PosPrinterPrintSide {
@@ -493,6 +523,7 @@ impl ::core::clone::Clone for PosPrinterPrintSide {
     }
 }
 pub type PosPrinterReleaseDeviceRequestedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterRotation(pub i32);
 impl PosPrinterRotation {
@@ -507,6 +538,7 @@ impl ::core::clone::Clone for PosPrinterRotation {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterRuledLineCapabilities(pub u32);
 impl PosPrinterRuledLineCapabilities {
@@ -521,6 +553,7 @@ impl ::core::clone::Clone for PosPrinterRuledLineCapabilities {
     }
 }
 pub type PosPrinterStatus = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterStatusKind(pub i32);
 impl PosPrinterStatusKind {
@@ -540,6 +573,7 @@ pub type PosPrinterStatusUpdatedEventArgs = *mut ::core::ffi::c_void;
 pub type ReceiptPrintJob = *mut ::core::ffi::c_void;
 pub type ReceiptPrinterCapabilities = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 pub struct SizeUInt32 {
     pub Width: u32,
     pub Height: u32,
@@ -553,6 +587,7 @@ impl ::core::clone::Clone for SizeUInt32 {
 pub type SlipPrintJob = *mut ::core::ffi::c_void;
 pub type SlipPrinterCapabilities = *mut ::core::ffi::c_void;
 pub type UnifiedPosErrorData = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct UnifiedPosErrorReason(pub i32);
 impl UnifiedPosErrorReason {
@@ -574,6 +609,7 @@ impl ::core::clone::Clone for UnifiedPosErrorReason {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct UnifiedPosErrorSeverity(pub i32);
 impl UnifiedPosErrorSeverity {
@@ -590,6 +626,7 @@ impl ::core::clone::Clone for UnifiedPosErrorSeverity {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct UnifiedPosHealthCheckLevel(pub i32);
 impl UnifiedPosHealthCheckLevel {
@@ -604,6 +641,7 @@ impl ::core::clone::Clone for UnifiedPosHealthCheckLevel {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct UnifiedPosPowerReportingType(pub i32);
 impl UnifiedPosPowerReportingType {

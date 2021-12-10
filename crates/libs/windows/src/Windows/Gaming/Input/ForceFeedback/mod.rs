@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
 pub struct ConditionForceEffect(::windows::core::IUnknown);
 impl ConditionForceEffect {
@@ -136,6 +137,7 @@ impl<'a> ::windows::core::IntoParam<'a, IForceFeedbackEffect> for &ConditionForc
 }
 unsafe impl ::core::marker::Send for ConditionForceEffect {}
 unsafe impl ::core::marker::Sync for ConditionForceEffect {}
+#[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
 pub struct ConditionForceEffectKind(pub i32);
 impl ConditionForceEffectKind {
@@ -165,6 +167,7 @@ unsafe impl ::windows::core::RuntimeType for ConditionForceEffectKind {
 impl ::windows::core::DefaultType for ConditionForceEffectKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
 pub struct ConstantForceEffect(::windows::core::IUnknown);
 impl ConstantForceEffect {
@@ -297,6 +300,7 @@ impl<'a> ::windows::core::IntoParam<'a, IForceFeedbackEffect> for &ConstantForce
 }
 unsafe impl ::core::marker::Send for ConstantForceEffect {}
 unsafe impl ::core::marker::Sync for ConstantForceEffect {}
+#[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
 pub struct ForceFeedbackEffectAxes(pub u32);
 impl ForceFeedbackEffectAxes {
@@ -326,6 +330,7 @@ unsafe impl ::windows::core::RuntimeType for ForceFeedbackEffectAxes {
 impl ::windows::core::DefaultType for ForceFeedbackEffectAxes {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
 pub struct ForceFeedbackEffectState(pub i32);
 impl ForceFeedbackEffectState {
@@ -355,6 +360,7 @@ unsafe impl ::windows::core::RuntimeType for ForceFeedbackEffectState {
 impl ::windows::core::DefaultType for ForceFeedbackEffectState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
 pub struct ForceFeedbackLoadEffectResult(pub i32);
 impl ForceFeedbackLoadEffectResult {
@@ -383,6 +389,7 @@ unsafe impl ::windows::core::RuntimeType for ForceFeedbackLoadEffectResult {
 impl ::windows::core::DefaultType for ForceFeedbackLoadEffectResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
 pub struct ForceFeedbackMotor(::windows::core::IUnknown);
 impl ForceFeedbackMotor {
@@ -593,6 +600,7 @@ pub struct IConstantForceEffectVtbl(
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vector: super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
 );
+#[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
 pub struct IForceFeedbackEffect(::windows::core::IUnknown);
 impl IForceFeedbackEffect {
@@ -792,6 +800,7 @@ pub struct IRampForceEffectVtbl(
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startvector: super::super::super::Foundation::Numerics::Vector3, endvector: super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
 );
+#[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
 pub struct PeriodicForceEffect(::windows::core::IUnknown);
 impl PeriodicForceEffect {
@@ -934,6 +943,7 @@ impl<'a> ::windows::core::IntoParam<'a, IForceFeedbackEffect> for &PeriodicForce
 }
 unsafe impl ::core::marker::Send for PeriodicForceEffect {}
 unsafe impl ::core::marker::Sync for PeriodicForceEffect {}
+#[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
 pub struct PeriodicForceEffectKind(pub i32);
 impl PeriodicForceEffectKind {
@@ -964,6 +974,7 @@ unsafe impl ::windows::core::RuntimeType for PeriodicForceEffectKind {
 impl ::windows::core::DefaultType for PeriodicForceEffectKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
 pub struct RampForceEffect(::windows::core::IUnknown);
 impl RampForceEffect {

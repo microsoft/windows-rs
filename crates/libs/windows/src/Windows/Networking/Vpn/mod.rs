@@ -255,6 +255,7 @@ pub struct IVpnChannelConfiguration2Vtbl(
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct IVpnChannelStatics(::windows::core::IUnknown);
 impl IVpnChannelStatics {
@@ -332,6 +333,7 @@ pub struct IVpnChannelStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, thirdpartyplugin: *mut ::core::ffi::c_void, event: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct IVpnCredential(::windows::core::IUnknown);
 impl IVpnCredential {
@@ -523,6 +525,7 @@ pub struct IVpnCustomErrorBoxVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct IVpnCustomPrompt(::windows::core::IUnknown);
 impl IVpnCustomPrompt {
@@ -654,6 +657,7 @@ pub struct IVpnCustomPromptBooleanInputVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct IVpnCustomPromptElement(::windows::core::IUnknown);
 impl IVpnCustomPromptElement {
@@ -912,6 +916,7 @@ pub struct IVpnDomainNameInfo2Vtbl(
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct IVpnDomainNameInfoFactory(::windows::core::IUnknown);
 impl IVpnDomainNameInfoFactory {
@@ -1052,6 +1057,7 @@ pub struct IVpnInterfaceIdVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id_array_size: *mut u32, id: *mut *mut u8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct IVpnInterfaceIdFactory(::windows::core::IUnknown);
 impl IVpnInterfaceIdFactory {
@@ -1219,6 +1225,7 @@ pub struct IVpnNamespaceInfoVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct IVpnNamespaceInfoFactory(::windows::core::IUnknown);
 impl IVpnNamespaceInfoFactory {
@@ -1410,6 +1417,7 @@ pub struct IVpnPacketBuffer3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct IVpnPacketBufferFactory(::windows::core::IUnknown);
 impl IVpnPacketBufferFactory {
@@ -1558,6 +1566,7 @@ pub struct IVpnPickedCredentialVtbl(
     #[cfg(feature = "Security_Credentials")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Security_Credentials"))] usize,
 );
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct IVpnPlugIn(::windows::core::IUnknown);
 impl IVpnPlugIn {
@@ -1698,6 +1707,7 @@ pub struct IVpnPlugInProfile2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut VpnManagementConnectionStatus) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct IVpnProfile(::windows::core::IUnknown);
 impl IVpnProfile {
@@ -1905,6 +1915,7 @@ pub struct IVpnRouteAssignmentVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct IVpnRouteFactory(::windows::core::IUnknown);
 impl IVpnRouteFactory {
@@ -2078,6 +2089,7 @@ pub struct IVpnTrafficFilterFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appid: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnAppId(::windows::core::IUnknown);
 impl VpnAppId {
@@ -2177,6 +2189,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnA
 }
 unsafe impl ::core::marker::Send for VpnAppId {}
 unsafe impl ::core::marker::Sync for VpnAppId {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnAppIdType(pub i32);
 impl VpnAppIdType {
@@ -2205,6 +2218,7 @@ unsafe impl ::windows::core::RuntimeType for VpnAppIdType {
 impl ::windows::core::DefaultType for VpnAppIdType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnAuthenticationMethod(pub i32);
 impl VpnAuthenticationMethod {
@@ -2234,6 +2248,7 @@ unsafe impl ::windows::core::RuntimeType for VpnAuthenticationMethod {
 impl ::windows::core::DefaultType for VpnAuthenticationMethod {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnChannel(::windows::core::IUnknown);
 impl VpnChannel {
@@ -2566,6 +2581,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnC
 }
 unsafe impl ::core::marker::Send for VpnChannel {}
 unsafe impl ::core::marker::Sync for VpnChannel {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnChannelActivityEventArgs(::windows::core::IUnknown);
 impl VpnChannelActivityEventArgs {
@@ -2640,6 +2656,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnC
 }
 unsafe impl ::core::marker::Send for VpnChannelActivityEventArgs {}
 unsafe impl ::core::marker::Sync for VpnChannelActivityEventArgs {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnChannelActivityEventType(pub i32);
 impl VpnChannelActivityEventType {
@@ -2667,6 +2684,7 @@ unsafe impl ::windows::core::RuntimeType for VpnChannelActivityEventType {
 impl ::windows::core::DefaultType for VpnChannelActivityEventType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnChannelActivityStateChangedArgs(::windows::core::IUnknown);
 impl VpnChannelActivityStateChangedArgs {
@@ -2741,6 +2759,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnC
 }
 unsafe impl ::core::marker::Send for VpnChannelActivityStateChangedArgs {}
 unsafe impl ::core::marker::Sync for VpnChannelActivityStateChangedArgs {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnChannelConfiguration(::windows::core::IUnknown);
 impl VpnChannelConfiguration {
@@ -2838,6 +2857,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnC
 }
 unsafe impl ::core::marker::Send for VpnChannelConfiguration {}
 unsafe impl ::core::marker::Sync for VpnChannelConfiguration {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnChannelRequestCredentialsOptions(pub u32);
 impl VpnChannelRequestCredentialsOptions {
@@ -2866,6 +2886,7 @@ unsafe impl ::windows::core::RuntimeType for VpnChannelRequestCredentialsOptions
 impl ::windows::core::DefaultType for VpnChannelRequestCredentialsOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnCredential(::windows::core::IUnknown);
 impl VpnCredential {
@@ -2986,6 +3007,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCredential> for &VpnCredential {
 }
 unsafe impl ::core::marker::Send for VpnCredential {}
 unsafe impl ::core::marker::Sync for VpnCredential {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnCredentialType(pub i32);
 impl VpnCredentialType {
@@ -3018,6 +3040,7 @@ unsafe impl ::windows::core::RuntimeType for VpnCredentialType {
 impl ::windows::core::DefaultType for VpnCredentialType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnCustomCheckBox(::windows::core::IUnknown);
 impl VpnCustomCheckBox {
@@ -3165,6 +3188,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCustomPrompt> for &VpnCustomCheckBox
 }
 unsafe impl ::core::marker::Send for VpnCustomCheckBox {}
 unsafe impl ::core::marker::Sync for VpnCustomCheckBox {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnCustomComboBox(::windows::core::IUnknown);
 impl VpnCustomComboBox {
@@ -3314,6 +3338,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCustomPrompt> for &VpnCustomComboBox
 }
 unsafe impl ::core::marker::Send for VpnCustomComboBox {}
 unsafe impl ::core::marker::Sync for VpnCustomComboBox {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnCustomEditBox(::windows::core::IUnknown);
 impl VpnCustomEditBox {
@@ -3472,6 +3497,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCustomPrompt> for &VpnCustomEditBox 
 }
 unsafe impl ::core::marker::Send for VpnCustomEditBox {}
 unsafe impl ::core::marker::Sync for VpnCustomEditBox {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnCustomErrorBox(::windows::core::IUnknown);
 impl VpnCustomErrorBox {
@@ -3601,6 +3627,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCustomPrompt> for &VpnCustomErrorBox
 }
 unsafe impl ::core::marker::Send for VpnCustomErrorBox {}
 unsafe impl ::core::marker::Sync for VpnCustomErrorBox {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnCustomPromptBooleanInput(::windows::core::IUnknown);
 impl VpnCustomPromptBooleanInput {
@@ -3748,6 +3775,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCustomPromptElement> for &VpnCustomP
 }
 unsafe impl ::core::marker::Send for VpnCustomPromptBooleanInput {}
 unsafe impl ::core::marker::Sync for VpnCustomPromptBooleanInput {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnCustomPromptOptionSelector(::windows::core::IUnknown);
 impl VpnCustomPromptOptionSelector {
@@ -3892,6 +3920,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCustomPromptElement> for &VpnCustomP
 }
 unsafe impl ::core::marker::Send for VpnCustomPromptOptionSelector {}
 unsafe impl ::core::marker::Sync for VpnCustomPromptOptionSelector {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnCustomPromptText(::windows::core::IUnknown);
 impl VpnCustomPromptText {
@@ -4032,6 +4061,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCustomPromptElement> for &VpnCustomP
 }
 unsafe impl ::core::marker::Send for VpnCustomPromptText {}
 unsafe impl ::core::marker::Sync for VpnCustomPromptText {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnCustomPromptTextInput(::windows::core::IUnknown);
 impl VpnCustomPromptTextInput {
@@ -4190,6 +4220,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCustomPromptElement> for &VpnCustomP
 }
 unsafe impl ::core::marker::Send for VpnCustomPromptTextInput {}
 unsafe impl ::core::marker::Sync for VpnCustomPromptTextInput {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnCustomTextBox(::windows::core::IUnknown);
 impl VpnCustomTextBox {
@@ -4330,6 +4361,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnCustomPrompt> for &VpnCustomTextBox 
 }
 unsafe impl ::core::marker::Send for VpnCustomTextBox {}
 unsafe impl ::core::marker::Sync for VpnCustomTextBox {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnDataPathType(pub i32);
 impl VpnDataPathType {
@@ -4357,6 +4389,7 @@ unsafe impl ::windows::core::RuntimeType for VpnDataPathType {
 impl ::windows::core::DefaultType for VpnDataPathType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnDomainNameAssignment(::windows::core::IUnknown);
 impl VpnDomainNameAssignment {
@@ -4452,6 +4485,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnD
 }
 unsafe impl ::core::marker::Send for VpnDomainNameAssignment {}
 unsafe impl ::core::marker::Sync for VpnDomainNameAssignment {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnDomainNameInfo(::windows::core::IUnknown);
 impl VpnDomainNameInfo {
@@ -4576,6 +4610,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnD
 }
 unsafe impl ::core::marker::Send for VpnDomainNameInfo {}
 unsafe impl ::core::marker::Sync for VpnDomainNameInfo {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnDomainNameType(pub i32);
 impl VpnDomainNameType {
@@ -4604,6 +4639,7 @@ unsafe impl ::windows::core::RuntimeType for VpnDomainNameType {
 impl ::windows::core::DefaultType for VpnDomainNameType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnForegroundActivatedEventArgs(::windows::core::IUnknown);
 impl VpnForegroundActivatedEventArgs {
@@ -4777,6 +4813,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
 }
 unsafe impl ::core::marker::Send for VpnForegroundActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for VpnForegroundActivatedEventArgs {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnForegroundActivationOperation(::windows::core::IUnknown);
 impl VpnForegroundActivationOperation {
@@ -4849,6 +4886,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnF
 }
 unsafe impl ::core::marker::Send for VpnForegroundActivationOperation {}
 unsafe impl ::core::marker::Sync for VpnForegroundActivationOperation {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnIPProtocol(pub i32);
 impl VpnIPProtocol {
@@ -4881,6 +4919,7 @@ unsafe impl ::windows::core::RuntimeType for VpnIPProtocol {
 impl ::windows::core::DefaultType for VpnIPProtocol {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnInterfaceId(::windows::core::IUnknown);
 impl VpnInterfaceId {
@@ -4962,6 +5001,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnI
 }
 unsafe impl ::core::marker::Send for VpnInterfaceId {}
 unsafe impl ::core::marker::Sync for VpnInterfaceId {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnManagementAgent(::windows::core::IUnknown);
 impl VpnManagementAgent {
@@ -5108,6 +5148,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnM
 }
 unsafe impl ::core::marker::Send for VpnManagementAgent {}
 unsafe impl ::core::marker::Sync for VpnManagementAgent {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnManagementConnectionStatus(pub i32);
 impl VpnManagementConnectionStatus {
@@ -5137,6 +5178,7 @@ unsafe impl ::windows::core::RuntimeType for VpnManagementConnectionStatus {
 impl ::windows::core::DefaultType for VpnManagementConnectionStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnManagementErrorStatus(pub i32);
 impl VpnManagementErrorStatus {
@@ -5181,6 +5223,7 @@ unsafe impl ::windows::core::RuntimeType for VpnManagementErrorStatus {
 impl ::windows::core::DefaultType for VpnManagementErrorStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnNamespaceAssignment(::windows::core::IUnknown);
 impl VpnNamespaceAssignment {
@@ -5281,6 +5324,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnN
 }
 unsafe impl ::core::marker::Send for VpnNamespaceAssignment {}
 unsafe impl ::core::marker::Sync for VpnNamespaceAssignment {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnNamespaceInfo(::windows::core::IUnknown);
 impl VpnNamespaceInfo {
@@ -5396,6 +5440,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnN
 }
 unsafe impl ::core::marker::Send for VpnNamespaceInfo {}
 unsafe impl ::core::marker::Sync for VpnNamespaceInfo {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnNativeProfile(::windows::core::IUnknown);
 impl VpnNativeProfile {
@@ -5638,6 +5683,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnProfile> for &VpnNativeProfile {
 }
 unsafe impl ::core::marker::Send for VpnNativeProfile {}
 unsafe impl ::core::marker::Sync for VpnNativeProfile {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnNativeProtocolType(pub i32);
 impl VpnNativeProtocolType {
@@ -5666,6 +5712,7 @@ unsafe impl ::windows::core::RuntimeType for VpnNativeProtocolType {
 impl ::windows::core::DefaultType for VpnNativeProtocolType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnPacketBuffer(::windows::core::IUnknown);
 impl VpnPacketBuffer {
@@ -5791,6 +5838,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnP
 }
 unsafe impl ::core::marker::Send for VpnPacketBuffer {}
 unsafe impl ::core::marker::Sync for VpnPacketBuffer {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnPacketBufferList(::windows::core::IUnknown);
 impl VpnPacketBufferList {
@@ -5952,6 +6000,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 }
 unsafe impl ::core::marker::Send for VpnPacketBufferList {}
 unsafe impl ::core::marker::Sync for VpnPacketBufferList {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnPacketBufferStatus(pub i32);
 impl VpnPacketBufferStatus {
@@ -5979,6 +6028,7 @@ unsafe impl ::windows::core::RuntimeType for VpnPacketBufferStatus {
 impl ::windows::core::DefaultType for VpnPacketBufferStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnPickedCredential(::windows::core::IUnknown);
 impl VpnPickedCredential {
@@ -6069,6 +6119,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnP
 }
 unsafe impl ::core::marker::Send for VpnPickedCredential {}
 unsafe impl ::core::marker::Sync for VpnPickedCredential {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnPlugInProfile(::windows::core::IUnknown);
 impl VpnPlugInProfile {
@@ -6278,6 +6329,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVpnProfile> for &VpnPlugInProfile {
 }
 unsafe impl ::core::marker::Send for VpnPlugInProfile {}
 unsafe impl ::core::marker::Sync for VpnPlugInProfile {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnRoute(::windows::core::IUnknown);
 impl VpnRoute {
@@ -6377,6 +6429,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnR
 }
 unsafe impl ::core::marker::Send for VpnRoute {}
 unsafe impl ::core::marker::Sync for VpnRoute {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnRouteAssignment(::windows::core::IUnknown);
 impl VpnRouteAssignment {
@@ -6514,6 +6567,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnR
 }
 unsafe impl ::core::marker::Send for VpnRouteAssignment {}
 unsafe impl ::core::marker::Sync for VpnRouteAssignment {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnRoutingPolicyType(pub i32);
 impl VpnRoutingPolicyType {
@@ -6541,6 +6595,7 @@ unsafe impl ::windows::core::RuntimeType for VpnRoutingPolicyType {
 impl ::windows::core::DefaultType for VpnRoutingPolicyType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnSystemHealth(::windows::core::IUnknown);
 impl VpnSystemHealth {
@@ -6616,6 +6671,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnS
 }
 unsafe impl ::core::marker::Send for VpnSystemHealth {}
 unsafe impl ::core::marker::Sync for VpnSystemHealth {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnTrafficFilter(::windows::core::IUnknown);
 impl VpnTrafficFilter {
@@ -6766,6 +6822,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &VpnT
 }
 unsafe impl ::core::marker::Send for VpnTrafficFilter {}
 unsafe impl ::core::marker::Sync for VpnTrafficFilter {}
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnTrafficFilterAssignment(::windows::core::IUnknown);
 impl VpnTrafficFilterAssignment {

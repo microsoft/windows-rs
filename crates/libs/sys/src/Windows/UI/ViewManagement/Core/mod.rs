@@ -7,6 +7,7 @@ pub type CoreFrameworkInputViewOcclusionsChangedEventArgs = *mut ::core::ffi::c_
 pub type CoreInputView = *mut ::core::ffi::c_void;
 pub type CoreInputViewAnimationStartingEventArgs = *mut ::core::ffi::c_void;
 pub type CoreInputViewHidingEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
 pub struct CoreInputViewKind(pub i32);
 impl CoreInputViewKind {
@@ -25,6 +26,7 @@ impl ::core::clone::Clone for CoreInputViewKind {
     }
 }
 pub type CoreInputViewOcclusion = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
 pub struct CoreInputViewOcclusionKind(pub i32);
 impl CoreInputViewOcclusionKind {
@@ -41,6 +43,7 @@ impl ::core::clone::Clone for CoreInputViewOcclusionKind {
 pub type CoreInputViewOcclusionsChangedEventArgs = *mut ::core::ffi::c_void;
 pub type CoreInputViewShowingEventArgs = *mut ::core::ffi::c_void;
 pub type CoreInputViewTransferringXYFocusEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
 pub struct CoreInputViewXYFocusTransferDirection(pub i32);
 impl CoreInputViewXYFocusTransferDirection {

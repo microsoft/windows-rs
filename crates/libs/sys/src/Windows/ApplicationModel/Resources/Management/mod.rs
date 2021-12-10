@@ -3,6 +3,7 @@
 extern "system" {}
 pub type IndexedResourceCandidate = *mut ::core::ffi::c_void;
 pub type IndexedResourceQualifier = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Resources_Management'*"]
 #[repr(transparent)]
 pub struct IndexedResourceType(pub i32);
 impl IndexedResourceType {

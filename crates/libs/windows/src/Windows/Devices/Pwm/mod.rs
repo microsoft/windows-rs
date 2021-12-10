@@ -108,6 +108,7 @@ pub struct IPwmPinVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Pwm'*"]
 #[repr(transparent)]
 pub struct PwmController(::windows::core::IUnknown);
 impl PwmController {
@@ -262,6 +263,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PwmC
 }
 unsafe impl ::core::marker::Send for PwmController {}
 unsafe impl ::core::marker::Sync for PwmController {}
+#[doc = "*Required features: 'Devices_Pwm'*"]
 #[repr(transparent)]
 pub struct PwmPin(::windows::core::IUnknown);
 impl PwmPin {
@@ -404,6 +406,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for PwmPin {}
 unsafe impl ::core::marker::Sync for PwmPin {}
+#[doc = "*Required features: 'Devices_Pwm'*"]
 #[repr(transparent)]
 pub struct PwmPulsePolarity(pub i32);
 impl PwmPulsePolarity {

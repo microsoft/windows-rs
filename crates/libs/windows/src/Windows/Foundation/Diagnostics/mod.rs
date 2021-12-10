@@ -33,6 +33,7 @@ impl AsyncCausalityTracer {
 impl ::windows::core::RuntimeName for AsyncCausalityTracer {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.AsyncCausalityTracer";
 }
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct CausalityRelation(pub i32);
 impl CausalityRelation {
@@ -63,6 +64,7 @@ unsafe impl ::windows::core::RuntimeType for CausalityRelation {
 impl ::windows::core::DefaultType for CausalityRelation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct CausalitySource(pub i32);
 impl CausalitySource {
@@ -91,6 +93,7 @@ unsafe impl ::windows::core::RuntimeType for CausalitySource {
 impl ::windows::core::DefaultType for CausalitySource {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct CausalitySynchronousWork(pub i32);
 impl CausalitySynchronousWork {
@@ -119,6 +122,7 @@ unsafe impl ::windows::core::RuntimeType for CausalitySynchronousWork {
 impl ::windows::core::DefaultType for CausalitySynchronousWork {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct CausalityTraceLevel(pub i32);
 impl CausalityTraceLevel {
@@ -147,6 +151,7 @@ unsafe impl ::windows::core::RuntimeType for CausalityTraceLevel {
 impl ::windows::core::DefaultType for CausalityTraceLevel {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct ErrorDetails(::windows::core::IUnknown);
 impl ErrorDetails {
@@ -245,6 +250,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Erro
 }
 unsafe impl ::core::marker::Send for ErrorDetails {}
 unsafe impl ::core::marker::Sync for ErrorDetails {}
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct ErrorOptions(pub u32);
 impl ErrorOptions {
@@ -275,6 +281,7 @@ unsafe impl ::windows::core::RuntimeType for ErrorOptions {
 impl ::windows::core::DefaultType for ErrorOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct FileLoggingSession(::windows::core::IUnknown);
 impl FileLoggingSession {
@@ -500,6 +507,7 @@ pub struct IErrorDetailsStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errorcode: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct IErrorReportingSettings(::windows::core::IUnknown);
 impl IErrorReportingSettings {
@@ -585,6 +593,7 @@ pub struct IErrorReportingSettingsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ErrorOptions) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ErrorOptions) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct IFileLoggingSession(::windows::core::IUnknown);
 impl IFileLoggingSession {
@@ -825,6 +834,7 @@ pub struct ILoggingActivityFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activityname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, loggingchannel: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activityname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, loggingchannel: ::windows::core::RawPtr, level: LoggingLevel, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct ILoggingChannel(::windows::core::IUnknown);
 impl ILoggingChannel {
@@ -1252,6 +1262,7 @@ pub struct ILoggingOptionsFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keywords: i64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct ILoggingSession(::windows::core::IUnknown);
 impl ILoggingSession {
@@ -1401,6 +1412,7 @@ pub struct ILoggingSessionFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct ILoggingTarget(::windows::core::IUnknown);
 impl ILoggingTarget {
@@ -1568,6 +1580,7 @@ pub struct ITracingStatusChangedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CausalityTraceLevel) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct LogFileGeneratedEventArgs(::windows::core::IUnknown);
 impl LogFileGeneratedEventArgs {
@@ -1643,6 +1656,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LogF
 }
 unsafe impl ::core::marker::Send for LogFileGeneratedEventArgs {}
 unsafe impl ::core::marker::Sync for LogFileGeneratedEventArgs {}
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct LoggingActivity(::windows::core::IUnknown);
 impl LoggingActivity {
@@ -1872,6 +1886,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILoggingTarget> for &LoggingActivity {
 }
 unsafe impl ::core::marker::Send for LoggingActivity {}
 unsafe impl ::core::marker::Sync for LoggingActivity {}
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct LoggingChannel(::windows::core::IUnknown);
 impl LoggingChannel {
@@ -2156,6 +2171,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILoggingTarget> for &LoggingChannel {
 }
 unsafe impl ::core::marker::Send for LoggingChannel {}
 unsafe impl ::core::marker::Sync for LoggingChannel {}
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct LoggingChannelOptions(::windows::core::IUnknown);
 impl LoggingChannelOptions {
@@ -2251,6 +2267,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Logg
 }
 unsafe impl ::core::marker::Send for LoggingChannelOptions {}
 unsafe impl ::core::marker::Sync for LoggingChannelOptions {}
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct LoggingFieldFormat(pub i32);
 impl LoggingFieldFormat {
@@ -2295,6 +2312,7 @@ unsafe impl ::windows::core::RuntimeType for LoggingFieldFormat {
 impl ::windows::core::DefaultType for LoggingFieldFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct LoggingFields(::windows::core::IUnknown);
 impl LoggingFields {
@@ -2829,6 +2847,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Logg
 }
 unsafe impl ::core::marker::Send for LoggingFields {}
 unsafe impl ::core::marker::Sync for LoggingFields {}
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct LoggingLevel(pub i32);
 impl LoggingLevel {
@@ -2859,6 +2878,7 @@ unsafe impl ::windows::core::RuntimeType for LoggingLevel {
 impl ::windows::core::DefaultType for LoggingLevel {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct LoggingOpcode(pub i32);
 impl LoggingOpcode {
@@ -2891,6 +2911,7 @@ unsafe impl ::windows::core::RuntimeType for LoggingOpcode {
 impl ::windows::core::DefaultType for LoggingOpcode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct LoggingOptions(::windows::core::IUnknown);
 impl LoggingOptions {
@@ -3041,6 +3062,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Logg
 }
 unsafe impl ::core::marker::Send for LoggingOptions {}
 unsafe impl ::core::marker::Sync for LoggingOptions {}
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct LoggingSession(::windows::core::IUnknown);
 impl LoggingSession {
@@ -3193,6 +3215,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILoggingSession> for &LoggingSession {
 }
 unsafe impl ::core::marker::Send for LoggingSession {}
 unsafe impl ::core::marker::Sync for LoggingSession {}
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct RuntimeBrokerErrorSettings(::windows::core::IUnknown);
 impl RuntimeBrokerErrorSettings {
@@ -3300,6 +3323,7 @@ impl<'a> ::windows::core::IntoParam<'a, IErrorReportingSettings> for &RuntimeBro
 }
 unsafe impl ::core::marker::Send for RuntimeBrokerErrorSettings {}
 unsafe impl ::core::marker::Sync for RuntimeBrokerErrorSettings {}
+#[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
 pub struct TracingStatusChangedEventArgs(::windows::core::IUnknown);
 impl TracingStatusChangedEventArgs {

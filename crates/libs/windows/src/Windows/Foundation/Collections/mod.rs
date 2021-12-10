@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Foundation_Collections'*"]
 #[repr(transparent)]
 pub struct CollectionChange(pub i32);
 impl CollectionChange {
@@ -28,6 +29,7 @@ unsafe impl ::windows::core::RuntimeType for CollectionChange {
 impl ::windows::core::DefaultType for CollectionChange {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Foundation_Collections'*"]
 #[repr(transparent)]
 pub struct IIterable<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
@@ -127,6 +129,7 @@ pub struct IIterableVtbl<T>(
 )
 where
     T: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation_Collections'*"]
 #[repr(transparent)]
 pub struct IIterator<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
@@ -246,6 +249,7 @@ pub struct IIteratorVtbl<T>(
 )
 where
     T: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation_Collections'*"]
 #[repr(transparent)]
 pub struct IKeyValuePair<K, V>(::windows::core::IUnknown, ::core::marker::PhantomData<K>, ::core::marker::PhantomData<V>)
 where
@@ -342,6 +346,7 @@ pub struct IKeyValuePairVtbl<K, V>(
 where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation_Collections'*"]
 #[repr(transparent)]
 pub struct IMap<K, V>(::windows::core::IUnknown, ::core::marker::PhantomData<K>, ::core::marker::PhantomData<V>)
 where
@@ -517,6 +522,7 @@ pub struct IMapVtbl<K, V>(
 where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation_Collections'*"]
 #[repr(transparent)]
 pub struct IMapChangedEventArgs<K>(::windows::core::IUnknown, ::core::marker::PhantomData<K>)
 where
@@ -610,6 +616,7 @@ pub struct IMapChangedEventArgsVtbl<K>(
 )
 where
     K: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation_Collections'*"]
 #[repr(transparent)]
 pub struct IMapView<K, V>(::windows::core::IUnknown, ::core::marker::PhantomData<K>, ::core::marker::PhantomData<V>)
 where
@@ -764,6 +771,7 @@ pub struct IMapViewVtbl<K, V>(
 where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation_Collections'*"]
 #[repr(transparent)]
 pub struct IObservableMap<K, V>(::windows::core::IUnknown, ::core::marker::PhantomData<K>, ::core::marker::PhantomData<V>)
 where
@@ -967,6 +975,7 @@ pub struct IObservableMapVtbl<K, V>(
 where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation_Collections'*"]
 #[repr(transparent)]
 pub struct IObservableVector<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
@@ -1187,6 +1196,7 @@ pub struct IObservableVectorVtbl<T>(
 )
 where
     T: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation_Collections'*"]
 #[repr(transparent)]
 pub struct IPropertySet(::windows::core::IUnknown);
 impl IPropertySet {
@@ -1402,6 +1412,7 @@ pub struct IPropertySetVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Foundation_Collections'*"]
 #[repr(transparent)]
 pub struct IVector<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
@@ -1615,6 +1626,7 @@ pub struct IVectorVtbl<T>(
 )
 where
     T: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation_Collections'*"]
 #[repr(transparent)]
 pub struct IVectorChangedEventArgs(::windows::core::IUnknown);
 impl IVectorChangedEventArgs {
@@ -1703,6 +1715,7 @@ pub struct IVectorChangedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CollectionChange) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Foundation_Collections'*"]
 #[repr(transparent)]
 pub struct IVectorView<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
@@ -1873,6 +1886,7 @@ pub struct IVectorViewVtbl<T>(
 )
 where
     T: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation_Collections'*"]
 #[repr(transparent)]
 pub struct MapChangedEventHandler<K, V>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<K>, ::core::marker::PhantomData<V>)
 where
@@ -1958,6 +1972,7 @@ pub struct MapChangedEventHandlerVtbl<K, V>(
 where
     K: ::windows::core::RuntimeType + 'static,
     V: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation_Collections'*"]
 #[repr(transparent)]
 pub struct PropertySet(::windows::core::IUnknown);
 impl PropertySet {
@@ -2197,6 +2212,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPropertySet> for &PropertySet {
 }
 unsafe impl ::core::marker::Send for PropertySet {}
 unsafe impl ::core::marker::Sync for PropertySet {}
+#[doc = "*Required features: 'Foundation_Collections'*"]
 #[repr(transparent)]
 pub struct StringMap(::windows::core::IUnknown);
 impl StringMap {
@@ -2414,6 +2430,7 @@ impl<'a> ::windows::core::IntoParam<'a, IObservableMap<::windows::core::HSTRING,
 }
 unsafe impl ::core::marker::Send for StringMap {}
 unsafe impl ::core::marker::Sync for StringMap {}
+#[doc = "*Required features: 'Foundation_Collections'*"]
 #[repr(transparent)]
 pub struct ValueSet(::windows::core::IUnknown);
 impl ValueSet {
@@ -2653,6 +2670,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPropertySet> for &ValueSet {
 }
 unsafe impl ::core::marker::Send for ValueSet {}
 unsafe impl ::core::marker::Sync for ValueSet {}
+#[doc = "*Required features: 'Foundation_Collections'*"]
 #[repr(transparent)]
 pub struct VectorChangedEventHandler<T>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where

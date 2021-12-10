@@ -15,6 +15,7 @@ pub mod Scenes;
 extern "system" {}
 pub type AmbientLight = *mut ::core::ffi::c_void;
 pub type AnimationController = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct AnimationControllerProgressBehavior(pub i32);
 impl AnimationControllerProgressBehavior {
@@ -27,6 +28,7 @@ impl ::core::clone::Clone for AnimationControllerProgressBehavior {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct AnimationDelayBehavior(pub i32);
 impl AnimationDelayBehavior {
@@ -39,6 +41,7 @@ impl ::core::clone::Clone for AnimationDelayBehavior {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct AnimationDirection(pub i32);
 impl AnimationDirection {
@@ -53,6 +56,7 @@ impl ::core::clone::Clone for AnimationDirection {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct AnimationIterationBehavior(pub i32);
 impl AnimationIterationBehavior {
@@ -65,6 +69,7 @@ impl ::core::clone::Clone for AnimationIterationBehavior {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct AnimationPropertyAccessMode(pub i32);
 impl AnimationPropertyAccessMode {
@@ -80,6 +85,7 @@ impl ::core::clone::Clone for AnimationPropertyAccessMode {
     }
 }
 pub type AnimationPropertyInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct AnimationStopBehavior(pub i32);
 impl AnimationStopBehavior {
@@ -104,6 +110,7 @@ pub type ColorKeyFrameAnimation = *mut ::core::ffi::c_void;
 pub type CompositionAnimation = *mut ::core::ffi::c_void;
 pub type CompositionAnimationGroup = *mut ::core::ffi::c_void;
 pub type CompositionBackdropBrush = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionBackfaceVisibility(pub i32);
 impl CompositionBackfaceVisibility {
@@ -118,6 +125,7 @@ impl ::core::clone::Clone for CompositionBackfaceVisibility {
     }
 }
 pub type CompositionBatchCompletedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionBatchTypes(pub u32);
 impl CompositionBatchTypes {
@@ -133,6 +141,7 @@ impl ::core::clone::Clone for CompositionBatchTypes {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionBitmapInterpolationMode(pub i32);
 impl CompositionBitmapInterpolationMode {
@@ -153,6 +162,7 @@ impl ::core::clone::Clone for CompositionBitmapInterpolationMode {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionBorderMode(pub i32);
 impl CompositionBorderMode {
@@ -172,6 +182,7 @@ pub type CompositionClip = *mut ::core::ffi::c_void;
 pub type CompositionColorBrush = *mut ::core::ffi::c_void;
 pub type CompositionColorGradientStop = *mut ::core::ffi::c_void;
 pub type CompositionColorGradientStopCollection = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionColorSpace(pub i32);
 impl CompositionColorSpace {
@@ -188,6 +199,7 @@ impl ::core::clone::Clone for CompositionColorSpace {
     }
 }
 pub type CompositionCommitBatch = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionCompositeMode(pub i32);
 impl CompositionCompositeMode {
@@ -204,6 +216,7 @@ impl ::core::clone::Clone for CompositionCompositeMode {
 }
 pub type CompositionContainerShape = *mut ::core::ffi::c_void;
 pub type CompositionDrawingSurface = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionDropShadowSourcePolicy(pub i32);
 impl CompositionDropShadowSourcePolicy {
@@ -217,6 +230,7 @@ impl ::core::clone::Clone for CompositionDropShadowSourcePolicy {
     }
 }
 pub type CompositionEasingFunction = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionEasingFunctionMode(pub i32);
 impl CompositionEasingFunctionMode {
@@ -232,6 +246,7 @@ impl ::core::clone::Clone for CompositionEasingFunctionMode {
 }
 pub type CompositionEffectBrush = *mut ::core::ffi::c_void;
 pub type CompositionEffectFactory = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionEffectFactoryLoadStatus(pub i32);
 impl CompositionEffectFactoryLoadStatus {
@@ -250,6 +265,7 @@ pub type CompositionEffectSourceParameter = *mut ::core::ffi::c_void;
 pub type CompositionEllipseGeometry = *mut ::core::ffi::c_void;
 pub type CompositionGeometricClip = *mut ::core::ffi::c_void;
 pub type CompositionGeometry = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionGetValueStatus(pub i32);
 impl CompositionGetValueStatus {
@@ -264,6 +280,7 @@ impl ::core::clone::Clone for CompositionGetValueStatus {
     }
 }
 pub type CompositionGradientBrush = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionGradientExtendMode(pub i32);
 impl CompositionGradientExtendMode {
@@ -281,6 +298,7 @@ pub type CompositionGraphicsDevice = *mut ::core::ffi::c_void;
 pub type CompositionLight = *mut ::core::ffi::c_void;
 pub type CompositionLineGeometry = *mut ::core::ffi::c_void;
 pub type CompositionLinearGradientBrush = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionMappingMode(pub i32);
 impl CompositionMappingMode {
@@ -313,6 +331,7 @@ pub type CompositionShadow = *mut ::core::ffi::c_void;
 pub type CompositionShape = *mut ::core::ffi::c_void;
 pub type CompositionShapeCollection = *mut ::core::ffi::c_void;
 pub type CompositionSpriteShape = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionStretch(pub i32);
 impl CompositionStretch {
@@ -327,6 +346,7 @@ impl ::core::clone::Clone for CompositionStretch {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionStrokeCap(pub i32);
 impl CompositionStrokeCap {
@@ -342,6 +362,7 @@ impl ::core::clone::Clone for CompositionStrokeCap {
     }
 }
 pub type CompositionStrokeDashArray = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
 pub struct CompositionStrokeLineJoin(pub i32);
 impl CompositionStrokeLineJoin {
@@ -381,6 +402,7 @@ pub type IVisualElement2 = *mut ::core::ffi::c_void;
 pub type ImplicitAnimationCollection = *mut ::core::ffi::c_void;
 pub type InitialValueExpressionCollection = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'UI_Composition', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct InkTrailPoint {
     pub Point: super::super::Foundation::Point,

@@ -1,79 +1,125 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CoGetInstanceFromFile(pserverinfo: *const super::COSERVERINFO, pclsid: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, dwclsctx: super::CLSCTX, grfmode: u32, pwszname: super::super::super::Foundation::PWSTR, dwcount: u32, presults: *mut super::MULTI_QI) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CoGetInstanceFromIStorage(pserverinfo: *const super::COSERVERINFO, pclsid: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, dwclsctx: super::CLSCTX, pstg: IStorage, dwcount: u32, presults: *mut super::MULTI_QI) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn CoGetInterfaceAndReleaseStream(pstm: super::IStream, iid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateILockBytesOnHGlobal(hglobal: isize, fdeleteonrelease: super::super::super::Foundation::BOOL, pplkbyt: *mut ILockBytes) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateStreamOnHGlobal(hglobal: isize, fdeleteonrelease: super::super::super::Foundation::BOOL, ppstm: *mut super::IStream) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FmtIdToPropStgName(pfmtid: *const ::windows_sys::core::GUID, oszname: super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FreePropVariantArray(cvariants: u32, rgvars: *mut PROPVARIANT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn GetConvertStg(pstg: IStorage) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn GetHGlobalFromILockBytes(plkbyt: ILockBytes, phglobal: *mut isize) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn GetHGlobalFromStream(pstm: super::IStream, phglobal: *mut isize) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn OleConvertIStorageToOLESTREAM(pstg: IStorage, lpolestream: *mut OLESTREAM) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn OleConvertIStorageToOLESTREAMEx(pstg: IStorage, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: *mut super::STGMEDIUM, polestm: *mut OLESTREAM) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn OleConvertOLESTREAMToIStorage(lpolestream: *mut OLESTREAM, pstg: IStorage, ptd: *const super::DVTARGETDEVICE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn OleConvertOLESTREAMToIStorageEx(polestm: *mut OLESTREAM, pstg: IStorage, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::STGMEDIUM) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PropStgNameToFmtId(oszname: super::super::super::Foundation::PWSTR, pfmtid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PropVariantClear(pvar: *mut PROPVARIANT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PropVariantCopy(pvardest: *mut PROPVARIANT, pvarsrc: *const PROPVARIANT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn ReadClassStg(pstg: IStorage, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn ReadClassStm(pstm: super::IStream, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ReadFmtUserTypeStg(pstg: IStorage, pcf: *mut u16, lplpszusertype: *mut super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetConvertStg(pstg: IStorage, fconvert: super::super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StgConvertPropertyToVariant(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut PROPVARIANT, pma: *const PMemoryAllocator) -> super::super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StgConvertVariantToProperty(pvar: *const PROPVARIANT, codepage: u16, pprop: *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32, pid: u32, freserved: super::super::super::Foundation::BOOLEAN, pcindirect: *mut u32) -> *mut SERIALIZEDPROPERTYVALUE;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StgCreateDocfile(pwcsname: super::super::super::Foundation::PWSTR, grfmode: u32, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn StgCreateDocfileOnILockBytes(plkbyt: ILockBytes, grfmode: u32, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn StgCreatePropSetStg(pstorage: IStorage, dwreserved: u32, pppropsetstg: *mut IPropertySetStorage) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn StgCreatePropStg(punk: ::windows_sys::core::IUnknown, fmtid: *const ::windows_sys::core::GUID, pclsid: *const ::windows_sys::core::GUID, grfflags: u32, dwreserved: u32, pppropstg: *mut IPropertyStorage) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn StgCreateStorageEx(pwcsname: super::super::super::Foundation::PWSTR, grfmode: u32, stgfmt: u32, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows_sys::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbmax: u32, ppropvar: *mut PROPVARIANT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StgGetIFillLockBytesOnFile(pwcsname: super::super::super::Foundation::PWSTR, ppflb: *mut IFillLockBytes) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn StgGetIFillLockBytesOnILockBytes(pilb: ILockBytes, ppflb: *mut IFillLockBytes) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StgIsStorageFile(pwcsname: super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn StgIsStorageILockBytes(plkbyt: ILockBytes) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn StgOpenAsyncDocfileOnIFillLockBytes(pflb: IFillLockBytes, grfmode: u32, asyncflags: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StgOpenLayoutDocfile(pwcsdfname: super::super::super::Foundation::PWSTR, grfmode: u32, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn StgOpenPropStg(punk: ::windows_sys::core::IUnknown, fmtid: *const ::windows_sys::core::GUID, grfflags: u32, dwreserved: u32, pppropstg: *mut IPropertyStorage) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StgOpenStorage(pwcsname: super::super::super::Foundation::PWSTR, pstgpriority: IStorage, grfmode: u32, snbexclude: *const *const u16, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn StgOpenStorageEx(pwcsname: super::super::super::Foundation::PWSTR, grfmode: u32, stgfmt: u32, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows_sys::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn StgOpenStorageOnILockBytes(plkbyt: ILockBytes, pstgpriority: IStorage, grfmode: u32, snbexclude: *const *const u16, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn StgPropertyLengthAsVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbprop: u32, codepage: u16, breserved: u8) -> u32;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StgSerializePropVariant(ppropvar: *const PROPVARIANT, ppprop: *mut *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StgSetTimes(lpszname: super::super::super::Foundation::PWSTR, pctime: *const super::super::super::Foundation::FILETIME, patime: *const super::super::super::Foundation::FILETIME, pmtime: *const super::super::super::Foundation::FILETIME) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn WriteClassStg(pstg: IStorage, rclsid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn WriteClassStm(pstm: super::IStream, rclsid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WriteFmtUserTypeStg(pstg: IStorage, cf: u16, lpszusertype: super::super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct BSTRBLOB {
     pub cbSize: u32,
     pub pData: *mut u8,
@@ -85,6 +131,7 @@ impl ::core::clone::Clone for BSTRBLOB {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CABOOL {
     pub cElems: u32,
     pub pElems: *mut i16,
@@ -96,6 +143,7 @@ impl ::core::clone::Clone for CABOOL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CABSTR {
     pub cElems: u32,
@@ -110,6 +158,7 @@ impl ::core::clone::Clone for CABSTR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CABSTRBLOB {
     pub cElems: u32,
     pub pElems: *mut BSTRBLOB,
@@ -121,6 +170,7 @@ impl ::core::clone::Clone for CABSTRBLOB {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CAC {
     pub cElems: u32,
@@ -135,6 +185,7 @@ impl ::core::clone::Clone for CAC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CACLIPDATA {
     pub cElems: u32,
     pub pElems: *mut CLIPDATA,
@@ -146,6 +197,7 @@ impl ::core::clone::Clone for CACLIPDATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CACLSID {
     pub cElems: u32,
     pub pElems: *mut ::windows_sys::core::GUID,
@@ -157,6 +209,7 @@ impl ::core::clone::Clone for CACLSID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CACY {
     pub cElems: u32,
     pub pElems: *mut super::CY,
@@ -168,6 +221,7 @@ impl ::core::clone::Clone for CACY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CADATE {
     pub cElems: u32,
     pub pElems: *mut f64,
@@ -179,6 +233,7 @@ impl ::core::clone::Clone for CADATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CADBL {
     pub cElems: u32,
     pub pElems: *mut f64,
@@ -190,6 +245,7 @@ impl ::core::clone::Clone for CADBL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CAFILETIME {
     pub cElems: u32,
@@ -204,6 +260,7 @@ impl ::core::clone::Clone for CAFILETIME {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CAFLT {
     pub cElems: u32,
     pub pElems: *mut f32,
@@ -215,6 +272,7 @@ impl ::core::clone::Clone for CAFLT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CAH {
     pub cElems: u32,
     pub pElems: *mut i64,
@@ -226,6 +284,7 @@ impl ::core::clone::Clone for CAH {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CAI {
     pub cElems: u32,
     pub pElems: *mut i16,
@@ -237,6 +296,7 @@ impl ::core::clone::Clone for CAI {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CAL {
     pub cElems: u32,
     pub pElems: *mut i32,
@@ -248,6 +308,7 @@ impl ::core::clone::Clone for CAL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CALPSTR {
     pub cElems: u32,
@@ -262,6 +323,7 @@ impl ::core::clone::Clone for CALPSTR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CALPWSTR {
     pub cElems: u32,
@@ -276,6 +338,7 @@ impl ::core::clone::Clone for CALPWSTR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CAPROPVARIANT {
     pub cElems: u32,
@@ -290,6 +353,7 @@ impl ::core::clone::Clone for CAPROPVARIANT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CASCODE {
     pub cElems: u32,
     pub pElems: *mut i32,
@@ -301,6 +365,7 @@ impl ::core::clone::Clone for CASCODE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CAUB {
     pub cElems: u32,
     pub pElems: *mut u8,
@@ -312,6 +377,7 @@ impl ::core::clone::Clone for CAUB {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CAUH {
     pub cElems: u32,
     pub pElems: *mut u64,
@@ -323,6 +389,7 @@ impl ::core::clone::Clone for CAUH {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CAUI {
     pub cElems: u32,
     pub pElems: *mut u16,
@@ -334,6 +401,7 @@ impl ::core::clone::Clone for CAUI {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CAUL {
     pub cElems: u32,
     pub pElems: *mut u32,
@@ -346,6 +414,7 @@ impl ::core::clone::Clone for CAUL {
 }
 pub const CCH_MAX_PROPSTG_NAME: u32 = 31u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CLIPDATA {
     pub cbSize: u32,
     pub ulClipFmt: i32,
@@ -372,11 +441,16 @@ pub type IPropertySetStorage = *mut ::core::ffi::c_void;
 pub type IPropertyStorage = *mut ::core::ffi::c_void;
 pub type IRootStorage = *mut ::core::ffi::c_void;
 pub type IStorage = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub type LOCKTYPE = i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const LOCK_WRITE: LOCKTYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const LOCK_EXCLUSIVE: LOCKTYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const LOCK_ONLYONCE: LOCKTYPE = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct OLESTREAM {
     pub lpstbl: *mut OLESTREAMVTBL,
 }
@@ -387,6 +461,7 @@ impl ::core::clone::Clone for OLESTREAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct OLESTREAMVTBL {
     pub Get: isize,
     pub Put: isize,
@@ -422,16 +497,27 @@ pub const PIDMSI_RATING: i32 = 9i32;
 pub const PIDMSI_SEQUENCE_NO: i32 = 5i32;
 pub const PIDMSI_SOURCE: i32 = 4i32;
 pub const PIDMSI_STATUS: i32 = 7i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub type PIDMSI_STATUS_VALUE = i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_NORMAL: PIDMSI_STATUS_VALUE = 0i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_NEW: PIDMSI_STATUS_VALUE = 1i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_PRELIM: PIDMSI_STATUS_VALUE = 2i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_DRAFT: PIDMSI_STATUS_VALUE = 3i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_INPROGRESS: PIDMSI_STATUS_VALUE = 4i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_EDIT: PIDMSI_STATUS_VALUE = 5i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_REVIEW: PIDMSI_STATUS_VALUE = 6i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_PROOF: PIDMSI_STATUS_VALUE = 7i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_FINAL: PIDMSI_STATUS_VALUE = 8i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_OTHER: PIDMSI_STATUS_VALUE = 32767i32;
 pub const PIDMSI_SUPPLIER: i32 = 3i32;
 pub const PIDSI_APPNAME: i32 = 18i32;
@@ -466,6 +552,7 @@ pub const PID_SECURITY: u32 = 2147483650u32;
 #[repr(C)]
 pub struct PMemoryAllocator(pub u8);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROPBAG2 {
     pub dwType: u32,
@@ -491,6 +578,7 @@ pub const PROPSETFLAG_UNBUFFERED: u32 = 4u32;
 pub const PROPSETHDR_OSVERSION_UNKNOWN: u32 = 4294967295u32;
 pub const PROPSET_BEHAVIOR_CASE_SENSITIVE: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROPSPEC {
     pub ulKind: PROPSPEC_KIND,
@@ -505,6 +593,7 @@ impl ::core::clone::Clone for PROPSPEC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PROPSPEC_0 {
     pub propid: u32,
@@ -518,10 +607,14 @@ impl ::core::clone::Clone for PROPSPEC_0 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub type PROPSPEC_KIND = u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PRSPEC_LPWSTR: PROPSPEC_KIND = 0u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PRSPEC_PROPID: PROPSPEC_KIND = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROPVARIANT {
     pub Anonymous: PROPVARIANT_0,
@@ -535,6 +628,7 @@ impl ::core::clone::Clone for PROPVARIANT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PROPVARIANT_0 {
     pub Anonymous: PROPVARIANT_0_0,
@@ -549,6 +643,7 @@ impl ::core::clone::Clone for PROPVARIANT_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROPVARIANT_0_0 {
     pub vt: u16,
@@ -566,6 +661,7 @@ impl ::core::clone::Clone for PROPVARIANT_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PROPVARIANT_0_0_0 {
     pub cVal: super::super::super::Foundation::CHAR,
@@ -652,6 +748,7 @@ impl ::core::clone::Clone for PROPVARIANT_0_0_0 {
 }
 pub const PRSPEC_INVALID: u32 = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct RemSNB {
     pub ulCntStr: u32,
     pub ulCntChar: u32,
@@ -664,6 +761,7 @@ impl ::core::clone::Clone for RemSNB {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct SERIALIZEDPROPERTYVALUE {
     pub dwType: u32,
     pub rgb: [u8; 1],
@@ -674,11 +772,16 @@ impl ::core::clone::Clone for SERIALIZEDPROPERTYVALUE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub type STATFLAG = i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STATFLAG_DEFAULT: STATFLAG = 0i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STATFLAG_NONAME: STATFLAG = 1i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STATFLAG_NOOPEN: STATFLAG = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STATPROPSETSTG {
     pub fmtid: ::windows_sys::core::GUID,
@@ -698,6 +801,7 @@ impl ::core::clone::Clone for STATPROPSETSTG {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STATPROPSTG {
     pub lpwstrName: super::super::super::Foundation::PWSTR,
@@ -712,11 +816,17 @@ impl ::core::clone::Clone for STATPROPSTG {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub type STGC = i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGC_DEFAULT: STGC = 0i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGC_OVERWRITE: STGC = 1i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGC_ONLYIFCURRENT: STGC = 2i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = 4i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGC_CONSOLIDATE: STGC = 8i32;
 pub const STGFMT_ANY: u32 = 4u32;
 pub const STGFMT_DOCFILE: u32 = 5u32;
@@ -724,9 +834,13 @@ pub const STGFMT_DOCUMENT: u32 = 0u32;
 pub const STGFMT_FILE: u32 = 3u32;
 pub const STGFMT_NATIVE: u32 = 1u32;
 pub const STGFMT_STORAGE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub type STGMOVE = i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGMOVE_MOVE: STGMOVE = 0i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGMOVE_COPY: STGMOVE = 1i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGMOVE_SHALLOWCOPY: STGMOVE = 2i32;
 pub const STGM_CONVERT: i32 = 131072i32;
 pub const STGM_CREATE: i32 = 4096i32;
@@ -747,6 +861,7 @@ pub const STGM_SIMPLE: i32 = 134217728i32;
 pub const STGM_TRANSACTED: i32 = 65536i32;
 pub const STGM_WRITE: i32 = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STGOPTIONS {
     pub usVersion: u16,
@@ -764,6 +879,7 @@ impl ::core::clone::Clone for STGOPTIONS {
 }
 pub const STGOPTIONS_VERSION: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct VERSIONEDSTREAM {
     pub guidVersion: ::windows_sys::core::GUID,
     pub pStream: super::IStream,

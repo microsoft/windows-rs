@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioDeviceInputNode(::windows::core::IUnknown);
 impl AudioDeviceInputNode {
@@ -258,6 +259,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for AudioDeviceInputNode {}
 unsafe impl ::core::marker::Sync for AudioDeviceInputNode {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioDeviceNodeCreationStatus(pub i32);
 impl AudioDeviceNodeCreationStatus {
@@ -288,6 +290,7 @@ unsafe impl ::windows::core::RuntimeType for AudioDeviceNodeCreationStatus {
 impl ::windows::core::DefaultType for AudioDeviceNodeCreationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioDeviceOutputNode(::windows::core::IUnknown);
 impl AudioDeviceOutputNode {
@@ -509,6 +512,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for AudioDeviceOutputNode {}
 unsafe impl ::core::marker::Sync for AudioDeviceOutputNode {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioFileInputNode(::windows::core::IUnknown);
 impl AudioFileInputNode {
@@ -852,6 +856,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for AudioFileInputNode {}
 unsafe impl ::core::marker::Sync for AudioFileInputNode {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioFileNodeCreationStatus(pub i32);
 impl AudioFileNodeCreationStatus {
@@ -882,6 +887,7 @@ unsafe impl ::windows::core::RuntimeType for AudioFileNodeCreationStatus {
 impl ::windows::core::DefaultType for AudioFileNodeCreationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioFileOutputNode(::windows::core::IUnknown);
 impl AudioFileOutputNode {
@@ -1086,6 +1092,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for AudioFileOutputNode {}
 unsafe impl ::core::marker::Sync for AudioFileOutputNode {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioFrameCompletedEventArgs(::windows::core::IUnknown);
 impl AudioFrameCompletedEventArgs {
@@ -1160,6 +1167,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioFrameCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for AudioFrameCompletedEventArgs {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioFrameInputNode(::windows::core::IUnknown);
 impl AudioFrameInputNode {
@@ -1463,6 +1471,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for AudioFrameInputNode {}
 unsafe impl ::core::marker::Sync for AudioFrameInputNode {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioFrameOutputNode(::windows::core::IUnknown);
 impl AudioFrameOutputNode {
@@ -1650,6 +1659,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for AudioFrameOutputNode {}
 unsafe impl ::core::marker::Sync for AudioFrameOutputNode {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioGraph(::windows::core::IUnknown);
 impl AudioGraph {
@@ -2011,6 +2021,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for AudioGraph {}
 unsafe impl ::core::marker::Sync for AudioGraph {}
+#[doc = "*Required features: 'Media_Audio', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 #[repr(transparent)]
 pub struct AudioGraphBatchUpdater(::windows::core::IUnknown);
@@ -2127,6 +2138,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 unsafe impl ::core::marker::Send for AudioGraphBatchUpdater {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::core::marker::Sync for AudioGraphBatchUpdater {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioGraphConnection(::windows::core::IUnknown);
 impl AudioGraphConnection {
@@ -2212,6 +2224,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioGraphConnection {}
 unsafe impl ::core::marker::Sync for AudioGraphConnection {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioGraphCreationStatus(pub i32);
 impl AudioGraphCreationStatus {
@@ -2241,6 +2254,7 @@ unsafe impl ::windows::core::RuntimeType for AudioGraphCreationStatus {
 impl ::windows::core::DefaultType for AudioGraphCreationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioGraphSettings(::windows::core::IUnknown);
 impl AudioGraphSettings {
@@ -2402,6 +2416,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioGraphSettings {}
 unsafe impl ::core::marker::Sync for AudioGraphSettings {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioGraphUnrecoverableError(pub i32);
 impl AudioGraphUnrecoverableError {
@@ -2431,6 +2446,7 @@ unsafe impl ::windows::core::RuntimeType for AudioGraphUnrecoverableError {
 impl ::windows::core::DefaultType for AudioGraphUnrecoverableError {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioGraphUnrecoverableErrorOccurredEventArgs(::windows::core::IUnknown);
 impl AudioGraphUnrecoverableErrorOccurredEventArgs {
@@ -2505,6 +2521,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioGraphUnrecoverableErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for AudioGraphUnrecoverableErrorOccurredEventArgs {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioNodeEmitter(::windows::core::IUnknown);
 impl AudioNodeEmitter {
@@ -2693,6 +2710,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioNodeEmitter {}
 unsafe impl ::core::marker::Sync for AudioNodeEmitter {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioNodeEmitterConeProperties(::windows::core::IUnknown);
 impl AudioNodeEmitterConeProperties {
@@ -2781,6 +2799,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioNodeEmitterConeProperties {}
 unsafe impl ::core::marker::Sync for AudioNodeEmitterConeProperties {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioNodeEmitterDecayKind(pub i32);
 impl AudioNodeEmitterDecayKind {
@@ -2808,6 +2827,7 @@ unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterDecayKind {
 impl ::windows::core::DefaultType for AudioNodeEmitterDecayKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioNodeEmitterDecayModel(::windows::core::IUnknown);
 impl AudioNodeEmitterDecayModel {
@@ -2919,6 +2939,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioNodeEmitterDecayModel {}
 unsafe impl ::core::marker::Sync for AudioNodeEmitterDecayModel {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioNodeEmitterNaturalDecayModelProperties(::windows::core::IUnknown);
 impl AudioNodeEmitterNaturalDecayModelProperties {
@@ -3000,6 +3021,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioNodeEmitterNaturalDecayModelProperties {}
 unsafe impl ::core::marker::Sync for AudioNodeEmitterNaturalDecayModelProperties {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioNodeEmitterSettings(pub u32);
 impl AudioNodeEmitterSettings {
@@ -3027,6 +3049,7 @@ unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterSettings {
 impl ::windows::core::DefaultType for AudioNodeEmitterSettings {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioNodeEmitterShape(::windows::core::IUnknown);
 impl AudioNodeEmitterShape {
@@ -3124,6 +3147,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioNodeEmitterShape {}
 unsafe impl ::core::marker::Sync for AudioNodeEmitterShape {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioNodeEmitterShapeKind(pub i32);
 impl AudioNodeEmitterShapeKind {
@@ -3151,6 +3175,7 @@ unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterShapeKind {
 impl ::windows::core::DefaultType for AudioNodeEmitterShapeKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioNodeListener(::windows::core::IUnknown);
 impl AudioNodeListener {
@@ -3275,6 +3300,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioNodeListener {}
 unsafe impl ::core::marker::Sync for AudioNodeListener {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioPlaybackConnection(::windows::core::IUnknown);
 impl AudioPlaybackConnection {
@@ -3443,6 +3469,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for AudioPlaybackConnection {}
 unsafe impl ::core::marker::Sync for AudioPlaybackConnection {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioPlaybackConnectionOpenResult(::windows::core::IUnknown);
 impl AudioPlaybackConnectionOpenResult {
@@ -3524,6 +3551,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioPlaybackConnectionOpenResult {}
 unsafe impl ::core::marker::Sync for AudioPlaybackConnectionOpenResult {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioPlaybackConnectionOpenResultStatus(pub i32);
 impl AudioPlaybackConnectionOpenResultStatus {
@@ -3553,6 +3581,7 @@ unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnectionOpenResultSt
 impl ::windows::core::DefaultType for AudioPlaybackConnectionOpenResultStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioPlaybackConnectionState(pub i32);
 impl AudioPlaybackConnectionState {
@@ -3580,6 +3609,7 @@ unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnectionState {
 impl ::windows::core::DefaultType for AudioPlaybackConnectionState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioStateMonitor(::windows::core::IUnknown);
 impl AudioStateMonitor {
@@ -3725,6 +3755,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioStateMonitor {}
 unsafe impl ::core::marker::Sync for AudioStateMonitor {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct AudioSubmixNode(::windows::core::IUnknown);
 impl AudioSubmixNode {
@@ -3976,6 +4007,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for AudioSubmixNode {}
 unsafe impl ::core::marker::Sync for AudioSubmixNode {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct CreateAudioDeviceInputNodeResult(::windows::core::IUnknown);
 impl CreateAudioDeviceInputNodeResult {
@@ -4064,6 +4096,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Crea
 }
 unsafe impl ::core::marker::Send for CreateAudioDeviceInputNodeResult {}
 unsafe impl ::core::marker::Sync for CreateAudioDeviceInputNodeResult {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct CreateAudioDeviceOutputNodeResult(::windows::core::IUnknown);
 impl CreateAudioDeviceOutputNodeResult {
@@ -4152,6 +4185,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Crea
 }
 unsafe impl ::core::marker::Send for CreateAudioDeviceOutputNodeResult {}
 unsafe impl ::core::marker::Sync for CreateAudioDeviceOutputNodeResult {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct CreateAudioFileInputNodeResult(::windows::core::IUnknown);
 impl CreateAudioFileInputNodeResult {
@@ -4240,6 +4274,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Crea
 }
 unsafe impl ::core::marker::Send for CreateAudioFileInputNodeResult {}
 unsafe impl ::core::marker::Sync for CreateAudioFileInputNodeResult {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct CreateAudioFileOutputNodeResult(::windows::core::IUnknown);
 impl CreateAudioFileOutputNodeResult {
@@ -4328,6 +4363,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Crea
 }
 unsafe impl ::core::marker::Send for CreateAudioFileOutputNodeResult {}
 unsafe impl ::core::marker::Sync for CreateAudioFileOutputNodeResult {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct CreateAudioGraphResult(::windows::core::IUnknown);
 impl CreateAudioGraphResult {
@@ -4416,6 +4452,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Crea
 }
 unsafe impl ::core::marker::Send for CreateAudioGraphResult {}
 unsafe impl ::core::marker::Sync for CreateAudioGraphResult {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct CreateMediaSourceAudioInputNodeResult(::windows::core::IUnknown);
 impl CreateMediaSourceAudioInputNodeResult {
@@ -4504,6 +4541,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Crea
 }
 unsafe impl ::core::marker::Send for CreateMediaSourceAudioInputNodeResult {}
 unsafe impl ::core::marker::Sync for CreateMediaSourceAudioInputNodeResult {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct EchoEffectDefinition(::windows::core::IUnknown);
 impl EchoEffectDefinition {
@@ -4656,6 +4694,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Effects::IAudioEffectDefinition> 
 }
 unsafe impl ::core::marker::Send for EchoEffectDefinition {}
 unsafe impl ::core::marker::Sync for EchoEffectDefinition {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct EqualizerBand(::windows::core::IUnknown);
 impl EqualizerBand {
@@ -4756,6 +4795,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Equa
 }
 unsafe impl ::core::marker::Send for EqualizerBand {}
 unsafe impl ::core::marker::Sync for EqualizerBand {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct EqualizerEffectDefinition(::windows::core::IUnknown);
 impl EqualizerEffectDefinition {
@@ -4883,6 +4923,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Effects::IAudioEffectDefinition> 
 }
 unsafe impl ::core::marker::Send for EqualizerEffectDefinition {}
 unsafe impl ::core::marker::Sync for EqualizerEffectDefinition {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct FrameInputNodeQuantumStartedEventArgs(::windows::core::IUnknown);
 impl FrameInputNodeQuantumStartedEventArgs {
@@ -5368,6 +5409,7 @@ pub struct IAudioGraphUnrecoverableErrorOccurredEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioGraphUnrecoverableError) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct IAudioInputNode(::windows::core::IUnknown);
 impl IAudioInputNode {
@@ -5578,6 +5620,7 @@ pub struct IAudioInputNodeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr, gain: f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destination: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct IAudioInputNode2(::windows::core::IUnknown);
 impl IAudioInputNode2 {
@@ -5813,6 +5856,7 @@ pub struct IAudioInputNode2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct IAudioNode(::windows::core::IUnknown);
 impl IAudioNode {
@@ -6214,6 +6258,7 @@ pub struct IAudioNodeListenerVtbl(
     #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct IAudioNodeWithListener(::windows::core::IUnknown);
 impl IAudioNodeWithListener {
@@ -7182,6 +7227,7 @@ pub struct ISpatialAudioFormatSubtypeStatics2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct LimiterEffectDefinition(::windows::core::IUnknown);
 impl LimiterEffectDefinition {
@@ -7323,6 +7369,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Effects::IAudioEffectDefinition> 
 }
 unsafe impl ::core::marker::Send for LimiterEffectDefinition {}
 unsafe impl ::core::marker::Sync for LimiterEffectDefinition {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct MediaSourceAudioInputNode(::windows::core::IUnknown);
 impl MediaSourceAudioInputNode {
@@ -7666,6 +7713,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for MediaSourceAudioInputNode {}
 unsafe impl ::core::marker::Sync for MediaSourceAudioInputNode {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct MediaSourceAudioInputNodeCreationStatus(pub i32);
 impl MediaSourceAudioInputNodeCreationStatus {
@@ -7695,6 +7743,7 @@ unsafe impl ::windows::core::RuntimeType for MediaSourceAudioInputNodeCreationSt
 impl ::windows::core::DefaultType for MediaSourceAudioInputNodeCreationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct MixedRealitySpatialAudioFormatPolicy(pub i32);
 impl MixedRealitySpatialAudioFormatPolicy {
@@ -7722,6 +7771,7 @@ unsafe impl ::windows::core::RuntimeType for MixedRealitySpatialAudioFormatPolic
 impl ::windows::core::DefaultType for MixedRealitySpatialAudioFormatPolicy {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct QuantumSizeSelectionMode(pub i32);
 impl QuantumSizeSelectionMode {
@@ -7750,6 +7800,7 @@ unsafe impl ::windows::core::RuntimeType for QuantumSizeSelectionMode {
 impl ::windows::core::DefaultType for QuantumSizeSelectionMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct ReverbEffectDefinition(::windows::core::IUnknown);
 impl ReverbEffectDefinition {
@@ -8122,6 +8173,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Effects::IAudioEffectDefinition> 
 }
 unsafe impl ::core::marker::Send for ReverbEffectDefinition {}
 unsafe impl ::core::marker::Sync for ReverbEffectDefinition {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct SetDefaultSpatialAudioFormatResult(::windows::core::IUnknown);
 impl SetDefaultSpatialAudioFormatResult {
@@ -8196,6 +8248,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SetD
 }
 unsafe impl ::core::marker::Send for SetDefaultSpatialAudioFormatResult {}
 unsafe impl ::core::marker::Sync for SetDefaultSpatialAudioFormatResult {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct SetDefaultSpatialAudioFormatStatus(pub i32);
 impl SetDefaultSpatialAudioFormatStatus {
@@ -8227,6 +8280,7 @@ unsafe impl ::windows::core::RuntimeType for SetDefaultSpatialAudioFormatStatus 
 impl ::windows::core::DefaultType for SetDefaultSpatialAudioFormatStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct SpatialAudioDeviceConfiguration(::windows::core::IUnknown);
 impl SpatialAudioDeviceConfiguration {
@@ -8360,6 +8414,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialAudioDeviceConfiguration {}
 unsafe impl ::core::marker::Sync for SpatialAudioDeviceConfiguration {}
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct SpatialAudioFormatConfiguration(::windows::core::IUnknown);
 impl SpatialAudioFormatConfiguration {
@@ -8520,6 +8575,7 @@ impl SpatialAudioFormatSubtype {
 impl ::windows::core::RuntimeName for SpatialAudioFormatSubtype {
     const NAME: &'static str = "Windows.Media.Audio.SpatialAudioFormatSubtype";
 }
+#[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
 pub struct SpatialAudioModel(pub i32);
 impl SpatialAudioModel {

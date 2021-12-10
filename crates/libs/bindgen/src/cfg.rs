@@ -41,10 +41,10 @@ impl Cfg {
         if !gen.doc {
             quote! {}
         } else {
-            let mut tokens = to_feature(gen.namespace);
+            let mut tokens = format!("'{}'", to_feature(gen.namespace));
 
             for features in &self.features {
-                tokens.push_str(&format!(", `{}`", to_feature(features)));
+                tokens.push_str(&format!(", '{}'", to_feature(features)));
             }
 
             format!(r#"#[doc = "*Required features: {}*"]"#, tokens).into()

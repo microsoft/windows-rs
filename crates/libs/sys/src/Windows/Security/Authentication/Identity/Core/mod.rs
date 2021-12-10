@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 pub type MicrosoftAccountMultiFactorAuthenticationManager = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorAuthenticationType(pub i32);
 impl MicrosoftAccountMultiFactorAuthenticationType {
@@ -16,6 +17,7 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorAuthenticationType {
 }
 pub type MicrosoftAccountMultiFactorGetSessionsResult = *mut ::core::ffi::c_void;
 pub type MicrosoftAccountMultiFactorOneTimeCodedInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorServiceResponse(pub i32);
 impl MicrosoftAccountMultiFactorServiceResponse {
@@ -48,6 +50,7 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorServiceResponse {
         *self
     }
 }
+#[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorSessionApprovalStatus(pub i32);
 impl MicrosoftAccountMultiFactorSessionApprovalStatus {
@@ -61,6 +64,7 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorSessionApprovalStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorSessionAuthenticationStatus(pub i32);
 impl MicrosoftAccountMultiFactorSessionAuthenticationStatus {

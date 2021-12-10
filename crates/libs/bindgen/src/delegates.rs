@@ -25,12 +25,14 @@ fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
     let signature = method.signature(&def.generics);
     let fn_constraint = gen_fn_constraint(&signature, gen);
     let cfg = gen.type_cfg(def);
+    let doc = cfg.gen_doc(gen);
     let cfg_gen = cfg.gen(gen);
     let vtbl_signature = gen_vtbl_signature(def, &method, gen);
     let invoke = gen_winrt_method(def, InterfaceKind::Default, &method, 3, &mut BTreeMap::new(), gen);
     let invoke_upcall = gen_winrt_upcall(&signature, quote! { ((*this).invoke) }, gen);
 
     let mut tokens = quote! {
+        #doc
         #cfg_gen
         #[repr(transparent)]
         pub struct #name<#(#generics)*>(pub ::windows::core::IUnknown, #(#phantoms)*) where #(#constraints)*;

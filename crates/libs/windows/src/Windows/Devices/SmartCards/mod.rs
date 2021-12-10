@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct CardAddedEventArgs(::windows::core::IUnknown);
 impl CardAddedEventArgs {
@@ -73,6 +74,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Card
 }
 unsafe impl ::core::marker::Send for CardAddedEventArgs {}
 unsafe impl ::core::marker::Sync for CardAddedEventArgs {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct CardRemovedEventArgs(::windows::core::IUnknown);
 impl CardRemovedEventArgs {
@@ -1375,6 +1377,7 @@ impl KnownSmartCardAppletIds {
 impl ::windows::core::RuntimeName for KnownSmartCardAppletIds {
     const NAME: &'static str = "Windows.Devices.SmartCards.KnownSmartCardAppletIds";
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCard(::windows::core::IUnknown);
 impl SmartCard {
@@ -1473,6 +1476,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCard {}
 unsafe impl ::core::marker::Sync for SmartCard {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardActivationPolicyChangeResult(pub i32);
 impl SmartCardActivationPolicyChangeResult {
@@ -1500,6 +1504,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardActivationPolicyChangeResu
 impl ::windows::core::DefaultType for SmartCardActivationPolicyChangeResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardAppletIdGroup(::windows::core::IUnknown);
 impl SmartCardAppletIdGroup {
@@ -1690,6 +1695,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardAppletIdGroup {}
 unsafe impl ::core::marker::Sync for SmartCardAppletIdGroup {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardAppletIdGroupActivationPolicy(pub i32);
 impl SmartCardAppletIdGroupActivationPolicy {
@@ -1718,6 +1724,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardAppletIdGroupActivationPol
 impl ::windows::core::DefaultType for SmartCardAppletIdGroupActivationPolicy {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardAppletIdGroupRegistration(::windows::core::IUnknown);
 impl SmartCardAppletIdGroupRegistration {
@@ -1837,6 +1844,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardAppletIdGroupRegistration {}
 unsafe impl ::core::marker::Sync for SmartCardAppletIdGroupRegistration {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardAutomaticResponseApdu(::windows::core::IUnknown);
 impl SmartCardAutomaticResponseApdu {
@@ -2015,6 +2023,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardAutomaticResponseApdu {}
 unsafe impl ::core::marker::Sync for SmartCardAutomaticResponseApdu {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardAutomaticResponseStatus(pub i32);
 impl SmartCardAutomaticResponseStatus {
@@ -2043,6 +2052,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardAutomaticResponseStatus {
 impl ::windows::core::DefaultType for SmartCardAutomaticResponseStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardChallengeContext(::windows::core::IUnknown);
 impl SmartCardChallengeContext {
@@ -2181,6 +2191,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for SmartCardChallengeContext {}
 unsafe impl ::core::marker::Sync for SmartCardChallengeContext {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardConnection(::windows::core::IUnknown);
 impl SmartCardConnection {
@@ -2287,6 +2298,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for SmartCardConnection {}
 unsafe impl ::core::marker::Sync for SmartCardConnection {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramAlgorithm(pub i32);
 impl SmartCardCryptogramAlgorithm {
@@ -2321,6 +2333,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramAlgorithm {
 impl ::windows::core::DefaultType for SmartCardCryptogramAlgorithm {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramGenerator(::windows::core::IUnknown);
 impl SmartCardCryptogramGenerator {
@@ -2545,6 +2558,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramGenerator {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGenerator {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramGeneratorOperationStatus(pub i32);
 impl SmartCardCryptogramGeneratorOperationStatus {
@@ -2584,6 +2598,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGeneratorOperati
 impl ::windows::core::DefaultType for SmartCardCryptogramGeneratorOperationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(::windows::core::IUnknown);
 impl SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
@@ -2673,6 +2688,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult(::windows::core::IUnknown);
 impl SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
@@ -2762,6 +2778,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult(::windows::core::IUnknown);
 impl SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
@@ -2851,6 +2868,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialCharacteristics(::windows::core::IUnknown);
 impl SmartCardCryptogramMaterialCharacteristics {
@@ -2984,6 +3002,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialCharacteristics {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialCharacteristics {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialPackageCharacteristics(::windows::core::IUnknown);
 impl SmartCardCryptogramMaterialPackageCharacteristics {
@@ -3087,6 +3106,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPackageCharacteristics {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialPackageCharacteristics {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialPackageConfirmationResponseFormat(pub i32);
 impl SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
@@ -3114,6 +3134,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPackageC
 impl ::windows::core::DefaultType for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialPackageFormat(pub i32);
 impl SmartCardCryptogramMaterialPackageFormat {
@@ -3141,6 +3162,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPackageF
 impl ::windows::core::DefaultType for SmartCardCryptogramMaterialPackageFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialPossessionProof(::windows::core::IUnknown);
 impl SmartCardCryptogramMaterialPossessionProof {
@@ -3223,6 +3245,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPossessionProof {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialPossessionProof {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialProtectionMethod(pub i32);
 impl SmartCardCryptogramMaterialProtectionMethod {
@@ -3250,6 +3273,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialProtecti
 impl ::windows::core::DefaultType for SmartCardCryptogramMaterialProtectionMethod {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramMaterialType(pub i32);
 impl SmartCardCryptogramMaterialType {
@@ -3280,6 +3304,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialType {
 impl ::windows::core::DefaultType for SmartCardCryptogramMaterialType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramPlacementOptions(pub u32);
 impl SmartCardCryptogramPlacementOptions {
@@ -3308,6 +3333,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramPlacementOptions
 impl ::windows::core::DefaultType for SmartCardCryptogramPlacementOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramPlacementStep(::windows::core::IUnknown);
 impl SmartCardCryptogramPlacementStep {
@@ -3483,6 +3509,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramPlacementStep {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramPlacementStep {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramStorageKeyAlgorithm(pub i32);
 impl SmartCardCryptogramStorageKeyAlgorithm {
@@ -3510,6 +3537,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyAlgori
 impl ::windows::core::DefaultType for SmartCardCryptogramStorageKeyAlgorithm {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramStorageKeyCapabilities(pub u32);
 impl SmartCardCryptogramStorageKeyCapabilities {
@@ -3538,6 +3566,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyCapabi
 impl ::windows::core::DefaultType for SmartCardCryptogramStorageKeyCapabilities {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramStorageKeyCharacteristics(::windows::core::IUnknown);
 impl SmartCardCryptogramStorageKeyCharacteristics {
@@ -3641,6 +3670,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramStorageKeyCharacteristics {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramStorageKeyCharacteristics {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramStorageKeyInfo(::windows::core::IUnknown);
 impl SmartCardCryptogramStorageKeyInfo {
@@ -3768,6 +3798,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramStorageKeyInfo {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramStorageKeyInfo {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardCryptographicKeyAttestationStatus(pub i32);
 impl SmartCardCryptographicKeyAttestationStatus {
@@ -3801,6 +3832,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptographicKeyAttestatio
 impl ::windows::core::DefaultType for SmartCardCryptographicKeyAttestationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardEmulationCategory(pub i32);
 impl SmartCardEmulationCategory {
@@ -3828,6 +3860,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardEmulationCategory {
 impl ::windows::core::DefaultType for SmartCardEmulationCategory {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardEmulationType(pub i32);
 impl SmartCardEmulationType {
@@ -3856,6 +3889,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardEmulationType {
 impl ::windows::core::DefaultType for SmartCardEmulationType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardEmulator(::windows::core::IUnknown);
 impl SmartCardEmulator {
@@ -4019,6 +4053,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardEmulator {}
 unsafe impl ::core::marker::Sync for SmartCardEmulator {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardEmulatorApduReceivedEventArgs(::windows::core::IUnknown);
 impl SmartCardEmulatorApduReceivedEventArgs {
@@ -4147,6 +4182,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardEmulatorApduReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for SmartCardEmulatorApduReceivedEventArgs {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardEmulatorConnectionDeactivatedEventArgs(::windows::core::IUnknown);
 impl SmartCardEmulatorConnectionDeactivatedEventArgs {
@@ -4228,6 +4264,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionDeactivatedEventArgs {}
 unsafe impl ::core::marker::Sync for SmartCardEmulatorConnectionDeactivatedEventArgs {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardEmulatorConnectionDeactivatedReason(pub i32);
 impl SmartCardEmulatorConnectionDeactivatedReason {
@@ -4255,6 +4292,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionDeactiva
 impl ::windows::core::DefaultType for SmartCardEmulatorConnectionDeactivatedReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardEmulatorConnectionProperties(::windows::core::IUnknown);
 impl SmartCardEmulatorConnectionProperties {
@@ -4336,6 +4374,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionProperties {}
 unsafe impl ::core::marker::Sync for SmartCardEmulatorConnectionProperties {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardEmulatorConnectionSource(pub i32);
 impl SmartCardEmulatorConnectionSource {
@@ -4363,6 +4402,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionSource {
 impl ::windows::core::DefaultType for SmartCardEmulatorConnectionSource {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardEmulatorEnablementPolicy(pub i32);
 impl SmartCardEmulatorEnablementPolicy {
@@ -4392,6 +4432,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorEnablementPolicy {
 impl ::windows::core::DefaultType for SmartCardEmulatorEnablementPolicy {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardLaunchBehavior(pub i32);
 impl SmartCardLaunchBehavior {
@@ -4419,6 +4460,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardLaunchBehavior {
 impl ::windows::core::DefaultType for SmartCardLaunchBehavior {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardPinCharacterPolicyOption(pub i32);
 impl SmartCardPinCharacterPolicyOption {
@@ -4447,6 +4489,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardPinCharacterPolicyOption {
 impl ::windows::core::DefaultType for SmartCardPinCharacterPolicyOption {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardPinPolicy(::windows::core::IUnknown);
 impl SmartCardPinPolicy {
@@ -4587,6 +4630,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardPinPolicy {}
 unsafe impl ::core::marker::Sync for SmartCardPinPolicy {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardPinResetDeferral(::windows::core::IUnknown);
 impl SmartCardPinResetDeferral {
@@ -4658,6 +4702,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardPinResetDeferral {}
 unsafe impl ::core::marker::Sync for SmartCardPinResetDeferral {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardPinResetHandler(pub ::windows::core::IUnknown);
 impl SmartCardPinResetHandler {
@@ -4726,6 +4771,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardPinResetHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct SmartCardPinResetHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, request: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardPinResetRequest(::windows::core::IUnknown);
 impl SmartCardPinResetRequest {
@@ -4821,6 +4867,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardPinResetRequest {}
 unsafe impl ::core::marker::Sync for SmartCardPinResetRequest {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardProvisioning(::windows::core::IUnknown);
 impl SmartCardProvisioning {
@@ -4993,6 +5040,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardProvisioning {}
 unsafe impl ::core::marker::Sync for SmartCardProvisioning {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardReader(::windows::core::IUnknown);
 impl SmartCardReader {
@@ -5146,6 +5194,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardReader {}
 unsafe impl ::core::marker::Sync for SmartCardReader {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardReaderKind(pub i32);
 impl SmartCardReaderKind {
@@ -5177,6 +5226,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardReaderKind {
 impl ::windows::core::DefaultType for SmartCardReaderKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardReaderStatus(pub i32);
 impl SmartCardReaderStatus {
@@ -5205,6 +5255,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardReaderStatus {
 impl ::windows::core::DefaultType for SmartCardReaderStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardStatus(pub i32);
 impl SmartCardStatus {
@@ -5235,6 +5286,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardStatus {
 impl ::windows::core::DefaultType for SmartCardStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardTriggerDetails(::windows::core::IUnknown);
 impl SmartCardTriggerDetails {
@@ -5355,6 +5407,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Smar
 }
 unsafe impl ::core::marker::Send for SmartCardTriggerDetails {}
 unsafe impl ::core::marker::Sync for SmartCardTriggerDetails {}
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardTriggerType(pub i32);
 impl SmartCardTriggerType {
@@ -5386,6 +5439,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardTriggerType {
 impl ::windows::core::DefaultType for SmartCardTriggerType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
 pub struct SmartCardUnlockPromptingBehavior(pub i32);
 impl SmartCardUnlockPromptingBehavior {

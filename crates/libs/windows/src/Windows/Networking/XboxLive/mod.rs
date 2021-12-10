@@ -329,6 +329,7 @@ pub struct IXboxLiveQualityOfServicePrivatePayloadResultVtbl(
     #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveDeviceAddress(::windows::core::IUnknown);
 impl XboxLiveDeviceAddress {
@@ -491,6 +492,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xbox
 }
 unsafe impl ::core::marker::Send for XboxLiveDeviceAddress {}
 unsafe impl ::core::marker::Sync for XboxLiveDeviceAddress {}
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveEndpointPair(::windows::core::IUnknown);
 impl XboxLiveEndpointPair {
@@ -652,6 +654,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xbox
 }
 unsafe impl ::core::marker::Send for XboxLiveEndpointPair {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPair {}
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairCreationBehaviors(pub u32);
 impl XboxLiveEndpointPairCreationBehaviors {
@@ -679,6 +682,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairCreationBehavio
 impl ::windows::core::DefaultType for XboxLiveEndpointPairCreationBehaviors {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairCreationResult(::windows::core::IUnknown);
 impl XboxLiveEndpointPairCreationResult {
@@ -774,6 +778,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xbox
 }
 unsafe impl ::core::marker::Send for XboxLiveEndpointPairCreationResult {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPairCreationResult {}
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairCreationStatus(pub i32);
 impl XboxLiveEndpointPairCreationStatus {
@@ -808,6 +813,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairCreationStatus 
 impl ::windows::core::DefaultType for XboxLiveEndpointPairCreationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairState(pub i32);
 impl XboxLiveEndpointPairState {
@@ -840,6 +846,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairState {
 impl ::windows::core::DefaultType for XboxLiveEndpointPairState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairStateChangedEventArgs(::windows::core::IUnknown);
 impl XboxLiveEndpointPairStateChangedEventArgs {
@@ -921,6 +928,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xbox
 }
 unsafe impl ::core::marker::Send for XboxLiveEndpointPairStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPairStateChangedEventArgs {}
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairTemplate(::windows::core::IUnknown);
 impl XboxLiveEndpointPairTemplate {
@@ -1100,6 +1108,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xbox
 }
 unsafe impl ::core::marker::Send for XboxLiveEndpointPairTemplate {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPairTemplate {}
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveInboundEndpointPairCreatedEventArgs(::windows::core::IUnknown);
 impl XboxLiveInboundEndpointPairCreatedEventArgs {
@@ -1174,6 +1183,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xbox
 }
 unsafe impl ::core::marker::Send for XboxLiveInboundEndpointPairCreatedEventArgs {}
 unsafe impl ::core::marker::Sync for XboxLiveInboundEndpointPairCreatedEventArgs {}
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveNetworkAccessKind(pub i32);
 impl XboxLiveNetworkAccessKind {
@@ -1202,6 +1212,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveNetworkAccessKind {
 impl ::windows::core::DefaultType for XboxLiveNetworkAccessKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServiceMeasurement(::windows::core::IUnknown);
 impl XboxLiveQualityOfServiceMeasurement {
@@ -1440,6 +1451,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xbox
 }
 unsafe impl ::core::marker::Send for XboxLiveQualityOfServiceMeasurement {}
 unsafe impl ::core::marker::Sync for XboxLiveQualityOfServiceMeasurement {}
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServiceMeasurementStatus(pub i32);
 impl XboxLiveQualityOfServiceMeasurementStatus {
@@ -1477,6 +1489,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveQualityOfServiceMeasurement
 impl ::windows::core::DefaultType for XboxLiveQualityOfServiceMeasurementStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServiceMetric(pub i32);
 impl XboxLiveQualityOfServiceMetric {
@@ -1511,6 +1524,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveQualityOfServiceMetric {
 impl ::windows::core::DefaultType for XboxLiveQualityOfServiceMetric {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServiceMetricResult(::windows::core::IUnknown);
 impl XboxLiveQualityOfServiceMetricResult {
@@ -1606,6 +1620,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xbox
 }
 unsafe impl ::core::marker::Send for XboxLiveQualityOfServiceMetricResult {}
 unsafe impl ::core::marker::Sync for XboxLiveQualityOfServiceMetricResult {}
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServicePrivatePayloadResult(::windows::core::IUnknown);
 impl XboxLiveQualityOfServicePrivatePayloadResult {
@@ -1695,6 +1710,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xbox
 }
 unsafe impl ::core::marker::Send for XboxLiveQualityOfServicePrivatePayloadResult {}
 unsafe impl ::core::marker::Sync for XboxLiveQualityOfServicePrivatePayloadResult {}
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveSocketKind(pub i32);
 impl XboxLiveSocketKind {

@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Graphics_Display_Core'*"]
 #[repr(transparent)]
 pub struct HdmiDisplayColorSpace(pub i32);
 impl HdmiDisplayColorSpace {
@@ -29,6 +30,7 @@ impl ::windows::core::DefaultType for HdmiDisplayColorSpace {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Graphics_Display_Core'*"]
 pub struct HdmiDisplayHdr2086Metadata {
     pub RedPrimaryX: u16,
     pub RedPrimaryY: u16,
@@ -69,6 +71,7 @@ impl ::core::default::Default for HdmiDisplayHdr2086Metadata {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Graphics_Display_Core'*"]
 #[repr(transparent)]
 pub struct HdmiDisplayHdrOption(pub i32);
 impl HdmiDisplayHdrOption {
@@ -98,6 +101,7 @@ unsafe impl ::windows::core::RuntimeType for HdmiDisplayHdrOption {
 impl ::windows::core::DefaultType for HdmiDisplayHdrOption {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Display_Core'*"]
 #[repr(transparent)]
 pub struct HdmiDisplayInformation(::windows::core::IUnknown);
 impl HdmiDisplayInformation {
@@ -235,6 +239,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hdmi
 }
 unsafe impl ::core::marker::Send for HdmiDisplayInformation {}
 unsafe impl ::core::marker::Sync for HdmiDisplayInformation {}
+#[doc = "*Required features: 'Graphics_Display_Core'*"]
 #[repr(transparent)]
 pub struct HdmiDisplayMode(::windows::core::IUnknown);
 impl HdmiDisplayMode {
@@ -386,6 +391,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hdmi
 }
 unsafe impl ::core::marker::Send for HdmiDisplayMode {}
 unsafe impl ::core::marker::Sync for HdmiDisplayMode {}
+#[doc = "*Required features: 'Graphics_Display_Core'*"]
 #[repr(transparent)]
 pub struct HdmiDisplayPixelEncoding(pub i32);
 impl HdmiDisplayPixelEncoding {

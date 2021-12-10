@@ -7,6 +7,7 @@ edition = "2018"
 license = "MIT OR Apache-2.0"
 description = "Rust for Windows"
 repository = "https://github.com/microsoft/windows-rs"
+documentation = "https://microsoft.github.io/windows-sys-docs-rs/"
 readme = "../../../.github/readme.md"
 
 [package.metadata.docs.rs]

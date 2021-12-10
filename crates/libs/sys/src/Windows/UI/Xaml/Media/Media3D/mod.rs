@@ -3,6 +3,7 @@
 extern "system" {}
 pub type CompositeTransform3D = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Media_Media3D'*"]
 pub struct Matrix3D {
     pub M11: f64,
     pub M12: f64,

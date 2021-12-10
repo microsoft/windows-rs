@@ -7,6 +7,7 @@ pub type AccountsSettingsPaneEventDeferral = *mut ::core::ffi::c_void;
 pub type CredentialCommand = *mut ::core::ffi::c_void;
 pub type CredentialCommandCredentialDeletedHandler = *mut ::core::ffi::c_void;
 pub type SettingsCommand = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_ApplicationSettings', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SettingsEdgeLocation(pub i32);
 impl SettingsEdgeLocation {
@@ -22,6 +23,7 @@ impl ::core::clone::Clone for SettingsEdgeLocation {
 pub type SettingsPane = *mut ::core::ffi::c_void;
 pub type SettingsPaneCommandsRequest = *mut ::core::ffi::c_void;
 pub type SettingsPaneCommandsRequestedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_ApplicationSettings'*"]
 #[repr(transparent)]
 pub struct SupportedWebAccountActions(pub u32);
 impl SupportedWebAccountActions {
@@ -38,6 +40,7 @@ impl ::core::clone::Clone for SupportedWebAccountActions {
         *self
     }
 }
+#[doc = "*Required features: 'UI_ApplicationSettings'*"]
 #[repr(transparent)]
 pub struct WebAccountAction(pub i32);
 impl WebAccountAction {

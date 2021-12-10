@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
 pub struct DesignerAppExitedEventArgs(::windows::core::IUnknown);
 impl DesignerAppExitedEventArgs {
@@ -73,6 +74,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Desi
 }
 unsafe impl ::core::marker::Send for DesignerAppExitedEventArgs {}
 unsafe impl ::core::marker::Sync for DesignerAppExitedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
 pub struct DesignerAppManager(::windows::core::IUnknown);
 impl DesignerAppManager {
@@ -217,6 +219,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for DesignerAppManager {}
 unsafe impl ::core::marker::Sync for DesignerAppManager {}
+#[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
 pub struct DesignerAppView(::windows::core::IUnknown);
 impl DesignerAppView {
@@ -352,6 +355,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for DesignerAppView {}
 unsafe impl ::core::marker::Sync for DesignerAppView {}
+#[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
 pub struct DesignerAppViewState(pub i32);
 impl DesignerAppViewState {
@@ -379,6 +383,7 @@ unsafe impl ::windows::core::RuntimeType for DesignerAppViewState {
 impl ::windows::core::DefaultType for DesignerAppViewState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
 pub struct DesktopWindowXamlSource(::windows::core::IUnknown);
 impl DesktopWindowXamlSource {
@@ -538,6 +543,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for DesktopWindowXamlSource {}
 unsafe impl ::core::marker::Sync for DesktopWindowXamlSource {}
+#[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
 pub struct DesktopWindowXamlSourceGotFocusEventArgs(::windows::core::IUnknown);
 impl DesktopWindowXamlSourceGotFocusEventArgs {
@@ -612,6 +618,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Desk
 }
 unsafe impl ::core::marker::Send for DesktopWindowXamlSourceGotFocusEventArgs {}
 unsafe impl ::core::marker::Sync for DesktopWindowXamlSourceGotFocusEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
 pub struct DesktopWindowXamlSourceTakeFocusRequestedEventArgs(::windows::core::IUnknown);
 impl DesktopWindowXamlSourceTakeFocusRequestedEventArgs {
@@ -686,6 +693,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Desk
 }
 unsafe impl ::core::marker::Send for DesktopWindowXamlSourceTakeFocusRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for DesktopWindowXamlSourceTakeFocusRequestedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
 pub struct ElementCompositionPreview(::windows::core::IUnknown);
 impl ElementCompositionPreview {
@@ -1215,6 +1223,7 @@ pub struct IXamlUIPresenterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
 pub struct IXamlUIPresenterHost(::windows::core::IUnknown);
 impl IXamlUIPresenterHost {
@@ -1295,6 +1304,7 @@ pub struct IXamlUIPresenterHostVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
 pub struct IXamlUIPresenterHost2(::windows::core::IUnknown);
 impl IXamlUIPresenterHost2 {
@@ -1375,6 +1385,7 @@ pub struct IXamlUIPresenterHost2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
 pub struct IXamlUIPresenterHost3(::windows::core::IUnknown);
 impl IXamlUIPresenterHost3 {
@@ -1497,6 +1508,7 @@ pub struct IXamlUIPresenterStatics2Vtbl(
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placementtargetbounds: super::super::super::Foundation::Rect, controlsize: super::super::super::Foundation::Size, mincontrolsize: super::super::super::Foundation::Size, containerrect: super::super::super::Foundation::Rect, targetpreferredplacement: super::Controls::Primitives::FlyoutPlacementMode, allowfallbacks: bool, chosenplacement: *mut super::Controls::Primitives::FlyoutPlacementMode, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives")))] usize,
 );
+#[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
 pub struct WindowsXamlManager(::windows::core::IUnknown);
 impl WindowsXamlManager {
@@ -1605,6 +1617,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for WindowsXamlManager {}
 unsafe impl ::core::marker::Sync for WindowsXamlManager {}
+#[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
 pub struct XamlSourceFocusNavigationReason(pub i32);
 impl XamlSourceFocusNavigationReason {
@@ -1638,6 +1651,7 @@ unsafe impl ::windows::core::RuntimeType for XamlSourceFocusNavigationReason {
 impl ::windows::core::DefaultType for XamlSourceFocusNavigationReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
 pub struct XamlSourceFocusNavigationRequest(::windows::core::IUnknown);
 impl XamlSourceFocusNavigationRequest {
@@ -1751,6 +1765,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
 }
 unsafe impl ::core::marker::Send for XamlSourceFocusNavigationRequest {}
 unsafe impl ::core::marker::Sync for XamlSourceFocusNavigationRequest {}
+#[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
 pub struct XamlSourceFocusNavigationResult(::windows::core::IUnknown);
 impl XamlSourceFocusNavigationResult {
@@ -1835,6 +1850,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
 }
 unsafe impl ::core::marker::Send for XamlSourceFocusNavigationResult {}
 unsafe impl ::core::marker::Sync for XamlSourceFocusNavigationResult {}
+#[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
 pub struct XamlUIPresenter(::windows::core::IUnknown);
 impl XamlUIPresenter {

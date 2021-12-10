@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Networking_ServiceDiscovery_Dnssd'*"]
 #[repr(transparent)]
 pub struct DnssdRegistrationResult(::windows::core::IUnknown);
 impl DnssdRegistrationResult {
@@ -128,6 +129,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for DnssdRegistrationResult {}
 unsafe impl ::core::marker::Sync for DnssdRegistrationResult {}
+#[doc = "*Required features: 'Networking_ServiceDiscovery_Dnssd'*"]
 #[repr(transparent)]
 pub struct DnssdRegistrationStatus(pub i32);
 impl DnssdRegistrationStatus {
@@ -157,6 +159,7 @@ unsafe impl ::windows::core::RuntimeType for DnssdRegistrationStatus {
 impl ::windows::core::DefaultType for DnssdRegistrationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_ServiceDiscovery_Dnssd'*"]
 #[repr(transparent)]
 pub struct DnssdServiceInstance(::windows::core::IUnknown);
 impl DnssdServiceInstance {
@@ -363,6 +366,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for DnssdServiceInstance {}
 unsafe impl ::core::marker::Sync for DnssdServiceInstance {}
+#[doc = "*Required features: 'Networking_ServiceDiscovery_Dnssd', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct DnssdServiceInstanceCollection(::windows::core::IUnknown);
@@ -556,6 +560,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for DnssdServiceInstanceCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for DnssdServiceInstanceCollection {}
+#[doc = "*Required features: 'Networking_ServiceDiscovery_Dnssd'*"]
 #[repr(transparent)]
 pub struct DnssdServiceWatcher(::windows::core::IUnknown);
 impl DnssdServiceWatcher {
@@ -677,6 +682,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dnss
 }
 unsafe impl ::core::marker::Send for DnssdServiceWatcher {}
 unsafe impl ::core::marker::Sync for DnssdServiceWatcher {}
+#[doc = "*Required features: 'Networking_ServiceDiscovery_Dnssd'*"]
 #[repr(transparent)]
 pub struct DnssdServiceWatcherStatus(pub i32);
 impl DnssdServiceWatcherStatus {

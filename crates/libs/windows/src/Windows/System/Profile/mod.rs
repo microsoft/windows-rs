@@ -34,6 +34,7 @@ impl AnalyticsInfo {
 impl ::windows::core::RuntimeName for AnalyticsInfo {
     const NAME: &'static str = "Windows.System.Profile.AnalyticsInfo";
 }
+#[doc = "*Required features: 'System_Profile'*"]
 #[repr(transparent)]
 pub struct AnalyticsVersionInfo(::windows::core::IUnknown);
 impl AnalyticsVersionInfo {
@@ -172,6 +173,7 @@ impl HardwareIdentification {
 impl ::windows::core::RuntimeName for HardwareIdentification {
     const NAME: &'static str = "Windows.System.Profile.HardwareIdentification";
 }
+#[doc = "*Required features: 'System_Profile'*"]
 #[repr(transparent)]
 pub struct HardwareToken(::windows::core::IUnknown);
 impl HardwareToken {
@@ -782,6 +784,7 @@ impl KnownRetailInfoProperties {
 impl ::windows::core::RuntimeName for KnownRetailInfoProperties {
     const NAME: &'static str = "Windows.System.Profile.KnownRetailInfoProperties";
 }
+#[doc = "*Required features: 'System_Profile'*"]
 #[repr(transparent)]
 pub struct PlatformDataCollectionLevel(pub i32);
 impl PlatformDataCollectionLevel {
@@ -915,6 +918,7 @@ impl SystemIdentification {
 impl ::windows::core::RuntimeName for SystemIdentification {
     const NAME: &'static str = "Windows.System.Profile.SystemIdentification";
 }
+#[doc = "*Required features: 'System_Profile'*"]
 #[repr(transparent)]
 pub struct SystemIdentificationInfo(::windows::core::IUnknown);
 impl SystemIdentificationInfo {
@@ -997,6 +1001,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemIdentificationInfo {}
 unsafe impl ::core::marker::Sync for SystemIdentificationInfo {}
+#[doc = "*Required features: 'System_Profile'*"]
 #[repr(transparent)]
 pub struct SystemIdentificationSource(pub i32);
 impl SystemIdentificationSource {
@@ -1026,6 +1031,7 @@ unsafe impl ::windows::core::RuntimeType for SystemIdentificationSource {
 impl ::windows::core::DefaultType for SystemIdentificationSource {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_Profile'*"]
 #[repr(transparent)]
 pub struct SystemOutOfBoxExperienceState(pub i32);
 impl SystemOutOfBoxExperienceState {
@@ -1081,6 +1087,7 @@ impl SystemSetupInfo {
 impl ::windows::core::RuntimeName for SystemSetupInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemSetupInfo";
 }
+#[doc = "*Required features: 'System_Profile'*"]
 #[repr(transparent)]
 pub struct UnsupportedAppRequirement(::windows::core::IUnknown);
 impl UnsupportedAppRequirement {
@@ -1162,6 +1169,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Unsu
 }
 unsafe impl ::core::marker::Send for UnsupportedAppRequirement {}
 unsafe impl ::core::marker::Sync for UnsupportedAppRequirement {}
+#[doc = "*Required features: 'System_Profile'*"]
 #[repr(transparent)]
 pub struct UnsupportedAppRequirementReasons(pub u32);
 impl UnsupportedAppRequirementReasons {

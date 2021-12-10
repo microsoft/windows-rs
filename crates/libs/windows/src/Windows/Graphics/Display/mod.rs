@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Graphics_Display_Core")]
 pub mod Core;
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct AdvancedColorInfo(::windows::core::IUnknown);
 impl AdvancedColorInfo {
@@ -149,6 +150,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adva
 }
 unsafe impl ::core::marker::Send for AdvancedColorInfo {}
 unsafe impl ::core::marker::Sync for AdvancedColorInfo {}
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct AdvancedColorKind(pub i32);
 impl AdvancedColorKind {
@@ -177,6 +179,7 @@ unsafe impl ::windows::core::RuntimeType for AdvancedColorKind {
 impl ::windows::core::DefaultType for AdvancedColorKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct BrightnessOverride(::windows::core::IUnknown);
 impl BrightnessOverride {
@@ -350,6 +353,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Brig
 }
 unsafe impl ::core::marker::Send for BrightnessOverride {}
 unsafe impl ::core::marker::Sync for BrightnessOverride {}
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct BrightnessOverrideSettings(::windows::core::IUnknown);
 impl BrightnessOverrideSettings {
@@ -453,6 +457,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Brig
 }
 unsafe impl ::core::marker::Send for BrightnessOverrideSettings {}
 unsafe impl ::core::marker::Sync for BrightnessOverrideSettings {}
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct ColorOverrideSettings(::windows::core::IUnknown);
 impl ColorOverrideSettings {
@@ -537,6 +542,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Colo
 }
 unsafe impl ::core::marker::Send for ColorOverrideSettings {}
 unsafe impl ::core::marker::Sync for ColorOverrideSettings {}
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct DisplayBrightnessOverrideOptions(pub u32);
 impl DisplayBrightnessOverrideOptions {
@@ -564,6 +570,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayBrightnessOverrideOptions {
 impl ::windows::core::DefaultType for DisplayBrightnessOverrideOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct DisplayBrightnessOverrideScenario(pub i32);
 impl DisplayBrightnessOverrideScenario {
@@ -592,6 +599,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayBrightnessOverrideScenario {
 impl ::windows::core::DefaultType for DisplayBrightnessOverrideScenario {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct DisplayBrightnessScenario(pub i32);
 impl DisplayBrightnessScenario {
@@ -621,6 +629,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayBrightnessScenario {
 impl ::windows::core::DefaultType for DisplayBrightnessScenario {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct DisplayColorOverrideScenario(pub i32);
 impl DisplayColorOverrideScenario {
@@ -647,6 +656,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayColorOverrideScenario {
 impl ::windows::core::DefaultType for DisplayColorOverrideScenario {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct DisplayEnhancementOverride(::windows::core::IUnknown);
 impl DisplayEnhancementOverride {
@@ -814,6 +824,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayEnhancementOverride {}
 unsafe impl ::core::marker::Sync for DisplayEnhancementOverride {}
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct DisplayEnhancementOverrideCapabilities(::windows::core::IUnknown);
 impl DisplayEnhancementOverrideCapabilities {
@@ -903,6 +914,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayEnhancementOverrideCapabilities {}
 unsafe impl ::core::marker::Sync for DisplayEnhancementOverrideCapabilities {}
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct DisplayEnhancementOverrideCapabilitiesChangedEventArgs(::windows::core::IUnknown);
 impl DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
@@ -977,6 +989,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct DisplayInformation(::windows::core::IUnknown);
 impl DisplayInformation {
@@ -1232,6 +1245,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayInformation {}
 unsafe impl ::core::marker::Sync for DisplayInformation {}
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct DisplayOrientations(pub u32);
 impl DisplayOrientations {
@@ -1380,6 +1394,7 @@ impl DisplayProperties {
 impl ::windows::core::RuntimeName for DisplayProperties {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayProperties";
 }
+#[doc = "*Required features: 'Graphics_Display', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct DisplayPropertiesEventHandler(pub ::windows::core::IUnknown);
@@ -1465,6 +1480,7 @@ pub struct DisplayPropertiesEventHandlerVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct DisplayServices(::windows::core::IUnknown);
 impl DisplayServices {
@@ -1542,6 +1558,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayServices {}
 unsafe impl ::core::marker::Sync for DisplayServices {}
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct HdrMetadataFormat(pub i32);
 impl HdrMetadataFormat {
@@ -2064,6 +2081,7 @@ pub struct IDisplayServicesStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut super::DisplayId) -> ::windows::core::HRESULT,
 );
 #[repr(C)]
+#[doc = "*Required features: 'Graphics_Display'*"]
 pub struct NitRange {
     pub MinNits: f32,
     pub MaxNits: f32,
@@ -2095,6 +2113,7 @@ impl ::core::default::Default for NitRange {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct ResolutionScale(pub i32);
 impl ResolutionScale {

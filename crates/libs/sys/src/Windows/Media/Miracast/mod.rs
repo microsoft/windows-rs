@@ -3,6 +3,7 @@
 extern "system" {}
 pub type MiracastReceiver = *mut ::core::ffi::c_void;
 pub type MiracastReceiverApplySettingsResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverApplySettingsStatus(pub i32);
 impl MiracastReceiverApplySettingsStatus {
@@ -21,6 +22,7 @@ impl ::core::clone::Clone for MiracastReceiverApplySettingsStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverAuthorizationMethod(pub i32);
 impl MiracastReceiverAuthorizationMethod {
@@ -39,6 +41,7 @@ pub type MiracastReceiverConnection = *mut ::core::ffi::c_void;
 pub type MiracastReceiverConnectionCreatedEventArgs = *mut ::core::ffi::c_void;
 pub type MiracastReceiverCursorImageChannel = *mut ::core::ffi::c_void;
 pub type MiracastReceiverCursorImageChannelSettings = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverDisconnectReason(pub i32);
 impl MiracastReceiverDisconnectReason {
@@ -59,6 +62,7 @@ impl ::core::clone::Clone for MiracastReceiverDisconnectReason {
 }
 pub type MiracastReceiverDisconnectedEventArgs = *mut ::core::ffi::c_void;
 pub type MiracastReceiverGameControllerDevice = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverGameControllerDeviceUsageMode(pub i32);
 impl MiracastReceiverGameControllerDeviceUsageMode {
@@ -73,6 +77,7 @@ impl ::core::clone::Clone for MiracastReceiverGameControllerDeviceUsageMode {
 }
 pub type MiracastReceiverInputDevices = *mut ::core::ffi::c_void;
 pub type MiracastReceiverKeyboardDevice = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverListeningStatus(pub i32);
 impl MiracastReceiverListeningStatus {
@@ -92,6 +97,7 @@ impl ::core::clone::Clone for MiracastReceiverListeningStatus {
 pub type MiracastReceiverMediaSourceCreatedEventArgs = *mut ::core::ffi::c_void;
 pub type MiracastReceiverSession = *mut ::core::ffi::c_void;
 pub type MiracastReceiverSessionStartResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverSessionStartStatus(pub i32);
 impl MiracastReceiverSessionStartStatus {
@@ -110,6 +116,7 @@ pub type MiracastReceiverSettings = *mut ::core::ffi::c_void;
 pub type MiracastReceiverStatus = *mut ::core::ffi::c_void;
 pub type MiracastReceiverStreamControl = *mut ::core::ffi::c_void;
 pub type MiracastReceiverVideoStreamSettings = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverWiFiStatus(pub i32);
 impl MiracastReceiverWiFiStatus {
@@ -125,6 +132,7 @@ impl ::core::clone::Clone for MiracastReceiverWiFiStatus {
     }
 }
 pub type MiracastTransmitter = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastTransmitterAuthorizationStatus(pub i32);
 impl MiracastTransmitterAuthorizationStatus {

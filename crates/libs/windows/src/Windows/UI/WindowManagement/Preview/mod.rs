@@ -35,6 +35,7 @@ pub struct IWindowManagementPreviewStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr, preferredframeminsize: super::super::super::Foundation::Size) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'UI_WindowManagement_Preview'*"]
 #[repr(transparent)]
 pub struct WindowManagementPreview(::windows::core::IUnknown);
 impl WindowManagementPreview {

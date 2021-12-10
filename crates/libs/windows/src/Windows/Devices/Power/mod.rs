@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_Power'*"]
 #[repr(transparent)]
 pub struct Battery(::windows::core::IUnknown);
 impl Battery {
@@ -116,6 +117,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Batt
 }
 unsafe impl ::core::marker::Send for Battery {}
 unsafe impl ::core::marker::Sync for Battery {}
+#[doc = "*Required features: 'Devices_Power'*"]
 #[repr(transparent)]
 pub struct BatteryReport(::windows::core::IUnknown);
 impl BatteryReport {

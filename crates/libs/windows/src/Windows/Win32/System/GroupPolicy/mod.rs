@@ -1,8 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub type APPSTATE = i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const ABSENT: APPSTATE = 0i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const ASSIGNED: APPSTATE = 1i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const PUBLISHED: APPSTATE = 2i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BrowseForGPO(lpbrowseinfo: *mut GPOBROWSEINFO) -> ::windows::core::Result<()> {
@@ -20,6 +25,7 @@ pub unsafe fn BrowseForGPO(lpbrowseinfo: *mut GPOBROWSEINFO) -> ::windows::core:
 pub const CLSID_GPESnapIn: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fc0b734_a0e1_11d1_a7d3_0000f87571e3);
 pub const CLSID_GroupPolicyObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea502722_a23d_11d1_a7d3_0000f87571e3);
 pub const CLSID_RSOPSnapIn: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dc3804b_7212_458d_adb0_9a07e2ae1fa2);
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CommandLineFromMsiDescriptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(descriptor: Param0, commandline: super::super::Foundation::PWSTR, commandlinelength: *mut u32) -> u32 {
@@ -34,6 +40,7 @@ pub unsafe fn CommandLineFromMsiDescriptor<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateGPOLink<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpgpo: Param0, lpcontainer: Param1, fhighpriority: Param2) -> ::windows::core::Result<()> {
@@ -49,6 +56,7 @@ pub unsafe fn CreateGPOLink<'a, Param0: ::windows::core::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 pub type CriticalPolicySectionHandle = isize;
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteAllGPOLinks<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpcontainer: Param0) -> ::windows::core::Result<()> {
@@ -63,6 +71,7 @@ pub unsafe fn DeleteAllGPOLinks<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteGPOLink<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpgpo: Param0, lpcontainer: Param1) -> ::windows::core::Result<()> {
@@ -77,6 +86,7 @@ pub unsafe fn DeleteGPOLink<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnterCriticalPolicySection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bmachine: Param0) -> super::super::Foundation::HANDLE {
@@ -91,6 +101,7 @@ pub unsafe fn EnterCriticalPolicySection<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExportRSoPData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpnamespace: Param0, lpfilename: Param1) -> ::windows::core::Result<()> {
@@ -116,6 +127,7 @@ pub const FLAG_NO_CSE_INVOKE: u32 = 1073741824u32;
 pub const FLAG_NO_GPO_FILTER: u32 = 2147483648u32;
 pub const FLAG_NO_USER: u32 = 1u32;
 pub const FLAG_PLANNING_MODE: u32 = 16777216u32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeGPOListA(pgpolist: *const GROUP_POLICY_OBJECTA) -> super::super::Foundation::BOOL {
@@ -130,6 +142,7 @@ pub unsafe fn FreeGPOListA(pgpolist: *const GROUP_POLICY_OBJECTA) -> super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeGPOListW(pgpolist: *const GROUP_POLICY_OBJECTW) -> super::super::Foundation::BOOL {
@@ -151,25 +164,41 @@ pub const GPMBackup: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x
 pub const GPMBackupCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb8f035b_70db_4a9f_9676_37c25994e9dc);
 pub const GPMBackupDir: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfce4a59d_0f21_4afa_b859_e6d0c62cd10c);
 pub const GPMBackupDirEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8c0988a_cf03_4c5b_8be2_2aa9ad32aada);
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub type GPMBackupType = i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const typeGPO: GPMBackupType = 0i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const typeStarterGPO: GPMBackupType = 1i32;
 pub const GPMCSECollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf92b828_2d44_4b61_b10a_b327afd42da8);
 pub const GPMClientSideExtension: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1a2e70e_659c_4b1a_940b_f88b0af9c8a4);
 pub const GPMConstants: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3855e880_cd9e_4d0c_9eaf_1579283a1888);
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub type GPMDestinationOption = i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const opDestinationSameAsSource: GPMDestinationOption = 0i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const opDestinationNone: GPMDestinationOption = 1i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const opDestinationByRelativeName: GPMDestinationOption = 2i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const opDestinationSet: GPMDestinationOption = 3i32;
 pub const GPMDomain: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x710901be_1050_4cb1_838a_c5cff259e183);
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub type GPMEntryType = i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const typeUser: GPMEntryType = 0i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const typeComputer: GPMEntryType = 1i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const typeLocalGroup: GPMEntryType = 2i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const typeGlobalGroup: GPMEntryType = 3i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const typeUniversalGroup: GPMEntryType = 4i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const typeUNCPath: GPMEntryType = 5i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const typeUnknown: GPMEntryType = 6i32;
 pub const GPMGPO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ce2994_59b5_4064_b581_4d68486a16c4);
 pub const GPMGPOCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a057325_832d_4de3_a41f_c780436a4e09);
@@ -179,77 +208,139 @@ pub const GPMMapEntry: ::windows::core::GUID = ::windows::core::GUID::from_u128(
 pub const GPMMapEntryCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cf75d5b_a3a1_4c55_b4fe_9e149c41f66d);
 pub const GPMMigrationTable: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55af4043_2a06_4f72_abef_631b44079c76);
 pub const GPMPermission: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5871a40a_e9c0_46ec_913e_944ef9225a94);
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub type GPMPermissionType = i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const permGPOApply: GPMPermissionType = 65536i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const permGPORead: GPMPermissionType = 65792i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const permGPOEdit: GPMPermissionType = 65793i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const permGPOEditSecurityAndDelete: GPMPermissionType = 65794i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const permGPOCustom: GPMPermissionType = 65795i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const permWMIFilterEdit: GPMPermissionType = 131072i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const permWMIFilterFullControl: GPMPermissionType = 131073i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const permWMIFilterCustom: GPMPermissionType = 131074i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const permSOMLink: GPMPermissionType = 1835008i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const permSOMLogging: GPMPermissionType = 1573120i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const permSOMPlanning: GPMPermissionType = 1573376i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const permSOMWMICreate: GPMPermissionType = 1049344i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const permSOMWMIFullControl: GPMPermissionType = 1049345i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const permSOMGPOCreate: GPMPermissionType = 1049600i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const permStarterGPORead: GPMPermissionType = 197888i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const permStarterGPOEdit: GPMPermissionType = 197889i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const permStarterGPOFullControl: GPMPermissionType = 197890i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const permStarterGPOCustom: GPMPermissionType = 197891i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const permSOMStarterGPOCreate: GPMPermissionType = 1049856i32;
 pub const GPMRSOP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x489b0caf_9ec2_4eb7_91f5_b6f71d43da8c);
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub type GPMRSOPMode = i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const rsopUnknown: GPMRSOPMode = 0i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const rsopPlanning: GPMRSOPMode = 1i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const rsopLogging: GPMRSOPMode = 2i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub type GPMReportType = i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const repXML: GPMReportType = 0i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const repHTML: GPMReportType = 1i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const repInfraXML: GPMReportType = 2i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const repInfraRefreshXML: GPMReportType = 3i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const repClientHealthXML: GPMReportType = 4i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const repClientHealthRefreshXML: GPMReportType = 5i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub type GPMReportingOptions = i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const opReportLegacy: GPMReportingOptions = 0i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const opReportComments: GPMReportingOptions = 1i32;
 pub const GPMResult: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92101ac0_9287_4206_a3b2_4bdb73d225f6);
 pub const GPMSOM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32d93fac_450e_44cf_829c_8b22ff6bdae1);
 pub const GPMSOMCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24c1f147_3720_4f5b_a9c3_06b4e4f931d2);
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub type GPMSOMType = i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const somSite: GPMSOMType = 0i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const somDomain: GPMSOMType = 1i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const somOU: GPMSOMType = 2i32;
 pub const GPMSearchCriteria: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17aaca26_5ce0_44fa_8cc0_5259e6483566);
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub type GPMSearchOperation = i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const opEquals: GPMSearchOperation = 0i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const opContains: GPMSearchOperation = 1i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const opNotContains: GPMSearchOperation = 2i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const opNotEquals: GPMSearchOperation = 3i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub type GPMSearchProperty = i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const gpoPermissions: GPMSearchProperty = 0i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const gpoEffectivePermissions: GPMSearchProperty = 1i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const gpoDisplayName: GPMSearchProperty = 2i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const gpoWMIFilter: GPMSearchProperty = 3i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const gpoID: GPMSearchProperty = 4i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const gpoComputerExtensions: GPMSearchProperty = 5i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const gpoUserExtensions: GPMSearchProperty = 6i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const somLinks: GPMSearchProperty = 7i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const gpoDomain: GPMSearchProperty = 8i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const backupMostRecent: GPMSearchProperty = 9i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const starterGPOPermissions: GPMSearchProperty = 10i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const starterGPOEffectivePermissions: GPMSearchProperty = 11i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const starterGPODisplayName: GPMSearchProperty = 12i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const starterGPOID: GPMSearchProperty = 13i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const starterGPODomain: GPMSearchProperty = 14i32;
 pub const GPMSecurityInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x547a5e8f_9162_4516_a4df_9ddb9686d846);
 pub const GPMSitesContainer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x229f5c42_852c_4b30_945f_c522be9bd386);
 pub const GPMStarterGPOBackup: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x389e400a_d8ef_455b_a861_5f9ca34a6a02);
 pub const GPMStarterGPOBackupCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe75ea59d_1aeb_4cb5_a78a_281daa582406);
 pub const GPMStarterGPOCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82f8aa8b_49ba_43b2_956e_3397f9b94c3a);
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub type GPMStarterGPOType = i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const typeSystem: GPMStarterGPOType = 0i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const typeCustom: GPMStarterGPOType = 1i32;
 pub const GPMStatusMessage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b77cc94_d255_409b_bc62_370881715a19);
 pub const GPMStatusMsgCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2824e4be_4bcc_4cac_9e60_0e3ed7f12496);
@@ -264,6 +355,7 @@ pub const GPM_PROCESS_SECURITY: u32 = 2u32;
 pub const GPM_USE_ANYDC: u32 = 1u32;
 pub const GPM_USE_PDC: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GPOBROWSEINFO {
     pub dwSize: u32,
@@ -323,11 +415,17 @@ pub const GPO_INFO_FLAG_NOCHANGES: u32 = 128u32;
 pub const GPO_INFO_FLAG_SAFEMODE_BOOT: u32 = 2048u32;
 pub const GPO_INFO_FLAG_SLOWLINK: u32 = 32u32;
 pub const GPO_INFO_FLAG_VERBOSE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub type GPO_LINK = i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const GPLinkUnknown: GPO_LINK = 0i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const GPLinkMachine: GPO_LINK = 1i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const GPLinkSite: GPO_LINK = 2i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const GPLinkDomain: GPO_LINK = 3i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const GPLinkOrganizationalUnit: GPO_LINK = 4i32;
 pub const GPO_LIST_FLAG_MACHINE: u32 = 1u32;
 pub const GPO_LIST_FLAG_NO_SECURITYFILTERS: u32 = 8u32;
@@ -340,13 +438,20 @@ pub const GPO_OPTION_DISABLE_USER: u32 = 1u32;
 pub const GPO_SECTION_MACHINE: u32 = 2u32;
 pub const GPO_SECTION_ROOT: u32 = 0u32;
 pub const GPO_SECTION_USER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub type GROUP_POLICY_HINT_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const GPHintUnknown: GROUP_POLICY_HINT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const GPHintMachine: GROUP_POLICY_HINT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const GPHintSite: GROUP_POLICY_HINT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const GPHintDomain: GROUP_POLICY_HINT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const GPHintOrganizationalUnit: GROUP_POLICY_HINT_TYPE = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GROUP_POLICY_OBJECTA {
     pub dwOptions: u32,
@@ -390,6 +495,7 @@ impl ::core::default::Default for GROUP_POLICY_OBJECTA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GROUP_POLICY_OBJECTW {
     pub dwOptions: u32,
@@ -432,12 +538,19 @@ impl ::core::default::Default for GROUP_POLICY_OBJECTW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub type GROUP_POLICY_OBJECT_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const GPOTypeLocal: GROUP_POLICY_OBJECT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const GPOTypeRemote: GROUP_POLICY_OBJECT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const GPOTypeDS: GROUP_POLICY_OBJECT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const GPOTypeLocalUser: GROUP_POLICY_OBJECT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const GPOTypeLocalGroup: GROUP_POLICY_OBJECT_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GenerateGPNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(bmachine: Param0, lpwszmgmtproduct: Param1, dwmgmtproductoptions: u32) -> u32 {
@@ -452,6 +565,7 @@ pub unsafe fn GenerateGPNotification<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAppliedGPOListA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(dwflags: u32, pmachinename: Param1, psiduser: Param2, pguidextension: *const ::windows::core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> u32 {
@@ -466,6 +580,7 @@ pub unsafe fn GetAppliedGPOListA<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAppliedGPOListW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(dwflags: u32, pmachinename: Param1, psiduser: Param2, pguidextension: *const ::windows::core::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> u32 {
@@ -480,6 +595,7 @@ pub unsafe fn GetAppliedGPOListW<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGPOListA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(htoken: Param0, lpname: Param1, lphostname: Param2, lpcomputername: Param3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> super::super::Foundation::BOOL {
@@ -494,6 +610,7 @@ pub unsafe fn GetGPOListA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGPOListW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(htoken: Param0, lpname: Param1, lphostname: Param2, lpcomputername: Param3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> super::super::Foundation::BOOL {
@@ -508,6 +625,7 @@ pub unsafe fn GetGPOListW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLocalManagedApplicationData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(productcode: Param0, displayname: *mut super::super::Foundation::PWSTR, supporturl: *mut super::super::Foundation::PWSTR) {
@@ -522,6 +640,7 @@ pub unsafe fn GetLocalManagedApplicationData<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLocalManagedApplications<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(buserapps: Param0, pdwapps: *mut u32, prglocalapps: *mut *mut LOCALMANAGEDAPPLICATION) -> u32 {
@@ -536,6 +655,7 @@ pub unsafe fn GetLocalManagedApplications<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation', 'Win32_UI_Shell'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 #[inline]
 pub unsafe fn GetManagedApplicationCategories(dwreserved: u32, pappcategory: *mut super::super::UI::Shell::APPCATEGORYINFOLIST) -> u32 {
@@ -550,6 +670,7 @@ pub unsafe fn GetManagedApplicationCategories(dwreserved: u32, pappcategory: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetManagedApplications(pcategory: *const ::windows::core::GUID, dwqueryflags: u32, dwinfolevel: u32, pdwapps: *mut u32, prgmanagedapps: *mut *mut MANAGEDAPPLICATION) -> u32 {
@@ -564,6 +685,7 @@ pub unsafe fn GetManagedApplications(pcategory: *const ::windows::core::GUID, dw
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPEInformation(::windows::core::IUnknown);
 impl IGPEInformation {
@@ -658,6 +780,7 @@ pub struct IGPEInformationVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bmachine: super::super::Foundation::BOOL, badd: super::super::Foundation::BOOL, pguidextension: *mut ::windows::core::GUID, pguidsnapin: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPM(::windows::core::IUnknown);
 impl IGPM {
@@ -829,6 +952,7 @@ pub struct IGPMVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPM2(::windows::core::IUnknown);
 impl IGPM2 {
@@ -1033,6 +1157,7 @@ pub struct IGPM2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstradmpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, reportingoptions: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMAsyncCancel(::windows::core::IUnknown);
 impl IGPMAsyncCancel {
@@ -1133,6 +1258,7 @@ pub struct IGPMAsyncCancelVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMAsyncProgress(::windows::core::IUnknown);
 impl IGPMAsyncProgress {
@@ -1235,6 +1361,7 @@ pub struct IGPMAsyncProgressVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lprogressnumerator: i32, lprogressdenominator: i32, hrstatus: ::windows::core::HRESULT, presult: *const super::Com::VARIANT, ppigpmstatusmsgcollection: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMBackup(::windows::core::IUnknown);
 impl IGPMBackup {
@@ -1395,6 +1522,7 @@ pub struct IGPMBackupVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMBackupCollection(::windows::core::IUnknown);
 impl IGPMBackupCollection {
@@ -1510,6 +1638,7 @@ pub struct IGPMBackupCollectionVtbl(
     #[cfg(feature = "Win32_System_Ole")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppigpmbackup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMBackupDir(::windows::core::IUnknown);
 impl IGPMBackupDir {
@@ -1625,6 +1754,7 @@ pub struct IGPMBackupDirVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pigpmsearchcriteria: ::windows::core::RawPtr, ppigpmbackupcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMBackupDirEx(::windows::core::IUnknown);
 impl IGPMBackupDirEx {
@@ -1747,6 +1877,7 @@ pub struct IGPMBackupDirExVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pigpmsearchcriteria: ::windows::core::RawPtr, pvarbackupcollection: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMCSECollection(::windows::core::IUnknown);
 impl IGPMCSECollection {
@@ -1862,6 +1993,7 @@ pub struct IGPMCSECollectionVtbl(
     #[cfg(feature = "Win32_System_Ole")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppigpmcses: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMClientSideExtension(::windows::core::IUnknown);
 impl IGPMClientSideExtension {
@@ -1982,6 +2114,7 @@ pub struct IGPMClientSideExtensionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbenabled: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbenabled: *mut i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMConstants(::windows::core::IUnknown);
 impl IGPMConstants {
@@ -2378,6 +2511,7 @@ pub struct IGPMConstantsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMConstants2(::windows::core::IUnknown);
 impl IGPMConstants2 {
@@ -2869,6 +3003,7 @@ pub struct IGPMConstants2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut GPMReportingOptions) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut GPMReportingOptions) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMDomain(::windows::core::IUnknown);
 impl IGPMDomain {
@@ -3026,6 +3161,7 @@ pub struct IGPMDomainVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pigpmsearchcriteria: ::windows::core::RawPtr, ppigpmwmifiltercollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMDomain2(::windows::core::IUnknown);
 impl IGPMDomain2 {
@@ -3237,6 +3373,7 @@ pub struct IGPMDomain2Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pigpmtmplbackup: ::windows::core::RawPtr, pvargpmprogress: *const super::Com::VARIANT, pvargpmcancel: *mut super::Com::VARIANT, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMDomain3(::windows::core::IUnknown);
 impl IGPMDomain3 {
@@ -3491,6 +3628,7 @@ pub struct IGPMDomain3Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMGPO(::windows::core::IUnknown);
 impl IGPMGPO {
@@ -3744,6 +3882,7 @@ pub struct IGPMGPOVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvbconsistent: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMGPO2(::windows::core::IUnknown);
 impl IGPMGPO2 {
@@ -4030,6 +4169,7 @@ pub struct IGPMGPO2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMGPO3(::windows::core::IUnknown);
 impl IGPMGPO3 {
@@ -4353,6 +4493,7 @@ pub struct IGPMGPO3Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMGPOCollection(::windows::core::IUnknown);
 impl IGPMGPOCollection {
@@ -4468,6 +4609,7 @@ pub struct IGPMGPOCollectionVtbl(
     #[cfg(feature = "Win32_System_Ole")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppigpmgpos: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMGPOLink(::windows::core::IUnknown);
 impl IGPMGPOLink {
@@ -4610,6 +4752,7 @@ pub struct IGPMGPOLinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppigpmsom: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMGPOLinksCollection(::windows::core::IUnknown);
 impl IGPMGPOLinksCollection {
@@ -4725,6 +4868,7 @@ pub struct IGPMGPOLinksCollectionVtbl(
     #[cfg(feature = "Win32_System_Ole")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppigpmlinks: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMMapEntry(::windows::core::IUnknown);
 impl IGPMMapEntry {
@@ -4845,6 +4989,7 @@ pub struct IGPMMapEntryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgpmdestoption: *mut GPMDestinationOption) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgpmentrytype: *mut GPMEntryType) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMMapEntryCollection(::windows::core::IUnknown);
 impl IGPMMapEntryCollection {
@@ -4960,6 +5105,7 @@ pub struct IGPMMapEntryCollectionVtbl(
     #[cfg(feature = "Win32_System_Ole")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMMigrationTable(::windows::core::IUnknown);
 impl IGPMMigrationTable {
@@ -5105,6 +5251,7 @@ pub struct IGPMMigrationTableVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppentries: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMPermission(::windows::core::IUnknown);
 impl IGPMPermission {
@@ -5226,6 +5373,7 @@ pub struct IGPMPermissionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut GPMPermissionType) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppigpmtrustee: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMRSOP(::windows::core::IUnknown);
 impl IGPMRSOP {
@@ -5536,6 +5684,7 @@ pub struct IGPMRSOPVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMResult(::windows::core::IUnknown);
 impl IGPMResult {
@@ -5648,6 +5797,7 @@ pub struct IGPMResultVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMSOM(::windows::core::IUnknown);
 impl IGPMSOM {
@@ -5796,6 +5946,7 @@ pub struct IGPMSOMVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsecurityinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psecurityinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMSOMCollection(::windows::core::IUnknown);
 impl IGPMSOMCollection {
@@ -5911,6 +6062,7 @@ pub struct IGPMSOMCollectionVtbl(
     #[cfg(feature = "Win32_System_Ole")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppigpmsom: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMSearchCriteria(::windows::core::IUnknown);
 impl IGPMSearchCriteria {
@@ -6013,6 +6165,7 @@ pub struct IGPMSearchCriteriaVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, searchproperty: GPMSearchProperty, searchoperation: GPMSearchOperation, varvalue: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMSecurityInfo(::windows::core::IUnknown);
 impl IGPMSecurityInfo {
@@ -6142,6 +6295,7 @@ pub struct IGPMSecurityInfoVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtrustee: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMSitesContainer(::windows::core::IUnknown);
 impl IGPMSitesContainer {
@@ -6271,6 +6425,7 @@ pub struct IGPMSitesContainerVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pigpmsearchcriteria: ::windows::core::RawPtr, ppigpmsomcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMStarterGPO(::windows::core::IUnknown);
 impl IGPMStarterGPO {
@@ -6492,6 +6647,7 @@ pub struct IGPMStarterGPOVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsecurityinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psecurityinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMStarterGPOBackup(::windows::core::IUnknown);
 impl IGPMStarterGPOBackup {
@@ -6657,6 +6813,7 @@ pub struct IGPMStarterGPOBackupVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gpmreporttype: GPMReportType, bstrtargetfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppigpmresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMStarterGPOBackupCollection(::windows::core::IUnknown);
 impl IGPMStarterGPOBackupCollection {
@@ -6772,6 +6929,7 @@ pub struct IGPMStarterGPOBackupCollectionVtbl(
     #[cfg(feature = "Win32_System_Ole")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppigpmtmplbackup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMStarterGPOCollection(::windows::core::IUnknown);
 impl IGPMStarterGPOCollection {
@@ -6887,6 +7045,7 @@ pub struct IGPMStarterGPOCollectionVtbl(
     #[cfg(feature = "Win32_System_Ole")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppigpmtemplates: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMStatusMessage(::windows::core::IUnknown);
 impl IGPMStatusMessage {
@@ -7019,6 +7178,7 @@ pub struct IGPMStatusMessageVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMStatusMsgCollection(::windows::core::IUnknown);
 impl IGPMStatusMsgCollection {
@@ -7134,6 +7294,7 @@ pub struct IGPMStatusMsgCollectionVtbl(
     #[cfg(feature = "Win32_System_Ole")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMTrustee(::windows::core::IUnknown);
 impl IGPMTrustee {
@@ -7263,6 +7424,7 @@ pub struct IGPMTrusteeVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lval: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMWMIFilter(::windows::core::IUnknown);
 impl IGPMWMIFilter {
@@ -7408,6 +7570,7 @@ pub struct IGPMWMIFilterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsecurityinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psecurityinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGPMWMIFilterCollection(::windows::core::IUnknown);
 impl IGPMWMIFilterCollection {
@@ -7523,6 +7686,7 @@ pub struct IGPMWMIFilterCollectionVtbl(
     #[cfg(feature = "Win32_System_Ole")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IGroupPolicyObject(::windows::core::IUnknown);
 impl IGroupPolicyObject {
@@ -7668,6 +7832,7 @@ pub struct IGroupPolicyObjectVtbl(
     #[cfg(not(feature = "Win32_UI_Controls"))] usize,
 );
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INSTALLDATA {
     pub Type: INSTALLSPECTYPE,
@@ -7700,6 +7865,7 @@ impl ::core::default::Default for INSTALLDATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union INSTALLSPEC {
     pub AppName: INSTALLSPEC_0,
@@ -7734,6 +7900,7 @@ impl ::core::default::Default for INSTALLSPEC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INSTALLSPEC_0 {
     pub Name: super::super::Foundation::PWSTR,
@@ -7766,6 +7933,7 @@ impl ::core::default::Default for INSTALLSPEC_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INSTALLSPEC_1 {
     pub Clsid: ::windows::core::GUID,
@@ -7797,11 +7965,17 @@ impl ::core::default::Default for INSTALLSPEC_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub type INSTALLSPECTYPE = i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const APPNAME: INSTALLSPECTYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const FILEEXT: INSTALLSPECTYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const PROGID: INSTALLSPECTYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const COMCLASS: INSTALLSPECTYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[repr(transparent)]
 pub struct IRSOPInformation(::windows::core::IUnknown);
 impl IRSOPInformation {
@@ -7865,6 +8039,7 @@ pub struct IRSOPInformationVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszeventsource: super::super::Foundation::PWSTR, pszeventlogname: super::super::Foundation::PWSTR, pszeventtime: super::super::Foundation::PWSTR, dweventid: u32, ppsztext: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImportRSoPData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpnamespace: Param0, lpfilename: Param1) -> ::windows::core::Result<()> {
@@ -7879,6 +8054,7 @@ pub unsafe fn ImportRSoPData<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InstallApplication(pinstallinfo: *const INSTALLDATA) -> u32 {
@@ -7894,6 +8070,7 @@ pub unsafe fn InstallApplication(pinstallinfo: *const INSTALLDATA) -> u32 {
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOCALMANAGEDAPPLICATION {
     pub pszDeploymentName: super::super::Foundation::PWSTR,
@@ -7934,6 +8111,7 @@ pub const LOCALSTATE_POLICYREMOVE_UNINSTALL: u32 = 16u32;
 pub const LOCALSTATE_PUBLISHED: u32 = 2u32;
 pub const LOCALSTATE_UNINSTALLED: u32 = 64u32;
 pub const LOCALSTATE_UNINSTALL_UNMANAGED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LeaveCriticalPolicySection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsection: Param0) -> super::super::Foundation::BOOL {
@@ -7949,6 +8127,7 @@ pub unsafe fn LeaveCriticalPolicySection<'a, Param0: ::windows::core::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MANAGEDAPPLICATION {
     pub pszPackageName: super::super::Foundation::PWSTR,
@@ -8008,17 +8187,22 @@ pub const NODEID_RSOPUser: ::windows::core::GUID = ::windows::core::GUID::from_u
 pub const NODEID_RSOPUserSWSettings: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe52c5ce3_fd27_4402_84de_d9a5f2858910);
 pub const NODEID_User: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fc0b738_a0e1_11d1_a7d3_0000f87571e3);
 pub const NODEID_UserSWSettings: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fc0b73c_a0e1_11d1_a7d3_0000f87571e3);
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Wmi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
 pub type PFNGENERATEGROUPPOLICY = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, pbabort: *mut super::super::Foundation::BOOL, pwszsite: super::super::Foundation::PWSTR, pcomputertarget: *const RSOP_TARGET, pusertarget: *const RSOP_TARGET) -> u32>;
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation', 'Win32_System_Registry'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PFNPROCESSGROUPPOLICY = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK) -> u32>;
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation', 'Win32_System_Registry', 'Win32_System_Wmi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry", feature = "Win32_System_Wmi"))]
 pub type PFNPROCESSGROUPPOLICYEX = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut super::super::Foundation::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK, pwbemservices: ::core::option::Option<super::Wmi::IWbemServices>, prsopstatus: *mut ::windows::core::HRESULT) -> u32>;
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNSTATUSMESSAGECALLBACK = ::core::option::Option<unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: super::super::Foundation::PWSTR) -> u32>;
 pub const PI_APPLYPOLICY: u32 = 2u32;
 pub const PI_NOUI: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct POLICYSETTINGSTATUSINFO {
     pub szKey: super::super::Foundation::PWSTR,
@@ -8059,6 +8243,7 @@ pub const PT_MANDATORY: u32 = 4u32;
 pub const PT_ROAMING: u32 = 2u32;
 pub const PT_ROAMING_PREEXISTING: u32 = 8u32;
 pub const PT_TEMPORARY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[inline]
 pub unsafe fn ProcessGroupPolicyCompleted(extensionid: *const ::windows::core::GUID, pasynchandle: usize, dwstatus: u32) -> u32 {
     #[cfg(windows)]
@@ -8072,6 +8257,7 @@ pub unsafe fn ProcessGroupPolicyCompleted(extensionid: *const ::windows::core::G
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 #[inline]
 pub unsafe fn ProcessGroupPolicyCompletedEx(extensionid: *const ::windows::core::GUID, pasynchandle: usize, dwstatus: u32, rsopstatus: ::windows::core::HRESULT) -> u32 {
     #[cfg(windows)]
@@ -8097,6 +8283,7 @@ pub const RSOP_PLANNING_ASSUME_LOOPBACK_REPLACE: u32 = 4u32;
 pub const RSOP_PLANNING_ASSUME_SLOW_LINK: u32 = 1u32;
 pub const RSOP_PLANNING_ASSUME_USER_WQLFILTER_TRUE: u32 = 8u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Wmi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Wmi"))]
 pub struct RSOP_TARGET {
     pub pwszAccountName: super::super::Foundation::PWSTR,
@@ -8139,6 +8326,7 @@ impl ::core::default::Default for RSOP_TARGET {
 }
 pub const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4u32;
 pub const RSOP_USER_ACCESS_DENIED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RefreshPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bmachine: Param0) -> super::super::Foundation::BOOL {
@@ -8153,6 +8341,7 @@ pub unsafe fn RefreshPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RefreshPolicyEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bmachine: Param0, dwoptions: u32) -> super::super::Foundation::BOOL {
@@ -8167,6 +8356,7 @@ pub unsafe fn RefreshPolicyEx<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterGPNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hevent: Param0, bmachine: Param1) -> super::super::Foundation::BOOL {
@@ -8181,6 +8371,7 @@ pub unsafe fn RegisterGPNotification<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn RsopAccessCheckByType<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, pprincipalselfsid: Param1, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pobjecttypelist: *const super::super::Security::OBJECT_TYPE_LIST, objecttypelistlength: u32, pgenericmapping: *const super::super::Security::GENERIC_MAPPING, pprivilegeset: *const super::super::Security::PRIVILEGE_SET, pdwprivilegesetlength: *const u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows::core::Result<()> {
@@ -8195,6 +8386,7 @@ pub unsafe fn RsopAccessCheckByType<'a, Param1: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RsopFileAccessCheck<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfilename: Param0, prsoptoken: *const ::core::ffi::c_void, dwdesiredaccessmask: u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows::core::Result<()> {
@@ -8209,6 +8401,7 @@ pub unsafe fn RsopFileAccessCheck<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_System_Wmi'*"]
 #[cfg(feature = "Win32_System_Wmi")]
 #[inline]
 pub unsafe fn RsopResetPolicySettingStatus<'a, Param1: ::windows::core::IntoParam<'a, super::Wmi::IWbemServices>, Param2: ::windows::core::IntoParam<'a, super::Wmi::IWbemClassObject>>(dwflags: u32, pservices: Param1, psettinginstance: Param2) -> ::windows::core::Result<()> {
@@ -8223,6 +8416,7 @@ pub unsafe fn RsopResetPolicySettingStatus<'a, Param1: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation', 'Win32_System_Wmi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Wmi"))]
 #[inline]
 pub unsafe fn RsopSetPolicySettingStatus<'a, Param1: ::windows::core::IntoParam<'a, super::Wmi::IWbemServices>, Param2: ::windows::core::IntoParam<'a, super::Wmi::IWbemClassObject>>(dwflags: u32, pservices: Param1, psettinginstance: Param2, ninfo: u32, pstatus: *const POLICYSETTINGSTATUSINFO) -> ::windows::core::Result<()> {
@@ -8237,12 +8431,19 @@ pub unsafe fn RsopSetPolicySettingStatus<'a, Param1: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub type SETTINGSTATUS = i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const RSOPUnspecified: SETTINGSTATUS = 0i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const RSOPApplied: SETTINGSTATUS = 1i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const RSOPIgnored: SETTINGSTATUS = 2i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const RSOPFailed: SETTINGSTATUS = 3i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub const RSOPSubsettingFailed: SETTINGSTATUS = 4i32;
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UninstallApplication<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(productcode: Param0, dwstatus: u32) -> u32 {
@@ -8257,6 +8458,7 @@ pub unsafe fn UninstallApplication<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnregisterGPNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0) -> super::super::Foundation::BOOL {

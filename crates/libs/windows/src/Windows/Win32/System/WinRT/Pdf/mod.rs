@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_WinRT_Pdf'*"]
 #[repr(transparent)]
 pub struct IPdfRendererNative(::windows::core::IUnknown);
 impl IPdfRendererNative {
@@ -58,6 +59,7 @@ pub struct IPdfRendererNativeVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Direct2D_Common")))] usize,
 );
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_WinRT_Pdf', 'Win32_Foundation', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub struct PDF_RENDER_PARAMS {
     pub SourceRect: super::super::super::Graphics::Direct2D::Common::D2D_RECT_F,
@@ -92,8 +94,10 @@ impl ::core::default::Default for PDF_RENDER_PARAMS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_WinRT_Pdf', 'Win32_Graphics_Dxgi'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 pub type PFN_PDF_CREATE_RENDERER = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGIDevice>, param1: *mut ::core::option::Option<IPdfRendererNative>) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_WinRT_Pdf', 'Win32_Graphics_Dxgi'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn PdfCreateRenderer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Dxgi::IDXGIDevice>>(pdevice: Param0) -> ::windows::core::Result<IPdfRendererNative> {

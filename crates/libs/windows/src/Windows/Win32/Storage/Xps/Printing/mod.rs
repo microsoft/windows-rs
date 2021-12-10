@@ -2,6 +2,7 @@
 pub const ID_DOCUMENTPACKAGETARGET_MSXPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cae40a8_ded1_41c9_a9fd_d735ef33aeda);
 pub const ID_DOCUMENTPACKAGETARGET_OPENXPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0056bb72_8c9c_4612_bd0f_93012a87099d);
 pub const ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63dbd720_8b14_4577_b074_7bb11b596d28);
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintDocumentPackageStatusEvent(::windows::core::IUnknown);
 impl IPrintDocumentPackageStatusEvent {
@@ -102,6 +103,7 @@ pub struct IPrintDocumentPackageStatusEventVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagestatus: *const PrintDocumentPackageStatus) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintDocumentPackageTarget(::windows::core::IUnknown);
 impl IPrintDocumentPackageTarget {
@@ -161,6 +163,7 @@ pub struct IPrintDocumentPackageTargetVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtargettype: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvtarget: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintDocumentPackageTargetFactory(::windows::core::IUnknown);
 impl IPrintDocumentPackageTargetFactory {
@@ -214,6 +217,7 @@ pub struct IPrintDocumentPackageTargetFactoryVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printername: super::super::super::Foundation::PWSTR, jobname: super::super::super::Foundation::PWSTR, joboutputstream: ::windows::core::RawPtr, jobprintticketstream: ::windows::core::RawPtr, docpackagetarget: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 #[repr(transparent)]
 pub struct IXpsPrintJob(::windows::core::IUnknown);
 impl IXpsPrintJob {
@@ -269,6 +273,7 @@ pub struct IXpsPrintJobVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, jobstatus: *mut XPS_JOB_STATUS) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 #[repr(transparent)]
 pub struct IXpsPrintJobStream(::windows::core::IUnknown);
 impl IXpsPrintJobStream {
@@ -356,12 +361,18 @@ pub struct IXpsPrintJobStreamVtbl(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub type PrintDocumentPackageCompletion = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub const PrintDocumentPackageCompletion_InProgress: PrintDocumentPackageCompletion = 0i32;
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub const PrintDocumentPackageCompletion_Completed: PrintDocumentPackageCompletion = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub const PrintDocumentPackageCompletion_Canceled: PrintDocumentPackageCompletion = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub const PrintDocumentPackageCompletion_Failed: PrintDocumentPackageCompletion = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub struct PrintDocumentPackageStatus {
     pub JobId: u32,
     pub CurrentDocument: i32,
@@ -392,6 +403,7 @@ impl ::core::default::Default for PrintDocumentPackageStatus {
 }
 pub const PrintDocumentPackageTarget: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4842669e_9947_46ea_8ba2_d8cce432c2ca);
 pub const PrintDocumentPackageTargetFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x348ef17d_6c81_4982_92b4_ee188a43867a);
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StartXpsPrintJob<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(
@@ -417,6 +429,7 @@ pub unsafe fn StartXpsPrintJob<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StartXpsPrintJob1<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(printername: Param0, jobname: Param1, outputfilename: Param2, progressevent: Param3, completionevent: Param4, xpsprintjob: *mut ::core::option::Option<IXpsPrintJob>, printcontentreceiver: *mut ::core::option::Option<super::IXpsOMPackageTarget>) -> ::windows::core::Result<()> {
@@ -431,12 +444,18 @@ pub unsafe fn StartXpsPrintJob1<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub type XPS_JOB_COMPLETION = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = 0i32;
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub const XPS_JOB_COMPLETED: XPS_JOB_COMPLETION = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub const XPS_JOB_CANCELLED: XPS_JOB_COMPLETION = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub const XPS_JOB_FAILED: XPS_JOB_COMPLETION = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub struct XPS_JOB_STATUS {
     pub jobId: u32,
     pub currentDocument: i32,

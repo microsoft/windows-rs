@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "ApplicationModel_ExtendedExecution_Foreground")]
 pub mod Foreground;
+#[doc = "*Required features: 'ApplicationModel_ExtendedExecution'*"]
 #[repr(transparent)]
 pub struct ExtendedExecutionReason(pub i32);
 impl ExtendedExecutionReason {
@@ -29,6 +30,7 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionReason {
 impl ::windows::core::DefaultType for ExtendedExecutionReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ExtendedExecution'*"]
 #[repr(transparent)]
 pub struct ExtendedExecutionResult(pub i32);
 impl ExtendedExecutionResult {
@@ -56,6 +58,7 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionResult {
 impl ::windows::core::DefaultType for ExtendedExecutionResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ExtendedExecution'*"]
 #[repr(transparent)]
 pub struct ExtendedExecutionRevokedEventArgs(::windows::core::IUnknown);
 impl ExtendedExecutionRevokedEventArgs {
@@ -130,6 +133,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Exte
 }
 unsafe impl ::core::marker::Send for ExtendedExecutionRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionRevokedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_ExtendedExecution'*"]
 #[repr(transparent)]
 pub struct ExtendedExecutionRevokedReason(pub i32);
 impl ExtendedExecutionRevokedReason {
@@ -157,6 +161,7 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionRevokedReason {
 impl ::windows::core::DefaultType for ExtendedExecutionRevokedReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_ExtendedExecution'*"]
 #[repr(transparent)]
 pub struct ExtendedExecutionSession(::windows::core::IUnknown);
 impl ExtendedExecutionSession {

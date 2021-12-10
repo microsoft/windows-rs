@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_Bluetooth_Background'*"]
 #[repr(transparent)]
 pub struct BluetoothEventTriggeringMode(pub i32);
 impl BluetoothEventTriggeringMode {
@@ -27,6 +28,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothEventTriggeringMode {
 impl ::windows::core::DefaultType for BluetoothEventTriggeringMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth_Background'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementPublisherTriggerDetails(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementPublisherTriggerDetails {
@@ -117,6 +119,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisherTriggerDetails {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisherTriggerDetails {}
+#[doc = "*Required features: 'Devices_Bluetooth_Background'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementWatcherTriggerDetails(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementWatcherTriggerDetails {
@@ -206,6 +209,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcherTriggerDetails {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcherTriggerDetails {}
+#[doc = "*Required features: 'Devices_Bluetooth_Background'*"]
 #[repr(transparent)]
 pub struct GattCharacteristicNotificationTriggerDetails(::windows::core::IUnknown);
 impl GattCharacteristicNotificationTriggerDetails {
@@ -311,6 +315,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattCharacteristicNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for GattCharacteristicNotificationTriggerDetails {}
+#[doc = "*Required features: 'Devices_Bluetooth_Background'*"]
 #[repr(transparent)]
 pub struct GattServiceProviderConnection(::windows::core::IUnknown);
 impl GattServiceProviderConnection {
@@ -408,6 +413,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattServiceProviderConnection {}
 unsafe impl ::core::marker::Sync for GattServiceProviderConnection {}
+#[doc = "*Required features: 'Devices_Bluetooth_Background'*"]
 #[repr(transparent)]
 pub struct GattServiceProviderTriggerDetails(::windows::core::IUnknown);
 impl GattServiceProviderTriggerDetails {
@@ -711,6 +717,7 @@ pub struct IRfcommOutboundConnectionInformationVtbl(
     #[cfg(feature = "Devices_Bluetooth_Rfcomm")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Devices_Bluetooth_Rfcomm"))] usize,
 );
+#[doc = "*Required features: 'Devices_Bluetooth_Background'*"]
 #[repr(transparent)]
 pub struct RfcommConnectionTriggerDetails(::windows::core::IUnknown);
 impl RfcommConnectionTriggerDetails {
@@ -800,6 +807,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rfco
 }
 unsafe impl ::core::marker::Send for RfcommConnectionTriggerDetails {}
 unsafe impl ::core::marker::Sync for RfcommConnectionTriggerDetails {}
+#[doc = "*Required features: 'Devices_Bluetooth_Background'*"]
 #[repr(transparent)]
 pub struct RfcommInboundConnectionInformation(::windows::core::IUnknown);
 impl RfcommInboundConnectionInformation {
@@ -904,6 +912,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rfco
 }
 unsafe impl ::core::marker::Send for RfcommInboundConnectionInformation {}
 unsafe impl ::core::marker::Sync for RfcommInboundConnectionInformation {}
+#[doc = "*Required features: 'Devices_Bluetooth_Background'*"]
 #[repr(transparent)]
 pub struct RfcommOutboundConnectionInformation(::windows::core::IUnknown);
 impl RfcommOutboundConnectionInformation {

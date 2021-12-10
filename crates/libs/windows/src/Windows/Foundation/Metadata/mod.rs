@@ -69,6 +69,7 @@ impl ApiInformation {
 impl ::windows::core::RuntimeName for ApiInformation {
     const NAME: &'static str = "Windows.Foundation.Metadata.ApiInformation";
 }
+#[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
 pub struct AttributeTargets(pub u32);
 impl AttributeTargets {
@@ -107,6 +108,7 @@ unsafe impl ::windows::core::RuntimeType for AttributeTargets {
 impl ::windows::core::DefaultType for AttributeTargets {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
 pub struct CompositionType(pub i32);
 impl CompositionType {
@@ -134,6 +136,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionType {
 impl ::windows::core::DefaultType for CompositionType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
 pub struct DeprecationType(pub i32);
 impl DeprecationType {
@@ -161,6 +164,7 @@ unsafe impl ::windows::core::RuntimeType for DeprecationType {
 impl ::windows::core::DefaultType for DeprecationType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
 pub struct FeatureStage(pub i32);
 impl FeatureStage {
@@ -190,6 +194,7 @@ unsafe impl ::windows::core::RuntimeType for FeatureStage {
 impl ::windows::core::DefaultType for FeatureStage {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
 pub struct GCPressureAmount(pub i32);
 impl GCPressureAmount {
@@ -245,6 +250,7 @@ pub struct IApiInformationStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contractname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, majorversion: u16, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contractname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, majorversion: u16, minorversion: u16, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
 pub struct MarshalingType(pub i32);
 impl MarshalingType {
@@ -274,6 +280,7 @@ unsafe impl ::windows::core::RuntimeType for MarshalingType {
 impl ::windows::core::DefaultType for MarshalingType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
 pub struct Platform(pub i32);
 impl Platform {
@@ -301,6 +308,7 @@ unsafe impl ::windows::core::RuntimeType for Platform {
 impl ::windows::core::DefaultType for Platform {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
 pub struct ThreadingModel(pub i32);
 impl ThreadingModel {

@@ -4,6 +4,7 @@ pub const CEventPublisher: ::windows::core::GUID = ::windows::core::GUID::from_u
 pub const CEventSubscription: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7542e960_79c7_11d1_88f9_0080c7d771bf);
 pub const CEventSystem: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e14fba2_2e22_11d1_9964_00c04fbbb345);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COMEVENTSYSCHANGEINFO {
     pub cbSize: u32,
@@ -44,12 +45,17 @@ impl ::core::default::Default for COMEVENTSYSCHANGEINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 pub type EOC_ChangeType = i32;
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 pub const EOC_NewObject: EOC_ChangeType = 0i32;
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 pub const EOC_ModifiedObject: EOC_ChangeType = 1i32;
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 pub const EOC_DeletedObject: EOC_ChangeType = 2i32;
 pub const EventObjectChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0565000_9df4_11d1_a281_00c04fca0aa7);
 pub const EventObjectChange2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb07bacd_cd56_4e63_a8ff_cbf0355fb9f4);
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 #[repr(transparent)]
 pub struct IDontSupportEventSubscription(::windows::core::IUnknown);
 impl IDontSupportEventSubscription {}
@@ -91,6 +97,7 @@ unsafe impl ::windows::core::Interface for IDontSupportEventSubscription {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDontSupportEventSubscriptionVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 #[repr(transparent)]
 pub struct IEnumEventObject(::windows::core::IUnknown);
 impl IEnumEventObject {
@@ -154,6 +161,7 @@ pub struct IEnumEventObjectVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cskipelem: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 #[repr(transparent)]
 pub struct IEventClass(::windows::core::IUnknown);
 impl IEventClass {
@@ -333,6 +341,7 @@ pub struct IEventClassVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtypelib: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 #[repr(transparent)]
 pub struct IEventClass2(::windows::core::IUnknown);
 impl IEventClass2 {
@@ -584,6 +593,7 @@ pub struct IEventClass2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ffireinparallel: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 #[repr(transparent)]
 pub struct IEventControl(::windows::core::IUnknown);
 impl IEventControl {
@@ -705,6 +715,7 @@ pub struct IEventControlVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, criteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, errorindex: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 #[repr(transparent)]
 pub struct IEventObjectChange(::windows::core::IUnknown);
 impl IEventObjectChange {
@@ -769,6 +780,7 @@ pub struct IEventObjectChangeVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changetype: EOC_ChangeType, bstrpublisherid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 #[repr(transparent)]
 pub struct IEventObjectChange2(::windows::core::IUnknown);
 impl IEventObjectChange2 {
@@ -827,6 +839,7 @@ pub struct IEventObjectChange2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMEVENTSYSCHANGEINFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 #[repr(transparent)]
 pub struct IEventObjectCollection(::windows::core::IUnknown);
 impl IEventObjectCollection {
@@ -949,6 +962,7 @@ pub struct IEventObjectCollectionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 #[repr(transparent)]
 pub struct IEventProperty(::windows::core::IUnknown);
 impl IEventProperty {
@@ -1063,6 +1077,7 @@ pub struct IEventPropertyVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyvalue: *const super::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 #[repr(transparent)]
 pub struct IEventPublisher(::windows::core::IUnknown);
 impl IEventPublisher {
@@ -1240,6 +1255,7 @@ pub struct IEventPublisherVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, collection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 #[repr(transparent)]
 pub struct IEventSubscription(::windows::core::IUnknown);
 impl IEventSubscription {
@@ -1541,6 +1557,7 @@ pub struct IEventSubscriptionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrinterfaceid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 #[repr(transparent)]
 pub struct IEventSystem(::windows::core::IUnknown);
 impl IEventSystem {
@@ -1668,6 +1685,7 @@ pub struct IEventSystemVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, progid: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, querycriteria: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 #[repr(transparent)]
 pub struct IFiringControl(::windows::core::IUnknown);
 impl IFiringControl {
@@ -1760,6 +1778,7 @@ pub struct IFiringControlVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subscription: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 #[repr(transparent)]
 pub struct IMultiInterfaceEventControl(::windows::core::IUnknown);
 impl IMultiInterfaceEventControl {
@@ -1850,6 +1869,7 @@ pub struct IMultiInterfaceEventControlVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ffireinparallel: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 #[repr(transparent)]
 pub struct IMultiInterfacePublisherFilter(::windows::core::IUnknown);
 impl IMultiInterfacePublisherFilter {
@@ -1906,6 +1926,7 @@ pub struct IMultiInterfacePublisherFilterVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, firingcontrol: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_Events'*"]
 #[repr(transparent)]
 pub struct IPublisherFilter(::windows::core::IUnknown);
 impl IPublisherFilter {

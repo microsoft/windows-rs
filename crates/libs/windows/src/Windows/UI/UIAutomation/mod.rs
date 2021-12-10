@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "UI_UIAutomation_Core")]
 pub mod Core;
+#[doc = "*Required features: 'UI_UIAutomation'*"]
 #[repr(transparent)]
 pub struct AutomationConnection(::windows::core::IUnknown);
 impl AutomationConnection {
@@ -89,6 +90,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
 }
 unsafe impl ::core::marker::Send for AutomationConnection {}
 unsafe impl ::core::marker::Sync for AutomationConnection {}
+#[doc = "*Required features: 'UI_UIAutomation'*"]
 #[repr(transparent)]
 pub struct AutomationConnectionBoundObject(::windows::core::IUnknown);
 impl AutomationConnectionBoundObject {
@@ -163,6 +165,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
 }
 unsafe impl ::core::marker::Send for AutomationConnectionBoundObject {}
 unsafe impl ::core::marker::Sync for AutomationConnectionBoundObject {}
+#[doc = "*Required features: 'UI_UIAutomation'*"]
 #[repr(transparent)]
 pub struct AutomationElement(::windows::core::IUnknown);
 impl AutomationElement {
@@ -251,6 +254,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
 }
 unsafe impl ::core::marker::Send for AutomationElement {}
 unsafe impl ::core::marker::Sync for AutomationElement {}
+#[doc = "*Required features: 'UI_UIAutomation'*"]
 #[repr(transparent)]
 pub struct AutomationTextRange(::windows::core::IUnknown);
 impl AutomationTextRange {}

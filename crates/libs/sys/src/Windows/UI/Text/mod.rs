@@ -3,6 +3,7 @@
 pub mod Core;
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct CaretType(pub i32);
 impl CaretType {
@@ -16,6 +17,7 @@ impl ::core::clone::Clone for CaretType {
     }
 }
 pub type ContentLinkInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct FindOptions(pub u32);
 impl FindOptions {
@@ -29,6 +31,7 @@ impl ::core::clone::Clone for FindOptions {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct FontStretch(pub i32);
 impl FontStretch {
@@ -49,6 +52,7 @@ impl ::core::clone::Clone for FontStretch {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct FontStyle(pub i32);
 impl FontStyle {
@@ -63,6 +67,7 @@ impl ::core::clone::Clone for FontStyle {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'UI_Text'*"]
 pub struct FontWeight {
     pub Weight: u16,
 }
@@ -73,6 +78,7 @@ impl ::core::clone::Clone for FontWeight {
     }
 }
 pub type FontWeights = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct FormatEffect(pub i32);
 impl FormatEffect {
@@ -87,6 +93,7 @@ impl ::core::clone::Clone for FormatEffect {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct HorizontalCharacterAlignment(pub i32);
 impl HorizontalCharacterAlignment {
@@ -105,6 +112,7 @@ pub type ITextDocument = *mut ::core::ffi::c_void;
 pub type ITextParagraphFormat = *mut ::core::ffi::c_void;
 pub type ITextRange = *mut ::core::ffi::c_void;
 pub type ITextSelection = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct LetterCase(pub i32);
 impl LetterCase {
@@ -117,6 +125,7 @@ impl ::core::clone::Clone for LetterCase {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct LineSpacingRule(pub i32);
 impl LineSpacingRule {
@@ -135,6 +144,7 @@ impl ::core::clone::Clone for LineSpacingRule {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct LinkType(pub i32);
 impl LinkType {
@@ -154,6 +164,7 @@ impl ::core::clone::Clone for LinkType {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct MarkerAlignment(pub i32);
 impl MarkerAlignment {
@@ -168,6 +179,7 @@ impl ::core::clone::Clone for MarkerAlignment {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct MarkerStyle(pub i32);
 impl MarkerStyle {
@@ -185,6 +197,7 @@ impl ::core::clone::Clone for MarkerStyle {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct MarkerType(pub i32);
 impl MarkerType {
@@ -220,6 +233,7 @@ impl ::core::clone::Clone for MarkerType {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct ParagraphAlignment(pub i32);
 impl ParagraphAlignment {
@@ -235,6 +249,7 @@ impl ::core::clone::Clone for ParagraphAlignment {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct ParagraphStyle(pub i32);
 impl ParagraphStyle {
@@ -257,6 +272,7 @@ impl ::core::clone::Clone for ParagraphStyle {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct PointOptions(pub u32);
 impl PointOptions {
@@ -275,6 +291,7 @@ impl ::core::clone::Clone for PointOptions {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct RangeGravity(pub i32);
 impl RangeGravity {
@@ -290,6 +307,7 @@ impl ::core::clone::Clone for RangeGravity {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct RichEditMathMode(pub i32);
 impl RichEditMathMode {
@@ -304,6 +322,7 @@ impl ::core::clone::Clone for RichEditMathMode {
 }
 pub type RichEditTextDocument = *mut ::core::ffi::c_void;
 pub type RichEditTextRange = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct SelectionOptions(pub u32);
 impl SelectionOptions {
@@ -319,6 +338,7 @@ impl ::core::clone::Clone for SelectionOptions {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct SelectionType(pub i32);
 impl SelectionType {
@@ -334,6 +354,7 @@ impl ::core::clone::Clone for SelectionType {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct TabAlignment(pub i32);
 impl TabAlignment {
@@ -349,6 +370,7 @@ impl ::core::clone::Clone for TabAlignment {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct TabLeader(pub i32);
 impl TabLeader {
@@ -365,6 +387,7 @@ impl ::core::clone::Clone for TabLeader {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct TextDecorations(pub u32);
 impl TextDecorations {
@@ -378,6 +401,7 @@ impl ::core::clone::Clone for TextDecorations {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct TextGetOptions(pub u32);
 impl TextGetOptions {
@@ -397,6 +421,7 @@ impl ::core::clone::Clone for TextGetOptions {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct TextRangeUnit(pub i32);
 impl TextRangeUnit {
@@ -440,6 +465,7 @@ impl ::core::clone::Clone for TextRangeUnit {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct TextScript(pub i32);
 impl TextScript {
@@ -514,6 +540,7 @@ impl ::core::clone::Clone for TextScript {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct TextSetOptions(pub u32);
 impl TextSetOptions {
@@ -531,6 +558,7 @@ impl ::core::clone::Clone for TextSetOptions {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct UnderlineType(pub i32);
 impl UnderlineType {
@@ -561,6 +589,7 @@ impl ::core::clone::Clone for UnderlineType {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct VerticalCharacterAlignment(pub i32);
 impl VerticalCharacterAlignment {

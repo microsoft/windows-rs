@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerDisableScannerRequest(::windows::core::IUnknown);
 impl BarcodeScannerDisableScannerRequest {
@@ -98,6 +99,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerDisableScannerRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerDisableScannerRequest {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerDisableScannerRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerDisableScannerRequestEventArgs {
@@ -180,6 +182,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerDisableScannerRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerDisableScannerRequestEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerEnableScannerRequest(::windows::core::IUnknown);
 impl BarcodeScannerEnableScannerRequest {
@@ -279,6 +282,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerEnableScannerRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerEnableScannerRequest {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerEnableScannerRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerEnableScannerRequestEventArgs {
@@ -361,6 +365,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerEnableScannerRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerEnableScannerRequestEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerFrameReader(::windows::core::IUnknown);
 impl BarcodeScannerFrameReader {
@@ -503,6 +508,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for BarcodeScannerFrameReader {}
 unsafe impl ::core::marker::Sync for BarcodeScannerFrameReader {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerFrameReaderFrameArrivedEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerFrameReaderFrameArrivedEventArgs {
@@ -578,6 +584,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerGetSymbologyAttributesRequest(::windows::core::IUnknown);
 impl BarcodeScannerGetSymbologyAttributesRequest {
@@ -684,6 +691,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerGetSymbologyAttributesRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerGetSymbologyAttributesRequest {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerGetSymbologyAttributesRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerGetSymbologyAttributesRequestEventArgs {
@@ -766,6 +774,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerHideVideoPreviewRequest(::windows::core::IUnknown);
 impl BarcodeScannerHideVideoPreviewRequest {
@@ -865,6 +874,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerHideVideoPreviewRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerHideVideoPreviewRequest {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerHideVideoPreviewRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerHideVideoPreviewRequestEventArgs {
@@ -947,6 +957,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerHideVideoPreviewRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerHideVideoPreviewRequestEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerProviderConnection(::windows::core::IUnknown);
 impl BarcodeScannerProviderConnection {
@@ -1264,6 +1275,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for BarcodeScannerProviderConnection {}
 unsafe impl ::core::marker::Sync for BarcodeScannerProviderConnection {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerProviderTriggerDetails(::windows::core::IUnknown);
 impl BarcodeScannerProviderTriggerDetails {
@@ -1338,6 +1350,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for BarcodeScannerProviderTriggerDetails {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerSetActiveSymbologiesRequest(::windows::core::IUnknown);
 impl BarcodeScannerSetActiveSymbologiesRequest {
@@ -1445,6 +1458,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerSetActiveSymbologiesRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerSetActiveSymbologiesRequest {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerSetActiveSymbologiesRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerSetActiveSymbologiesRequestEventArgs {
@@ -1527,6 +1541,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerSetSymbologyAttributesRequest(::windows::core::IUnknown);
 impl BarcodeScannerSetSymbologyAttributesRequest {
@@ -1640,6 +1655,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerSetSymbologyAttributesRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerSetSymbologyAttributesRequest {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerSetSymbologyAttributesRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerSetSymbologyAttributesRequestEventArgs {
@@ -1722,6 +1738,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerStartSoftwareTriggerRequest(::windows::core::IUnknown);
 impl BarcodeScannerStartSoftwareTriggerRequest {
@@ -1821,6 +1838,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerStartSoftwareTriggerRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerStartSoftwareTriggerRequest {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerStartSoftwareTriggerRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerStartSoftwareTriggerRequestEventArgs {
@@ -1903,6 +1921,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerStopSoftwareTriggerRequest(::windows::core::IUnknown);
 impl BarcodeScannerStopSoftwareTriggerRequest {
@@ -2002,6 +2021,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerStopSoftwareTriggerRequest {}
 unsafe impl ::core::marker::Sync for BarcodeScannerStopSoftwareTriggerRequest {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerStopSoftwareTriggerRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerStopSoftwareTriggerRequestEventArgs {
@@ -2084,6 +2104,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerTriggerState(pub i32);
 impl BarcodeScannerTriggerState {
@@ -2111,6 +2132,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerTriggerState {
 impl ::windows::core::DefaultType for BarcodeScannerTriggerState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerVideoFrame(::windows::core::IUnknown);
 impl BarcodeScannerVideoFrame {
@@ -2239,6 +2261,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for BarcodeScannerVideoFrame {}
 unsafe impl ::core::marker::Sync for BarcodeScannerVideoFrame {}
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeSymbologyAttributesBuilder(::windows::core::IUnknown);
 impl BarcodeSymbologyAttributesBuilder {

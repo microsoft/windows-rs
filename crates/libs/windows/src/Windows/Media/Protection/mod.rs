@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Media_Protection_PlayReady")]
 pub mod PlayReady;
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct ComponentLoadFailedEventArgs(::windows::core::IUnknown);
 impl ComponentLoadFailedEventArgs {
@@ -82,6 +83,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comp
 }
 unsafe impl ::core::marker::Send for ComponentLoadFailedEventArgs {}
 unsafe impl ::core::marker::Sync for ComponentLoadFailedEventArgs {}
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct ComponentLoadFailedEventHandler(pub ::windows::core::IUnknown);
 impl ComponentLoadFailedEventHandler {
@@ -167,6 +169,7 @@ impl ComponentRenewal {
 impl ::windows::core::RuntimeName for ComponentRenewal {
     const NAME: &'static str = "Windows.Media.Protection.ComponentRenewal";
 }
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct GraphicsTrustStatus(pub i32);
 impl GraphicsTrustStatus {
@@ -198,6 +201,7 @@ unsafe impl ::windows::core::RuntimeType for GraphicsTrustStatus {
 impl ::windows::core::DefaultType for GraphicsTrustStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct HdcpProtection(pub i32);
 impl HdcpProtection {
@@ -226,6 +230,7 @@ unsafe impl ::windows::core::RuntimeType for HdcpProtection {
 impl ::windows::core::DefaultType for HdcpProtection {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct HdcpSession(::windows::core::IUnknown);
 impl HdcpSession {
@@ -367,6 +372,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for HdcpSession {}
 unsafe impl ::core::marker::Sync for HdcpSession {}
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct HdcpSetProtectionResult(pub i32);
 impl HdcpSetProtectionResult {
@@ -547,6 +553,7 @@ pub struct IMediaProtectionServiceCompletionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, success: bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct IMediaProtectionServiceRequest(::windows::core::IUnknown);
 impl IMediaProtectionServiceRequest {
@@ -732,6 +739,7 @@ pub struct IServiceRequestedEventArgs2Vtbl(
     #[cfg(feature = "Media_Playback")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Playback"))] usize,
 );
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct MediaProtectionManager(::windows::core::IUnknown);
 impl MediaProtectionManager {
@@ -853,6 +861,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaProtectionManager {}
 unsafe impl ::core::marker::Sync for MediaProtectionManager {}
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct MediaProtectionPMPServer(::windows::core::IUnknown);
 impl MediaProtectionPMPServer {
@@ -939,6 +948,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaProtectionPMPServer {}
 unsafe impl ::core::marker::Sync for MediaProtectionPMPServer {}
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct MediaProtectionServiceCompletion(::windows::core::IUnknown);
 impl MediaProtectionServiceCompletion {
@@ -1010,6 +1020,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaProtectionServiceCompletion {}
 unsafe impl ::core::marker::Sync for MediaProtectionServiceCompletion {}
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct ProtectionCapabilities(::windows::core::IUnknown);
 impl ProtectionCapabilities {
@@ -1091,6 +1102,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
 }
 unsafe impl ::core::marker::Send for ProtectionCapabilities {}
 unsafe impl ::core::marker::Sync for ProtectionCapabilities {}
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct ProtectionCapabilityResult(pub i32);
 impl ProtectionCapabilityResult {
@@ -1119,6 +1131,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectionCapabilityResult {
 impl ::windows::core::DefaultType for ProtectionCapabilityResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct RebootNeededEventHandler(pub ::windows::core::IUnknown);
 impl RebootNeededEventHandler {
@@ -1187,6 +1200,7 @@ unsafe impl ::windows::core::RuntimeType for RebootNeededEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct RebootNeededEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct RenewalStatus(pub i32);
 impl RenewalStatus {
@@ -1217,6 +1231,7 @@ unsafe impl ::windows::core::RuntimeType for RenewalStatus {
 impl ::windows::core::DefaultType for RenewalStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct RevocationAndRenewalInformation(::windows::core::IUnknown);
 impl RevocationAndRenewalInformation {
@@ -1292,6 +1307,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Revo
 }
 unsafe impl ::core::marker::Send for RevocationAndRenewalInformation {}
 unsafe impl ::core::marker::Sync for RevocationAndRenewalInformation {}
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct RevocationAndRenewalItem(::windows::core::IUnknown);
 impl RevocationAndRenewalItem {
@@ -1394,6 +1410,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Revo
 }
 unsafe impl ::core::marker::Send for RevocationAndRenewalItem {}
 unsafe impl ::core::marker::Sync for RevocationAndRenewalItem {}
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct RevocationAndRenewalReasons(pub u32);
 impl RevocationAndRenewalReasons {
@@ -1434,6 +1451,7 @@ unsafe impl ::windows::core::RuntimeType for RevocationAndRenewalReasons {
 impl ::windows::core::DefaultType for RevocationAndRenewalReasons {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct ServiceRequestedEventArgs(::windows::core::IUnknown);
 impl ServiceRequestedEventArgs {
@@ -1523,6 +1541,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Serv
 }
 unsafe impl ::core::marker::Send for ServiceRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ServiceRequestedEventArgs {}
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct ServiceRequestedEventHandler(pub ::windows::core::IUnknown);
 impl ServiceRequestedEventHandler {

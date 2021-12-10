@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattCharacteristic(::windows::core::IUnknown);
 impl GattCharacteristic {
@@ -264,6 +265,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattCharacteristic {}
 unsafe impl ::core::marker::Sync for GattCharacteristic {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattCharacteristicProperties(pub u32);
 impl GattCharacteristicProperties {
@@ -800,6 +802,7 @@ impl GattCharacteristicUuids {
 impl ::windows::core::RuntimeName for GattCharacteristicUuids {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids";
 }
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattCharacteristicsResult(::windows::core::IUnknown);
 impl GattCharacteristicsResult {
@@ -890,6 +893,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for GattCharacteristicsResult {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattClientCharacteristicConfigurationDescriptorValue(pub i32);
 impl GattClientCharacteristicConfigurationDescriptorValue {
@@ -918,6 +922,7 @@ unsafe impl ::windows::core::RuntimeType for GattClientCharacteristicConfigurati
 impl ::windows::core::DefaultType for GattClientCharacteristicConfigurationDescriptorValue {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattClientNotificationResult(::windows::core::IUnknown);
 impl GattClientNotificationResult {
@@ -1014,6 +1019,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattClientNotificationResult {}
 unsafe impl ::core::marker::Sync for GattClientNotificationResult {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattCommunicationStatus(pub i32);
 impl GattCommunicationStatus {
@@ -1043,6 +1049,7 @@ unsafe impl ::windows::core::RuntimeType for GattCommunicationStatus {
 impl ::windows::core::DefaultType for GattCommunicationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattDescriptor(::windows::core::IUnknown);
 impl GattDescriptor {
@@ -1224,6 +1231,7 @@ impl GattDescriptorUuids {
 impl ::windows::core::RuntimeName for GattDescriptorUuids {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptorUuids";
 }
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattDescriptorsResult(::windows::core::IUnknown);
 impl GattDescriptorsResult {
@@ -1314,6 +1322,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattDescriptorsResult {}
 unsafe impl ::core::marker::Sync for GattDescriptorsResult {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattDeviceService(::windows::core::IUnknown);
 impl GattDeviceService {
@@ -1649,6 +1658,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for GattDeviceService {}
 unsafe impl ::core::marker::Sync for GattDeviceService {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattDeviceServicesResult(::windows::core::IUnknown);
 impl GattDeviceServicesResult {
@@ -1739,6 +1749,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattDeviceServicesResult {}
 unsafe impl ::core::marker::Sync for GattDeviceServicesResult {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattLocalCharacteristic(::windows::core::IUnknown);
 impl GattLocalCharacteristic {
@@ -1936,6 +1947,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattLocalCharacteristic {}
 unsafe impl ::core::marker::Sync for GattLocalCharacteristic {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattLocalCharacteristicParameters(::windows::core::IUnknown);
 impl GattLocalCharacteristicParameters {
@@ -2075,6 +2087,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattLocalCharacteristicParameters {}
 unsafe impl ::core::marker::Sync for GattLocalCharacteristicParameters {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattLocalCharacteristicResult(::windows::core::IUnknown);
 impl GattLocalCharacteristicResult {
@@ -2156,6 +2169,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattLocalCharacteristicResult {}
 unsafe impl ::core::marker::Sync for GattLocalCharacteristicResult {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattLocalDescriptor(::windows::core::IUnknown);
 impl GattLocalDescriptor {
@@ -2278,6 +2292,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattLocalDescriptor {}
 unsafe impl ::core::marker::Sync for GattLocalDescriptor {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattLocalDescriptorParameters(::windows::core::IUnknown);
 impl GattLocalDescriptorParameters {
@@ -2387,6 +2402,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattLocalDescriptorParameters {}
 unsafe impl ::core::marker::Sync for GattLocalDescriptorParameters {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattLocalDescriptorResult(::windows::core::IUnknown);
 impl GattLocalDescriptorResult {
@@ -2468,6 +2484,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattLocalDescriptorResult {}
 unsafe impl ::core::marker::Sync for GattLocalDescriptorResult {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattLocalService(::windows::core::IUnknown);
 impl GattLocalService {
@@ -2558,6 +2575,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattLocalService {}
 unsafe impl ::core::marker::Sync for GattLocalService {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattOpenStatus(pub i32);
 impl GattOpenStatus {
@@ -2589,6 +2607,7 @@ unsafe impl ::windows::core::RuntimeType for GattOpenStatus {
 impl ::windows::core::DefaultType for GattOpenStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattPresentationFormat(::windows::core::IUnknown);
 impl GattPresentationFormat {
@@ -2883,6 +2902,7 @@ impl GattPresentationFormatTypes {
 impl ::windows::core::RuntimeName for GattPresentationFormatTypes {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes";
 }
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattProtectionLevel(pub i32);
 impl GattProtectionLevel {
@@ -3024,6 +3044,7 @@ impl GattProtocolError {
 impl ::windows::core::RuntimeName for GattProtocolError {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError";
 }
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattReadClientCharacteristicConfigurationDescriptorResult(::windows::core::IUnknown);
 impl GattReadClientCharacteristicConfigurationDescriptorResult {
@@ -3113,6 +3134,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattReadClientCharacteristicConfigurationDescriptorResult {}
 unsafe impl ::core::marker::Sync for GattReadClientCharacteristicConfigurationDescriptorResult {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattReadRequest(::windows::core::IUnknown);
 impl GattReadRequest {
@@ -3223,6 +3245,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattReadRequest {}
 unsafe impl ::core::marker::Sync for GattReadRequest {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattReadRequestedEventArgs(::windows::core::IUnknown);
 impl GattReadRequestedEventArgs {
@@ -3313,6 +3336,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattReadRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for GattReadRequestedEventArgs {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattReadResult(::windows::core::IUnknown);
 impl GattReadResult {
@@ -3403,6 +3427,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattReadResult {}
 unsafe impl ::core::marker::Sync for GattReadResult {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattReliableWriteTransaction(::windows::core::IUnknown);
 impl GattReliableWriteTransaction {
@@ -3498,6 +3523,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattReliableWriteTransaction {}
 unsafe impl ::core::marker::Sync for GattReliableWriteTransaction {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattRequestState(pub i32);
 impl GattRequestState {
@@ -3526,6 +3552,7 @@ unsafe impl ::windows::core::RuntimeType for GattRequestState {
 impl ::windows::core::DefaultType for GattRequestState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattRequestStateChangedEventArgs(::windows::core::IUnknown);
 impl GattRequestStateChangedEventArgs {
@@ -3607,6 +3634,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattRequestStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattRequestStateChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattServiceProvider(::windows::core::IUnknown);
 impl GattServiceProvider {
@@ -3724,6 +3752,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattServiceProvider {}
 unsafe impl ::core::marker::Sync for GattServiceProvider {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattServiceProviderAdvertisementStatus(pub i32);
 impl GattServiceProviderAdvertisementStatus {
@@ -3754,6 +3783,7 @@ unsafe impl ::windows::core::RuntimeType for GattServiceProviderAdvertisementSta
 impl ::windows::core::DefaultType for GattServiceProviderAdvertisementStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattServiceProviderAdvertisementStatusChangedEventArgs(::windows::core::IUnknown);
 impl GattServiceProviderAdvertisementStatusChangedEventArgs {
@@ -3835,6 +3865,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattServiceProviderAdvertisementStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattServiceProviderAdvertisementStatusChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattServiceProviderAdvertisingParameters(::windows::core::IUnknown);
 impl GattServiceProviderAdvertisingParameters {
@@ -3944,6 +3975,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattServiceProviderAdvertisingParameters {}
 unsafe impl ::core::marker::Sync for GattServiceProviderAdvertisingParameters {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattServiceProviderResult(::windows::core::IUnknown);
 impl GattServiceProviderResult {
@@ -4171,6 +4203,7 @@ impl GattServiceUuids {
 impl ::windows::core::RuntimeName for GattServiceUuids {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids";
 }
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattSession(::windows::core::IUnknown);
 impl GattSession {
@@ -4345,6 +4378,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for GattSession {}
 unsafe impl ::core::marker::Sync for GattSession {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattSessionStatus(pub i32);
 impl GattSessionStatus {
@@ -4372,6 +4406,7 @@ unsafe impl ::windows::core::RuntimeType for GattSessionStatus {
 impl ::windows::core::DefaultType for GattSessionStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattSessionStatusChangedEventArgs(::windows::core::IUnknown);
 impl GattSessionStatusChangedEventArgs {
@@ -4453,6 +4488,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattSessionStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattSessionStatusChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattSharingMode(pub i32);
 impl GattSharingMode {
@@ -4482,6 +4518,7 @@ unsafe impl ::windows::core::RuntimeType for GattSharingMode {
 impl ::windows::core::DefaultType for GattSharingMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattSubscribedClient(::windows::core::IUnknown);
 impl GattSubscribedClient {
@@ -4576,6 +4613,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattSubscribedClient {}
 unsafe impl ::core::marker::Sync for GattSubscribedClient {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattValueChangedEventArgs(::windows::core::IUnknown);
 impl GattValueChangedEventArgs {
@@ -4659,6 +4697,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattValueChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattValueChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattWriteOption(pub i32);
 impl GattWriteOption {
@@ -4686,6 +4725,7 @@ unsafe impl ::windows::core::RuntimeType for GattWriteOption {
 impl ::windows::core::DefaultType for GattWriteOption {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattWriteRequest(::windows::core::IUnknown);
 impl GattWriteRequest {
@@ -4803,6 +4843,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattWriteRequest {}
 unsafe impl ::core::marker::Sync for GattWriteRequest {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattWriteRequestedEventArgs(::windows::core::IUnknown);
 impl GattWriteRequestedEventArgs {
@@ -4893,6 +4934,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gatt
 }
 unsafe impl ::core::marker::Send for GattWriteRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for GattWriteRequestedEventArgs {}
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattWriteResult(::windows::core::IUnknown);
 impl GattWriteResult {

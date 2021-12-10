@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_Pwm_Provider'*"]
 #[repr(transparent)]
 pub struct IPwmControllerProvider(::windows::core::IUnknown);
 impl IPwmControllerProvider {
@@ -136,6 +137,7 @@ pub struct IPwmControllerProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: i32, dutycycle: f64, invertpolarity: bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Pwm_Provider'*"]
 #[repr(transparent)]
 pub struct IPwmProvider(::windows::core::IUnknown);
 impl IPwmProvider {

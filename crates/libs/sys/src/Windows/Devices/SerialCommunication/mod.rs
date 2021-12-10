@@ -4,6 +4,7 @@ extern "system" {}
 pub type ErrorReceivedEventArgs = *mut ::core::ffi::c_void;
 pub type PinChangedEventArgs = *mut ::core::ffi::c_void;
 pub type SerialDevice = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_SerialCommunication'*"]
 #[repr(transparent)]
 pub struct SerialError(pub i32);
 impl SerialError {
@@ -19,6 +20,7 @@ impl ::core::clone::Clone for SerialError {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_SerialCommunication'*"]
 #[repr(transparent)]
 pub struct SerialHandshake(pub i32);
 impl SerialHandshake {
@@ -33,6 +35,7 @@ impl ::core::clone::Clone for SerialHandshake {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_SerialCommunication'*"]
 #[repr(transparent)]
 pub struct SerialParity(pub i32);
 impl SerialParity {
@@ -48,6 +51,7 @@ impl ::core::clone::Clone for SerialParity {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_SerialCommunication'*"]
 #[repr(transparent)]
 pub struct SerialPinChange(pub i32);
 impl SerialPinChange {
@@ -63,6 +67,7 @@ impl ::core::clone::Clone for SerialPinChange {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_SerialCommunication'*"]
 #[repr(transparent)]
 pub struct SerialStopBitCount(pub i32);
 impl SerialStopBitCount {

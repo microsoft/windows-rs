@@ -281,6 +281,7 @@ impl CurrentAppSimulator {
 impl ::windows::core::RuntimeName for CurrentAppSimulator {
     const NAME: &'static str = "Windows.ApplicationModel.Store.CurrentAppSimulator";
 }
+#[doc = "*Required features: 'ApplicationModel_Store'*"]
 #[repr(transparent)]
 pub struct FulfillmentResult(pub i32);
 impl FulfillmentResult {
@@ -807,6 +808,7 @@ pub struct IUnfulfilledConsumableVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Store'*"]
 #[repr(transparent)]
 pub struct LicenseChangedEventHandler(pub ::windows::core::IUnknown);
 impl LicenseChangedEventHandler {
@@ -875,6 +877,7 @@ unsafe impl ::windows::core::RuntimeType for LicenseChangedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct LicenseChangedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'ApplicationModel_Store'*"]
 #[repr(transparent)]
 pub struct LicenseInformation(::windows::core::IUnknown);
 impl LicenseInformation {
@@ -985,6 +988,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lice
 }
 unsafe impl ::core::marker::Send for LicenseInformation {}
 unsafe impl ::core::marker::Sync for LicenseInformation {}
+#[doc = "*Required features: 'ApplicationModel_Store'*"]
 #[repr(transparent)]
 pub struct ListingInformation(::windows::core::IUnknown);
 impl ListingInformation {
@@ -1124,6 +1128,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &List
 }
 unsafe impl ::core::marker::Send for ListingInformation {}
 unsafe impl ::core::marker::Sync for ListingInformation {}
+#[doc = "*Required features: 'ApplicationModel_Store'*"]
 #[repr(transparent)]
 pub struct ProductLicense(::windows::core::IUnknown);
 impl ProductLicense {
@@ -1220,6 +1225,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prod
 }
 unsafe impl ::core::marker::Send for ProductLicense {}
 unsafe impl ::core::marker::Sync for ProductLicense {}
+#[doc = "*Required features: 'ApplicationModel_Store'*"]
 #[repr(transparent)]
 pub struct ProductListing(::windows::core::IUnknown);
 impl ProductListing {
@@ -1374,6 +1380,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prod
 }
 unsafe impl ::core::marker::Send for ProductListing {}
 unsafe impl ::core::marker::Sync for ProductListing {}
+#[doc = "*Required features: 'ApplicationModel_Store'*"]
 #[repr(transparent)]
 pub struct ProductPurchaseDisplayProperties(::windows::core::IUnknown);
 impl ProductPurchaseDisplayProperties {
@@ -1493,6 +1500,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prod
 }
 unsafe impl ::core::marker::Send for ProductPurchaseDisplayProperties {}
 unsafe impl ::core::marker::Sync for ProductPurchaseDisplayProperties {}
+#[doc = "*Required features: 'ApplicationModel_Store'*"]
 #[repr(transparent)]
 pub struct ProductPurchaseStatus(pub i32);
 impl ProductPurchaseStatus {
@@ -1522,6 +1530,7 @@ unsafe impl ::windows::core::RuntimeType for ProductPurchaseStatus {
 impl ::windows::core::DefaultType for ProductPurchaseStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Store'*"]
 #[repr(transparent)]
 pub struct ProductType(pub i32);
 impl ProductType {
@@ -1550,6 +1559,7 @@ unsafe impl ::windows::core::RuntimeType for ProductType {
 impl ::windows::core::DefaultType for ProductType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Store'*"]
 #[repr(transparent)]
 pub struct PurchaseResults(::windows::core::IUnknown);
 impl PurchaseResults {
@@ -1645,6 +1655,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Purc
 }
 unsafe impl ::core::marker::Send for PurchaseResults {}
 unsafe impl ::core::marker::Sync for PurchaseResults {}
+#[doc = "*Required features: 'ApplicationModel_Store'*"]
 #[repr(transparent)]
 pub struct UnfulfilledConsumable(::windows::core::IUnknown);
 impl UnfulfilledConsumable {

@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct AccessoryNotificationType(pub u32);
 impl AccessoryNotificationType {
@@ -30,6 +31,7 @@ impl ::core::clone::Clone for AccessoryNotificationType {
 pub type AlarmNotificationTriggerDetails = *mut ::core::ffi::c_void;
 pub type AppNotificationInfo = *mut ::core::ffi::c_void;
 pub type BinaryId = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct CalendarChangedEvent(pub i32);
 impl CalendarChangedEvent {
@@ -56,6 +58,7 @@ pub type EmailReadNotificationTriggerDetails = *mut ::core::ffi::c_void;
 pub type IAccessoryNotificationTriggerDetails = *mut ::core::ffi::c_void;
 pub type MediaControlsTriggerDetails = *mut ::core::ffi::c_void;
 pub type MediaMetadata = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PhoneCallAudioEndpoint(pub i32);
 impl PhoneCallAudioEndpoint {
@@ -70,6 +73,7 @@ impl ::core::clone::Clone for PhoneCallAudioEndpoint {
     }
 }
 pub type PhoneCallDetails = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PhoneCallDirection(pub i32);
 impl PhoneCallDirection {
@@ -82,6 +86,7 @@ impl ::core::clone::Clone for PhoneCallDirection {
         *self
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PhoneCallState(pub i32);
 impl PhoneCallState {
@@ -97,6 +102,7 @@ impl ::core::clone::Clone for PhoneCallState {
         *self
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PhoneCallTransport(pub i32);
 impl PhoneCallTransport {
@@ -110,6 +116,7 @@ impl ::core::clone::Clone for PhoneCallTransport {
     }
 }
 pub type PhoneLineDetails = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PhoneLineRegistrationState(pub i32);
 impl PhoneLineRegistrationState {
@@ -123,6 +130,7 @@ impl ::core::clone::Clone for PhoneLineRegistrationState {
         *self
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PhoneMediaType(pub i32);
 impl PhoneMediaType {
@@ -136,6 +144,7 @@ impl ::core::clone::Clone for PhoneMediaType {
     }
 }
 pub type PhoneNotificationTriggerDetails = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PhoneNotificationType(pub i32);
 impl PhoneNotificationType {
@@ -151,6 +160,7 @@ impl ::core::clone::Clone for PhoneNotificationType {
         *self
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PlaybackCapability(pub u32);
 impl PlaybackCapability {
@@ -172,6 +182,7 @@ impl ::core::clone::Clone for PlaybackCapability {
         *self
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PlaybackCommand(pub i32);
 impl PlaybackCommand {
@@ -192,6 +203,7 @@ impl ::core::clone::Clone for PlaybackCommand {
         *self
     }
 }
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct PlaybackStatus(pub i32);
 impl PlaybackStatus {
@@ -208,6 +220,7 @@ impl ::core::clone::Clone for PlaybackStatus {
     }
 }
 pub type ReminderNotificationTriggerDetails = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct ReminderState(pub i32);
 impl ReminderState {
@@ -224,6 +237,7 @@ impl ::core::clone::Clone for ReminderState {
 pub type SpeedDialEntry = *mut ::core::ffi::c_void;
 pub type TextResponse = *mut ::core::ffi::c_void;
 pub type ToastNotificationTriggerDetails = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
 pub struct VibrateState(pub i32);
 impl VibrateState {

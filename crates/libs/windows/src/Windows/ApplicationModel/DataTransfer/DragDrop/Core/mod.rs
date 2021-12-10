@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'ApplicationModel_DataTransfer_DragDrop_Core'*"]
 #[repr(transparent)]
 pub struct CoreDragDropManager(::windows::core::IUnknown);
 impl CoreDragDropManager {
@@ -100,6 +101,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreDragDropManager {}
 unsafe impl ::core::marker::Sync for CoreDragDropManager {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer_DragDrop_Core'*"]
 #[repr(transparent)]
 pub struct CoreDragInfo(::windows::core::IUnknown);
 impl CoreDragInfo {
@@ -196,6 +198,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreDragInfo {}
 unsafe impl ::core::marker::Sync for CoreDragInfo {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer_DragDrop_Core'*"]
 #[repr(transparent)]
 pub struct CoreDragOperation(::windows::core::IUnknown);
 impl CoreDragOperation {
@@ -321,6 +324,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreDragOperation {}
 unsafe impl ::core::marker::Sync for CoreDragOperation {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer_DragDrop_Core'*"]
 #[repr(transparent)]
 pub struct CoreDragUIContentMode(pub u32);
 impl CoreDragUIContentMode {
@@ -348,6 +352,7 @@ unsafe impl ::windows::core::RuntimeType for CoreDragUIContentMode {
 impl ::windows::core::DefaultType for CoreDragUIContentMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_DataTransfer_DragDrop_Core'*"]
 #[repr(transparent)]
 pub struct CoreDragUIOverride(::windows::core::IUnknown);
 impl CoreDragUIOverride {
@@ -473,6 +478,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreDragUIOverride {}
 unsafe impl ::core::marker::Sync for CoreDragUIOverride {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer_DragDrop_Core'*"]
 #[repr(transparent)]
 pub struct CoreDropOperationTargetRequestedEventArgs(::windows::core::IUnknown);
 impl CoreDropOperationTargetRequestedEventArgs {
@@ -700,6 +706,7 @@ pub struct ICoreDragUIOverrideVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_DataTransfer_DragDrop_Core'*"]
 #[repr(transparent)]
 pub struct ICoreDropOperationTarget(::windows::core::IUnknown);
 impl ICoreDropOperationTarget {

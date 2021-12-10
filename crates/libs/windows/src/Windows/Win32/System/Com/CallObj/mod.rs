@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_CallObj', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CALLFRAMEINFO {
     pub iMethod: u32,
@@ -42,6 +43,7 @@ impl ::core::default::Default for CALLFRAMEINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_CallObj', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CALLFRAMEPARAMINFO {
     pub fIn: super::super::super::Foundation::BOOLEAN,
@@ -75,18 +77,30 @@ impl ::core::default::Default for CALLFRAMEPARAMINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub type CALLFRAME_COPY = i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_COPY_NESTED: CALLFRAME_COPY = 1i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_COPY_INDEPENDENT: CALLFRAME_COPY = 2i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub type CALLFRAME_FREE = i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_FREE_NONE: CALLFRAME_FREE = 0i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_FREE_IN: CALLFRAME_FREE = 1i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_FREE_INOUT: CALLFRAME_FREE = 2i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_FREE_OUT: CALLFRAME_FREE = 4i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_FREE_TOP_INOUT: CALLFRAME_FREE = 8i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_FREE_TOP_OUT: CALLFRAME_FREE = 16i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_FREE_ALL: CALLFRAME_FREE = 31i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_CallObj', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CALLFRAME_MARSHALCONTEXT {
     pub fIn: super::super::super::Foundation::BOOLEAN,
@@ -125,15 +139,25 @@ impl ::core::default::Default for CALLFRAME_MARSHALCONTEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub type CALLFRAME_NULL = i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_NULL_NONE: CALLFRAME_NULL = 0i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_NULL_INOUT: CALLFRAME_NULL = 2i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_NULL_OUT: CALLFRAME_NULL = 4i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_NULL_ALL: CALLFRAME_NULL = 6i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub type CALLFRAME_WALK = i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_WALK_IN: CALLFRAME_WALK = 1i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_WALK_INOUT: CALLFRAME_WALK = 2i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_WALK_OUT: CALLFRAME_WALK = 4i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 #[inline]
 pub unsafe fn CoGetInterceptor<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(iidintercepted: *const ::windows::core::GUID, punkouter: Param1, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -147,6 +171,7 @@ pub unsafe fn CoGetInterceptor<'a, Param1: ::windows::core::IntoParam<'a, ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 #[inline]
 pub unsafe fn CoGetInterceptorFromTypeInfo<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::ITypeInfo>>(iidintercepted: *const ::windows::core::GUID, punkouter: Param1, typeinfo: Param2, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -160,6 +185,7 @@ pub unsafe fn CoGetInterceptorFromTypeInfo<'a, Param1: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 #[repr(transparent)]
 pub struct ICallFrame(::windows::core::IUnknown);
 impl ICallFrame {
@@ -306,6 +332,7 @@ pub struct ICallFrameVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvreceiver: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 #[repr(transparent)]
 pub struct ICallFrameEvents(::windows::core::IUnknown);
 impl ICallFrameEvents {
@@ -351,6 +378,7 @@ unsafe impl ::windows::core::Interface for ICallFrameEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICallFrameEventsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pframe: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 #[repr(transparent)]
 pub struct ICallFrameWalker(::windows::core::IUnknown);
 impl ICallFrameWalker {
@@ -403,6 +431,7 @@ pub struct ICallFrameWalkerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, ppvinterface: *const *const ::core::ffi::c_void, fin: super::super::super::Foundation::BOOL, fout: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 #[repr(transparent)]
 pub struct ICallIndirect(::windows::core::IUnknown);
 impl ICallIndirect {
@@ -470,6 +499,7 @@ pub struct ICallIndirectVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piid: *mut ::windows::core::GUID, pfderivesfromidispatch: *mut super::super::super::Foundation::BOOL, pcmethod: *mut u32, pwszinterface: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 #[repr(transparent)]
 pub struct ICallInterceptor(::windows::core::IUnknown);
 impl ICallInterceptor {
@@ -566,6 +596,7 @@ pub struct ICallInterceptorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 #[repr(transparent)]
 pub struct ICallUnmarshal(::windows::core::IUnknown);
 impl ICallUnmarshal {
@@ -624,6 +655,7 @@ pub struct ICallUnmarshalVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imethod: u32, pbuffer: *const ::core::ffi::c_void, cbbuffer: u32, ibfirstrelease: u32, datarep: u32, pcontext: *const CALLFRAME_MARSHALCONTEXT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 #[repr(transparent)]
 pub struct IInterfaceRelated(::windows::core::IUnknown);
 impl IInterfaceRelated {

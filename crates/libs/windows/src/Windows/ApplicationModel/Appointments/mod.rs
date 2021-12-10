@@ -3,6 +3,7 @@
 pub mod AppointmentsProvider;
 #[cfg(feature = "ApplicationModel_Appointments_DataProvider")]
 pub mod DataProvider;
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct Appointment(::windows::core::IUnknown);
 impl Appointment {
@@ -373,6 +374,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for Appointment {}
 unsafe impl ::core::marker::Sync for Appointment {}
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentBusyStatus(pub i32);
 impl AppointmentBusyStatus {
@@ -403,6 +405,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentBusyStatus {
 impl ::windows::core::DefaultType for AppointmentBusyStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendar(::windows::core::IUnknown);
 impl AppointmentCalendar {
@@ -814,6 +817,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentCalendar {}
 unsafe impl ::core::marker::Sync for AppointmentCalendar {}
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendarOtherAppReadAccess(pub i32);
 impl AppointmentCalendarOtherAppReadAccess {
@@ -843,6 +847,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendarOtherAppReadAcce
 impl ::windows::core::DefaultType for AppointmentCalendarOtherAppReadAccess {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendarOtherAppWriteAccess(pub i32);
 impl AppointmentCalendarOtherAppWriteAccess {
@@ -871,6 +876,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendarOtherAppWriteAcc
 impl ::windows::core::DefaultType for AppointmentCalendarOtherAppWriteAccess {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendarSyncManager(::windows::core::IUnknown);
 impl AppointmentCalendarSyncManager {
@@ -996,6 +1002,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentCalendarSyncManager {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarSyncManager {}
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendarSyncStatus(pub i32);
 impl AppointmentCalendarSyncStatus {
@@ -1028,6 +1035,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendarSyncStatus {
 impl ::windows::core::DefaultType for AppointmentCalendarSyncStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentConflictResult(::windows::core::IUnknown);
 impl AppointmentConflictResult {
@@ -1110,6 +1118,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentConflictResult {}
 unsafe impl ::core::marker::Sync for AppointmentConflictResult {}
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentConflictType(pub i32);
 impl AppointmentConflictType {
@@ -1138,6 +1147,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentConflictType {
 impl ::windows::core::DefaultType for AppointmentConflictType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentDaysOfWeek(pub u32);
 impl AppointmentDaysOfWeek {
@@ -1171,6 +1181,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentDaysOfWeek {
 impl ::windows::core::DefaultType for AppointmentDaysOfWeek {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentDetailsKind(pub i32);
 impl AppointmentDetailsKind {
@@ -1198,6 +1209,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentDetailsKind {
 impl ::windows::core::DefaultType for AppointmentDetailsKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentException(::windows::core::IUnknown);
 impl AppointmentException {
@@ -1287,6 +1299,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentException {}
 unsafe impl ::core::marker::Sync for AppointmentException {}
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentInvitee(::windows::core::IUnknown);
 impl AppointmentInvitee {
@@ -1543,6 +1556,7 @@ impl AppointmentManager {
 impl ::windows::core::RuntimeName for AppointmentManager {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentManager";
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentManagerForUser(::windows::core::IUnknown);
 impl AppointmentManagerForUser {
@@ -1722,6 +1736,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentManagerForUser {}
 unsafe impl ::core::marker::Sync for AppointmentManagerForUser {}
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentOrganizer(::windows::core::IUnknown);
 impl AppointmentOrganizer {
@@ -1840,6 +1855,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAppointmentParticipant> for &Appointmen
 }
 unsafe impl ::core::marker::Send for AppointmentOrganizer {}
 unsafe impl ::core::marker::Sync for AppointmentOrganizer {}
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentParticipantResponse(pub i32);
 impl AppointmentParticipantResponse {
@@ -1870,6 +1886,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentParticipantResponse {
 impl ::windows::core::DefaultType for AppointmentParticipantResponse {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentParticipantRole(pub i32);
 impl AppointmentParticipantRole {
@@ -2069,6 +2086,7 @@ impl AppointmentProperties {
 impl ::windows::core::RuntimeName for AppointmentProperties {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentProperties";
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentRecurrence(::windows::core::IUnknown);
 impl AppointmentRecurrence {
@@ -2260,6 +2278,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentRecurrence {}
 unsafe impl ::core::marker::Sync for AppointmentRecurrence {}
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentRecurrenceUnit(pub i32);
 impl AppointmentRecurrenceUnit {
@@ -2291,6 +2310,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentRecurrenceUnit {
 impl ::windows::core::DefaultType for AppointmentRecurrenceUnit {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentSensitivity(pub i32);
 impl AppointmentSensitivity {
@@ -2318,6 +2338,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentSensitivity {
 impl ::windows::core::DefaultType for AppointmentSensitivity {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentStore(::windows::core::IUnknown);
 impl AppointmentStore {
@@ -2580,6 +2601,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentStore {}
 unsafe impl ::core::marker::Sync for AppointmentStore {}
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentStoreAccessType(pub i32);
 impl AppointmentStoreAccessType {
@@ -2608,6 +2630,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentStoreAccessType {
 impl ::windows::core::DefaultType for AppointmentStoreAccessType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentStoreChange(::windows::core::IUnknown);
 impl AppointmentStoreChange {
@@ -2696,6 +2719,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentStoreChange {}
 unsafe impl ::core::marker::Sync for AppointmentStoreChange {}
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentStoreChangeReader(::windows::core::IUnknown);
 impl AppointmentStoreChangeReader {
@@ -2779,6 +2803,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentStoreChangeReader {}
 unsafe impl ::core::marker::Sync for AppointmentStoreChangeReader {}
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentStoreChangeTracker(::windows::core::IUnknown);
 impl AppointmentStoreChangeTracker {
@@ -2868,6 +2893,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentStoreChangeTracker {}
 unsafe impl ::core::marker::Sync for AppointmentStoreChangeTracker {}
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentStoreChangeType(pub i32);
 impl AppointmentStoreChangeType {
@@ -2900,6 +2926,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangeType {
 impl ::windows::core::DefaultType for AppointmentStoreChangeType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentStoreChangedDeferral(::windows::core::IUnknown);
 impl AppointmentStoreChangedDeferral {
@@ -2971,6 +2998,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentStoreChangedDeferral {}
 unsafe impl ::core::marker::Sync for AppointmentStoreChangedDeferral {}
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentStoreChangedEventArgs(::windows::core::IUnknown);
 impl AppointmentStoreChangedEventArgs {
@@ -3045,6 +3073,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentStoreChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentStoreChangedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentStoreNotificationTriggerDetails(::windows::core::IUnknown);
 impl AppointmentStoreNotificationTriggerDetails {}
@@ -3111,6 +3140,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentStoreNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for AppointmentStoreNotificationTriggerDetails {}
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentSummaryCardView(pub i32);
 impl AppointmentSummaryCardView {
@@ -3138,6 +3168,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentSummaryCardView {
 impl ::windows::core::DefaultType for AppointmentSummaryCardView {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct AppointmentWeekOfMonth(pub i32);
 impl AppointmentWeekOfMonth {
@@ -3168,6 +3199,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentWeekOfMonth {
 impl ::windows::core::DefaultType for AppointmentWeekOfMonth {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct FindAppointmentCalendarsOptions(pub u32);
 impl FindAppointmentCalendarsOptions {
@@ -3195,6 +3227,7 @@ unsafe impl ::windows::core::RuntimeType for FindAppointmentCalendarsOptions {
 impl ::windows::core::DefaultType for FindAppointmentCalendarsOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct FindAppointmentsOptions(::windows::core::IUnknown);
 impl FindAppointmentsOptions {
@@ -3781,6 +3814,7 @@ pub struct IAppointmentManagerStatics3Vtbl(
     #[cfg(feature = "System")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))] usize,
 );
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct IAppointmentParticipant(::windows::core::IUnknown);
 impl IAppointmentParticipant {
@@ -4288,6 +4322,7 @@ pub struct IFindAppointmentsOptionsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
 pub struct RecurrenceType(pub i32);
 impl RecurrenceType {

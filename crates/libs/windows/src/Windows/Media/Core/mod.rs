@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Media_Core_Preview")]
 pub mod Preview;
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct AudioDecoderDegradation(pub i32);
 impl AudioDecoderDegradation {
@@ -30,6 +31,7 @@ unsafe impl ::windows::core::RuntimeType for AudioDecoderDegradation {
 impl ::windows::core::DefaultType for AudioDecoderDegradation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct AudioDecoderDegradationReason(pub i32);
 impl AudioDecoderDegradationReason {
@@ -58,6 +60,7 @@ unsafe impl ::windows::core::RuntimeType for AudioDecoderDegradationReason {
 impl ::windows::core::DefaultType for AudioDecoderDegradationReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct AudioStreamDescriptor(::windows::core::IUnknown);
 impl AudioStreamDescriptor {
@@ -261,6 +264,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaStreamDescriptor2> for &AudioStrea
 }
 unsafe impl ::core::marker::Send for AudioStreamDescriptor {}
 unsafe impl ::core::marker::Sync for AudioStreamDescriptor {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct AudioTrack(::windows::core::IUnknown);
 impl AudioTrack {
@@ -425,6 +429,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaTrack> for &AudioTrack {
 }
 unsafe impl ::core::marker::Send for AudioTrack {}
 unsafe impl ::core::marker::Sync for AudioTrack {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct AudioTrackOpenFailedEventArgs(::windows::core::IUnknown);
 impl AudioTrackOpenFailedEventArgs {
@@ -499,6 +504,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioTrackOpenFailedEventArgs {}
 unsafe impl ::core::marker::Sync for AudioTrackOpenFailedEventArgs {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct AudioTrackSupportInfo(::windows::core::IUnknown);
 impl AudioTrackSupportInfo {
@@ -594,6 +600,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioTrackSupportInfo {}
 unsafe impl ::core::marker::Sync for AudioTrackSupportInfo {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct ChapterCue(::windows::core::IUnknown);
 impl ChapterCue {
@@ -738,6 +745,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaCue> for &ChapterCue {
 }
 unsafe impl ::core::marker::Send for ChapterCue {}
 unsafe impl ::core::marker::Sync for ChapterCue {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct CodecCategory(pub i32);
 impl CodecCategory {
@@ -765,6 +773,7 @@ unsafe impl ::windows::core::RuntimeType for CodecCategory {
 impl ::windows::core::DefaultType for CodecCategory {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct CodecInfo(::windows::core::IUnknown);
 impl CodecInfo {
@@ -868,6 +877,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Code
 }
 unsafe impl ::core::marker::Send for CodecInfo {}
 unsafe impl ::core::marker::Sync for CodecInfo {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct CodecKind(pub i32);
 impl CodecKind {
@@ -895,6 +905,7 @@ unsafe impl ::windows::core::RuntimeType for CodecKind {
 impl ::windows::core::DefaultType for CodecKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct CodecQuery(::windows::core::IUnknown);
 impl CodecQuery {
@@ -1293,6 +1304,7 @@ impl CodecSubtypes {
 impl ::windows::core::RuntimeName for CodecSubtypes {
     const NAME: &'static str = "Windows.Media.Core.CodecSubtypes";
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct DataCue(::windows::core::IUnknown);
 impl DataCue {
@@ -1447,6 +1459,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaCue> for &DataCue {
 }
 unsafe impl ::core::marker::Send for DataCue {}
 unsafe impl ::core::marker::Sync for DataCue {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct FaceDetectedEventArgs(::windows::core::IUnknown);
 impl FaceDetectedEventArgs {
@@ -1521,6 +1534,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Face
 }
 unsafe impl ::core::marker::Send for FaceDetectedEventArgs {}
 unsafe impl ::core::marker::Sync for FaceDetectedEventArgs {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct FaceDetectionEffect(::windows::core::IUnknown);
 impl FaceDetectionEffect {
@@ -1652,6 +1666,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::IMediaExtension> for &FaceDetecti
 }
 unsafe impl ::core::marker::Send for FaceDetectionEffect {}
 unsafe impl ::core::marker::Sync for FaceDetectionEffect {}
+#[doc = "*Required features: 'Media_Core', 'Media_Effects'*"]
 #[cfg(feature = "Media_Effects")]
 #[repr(transparent)]
 pub struct FaceDetectionEffectDefinition(::windows::core::IUnknown);
@@ -1808,6 +1823,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Effects::IVideoEffectDefinition> 
 unsafe impl ::core::marker::Send for FaceDetectionEffectDefinition {}
 #[cfg(feature = "Media_Effects")]
 unsafe impl ::core::marker::Sync for FaceDetectionEffectDefinition {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct FaceDetectionEffectFrame(::windows::core::IUnknown);
 impl FaceDetectionEffectFrame {
@@ -2008,6 +2024,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::IMediaFrame> for &FaceDetectionEf
 }
 unsafe impl ::core::marker::Send for FaceDetectionEffectFrame {}
 unsafe impl ::core::marker::Sync for FaceDetectionEffectFrame {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct FaceDetectionMode(pub i32);
 impl FaceDetectionMode {
@@ -2036,6 +2053,7 @@ unsafe impl ::windows::core::RuntimeType for FaceDetectionMode {
 impl ::windows::core::DefaultType for FaceDetectionMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct HighDynamicRangeControl(::windows::core::IUnknown);
 impl HighDynamicRangeControl {
@@ -2114,6 +2132,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &High
 }
 unsafe impl ::core::marker::Send for HighDynamicRangeControl {}
 unsafe impl ::core::marker::Sync for HighDynamicRangeControl {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct HighDynamicRangeOutput(::windows::core::IUnknown);
 impl HighDynamicRangeOutput {
@@ -2818,6 +2837,7 @@ pub struct IMediaBindingEventArgs3Vtbl(
     #[cfg(feature = "Networking_BackgroundTransfer")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, downloadoperation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Networking_BackgroundTransfer"))] usize,
 );
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct IMediaCue(::windows::core::IUnknown);
 impl IMediaCue {
@@ -2955,6 +2975,7 @@ pub struct IMediaCueEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct IMediaSource(::windows::core::IUnknown);
 impl IMediaSource {}
@@ -3305,6 +3326,7 @@ pub struct IMediaSourceStatics4Vtbl(
     #[cfg(feature = "Networking_BackgroundTransfer")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, downloadoperation: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Networking_BackgroundTransfer"))] usize,
 );
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct IMediaStreamDescriptor(::windows::core::IUnknown);
 impl IMediaStreamDescriptor {
@@ -3411,6 +3433,7 @@ pub struct IMediaStreamDescriptorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct IMediaStreamDescriptor2(::windows::core::IUnknown);
 impl IMediaStreamDescriptor2 {
@@ -4040,6 +4063,7 @@ pub struct IMediaStreamSourceSwitchStreamsRequestedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct IMediaTrack(::windows::core::IUnknown);
 impl IMediaTrack {
@@ -4399,6 +4423,7 @@ pub struct ISceneAnalyzedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct ISingleSelectMediaTrackList(::windows::core::IUnknown);
 impl ISingleSelectMediaTrackList {
@@ -4679,6 +4704,7 @@ pub struct ITimedMetadataTrackFailedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct ITimedMetadataTrackProvider(::windows::core::IUnknown);
 impl ITimedMetadataTrackProvider {
@@ -5270,6 +5296,7 @@ pub struct IVideoTrackSupportInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaDecoderStatus) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MediaSourceStatus) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct ImageCue(::windows::core::IUnknown);
 impl ImageCue {
@@ -5438,6 +5465,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaCue> for &ImageCue {
 }
 unsafe impl ::core::marker::Send for ImageCue {}
 unsafe impl ::core::marker::Sync for ImageCue {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct InitializeMediaStreamSourceRequestedEventArgs(::windows::core::IUnknown);
 impl InitializeMediaStreamSourceRequestedEventArgs {
@@ -5558,6 +5586,7 @@ impl LowLightFusion {
 impl ::windows::core::RuntimeName for LowLightFusion {
     const NAME: &'static str = "Windows.Media.Core.LowLightFusion";
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct LowLightFusionResult(::windows::core::IUnknown);
 impl LowLightFusionResult {
@@ -5664,6 +5693,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for LowLightFusionResult {}
 unsafe impl ::core::marker::Sync for LowLightFusionResult {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaBinder(::windows::core::IUnknown);
 impl MediaBinder {
@@ -5769,6 +5799,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaBinder {}
 unsafe impl ::core::marker::Sync for MediaBinder {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaBindingEventArgs(::windows::core::IUnknown);
 impl MediaBindingEventArgs {
@@ -5894,6 +5925,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaBindingEventArgs {}
 unsafe impl ::core::marker::Sync for MediaBindingEventArgs {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaCueEventArgs(::windows::core::IUnknown);
 impl MediaCueEventArgs {
@@ -5968,6 +6000,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaCueEventArgs {}
 unsafe impl ::core::marker::Sync for MediaCueEventArgs {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaDecoderStatus(pub i32);
 impl MediaDecoderStatus {
@@ -5997,6 +6030,7 @@ unsafe impl ::windows::core::RuntimeType for MediaDecoderStatus {
 impl ::windows::core::DefaultType for MediaDecoderStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaSource(::windows::core::IUnknown);
 impl MediaSource {
@@ -6332,6 +6366,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Playback::IMediaPlaybackSource> f
 }
 unsafe impl ::core::marker::Send for MediaSource {}
 unsafe impl ::core::marker::Sync for MediaSource {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaSourceAppServiceConnection(::windows::core::IUnknown);
 impl MediaSourceAppServiceConnection {
@@ -6425,6 +6460,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaSourceError(::windows::core::IUnknown);
 impl MediaSourceError {
@@ -6499,6 +6535,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaSourceError {}
 unsafe impl ::core::marker::Sync for MediaSourceError {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaSourceOpenOperationCompletedEventArgs(::windows::core::IUnknown);
 impl MediaSourceOpenOperationCompletedEventArgs {
@@ -6573,6 +6610,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaSourceOpenOperationCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaSourceOpenOperationCompletedEventArgs {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaSourceState(pub i32);
 impl MediaSourceState {
@@ -6603,6 +6641,7 @@ unsafe impl ::windows::core::RuntimeType for MediaSourceState {
 impl ::windows::core::DefaultType for MediaSourceState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaSourceStateChangedEventArgs(::windows::core::IUnknown);
 impl MediaSourceStateChangedEventArgs {
@@ -6684,6 +6723,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaSourceStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaSourceStateChangedEventArgs {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaSourceStatus(pub i32);
 impl MediaSourceStatus {
@@ -6711,6 +6751,7 @@ unsafe impl ::windows::core::RuntimeType for MediaSourceStatus {
 impl ::windows::core::DefaultType for MediaSourceStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaStreamSample(::windows::core::IUnknown);
 impl MediaStreamSample {
@@ -6907,6 +6948,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaStreamSample {}
 unsafe impl ::core::marker::Sync for MediaStreamSample {}
+#[doc = "*Required features: 'Media_Core', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct MediaStreamSamplePropertySet(::windows::core::IUnknown);
@@ -7118,6 +7160,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 unsafe impl ::core::marker::Send for MediaStreamSamplePropertySet {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for MediaStreamSamplePropertySet {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaStreamSampleProtectionProperties(::windows::core::IUnknown);
 impl MediaStreamSampleProtectionProperties {
@@ -7209,6 +7252,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaStreamSampleProtectionProperties {}
 unsafe impl ::core::marker::Sync for MediaStreamSampleProtectionProperties {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaStreamSource(::windows::core::IUnknown);
 impl MediaStreamSource {
@@ -7512,6 +7556,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaSource> for &MediaStreamSource {
 }
 unsafe impl ::core::marker::Send for MediaStreamSource {}
 unsafe impl ::core::marker::Sync for MediaStreamSource {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaStreamSourceClosedEventArgs(::windows::core::IUnknown);
 impl MediaStreamSourceClosedEventArgs {
@@ -7586,6 +7631,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaStreamSourceClosedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaStreamSourceClosedEventArgs {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaStreamSourceClosedReason(pub i32);
 impl MediaStreamSourceClosedReason {
@@ -7618,6 +7664,7 @@ unsafe impl ::windows::core::RuntimeType for MediaStreamSourceClosedReason {
 impl ::windows::core::DefaultType for MediaStreamSourceClosedReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaStreamSourceClosedRequest(::windows::core::IUnknown);
 impl MediaStreamSourceClosedRequest {
@@ -7692,6 +7739,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaStreamSourceClosedRequest {}
 unsafe impl ::core::marker::Sync for MediaStreamSourceClosedRequest {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaStreamSourceErrorStatus(pub i32);
 impl MediaStreamSourceErrorStatus {
@@ -7725,6 +7773,7 @@ unsafe impl ::windows::core::RuntimeType for MediaStreamSourceErrorStatus {
 impl ::windows::core::DefaultType for MediaStreamSourceErrorStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaStreamSourceSampleRenderedEventArgs(::windows::core::IUnknown);
 impl MediaStreamSourceSampleRenderedEventArgs {
@@ -7800,6 +7849,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaStreamSourceSampleRenderedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaStreamSourceSampleRenderedEventArgs {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaStreamSourceSampleRequest(::windows::core::IUnknown);
 impl MediaStreamSourceSampleRequest {
@@ -7896,6 +7946,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaStreamSourceSampleRequest {}
 unsafe impl ::core::marker::Sync for MediaStreamSourceSampleRequest {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaStreamSourceSampleRequestDeferral(::windows::core::IUnknown);
 impl MediaStreamSourceSampleRequestDeferral {
@@ -7967,6 +8018,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaStreamSourceSampleRequestDeferral {}
 unsafe impl ::core::marker::Sync for MediaStreamSourceSampleRequestDeferral {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaStreamSourceSampleRequestedEventArgs(::windows::core::IUnknown);
 impl MediaStreamSourceSampleRequestedEventArgs {
@@ -8041,6 +8093,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaStreamSourceSampleRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaStreamSourceSampleRequestedEventArgs {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaStreamSourceStartingEventArgs(::windows::core::IUnknown);
 impl MediaStreamSourceStartingEventArgs {
@@ -8115,6 +8168,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaStreamSourceStartingEventArgs {}
 unsafe impl ::core::marker::Sync for MediaStreamSourceStartingEventArgs {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaStreamSourceStartingRequest(::windows::core::IUnknown);
 impl MediaStreamSourceStartingRequest {
@@ -8202,6 +8256,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaStreamSourceStartingRequest {}
 unsafe impl ::core::marker::Sync for MediaStreamSourceStartingRequest {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaStreamSourceStartingRequestDeferral(::windows::core::IUnknown);
 impl MediaStreamSourceStartingRequestDeferral {
@@ -8273,6 +8328,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaStreamSourceStartingRequestDeferral {}
 unsafe impl ::core::marker::Sync for MediaStreamSourceStartingRequestDeferral {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaStreamSourceSwitchStreamsRequest(::windows::core::IUnknown);
 impl MediaStreamSourceSwitchStreamsRequest {
@@ -8361,6 +8417,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaStreamSourceSwitchStreamsRequest {}
 unsafe impl ::core::marker::Sync for MediaStreamSourceSwitchStreamsRequest {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaStreamSourceSwitchStreamsRequestDeferral(::windows::core::IUnknown);
 impl MediaStreamSourceSwitchStreamsRequestDeferral {
@@ -8432,6 +8489,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaStreamSourceSwitchStreamsRequestDeferral {}
 unsafe impl ::core::marker::Sync for MediaStreamSourceSwitchStreamsRequestDeferral {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaStreamSourceSwitchStreamsRequestedEventArgs(::windows::core::IUnknown);
 impl MediaStreamSourceSwitchStreamsRequestedEventArgs {
@@ -8506,6 +8564,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaStreamSourceSwitchStreamsRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaStreamSourceSwitchStreamsRequestedEventArgs {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaTrackKind(pub i32);
 impl MediaTrackKind {
@@ -8534,6 +8593,7 @@ unsafe impl ::windows::core::RuntimeType for MediaTrackKind {
 impl ::windows::core::DefaultType for MediaTrackKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MseAppendMode(pub i32);
 impl MseAppendMode {
@@ -8561,6 +8621,7 @@ unsafe impl ::windows::core::RuntimeType for MseAppendMode {
 impl ::windows::core::DefaultType for MseAppendMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MseEndOfStreamStatus(pub i32);
 impl MseEndOfStreamStatus {
@@ -8590,6 +8651,7 @@ unsafe impl ::windows::core::RuntimeType for MseEndOfStreamStatus {
 impl ::windows::core::DefaultType for MseEndOfStreamStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MseReadyState(pub i32);
 impl MseReadyState {
@@ -8618,6 +8680,7 @@ unsafe impl ::windows::core::RuntimeType for MseReadyState {
 impl ::windows::core::DefaultType for MseReadyState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MseSourceBuffer(::windows::core::IUnknown);
 impl MseSourceBuffer {
@@ -8839,6 +8902,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MseS
 }
 unsafe impl ::core::marker::Send for MseSourceBuffer {}
 unsafe impl ::core::marker::Sync for MseSourceBuffer {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MseSourceBufferList(::windows::core::IUnknown);
 impl MseSourceBufferList {
@@ -8940,6 +9004,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MseS
 }
 unsafe impl ::core::marker::Send for MseSourceBufferList {}
 unsafe impl ::core::marker::Sync for MseSourceBufferList {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MseStreamSource(::windows::core::IUnknown);
 impl MseStreamSource {
@@ -9148,6 +9213,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaSource> for &MseStreamSource {
 unsafe impl ::core::marker::Send for MseStreamSource {}
 unsafe impl ::core::marker::Sync for MseStreamSource {}
 #[repr(C)]
+#[doc = "*Required features: 'Media_Core', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct MseTimeRange {
     pub Start: super::super::Foundation::TimeSpan,
@@ -9187,6 +9253,7 @@ impl ::core::default::Default for MseTimeRange {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct SceneAnalysisEffect(::windows::core::IUnknown);
 impl SceneAnalysisEffect {
@@ -9314,6 +9381,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::IMediaExtension> for &SceneAnalys
 }
 unsafe impl ::core::marker::Send for SceneAnalysisEffect {}
 unsafe impl ::core::marker::Sync for SceneAnalysisEffect {}
+#[doc = "*Required features: 'Media_Core', 'Media_Effects'*"]
 #[cfg(feature = "Media_Effects")]
 #[repr(transparent)]
 pub struct SceneAnalysisEffectDefinition(::windows::core::IUnknown);
@@ -9448,6 +9516,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Effects::IVideoEffectDefinition> 
 unsafe impl ::core::marker::Send for SceneAnalysisEffectDefinition {}
 #[cfg(feature = "Media_Effects")]
 unsafe impl ::core::marker::Sync for SceneAnalysisEffectDefinition {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct SceneAnalysisEffectFrame(::windows::core::IUnknown);
 impl SceneAnalysisEffectFrame {
@@ -9662,6 +9731,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::IMediaFrame> for &SceneAnalysisEf
 }
 unsafe impl ::core::marker::Send for SceneAnalysisEffectFrame {}
 unsafe impl ::core::marker::Sync for SceneAnalysisEffectFrame {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct SceneAnalysisRecommendation(pub i32);
 impl SceneAnalysisRecommendation {
@@ -9690,6 +9760,7 @@ unsafe impl ::windows::core::RuntimeType for SceneAnalysisRecommendation {
 impl ::windows::core::DefaultType for SceneAnalysisRecommendation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct SceneAnalyzedEventArgs(::windows::core::IUnknown);
 impl SceneAnalyzedEventArgs {
@@ -9764,6 +9835,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Scen
 }
 unsafe impl ::core::marker::Send for SceneAnalyzedEventArgs {}
 unsafe impl ::core::marker::Sync for SceneAnalyzedEventArgs {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct SpeechCue(::windows::core::IUnknown);
 impl SpeechCue {
@@ -9934,6 +10006,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaCue> for &SpeechCue {
 }
 unsafe impl ::core::marker::Send for SpeechCue {}
 unsafe impl ::core::marker::Sync for SpeechCue {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedMetadataKind(pub i32);
 impl TimedMetadataKind {
@@ -9967,6 +10040,7 @@ unsafe impl ::windows::core::RuntimeType for TimedMetadataKind {
 impl ::windows::core::DefaultType for TimedMetadataKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedMetadataStreamDescriptor(::windows::core::IUnknown);
 impl TimedMetadataStreamDescriptor {
@@ -10144,6 +10218,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaStreamDescriptor2> for &TimedMetad
 }
 unsafe impl ::core::marker::Send for TimedMetadataStreamDescriptor {}
 unsafe impl ::core::marker::Sync for TimedMetadataStreamDescriptor {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedMetadataTrack(::windows::core::IUnknown);
 impl TimedMetadataTrack {
@@ -10367,6 +10442,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaTrack> for &TimedMetadataTrack {
 }
 unsafe impl ::core::marker::Send for TimedMetadataTrack {}
 unsafe impl ::core::marker::Sync for TimedMetadataTrack {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedMetadataTrackError(::windows::core::IUnknown);
 impl TimedMetadataTrackError {
@@ -10448,6 +10524,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Time
 }
 unsafe impl ::core::marker::Send for TimedMetadataTrackError {}
 unsafe impl ::core::marker::Sync for TimedMetadataTrackError {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedMetadataTrackErrorCode(pub i32);
 impl TimedMetadataTrackErrorCode {
@@ -10477,6 +10554,7 @@ unsafe impl ::windows::core::RuntimeType for TimedMetadataTrackErrorCode {
 impl ::windows::core::DefaultType for TimedMetadataTrackErrorCode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedMetadataTrackFailedEventArgs(::windows::core::IUnknown);
 impl TimedMetadataTrackFailedEventArgs {
@@ -10551,6 +10629,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Time
 }
 unsafe impl ::core::marker::Send for TimedMetadataTrackFailedEventArgs {}
 unsafe impl ::core::marker::Sync for TimedMetadataTrackFailedEventArgs {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextBouten(::windows::core::IUnknown);
 impl TimedTextBouten {
@@ -10653,6 +10732,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Time
 }
 unsafe impl ::core::marker::Send for TimedTextBouten {}
 unsafe impl ::core::marker::Sync for TimedTextBouten {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextBoutenPosition(pub i32);
 impl TimedTextBoutenPosition {
@@ -10681,6 +10761,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextBoutenPosition {
 impl ::windows::core::DefaultType for TimedTextBoutenPosition {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextBoutenType(pub i32);
 impl TimedTextBoutenType {
@@ -10714,6 +10795,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextBoutenType {
 impl ::windows::core::DefaultType for TimedTextBoutenType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextCue(::windows::core::IUnknown);
 impl TimedTextCue {
@@ -10877,6 +10959,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaCue> for &TimedTextCue {
 }
 unsafe impl ::core::marker::Send for TimedTextCue {}
 unsafe impl ::core::marker::Sync for TimedTextCue {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextDisplayAlignment(pub i32);
 impl TimedTextDisplayAlignment {
@@ -10906,6 +10989,7 @@ impl ::windows::core::DefaultType for TimedTextDisplayAlignment {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Media_Core'*"]
 pub struct TimedTextDouble {
     pub Value: f64,
     pub Unit: TimedTextUnit,
@@ -10936,6 +11020,7 @@ impl ::core::default::Default for TimedTextDouble {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextFlowDirection(pub i32);
 impl TimedTextFlowDirection {
@@ -10963,6 +11048,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextFlowDirection {
 impl ::windows::core::DefaultType for TimedTextFlowDirection {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextFontStyle(pub i32);
 impl TimedTextFontStyle {
@@ -10991,6 +11077,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextFontStyle {
 impl ::windows::core::DefaultType for TimedTextFontStyle {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextLine(::windows::core::IUnknown);
 impl TimedTextLine {
@@ -11084,6 +11171,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Time
 }
 unsafe impl ::core::marker::Send for TimedTextLine {}
 unsafe impl ::core::marker::Sync for TimedTextLine {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextLineAlignment(pub i32);
 impl TimedTextLineAlignment {
@@ -11113,6 +11201,7 @@ impl ::windows::core::DefaultType for TimedTextLineAlignment {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Media_Core'*"]
 pub struct TimedTextPadding {
     pub Before: f64,
     pub After: f64,
@@ -11147,6 +11236,7 @@ impl ::core::default::Default for TimedTextPadding {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Media_Core'*"]
 pub struct TimedTextPoint {
     pub X: f64,
     pub Y: f64,
@@ -11178,6 +11268,7 @@ impl ::core::default::Default for TimedTextPoint {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextRegion(::windows::core::IUnknown);
 impl TimedTextRegion {
@@ -11386,6 +11477,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Time
 }
 unsafe impl ::core::marker::Send for TimedTextRegion {}
 unsafe impl ::core::marker::Sync for TimedTextRegion {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextRuby(::windows::core::IUnknown);
 impl TimedTextRuby {
@@ -11497,6 +11589,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Time
 }
 unsafe impl ::core::marker::Send for TimedTextRuby {}
 unsafe impl ::core::marker::Sync for TimedTextRuby {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextRubyAlign(pub i32);
 impl TimedTextRubyAlign {
@@ -11528,6 +11621,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextRubyAlign {
 impl ::windows::core::DefaultType for TimedTextRubyAlign {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextRubyPosition(pub i32);
 impl TimedTextRubyPosition {
@@ -11556,6 +11650,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextRubyPosition {
 impl ::windows::core::DefaultType for TimedTextRubyPosition {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextRubyReserve(pub i32);
 impl TimedTextRubyReserve {
@@ -11586,6 +11681,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextRubyReserve {
 impl ::windows::core::DefaultType for TimedTextRubyReserve {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextScrollMode(pub i32);
 impl TimedTextScrollMode {
@@ -11614,6 +11710,7 @@ impl ::windows::core::DefaultType for TimedTextScrollMode {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Media_Core'*"]
 pub struct TimedTextSize {
     pub Height: f64,
     pub Width: f64,
@@ -11645,6 +11742,7 @@ impl ::core::default::Default for TimedTextSize {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextSource(::windows::core::IUnknown);
 impl TimedTextSource {
@@ -11789,6 +11887,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Time
 }
 unsafe impl ::core::marker::Send for TimedTextSource {}
 unsafe impl ::core::marker::Sync for TimedTextSource {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextSourceResolveResultEventArgs(::windows::core::IUnknown);
 impl TimedTextSourceResolveResultEventArgs {
@@ -11871,6 +11970,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Time
 }
 unsafe impl ::core::marker::Send for TimedTextSourceResolveResultEventArgs {}
 unsafe impl ::core::marker::Sync for TimedTextSourceResolveResultEventArgs {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextStyle(::windows::core::IUnknown);
 impl TimedTextStyle {
@@ -12163,6 +12263,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Time
 }
 unsafe impl ::core::marker::Send for TimedTextStyle {}
 unsafe impl ::core::marker::Sync for TimedTextStyle {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextSubformat(::windows::core::IUnknown);
 impl TimedTextSubformat {
@@ -12270,6 +12371,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Time
 }
 unsafe impl ::core::marker::Send for TimedTextSubformat {}
 unsafe impl ::core::marker::Sync for TimedTextSubformat {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextUnit(pub i32);
 impl TimedTextUnit {
@@ -12297,6 +12399,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextUnit {
 impl ::windows::core::DefaultType for TimedTextUnit {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextWeight(pub i32);
 impl TimedTextWeight {
@@ -12324,6 +12427,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextWeight {
 impl ::windows::core::DefaultType for TimedTextWeight {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextWrapping(pub i32);
 impl TimedTextWrapping {
@@ -12351,6 +12455,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextWrapping {
 impl ::windows::core::DefaultType for TimedTextWrapping {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextWritingMode(pub i32);
 impl TimedTextWritingMode {
@@ -12383,6 +12488,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextWritingMode {
 impl ::windows::core::DefaultType for TimedTextWritingMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct VideoStabilizationEffect(::windows::core::IUnknown);
 impl VideoStabilizationEffect {
@@ -12509,6 +12615,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::IMediaExtension> for &VideoStabil
 }
 unsafe impl ::core::marker::Send for VideoStabilizationEffect {}
 unsafe impl ::core::marker::Sync for VideoStabilizationEffect {}
+#[doc = "*Required features: 'Media_Core', 'Media_Effects'*"]
 #[cfg(feature = "Media_Effects")]
 #[repr(transparent)]
 pub struct VideoStabilizationEffectDefinition(::windows::core::IUnknown);
@@ -12643,6 +12750,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Effects::IVideoEffectDefinition> 
 unsafe impl ::core::marker::Send for VideoStabilizationEffectDefinition {}
 #[cfg(feature = "Media_Effects")]
 unsafe impl ::core::marker::Sync for VideoStabilizationEffectDefinition {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct VideoStabilizationEffectEnabledChangedEventArgs(::windows::core::IUnknown);
 impl VideoStabilizationEffectEnabledChangedEventArgs {
@@ -12717,6 +12825,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vide
 }
 unsafe impl ::core::marker::Send for VideoStabilizationEffectEnabledChangedEventArgs {}
 unsafe impl ::core::marker::Sync for VideoStabilizationEffectEnabledChangedEventArgs {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct VideoStabilizationEffectEnabledChangedReason(pub i32);
 impl VideoStabilizationEffectEnabledChangedReason {
@@ -12745,6 +12854,7 @@ unsafe impl ::windows::core::RuntimeType for VideoStabilizationEffectEnabledChan
 impl ::windows::core::DefaultType for VideoStabilizationEffectEnabledChangedReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct VideoStreamDescriptor(::windows::core::IUnknown);
 impl VideoStreamDescriptor {
@@ -12922,6 +13032,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaStreamDescriptor2> for &VideoStrea
 }
 unsafe impl ::core::marker::Send for VideoStreamDescriptor {}
 unsafe impl ::core::marker::Sync for VideoStreamDescriptor {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct VideoTrack(::windows::core::IUnknown);
 impl VideoTrack {
@@ -13086,6 +13197,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaTrack> for &VideoTrack {
 }
 unsafe impl ::core::marker::Send for VideoTrack {}
 unsafe impl ::core::marker::Sync for VideoTrack {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct VideoTrackOpenFailedEventArgs(::windows::core::IUnknown);
 impl VideoTrackOpenFailedEventArgs {
@@ -13160,6 +13272,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vide
 }
 unsafe impl ::core::marker::Send for VideoTrackOpenFailedEventArgs {}
 unsafe impl ::core::marker::Sync for VideoTrackOpenFailedEventArgs {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct VideoTrackSupportInfo(::windows::core::IUnknown);
 impl VideoTrackSupportInfo {

@@ -348,6 +348,7 @@ pub struct ITargetedContentValueVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentAction(::windows::core::IUnknown);
 impl TargetedContentAction {
@@ -423,6 +424,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
 }
 unsafe impl ::core::marker::Send for TargetedContentAction {}
 unsafe impl ::core::marker::Sync for TargetedContentAction {}
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentAppInstallationState(pub i32);
 impl TargetedContentAppInstallationState {
@@ -451,6 +453,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentAppInstallationState
 impl ::windows::core::DefaultType for TargetedContentAppInstallationState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentAvailability(pub i32);
 impl TargetedContentAvailability {
@@ -479,6 +482,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentAvailability {
 impl ::windows::core::DefaultType for TargetedContentAvailability {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentAvailabilityChangedEventArgs(::windows::core::IUnknown);
 impl TargetedContentAvailabilityChangedEventArgs {
@@ -554,6 +558,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
 }
 unsafe impl ::core::marker::Send for TargetedContentAvailabilityChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TargetedContentAvailabilityChangedEventArgs {}
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentChangedEventArgs(::windows::core::IUnknown);
 impl TargetedContentChangedEventArgs {
@@ -636,6 +641,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
 }
 unsafe impl ::core::marker::Send for TargetedContentChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TargetedContentChangedEventArgs {}
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentCollection(::windows::core::IUnknown);
 impl TargetedContentCollection {
@@ -749,6 +755,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
 }
 unsafe impl ::core::marker::Send for TargetedContentCollection {}
 unsafe impl ::core::marker::Sync for TargetedContentCollection {}
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentContainer(::windows::core::IUnknown);
 impl TargetedContentContainer {
@@ -863,6 +870,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
 }
 unsafe impl ::core::marker::Send for TargetedContentContainer {}
 unsafe impl ::core::marker::Sync for TargetedContentContainer {}
+#[doc = "*Required features: 'Services_TargetedContent', 'Storage_Streams'*"]
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 pub struct TargetedContentFile(::windows::core::IUnknown);
@@ -982,6 +990,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomA
 unsafe impl ::core::marker::Send for TargetedContentFile {}
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::core::marker::Sync for TargetedContentFile {}
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentImage(::windows::core::IUnknown);
 impl TargetedContentImage {
@@ -1097,6 +1106,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomA
 }
 unsafe impl ::core::marker::Send for TargetedContentImage {}
 unsafe impl ::core::marker::Sync for TargetedContentImage {}
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentInteraction(pub i32);
 impl TargetedContentInteraction {
@@ -1135,6 +1145,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentInteraction {
 impl ::windows::core::DefaultType for TargetedContentInteraction {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentItem(::windows::core::IUnknown);
 impl TargetedContentItem {
@@ -1240,6 +1251,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
 }
 unsafe impl ::core::marker::Send for TargetedContentItem {}
 unsafe impl ::core::marker::Sync for TargetedContentItem {}
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentItemState(::windows::core::IUnknown);
 impl TargetedContentItemState {
@@ -1321,6 +1333,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
 }
 unsafe impl ::core::marker::Send for TargetedContentItemState {}
 unsafe impl ::core::marker::Sync for TargetedContentItemState {}
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentObject(::windows::core::IUnknown);
 impl TargetedContentObject {
@@ -1416,6 +1429,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
 }
 unsafe impl ::core::marker::Send for TargetedContentObject {}
 unsafe impl ::core::marker::Sync for TargetedContentObject {}
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentObjectKind(pub i32);
 impl TargetedContentObjectKind {
@@ -1444,6 +1458,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentObjectKind {
 impl ::windows::core::DefaultType for TargetedContentObjectKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentStateChangedEventArgs(::windows::core::IUnknown);
 impl TargetedContentStateChangedEventArgs {
@@ -1519,6 +1534,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
 }
 unsafe impl ::core::marker::Send for TargetedContentStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TargetedContentStateChangedEventArgs {}
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentSubscription(::windows::core::IUnknown);
 impl TargetedContentSubscription {
@@ -1657,6 +1673,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
 }
 unsafe impl ::core::marker::Send for TargetedContentSubscription {}
 unsafe impl ::core::marker::Sync for TargetedContentSubscription {}
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentSubscriptionOptions(::windows::core::IUnknown);
 impl TargetedContentSubscriptionOptions {
@@ -1762,6 +1779,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
 }
 unsafe impl ::core::marker::Send for TargetedContentSubscriptionOptions {}
 unsafe impl ::core::marker::Sync for TargetedContentSubscriptionOptions {}
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentValue(::windows::core::IUnknown);
 impl TargetedContentValue {
@@ -1950,6 +1968,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
 }
 unsafe impl ::core::marker::Send for TargetedContentValue {}
 unsafe impl ::core::marker::Sync for TargetedContentValue {}
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentValueKind(pub i32);
 impl TargetedContentValueKind {

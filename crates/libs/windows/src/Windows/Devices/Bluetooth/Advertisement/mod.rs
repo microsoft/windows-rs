@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisement(::windows::core::IUnknown);
 impl BluetoothLEAdvertisement {
@@ -137,6 +138,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisement {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisement {}
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementBytePattern(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementBytePattern {
@@ -257,6 +259,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementBytePattern {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementBytePattern {}
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementDataSection(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementDataSection {
@@ -508,6 +511,7 @@ impl BluetoothLEAdvertisementDataTypes {
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementDataTypes {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes";
 }
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementFilter(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementFilter {
@@ -601,6 +605,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementFilter {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementFilter {}
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementFlags(pub u32);
 impl BluetoothLEAdvertisementFlags {
@@ -632,6 +637,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementFlags {
 impl ::windows::core::DefaultType for BluetoothLEAdvertisementFlags {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementPublisher(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementPublisher {
@@ -797,6 +803,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisher {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisher {}
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementPublisherStatus(pub i32);
 impl BluetoothLEAdvertisementPublisherStatus {
@@ -828,6 +835,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisherSt
 impl ::windows::core::DefaultType for BluetoothLEAdvertisementPublisherStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementPublisherStatusChangedEventArgs(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
@@ -917,6 +925,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementReceivedEventArgs(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementReceivedEventArgs {
@@ -1070,6 +1079,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementReceivedEventArgs {}
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementType(pub i32);
 impl BluetoothLEAdvertisementType {
@@ -1101,6 +1111,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementType {
 impl ::windows::core::DefaultType for BluetoothLEAdvertisementType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementWatcher(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementWatcher {
@@ -1302,6 +1313,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcher {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcher {}
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementWatcherStatus(pub i32);
 impl BluetoothLEAdvertisementWatcherStatus {
@@ -1332,6 +1344,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcherStat
 impl ::windows::core::DefaultType for BluetoothLEAdvertisementWatcherStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementWatcherStoppedEventArgs(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementWatcherStoppedEventArgs {
@@ -1406,6 +1419,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcherStoppedEventArgs {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcherStoppedEventArgs {}
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEManufacturerData(::windows::core::IUnknown);
 impl BluetoothLEManufacturerData {
@@ -1515,6 +1529,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEManufacturerData {}
 unsafe impl ::core::marker::Sync for BluetoothLEManufacturerData {}
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEScanningMode(pub i32);
 impl BluetoothLEScanningMode {

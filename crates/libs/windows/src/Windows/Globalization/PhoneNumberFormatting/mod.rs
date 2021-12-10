@@ -104,6 +104,7 @@ pub struct IPhoneNumberInfoStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, phonenumber: *mut ::windows::core::RawPtr, result__: *mut PhoneNumberParseResult) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, regioncode: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, phonenumber: *mut ::windows::core::RawPtr, result__: *mut PhoneNumberParseResult) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Globalization_PhoneNumberFormatting'*"]
 #[repr(transparent)]
 pub struct PhoneNumberFormat(pub i32);
 impl PhoneNumberFormat {
@@ -133,6 +134,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneNumberFormat {
 impl ::windows::core::DefaultType for PhoneNumberFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Globalization_PhoneNumberFormatting'*"]
 #[repr(transparent)]
 pub struct PhoneNumberFormatter(::windows::core::IUnknown);
 impl PhoneNumberFormatter {
@@ -267,6 +269,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneNumberFormatter {}
 unsafe impl ::core::marker::Sync for PhoneNumberFormatter {}
+#[doc = "*Required features: 'Globalization_PhoneNumberFormatting'*"]
 #[repr(transparent)]
 pub struct PhoneNumberInfo(::windows::core::IUnknown);
 impl PhoneNumberInfo {
@@ -450,6 +453,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> f
 }
 unsafe impl ::core::marker::Send for PhoneNumberInfo {}
 unsafe impl ::core::marker::Sync for PhoneNumberInfo {}
+#[doc = "*Required features: 'Globalization_PhoneNumberFormatting'*"]
 #[repr(transparent)]
 pub struct PhoneNumberMatchResult(pub i32);
 impl PhoneNumberMatchResult {
@@ -479,6 +483,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneNumberMatchResult {
 impl ::windows::core::DefaultType for PhoneNumberMatchResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Globalization_PhoneNumberFormatting'*"]
 #[repr(transparent)]
 pub struct PhoneNumberParseResult(pub i32);
 impl PhoneNumberParseResult {
@@ -509,6 +514,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneNumberParseResult {
 impl ::windows::core::DefaultType for PhoneNumberParseResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Globalization_PhoneNumberFormatting'*"]
 #[repr(transparent)]
 pub struct PredictedPhoneNumberKind(pub i32);
 impl PredictedPhoneNumberKind {

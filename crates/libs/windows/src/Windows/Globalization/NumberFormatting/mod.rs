@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
 pub struct CurrencyFormatter(::windows::core::IUnknown);
 impl CurrencyFormatter {
@@ -447,6 +448,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISignificantDigitsOption> for &CurrencyF
 }
 unsafe impl ::core::marker::Send for CurrencyFormatter {}
 unsafe impl ::core::marker::Sync for CurrencyFormatter {}
+#[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
 pub struct CurrencyFormatterMode(pub i32);
 impl CurrencyFormatterMode {
@@ -474,6 +476,7 @@ unsafe impl ::windows::core::RuntimeType for CurrencyFormatterMode {
 impl ::windows::core::DefaultType for CurrencyFormatterMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
 pub struct DecimalFormatter(::windows::core::IUnknown);
 impl DecimalFormatter {
@@ -996,6 +999,7 @@ pub struct IIncrementNumberRounderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
 pub struct INumberFormatter(::windows::core::IUnknown);
 impl INumberFormatter {
@@ -1092,6 +1096,7 @@ pub struct INumberFormatterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
 pub struct INumberFormatter2(::windows::core::IUnknown);
 impl INumberFormatter2 {
@@ -1188,6 +1193,7 @@ pub struct INumberFormatter2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
 pub struct INumberFormatterOptions(::windows::core::IUnknown);
 impl INumberFormatterOptions {
@@ -1359,6 +1365,7 @@ pub struct INumberFormatterOptionsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
 pub struct INumberParser(::windows::core::IUnknown);
 impl INumberParser {
@@ -1461,6 +1468,7 @@ pub struct INumberParserVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
 pub struct INumberRounder(::windows::core::IUnknown);
 impl INumberRounder {
@@ -1581,6 +1589,7 @@ pub struct INumberRounderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32, result__: *mut f32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64, result__: *mut f64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
 pub struct INumberRounderOption(::windows::core::IUnknown);
 impl INumberRounderOption {
@@ -1746,6 +1755,7 @@ pub struct IPermilleFormatterFactoryVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languages: ::windows::core::RawPtr, geographicregion: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
 pub struct ISignedZeroOption(::windows::core::IUnknown);
 impl ISignedZeroOption {
@@ -1852,6 +1862,7 @@ pub struct ISignificantDigitsNumberRounderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
 pub struct ISignificantDigitsOption(::windows::core::IUnknown);
 impl ISignificantDigitsOption {
@@ -1937,6 +1948,7 @@ pub struct ISignificantDigitsOptionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
 pub struct IncrementNumberRounder(::windows::core::IUnknown);
 impl IncrementNumberRounder {
@@ -2097,6 +2109,7 @@ impl<'a> ::windows::core::IntoParam<'a, INumberRounder> for &IncrementNumberRoun
 }
 unsafe impl ::core::marker::Send for IncrementNumberRounder {}
 unsafe impl ::core::marker::Sync for IncrementNumberRounder {}
+#[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
 pub struct NumeralSystemTranslator(::windows::core::IUnknown);
 impl NumeralSystemTranslator {
@@ -2215,6 +2228,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Nume
 }
 unsafe impl ::core::marker::Send for NumeralSystemTranslator {}
 unsafe impl ::core::marker::Sync for NumeralSystemTranslator {}
+#[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
 pub struct PercentFormatter(::windows::core::IUnknown);
 impl PercentFormatter {
@@ -2637,6 +2651,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISignificantDigitsOption> for &PercentFo
 }
 unsafe impl ::core::marker::Send for PercentFormatter {}
 unsafe impl ::core::marker::Sync for PercentFormatter {}
+#[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
 pub struct PermilleFormatter(::windows::core::IUnknown);
 impl PermilleFormatter {
@@ -3059,6 +3074,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISignificantDigitsOption> for &PermilleF
 }
 unsafe impl ::core::marker::Send for PermilleFormatter {}
 unsafe impl ::core::marker::Sync for PermilleFormatter {}
+#[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
 pub struct RoundingAlgorithm(pub i32);
 impl RoundingAlgorithm {
@@ -3095,6 +3111,7 @@ unsafe impl ::windows::core::RuntimeType for RoundingAlgorithm {
 impl ::windows::core::DefaultType for RoundingAlgorithm {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
 pub struct SignificantDigitsNumberRounder(::windows::core::IUnknown);
 impl SignificantDigitsNumberRounder {

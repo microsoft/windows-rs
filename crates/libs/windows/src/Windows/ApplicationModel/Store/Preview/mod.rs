@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "ApplicationModel_Store_Preview_InstallControl")]
 pub mod InstallControl;
+#[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
 #[repr(transparent)]
 pub struct DeliveryOptimizationDownloadMode(pub i32);
 impl DeliveryOptimizationDownloadMode {
@@ -32,6 +33,7 @@ unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationDownloadMode {
 impl ::windows::core::DefaultType for DeliveryOptimizationDownloadMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
 #[repr(transparent)]
 pub struct DeliveryOptimizationDownloadModeSource(pub i32);
 impl DeliveryOptimizationDownloadModeSource {
@@ -59,6 +61,7 @@ unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationDownloadModeSou
 impl ::windows::core::DefaultType for DeliveryOptimizationDownloadModeSource {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
 #[repr(transparent)]
 pub struct DeliveryOptimizationSettings(::windows::core::IUnknown);
 impl DeliveryOptimizationSettings {
@@ -624,6 +627,7 @@ impl StoreConfiguration {
 impl ::windows::core::RuntimeName for StoreConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.StoreConfiguration";
 }
+#[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
 #[repr(transparent)]
 pub struct StoreHardwareManufacturerInfo(::windows::core::IUnknown);
 impl StoreHardwareManufacturerInfo {
@@ -719,6 +723,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StoreHardwareManufacturerInfo {}
 unsafe impl ::core::marker::Sync for StoreHardwareManufacturerInfo {}
+#[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
 #[repr(transparent)]
 pub struct StoreLogOptions(pub u32);
 impl StoreLogOptions {
@@ -770,6 +775,7 @@ impl StorePreview {
 impl ::windows::core::RuntimeName for StorePreview {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.StorePreview";
 }
+#[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
 #[repr(transparent)]
 pub struct StorePreviewProductInfo(::windows::core::IUnknown);
 impl StorePreviewProductInfo {
@@ -873,6 +879,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorePreviewProductInfo {}
 unsafe impl ::core::marker::Sync for StorePreviewProductInfo {}
+#[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
 #[repr(transparent)]
 pub struct StorePreviewProductPurchaseStatus(pub i32);
 impl StorePreviewProductPurchaseStatus {
@@ -902,6 +909,7 @@ unsafe impl ::windows::core::RuntimeType for StorePreviewProductPurchaseStatus {
 impl ::windows::core::DefaultType for StorePreviewProductPurchaseStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
 #[repr(transparent)]
 pub struct StorePreviewPurchaseResults(::windows::core::IUnknown);
 impl StorePreviewPurchaseResults {
@@ -976,6 +984,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorePreviewPurchaseResults {}
 unsafe impl ::core::marker::Sync for StorePreviewPurchaseResults {}
+#[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
 #[repr(transparent)]
 pub struct StorePreviewSkuInfo(::windows::core::IUnknown);
 impl StorePreviewSkuInfo {
@@ -1106,6 +1115,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorePreviewSkuInfo {}
 unsafe impl ::core::marker::Sync for StorePreviewSkuInfo {}
+#[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
 #[repr(transparent)]
 pub struct StoreSystemFeature(pub i32);
 impl StoreSystemFeature {

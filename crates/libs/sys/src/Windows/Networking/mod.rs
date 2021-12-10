@@ -19,6 +19,7 @@ pub mod Vpn;
 pub mod XboxLive;
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'Networking'*"]
 #[repr(transparent)]
 pub struct DomainNameType(pub i32);
 impl DomainNameType {
@@ -33,6 +34,7 @@ impl ::core::clone::Clone for DomainNameType {
 }
 pub type EndpointPair = *mut ::core::ffi::c_void;
 pub type HostName = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking'*"]
 #[repr(transparent)]
 pub struct HostNameSortOptions(pub u32);
 impl HostNameSortOptions {
@@ -45,6 +47,7 @@ impl ::core::clone::Clone for HostNameSortOptions {
         *self
     }
 }
+#[doc = "*Required features: 'Networking'*"]
 #[repr(transparent)]
 pub struct HostNameType(pub i32);
 impl HostNameType {

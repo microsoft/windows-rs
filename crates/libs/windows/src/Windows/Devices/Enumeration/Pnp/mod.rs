@@ -109,6 +109,7 @@ pub struct IPnpObjectWatcherVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Enumeration_Pnp'*"]
 #[repr(transparent)]
 pub struct PnpObject(::windows::core::IUnknown);
 impl PnpObject {
@@ -241,6 +242,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PnpO
 }
 unsafe impl ::core::marker::Send for PnpObject {}
 unsafe impl ::core::marker::Sync for PnpObject {}
+#[doc = "*Required features: 'Devices_Enumeration_Pnp', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PnpObjectCollection(::windows::core::IUnknown);
@@ -434,6 +436,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for PnpObjectCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for PnpObjectCollection {}
+#[doc = "*Required features: 'Devices_Enumeration_Pnp'*"]
 #[repr(transparent)]
 pub struct PnpObjectType(pub i32);
 impl PnpObjectType {
@@ -468,6 +471,7 @@ unsafe impl ::windows::core::RuntimeType for PnpObjectType {
 impl ::windows::core::DefaultType for PnpObjectType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Enumeration_Pnp'*"]
 #[repr(transparent)]
 pub struct PnpObjectUpdate(::windows::core::IUnknown);
 impl PnpObjectUpdate {
@@ -557,6 +561,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PnpO
 }
 unsafe impl ::core::marker::Send for PnpObjectUpdate {}
 unsafe impl ::core::marker::Sync for PnpObjectUpdate {}
+#[doc = "*Required features: 'Devices_Enumeration_Pnp'*"]
 #[repr(transparent)]
 pub struct PnpObjectWatcher(::windows::core::IUnknown);
 impl PnpObjectWatcher {

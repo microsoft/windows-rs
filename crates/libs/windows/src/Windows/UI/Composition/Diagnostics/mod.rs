@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Composition_Diagnostics'*"]
 #[repr(transparent)]
 pub struct CompositionDebugHeatMaps(::windows::core::IUnknown);
 impl CompositionDebugHeatMaps {
@@ -82,6 +83,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comp
 }
 unsafe impl ::core::marker::Send for CompositionDebugHeatMaps {}
 unsafe impl ::core::marker::Sync for CompositionDebugHeatMaps {}
+#[doc = "*Required features: 'UI_Composition_Diagnostics'*"]
 #[repr(transparent)]
 pub struct CompositionDebugOverdrawContentKinds(pub u32);
 impl CompositionDebugOverdrawContentKinds {
@@ -116,6 +118,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionDebugOverdrawContentKind
 impl ::windows::core::DefaultType for CompositionDebugOverdrawContentKinds {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition_Diagnostics'*"]
 #[repr(transparent)]
 pub struct CompositionDebugSettings(::windows::core::IUnknown);
 impl CompositionDebugSettings {

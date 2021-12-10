@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Security_Authentication_OnlineId'*"]
 #[repr(transparent)]
 pub struct CredentialPromptType(pub i32);
 impl CredentialPromptType {
@@ -220,6 +221,7 @@ pub struct IUserIdentityVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Security_Authentication_OnlineId'*"]
 #[repr(transparent)]
 pub struct OnlineIdAuthenticator(::windows::core::IUnknown);
 impl OnlineIdAuthenticator {
@@ -343,6 +345,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Onli
 }
 unsafe impl ::core::marker::Send for OnlineIdAuthenticator {}
 unsafe impl ::core::marker::Sync for OnlineIdAuthenticator {}
+#[doc = "*Required features: 'Security_Authentication_OnlineId'*"]
 #[repr(transparent)]
 pub struct OnlineIdServiceTicket(::windows::core::IUnknown);
 impl OnlineIdServiceTicket {
@@ -431,6 +434,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Onli
 }
 unsafe impl ::core::marker::Send for OnlineIdServiceTicket {}
 unsafe impl ::core::marker::Sync for OnlineIdServiceTicket {}
+#[doc = "*Required features: 'Security_Authentication_OnlineId'*"]
 #[repr(transparent)]
 pub struct OnlineIdServiceTicketRequest(::windows::core::IUnknown);
 impl OnlineIdServiceTicketRequest {
@@ -551,6 +555,7 @@ impl OnlineIdSystemAuthenticator {
 impl ::windows::core::RuntimeName for OnlineIdSystemAuthenticator {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemAuthenticator";
 }
+#[doc = "*Required features: 'Security_Authentication_OnlineId'*"]
 #[repr(transparent)]
 pub struct OnlineIdSystemAuthenticatorForUser(::windows::core::IUnknown);
 impl OnlineIdSystemAuthenticatorForUser {
@@ -645,6 +650,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Onli
 }
 unsafe impl ::core::marker::Send for OnlineIdSystemAuthenticatorForUser {}
 unsafe impl ::core::marker::Sync for OnlineIdSystemAuthenticatorForUser {}
+#[doc = "*Required features: 'Security_Authentication_OnlineId'*"]
 #[repr(transparent)]
 pub struct OnlineIdSystemIdentity(::windows::core::IUnknown);
 impl OnlineIdSystemIdentity {
@@ -726,6 +732,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Onli
 }
 unsafe impl ::core::marker::Send for OnlineIdSystemIdentity {}
 unsafe impl ::core::marker::Sync for OnlineIdSystemIdentity {}
+#[doc = "*Required features: 'Security_Authentication_OnlineId'*"]
 #[repr(transparent)]
 pub struct OnlineIdSystemTicketResult(::windows::core::IUnknown);
 impl OnlineIdSystemTicketResult {
@@ -814,6 +821,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Onli
 }
 unsafe impl ::core::marker::Send for OnlineIdSystemTicketResult {}
 unsafe impl ::core::marker::Sync for OnlineIdSystemTicketResult {}
+#[doc = "*Required features: 'Security_Authentication_OnlineId'*"]
 #[repr(transparent)]
 pub struct OnlineIdSystemTicketStatus(pub i32);
 impl OnlineIdSystemTicketStatus {
@@ -842,6 +850,7 @@ unsafe impl ::windows::core::RuntimeType for OnlineIdSystemTicketStatus {
 impl ::windows::core::DefaultType for OnlineIdSystemTicketStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_OnlineId', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 #[repr(transparent)]
 pub struct SignOutUserOperation(::windows::core::IUnknown);
@@ -1062,6 +1071,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncI
 unsafe impl ::core::marker::Send for SignOutUserOperation {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::core::marker::Sync for SignOutUserOperation {}
+#[doc = "*Required features: 'Security_Authentication_OnlineId', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 #[repr(transparent)]
 pub struct UserAuthenticationOperation(::windows::core::IUnknown);
@@ -1285,6 +1295,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncO
 unsafe impl ::core::marker::Send for UserAuthenticationOperation {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::core::marker::Sync for UserAuthenticationOperation {}
+#[doc = "*Required features: 'Security_Authentication_OnlineId'*"]
 #[repr(transparent)]
 pub struct UserIdentity(::windows::core::IUnknown);
 impl UserIdentity {

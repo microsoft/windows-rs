@@ -4,6 +4,7 @@ extern "system" {}
 pub type HidBooleanControl = *mut ::core::ffi::c_void;
 pub type HidBooleanControlDescription = *mut ::core::ffi::c_void;
 pub type HidCollection = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_HumanInterfaceDevice'*"]
 #[repr(transparent)]
 pub struct HidCollectionType(pub i32);
 impl HidCollectionType {
@@ -29,6 +30,7 @@ pub type HidInputReportReceivedEventArgs = *mut ::core::ffi::c_void;
 pub type HidNumericControl = *mut ::core::ffi::c_void;
 pub type HidNumericControlDescription = *mut ::core::ffi::c_void;
 pub type HidOutputReport = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_HumanInterfaceDevice'*"]
 #[repr(transparent)]
 pub struct HidReportType(pub i32);
 impl HidReportType {

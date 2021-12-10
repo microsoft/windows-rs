@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'ApplicationModel_Core'*"]
 #[repr(transparent)]
 pub struct AppListEntry(::windows::core::IUnknown);
 impl AppListEntry {
@@ -103,6 +104,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppL
 }
 unsafe impl ::core::marker::Send for AppListEntry {}
 unsafe impl ::core::marker::Sync for AppListEntry {}
+#[doc = "*Required features: 'ApplicationModel_Core'*"]
 #[repr(transparent)]
 pub struct AppRestartFailureReason(pub i32);
 impl AppRestartFailureReason {
@@ -334,6 +336,7 @@ impl CoreApplication {
 impl ::windows::core::RuntimeName for CoreApplication {
     const NAME: &'static str = "Windows.ApplicationModel.Core.CoreApplication";
 }
+#[doc = "*Required features: 'ApplicationModel_Core'*"]
 #[repr(transparent)]
 pub struct CoreApplicationView(::windows::core::IUnknown);
 impl CoreApplicationView {
@@ -485,6 +488,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Core'*"]
 #[repr(transparent)]
 pub struct CoreApplicationViewTitleBar(::windows::core::IUnknown);
 impl CoreApplicationViewTitleBar {
@@ -615,6 +619,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Core'*"]
 #[repr(transparent)]
 pub struct HostedViewClosingEventArgs(::windows::core::IUnknown);
 impl HostedViewClosingEventArgs {
@@ -870,6 +875,7 @@ pub struct ICoreApplicationExitVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'ApplicationModel_Core'*"]
 #[repr(transparent)]
 pub struct ICoreApplicationUnhandledError(::windows::core::IUnknown);
 impl ICoreApplicationUnhandledError {
@@ -1171,6 +1177,7 @@ pub struct ICoreImmersiveApplication3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewsource: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Core'*"]
 #[repr(transparent)]
 pub struct IFrameworkView(::windows::core::IUnknown);
 impl IFrameworkView {
@@ -1270,6 +1277,7 @@ pub struct IFrameworkViewVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Core'*"]
 #[repr(transparent)]
 pub struct IFrameworkViewSource(::windows::core::IUnknown);
 impl IFrameworkViewSource {
@@ -1406,6 +1414,7 @@ pub struct IUnhandledErrorDetectedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Core'*"]
 #[repr(transparent)]
 pub struct UnhandledError(::windows::core::IUnknown);
 impl UnhandledError {
@@ -1484,6 +1493,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Unha
 }
 unsafe impl ::core::marker::Send for UnhandledError {}
 unsafe impl ::core::marker::Sync for UnhandledError {}
+#[doc = "*Required features: 'ApplicationModel_Core'*"]
 #[repr(transparent)]
 pub struct UnhandledErrorDetectedEventArgs(::windows::core::IUnknown);
 impl UnhandledErrorDetectedEventArgs {

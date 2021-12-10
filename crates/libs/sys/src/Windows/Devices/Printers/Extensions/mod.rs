@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 pub type Print3DWorkflow = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Printers_Extensions'*"]
 #[repr(transparent)]
 pub struct Print3DWorkflowDetail(pub i32);
 impl Print3DWorkflowDetail {
@@ -21,6 +22,7 @@ impl ::core::clone::Clone for Print3DWorkflowDetail {
 }
 pub type Print3DWorkflowPrintRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type Print3DWorkflowPrinterChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Printers_Extensions'*"]
 #[repr(transparent)]
 pub struct Print3DWorkflowStatus(pub i32);
 impl Print3DWorkflowStatus {

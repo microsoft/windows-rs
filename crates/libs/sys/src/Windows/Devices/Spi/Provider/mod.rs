@@ -5,6 +5,7 @@ pub type ISpiControllerProvider = *mut ::core::ffi::c_void;
 pub type ISpiDeviceProvider = *mut ::core::ffi::c_void;
 pub type ISpiProvider = *mut ::core::ffi::c_void;
 pub type ProviderSpiConnectionSettings = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Spi_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderSpiMode(pub i32);
 impl ProviderSpiMode {
@@ -19,6 +20,7 @@ impl ::core::clone::Clone for ProviderSpiMode {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Spi_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderSpiSharingMode(pub i32);
 impl ProviderSpiSharingMode {

@@ -15,6 +15,7 @@ impl ApplicationProfile {
 impl ::windows::core::RuntimeName for ApplicationProfile {
     const NAME: &'static str = "Windows.Phone.ApplicationModel.ApplicationProfile";
 }
+#[doc = "*Required features: 'Phone_ApplicationModel'*"]
 #[repr(transparent)]
 pub struct ApplicationProfileModes(pub u32);
 impl ApplicationProfileModes {

@@ -185,6 +185,7 @@ pub struct IVoiceInformationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut VoiceGender) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_SpeechSynthesis'*"]
 #[repr(transparent)]
 pub struct SpeechAppendedSilence(pub i32);
 impl SpeechAppendedSilence {
@@ -212,6 +213,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechAppendedSilence {
 impl ::windows::core::DefaultType for SpeechAppendedSilence {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_SpeechSynthesis'*"]
 #[repr(transparent)]
 pub struct SpeechPunctuationSilence(pub i32);
 impl SpeechPunctuationSilence {
@@ -239,6 +241,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechPunctuationSilence {
 impl ::windows::core::DefaultType for SpeechPunctuationSilence {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_SpeechSynthesis'*"]
 #[repr(transparent)]
 pub struct SpeechSynthesisStream(::windows::core::IUnknown);
 impl SpeechSynthesisStream {
@@ -607,6 +610,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Core::ITimedMetadataTrackProvider
 }
 unsafe impl ::core::marker::Send for SpeechSynthesisStream {}
 unsafe impl ::core::marker::Sync for SpeechSynthesisStream {}
+#[doc = "*Required features: 'Media_SpeechSynthesis'*"]
 #[repr(transparent)]
 pub struct SpeechSynthesizer(::windows::core::IUnknown);
 impl SpeechSynthesizer {
@@ -774,6 +778,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for SpeechSynthesizer {}
 unsafe impl ::core::marker::Sync for SpeechSynthesizer {}
+#[doc = "*Required features: 'Media_SpeechSynthesis'*"]
 #[repr(transparent)]
 pub struct SpeechSynthesizerOptions(::windows::core::IUnknown);
 impl SpeechSynthesizerOptions {
@@ -918,6 +923,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
 }
 unsafe impl ::core::marker::Send for SpeechSynthesizerOptions {}
 unsafe impl ::core::marker::Sync for SpeechSynthesizerOptions {}
+#[doc = "*Required features: 'Media_SpeechSynthesis'*"]
 #[repr(transparent)]
 pub struct VoiceGender(pub i32);
 impl VoiceGender {
@@ -945,6 +951,7 @@ unsafe impl ::windows::core::RuntimeType for VoiceGender {
 impl ::windows::core::DefaultType for VoiceGender {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_SpeechSynthesis'*"]
 #[repr(transparent)]
 pub struct VoiceInformation(::windows::core::IUnknown);
 impl VoiceInformation {

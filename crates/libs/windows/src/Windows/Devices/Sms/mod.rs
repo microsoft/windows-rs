@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct CellularClass(pub i32);
 impl CellularClass {
@@ -27,6 +28,7 @@ unsafe impl ::windows::core::RuntimeType for CellularClass {
 impl ::windows::core::DefaultType for CellularClass {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sms', 'Foundation', 'deprecated'*"]
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 #[repr(transparent)]
 pub struct DeleteSmsMessageOperation(::windows::core::IUnknown);
@@ -243,6 +245,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> fo
         ::core::convert::TryInto::<super::super::Foundation::IAsyncInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Devices_Sms', 'Foundation', 'deprecated'*"]
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 #[repr(transparent)]
 pub struct DeleteSmsMessagesOperation(::windows::core::IUnknown);
@@ -459,6 +462,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> fo
         ::core::convert::TryInto::<super::super::Foundation::IAsyncInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Devices_Sms', 'Foundation', 'deprecated'*"]
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 #[repr(transparent)]
 pub struct GetSmsDeviceOperation(::windows::core::IUnknown);
@@ -678,6 +682,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperatio
         ::core::convert::TryInto::<super::super::Foundation::IAsyncOperation<SmsDevice>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Devices_Sms', 'Foundation', 'deprecated'*"]
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 #[repr(transparent)]
 pub struct GetSmsMessageOperation(::windows::core::IUnknown);
@@ -897,6 +902,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperatio
         ::core::convert::TryInto::<super::super::Foundation::IAsyncOperation<ISmsMessage>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Devices_Sms', 'Foundation', 'deprecated'*"]
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 #[repr(transparent)]
 pub struct GetSmsMessagesOperation(::windows::core::IUnknown);
@@ -1171,6 +1177,7 @@ pub struct ISmsAppMessageVtbl(
     #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
+#[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
 #[repr(transparent)]
 pub struct ISmsBinaryMessage(::windows::core::IUnknown);
 impl ISmsBinaryMessage {
@@ -1347,6 +1354,7 @@ pub struct ISmsBroadcastMessageVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
 #[repr(transparent)]
 pub struct ISmsDevice(::windows::core::IUnknown);
 impl ISmsDevice {
@@ -1744,6 +1752,7 @@ pub struct ISmsFilterRulesFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, actiontype: SmsFilterActionType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct ISmsMessage(::windows::core::IUnknown);
 impl ISmsMessage {
@@ -1832,6 +1841,7 @@ pub struct ISmsMessageVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SmsMessageClass) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct ISmsMessageBase(::windows::core::IUnknown);
 impl ISmsMessageBase {
@@ -2133,6 +2143,7 @@ pub struct ISmsStatusMessageVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
 #[repr(transparent)]
 pub struct ISmsTextMessage(::windows::core::IUnknown);
 impl ISmsTextMessage {
@@ -2472,6 +2483,7 @@ pub struct ISmsWapMessageVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Devices_Sms', 'Foundation', 'deprecated'*"]
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 #[repr(transparent)]
 pub struct SendSmsMessageOperation(::windows::core::IUnknown);
@@ -2688,6 +2700,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> fo
         ::core::convert::TryInto::<super::super::Foundation::IAsyncInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsAppMessage(::windows::core::IUnknown);
 impl SmsAppMessage {
@@ -2946,6 +2959,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for &SmsAppMessage {
 }
 unsafe impl ::core::marker::Send for SmsAppMessage {}
 unsafe impl ::core::marker::Sync for SmsAppMessage {}
+#[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SmsBinaryMessage(::windows::core::IUnknown);
@@ -3130,6 +3144,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISmsMessage> for &SmsBinaryMessage {
 unsafe impl ::core::marker::Send for SmsBinaryMessage {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SmsBinaryMessage {}
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsBroadcastMessage(::windows::core::IUnknown);
 impl SmsBroadcastMessage {
@@ -3325,6 +3340,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for &SmsBroadcastMessag
 }
 unsafe impl ::core::marker::Send for SmsBroadcastMessage {}
 unsafe impl ::core::marker::Sync for SmsBroadcastMessage {}
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsBroadcastType(pub i32);
 impl SmsBroadcastType {
@@ -3365,6 +3381,7 @@ unsafe impl ::windows::core::RuntimeType for SmsBroadcastType {
 impl ::windows::core::DefaultType for SmsBroadcastType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsDataFormat(pub i32);
 impl SmsDataFormat {
@@ -3395,6 +3412,7 @@ unsafe impl ::windows::core::RuntimeType for SmsDataFormat {
 impl ::windows::core::DefaultType for SmsDataFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SmsDevice(::windows::core::IUnknown);
@@ -3612,6 +3630,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISmsDevice> for &SmsDevice {
         ::core::convert::TryInto::<ISmsDevice>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsDevice2(::windows::core::IUnknown);
 impl SmsDevice2 {
@@ -3779,6 +3798,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmsD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SmsDeviceMessageStore(::windows::core::IUnknown);
@@ -3900,6 +3920,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmsD
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsDeviceStatus(pub i32);
 impl SmsDeviceStatus {
@@ -3933,6 +3954,7 @@ unsafe impl ::windows::core::RuntimeType for SmsDeviceStatus {
 impl ::windows::core::DefaultType for SmsDeviceStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SmsDeviceStatusChangedEventHandler(pub ::windows::core::IUnknown);
@@ -4019,6 +4041,7 @@ pub struct SmsDeviceStatusChangedEventHandlerVtbl(
     #[cfg(not(feature = "deprecated"))] usize,
 );
 #[repr(C)]
+#[doc = "*Required features: 'Devices_Sms'*"]
 pub struct SmsEncodedLength {
     pub SegmentCount: u32,
     pub CharacterCountLastSegment: u32,
@@ -4052,6 +4075,7 @@ impl ::core::default::Default for SmsEncodedLength {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsEncoding(pub i32);
 impl SmsEncoding {
@@ -4088,6 +4112,7 @@ unsafe impl ::windows::core::RuntimeType for SmsEncoding {
 impl ::windows::core::DefaultType for SmsEncoding {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsFilterActionType(pub i32);
 impl SmsFilterActionType {
@@ -4117,6 +4142,7 @@ unsafe impl ::windows::core::RuntimeType for SmsFilterActionType {
 impl ::windows::core::DefaultType for SmsFilterActionType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsFilterRule(::windows::core::IUnknown);
 impl SmsFilterRule {
@@ -4300,6 +4326,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmsF
 }
 unsafe impl ::core::marker::Send for SmsFilterRule {}
 unsafe impl ::core::marker::Sync for SmsFilterRule {}
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsFilterRules(::windows::core::IUnknown);
 impl SmsFilterRules {
@@ -4392,6 +4419,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmsF
 }
 unsafe impl ::core::marker::Send for SmsFilterRules {}
 unsafe impl ::core::marker::Sync for SmsFilterRules {}
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsGeographicalScope(pub i32);
 impl SmsGeographicalScope {
@@ -4422,6 +4450,7 @@ unsafe impl ::windows::core::RuntimeType for SmsGeographicalScope {
 impl ::windows::core::DefaultType for SmsGeographicalScope {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsMessageClass(pub i32);
 impl SmsMessageClass {
@@ -4452,6 +4481,7 @@ unsafe impl ::windows::core::RuntimeType for SmsMessageClass {
 impl ::windows::core::DefaultType for SmsMessageClass {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SmsMessageFilter(pub i32);
 impl SmsMessageFilter {
@@ -4482,6 +4512,7 @@ unsafe impl ::windows::core::RuntimeType for SmsMessageFilter {
 impl ::windows::core::DefaultType for SmsMessageFilter {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SmsMessageReceivedEventArgs(::windows::core::IUnknown);
@@ -4579,6 +4610,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmsM
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SmsMessageReceivedEventHandler(pub ::windows::core::IUnknown);
@@ -4664,6 +4696,7 @@ pub struct SmsMessageReceivedEventHandlerVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsMessageReceivedTriggerDetails(::windows::core::IUnknown);
 impl SmsMessageReceivedTriggerDetails {
@@ -4788,6 +4821,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmsM
 }
 unsafe impl ::core::marker::Send for SmsMessageReceivedTriggerDetails {}
 unsafe impl ::core::marker::Sync for SmsMessageReceivedTriggerDetails {}
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsMessageRegistration(::windows::core::IUnknown);
 impl SmsMessageRegistration {
@@ -4894,6 +4928,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmsM
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsMessageType(pub i32);
 impl SmsMessageType {
@@ -4926,6 +4961,7 @@ unsafe impl ::windows::core::RuntimeType for SmsMessageType {
 impl ::windows::core::DefaultType for SmsMessageType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsModemErrorCode(pub i32);
 impl SmsModemErrorCode {
@@ -4963,6 +4999,7 @@ unsafe impl ::windows::core::RuntimeType for SmsModemErrorCode {
 impl ::windows::core::DefaultType for SmsModemErrorCode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SmsReceivedEventDetails(::windows::core::IUnknown);
@@ -5080,6 +5117,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmsR
 unsafe impl ::core::marker::Send for SmsReceivedEventDetails {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SmsReceivedEventDetails {}
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsSendMessageResult(::windows::core::IUnknown);
 impl SmsSendMessageResult {
@@ -5197,6 +5235,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmsS
 }
 unsafe impl ::core::marker::Send for SmsSendMessageResult {}
 unsafe impl ::core::marker::Sync for SmsSendMessageResult {}
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsStatusMessage(::windows::core::IUnknown);
 impl SmsStatusMessage {
@@ -5372,6 +5411,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for &SmsStatusMessage {
 }
 unsafe impl ::core::marker::Send for SmsStatusMessage {}
 unsafe impl ::core::marker::Sync for SmsStatusMessage {}
+#[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SmsTextMessage(::windows::core::IUnknown);
@@ -5640,6 +5680,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISmsTextMessage> for &SmsTextMessage {
 unsafe impl ::core::marker::Send for SmsTextMessage {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SmsTextMessage {}
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsTextMessage2(::windows::core::IUnknown);
 impl SmsTextMessage2 {
@@ -5866,6 +5907,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for &SmsTextMessage2 {
 }
 unsafe impl ::core::marker::Send for SmsTextMessage2 {}
 unsafe impl ::core::marker::Sync for SmsTextMessage2 {}
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsVoicemailMessage(::windows::core::IUnknown);
 impl SmsVoicemailMessage {
@@ -6020,6 +6062,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for &SmsVoicemailMessag
 }
 unsafe impl ::core::marker::Send for SmsVoicemailMessage {}
 unsafe impl ::core::marker::Sync for SmsVoicemailMessage {}
+#[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
 pub struct SmsWapMessage(::windows::core::IUnknown);
 impl SmsWapMessage {

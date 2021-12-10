@@ -3,6 +3,7 @@
 extern "system" {}
 pub type AppRecordingManager = *mut ::core::ffi::c_void;
 pub type AppRecordingResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_AppRecording'*"]
 #[repr(transparent)]
 pub struct AppRecordingSaveScreenshotOption(pub i32);
 impl AppRecordingSaveScreenshotOption {

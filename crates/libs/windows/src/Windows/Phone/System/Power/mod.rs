@@ -76,6 +76,7 @@ impl PowerManager {
 impl ::windows::core::RuntimeName for PowerManager {
     const NAME: &'static str = "Windows.Phone.System.Power.PowerManager";
 }
+#[doc = "*Required features: 'Phone_System_Power'*"]
 #[repr(transparent)]
 pub struct PowerSavingMode(pub i32);
 impl PowerSavingMode {

@@ -37,6 +37,7 @@ pub struct IPalmRejectionDelayZonePreviewStaticsVtbl(
     #[cfg(all(feature = "Foundation", feature = "UI_Composition"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputpanelvisual: ::windows::core::RawPtr, inputpanelrect: super::super::super::super::Foundation::Rect, viewportvisual: ::windows::core::RawPtr, viewportrect: super::super::super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "UI_Composition")))] usize,
 );
+#[doc = "*Required features: 'UI_Input_Inking_Preview'*"]
 #[repr(transparent)]
 pub struct PalmRejectionDelayZonePreview(::windows::core::IUnknown);
 impl PalmRejectionDelayZonePreview {

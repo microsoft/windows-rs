@@ -223,6 +223,7 @@ pub struct IPerceptionFrameVtbl(
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
 );
+#[doc = "*Required features: 'Devices_Perception_Provider', 'deprecated'*"]
 #[repr(transparent)]
 pub struct IPerceptionFrameProvider(::windows::core::IUnknown);
 impl IPerceptionFrameProvider {
@@ -422,6 +423,7 @@ pub struct IPerceptionFrameProviderInfoVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Devices_Perception_Provider', 'deprecated'*"]
 #[repr(transparent)]
 pub struct IPerceptionFrameProviderManager(::windows::core::IUnknown);
 impl IPerceptionFrameProviderManager {
@@ -684,6 +686,7 @@ impl KnownPerceptionFrameKind {
 impl ::windows::core::RuntimeName for KnownPerceptionFrameKind {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.KnownPerceptionFrameKind";
 }
+#[doc = "*Required features: 'Devices_Perception_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionControlGroup(::windows::core::IUnknown);
@@ -788,6 +791,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionControlGroup {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionControlGroup {}
+#[doc = "*Required features: 'Devices_Perception_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionCorrelation(::windows::core::IUnknown);
@@ -908,6 +912,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionCorrelation {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionCorrelation {}
+#[doc = "*Required features: 'Devices_Perception_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionCorrelationGroup(::windows::core::IUnknown);
@@ -1012,6 +1017,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionCorrelationGroup {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionCorrelationGroup {}
+#[doc = "*Required features: 'Devices_Perception_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionFaceAuthenticationGroup(::windows::core::IUnknown);
@@ -1116,6 +1122,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionFaceAuthenticationGroup {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionFaceAuthenticationGroup {}
+#[doc = "*Required features: 'Devices_Perception_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionFrame(::windows::core::IUnknown);
@@ -1230,6 +1237,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionFrame {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionFrame {}
+#[doc = "*Required features: 'Devices_Perception_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionFrameProviderInfo(::windows::core::IUnknown);
@@ -1437,6 +1445,7 @@ impl PerceptionFrameProviderManagerService {
 impl ::windows::core::RuntimeName for PerceptionFrameProviderManagerService {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionFrameProviderManagerService";
 }
+#[doc = "*Required features: 'Devices_Perception_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionPropertyChangeRequest(::windows::core::IUnknown);
@@ -1559,6 +1568,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionPropertyChangeRequest {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionPropertyChangeRequest {}
+#[doc = "*Required features: 'Devices_Perception_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionStartFaceAuthenticationHandler(pub ::windows::core::IUnknown);
@@ -1654,6 +1664,7 @@ pub struct PerceptionStartFaceAuthenticationHandlerVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Devices_Perception_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionStopFaceAuthenticationHandler(pub ::windows::core::IUnknown);
@@ -1739,6 +1750,7 @@ pub struct PerceptionStopFaceAuthenticationHandlerVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Devices_Perception_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionVideoFrameAllocator(::windows::core::IUnknown);

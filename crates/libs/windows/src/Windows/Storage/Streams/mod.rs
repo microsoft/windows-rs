@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct Buffer(::windows::core::IUnknown);
 impl Buffer {
@@ -134,6 +135,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBuffer> for &Buffer {
 }
 unsafe impl ::core::marker::Send for Buffer {}
 unsafe impl ::core::marker::Sync for Buffer {}
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct ByteOrder(pub i32);
 impl ByteOrder {
@@ -161,6 +163,7 @@ unsafe impl ::windows::core::RuntimeType for ByteOrder {
 impl ::windows::core::DefaultType for ByteOrder {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct DataReader(::windows::core::IUnknown);
 impl DataReader {
@@ -474,6 +477,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDataReader> for &DataReader {
 }
 unsafe impl ::core::marker::Send for DataReader {}
 unsafe impl ::core::marker::Sync for DataReader {}
+#[doc = "*Required features: 'Storage_Streams', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 #[repr(transparent)]
 pub struct DataReaderLoadOperation(::windows::core::IUnknown);
@@ -697,6 +701,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperatio
 unsafe impl ::core::marker::Send for DataReaderLoadOperation {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::core::marker::Sync for DataReaderLoadOperation {}
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct DataWriter(::windows::core::IUnknown);
 impl DataWriter {
@@ -973,6 +978,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDataWriter> for &DataWriter {
 }
 unsafe impl ::core::marker::Send for DataWriter {}
 unsafe impl ::core::marker::Sync for DataWriter {}
+#[doc = "*Required features: 'Storage_Streams', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 #[repr(transparent)]
 pub struct DataWriterStoreOperation(::windows::core::IUnknown);
@@ -1196,6 +1202,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperatio
 unsafe impl ::core::marker::Send for DataWriterStoreOperation {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::core::marker::Sync for DataWriterStoreOperation {}
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct FileInputStream(::windows::core::IUnknown);
 impl FileInputStream {
@@ -1324,6 +1331,7 @@ impl<'a> ::windows::core::IntoParam<'a, IInputStream> for &FileInputStream {
 }
 unsafe impl ::core::marker::Send for FileInputStream {}
 unsafe impl ::core::marker::Sync for FileInputStream {}
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct FileOpenDisposition(pub i32);
 impl FileOpenDisposition {
@@ -1354,6 +1362,7 @@ unsafe impl ::windows::core::RuntimeType for FileOpenDisposition {
 impl ::windows::core::DefaultType for FileOpenDisposition {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct FileOutputStream(::windows::core::IUnknown);
 impl FileOutputStream {
@@ -1490,6 +1499,7 @@ impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for &FileOutputStream {
 }
 unsafe impl ::core::marker::Send for FileOutputStream {}
 unsafe impl ::core::marker::Sync for FileOutputStream {}
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct FileRandomAccessStream(::windows::core::IUnknown);
 impl FileRandomAccessStream {
@@ -1795,6 +1805,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRandomAccessStream> for &FileRandomAcce
 }
 unsafe impl ::core::marker::Send for FileRandomAccessStream {}
 unsafe impl ::core::marker::Sync for FileRandomAccessStream {}
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct IBuffer(::windows::core::IUnknown);
 impl IBuffer {
@@ -1927,6 +1938,7 @@ pub struct IBufferStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, input: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct IContentTypeProvider(::windows::core::IUnknown);
 impl IContentTypeProvider {
@@ -2007,6 +2019,7 @@ pub struct IContentTypeProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct IDataReader(::windows::core::IUnknown);
 impl IDataReader {
@@ -2317,6 +2330,7 @@ pub struct IDataReaderStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct IDataWriter(::windows::core::IUnknown);
 impl IDataWriter {
@@ -2610,6 +2624,7 @@ pub struct IFileRandomAccessStreamStaticsVtbl(
     #[cfg(all(feature = "Foundation", feature = "System"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, filepath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, openoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "System")))] usize,
 );
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct IInputStream(::windows::core::IUnknown);
 impl IInputStream {
@@ -2723,6 +2738,7 @@ pub struct IInputStreamVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr, count: u32, options: InputStreamOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct IInputStreamReference(::windows::core::IUnknown);
 impl IInputStreamReference {
@@ -2805,6 +2821,7 @@ pub struct IInputStreamReferenceVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct IOutputStream(::windows::core::IUnknown);
 impl IOutputStream {
@@ -2928,6 +2945,7 @@ pub struct IOutputStreamVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct IPropertySetSerializer(::windows::core::IUnknown);
 impl IPropertySetSerializer {
@@ -3017,6 +3035,7 @@ pub struct IPropertySetSerializerVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyset: ::windows::core::RawPtr, buffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct IRandomAccessStream(::windows::core::IUnknown);
 impl IRandomAccessStream {
@@ -3254,6 +3273,7 @@ pub struct IRandomAccessStreamVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct IRandomAccessStreamReference(::windows::core::IUnknown);
 impl IRandomAccessStreamReference {
@@ -3380,6 +3400,7 @@ pub struct IRandomAccessStreamStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, destination: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct IRandomAccessStreamWithContentType(::windows::core::IUnknown);
 impl IRandomAccessStreamWithContentType {
@@ -3659,6 +3680,7 @@ pub struct IRandomAccessStreamWithContentTypeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct InMemoryRandomAccessStream(::windows::core::IUnknown);
 impl InMemoryRandomAccessStream {
@@ -3911,6 +3933,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRandomAccessStream> for &InMemoryRandom
 }
 unsafe impl ::core::marker::Send for InMemoryRandomAccessStream {}
 unsafe impl ::core::marker::Sync for InMemoryRandomAccessStream {}
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct InputStreamOptions(pub u32);
 impl InputStreamOptions {
@@ -3939,6 +3962,7 @@ unsafe impl ::windows::core::RuntimeType for InputStreamOptions {
 impl ::windows::core::DefaultType for InputStreamOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct InputStreamOverStream(::windows::core::IUnknown);
 impl InputStreamOverStream {
@@ -4067,6 +4091,7 @@ impl<'a> ::windows::core::IntoParam<'a, IInputStream> for &InputStreamOverStream
 }
 unsafe impl ::core::marker::Send for InputStreamOverStream {}
 unsafe impl ::core::marker::Sync for InputStreamOverStream {}
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct OutputStreamOverStream(::windows::core::IUnknown);
 impl OutputStreamOverStream {
@@ -4234,6 +4259,7 @@ impl RandomAccessStream {
 impl ::windows::core::RuntimeName for RandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.RandomAccessStream";
 }
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct RandomAccessStreamOverStream(::windows::core::IUnknown);
 impl RandomAccessStreamOverStream {
@@ -4479,6 +4505,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRandomAccessStream> for &RandomAccessSt
 }
 unsafe impl ::core::marker::Send for RandomAccessStreamOverStream {}
 unsafe impl ::core::marker::Sync for RandomAccessStreamOverStream {}
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct RandomAccessStreamReference(::windows::core::IUnknown);
 impl RandomAccessStreamReference {
@@ -4599,6 +4626,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRandomAccessStreamReference> for &Rando
 }
 unsafe impl ::core::marker::Send for RandomAccessStreamReference {}
 unsafe impl ::core::marker::Sync for RandomAccessStreamReference {}
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct UnicodeEncoding(pub i32);
 impl UnicodeEncoding {

@@ -1,8 +1,10 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Storage_Xps_Printing")]
 pub mod Printing;
+#[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type ABORTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Graphics::Gdi::HDC, param1: i32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn AbortDoc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0) -> i32 {
@@ -17,38 +19,70 @@ pub unsafe fn AbortDoc<'a, Param0: ::windows::core::IntoParam<'a, super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type DEVICE_CAPABILITIES = u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_BINNAMES: DEVICE_CAPABILITIES = 12u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_BINS: DEVICE_CAPABILITIES = 6u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_COLLATE: DEVICE_CAPABILITIES = 22u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_COLORDEVICE: DEVICE_CAPABILITIES = 32u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_COPIES: DEVICE_CAPABILITIES = 18u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_DRIVER: DEVICE_CAPABILITIES = 11u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_DUPLEX: DEVICE_CAPABILITIES = 7u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_ENUMRESOLUTIONS: DEVICE_CAPABILITIES = 13u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_EXTRA: DEVICE_CAPABILITIES = 9u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_FIELDS: DEVICE_CAPABILITIES = 1u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_FILEDEPENDENCIES: DEVICE_CAPABILITIES = 14u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_MAXEXTENT: DEVICE_CAPABILITIES = 5u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_MEDIAREADY: DEVICE_CAPABILITIES = 29u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_MEDIATYPENAMES: DEVICE_CAPABILITIES = 34u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_MEDIATYPES: DEVICE_CAPABILITIES = 35u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_MINEXTENT: DEVICE_CAPABILITIES = 4u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_ORIENTATION: DEVICE_CAPABILITIES = 17u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_NUP: DEVICE_CAPABILITIES = 33u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_PAPERNAMES: DEVICE_CAPABILITIES = 16u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_PAPERS: DEVICE_CAPABILITIES = 2u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_PAPERSIZE: DEVICE_CAPABILITIES = 3u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_PERSONALITY: DEVICE_CAPABILITIES = 25u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_PRINTERMEM: DEVICE_CAPABILITIES = 28u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_PRINTRATE: DEVICE_CAPABILITIES = 26u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_PRINTRATEPPM: DEVICE_CAPABILITIES = 31u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_PRINTRATEUNIT: DEVICE_CAPABILITIES = 27u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_SIZE: DEVICE_CAPABILITIES = 8u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_STAPLE: DEVICE_CAPABILITIES = 30u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_TRUETYPE: DEVICE_CAPABILITIES = 15u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const DC_VERSION: DEVICE_CAPABILITIES = 10u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOCINFOA {
     pub cbSize: i32,
@@ -84,6 +118,7 @@ impl ::core::default::Default for DOCINFOA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DOCINFOW {
     pub cbSize: i32,
@@ -119,6 +154,7 @@ impl ::core::default::Default for DOCINFOW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRAWPATRECT {
     pub ptPosition: super::super::Foundation::POINT,
@@ -152,6 +188,7 @@ impl ::core::default::Default for DRAWPATRECT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DeviceCapabilitiesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pdevice: Param0, pport: Param1, fwcapability: DEVICE_CAPABILITIES, poutput: super::super::Foundation::PSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEA) -> i32 {
@@ -166,6 +203,7 @@ pub unsafe fn DeviceCapabilitiesA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DeviceCapabilitiesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pdevice: Param0, pport: Param1, fwcapability: DEVICE_CAPABILITIES, poutput: super::super::Foundation::PWSTR, pdevmode: *const super::super::Graphics::Gdi::DEVMODEW) -> i32 {
@@ -180,6 +218,7 @@ pub unsafe fn DeviceCapabilitiesW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn EndDoc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0) -> i32 {
@@ -194,6 +233,7 @@ pub unsafe fn EndDoc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Gr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn EndPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0) -> i32 {
@@ -208,6 +248,7 @@ pub unsafe fn EndPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::G
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn Escape<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, iescape: i32, cjin: i32, pvin: Param3, pvout: *mut ::core::ffi::c_void) -> i32 {
@@ -222,6 +263,7 @@ pub unsafe fn Escape<'a, Param0: ::windows::core::IntoParam<'a, super::super::Gr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ExtEscape<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, iescape: i32, cjinput: i32, lpindata: Param3, cjoutput: i32, lpoutdata: super::super::Foundation::PSTR) -> i32 {
@@ -237,6 +279,7 @@ pub unsafe fn ExtEscape<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     unimplemented!("Unsupported target OS");
 }
 pub type HPTPROVIDER = isize;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsDocumentPackageTarget(::windows::core::IUnknown);
 impl IXpsDocumentPackageTarget {
@@ -300,6 +343,7 @@ pub struct IXpsDocumentPackageTargetVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpsfactory: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documenttype: *mut XPS_DOCUMENT_TYPE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsDocumentPackageTarget3D(::windows::core::IUnknown);
 impl IXpsDocumentPackageTarget3D {
@@ -358,6 +402,7 @@ pub struct IXpsDocumentPackageTarget3DVtbl(
     #[cfg(not(any(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpsfactory: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMBrush(::windows::core::IUnknown);
 impl IXpsOMBrush {
@@ -443,6 +488,7 @@ pub struct IXpsOMBrushVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, opacity: *mut f32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, opacity: f32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMCanvas(::windows::core::IUnknown);
 impl IXpsOMCanvas {
@@ -753,6 +799,7 @@ pub struct IXpsOMCanvasVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remotedictionaryresource: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, canvas: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMColorProfileResource(::windows::core::IUnknown);
 impl IXpsOMColorProfileResource {
@@ -865,6 +912,7 @@ pub struct IXpsOMColorProfileResourceVtbl(
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcestream: ::windows::core::RawPtr, partname: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMColorProfileResourceCollection(::windows::core::IUnknown);
 impl IXpsOMColorProfileResourceCollection {
@@ -944,6 +992,7 @@ pub struct IXpsOMColorProfileResourceCollectionVtbl(
     #[cfg(feature = "Win32_Storage_Packaging_Opc")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partname: ::windows::core::RawPtr, part: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Packaging_Opc"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMCoreProperties(::windows::core::IUnknown);
 impl IXpsOMCoreProperties {
@@ -1241,6 +1290,7 @@ pub struct IXpsOMCorePropertiesVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coreproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMDashCollection(::windows::core::IUnknown);
 impl IXpsOMDashCollection {
@@ -1313,6 +1363,7 @@ pub struct IXpsOMDashCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, dash: *const XPS_DASH) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dash: *const XPS_DASH) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMDictionary(::windows::core::IUnknown);
 impl IXpsOMDictionary {
@@ -1414,6 +1465,7 @@ pub struct IXpsOMDictionaryVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionary: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMDocument(::windows::core::IUnknown);
 impl IXpsOMDocument {
@@ -1531,6 +1583,7 @@ pub struct IXpsOMDocumentVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signatureblockresources: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, document: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMDocumentCollection(::windows::core::IUnknown);
 impl IXpsOMDocumentCollection {
@@ -1603,6 +1656,7 @@ pub struct IXpsOMDocumentCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, document: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, document: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMDocumentSequence(::windows::core::IUnknown);
 impl IXpsOMDocumentSequence {
@@ -1701,6 +1755,7 @@ pub struct IXpsOMDocumentSequenceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printticketresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printticketresource: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMDocumentStructureResource(::windows::core::IUnknown);
 impl IXpsOMDocumentStructureResource {
@@ -1818,6 +1873,7 @@ pub struct IXpsOMDocumentStructureResourceVtbl(
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcestream: ::windows::core::RawPtr, partname: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMFontResource(::windows::core::IUnknown);
 impl IXpsOMFontResource {
@@ -1935,6 +1991,7 @@ pub struct IXpsOMFontResourceVtbl(
     #[cfg(not(any(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, embeddingoption: *mut XPS_FONT_EMBEDDING) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMFontResourceCollection(::windows::core::IUnknown);
 impl IXpsOMFontResourceCollection {
@@ -2014,6 +2071,7 @@ pub struct IXpsOMFontResourceCollectionVtbl(
     #[cfg(feature = "Win32_Storage_Packaging_Opc")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partname: ::windows::core::RawPtr, part: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Packaging_Opc"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMGeometry(::windows::core::IUnknown);
 impl IXpsOMGeometry {
@@ -2136,6 +2194,7 @@ pub struct IXpsOMGeometryVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geometry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMGeometryFigure(::windows::core::IUnknown);
 impl IXpsOMGeometryFigure {
@@ -2262,6 +2321,7 @@ pub struct IXpsOMGeometryFigureVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, segmentstrokepattern: *mut XPS_SEGMENT_STROKE_PATTERN) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geometryfigure: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMGeometryFigureCollection(::windows::core::IUnknown);
 impl IXpsOMGeometryFigureCollection {
@@ -2334,6 +2394,7 @@ pub struct IXpsOMGeometryFigureCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, geometryfigure: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geometryfigure: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMGlyphs(::windows::core::IUnknown);
 impl IXpsOMGlyphs {
@@ -2707,6 +2768,7 @@ pub struct IXpsOMGlyphsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, editor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, glyphs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMGlyphsEditor(::windows::core::IUnknown);
 impl IXpsOMGlyphsEditor {
@@ -2844,6 +2906,7 @@ pub struct IXpsOMGlyphsEditorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, devicefontname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMGradientBrush(::windows::core::IUnknown);
 impl IXpsOMGradientBrush {
@@ -2999,6 +3062,7 @@ pub struct IXpsOMGradientBrushVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, colorinterpolationmode: *mut XPS_COLOR_INTERPOLATION) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, colorinterpolationmode: XPS_COLOR_INTERPOLATION) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMGradientStop(::windows::core::IUnknown);
 impl IXpsOMGradientStop {
@@ -3072,6 +3136,7 @@ pub struct IXpsOMGradientStopVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: *const XPS_COLOR, colorprofile: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gradientstop: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMGradientStopCollection(::windows::core::IUnknown);
 impl IXpsOMGradientStopCollection {
@@ -3144,6 +3209,7 @@ pub struct IXpsOMGradientStopCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, stop: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stop: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMImageBrush(::windows::core::IUnknown);
 impl IXpsOMImageBrush {
@@ -3346,6 +3412,7 @@ pub struct IXpsOMImageBrushVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, colorprofileresource: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagebrush: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMImageResource(::windows::core::IUnknown);
 impl IXpsOMImageResource {
@@ -3463,6 +3530,7 @@ pub struct IXpsOMImageResourceVtbl(
     #[cfg(not(any(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagetype: *mut XPS_IMAGE_TYPE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMImageResourceCollection(::windows::core::IUnknown);
 impl IXpsOMImageResourceCollection {
@@ -3542,6 +3610,7 @@ pub struct IXpsOMImageResourceCollectionVtbl(
     #[cfg(feature = "Win32_Storage_Packaging_Opc")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partname: ::windows::core::RawPtr, part: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Packaging_Opc"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMLinearGradientBrush(::windows::core::IUnknown);
 impl IXpsOMLinearGradientBrush {
@@ -3740,6 +3809,7 @@ pub struct IXpsOMLinearGradientBrushVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpoint: *const XPS_POINT) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lineargradientbrush: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMMatrixTransform(::windows::core::IUnknown);
 impl IXpsOMMatrixTransform {
@@ -3830,6 +3900,7 @@ pub struct IXpsOMMatrixTransformVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const XPS_MATRIX) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrixtransform: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMNameCollection(::windows::core::IUnknown);
 impl IXpsOMNameCollection {
@@ -3888,6 +3959,7 @@ pub struct IXpsOMNameCollectionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, name: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMObjectFactory(::windows::core::IUnknown);
 impl IXpsOMObjectFactory {
@@ -4181,6 +4253,7 @@ pub struct IXpsOMObjectFactoryVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::Foundation::PWSTR, stream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMObjectFactory1(::windows::core::IUnknown);
 impl IXpsOMObjectFactory1 {
@@ -4609,6 +4682,7 @@ pub struct IXpsOMObjectFactory1Vtbl(
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionarymarkupstream: ::windows::core::RawPtr, parturi: ::windows::core::RawPtr, resources: ::windows::core::RawPtr, dictionaryresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMPackage(::windows::core::IUnknown);
 impl IXpsOMPackage {
@@ -4707,6 +4781,7 @@ pub struct IXpsOMPackageVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, optimizemarkupsize: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMPackage1(::windows::core::IUnknown);
 impl IXpsOMPackage1 {
@@ -4842,6 +4917,7 @@ pub struct IXpsOMPackage1Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMPackageTarget(::windows::core::IUnknown);
 impl IXpsOMPackageTarget {
@@ -4895,6 +4971,7 @@ pub struct IXpsOMPackageTargetVtbl(
     #[cfg(feature = "Win32_Storage_Packaging_Opc")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documentsequencepartname: ::windows::core::RawPtr, documentsequenceprintticket: ::windows::core::RawPtr, discardcontrolpartname: ::windows::core::RawPtr, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Packaging_Opc"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMPackageWriter(::windows::core::IUnknown);
 impl IXpsOMPackageWriter {
@@ -4966,6 +5043,7 @@ pub struct IXpsOMPackageWriterVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isclosed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMPackageWriter3D(::windows::core::IUnknown);
 impl IXpsOMPackageWriter3D {
@@ -5069,6 +5147,7 @@ pub struct IXpsOMPackageWriter3DVtbl(
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printticketpartname: ::windows::core::RawPtr, printticketdata: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMPage(::windows::core::IUnknown);
 impl IXpsOMPage {
@@ -5265,6 +5344,7 @@ pub struct IXpsOMPageVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, page: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMPage1(::windows::core::IUnknown);
 impl IXpsOMPage1 {
@@ -5492,6 +5572,7 @@ pub struct IXpsOMPage1Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, optimizemarkupsize: super::super::Foundation::BOOL, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMPageReference(::windows::core::IUnknown);
 impl IXpsOMPageReference {
@@ -5621,6 +5702,7 @@ pub struct IXpsOMPageReferenceVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pagereference: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMPageReferenceCollection(::windows::core::IUnknown);
 impl IXpsOMPageReferenceCollection {
@@ -5693,6 +5775,7 @@ pub struct IXpsOMPageReferenceCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pagereference: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pagereference: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMPart(::windows::core::IUnknown);
 impl IXpsOMPart {
@@ -5752,6 +5835,7 @@ pub struct IXpsOMPartVtbl(
     #[cfg(feature = "Win32_Storage_Packaging_Opc")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parturi: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Packaging_Opc"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMPartResources(::windows::core::IUnknown);
 impl IXpsOMPartResources {
@@ -5818,6 +5902,7 @@ pub struct IXpsOMPartResourcesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, colorprofileresources: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionaryresources: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMPartUriCollection(::windows::core::IUnknown);
 impl IXpsOMPartUriCollection {
@@ -5898,6 +5983,7 @@ pub struct IXpsOMPartUriCollectionVtbl(
     #[cfg(feature = "Win32_Storage_Packaging_Opc")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parturi: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Packaging_Opc"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMPath(::windows::core::IUnknown);
 impl IXpsOMPath {
@@ -6329,6 +6415,7 @@ pub struct IXpsOMPathVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMPrintTicketResource(::windows::core::IUnknown);
 impl IXpsOMPrintTicketResource {
@@ -6441,6 +6528,7 @@ pub struct IXpsOMPrintTicketResourceVtbl(
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcestream: ::windows::core::RawPtr, partname: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMRadialGradientBrush(::windows::core::IUnknown);
 impl IXpsOMRadialGradientBrush {
@@ -6648,6 +6736,7 @@ pub struct IXpsOMRadialGradientBrushVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, origin: *const XPS_POINT) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radialgradientbrush: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMRemoteDictionaryResource(::windows::core::IUnknown);
 impl IXpsOMRemoteDictionaryResource {
@@ -6756,6 +6845,7 @@ pub struct IXpsOMRemoteDictionaryResourceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionary: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionary: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMRemoteDictionaryResource1(::windows::core::IUnknown);
 impl IXpsOMRemoteDictionaryResource1 {
@@ -6895,6 +6985,7 @@ pub struct IXpsOMRemoteDictionaryResource1Vtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMRemoteDictionaryResourceCollection(::windows::core::IUnknown);
 impl IXpsOMRemoteDictionaryResourceCollection {
@@ -6974,6 +7065,7 @@ pub struct IXpsOMRemoteDictionaryResourceCollectionVtbl(
     #[cfg(feature = "Win32_Storage_Packaging_Opc")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partname: ::windows::core::RawPtr, remotedictionaryresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Packaging_Opc"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMResource(::windows::core::IUnknown);
 impl IXpsOMResource {
@@ -7053,6 +7145,7 @@ pub struct IXpsOMResourceVtbl(
     #[cfg(feature = "Win32_Storage_Packaging_Opc")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parturi: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Packaging_Opc"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMShareable(::windows::core::IUnknown);
 impl IXpsOMShareable {
@@ -7109,6 +7202,7 @@ pub struct IXpsOMShareableVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut XPS_OBJECT_TYPE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMSignatureBlockResource(::windows::core::IUnknown);
 impl IXpsOMSignatureBlockResource {
@@ -7226,6 +7320,7 @@ pub struct IXpsOMSignatureBlockResourceVtbl(
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcestream: ::windows::core::RawPtr, partname: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMSignatureBlockResourceCollection(::windows::core::IUnknown);
 impl IXpsOMSignatureBlockResourceCollection {
@@ -7305,6 +7400,7 @@ pub struct IXpsOMSignatureBlockResourceCollectionVtbl(
     #[cfg(feature = "Win32_Storage_Packaging_Opc")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partname: ::windows::core::RawPtr, signatureblockresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Packaging_Opc"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMSolidColorBrush(::windows::core::IUnknown);
 impl IXpsOMSolidColorBrush {
@@ -7423,6 +7519,7 @@ pub struct IXpsOMSolidColorBrushVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: *const XPS_COLOR, colorprofile: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, solidcolorbrush: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMStoryFragmentsResource(::windows::core::IUnknown);
 impl IXpsOMStoryFragmentsResource {
@@ -7540,6 +7637,7 @@ pub struct IXpsOMStoryFragmentsResourceVtbl(
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcestream: ::windows::core::RawPtr, partname: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMThumbnailGenerator(::windows::core::IUnknown);
 impl IXpsOMThumbnailGenerator {
@@ -7593,6 +7691,7 @@ pub struct IXpsOMThumbnailGeneratorVtbl(
     #[cfg(feature = "Win32_Storage_Packaging_Opc")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, page: ::windows::core::RawPtr, thumbnailtype: XPS_IMAGE_TYPE, thumbnailsize: XPS_THUMBNAIL_SIZE, imageresourcepartname: ::windows::core::RawPtr, imageresource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Packaging_Opc"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMTileBrush(::windows::core::IUnknown);
 impl IXpsOMTileBrush {
@@ -7752,6 +7851,7 @@ pub struct IXpsOMTileBrushVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tilemode: *mut XPS_TILE_MODE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tilemode: XPS_TILE_MODE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMVisual(::windows::core::IUnknown);
 impl IXpsOMVisual {
@@ -7970,6 +8070,7 @@ pub struct IXpsOMVisualVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, language: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMVisualBrush(::windows::core::IUnknown);
 impl IXpsOMVisualBrush {
@@ -8181,6 +8282,7 @@ pub struct IXpsOMVisualBrushVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visualbrush: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsOMVisualCollection(::windows::core::IUnknown);
 impl IXpsOMVisualCollection {
@@ -8253,6 +8355,7 @@ pub struct IXpsOMVisualCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, object: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsSignature(::windows::core::IUnknown);
 impl IXpsSignature {
@@ -8372,6 +8475,7 @@ pub struct IXpsSignatureVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signaturexml: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signaturexml: *const u8, count: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsSignatureBlock(::windows::core::IUnknown);
 impl IXpsSignatureBlock {
@@ -8449,6 +8553,7 @@ pub struct IXpsSignatureBlockVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: super::super::Foundation::PWSTR, signaturerequest: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsSignatureBlockCollection(::windows::core::IUnknown);
 impl IXpsSignatureBlockCollection {
@@ -8509,6 +8614,7 @@ pub struct IXpsSignatureBlockCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, signatureblock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsSignatureCollection(::windows::core::IUnknown);
 impl IXpsSignatureCollection {
@@ -8569,6 +8675,7 @@ pub struct IXpsSignatureCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, signature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsSignatureManager(::windows::core::IUnknown);
 impl IXpsSignatureManager {
@@ -8681,6 +8788,7 @@ pub struct IXpsSignatureManagerVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsSignatureRequest(::windows::core::IUnknown);
 impl IXpsSignatureRequest {
@@ -8801,6 +8909,7 @@ pub struct IXpsSignatureRequestVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signature: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsSignatureRequestCollection(::windows::core::IUnknown);
 impl IXpsSignatureRequestCollection {
@@ -8861,6 +8970,7 @@ pub struct IXpsSignatureRequestCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, signaturerequest: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 #[repr(transparent)]
 pub struct IXpsSigningOptions(::windows::core::IUnknown);
 impl IXpsSigningOptions {
@@ -9011,9 +9121,12 @@ pub struct IXpsSigningOptionsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *mut XPS_SIGN_FLAGS) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: XPS_SIGN_FLAGS) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type PRINT_WINDOW_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PW_CLIENTONLY: PRINT_WINDOW_FLAGS = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct PSFEATURE_CUSTPAPER {
     pub lOrientation: i32,
     pub lWidth: i32,
@@ -9042,6 +9155,7 @@ impl ::core::default::Default for PSFEATURE_CUSTPAPER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PSFEATURE_OUTPUT {
     pub bPageIndependent: super::super::Foundation::BOOL,
@@ -9074,6 +9188,7 @@ impl ::core::default::Default for PSFEATURE_OUTPUT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct PSINJECTDATA {
     pub DataBytes: u32,
     pub InjectionPoint: PSINJECT_POINT,
@@ -9099,38 +9214,71 @@ impl ::core::default::Default for PSINJECTDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type PSINJECT_POINT = u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_BEGINSTREAM: PSINJECT_POINT = 1u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_PSADOBE: PSINJECT_POINT = 2u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_PAGESATEND: PSINJECT_POINT = 3u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_PAGES: PSINJECT_POINT = 4u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_DOCNEEDEDRES: PSINJECT_POINT = 5u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_DOCSUPPLIEDRES: PSINJECT_POINT = 6u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_PAGEORDER: PSINJECT_POINT = 7u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_ORIENTATION: PSINJECT_POINT = 8u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_BOUNDINGBOX: PSINJECT_POINT = 9u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_DOCUMENTPROCESSCOLORS: PSINJECT_POINT = 10u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_COMMENTS: PSINJECT_POINT = 11u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_BEGINDEFAULTS: PSINJECT_POINT = 12u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_ENDDEFAULTS: PSINJECT_POINT = 13u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_BEGINPROLOG: PSINJECT_POINT = 14u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_ENDPROLOG: PSINJECT_POINT = 15u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_BEGINSETUP: PSINJECT_POINT = 16u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_ENDSETUP: PSINJECT_POINT = 17u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_TRAILER: PSINJECT_POINT = 18u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_EOF: PSINJECT_POINT = 19u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_ENDSTREAM: PSINJECT_POINT = 20u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_DOCUMENTPROCESSCOLORSATEND: PSINJECT_POINT = 21u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_PAGENUMBER: PSINJECT_POINT = 100u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_BEGINPAGESETUP: PSINJECT_POINT = 101u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_ENDPAGESETUP: PSINJECT_POINT = 102u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_PAGETRAILER: PSINJECT_POINT = 103u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_PLATECOLOR: PSINJECT_POINT = 104u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_SHOWPAGE: PSINJECT_POINT = 105u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_PAGEBBOX: PSINJECT_POINT = 106u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_ENDPAGECOMMENTS: PSINJECT_POINT = 107u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_VMSAVE: PSINJECT_POINT = 200u16;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const PSINJECT_VMRESTORE: PSINJECT_POINT = 201u16;
+#[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PrintWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hwnd: Param0, hdcblt: Param1, nflags: PRINT_WINDOW_FLAGS) -> super::super::Foundation::BOOL {
@@ -9145,6 +9293,7 @@ pub unsafe fn PrintWindow<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn SetAbortProc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, proc: ABORTPROC) -> i32 {
@@ -9159,6 +9308,7 @@ pub unsafe fn SetAbortProc<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn StartDocA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, lpdi: *const DOCINFOA) -> i32 {
@@ -9173,6 +9323,7 @@ pub unsafe fn StartDocA<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn StartDocW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0, lpdi: *const DOCINFOW) -> i32 {
@@ -9187,6 +9338,7 @@ pub unsafe fn StartDocW<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn StartPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0) -> i32 {
@@ -9202,6 +9354,7 @@ pub unsafe fn StartPage<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct XPS_COLOR {
     pub colorType: XPS_COLOR_TYPE,
     pub value: XPS_COLOR_0,
@@ -9227,6 +9380,7 @@ impl ::core::default::Default for XPS_COLOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub union XPS_COLOR_0 {
     pub sRGB: XPS_COLOR_0_1,
     pub scRGB: XPS_COLOR_0_2,
@@ -9253,6 +9407,7 @@ impl ::core::default::Default for XPS_COLOR_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct XPS_COLOR_0_0 {
     pub channelCount: u8,
     pub channels: [f32; 9],
@@ -9278,6 +9433,7 @@ impl ::core::default::Default for XPS_COLOR_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct XPS_COLOR_0_1 {
     pub alpha: u8,
     pub red: u8,
@@ -9305,6 +9461,7 @@ impl ::core::default::Default for XPS_COLOR_0_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct XPS_COLOR_0_2 {
     pub alpha: f32,
     pub red: f32,
@@ -9331,14 +9488,22 @@ impl ::core::default::Default for XPS_COLOR_0_2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_COLOR_INTERPOLATION = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_COLOR_INTERPOLATION_SCRGBLINEAR: XPS_COLOR_INTERPOLATION = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_COLOR_INTERPOLATION_SRGBLINEAR: XPS_COLOR_INTERPOLATION = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_COLOR_TYPE = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_COLOR_TYPE_SRGB: XPS_COLOR_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_COLOR_TYPE_SCRGB: XPS_COLOR_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_COLOR_TYPE_CONTEXT: XPS_COLOR_TYPE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct XPS_DASH {
     pub length: f32,
     pub gap: f32,
@@ -9363,109 +9528,212 @@ impl ::core::default::Default for XPS_DASH {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_DASH_CAP = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_DASH_CAP_FLAT: XPS_DASH_CAP = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_DASH_CAP_ROUND: XPS_DASH_CAP = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_DASH_CAP_SQUARE: XPS_DASH_CAP = 3i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_DASH_CAP_TRIANGLE: XPS_DASH_CAP = 4i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_DOCUMENT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_DOCUMENT_TYPE_UNSPECIFIED: XPS_DOCUMENT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_DOCUMENT_TYPE_XPS: XPS_DOCUMENT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_DOCUMENT_TYPE_OPENXPS: XPS_DOCUMENT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_ABSOLUTE_REFERENCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108159i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_ALREADY_OWNED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108413i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_BLEED_BOX_PAGE_DIMENSIONS_NOT_IN_SYNC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108407i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_BOTH_PATHFIGURE_AND_ABBR_SYNTAX_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108409i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_BOTH_RESOURCE_AND_SOURCEATTR_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108408i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_CARET_OUTSIDE_STRING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108923i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_CARET_OUT_OF_ORDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108922i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_COLOR_COMPONENT_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108410i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_DICTIONARY_ITEM_NAMED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108671i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_DUPLICATE_NAMES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109175i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_DUPLICATE_RESOURCE_KEYS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109184i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_INDEX_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108416i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_INVALID_BLEED_BOX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109692i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_INVALID_CONTENT_BOX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109685i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_INVALID_CONTENT_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109682i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_INVALID_FLOAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109689i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_INVALID_FONT_URI: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109686i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_INVALID_LANGUAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109696i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_INVALID_LOOKUP_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109690i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_INVALID_MARKUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109684i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_INVALID_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109695i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_INVALID_NUMBER_OF_COLOR_CHANNELS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108158i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_INVALID_NUMBER_OF_POINTS_IN_CURVE_SEGMENTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108160i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_INVALID_OBFUSCATED_FONT_URI: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109681i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_INVALID_PAGE_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109693i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_INVALID_RESOURCE_KEY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109694i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_INVALID_SIGNATUREBLOCK_MARKUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108789i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_INVALID_THUMBNAIL_IMAGE_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109691i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_INVALID_XML_ENCODING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109683i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MAPPING_OUTSIDE_INDICES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108924i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MAPPING_OUTSIDE_STRING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108925i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MAPPING_OUT_OF_ORDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108926i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MARKUP_COMPATIBILITY_ELEMENTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108791i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_COLORPROFILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109436i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_DISCARDCONTROL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109422i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_DOCUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109431i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_DOCUMENTSEQUENCE_RELATIONSHIP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109432i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_FONTURI: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109433i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_GLYPHS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109438i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_IMAGE_IN_IMAGEBRUSH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109426i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_LOOKUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109439i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109440i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_PAGE_IN_DOCUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109428i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_PAGE_IN_PAGEREFERENCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109427i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_PART_REFERENCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109424i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_PART_STREAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109421i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_REFERRED_DOCUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109430i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_REFERRED_PAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109429i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_RELATIONSHIP_TARGET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109435i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_RESOURCE_KEY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109425i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_RESOURCE_RELATIONSHIP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109434i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_RESTRICTED_FONT_RELATIONSHIP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109423i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MISSING_SEGMENT_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109437i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MULTIPLE_DOCUMENTSEQUENCE_RELATIONSHIPS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109182i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109178i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENTSEQUENCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109177i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MULTIPLE_PRINTTICKETS_ON_PAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109179i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MULTIPLE_REFERENCES_TO_PART: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109176i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MULTIPLE_RESOURCES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109183i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MULTIPLE_THUMBNAILS_ON_PACKAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109180i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_MULTIPLE_THUMBNAILS_ON_PAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109181i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_NEGATIVE_FLOAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108918i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_NESTED_REMOTE_DICTIONARY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108670i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_NOT_ENOUGH_GRADIENT_STOPS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108405i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_NO_CUSTOM_OBJECTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108414i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_OBJECT_DETACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108790i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_ODD_BIDILEVEL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108921i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_ONE_TO_ONE_MAPPING_EXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108920i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_PACKAGE_ALREADY_OPENED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108793i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_PACKAGE_NOT_OPENED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108794i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_PACKAGE_WRITER_NOT_CLOSED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108404i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_RELATIONSHIP_EXTERNAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108406i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_RESOURCE_NOT_OWNED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108412i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_RESTRICTED_FONT_NOT_OBFUSCATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108919i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_SIGNATUREID_DUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108792i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_SIGREQUESTID_DUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108795i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_STRING_TOO_LONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108928i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_TOO_MANY_INDICES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108927i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_UNAVAILABLE_PACKAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109420i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_UNEXPECTED_COLORPROFILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108411i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_UNEXPECTED_CONTENT_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109688i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_UNEXPECTED_RELATIONSHIP_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109680i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_UNEXPECTED_RESTRICTED_FONT_RELATIONSHIP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109679i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_VISUAL_CIRCULAR_REF: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108415i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_XKEY_ATTR_PRESENT_OUTSIDE_RES_DICT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108672i32);
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_FILL_RULE = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_FILL_RULE_EVENODD: XPS_FILL_RULE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_FILL_RULE_NONZERO: XPS_FILL_RULE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_FONT_EMBEDDING = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_FONT_EMBEDDING_NORMAL: XPS_FONT_EMBEDDING = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_FONT_EMBEDDING_OBFUSCATED: XPS_FONT_EMBEDDING = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_FONT_EMBEDDING_RESTRICTED: XPS_FONT_EMBEDDING = 3i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_FONT_EMBEDDING_RESTRICTED_UNOBFUSCATED: XPS_FONT_EMBEDDING = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct XPS_GLYPH_INDEX {
     pub index: i32,
     pub advanceWidth: f32,
@@ -9493,6 +9761,7 @@ impl ::core::default::Default for XPS_GLYPH_INDEX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct XPS_GLYPH_MAPPING {
     pub unicodeStringStart: u32,
     pub unicodeStringLength: u16,
@@ -9519,25 +9788,44 @@ impl ::core::default::Default for XPS_GLYPH_MAPPING {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_IMAGE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_IMAGE_TYPE_JPEG: XPS_IMAGE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_IMAGE_TYPE_PNG: XPS_IMAGE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_IMAGE_TYPE_TIFF: XPS_IMAGE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_IMAGE_TYPE_WDP: XPS_IMAGE_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_IMAGE_TYPE_JXR: XPS_IMAGE_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_INTERLEAVING = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_INTERLEAVING_OFF: XPS_INTERLEAVING = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_INTERLEAVING_ON: XPS_INTERLEAVING = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_LINE_CAP = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_LINE_CAP_FLAT: XPS_LINE_CAP = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_LINE_CAP_ROUND: XPS_LINE_CAP = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_LINE_CAP_SQUARE: XPS_LINE_CAP = 3i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_LINE_CAP_TRIANGLE: XPS_LINE_CAP = 4i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_LINE_JOIN = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_LINE_JOIN_MITER: XPS_LINE_JOIN = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_LINE_JOIN_BEVEL: XPS_LINE_JOIN = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_LINE_JOIN_ROUND: XPS_LINE_JOIN = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct XPS_MATRIX {
     pub m11: f32,
     pub m12: f32,
@@ -9566,18 +9854,30 @@ impl ::core::default::Default for XPS_MATRIX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_OBJECT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_OBJECT_TYPE_CANVAS: XPS_OBJECT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_OBJECT_TYPE_GLYPHS: XPS_OBJECT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_OBJECT_TYPE_PATH: XPS_OBJECT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_OBJECT_TYPE_MATRIX_TRANSFORM: XPS_OBJECT_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_OBJECT_TYPE_GEOMETRY: XPS_OBJECT_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_OBJECT_TYPE_SOLID_COLOR_BRUSH: XPS_OBJECT_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_OBJECT_TYPE_IMAGE_BRUSH: XPS_OBJECT_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_OBJECT_TYPE_LINEAR_GRADIENT_BRUSH: XPS_OBJECT_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_OBJECT_TYPE_RADIAL_GRADIENT_BRUSH: XPS_OBJECT_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_OBJECT_TYPE_VISUAL_BRUSH: XPS_OBJECT_TYPE = 10i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct XPS_POINT {
     pub x: f32,
     pub y: f32,
@@ -9603,6 +9903,7 @@ impl ::core::default::Default for XPS_POINT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct XPS_RECT {
     pub x: f32,
     pub y: f32,
@@ -9629,35 +9930,64 @@ impl ::core::default::Default for XPS_RECT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_SEGMENT_STROKE_PATTERN = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SEGMENT_STROKE_PATTERN_ALL: XPS_SEGMENT_STROKE_PATTERN = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SEGMENT_STROKE_PATTERN_NONE: XPS_SEGMENT_STROKE_PATTERN = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SEGMENT_STROKE_PATTERN_MIXED: XPS_SEGMENT_STROKE_PATTERN = 3i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_SEGMENT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SEGMENT_TYPE_ARC_LARGE_CLOCKWISE: XPS_SEGMENT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SEGMENT_TYPE_ARC_LARGE_COUNTERCLOCKWISE: XPS_SEGMENT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SEGMENT_TYPE_ARC_SMALL_CLOCKWISE: XPS_SEGMENT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SEGMENT_TYPE_ARC_SMALL_COUNTERCLOCKWISE: XPS_SEGMENT_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SEGMENT_TYPE_BEZIER: XPS_SEGMENT_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SEGMENT_TYPE_LINE: XPS_SEGMENT_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SEGMENT_TYPE_QUADRATIC_BEZIER: XPS_SEGMENT_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_SIGNATURE_STATUS = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SIGNATURE_STATUS_INCOMPLIANT: XPS_SIGNATURE_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SIGNATURE_STATUS_INCOMPLETE: XPS_SIGNATURE_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SIGNATURE_STATUS_BROKEN: XPS_SIGNATURE_STATUS = 3i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SIGNATURE_STATUS_QUESTIONABLE: XPS_SIGNATURE_STATUS = 4i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SIGNATURE_STATUS_VALID: XPS_SIGNATURE_STATUS = 5i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_SIGN_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SIGN_FLAGS_NONE: XPS_SIGN_FLAGS = 0i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SIGN_FLAGS_IGNORE_MARKUP_COMPATIBILITY: XPS_SIGN_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_SIGN_POLICY = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SIGN_POLICY_NONE: XPS_SIGN_POLICY = 0i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SIGN_POLICY_CORE_PROPERTIES: XPS_SIGN_POLICY = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SIGN_POLICY_SIGNATURE_RELATIONSHIPS: XPS_SIGN_POLICY = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SIGN_POLICY_PRINT_TICKET: XPS_SIGN_POLICY = 4i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SIGN_POLICY_DISCARD_CONTROL: XPS_SIGN_POLICY = 8i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SIGN_POLICY_ALL: XPS_SIGN_POLICY = 15i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct XPS_SIZE {
     pub width: f32,
     pub height: f32,
@@ -9682,25 +10012,45 @@ impl ::core::default::Default for XPS_SIZE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_SPREAD_METHOD = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SPREAD_METHOD_PAD: XPS_SPREAD_METHOD = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SPREAD_METHOD_REFLECT: XPS_SPREAD_METHOD = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_SPREAD_METHOD_REPEAT: XPS_SPREAD_METHOD = 3i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_STYLE_SIMULATION = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_STYLE_SIMULATION_NONE: XPS_STYLE_SIMULATION = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_STYLE_SIMULATION_ITALIC: XPS_STYLE_SIMULATION = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_STYLE_SIMULATION_BOLD: XPS_STYLE_SIMULATION = 3i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_STYLE_SIMULATION_BOLDITALIC: XPS_STYLE_SIMULATION = 4i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_THUMBNAIL_SIZE = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_THUMBNAIL_SIZE_VERYSMALL: XPS_THUMBNAIL_SIZE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_THUMBNAIL_SIZE_SMALL: XPS_THUMBNAIL_SIZE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_THUMBNAIL_SIZE_MEDIUM: XPS_THUMBNAIL_SIZE = 3i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_THUMBNAIL_SIZE_LARGE: XPS_THUMBNAIL_SIZE = 4i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub type XPS_TILE_MODE = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_TILE_MODE_NONE: XPS_TILE_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_TILE_MODE_TILE: XPS_TILE_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_TILE_MODE_FLIPX: XPS_TILE_MODE = 3i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_TILE_MODE_FLIPY: XPS_TILE_MODE = 4i32;
+#[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_TILE_MODE_FLIPXY: XPS_TILE_MODE = 5i32;
 pub const XpsOMObjectFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe974d26d_3d9b_4d47_88cc_3872f2dc3585);
 pub const XpsOMThumbnailGenerator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e4a23e2_b969_4761_be35_1a8ced58e323);

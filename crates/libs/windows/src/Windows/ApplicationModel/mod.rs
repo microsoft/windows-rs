@@ -53,6 +53,7 @@ pub mod UserDataTasks;
 pub mod VoiceCommands;
 #[cfg(feature = "ApplicationModel_Wallet")]
 pub mod Wallet;
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct AddResourcePackageOptions(pub u32);
 impl AddResourcePackageOptions {
@@ -81,6 +82,7 @@ unsafe impl ::windows::core::RuntimeType for AddResourcePackageOptions {
 impl ::windows::core::DefaultType for AddResourcePackageOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct AppDisplayInfo(::windows::core::IUnknown);
 impl AppDisplayInfo {
@@ -170,6 +172,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppD
 }
 unsafe impl ::core::marker::Send for AppDisplayInfo {}
 unsafe impl ::core::marker::Sync for AppDisplayInfo {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct AppExecutionContext(pub i32);
 impl AppExecutionContext {
@@ -198,6 +201,7 @@ unsafe impl ::windows::core::RuntimeType for AppExecutionContext {
 impl ::windows::core::DefaultType for AppExecutionContext {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct AppInfo(::windows::core::IUnknown);
 impl AppInfo {
@@ -337,6 +341,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppI
 }
 unsafe impl ::core::marker::Send for AppInfo {}
 unsafe impl ::core::marker::Sync for AppInfo {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct AppInstallerInfo(::windows::core::IUnknown);
 impl AppInstallerInfo {
@@ -523,6 +528,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppI
 }
 unsafe impl ::core::marker::Send for AppInstallerInfo {}
 unsafe impl ::core::marker::Sync for AppInstallerInfo {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct AppInstallerPolicySource(pub i32);
 impl AppInstallerPolicySource {
@@ -550,6 +556,7 @@ unsafe impl ::windows::core::RuntimeType for AppInstallerPolicySource {
 impl ::windows::core::DefaultType for AppInstallerPolicySource {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct AppInstance(::windows::core::IUnknown);
 impl AppInstance {
@@ -707,6 +714,7 @@ impl DesignMode {
 impl ::windows::core::RuntimeName for DesignMode {
     const NAME: &'static str = "Windows.ApplicationModel.DesignMode";
 }
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct EnteredBackgroundEventArgs(::windows::core::IUnknown);
 impl EnteredBackgroundEventArgs {
@@ -804,6 +812,7 @@ impl<'a> ::windows::core::IntoParam<'a, IEnteredBackgroundEventArgs> for &Entere
 }
 unsafe impl ::core::marker::Send for EnteredBackgroundEventArgs {}
 unsafe impl ::core::marker::Sync for EnteredBackgroundEventArgs {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct FullTrustLaunchResult(pub i32);
 impl FullTrustLaunchResult {
@@ -833,6 +842,7 @@ unsafe impl ::windows::core::RuntimeType for FullTrustLaunchResult {
 impl ::windows::core::DefaultType for FullTrustLaunchResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct FullTrustProcessLaunchResult(::windows::core::IUnknown);
 impl FullTrustProcessLaunchResult {
@@ -1242,6 +1252,7 @@ pub struct IDesignModeStatics2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct IEnteredBackgroundEventArgs(::windows::core::IUnknown);
 impl IEnteredBackgroundEventArgs {
@@ -1389,6 +1400,7 @@ pub struct IFullTrustProcessLauncherStatics2Vtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fulltrustpackagerelativeappid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, commandline: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct ILeavingBackgroundEventArgs(::windows::core::IUnknown);
 impl ILeavingBackgroundEventArgs {
@@ -2265,6 +2277,7 @@ pub struct IStartupTaskStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, taskid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct ISuspendingDeferral(::windows::core::IUnknown);
 impl ISuspendingDeferral {
@@ -2342,6 +2355,7 @@ pub struct ISuspendingDeferralVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct ISuspendingEventArgs(::windows::core::IUnknown);
 impl ISuspendingEventArgs {
@@ -2422,6 +2436,7 @@ pub struct ISuspendingEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct ISuspendingOperation(::windows::core::IUnknown);
 impl ISuspendingOperation {
@@ -2512,6 +2527,7 @@ pub struct ISuspendingOperationVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct LeavingBackgroundEventArgs(::windows::core::IUnknown);
 impl LeavingBackgroundEventArgs {
@@ -2609,6 +2625,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILeavingBackgroundEventArgs> for &Leavin
 }
 unsafe impl ::core::marker::Send for LeavingBackgroundEventArgs {}
 unsafe impl ::core::marker::Sync for LeavingBackgroundEventArgs {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct LimitedAccessFeatureRequestResult(::windows::core::IUnknown);
 impl LimitedAccessFeatureRequestResult {
@@ -2698,6 +2715,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Limi
 }
 unsafe impl ::core::marker::Send for LimitedAccessFeatureRequestResult {}
 unsafe impl ::core::marker::Sync for LimitedAccessFeatureRequestResult {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct LimitedAccessFeatureStatus(pub i32);
 impl LimitedAccessFeatureStatus {
@@ -2743,6 +2761,7 @@ impl LimitedAccessFeatures {
 impl ::windows::core::RuntimeName for LimitedAccessFeatures {
     const NAME: &'static str = "Windows.ApplicationModel.LimitedAccessFeatures";
 }
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct Package(::windows::core::IUnknown);
 impl Package {
@@ -3125,6 +3144,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
 }
 unsafe impl ::core::marker::Send for Package {}
 unsafe impl ::core::marker::Sync for Package {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct PackageCatalog(::windows::core::IUnknown);
 impl PackageCatalog {
@@ -3316,6 +3336,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct PackageCatalogAddOptionalPackageResult(::windows::core::IUnknown);
 impl PackageCatalogAddOptionalPackageResult {
@@ -3395,6 +3416,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct PackageCatalogAddResourcePackageResult(::windows::core::IUnknown);
 impl PackageCatalogAddResourcePackageResult {
@@ -3483,6 +3505,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
 }
 unsafe impl ::core::marker::Send for PackageCatalogAddResourcePackageResult {}
 unsafe impl ::core::marker::Sync for PackageCatalogAddResourcePackageResult {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct PackageCatalogRemoveOptionalPackagesResult(::windows::core::IUnknown);
 impl PackageCatalogRemoveOptionalPackagesResult {
@@ -3563,6 +3586,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct PackageCatalogRemoveResourcePackagesResult(::windows::core::IUnknown);
 impl PackageCatalogRemoveResourcePackagesResult {
@@ -3645,6 +3669,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
 }
 unsafe impl ::core::marker::Send for PackageCatalogRemoveResourcePackagesResult {}
 unsafe impl ::core::marker::Sync for PackageCatalogRemoveResourcePackagesResult {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct PackageContentGroup(::windows::core::IUnknown);
 impl PackageContentGroup {
@@ -3750,6 +3775,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
 }
 unsafe impl ::core::marker::Send for PackageContentGroup {}
 unsafe impl ::core::marker::Sync for PackageContentGroup {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct PackageContentGroupStagingEventArgs(::windows::core::IUnknown);
 impl PackageContentGroupStagingEventArgs {
@@ -3866,6 +3892,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
 }
 unsafe impl ::core::marker::Send for PackageContentGroupStagingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageContentGroupStagingEventArgs {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct PackageContentGroupState(pub i32);
 impl PackageContentGroupState {
@@ -3895,6 +3922,7 @@ unsafe impl ::windows::core::RuntimeType for PackageContentGroupState {
 impl ::windows::core::DefaultType for PackageContentGroupState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct PackageId(::windows::core::IUnknown);
 impl PackageId {
@@ -4034,6 +4062,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
 unsafe impl ::core::marker::Send for PackageId {}
 unsafe impl ::core::marker::Sync for PackageId {}
 #[repr(C)]
+#[doc = "*Required features: 'ApplicationModel'*"]
 pub struct PackageInstallProgress {
     pub PercentComplete: u32,
 }
@@ -4063,6 +4092,7 @@ impl ::core::default::Default for PackageInstallProgress {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct PackageInstallingEventArgs(::windows::core::IUnknown);
 impl PackageInstallingEventArgs {
@@ -4165,6 +4195,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
 }
 unsafe impl ::core::marker::Send for PackageInstallingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageInstallingEventArgs {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct PackageSignatureKind(pub i32);
 impl PackageSignatureKind {
@@ -4195,6 +4226,7 @@ unsafe impl ::windows::core::RuntimeType for PackageSignatureKind {
 impl ::windows::core::DefaultType for PackageSignatureKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct PackageStagingEventArgs(::windows::core::IUnknown);
 impl PackageStagingEventArgs {
@@ -4297,6 +4329,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
 }
 unsafe impl ::core::marker::Send for PackageStagingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageStagingEventArgs {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct PackageStatus(::windows::core::IUnknown);
 impl PackageStatus {
@@ -4455,6 +4488,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
 }
 unsafe impl ::core::marker::Send for PackageStatus {}
 unsafe impl ::core::marker::Sync for PackageStatus {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct PackageStatusChangedEventArgs(::windows::core::IUnknown);
 impl PackageStatusChangedEventArgs {
@@ -4529,6 +4563,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
 }
 unsafe impl ::core::marker::Send for PackageStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PackageStatusChangedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct PackageUninstallingEventArgs(::windows::core::IUnknown);
 impl PackageUninstallingEventArgs {
@@ -4631,6 +4666,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
 }
 unsafe impl ::core::marker::Send for PackageUninstallingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageUninstallingEventArgs {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct PackageUpdateAvailability(pub i32);
 impl PackageUpdateAvailability {
@@ -4661,6 +4697,7 @@ unsafe impl ::windows::core::RuntimeType for PackageUpdateAvailability {
 impl ::windows::core::DefaultType for PackageUpdateAvailability {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct PackageUpdateAvailabilityResult(::windows::core::IUnknown);
 impl PackageUpdateAvailabilityResult {
@@ -4742,6 +4779,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
 }
 unsafe impl ::core::marker::Send for PackageUpdateAvailabilityResult {}
 unsafe impl ::core::marker::Sync for PackageUpdateAvailabilityResult {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct PackageUpdatingEventArgs(::windows::core::IUnknown);
 impl PackageUpdatingEventArgs {
@@ -4852,6 +4890,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
 unsafe impl ::core::marker::Send for PackageUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageUpdatingEventArgs {}
 #[repr(C)]
+#[doc = "*Required features: 'ApplicationModel'*"]
 pub struct PackageVersion {
     pub Major: u16,
     pub Minor: u16,
@@ -4884,6 +4923,7 @@ impl ::core::default::Default for PackageVersion {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct StartupTask(::windows::core::IUnknown);
 impl StartupTask {
@@ -4995,6 +5035,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Star
 }
 unsafe impl ::core::marker::Send for StartupTask {}
 unsafe impl ::core::marker::Sync for StartupTask {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct StartupTaskState(pub i32);
 impl StartupTaskState {
@@ -5025,6 +5066,7 @@ unsafe impl ::windows::core::RuntimeType for StartupTaskState {
 impl ::windows::core::DefaultType for StartupTaskState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct SuspendingDeferral(::windows::core::IUnknown);
 impl SuspendingDeferral {
@@ -5118,6 +5160,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISuspendingDeferral> for &SuspendingDefe
 }
 unsafe impl ::core::marker::Send for SuspendingDeferral {}
 unsafe impl ::core::marker::Sync for SuspendingDeferral {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct SuspendingEventArgs(::windows::core::IUnknown);
 impl SuspendingEventArgs {
@@ -5214,6 +5257,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISuspendingEventArgs> for &SuspendingEve
 }
 unsafe impl ::core::marker::Send for SuspendingEventArgs {}
 unsafe impl ::core::marker::Sync for SuspendingEventArgs {}
+#[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
 pub struct SuspendingOperation(::windows::core::IUnknown);
 impl SuspendingOperation {

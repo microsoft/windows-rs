@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct FrameNavigationOptions(::windows::core::IUnknown);
 impl FrameNavigationOptions {
@@ -309,6 +310,7 @@ pub struct IPageStackEntryStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct LoadCompletedEventHandler(pub ::windows::core::IUnknown);
 impl LoadCompletedEventHandler {
@@ -377,6 +379,7 @@ unsafe impl ::windows::core::RuntimeType for LoadCompletedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct LoadCompletedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct NavigatedEventHandler(pub ::windows::core::IUnknown);
 impl NavigatedEventHandler {
@@ -445,6 +448,7 @@ unsafe impl ::windows::core::RuntimeType for NavigatedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct NavigatedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct NavigatingCancelEventArgs(::windows::core::IUnknown);
 impl NavigatingCancelEventArgs {
@@ -553,6 +557,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Navi
 }
 unsafe impl ::core::marker::Send for NavigatingCancelEventArgs {}
 unsafe impl ::core::marker::Sync for NavigatingCancelEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct NavigatingCancelEventHandler(pub ::windows::core::IUnknown);
 impl NavigatingCancelEventHandler {
@@ -621,6 +626,7 @@ unsafe impl ::windows::core::RuntimeType for NavigatingCancelEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct NavigatingCancelEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct NavigationCacheMode(pub i32);
 impl NavigationCacheMode {
@@ -649,6 +655,7 @@ unsafe impl ::windows::core::RuntimeType for NavigationCacheMode {
 impl ::windows::core::DefaultType for NavigationCacheMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct NavigationEventArgs(::windows::core::IUnknown);
 impl NavigationEventArgs {
@@ -766,6 +773,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Navi
 }
 unsafe impl ::core::marker::Send for NavigationEventArgs {}
 unsafe impl ::core::marker::Sync for NavigationEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct NavigationFailedEventArgs(::windows::core::IUnknown);
 impl NavigationFailedEventArgs {
@@ -859,6 +867,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Navi
 }
 unsafe impl ::core::marker::Send for NavigationFailedEventArgs {}
 unsafe impl ::core::marker::Sync for NavigationFailedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct NavigationFailedEventHandler(pub ::windows::core::IUnknown);
 impl NavigationFailedEventHandler {
@@ -927,6 +936,7 @@ unsafe impl ::windows::core::RuntimeType for NavigationFailedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct NavigationFailedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct NavigationMode(pub i32);
 impl NavigationMode {
@@ -956,6 +966,7 @@ unsafe impl ::windows::core::RuntimeType for NavigationMode {
 impl ::windows::core::DefaultType for NavigationMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct NavigationStoppedEventHandler(pub ::windows::core::IUnknown);
 impl NavigationStoppedEventHandler {
@@ -1024,6 +1035,7 @@ unsafe impl ::windows::core::RuntimeType for NavigationStoppedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct NavigationStoppedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct PageStackEntry(::windows::core::IUnknown);
 impl PageStackEntry {

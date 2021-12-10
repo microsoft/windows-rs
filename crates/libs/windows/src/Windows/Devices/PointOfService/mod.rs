@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Devices_PointOfService_Provider")]
 pub mod Provider;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeScanner(::windows::core::IUnknown);
 impl BarcodeScanner {
@@ -222,6 +223,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for BarcodeScanner {}
 unsafe impl ::core::marker::Sync for BarcodeScanner {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerCapabilities(::windows::core::IUnknown);
 impl BarcodeScannerCapabilities {
@@ -331,6 +333,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerCapabilities {}
 unsafe impl ::core::marker::Sync for BarcodeScannerCapabilities {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerDataReceivedEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerDataReceivedEventArgs {
@@ -405,6 +408,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerDataReceivedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerErrorOccurredEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerErrorOccurredEventArgs {
@@ -493,6 +497,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerErrorOccurredEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerImagePreviewReceivedEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerImagePreviewReceivedEventArgs {
@@ -568,6 +573,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerImagePreviewReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerImagePreviewReceivedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerReport(::windows::core::IUnknown);
 impl BarcodeScannerReport {
@@ -669,6 +675,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerReport {}
 unsafe impl ::core::marker::Sync for BarcodeScannerReport {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerStatus(pub i32);
 impl BarcodeScannerStatus {
@@ -699,6 +706,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerStatus {
 impl ::windows::core::DefaultType for BarcodeScannerStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerStatusUpdatedEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerStatusUpdatedEventArgs {
@@ -1364,6 +1372,7 @@ impl BarcodeSymbologies {
 impl ::windows::core::RuntimeName for BarcodeSymbologies {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeSymbologies";
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeSymbologyAttributes(::windows::core::IUnknown);
 impl BarcodeSymbologyAttributes {
@@ -1507,6 +1516,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeSymbologyAttributes {}
 unsafe impl ::core::marker::Sync for BarcodeSymbologyAttributes {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeSymbologyDecodeLengthKind(pub i32);
 impl BarcodeSymbologyDecodeLengthKind {
@@ -1535,6 +1545,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeSymbologyDecodeLengthKind {
 impl ::windows::core::DefaultType for BarcodeSymbologyDecodeLengthKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct CashDrawer(::windows::core::IUnknown);
 impl CashDrawer {
@@ -1739,6 +1750,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for CashDrawer {}
 unsafe impl ::core::marker::Sync for CashDrawer {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct CashDrawerCapabilities(::windows::core::IUnknown);
 impl CashDrawerCapabilities {
@@ -1848,6 +1860,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cash
 }
 unsafe impl ::core::marker::Send for CashDrawerCapabilities {}
 unsafe impl ::core::marker::Sync for CashDrawerCapabilities {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct CashDrawerCloseAlarm(::windows::core::IUnknown);
 impl CashDrawerCloseAlarm {
@@ -1986,6 +1999,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cash
 }
 unsafe impl ::core::marker::Send for CashDrawerCloseAlarm {}
 unsafe impl ::core::marker::Sync for CashDrawerCloseAlarm {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct CashDrawerClosedEventArgs(::windows::core::IUnknown);
 impl CashDrawerClosedEventArgs {
@@ -2082,6 +2096,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICashDrawerEventSourceEventArgs> for &Ca
 }
 unsafe impl ::core::marker::Send for CashDrawerClosedEventArgs {}
 unsafe impl ::core::marker::Sync for CashDrawerClosedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct CashDrawerEventSource(::windows::core::IUnknown);
 impl CashDrawerEventSource {
@@ -2175,6 +2190,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cash
 }
 unsafe impl ::core::marker::Send for CashDrawerEventSource {}
 unsafe impl ::core::marker::Sync for CashDrawerEventSource {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct CashDrawerOpenedEventArgs(::windows::core::IUnknown);
 impl CashDrawerOpenedEventArgs {
@@ -2271,6 +2287,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICashDrawerEventSourceEventArgs> for &Ca
 }
 unsafe impl ::core::marker::Send for CashDrawerOpenedEventArgs {}
 unsafe impl ::core::marker::Sync for CashDrawerOpenedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct CashDrawerStatus(::windows::core::IUnknown);
 impl CashDrawerStatus {
@@ -2352,6 +2369,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cash
 }
 unsafe impl ::core::marker::Send for CashDrawerStatus {}
 unsafe impl ::core::marker::Sync for CashDrawerStatus {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct CashDrawerStatusKind(pub i32);
 impl CashDrawerStatusKind {
@@ -2382,6 +2400,7 @@ unsafe impl ::windows::core::RuntimeType for CashDrawerStatusKind {
 impl ::windows::core::DefaultType for CashDrawerStatusKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct CashDrawerStatusUpdatedEventArgs(::windows::core::IUnknown);
 impl CashDrawerStatusUpdatedEventArgs {
@@ -2456,6 +2475,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cash
 }
 unsafe impl ::core::marker::Send for CashDrawerStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for CashDrawerStatusUpdatedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedBarcodeScanner(::windows::core::IUnknown);
 impl ClaimedBarcodeScanner {
@@ -2788,6 +2808,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for ClaimedBarcodeScanner {}
 unsafe impl ::core::marker::Sync for ClaimedBarcodeScanner {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedBarcodeScannerClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedBarcodeScannerClosedEventArgs {}
@@ -2854,6 +2875,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clai
 }
 unsafe impl ::core::marker::Send for ClaimedBarcodeScannerClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedBarcodeScannerClosedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedCashDrawer(::windows::core::IUnknown);
 impl ClaimedCashDrawer {
@@ -3054,6 +3076,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for ClaimedCashDrawer {}
 unsafe impl ::core::marker::Sync for ClaimedCashDrawer {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedCashDrawerClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedCashDrawerClosedEventArgs {}
@@ -3120,6 +3143,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clai
 }
 unsafe impl ::core::marker::Send for ClaimedCashDrawerClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedCashDrawerClosedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedJournalPrinter(::windows::core::IUnknown);
 impl ClaimedJournalPrinter {
@@ -3334,6 +3358,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICommonClaimedPosPrinterStation> for &Cl
 }
 unsafe impl ::core::marker::Send for ClaimedJournalPrinter {}
 unsafe impl ::core::marker::Sync for ClaimedJournalPrinter {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedLineDisplay(::windows::core::IUnknown);
 impl ClaimedLineDisplay {
@@ -3672,6 +3697,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for ClaimedLineDisplay {}
 unsafe impl ::core::marker::Sync for ClaimedLineDisplay {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedLineDisplayClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedLineDisplayClosedEventArgs {}
@@ -3738,6 +3764,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clai
 }
 unsafe impl ::core::marker::Send for ClaimedLineDisplayClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedLineDisplayClosedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedMagneticStripeReader(::windows::core::IUnknown);
 impl ClaimedMagneticStripeReader {
@@ -4062,6 +4089,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for ClaimedMagneticStripeReader {}
 unsafe impl ::core::marker::Sync for ClaimedMagneticStripeReader {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedMagneticStripeReaderClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedMagneticStripeReaderClosedEventArgs {}
@@ -4128,6 +4156,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clai
 }
 unsafe impl ::core::marker::Send for ClaimedMagneticStripeReaderClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedMagneticStripeReaderClosedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedPosPrinter(::windows::core::IUnknown);
 impl ClaimedPosPrinter {
@@ -4367,6 +4396,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for ClaimedPosPrinter {}
 unsafe impl ::core::marker::Sync for ClaimedPosPrinter {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedPosPrinterClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedPosPrinterClosedEventArgs {}
@@ -4433,6 +4463,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clai
 }
 unsafe impl ::core::marker::Send for ClaimedPosPrinterClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedPosPrinterClosedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedReceiptPrinter(::windows::core::IUnknown);
 impl ClaimedReceiptPrinter {
@@ -4684,6 +4715,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICommonClaimedPosPrinterStation> for &Cl
 }
 unsafe impl ::core::marker::Send for ClaimedReceiptPrinter {}
 unsafe impl ::core::marker::Sync for ClaimedReceiptPrinter {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedSlipPrinter(::windows::core::IUnknown);
 impl ClaimedSlipPrinter {
@@ -5521,6 +5553,7 @@ pub struct ICashDrawerEventSourceVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ICashDrawerEventSourceEventArgs(::windows::core::IUnknown);
 impl ICashDrawerEventSourceEventArgs {
@@ -6317,6 +6350,7 @@ pub struct IClaimedSlipPrinterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printside: PosPrinterPrintSide) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ICommonClaimedPosPrinterStation(::windows::core::IUnknown);
 impl ICommonClaimedPosPrinterStation {
@@ -6526,6 +6560,7 @@ pub struct ICommonClaimedPosPrinterStationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ICommonPosPrintStationCapabilities(::windows::core::IUnknown);
 impl ICommonPosPrintStationCapabilities {
@@ -6704,6 +6739,7 @@ pub struct ICommonPosPrintStationCapabilitiesVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ICommonReceiptSlipCapabilities(::windows::core::IUnknown);
 impl ICommonReceiptSlipCapabilities {
@@ -7853,6 +7889,7 @@ pub struct IPosPrinterFontPropertyVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct IPosPrinterJob(::windows::core::IUnknown);
 impl IPosPrinterJob {
@@ -8087,6 +8124,7 @@ pub struct IPosPrinterStatusUpdatedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct IReceiptOrSlipJob(::windows::core::IUnknown);
 impl IReceiptOrSlipJob {
@@ -8479,6 +8517,7 @@ pub struct IUnifiedPosErrorDataFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, severity: UnifiedPosErrorSeverity, reason: UnifiedPosErrorReason, extendedreason: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct JournalPrintJob(::windows::core::IUnknown);
 impl JournalPrintJob {
@@ -8600,6 +8639,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPosPrinterJob> for &JournalPrintJob {
 }
 unsafe impl ::core::marker::Send for JournalPrintJob {}
 unsafe impl ::core::marker::Sync for JournalPrintJob {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct JournalPrinterCapabilities(::windows::core::IUnknown);
 impl JournalPrinterCapabilities {
@@ -8823,6 +8863,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICommonPosPrintStationCapabilities> for 
 }
 unsafe impl ::core::marker::Send for JournalPrinterCapabilities {}
 unsafe impl ::core::marker::Sync for JournalPrinterCapabilities {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplay(::windows::core::IUnknown);
 impl LineDisplay {
@@ -9026,6 +9067,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for LineDisplay {}
 unsafe impl ::core::marker::Sync for LineDisplay {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayAttributes(::windows::core::IUnknown);
 impl LineDisplayAttributes {
@@ -9174,6 +9216,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
 }
 unsafe impl ::core::marker::Send for LineDisplayAttributes {}
 unsafe impl ::core::marker::Sync for LineDisplayAttributes {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayCapabilities(::windows::core::IUnknown);
 impl LineDisplayCapabilities {
@@ -9367,6 +9410,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
 }
 unsafe impl ::core::marker::Send for LineDisplayCapabilities {}
 unsafe impl ::core::marker::Sync for LineDisplayCapabilities {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayCursor(::windows::core::IUnknown);
 impl LineDisplayCursor {
@@ -9498,6 +9542,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
 }
 unsafe impl ::core::marker::Send for LineDisplayCursor {}
 unsafe impl ::core::marker::Sync for LineDisplayCursor {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayCursorAttributes(::windows::core::IUnknown);
 impl LineDisplayCursorAttributes {
@@ -9611,6 +9656,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
 }
 unsafe impl ::core::marker::Send for LineDisplayCursorAttributes {}
 unsafe impl ::core::marker::Sync for LineDisplayCursorAttributes {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayCursorType(pub i32);
 impl LineDisplayCursorType {
@@ -9642,6 +9688,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayCursorType {
 impl ::windows::core::DefaultType for LineDisplayCursorType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayCustomGlyphs(::windows::core::IUnknown);
 impl LineDisplayCustomGlyphs {
@@ -9733,6 +9780,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
 }
 unsafe impl ::core::marker::Send for LineDisplayCustomGlyphs {}
 unsafe impl ::core::marker::Sync for LineDisplayCustomGlyphs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayDescriptorState(pub i32);
 impl LineDisplayDescriptorState {
@@ -9761,6 +9809,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayDescriptorState {
 impl ::windows::core::DefaultType for LineDisplayDescriptorState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayHorizontalAlignment(pub i32);
 impl LineDisplayHorizontalAlignment {
@@ -9789,6 +9838,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayHorizontalAlignment {
 impl ::windows::core::DefaultType for LineDisplayHorizontalAlignment {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayMarquee(::windows::core::IUnknown);
 impl LineDisplayMarquee {
@@ -9909,6 +9959,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
 }
 unsafe impl ::core::marker::Send for LineDisplayMarquee {}
 unsafe impl ::core::marker::Sync for LineDisplayMarquee {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayMarqueeFormat(pub i32);
 impl LineDisplayMarqueeFormat {
@@ -9937,6 +9988,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayMarqueeFormat {
 impl ::windows::core::DefaultType for LineDisplayMarqueeFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayPowerStatus(pub i32);
 impl LineDisplayPowerStatus {
@@ -9967,6 +10019,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayPowerStatus {
 impl ::windows::core::DefaultType for LineDisplayPowerStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayScrollDirection(pub i32);
 impl LineDisplayScrollDirection {
@@ -9996,6 +10049,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayScrollDirection {
 impl ::windows::core::DefaultType for LineDisplayScrollDirection {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayStatisticsCategorySelector(::windows::core::IUnknown);
 impl LineDisplayStatisticsCategorySelector {
@@ -10084,6 +10138,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
 }
 unsafe impl ::core::marker::Send for LineDisplayStatisticsCategorySelector {}
 unsafe impl ::core::marker::Sync for LineDisplayStatisticsCategorySelector {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayStatusUpdatedEventArgs(::windows::core::IUnknown);
 impl LineDisplayStatusUpdatedEventArgs {
@@ -10158,6 +10213,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
 }
 unsafe impl ::core::marker::Send for LineDisplayStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for LineDisplayStatusUpdatedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayStoredBitmap(::windows::core::IUnknown);
 impl LineDisplayStoredBitmap {
@@ -10240,6 +10296,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
 }
 unsafe impl ::core::marker::Send for LineDisplayStoredBitmap {}
 unsafe impl ::core::marker::Sync for LineDisplayStoredBitmap {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayTextAttribute(pub i32);
 impl LineDisplayTextAttribute {
@@ -10269,6 +10326,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayTextAttribute {
 impl ::windows::core::DefaultType for LineDisplayTextAttribute {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayTextAttributeGranularity(pub i32);
 impl LineDisplayTextAttributeGranularity {
@@ -10297,6 +10355,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayTextAttributeGranularity
 impl ::windows::core::DefaultType for LineDisplayTextAttributeGranularity {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayVerticalAlignment(pub i32);
 impl LineDisplayVerticalAlignment {
@@ -10325,6 +10384,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayVerticalAlignment {
 impl ::windows::core::DefaultType for LineDisplayVerticalAlignment {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayWindow(::windows::core::IUnknown);
 impl LineDisplayWindow {
@@ -10562,6 +10622,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for LineDisplayWindow {}
 unsafe impl ::core::marker::Sync for LineDisplayWindow {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReader(::windows::core::IUnknown);
 impl MagneticStripeReader {
@@ -10766,6 +10827,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for MagneticStripeReader {}
 unsafe impl ::core::marker::Sync for MagneticStripeReader {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderAamvaCardDataReceivedEventArgs(::windows::core::IUnknown);
 impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
@@ -10966,6 +11028,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderAuthenticationLevel(pub i32);
 impl MagneticStripeReaderAuthenticationLevel {
@@ -10994,6 +11057,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderAuthenticationL
 impl ::windows::core::DefaultType for MagneticStripeReaderAuthenticationLevel {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderAuthenticationProtocol(pub i32);
 impl MagneticStripeReaderAuthenticationProtocol {
@@ -11021,6 +11085,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderAuthenticationP
 impl ::windows::core::DefaultType for MagneticStripeReaderAuthenticationProtocol {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderBankCardDataReceivedEventArgs(::windows::core::IUnknown);
 impl MagneticStripeReaderBankCardDataReceivedEventArgs {
@@ -11151,6 +11216,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderBankCardDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderBankCardDataReceivedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderCapabilities(::windows::core::IUnknown);
 impl MagneticStripeReaderCapabilities {
@@ -11357,6 +11423,7 @@ impl MagneticStripeReaderEncryptionAlgorithms {
 impl ::windows::core::RuntimeName for MagneticStripeReaderEncryptionAlgorithms {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderEncryptionAlgorithms";
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderErrorOccurredEventArgs(::windows::core::IUnknown);
 impl MagneticStripeReaderErrorOccurredEventArgs {
@@ -11466,6 +11533,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderErrorOccurredEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderErrorReportingType(pub i32);
 impl MagneticStripeReaderErrorReportingType {
@@ -11493,6 +11561,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderErrorReportingT
 impl ::windows::core::DefaultType for MagneticStripeReaderErrorReportingType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderReport(::windows::core::IUnknown);
 impl MagneticStripeReaderReport {
@@ -11626,6 +11695,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderReport {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderReport {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderStatus(pub i32);
 impl MagneticStripeReaderStatus {
@@ -11654,6 +11724,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderStatus {
 impl ::windows::core::DefaultType for MagneticStripeReaderStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderStatusUpdatedEventArgs(::windows::core::IUnknown);
 impl MagneticStripeReaderStatusUpdatedEventArgs {
@@ -11735,6 +11806,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderStatusUpdatedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderTrackData(::windows::core::IUnknown);
 impl MagneticStripeReaderTrackData {
@@ -11826,6 +11898,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderTrackData {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderTrackData {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderTrackErrorType(pub i32);
 impl MagneticStripeReaderTrackErrorType {
@@ -11857,6 +11930,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderTrackErrorType 
 impl ::windows::core::DefaultType for MagneticStripeReaderTrackErrorType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderTrackIds(pub i32);
 impl MagneticStripeReaderTrackIds {
@@ -11887,6 +11961,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderTrackIds {
 impl ::windows::core::DefaultType for MagneticStripeReaderTrackIds {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(::windows::core::IUnknown);
 impl MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
@@ -11961,6 +12036,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosConnectionTypes(pub u32);
 impl PosConnectionTypes {
@@ -11990,6 +12066,7 @@ unsafe impl ::windows::core::RuntimeType for PosConnectionTypes {
 impl ::windows::core::DefaultType for PosConnectionTypes {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinter(::windows::core::IUnknown);
 impl PosPrinter {
@@ -12211,6 +12288,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for PosPrinter {}
 unsafe impl ::core::marker::Sync for PosPrinter {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterAlignment(pub i32);
 impl PosPrinterAlignment {
@@ -12239,6 +12317,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterAlignment {
 impl ::windows::core::DefaultType for PosPrinterAlignment {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterBarcodeTextPosition(pub i32);
 impl PosPrinterBarcodeTextPosition {
@@ -12267,6 +12346,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterBarcodeTextPosition {
 impl ::windows::core::DefaultType for PosPrinterBarcodeTextPosition {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterCapabilities(::windows::core::IUnknown);
 impl PosPrinterCapabilities {
@@ -12404,6 +12484,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PosP
 }
 unsafe impl ::core::marker::Send for PosPrinterCapabilities {}
 unsafe impl ::core::marker::Sync for PosPrinterCapabilities {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterCartridgeSensors(pub u32);
 impl PosPrinterCartridgeSensors {
@@ -12462,6 +12543,7 @@ impl PosPrinterCharacterSetIds {
 impl ::windows::core::RuntimeName for PosPrinterCharacterSetIds {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterCharacterSetIds";
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterColorCapabilities(pub u32);
 impl PosPrinterColorCapabilities {
@@ -12499,6 +12581,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterColorCapabilities {
 impl ::windows::core::DefaultType for PosPrinterColorCapabilities {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterColorCartridge(pub i32);
 impl PosPrinterColorCartridge {
@@ -12535,6 +12618,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterColorCartridge {
 impl ::windows::core::DefaultType for PosPrinterColorCartridge {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterFontProperty(::windows::core::IUnknown);
 impl PosPrinterFontProperty {
@@ -12624,6 +12708,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PosP
 }
 unsafe impl ::core::marker::Send for PosPrinterFontProperty {}
 unsafe impl ::core::marker::Sync for PosPrinterFontProperty {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterLineDirection(pub i32);
 impl PosPrinterLineDirection {
@@ -12651,6 +12736,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterLineDirection {
 impl ::windows::core::DefaultType for PosPrinterLineDirection {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterLineStyle(pub i32);
 impl PosPrinterLineStyle {
@@ -12680,6 +12766,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterLineStyle {
 impl ::windows::core::DefaultType for PosPrinterLineStyle {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterMapMode(pub i32);
 impl PosPrinterMapMode {
@@ -12709,6 +12796,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterMapMode {
 impl ::windows::core::DefaultType for PosPrinterMapMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterMarkFeedCapabilities(pub u32);
 impl PosPrinterMarkFeedCapabilities {
@@ -12739,6 +12827,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterMarkFeedCapabilities {
 impl ::windows::core::DefaultType for PosPrinterMarkFeedCapabilities {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterMarkFeedKind(pub i32);
 impl PosPrinterMarkFeedKind {
@@ -12768,6 +12857,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterMarkFeedKind {
 impl ::windows::core::DefaultType for PosPrinterMarkFeedKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterPrintOptions(::windows::core::IUnknown);
 impl PosPrinterPrintOptions {
@@ -12985,6 +13075,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PosP
 }
 unsafe impl ::core::marker::Send for PosPrinterPrintOptions {}
 unsafe impl ::core::marker::Sync for PosPrinterPrintOptions {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterPrintSide(pub i32);
 impl PosPrinterPrintSide {
@@ -13013,6 +13104,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterPrintSide {
 impl ::windows::core::DefaultType for PosPrinterPrintSide {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterReleaseDeviceRequestedEventArgs(::windows::core::IUnknown);
 impl PosPrinterReleaseDeviceRequestedEventArgs {}
@@ -13079,6 +13171,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PosP
 }
 unsafe impl ::core::marker::Send for PosPrinterReleaseDeviceRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PosPrinterReleaseDeviceRequestedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterRotation(pub i32);
 impl PosPrinterRotation {
@@ -13108,6 +13201,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterRotation {
 impl ::windows::core::DefaultType for PosPrinterRotation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterRuledLineCapabilities(pub u32);
 impl PosPrinterRuledLineCapabilities {
@@ -13136,6 +13230,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterRuledLineCapabilities {
 impl ::windows::core::DefaultType for PosPrinterRuledLineCapabilities {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterStatus(::windows::core::IUnknown);
 impl PosPrinterStatus {
@@ -13217,6 +13312,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PosP
 }
 unsafe impl ::core::marker::Send for PosPrinterStatus {}
 unsafe impl ::core::marker::Sync for PosPrinterStatus {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterStatusKind(pub i32);
 impl PosPrinterStatusKind {
@@ -13247,6 +13343,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterStatusKind {
 impl ::windows::core::DefaultType for PosPrinterStatusKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterStatusUpdatedEventArgs(::windows::core::IUnknown);
 impl PosPrinterStatusUpdatedEventArgs {
@@ -13321,6 +13418,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PosP
 }
 unsafe impl ::core::marker::Send for PosPrinterStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for PosPrinterStatusUpdatedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ReceiptPrintJob(::windows::core::IUnknown);
 impl ReceiptPrintJob {
@@ -13549,6 +13647,7 @@ impl<'a> ::windows::core::IntoParam<'a, IReceiptOrSlipJob> for &ReceiptPrintJob 
 }
 unsafe impl ::core::marker::Send for ReceiptPrintJob {}
 unsafe impl ::core::marker::Sync for ReceiptPrintJob {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ReceiptPrinterCapabilities(::windows::core::IUnknown);
 impl ReceiptPrinterCapabilities {
@@ -13881,6 +13980,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICommonReceiptSlipCapabilities> for &Rec
 unsafe impl ::core::marker::Send for ReceiptPrinterCapabilities {}
 unsafe impl ::core::marker::Sync for ReceiptPrinterCapabilities {}
 #[repr(C)]
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 pub struct SizeUInt32 {
     pub Width: u32,
     pub Height: u32,
@@ -13911,6 +14011,7 @@ impl ::core::default::Default for SizeUInt32 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct SlipPrintJob(::windows::core::IUnknown);
 impl SlipPrintJob {
@@ -14123,6 +14224,7 @@ impl<'a> ::windows::core::IntoParam<'a, IReceiptOrSlipJob> for &SlipPrintJob {
 }
 unsafe impl ::core::marker::Send for SlipPrintJob {}
 unsafe impl ::core::marker::Sync for SlipPrintJob {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct SlipPrinterCapabilities(::windows::core::IUnknown);
 impl SlipPrinterCapabilities {
@@ -14447,6 +14549,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICommonReceiptSlipCapabilities> for &Sli
 }
 unsafe impl ::core::marker::Send for SlipPrinterCapabilities {}
 unsafe impl ::core::marker::Sync for SlipPrinterCapabilities {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct UnifiedPosErrorData(::windows::core::IUnknown);
 impl UnifiedPosErrorData {
@@ -14552,6 +14655,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Unif
 }
 unsafe impl ::core::marker::Send for UnifiedPosErrorData {}
 unsafe impl ::core::marker::Sync for UnifiedPosErrorData {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct UnifiedPosErrorReason(pub i32);
 impl UnifiedPosErrorReason {
@@ -14588,6 +14692,7 @@ unsafe impl ::windows::core::RuntimeType for UnifiedPosErrorReason {
 impl ::windows::core::DefaultType for UnifiedPosErrorReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct UnifiedPosErrorSeverity(pub i32);
 impl UnifiedPosErrorSeverity {
@@ -14619,6 +14724,7 @@ unsafe impl ::windows::core::RuntimeType for UnifiedPosErrorSeverity {
 impl ::windows::core::DefaultType for UnifiedPosErrorSeverity {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct UnifiedPosHealthCheckLevel(pub i32);
 impl UnifiedPosHealthCheckLevel {
@@ -14648,6 +14754,7 @@ unsafe impl ::windows::core::RuntimeType for UnifiedPosHealthCheckLevel {
 impl ::windows::core::DefaultType for UnifiedPosHealthCheckLevel {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct UnifiedPosPowerReportingType(pub i32);
 impl UnifiedPosPowerReportingType {

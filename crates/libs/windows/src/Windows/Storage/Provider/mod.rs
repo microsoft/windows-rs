@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct CachedFileOptions(pub u32);
 impl CachedFileOptions {
@@ -28,6 +29,7 @@ unsafe impl ::windows::core::RuntimeType for CachedFileOptions {
 impl ::windows::core::DefaultType for CachedFileOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct CachedFileTarget(pub i32);
 impl CachedFileTarget {
@@ -68,6 +70,7 @@ impl CachedFileUpdater {
 impl ::windows::core::RuntimeName for CachedFileUpdater {
     const NAME: &'static str = "Windows.Storage.Provider.CachedFileUpdater";
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct CachedFileUpdaterUI(::windows::core::IUnknown);
 impl CachedFileUpdaterUI {
@@ -198,6 +201,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cach
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct FileUpdateRequest(::windows::core::IUnknown);
 impl FileUpdateRequest {
@@ -310,6 +314,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct FileUpdateRequestDeferral(::windows::core::IUnknown);
 impl FileUpdateRequestDeferral {
@@ -379,6 +384,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct FileUpdateRequestedEventArgs(::windows::core::IUnknown);
 impl FileUpdateRequestedEventArgs {
@@ -451,6 +457,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct FileUpdateStatus(pub i32);
 impl FileUpdateStatus {
@@ -792,6 +799,7 @@ pub struct IStorageProviderGetPathForContentUriResultVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct IStorageProviderHandlerFactory(::windows::core::IUnknown);
 impl IStorageProviderHandlerFactory {
@@ -935,6 +943,7 @@ pub struct IStorageProviderItemPropertyDefinitionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct IStorageProviderItemPropertySource(::windows::core::IUnknown);
 impl IStorageProviderItemPropertySource {
@@ -1017,6 +1026,7 @@ pub struct IStorageProviderItemPropertySourceVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itempath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct IStorageProviderPropertyCapabilities(::windows::core::IUnknown);
 impl IStorageProviderPropertyCapabilities {
@@ -1138,6 +1148,7 @@ pub struct IStorageProviderStatusFactoryVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: StorageProviderState, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, errormessages: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct IStorageProviderStatusSource(::windows::core::IUnknown);
 impl IStorageProviderStatusSource {
@@ -1367,6 +1378,7 @@ pub struct IStorageProviderSyncRootManagerStatics2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct IStorageProviderUriSource(::windows::core::IUnknown);
 impl IStorageProviderUriSource {
@@ -1449,6 +1461,7 @@ pub struct IStorageProviderUriSourceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contenturi: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct ReadActivationMode(pub i32);
 impl ReadActivationMode {
@@ -1476,6 +1489,7 @@ unsafe impl ::windows::core::RuntimeType for ReadActivationMode {
 impl ::windows::core::DefaultType for ReadActivationMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderError(::windows::core::IUnknown);
 impl StorageProviderError {
@@ -1618,6 +1632,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageProviderError {}
 unsafe impl ::core::marker::Sync for StorageProviderError {}
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderErrorCommand(::windows::core::IUnknown);
 impl StorageProviderErrorCommand {
@@ -1711,6 +1726,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageProviderErrorCommand {}
 unsafe impl ::core::marker::Sync for StorageProviderErrorCommand {}
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderFileTypeInfo(::windows::core::IUnknown);
 impl StorageProviderFileTypeInfo {
@@ -1802,6 +1818,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageProviderFileTypeInfo {}
 unsafe impl ::core::marker::Sync for StorageProviderFileTypeInfo {}
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderGetContentInfoForPathResult(::windows::core::IUnknown);
 impl StorageProviderGetContentInfoForPathResult {
@@ -1909,6 +1926,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageProviderGetContentInfoForPathResult {}
 unsafe impl ::core::marker::Sync for StorageProviderGetContentInfoForPathResult {}
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderGetPathForContentUriResult(::windows::core::IUnknown);
 impl StorageProviderGetPathForContentUriResult {
@@ -2005,6 +2023,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageProviderGetPathForContentUriResult {}
 unsafe impl ::core::marker::Sync for StorageProviderGetPathForContentUriResult {}
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderHardlinkPolicy(pub u32);
 impl StorageProviderHardlinkPolicy {
@@ -2032,6 +2051,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderHardlinkPolicy {
 impl ::windows::core::DefaultType for StorageProviderHardlinkPolicy {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderHydrationPolicy(pub i32);
 impl StorageProviderHydrationPolicy {
@@ -2061,6 +2081,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicy {
 impl ::windows::core::DefaultType for StorageProviderHydrationPolicy {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderHydrationPolicyModifier(pub u32);
 impl StorageProviderHydrationPolicyModifier {
@@ -2091,6 +2112,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicyModif
 impl ::windows::core::DefaultType for StorageProviderHydrationPolicyModifier {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderInSyncPolicy(pub u32);
 impl StorageProviderInSyncPolicy {
@@ -2145,6 +2167,7 @@ impl StorageProviderItemProperties {
 impl ::windows::core::RuntimeName for StorageProviderItemProperties {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderItemProperties";
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderItemProperty(::windows::core::IUnknown);
 impl StorageProviderItemProperty {
@@ -2252,6 +2275,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageProviderItemProperty {}
 unsafe impl ::core::marker::Sync for StorageProviderItemProperty {}
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderItemPropertyDefinition(::windows::core::IUnknown);
 impl StorageProviderItemPropertyDefinition {
@@ -2348,6 +2372,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageProviderItemPropertyDefinition {}
 unsafe impl ::core::marker::Sync for StorageProviderItemPropertyDefinition {}
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderPopulationPolicy(pub i32);
 impl StorageProviderPopulationPolicy {
@@ -2375,6 +2400,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderPopulationPolicy {
 impl ::windows::core::DefaultType for StorageProviderPopulationPolicy {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderProtectionMode(pub i32);
 impl StorageProviderProtectionMode {
@@ -2402,6 +2428,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderProtectionMode {
 impl ::windows::core::DefaultType for StorageProviderProtectionMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderState(pub i32);
 impl StorageProviderState {
@@ -2433,6 +2460,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderState {
 impl ::windows::core::DefaultType for StorageProviderState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderStatus(::windows::core::IUnknown);
 impl StorageProviderStatus {
@@ -2539,6 +2567,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageProviderStatus {}
 unsafe impl ::core::marker::Sync for StorageProviderStatus {}
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderSyncRootInfo(::windows::core::IUnknown);
 impl StorageProviderSyncRootInfo {
@@ -2854,6 +2883,7 @@ impl StorageProviderSyncRootManager {
 impl ::windows::core::RuntimeName for StorageProviderSyncRootManager {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderSyncRootManager";
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderUriSourceStatus(pub i32);
 impl StorageProviderUriSourceStatus {
@@ -2882,6 +2912,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderUriSourceStatus {
 impl ::windows::core::DefaultType for StorageProviderUriSourceStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct UIStatus(pub i32);
 impl UIStatus {
@@ -2911,6 +2942,7 @@ unsafe impl ::windows::core::RuntimeType for UIStatus {
 impl ::windows::core::DefaultType for UIStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct WriteActivationMode(pub i32);
 impl WriteActivationMode {

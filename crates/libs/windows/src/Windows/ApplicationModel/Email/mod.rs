@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "ApplicationModel_Email_DataProvider")]
 pub mod DataProvider;
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailAttachment(::windows::core::IUnknown);
 impl EmailAttachment {
@@ -201,6 +202,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailAttachment {}
 unsafe impl ::core::marker::Sync for EmailAttachment {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailAttachmentDownloadState(pub i32);
 impl EmailAttachmentDownloadState {
@@ -230,6 +232,7 @@ unsafe impl ::windows::core::RuntimeType for EmailAttachmentDownloadState {
 impl ::windows::core::DefaultType for EmailAttachmentDownloadState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailBatchStatus(pub i32);
 impl EmailBatchStatus {
@@ -258,6 +261,7 @@ unsafe impl ::windows::core::RuntimeType for EmailBatchStatus {
 impl ::windows::core::DefaultType for EmailBatchStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailCertificateValidationStatus(pub i32);
 impl EmailCertificateValidationStatus {
@@ -294,6 +298,7 @@ unsafe impl ::windows::core::RuntimeType for EmailCertificateValidationStatus {
 impl ::windows::core::DefaultType for EmailCertificateValidationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailConversation(::windows::core::IUnknown);
 impl EmailConversation {
@@ -469,6 +474,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailConversation {}
 unsafe impl ::core::marker::Sync for EmailConversation {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailConversationBatch(::windows::core::IUnknown);
 impl EmailConversationBatch {
@@ -551,6 +557,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailConversationBatch {}
 unsafe impl ::core::marker::Sync for EmailConversationBatch {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailConversationReader(::windows::core::IUnknown);
 impl EmailConversationReader {
@@ -626,6 +633,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailConversationReader {}
 unsafe impl ::core::marker::Sync for EmailConversationReader {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailFlagState(pub i32);
 impl EmailFlagState {
@@ -655,6 +663,7 @@ unsafe impl ::windows::core::RuntimeType for EmailFlagState {
 impl ::windows::core::DefaultType for EmailFlagState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailFolder(::windows::core::IUnknown);
 impl EmailFolder {
@@ -896,6 +905,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailFolder {}
 unsafe impl ::core::marker::Sync for EmailFolder {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailImportance(pub i32);
 impl EmailImportance {
@@ -924,6 +934,7 @@ unsafe impl ::windows::core::RuntimeType for EmailImportance {
 impl ::windows::core::DefaultType for EmailImportance {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailIrmInfo(::windows::core::IUnknown);
 impl EmailIrmInfo {
@@ -1143,6 +1154,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailIrmInfo {}
 unsafe impl ::core::marker::Sync for EmailIrmInfo {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailIrmTemplate(::windows::core::IUnknown);
 impl EmailIrmTemplate {
@@ -1260,6 +1272,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailIrmTemplate {}
 unsafe impl ::core::marker::Sync for EmailIrmTemplate {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailItemCounts(::windows::core::IUnknown);
 impl EmailItemCounts {
@@ -1355,6 +1368,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailItemCounts {}
 unsafe impl ::core::marker::Sync for EmailItemCounts {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailbox(::windows::core::IUnknown);
 impl EmailMailbox {
@@ -1862,6 +1876,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailbox {}
 unsafe impl ::core::marker::Sync for EmailMailbox {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxAction(::windows::core::IUnknown);
 impl EmailMailboxAction {
@@ -1943,6 +1958,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxAction {}
 unsafe impl ::core::marker::Sync for EmailMailboxAction {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxActionKind(pub i32);
 impl EmailMailboxActionKind {
@@ -1979,6 +1995,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxActionKind {
 impl ::windows::core::DefaultType for EmailMailboxActionKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation(pub i32);
 impl EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
@@ -2007,6 +2024,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxAllowedSmimeEncryptionA
 impl ::windows::core::DefaultType for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxAutoReply(::windows::core::IUnknown);
 impl EmailMailboxAutoReply {
@@ -2096,6 +2114,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxAutoReply {}
 unsafe impl ::core::marker::Sync for EmailMailboxAutoReply {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxAutoReplyMessageResponseKind(pub i32);
 impl EmailMailboxAutoReplyMessageResponseKind {
@@ -2123,6 +2142,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxAutoReplyMessageRespons
 impl ::windows::core::DefaultType for EmailMailboxAutoReplyMessageResponseKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxAutoReplySettings(::windows::core::IUnknown);
 impl EmailMailboxAutoReplySettings {
@@ -2266,6 +2286,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxAutoReplySettings {}
 unsafe impl ::core::marker::Sync for EmailMailboxAutoReplySettings {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxCapabilities(::windows::core::IUnknown);
 impl EmailMailboxCapabilities {
@@ -2487,6 +2508,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxCapabilities {}
 unsafe impl ::core::marker::Sync for EmailMailboxCapabilities {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxChange(::windows::core::IUnknown);
 impl EmailMailboxChange {
@@ -2583,6 +2605,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxChange {}
 unsafe impl ::core::marker::Sync for EmailMailboxChange {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxChangeReader(::windows::core::IUnknown);
 impl EmailMailboxChangeReader {
@@ -2666,6 +2689,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxChangeReader {}
 unsafe impl ::core::marker::Sync for EmailMailboxChangeReader {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxChangeTracker(::windows::core::IUnknown);
 impl EmailMailboxChangeTracker {
@@ -2755,6 +2779,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxChangeTracker {}
 unsafe impl ::core::marker::Sync for EmailMailboxChangeTracker {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxChangeType(pub i32);
 impl EmailMailboxChangeType {
@@ -2787,6 +2812,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxChangeType {
 impl ::windows::core::DefaultType for EmailMailboxChangeType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxChangedDeferral(::windows::core::IUnknown);
 impl EmailMailboxChangedDeferral {
@@ -2858,6 +2884,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxChangedDeferral {}
 unsafe impl ::core::marker::Sync for EmailMailboxChangedDeferral {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxChangedEventArgs(::windows::core::IUnknown);
 impl EmailMailboxChangedEventArgs {
@@ -2932,6 +2959,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxChangedEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxChangedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxCreateFolderResult(::windows::core::IUnknown);
 impl EmailMailboxCreateFolderResult {
@@ -3013,6 +3041,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxCreateFolderResult {}
 unsafe impl ::core::marker::Sync for EmailMailboxCreateFolderResult {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxCreateFolderStatus(pub i32);
 impl EmailMailboxCreateFolderStatus {
@@ -3045,6 +3074,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxCreateFolderStatus {
 impl ::windows::core::DefaultType for EmailMailboxCreateFolderStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxDeleteFolderStatus(pub i32);
 impl EmailMailboxDeleteFolderStatus {
@@ -3076,6 +3106,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxDeleteFolderStatus {
 impl ::windows::core::DefaultType for EmailMailboxDeleteFolderStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxEmptyFolderStatus(pub i32);
 impl EmailMailboxEmptyFolderStatus {
@@ -3107,6 +3138,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxEmptyFolderStatus {
 impl ::windows::core::DefaultType for EmailMailboxEmptyFolderStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxOtherAppReadAccess(pub i32);
 impl EmailMailboxOtherAppReadAccess {
@@ -3135,6 +3167,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxOtherAppReadAccess {
 impl ::windows::core::DefaultType for EmailMailboxOtherAppReadAccess {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxOtherAppWriteAccess(pub i32);
 impl EmailMailboxOtherAppWriteAccess {
@@ -3162,6 +3195,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxOtherAppWriteAccess {
 impl ::windows::core::DefaultType for EmailMailboxOtherAppWriteAccess {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxPolicies(::windows::core::IUnknown);
 impl EmailMailboxPolicies {
@@ -3299,6 +3333,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxPolicies {}
 unsafe impl ::core::marker::Sync for EmailMailboxPolicies {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxSmimeEncryptionAlgorithm(pub i32);
 impl EmailMailboxSmimeEncryptionAlgorithm {
@@ -3330,6 +3365,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxSmimeEncryptionAlgorith
 impl ::windows::core::DefaultType for EmailMailboxSmimeEncryptionAlgorithm {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxSmimeSigningAlgorithm(pub i32);
 impl EmailMailboxSmimeSigningAlgorithm {
@@ -3358,6 +3394,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxSmimeSigningAlgorithm {
 impl ::windows::core::DefaultType for EmailMailboxSmimeSigningAlgorithm {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxSyncManager(::windows::core::IUnknown);
 impl EmailMailboxSyncManager {
@@ -3483,6 +3520,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxSyncManager {}
 unsafe impl ::core::marker::Sync for EmailMailboxSyncManager {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMailboxSyncStatus(pub i32);
 impl EmailMailboxSyncStatus {
@@ -3554,6 +3592,7 @@ impl EmailManager {
 impl ::windows::core::RuntimeName for EmailManager {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailManager";
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailManagerForUser(::windows::core::IUnknown);
 impl EmailManagerForUser {
@@ -3645,6 +3684,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailManagerForUser {}
 unsafe impl ::core::marker::Sync for EmailManagerForUser {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMeetingInfo(::windows::core::IUnknown);
 impl EmailMeetingInfo {
@@ -3883,6 +3923,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMeetingInfo {}
 unsafe impl ::core::marker::Sync for EmailMeetingInfo {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMeetingResponseType(pub i32);
 impl EmailMeetingResponseType {
@@ -3911,6 +3952,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMeetingResponseType {
 impl ::windows::core::DefaultType for EmailMeetingResponseType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMessage(::windows::core::IUnknown);
 impl EmailMessage {
@@ -4350,6 +4392,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMessage {}
 unsafe impl ::core::marker::Sync for EmailMessage {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMessageBatch(::windows::core::IUnknown);
 impl EmailMessageBatch {
@@ -4432,6 +4475,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMessageBatch {}
 unsafe impl ::core::marker::Sync for EmailMessageBatch {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMessageBodyKind(pub i32);
 impl EmailMessageBodyKind {
@@ -4459,6 +4503,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMessageBodyKind {
 impl ::windows::core::DefaultType for EmailMessageBodyKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMessageDownloadState(pub i32);
 impl EmailMessageDownloadState {
@@ -4488,6 +4533,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMessageDownloadState {
 impl ::windows::core::DefaultType for EmailMessageDownloadState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMessageReader(::windows::core::IUnknown);
 impl EmailMessageReader {
@@ -4563,6 +4609,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMessageReader {}
 unsafe impl ::core::marker::Sync for EmailMessageReader {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMessageResponseKind(pub i32);
 impl EmailMessageResponseKind {
@@ -4592,6 +4639,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMessageResponseKind {
 impl ::windows::core::DefaultType for EmailMessageResponseKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailMessageSmimeKind(pub i32);
 impl EmailMessageSmimeKind {
@@ -4621,6 +4669,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMessageSmimeKind {
 impl ::windows::core::DefaultType for EmailMessageSmimeKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailQueryKind(pub i32);
 impl EmailQueryKind {
@@ -4652,6 +4701,7 @@ unsafe impl ::windows::core::RuntimeType for EmailQueryKind {
 impl ::windows::core::DefaultType for EmailQueryKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailQueryOptions(::windows::core::IUnknown);
 impl EmailQueryOptions {
@@ -4790,6 +4840,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailQueryOptions {}
 unsafe impl ::core::marker::Sync for EmailQueryOptions {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailQuerySearchFields(pub u32);
 impl EmailQuerySearchFields {
@@ -4821,6 +4872,7 @@ unsafe impl ::windows::core::RuntimeType for EmailQuerySearchFields {
 impl ::windows::core::DefaultType for EmailQuerySearchFields {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailQuerySearchScope(pub i32);
 impl EmailQuerySearchScope {
@@ -4848,6 +4900,7 @@ unsafe impl ::windows::core::RuntimeType for EmailQuerySearchScope {
 impl ::windows::core::DefaultType for EmailQuerySearchScope {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailQuerySortDirection(pub i32);
 impl EmailQuerySortDirection {
@@ -4875,6 +4928,7 @@ unsafe impl ::windows::core::RuntimeType for EmailQuerySortDirection {
 impl ::windows::core::DefaultType for EmailQuerySortDirection {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailQuerySortProperty(pub i32);
 impl EmailQuerySortProperty {
@@ -4901,6 +4955,7 @@ unsafe impl ::windows::core::RuntimeType for EmailQuerySortProperty {
 impl ::windows::core::DefaultType for EmailQuerySortProperty {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailQueryTextSearch(::windows::core::IUnknown);
 impl EmailQueryTextSearch {
@@ -5001,6 +5056,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailQueryTextSearch {}
 unsafe impl ::core::marker::Sync for EmailQueryTextSearch {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailRecipient(::windows::core::IUnknown);
 impl EmailRecipient {
@@ -5113,6 +5169,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailRecipient {}
 unsafe impl ::core::marker::Sync for EmailRecipient {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailRecipientResolutionResult(::windows::core::IUnknown);
 impl EmailRecipientResolutionResult {
@@ -5211,6 +5268,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailRecipientResolutionResult {}
 unsafe impl ::core::marker::Sync for EmailRecipientResolutionResult {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailRecipientResolutionStatus(pub i32);
 impl EmailRecipientResolutionStatus {
@@ -5244,6 +5302,7 @@ unsafe impl ::windows::core::RuntimeType for EmailRecipientResolutionStatus {
 impl ::windows::core::DefaultType for EmailRecipientResolutionStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailSpecialFolderKind(pub i32);
 impl EmailSpecialFolderKind {
@@ -5276,6 +5335,7 @@ unsafe impl ::windows::core::RuntimeType for EmailSpecialFolderKind {
 impl ::windows::core::DefaultType for EmailSpecialFolderKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailStore(::windows::core::IUnknown);
 impl EmailStore {
@@ -5427,6 +5487,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailStore {}
 unsafe impl ::core::marker::Sync for EmailStore {}
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailStoreAccessType(pub i32);
 impl EmailStoreAccessType {
@@ -5454,6 +5515,7 @@ unsafe impl ::windows::core::RuntimeType for EmailStoreAccessType {
 impl ::windows::core::DefaultType for EmailStoreAccessType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
 pub struct EmailStoreNotificationTriggerDetails(::windows::core::IUnknown);
 impl EmailStoreNotificationTriggerDetails {}

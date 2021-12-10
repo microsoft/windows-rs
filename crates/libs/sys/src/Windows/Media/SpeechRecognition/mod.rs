@@ -3,6 +3,7 @@
 extern "system" {}
 pub type ISpeechRecognitionConstraint = *mut ::core::ffi::c_void;
 pub type SpeechContinuousRecognitionCompletedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechContinuousRecognitionMode(pub i32);
 impl SpeechContinuousRecognitionMode {
@@ -17,6 +18,7 @@ impl ::core::clone::Clone for SpeechContinuousRecognitionMode {
 }
 pub type SpeechContinuousRecognitionResultGeneratedEventArgs = *mut ::core::ffi::c_void;
 pub type SpeechContinuousRecognitionSession = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionAudioProblem(pub i32);
 impl SpeechRecognitionAudioProblem {
@@ -35,6 +37,7 @@ impl ::core::clone::Clone for SpeechRecognitionAudioProblem {
     }
 }
 pub type SpeechRecognitionCompilationResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionConfidence(pub i32);
 impl SpeechRecognitionConfidence {
@@ -49,6 +52,7 @@ impl ::core::clone::Clone for SpeechRecognitionConfidence {
         *self
     }
 }
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionConstraintProbability(pub i32);
 impl SpeechRecognitionConstraintProbability {
@@ -62,6 +66,7 @@ impl ::core::clone::Clone for SpeechRecognitionConstraintProbability {
         *self
     }
 }
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionConstraintType(pub i32);
 impl SpeechRecognitionConstraintType {
@@ -82,6 +87,7 @@ pub type SpeechRecognitionHypothesisGeneratedEventArgs = *mut ::core::ffi::c_voi
 pub type SpeechRecognitionListConstraint = *mut ::core::ffi::c_void;
 pub type SpeechRecognitionQualityDegradingEventArgs = *mut ::core::ffi::c_void;
 pub type SpeechRecognitionResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionResultStatus(pub i32);
 impl SpeechRecognitionResultStatus {
@@ -103,6 +109,7 @@ impl ::core::clone::Clone for SpeechRecognitionResultStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionScenario(pub i32);
 impl SpeechRecognitionScenario {
@@ -120,6 +127,7 @@ pub type SpeechRecognitionSemanticInterpretation = *mut ::core::ffi::c_void;
 pub type SpeechRecognitionTopicConstraint = *mut ::core::ffi::c_void;
 pub type SpeechRecognitionVoiceCommandDefinitionConstraint = *mut ::core::ffi::c_void;
 pub type SpeechRecognizer = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognizerState(pub i32);
 impl SpeechRecognizerState {

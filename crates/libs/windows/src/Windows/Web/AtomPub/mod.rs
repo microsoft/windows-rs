@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Web_AtomPub'*"]
 #[repr(transparent)]
 pub struct AtomPubClient(::windows::core::IUnknown);
 impl AtomPubClient {
@@ -394,6 +395,7 @@ pub struct IWorkspaceVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Web_AtomPub'*"]
 #[repr(transparent)]
 pub struct ResourceCollection(::windows::core::IUnknown);
 impl ResourceCollection {
@@ -608,6 +610,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Syndication::ISyndicationNode> fo
 }
 unsafe impl ::core::marker::Send for ResourceCollection {}
 unsafe impl ::core::marker::Sync for ResourceCollection {}
+#[doc = "*Required features: 'Web_AtomPub'*"]
 #[repr(transparent)]
 pub struct ServiceDocument(::windows::core::IUnknown);
 impl ServiceDocument {
@@ -798,6 +801,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Syndication::ISyndicationNode> fo
 }
 unsafe impl ::core::marker::Send for ServiceDocument {}
 unsafe impl ::core::marker::Sync for ServiceDocument {}
+#[doc = "*Required features: 'Web_AtomPub'*"]
 #[repr(transparent)]
 pub struct Workspace(::windows::core::IUnknown);
 impl Workspace {

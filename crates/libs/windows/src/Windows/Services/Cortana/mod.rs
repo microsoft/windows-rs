@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Services_Cortana', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct CortanaActionableInsights(::windows::core::IUnknown);
@@ -166,6 +167,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cort
 unsafe impl ::core::marker::Send for CortanaActionableInsights {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for CortanaActionableInsights {}
+#[doc = "*Required features: 'Services_Cortana', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct CortanaActionableInsightsOptions(::windows::core::IUnknown);
@@ -284,6 +286,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cort
 unsafe impl ::core::marker::Send for CortanaActionableInsightsOptions {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for CortanaActionableInsightsOptions {}
+#[doc = "*Required features: 'Services_Cortana', 'deprecated'*"]
 #[repr(transparent)]
 pub struct CortanaPermission(pub i32);
 impl CortanaPermission {
@@ -320,6 +323,7 @@ unsafe impl ::windows::core::RuntimeType for CortanaPermission {
 impl ::windows::core::DefaultType for CortanaPermission {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Cortana', 'deprecated'*"]
 #[repr(transparent)]
 pub struct CortanaPermissionsChangeResult(pub i32);
 impl CortanaPermissionsChangeResult {
@@ -348,6 +352,7 @@ unsafe impl ::windows::core::RuntimeType for CortanaPermissionsChangeResult {
 impl ::windows::core::DefaultType for CortanaPermissionsChangeResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Cortana', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct CortanaPermissionsManager(::windows::core::IUnknown);
@@ -476,6 +481,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cort
 unsafe impl ::core::marker::Send for CortanaPermissionsManager {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for CortanaPermissionsManager {}
+#[doc = "*Required features: 'Services_Cortana', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct CortanaSettings(::windows::core::IUnknown);

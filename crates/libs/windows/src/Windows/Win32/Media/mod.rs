@@ -26,6 +26,7 @@ pub mod Streaming;
 #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
 pub mod WindowsMediaFormat;
 pub type HTASK = isize;
+#[doc = "*Required features: 'Win32_Media'*"]
 #[repr(transparent)]
 pub struct IReferenceClock(::windows::core::IUnknown);
 impl IReferenceClock {
@@ -95,6 +96,7 @@ pub struct IReferenceClockVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwadvisecookie: usize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media'*"]
 #[repr(transparent)]
 pub struct IReferenceClock2(::windows::core::IUnknown);
 impl IReferenceClock2 {
@@ -184,6 +186,7 @@ pub struct IReferenceClock2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwadvisecookie: usize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media'*"]
 #[repr(transparent)]
 pub struct IReferenceClockTimerControl(::windows::core::IUnknown);
 impl IReferenceClockTimerControl {
@@ -240,8 +243,10 @@ pub struct IReferenceClockTimerControlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimerresolution: *mut i64) -> ::windows::core::HRESULT,
 );
 pub const JOYERR_BASE: u32 = 160u32;
+#[doc = "*Required features: 'Win32_Media', 'Win32_Media_Multimedia'*"]
 #[cfg(feature = "Win32_Media_Multimedia")]
 pub type LPDRVCALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub type LPTIMECALLBACK = ::core::option::Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
 pub const MAXERRORLENGTH: u32 = 256u32;
 pub const MAXPNAMELEN: u32 = 32u32;
@@ -278,6 +283,7 @@ pub const MMSYSERR_READERROR: u32 = 16u32;
 pub const MMSYSERR_VALNOTFOUND: u32 = 19u32;
 pub const MMSYSERR_WRITEERROR: u32 = 17u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub struct MMTIME {
     pub wType: u32,
     pub u: MMTIME_0,
@@ -303,6 +309,7 @@ impl ::core::default::Default for MMTIME {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub union MMTIME_0 {
     pub ms: u32,
     pub sample: u32,
@@ -332,6 +339,7 @@ impl ::core::default::Default for MMTIME_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub struct MMTIME_0_0 {
     pub songptrpos: u32,
 }
@@ -356,6 +364,7 @@ impl ::core::default::Default for MMTIME_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub struct MMTIME_0_1 {
     pub hour: u8,
     pub min: u8,
@@ -435,6 +444,7 @@ pub const MM_WOM_CLOSE: u32 = 956u32;
 pub const MM_WOM_DONE: u32 = 957u32;
 pub const MM_WOM_OPEN: u32 = 955u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub struct TIMECAPS {
     pub wPeriodMin: u32,
     pub wPeriodMax: u32,
@@ -460,6 +470,7 @@ impl ::core::default::Default for TIMECAPS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub union TIMECODE {
     pub Anonymous: TIMECODE_0,
     pub qw: u64,
@@ -485,6 +496,7 @@ impl ::core::default::Default for TIMECODE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub struct TIMECODE_0 {
     pub wFrameRate: u16,
     pub wFrameFract: u16,
@@ -511,6 +523,7 @@ impl ::core::default::Default for TIMECODE_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub struct TIMECODE_SAMPLE {
     pub qwTick: i64,
     pub timecode: TIMECODE,
@@ -537,9 +550,13 @@ impl ::core::default::Default for TIMECODE_SAMPLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media'*"]
 pub type TIMECODE_SAMPLE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const ED_DEVCAP_TIMECODE_READ: TIMECODE_SAMPLE_FLAGS = 4121u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = 5047u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = 5050u32;
 pub const TIMERR_BASE: u32 = 96u32;
 pub const TIMERR_NOCANDO: u32 = 97u32;
@@ -558,6 +575,7 @@ pub const TIME_SAMPLES: u32 = 2u32;
 pub const TIME_SMPTE: u32 = 8u32;
 pub const TIME_TICKS: u32 = 32u32;
 pub const WAVERR_BASE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 #[inline]
 pub unsafe fn timeBeginPeriod(uperiod: u32) -> u32 {
     #[cfg(windows)]
@@ -571,6 +589,7 @@ pub unsafe fn timeBeginPeriod(uperiod: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media'*"]
 #[inline]
 pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
     #[cfg(windows)]
@@ -584,6 +603,7 @@ pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media'*"]
 #[inline]
 pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
     #[cfg(windows)]
@@ -597,6 +617,7 @@ pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media'*"]
 #[inline]
 pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
     #[cfg(windows)]
@@ -610,6 +631,7 @@ pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media'*"]
 #[inline]
 pub unsafe fn timeGetTime() -> u32 {
     #[cfg(windows)]
@@ -623,6 +645,7 @@ pub unsafe fn timeGetTime() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media'*"]
 #[inline]
 pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
     #[cfg(windows)]
@@ -636,6 +659,7 @@ pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media'*"]
 #[inline]
 pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32 {
     #[cfg(windows)]

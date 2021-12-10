@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Media_ContentRestrictions'*"]
 #[repr(transparent)]
 pub struct ContentAccessRestrictionLevel(pub i32);
 impl ContentAccessRestrictionLevel {
@@ -28,6 +29,7 @@ unsafe impl ::windows::core::RuntimeType for ContentAccessRestrictionLevel {
 impl ::windows::core::DefaultType for ContentAccessRestrictionLevel {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_ContentRestrictions'*"]
 #[repr(transparent)]
 pub struct ContentRestrictionsBrowsePolicy(::windows::core::IUnknown);
 impl ContentRestrictionsBrowsePolicy {
@@ -234,6 +236,7 @@ pub struct IRatedContentRestrictionsFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxagerating: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_ContentRestrictions'*"]
 #[repr(transparent)]
 pub struct RatedContentCategory(pub i32);
 impl RatedContentCategory {
@@ -265,6 +268,7 @@ unsafe impl ::windows::core::RuntimeType for RatedContentCategory {
 impl ::windows::core::DefaultType for RatedContentCategory {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_ContentRestrictions'*"]
 #[repr(transparent)]
 pub struct RatedContentDescription(::windows::core::IUnknown);
 impl RatedContentDescription {
@@ -401,6 +405,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rate
 }
 unsafe impl ::core::marker::Send for RatedContentDescription {}
 unsafe impl ::core::marker::Sync for RatedContentDescription {}
+#[doc = "*Required features: 'Media_ContentRestrictions'*"]
 #[repr(transparent)]
 pub struct RatedContentRestrictions(::windows::core::IUnknown);
 impl RatedContentRestrictions {

@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
 #[repr(transparent)]
 pub struct DateTimeFormatter(::windows::core::IUnknown);
 impl DateTimeFormatter {
@@ -278,6 +279,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Date
 }
 unsafe impl ::core::marker::Send for DateTimeFormatter {}
 unsafe impl ::core::marker::Sync for DateTimeFormatter {}
+#[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
 #[repr(transparent)]
 pub struct DayFormat(pub i32);
 impl DayFormat {
@@ -305,6 +307,7 @@ unsafe impl ::windows::core::RuntimeType for DayFormat {
 impl ::windows::core::DefaultType for DayFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
 #[repr(transparent)]
 pub struct DayOfWeekFormat(pub i32);
 impl DayOfWeekFormat {
@@ -334,6 +337,7 @@ unsafe impl ::windows::core::RuntimeType for DayOfWeekFormat {
 impl ::windows::core::DefaultType for DayOfWeekFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
 #[repr(transparent)]
 pub struct HourFormat(pub i32);
 impl HourFormat {
@@ -467,6 +471,7 @@ pub struct IDateTimeFormatterStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
 #[repr(transparent)]
 pub struct MinuteFormat(pub i32);
 impl MinuteFormat {
@@ -494,6 +499,7 @@ unsafe impl ::windows::core::RuntimeType for MinuteFormat {
 impl ::windows::core::DefaultType for MinuteFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
 #[repr(transparent)]
 pub struct MonthFormat(pub i32);
 impl MonthFormat {
@@ -524,6 +530,7 @@ unsafe impl ::windows::core::RuntimeType for MonthFormat {
 impl ::windows::core::DefaultType for MonthFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
 #[repr(transparent)]
 pub struct SecondFormat(pub i32);
 impl SecondFormat {
@@ -551,6 +558,7 @@ unsafe impl ::windows::core::RuntimeType for SecondFormat {
 impl ::windows::core::DefaultType for SecondFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
 #[repr(transparent)]
 pub struct YearFormat(pub i32);
 impl YearFormat {

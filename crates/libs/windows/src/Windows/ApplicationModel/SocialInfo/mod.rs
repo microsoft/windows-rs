@@ -235,6 +235,7 @@ pub struct ISocialUserInfoVtbl(
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
 );
+#[doc = "*Required features: 'ApplicationModel_SocialInfo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SocialFeedChildItem(::windows::core::IUnknown);
@@ -398,6 +399,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Soci
 unsafe impl ::core::marker::Send for SocialFeedChildItem {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SocialFeedChildItem {}
+#[doc = "*Required features: 'ApplicationModel_SocialInfo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SocialFeedContent(::windows::core::IUnknown);
@@ -522,6 +524,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Soci
 unsafe impl ::core::marker::Send for SocialFeedContent {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SocialFeedContent {}
+#[doc = "*Required features: 'ApplicationModel_SocialInfo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SocialFeedItem(::windows::core::IUnknown);
@@ -750,6 +753,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Soci
 unsafe impl ::core::marker::Send for SocialFeedItem {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SocialFeedItem {}
+#[doc = "*Required features: 'ApplicationModel_SocialInfo', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SocialFeedItemStyle(pub i32);
 impl SocialFeedItemStyle {
@@ -777,6 +781,7 @@ unsafe impl ::windows::core::RuntimeType for SocialFeedItemStyle {
 impl ::windows::core::DefaultType for SocialFeedItemStyle {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_SocialInfo', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SocialFeedKind(pub i32);
 impl SocialFeedKind {
@@ -805,6 +810,7 @@ unsafe impl ::windows::core::RuntimeType for SocialFeedKind {
 impl ::windows::core::DefaultType for SocialFeedKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_SocialInfo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SocialFeedSharedItem(::windows::core::IUnknown);
@@ -957,6 +963,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Soci
 unsafe impl ::core::marker::Send for SocialFeedSharedItem {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SocialFeedSharedItem {}
+#[doc = "*Required features: 'ApplicationModel_SocialInfo', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SocialFeedUpdateMode(pub i32);
 impl SocialFeedUpdateMode {
@@ -984,6 +991,7 @@ unsafe impl ::windows::core::RuntimeType for SocialFeedUpdateMode {
 impl ::windows::core::DefaultType for SocialFeedUpdateMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_SocialInfo', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SocialItemBadgeStyle(pub i32);
 impl SocialItemBadgeStyle {
@@ -1012,6 +1020,7 @@ unsafe impl ::windows::core::RuntimeType for SocialItemBadgeStyle {
 impl ::windows::core::DefaultType for SocialItemBadgeStyle {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_SocialInfo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SocialItemThumbnail(::windows::core::IUnknown);
@@ -1151,6 +1160,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Soci
 unsafe impl ::core::marker::Send for SocialItemThumbnail {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SocialItemThumbnail {}
+#[doc = "*Required features: 'ApplicationModel_SocialInfo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SocialUserInfo(::windows::core::IUnknown);

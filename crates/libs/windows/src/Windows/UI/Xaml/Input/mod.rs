@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct AccessKeyDisplayDismissedEventArgs(::windows::core::IUnknown);
 impl AccessKeyDisplayDismissedEventArgs {
@@ -73,6 +74,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
 }
 unsafe impl ::core::marker::Send for AccessKeyDisplayDismissedEventArgs {}
 unsafe impl ::core::marker::Sync for AccessKeyDisplayDismissedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct AccessKeyDisplayRequestedEventArgs(::windows::core::IUnknown);
 impl AccessKeyDisplayRequestedEventArgs {
@@ -154,6 +156,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
 }
 unsafe impl ::core::marker::Send for AccessKeyDisplayRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for AccessKeyDisplayRequestedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct AccessKeyInvokedEventArgs(::windows::core::IUnknown);
 impl AccessKeyInvokedEventArgs {
@@ -239,6 +242,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
 }
 unsafe impl ::core::marker::Send for AccessKeyInvokedEventArgs {}
 unsafe impl ::core::marker::Sync for AccessKeyInvokedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct AccessKeyManager(::windows::core::IUnknown);
 impl AccessKeyManager {
@@ -343,6 +347,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
 }
 unsafe impl ::core::marker::Send for AccessKeyManager {}
 unsafe impl ::core::marker::Sync for AccessKeyManager {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct CanExecuteRequestedEventArgs(::windows::core::IUnknown);
 impl CanExecuteRequestedEventArgs {
@@ -428,6 +433,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &CanE
 }
 unsafe impl ::core::marker::Send for CanExecuteRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CanExecuteRequestedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct CharacterReceivedRoutedEventArgs(::windows::core::IUnknown);
 impl CharacterReceivedRoutedEventArgs {
@@ -541,6 +547,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &CharacterRe
 }
 unsafe impl ::core::marker::Send for CharacterReceivedRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for CharacterReceivedRoutedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct ContextRequestedEventArgs(::windows::core::IUnknown);
 impl ContextRequestedEventArgs {
@@ -654,6 +661,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &ContextRequ
 }
 unsafe impl ::core::marker::Send for ContextRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ContextRequestedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct DoubleTappedEventHandler(pub ::windows::core::IUnknown);
 impl DoubleTappedEventHandler {
@@ -722,6 +730,7 @@ unsafe impl ::windows::core::RuntimeType for DoubleTappedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DoubleTappedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct DoubleTappedRoutedEventArgs(::windows::core::IUnknown);
 impl DoubleTappedRoutedEventArgs {
@@ -843,6 +852,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &DoubleTappe
 }
 unsafe impl ::core::marker::Send for DoubleTappedRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for DoubleTappedRoutedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct ExecuteRequestedEventArgs(::windows::core::IUnknown);
 impl ExecuteRequestedEventArgs {
@@ -917,6 +927,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Exec
 }
 unsafe impl ::core::marker::Send for ExecuteRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ExecuteRequestedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct FindNextElementOptions(::windows::core::IUnknown);
 impl FindNextElementOptions {
@@ -1039,6 +1050,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Find
 }
 unsafe impl ::core::marker::Send for FindNextElementOptions {}
 unsafe impl ::core::marker::Sync for FindNextElementOptions {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct FocusInputDeviceKind(pub i32);
 impl FocusInputDeviceKind {
@@ -1070,6 +1082,7 @@ unsafe impl ::windows::core::RuntimeType for FocusInputDeviceKind {
 impl ::windows::core::DefaultType for FocusInputDeviceKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct FocusManager(::windows::core::IUnknown);
 impl FocusManager {
@@ -1291,6 +1304,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Focu
 }
 unsafe impl ::core::marker::Send for FocusManager {}
 unsafe impl ::core::marker::Sync for FocusManager {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct FocusManagerGotFocusEventArgs(::windows::core::IUnknown);
 impl FocusManagerGotFocusEventArgs {
@@ -1372,6 +1386,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Focu
 }
 unsafe impl ::core::marker::Send for FocusManagerGotFocusEventArgs {}
 unsafe impl ::core::marker::Sync for FocusManagerGotFocusEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct FocusManagerLostFocusEventArgs(::windows::core::IUnknown);
 impl FocusManagerLostFocusEventArgs {
@@ -1453,6 +1468,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Focu
 }
 unsafe impl ::core::marker::Send for FocusManagerLostFocusEventArgs {}
 unsafe impl ::core::marker::Sync for FocusManagerLostFocusEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct FocusMovementResult(::windows::core::IUnknown);
 impl FocusMovementResult {
@@ -1527,6 +1543,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Focu
 }
 unsafe impl ::core::marker::Send for FocusMovementResult {}
 unsafe impl ::core::marker::Sync for FocusMovementResult {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct FocusNavigationDirection(pub i32);
 impl FocusNavigationDirection {
@@ -1559,6 +1576,7 @@ unsafe impl ::windows::core::RuntimeType for FocusNavigationDirection {
 impl ::windows::core::DefaultType for FocusNavigationDirection {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct GettingFocusEventArgs(::windows::core::IUnknown);
 impl GettingFocusEventArgs {
@@ -1728,6 +1746,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &GettingFocu
 }
 unsafe impl ::core::marker::Send for GettingFocusEventArgs {}
 unsafe impl ::core::marker::Sync for GettingFocusEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct HoldingEventHandler(pub ::windows::core::IUnknown);
 impl HoldingEventHandler {
@@ -1796,6 +1815,7 @@ unsafe impl ::windows::core::RuntimeType for HoldingEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct HoldingEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct HoldingRoutedEventArgs(::windows::core::IUnknown);
 impl HoldingRoutedEventArgs {
@@ -2080,6 +2100,7 @@ pub struct ICharacterReceivedRoutedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct ICommand(::windows::core::IUnknown);
 impl ICommand {
@@ -3457,6 +3478,7 @@ pub struct IXamlUICommandStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct InertiaExpansionBehavior(::windows::core::IUnknown);
 impl InertiaExpansionBehavior {
@@ -3546,6 +3568,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Iner
 }
 unsafe impl ::core::marker::Send for InertiaExpansionBehavior {}
 unsafe impl ::core::marker::Sync for InertiaExpansionBehavior {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct InertiaRotationBehavior(::windows::core::IUnknown);
 impl InertiaRotationBehavior {
@@ -3635,6 +3658,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Iner
 }
 unsafe impl ::core::marker::Send for InertiaRotationBehavior {}
 unsafe impl ::core::marker::Sync for InertiaRotationBehavior {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct InertiaTranslationBehavior(::windows::core::IUnknown);
 impl InertiaTranslationBehavior {
@@ -3724,6 +3748,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Iner
 }
 unsafe impl ::core::marker::Send for InertiaTranslationBehavior {}
 unsafe impl ::core::marker::Sync for InertiaTranslationBehavior {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct InputScope(::windows::core::IUnknown);
 impl InputScope {
@@ -3826,6 +3851,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &InputScope
 }
 unsafe impl ::core::marker::Send for InputScope {}
 unsafe impl ::core::marker::Sync for InputScope {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct InputScopeName(::windows::core::IUnknown);
 impl InputScopeName {
@@ -3941,6 +3967,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &InputScope
 }
 unsafe impl ::core::marker::Send for InputScopeName {}
 unsafe impl ::core::marker::Sync for InputScopeName {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct InputScopeNameValue(pub i32);
 impl InputScopeNameValue {
@@ -4010,6 +4037,7 @@ unsafe impl ::windows::core::RuntimeType for InputScopeNameValue {
 impl ::windows::core::DefaultType for InputScopeNameValue {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct KeyEventHandler(pub ::windows::core::IUnknown);
 impl KeyEventHandler {
@@ -4078,6 +4106,7 @@ unsafe impl ::windows::core::RuntimeType for KeyEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct KeyEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct KeyRoutedEventArgs(::windows::core::IUnknown);
 impl KeyRoutedEventArgs {
@@ -4207,6 +4236,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &KeyRoutedEv
 }
 unsafe impl ::core::marker::Send for KeyRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for KeyRoutedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct KeyTipPlacementMode(pub i32);
 impl KeyTipPlacementMode {
@@ -4239,6 +4269,7 @@ unsafe impl ::windows::core::RuntimeType for KeyTipPlacementMode {
 impl ::windows::core::DefaultType for KeyTipPlacementMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct KeyboardAccelerator(::windows::core::IUnknown);
 impl KeyboardAccelerator {
@@ -4425,6 +4456,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &KeyboardAc
 }
 unsafe impl ::core::marker::Send for KeyboardAccelerator {}
 unsafe impl ::core::marker::Sync for KeyboardAccelerator {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct KeyboardAcceleratorInvokedEventArgs(::windows::core::IUnknown);
 impl KeyboardAcceleratorInvokedEventArgs {
@@ -4517,6 +4549,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Keyb
 }
 unsafe impl ::core::marker::Send for KeyboardAcceleratorInvokedEventArgs {}
 unsafe impl ::core::marker::Sync for KeyboardAcceleratorInvokedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct KeyboardAcceleratorPlacementMode(pub i32);
 impl KeyboardAcceleratorPlacementMode {
@@ -4544,6 +4577,7 @@ unsafe impl ::windows::core::RuntimeType for KeyboardAcceleratorPlacementMode {
 impl ::windows::core::DefaultType for KeyboardAcceleratorPlacementMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct KeyboardNavigationMode(pub i32);
 impl KeyboardNavigationMode {
@@ -4572,6 +4606,7 @@ unsafe impl ::windows::core::RuntimeType for KeyboardNavigationMode {
 impl ::windows::core::DefaultType for KeyboardNavigationMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct LosingFocusEventArgs(::windows::core::IUnknown);
 impl LosingFocusEventArgs {
@@ -4741,6 +4776,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &LosingFocus
 }
 unsafe impl ::core::marker::Send for LosingFocusEventArgs {}
 unsafe impl ::core::marker::Sync for LosingFocusEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct ManipulationCompletedEventHandler(pub ::windows::core::IUnknown);
 impl ManipulationCompletedEventHandler {
@@ -4809,6 +4845,7 @@ unsafe impl ::windows::core::RuntimeType for ManipulationCompletedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ManipulationCompletedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct ManipulationCompletedRoutedEventArgs(::windows::core::IUnknown);
 impl ManipulationCompletedRoutedEventArgs {
@@ -4960,6 +4997,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &Manipulatio
 }
 unsafe impl ::core::marker::Send for ManipulationCompletedRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for ManipulationCompletedRoutedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct ManipulationDeltaEventHandler(pub ::windows::core::IUnknown);
 impl ManipulationDeltaEventHandler {
@@ -5028,6 +5066,7 @@ unsafe impl ::windows::core::RuntimeType for ManipulationDeltaEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ManipulationDeltaEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct ManipulationDeltaRoutedEventArgs(::windows::core::IUnknown);
 impl ManipulationDeltaRoutedEventArgs {
@@ -5191,6 +5230,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &Manipulatio
 }
 unsafe impl ::core::marker::Send for ManipulationDeltaRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for ManipulationDeltaRoutedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct ManipulationInertiaStartingEventHandler(pub ::windows::core::IUnknown);
 impl ManipulationInertiaStartingEventHandler {
@@ -5259,6 +5299,7 @@ unsafe impl ::windows::core::RuntimeType for ManipulationInertiaStartingEventHan
 #[repr(C)]
 #[doc(hidden)]
 pub struct ManipulationInertiaStartingEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct ManipulationInertiaStartingRoutedEventArgs(::windows::core::IUnknown);
 impl ManipulationInertiaStartingRoutedEventArgs {
@@ -5436,6 +5477,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &Manipulatio
 }
 unsafe impl ::core::marker::Send for ManipulationInertiaStartingRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for ManipulationInertiaStartingRoutedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct ManipulationModes(pub u32);
 impl ManipulationModes {
@@ -5473,6 +5515,7 @@ unsafe impl ::windows::core::RuntimeType for ManipulationModes {
 impl ::windows::core::DefaultType for ManipulationModes {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct ManipulationPivot(::windows::core::IUnknown);
 impl ManipulationPivot {
@@ -5582,6 +5625,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mani
 }
 unsafe impl ::core::marker::Send for ManipulationPivot {}
 unsafe impl ::core::marker::Sync for ManipulationPivot {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct ManipulationStartedEventHandler(pub ::windows::core::IUnknown);
 impl ManipulationStartedEventHandler {
@@ -5650,6 +5694,7 @@ unsafe impl ::windows::core::RuntimeType for ManipulationStartedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ManipulationStartedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct ManipulationStartedRoutedEventArgs(::windows::core::IUnknown);
 impl ManipulationStartedRoutedEventArgs {
@@ -5793,6 +5838,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &Manipulatio
 }
 unsafe impl ::core::marker::Send for ManipulationStartedRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for ManipulationStartedRoutedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct ManipulationStartingEventHandler(pub ::windows::core::IUnknown);
 impl ManipulationStartingEventHandler {
@@ -5861,6 +5907,7 @@ unsafe impl ::windows::core::RuntimeType for ManipulationStartingEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ManipulationStartingEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct ManipulationStartingRoutedEventArgs(::windows::core::IUnknown);
 impl ManipulationStartingRoutedEventArgs {
@@ -5999,6 +6046,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &Manipulatio
 }
 unsafe impl ::core::marker::Send for ManipulationStartingRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for ManipulationStartingRoutedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct NoFocusCandidateFoundEventArgs(::windows::core::IUnknown);
 impl NoFocusCandidateFoundEventArgs {
@@ -6111,6 +6159,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &NoFocusCand
 }
 unsafe impl ::core::marker::Send for NoFocusCandidateFoundEventArgs {}
 unsafe impl ::core::marker::Sync for NoFocusCandidateFoundEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct Pointer(::windows::core::IUnknown);
 impl Pointer {
@@ -6207,6 +6256,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Poin
 }
 unsafe impl ::core::marker::Send for Pointer {}
 unsafe impl ::core::marker::Sync for Pointer {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct PointerEventHandler(pub ::windows::core::IUnknown);
 impl PointerEventHandler {
@@ -6275,6 +6325,7 @@ unsafe impl ::windows::core::RuntimeType for PointerEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct PointerEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct PointerRoutedEventArgs(::windows::core::IUnknown);
 impl PointerRoutedEventArgs {
@@ -6411,6 +6462,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &PointerRout
 }
 unsafe impl ::core::marker::Send for PointerRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for PointerRoutedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct ProcessKeyboardAcceleratorEventArgs(::windows::core::IUnknown);
 impl ProcessKeyboardAcceleratorEventArgs {
@@ -6505,6 +6557,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
 }
 unsafe impl ::core::marker::Send for ProcessKeyboardAcceleratorEventArgs {}
 unsafe impl ::core::marker::Sync for ProcessKeyboardAcceleratorEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct RightTappedEventHandler(pub ::windows::core::IUnknown);
 impl RightTappedEventHandler {
@@ -6573,6 +6626,7 @@ unsafe impl ::windows::core::RuntimeType for RightTappedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct RightTappedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct RightTappedRoutedEventArgs(::windows::core::IUnknown);
 impl RightTappedRoutedEventArgs {
@@ -6694,6 +6748,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &RightTapped
 }
 unsafe impl ::core::marker::Send for RightTappedRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for RightTappedRoutedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct StandardUICommand(::windows::core::IUnknown);
 impl StandardUICommand {
@@ -6860,6 +6915,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &StandardUI
 }
 unsafe impl ::core::marker::Send for StandardUICommand {}
 unsafe impl ::core::marker::Sync for StandardUICommand {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct StandardUICommandKind(pub i32);
 impl StandardUICommandKind {
@@ -6902,6 +6958,7 @@ unsafe impl ::windows::core::RuntimeType for StandardUICommandKind {
 impl ::windows::core::DefaultType for StandardUICommandKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct TappedEventHandler(pub ::windows::core::IUnknown);
 impl TappedEventHandler {
@@ -6970,6 +7027,7 @@ unsafe impl ::windows::core::RuntimeType for TappedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct TappedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct TappedRoutedEventArgs(::windows::core::IUnknown);
 impl TappedRoutedEventArgs {
@@ -7091,6 +7149,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::RoutedEventArgs> for &TappedRoute
 }
 unsafe impl ::core::marker::Send for TappedRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for TappedRoutedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct XYFocusKeyboardNavigationMode(pub i32);
 impl XYFocusKeyboardNavigationMode {
@@ -7119,6 +7178,7 @@ unsafe impl ::windows::core::RuntimeType for XYFocusKeyboardNavigationMode {
 impl ::windows::core::DefaultType for XYFocusKeyboardNavigationMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct XYFocusNavigationStrategy(pub i32);
 impl XYFocusNavigationStrategy {
@@ -7148,6 +7208,7 @@ unsafe impl ::windows::core::RuntimeType for XYFocusNavigationStrategy {
 impl ::windows::core::DefaultType for XYFocusNavigationStrategy {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct XYFocusNavigationStrategyOverride(pub i32);
 impl XYFocusNavigationStrategyOverride {
@@ -7178,6 +7239,7 @@ unsafe impl ::windows::core::RuntimeType for XYFocusNavigationStrategyOverride {
 impl ::windows::core::DefaultType for XYFocusNavigationStrategyOverride {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct XamlUICommand(::windows::core::IUnknown);
 impl XamlUICommand {

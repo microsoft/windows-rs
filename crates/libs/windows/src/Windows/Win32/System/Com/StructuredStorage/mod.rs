@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct BSTRBLOB {
     pub cbSize: u32,
     pub pData: *mut u8,
@@ -25,6 +26,7 @@ impl ::core::default::Default for BSTRBLOB {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CABOOL {
     pub cElems: u32,
     pub pElems: *mut i16,
@@ -50,6 +52,7 @@ impl ::core::default::Default for CABOOL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CABSTR {
     pub cElems: u32,
@@ -82,6 +85,7 @@ impl ::core::default::Default for CABSTR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CABSTRBLOB {
     pub cElems: u32,
     pub pElems: *mut BSTRBLOB,
@@ -107,6 +111,7 @@ impl ::core::default::Default for CABSTRBLOB {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CAC {
     pub cElems: u32,
@@ -139,6 +144,7 @@ impl ::core::default::Default for CAC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CACLIPDATA {
     pub cElems: u32,
     pub pElems: *mut CLIPDATA,
@@ -164,6 +170,7 @@ impl ::core::default::Default for CACLIPDATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CACLSID {
     pub cElems: u32,
     pub pElems: *mut ::windows::core::GUID,
@@ -189,6 +196,7 @@ impl ::core::default::Default for CACLSID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CACY {
     pub cElems: u32,
     pub pElems: *mut super::CY,
@@ -214,6 +222,7 @@ impl ::core::default::Default for CACY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CADATE {
     pub cElems: u32,
     pub pElems: *mut f64,
@@ -239,6 +248,7 @@ impl ::core::default::Default for CADATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CADBL {
     pub cElems: u32,
     pub pElems: *mut f64,
@@ -264,6 +274,7 @@ impl ::core::default::Default for CADBL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CAFILETIME {
     pub cElems: u32,
@@ -296,6 +307,7 @@ impl ::core::default::Default for CAFILETIME {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CAFLT {
     pub cElems: u32,
     pub pElems: *mut f32,
@@ -321,6 +333,7 @@ impl ::core::default::Default for CAFLT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CAH {
     pub cElems: u32,
     pub pElems: *mut i64,
@@ -346,6 +359,7 @@ impl ::core::default::Default for CAH {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CAI {
     pub cElems: u32,
     pub pElems: *mut i16,
@@ -371,6 +385,7 @@ impl ::core::default::Default for CAI {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CAL {
     pub cElems: u32,
     pub pElems: *mut i32,
@@ -396,6 +411,7 @@ impl ::core::default::Default for CAL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CALPSTR {
     pub cElems: u32,
@@ -428,6 +444,7 @@ impl ::core::default::Default for CALPSTR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CALPWSTR {
     pub cElems: u32,
@@ -460,6 +477,7 @@ impl ::core::default::Default for CALPWSTR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CAPROPVARIANT {
     pub cElems: u32,
@@ -492,6 +510,7 @@ impl ::core::default::Default for CAPROPVARIANT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CASCODE {
     pub cElems: u32,
     pub pElems: *mut i32,
@@ -517,6 +536,7 @@ impl ::core::default::Default for CASCODE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CAUB {
     pub cElems: u32,
     pub pElems: *mut u8,
@@ -542,6 +562,7 @@ impl ::core::default::Default for CAUB {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CAUH {
     pub cElems: u32,
     pub pElems: *mut u64,
@@ -567,6 +588,7 @@ impl ::core::default::Default for CAUH {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CAUI {
     pub cElems: u32,
     pub pElems: *mut u16,
@@ -592,6 +614,7 @@ impl ::core::default::Default for CAUI {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CAUL {
     pub cElems: u32,
     pub pElems: *mut u32,
@@ -618,6 +641,7 @@ impl ::core::default::Default for CAUL {
 }
 pub const CCH_MAX_PROPSTG_NAME: u32 = 31u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct CLIPDATA {
     pub cbSize: u32,
     pub ulClipFmt: i32,
@@ -644,6 +668,7 @@ impl ::core::default::Default for CLIPDATA {
     }
 }
 pub const CWCSTORAGENAME: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoGetInstanceFromFile<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pserverinfo: *const super::COSERVERINFO, pclsid: *const ::windows::core::GUID, punkouter: Param2, dwclsctx: super::CLSCTX, grfmode: u32, pwszname: Param5, dwcount: u32, presults: *mut super::MULTI_QI) -> ::windows::core::Result<()> {
@@ -658,6 +683,7 @@ pub unsafe fn CoGetInstanceFromFile<'a, Param2: ::windows::core::IntoParam<'a, :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoGetInstanceFromIStorage<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param4: ::windows::core::IntoParam<'a, IStorage>>(pserverinfo: *const super::COSERVERINFO, pclsid: *const ::windows::core::GUID, punkouter: Param2, dwclsctx: super::CLSCTX, pstg: Param4, dwcount: u32, presults: *mut super::MULTI_QI) -> ::windows::core::Result<()> {
@@ -672,6 +698,7 @@ pub unsafe fn CoGetInstanceFromIStorage<'a, Param2: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
 pub unsafe fn CoGetInterfaceAndReleaseStream<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>, T: ::windows::core::Interface>(pstm: Param0) -> ::windows::core::Result<T> {
     #[cfg(windows)]
@@ -686,6 +713,7 @@ pub unsafe fn CoGetInterfaceAndReleaseStream<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateILockBytesOnHGlobal<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(hglobal: isize, fdeleteonrelease: Param1) -> ::windows::core::Result<ILockBytes> {
@@ -701,6 +729,7 @@ pub unsafe fn CreateILockBytesOnHGlobal<'a, Param1: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateStreamOnHGlobal<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(hglobal: isize, fdeleteonrelease: Param1) -> ::windows::core::Result<super::IStream> {
@@ -716,6 +745,7 @@ pub unsafe fn CreateStreamOnHGlobal<'a, Param1: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FmtIdToPropStgName(pfmtid: *const ::windows::core::GUID, oszname: super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
@@ -730,6 +760,7 @@ pub unsafe fn FmtIdToPropStgName(pfmtid: *const ::windows::core::GUID, oszname: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreePropVariantArray(cvariants: u32, rgvars: *mut PROPVARIANT) -> ::windows::core::Result<()> {
@@ -744,6 +775,7 @@ pub unsafe fn FreePropVariantArray(cvariants: u32, rgvars: *mut PROPVARIANT) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
 pub unsafe fn GetConvertStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>>(pstg: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -757,6 +789,7 @@ pub unsafe fn GetConvertStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
 pub unsafe fn GetHGlobalFromILockBytes<'a, Param0: ::windows::core::IntoParam<'a, ILockBytes>>(plkbyt: Param0) -> ::windows::core::Result<isize> {
     #[cfg(windows)]
@@ -771,6 +804,7 @@ pub unsafe fn GetHGlobalFromILockBytes<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
 pub unsafe fn GetHGlobalFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>>(pstm: Param0) -> ::windows::core::Result<isize> {
     #[cfg(windows)]
@@ -785,6 +819,7 @@ pub unsafe fn GetHGlobalFromStream<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[repr(transparent)]
 pub struct IDirectWriterLock(::windows::core::IUnknown);
 impl IDirectWriterLock {
@@ -843,6 +878,7 @@ pub struct IDirectWriterLockVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[repr(transparent)]
 pub struct IEnumSTATPROPSETSTG(::windows::core::IUnknown);
 impl IEnumSTATPROPSETSTG {
@@ -908,6 +944,7 @@ pub struct IEnumSTATPROPSETSTGVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[repr(transparent)]
 pub struct IEnumSTATPROPSTG(::windows::core::IUnknown);
 impl IEnumSTATPROPSTG {
@@ -973,6 +1010,7 @@ pub struct IEnumSTATPROPSTGVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[repr(transparent)]
 pub struct IEnumSTATSTG(::windows::core::IUnknown);
 impl IEnumSTATSTG {
@@ -1038,6 +1076,7 @@ pub struct IEnumSTATSTGVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[repr(transparent)]
 pub struct IFillLockBytes(::windows::core::IUnknown);
 impl IFillLockBytes {
@@ -1104,6 +1143,7 @@ pub struct IFillLockBytesVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bcanceled: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[repr(transparent)]
 pub struct ILayoutStorage(::windows::core::IUnknown);
 impl ILayoutStorage {
@@ -1174,6 +1214,7 @@ pub struct ILayoutStorageVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pilockbytes: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[repr(transparent)]
 pub struct ILockBytes(::windows::core::IUnknown);
 impl ILockBytes {
@@ -1251,6 +1292,7 @@ pub struct ILockBytesVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatstg: *mut super::STATSTG, grfstatflag: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[repr(transparent)]
 pub struct IPersistStorage(::windows::core::IUnknown);
 impl IPersistStorage {
@@ -1348,6 +1390,7 @@ pub struct IPersistStorageVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstgnew: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[repr(transparent)]
 pub struct IPropertyBag(::windows::core::IUnknown);
 impl IPropertyBag {
@@ -1406,6 +1449,7 @@ pub struct IPropertyBagVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropname: super::super::super::Foundation::PWSTR, pvar: *const super::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[repr(transparent)]
 pub struct IPropertyBag2(::windows::core::IUnknown);
 impl IPropertyBag2 {
@@ -1481,6 +1525,7 @@ pub struct IPropertyBag2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrname: super::super::super::Foundation::PWSTR, dwhint: u32, punkobject: *mut ::core::ffi::c_void, perrlog: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[repr(transparent)]
 pub struct IPropertySetStorage(::windows::core::IUnknown);
 impl IPropertySetStorage {
@@ -1546,6 +1591,7 @@ pub struct IPropertySetStorageVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rfmtid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[repr(transparent)]
 pub struct IPropertyStorage(::windows::core::IUnknown);
 impl IPropertyStorage {
@@ -1656,6 +1702,7 @@ pub struct IPropertyStorageVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatpsstg: *mut STATPROPSETSTG) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[repr(transparent)]
 pub struct IRootStorage(::windows::core::IUnknown);
 impl IRootStorage {
@@ -1708,6 +1755,7 @@ pub struct IRootStorageVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfile: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[repr(transparent)]
 pub struct IStorage(::windows::core::IUnknown);
 impl IStorage {
@@ -1835,11 +1883,16 @@ pub struct IStorageVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstatstg: *mut super::STATSTG, grfstatflag: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub type LOCKTYPE = i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const LOCK_WRITE: LOCKTYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const LOCK_EXCLUSIVE: LOCKTYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const LOCK_ONLYONCE: LOCKTYPE = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct OLESTREAM {
     pub lpstbl: *mut OLESTREAMVTBL,
 }
@@ -1864,6 +1917,7 @@ impl ::core::default::Default for OLESTREAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct OLESTREAMVTBL {
     pub Get: isize,
     pub Put: isize,
@@ -1888,6 +1942,7 @@ impl ::core::default::Default for OLESTREAMVTBL {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
 pub unsafe fn OleConvertIStorageToOLESTREAM<'a, Param0: ::windows::core::IntoParam<'a, IStorage>>(pstg: Param0, lpolestream: *mut OLESTREAM) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1901,6 +1956,7 @@ pub unsafe fn OleConvertIStorageToOLESTREAM<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn OleConvertIStorageToOLESTREAMEx<'a, Param0: ::windows::core::IntoParam<'a, IStorage>>(pstg: Param0, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: *mut super::STGMEDIUM, polestm: *mut OLESTREAM) -> ::windows::core::Result<()> {
@@ -1915,6 +1971,7 @@ pub unsafe fn OleConvertIStorageToOLESTREAMEx<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
 pub unsafe fn OleConvertOLESTREAMToIStorage<'a, Param1: ::windows::core::IntoParam<'a, IStorage>>(lpolestream: *mut OLESTREAM, pstg: Param1, ptd: *const super::DVTARGETDEVICE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1928,6 +1985,7 @@ pub unsafe fn OleConvertOLESTREAMToIStorage<'a, Param1: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn OleConvertOLESTREAMToIStorageEx<'a, Param1: ::windows::core::IntoParam<'a, IStorage>>(polestm: *mut OLESTREAM, pstg: Param1, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::STGMEDIUM) -> ::windows::core::Result<()> {
@@ -1967,16 +2025,27 @@ pub const PIDMSI_RATING: i32 = 9i32;
 pub const PIDMSI_SEQUENCE_NO: i32 = 5i32;
 pub const PIDMSI_SOURCE: i32 = 4i32;
 pub const PIDMSI_STATUS: i32 = 7i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub type PIDMSI_STATUS_VALUE = i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_NORMAL: PIDMSI_STATUS_VALUE = 0i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_NEW: PIDMSI_STATUS_VALUE = 1i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_PRELIM: PIDMSI_STATUS_VALUE = 2i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_DRAFT: PIDMSI_STATUS_VALUE = 3i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_INPROGRESS: PIDMSI_STATUS_VALUE = 4i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_EDIT: PIDMSI_STATUS_VALUE = 5i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_REVIEW: PIDMSI_STATUS_VALUE = 6i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_PROOF: PIDMSI_STATUS_VALUE = 7i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_FINAL: PIDMSI_STATUS_VALUE = 8i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_OTHER: PIDMSI_STATUS_VALUE = 32767i32;
 pub const PIDMSI_SUPPLIER: i32 = 3i32;
 pub const PIDSI_APPNAME: i32 = 18i32;
@@ -2011,6 +2080,7 @@ pub const PID_SECURITY: u32 = 2147483650u32;
 #[repr(C)]
 pub struct PMemoryAllocator(pub u8);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROPBAG2 {
     pub dwType: u32,
@@ -2054,6 +2124,7 @@ pub const PROPSETFLAG_UNBUFFERED: u32 = 4u32;
 pub const PROPSETHDR_OSVERSION_UNKNOWN: u32 = 4294967295u32;
 pub const PROPSET_BEHAVIOR_CASE_SENSITIVE: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROPSPEC {
     pub ulKind: PROPSPEC_KIND,
@@ -2086,6 +2157,7 @@ impl ::core::default::Default for PROPSPEC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PROPSPEC_0 {
     pub propid: u32,
@@ -2117,10 +2189,14 @@ impl ::core::default::Default for PROPSPEC_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub type PROPSPEC_KIND = u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PRSPEC_LPWSTR: PROPSPEC_KIND = 0u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PRSPEC_PROPID: PROPSPEC_KIND = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROPVARIANT {
     pub Anonymous: PROPVARIANT_0,
@@ -2150,6 +2226,7 @@ impl ::core::default::Default for PROPVARIANT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PROPVARIANT_0 {
     pub Anonymous: ::core::mem::ManuallyDrop<PROPVARIANT_0_0>,
@@ -2180,6 +2257,7 @@ impl ::core::default::Default for PROPVARIANT_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROPVARIANT_0_0 {
     pub vt: u16,
@@ -2213,6 +2291,7 @@ impl ::core::default::Default for PROPVARIANT_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PROPVARIANT_0_0_0 {
     pub cVal: super::super::super::Foundation::CHAR,
@@ -2314,6 +2393,7 @@ impl ::core::default::Default for PROPVARIANT_0_0_0 {
     }
 }
 pub const PRSPEC_INVALID: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PropStgNameToFmtId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(oszname: Param0) -> ::windows::core::Result<::windows::core::GUID> {
@@ -2329,6 +2409,7 @@ pub unsafe fn PropStgNameToFmtId<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PropVariantClear(pvar: *mut PROPVARIANT) -> ::windows::core::Result<()> {
@@ -2343,6 +2424,7 @@ pub unsafe fn PropVariantClear(pvar: *mut PROPVARIANT) -> ::windows::core::Resul
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PropVariantCopy(pvardest: *mut PROPVARIANT, pvarsrc: *const PROPVARIANT) -> ::windows::core::Result<()> {
@@ -2357,6 +2439,7 @@ pub unsafe fn PropVariantCopy(pvardest: *mut PROPVARIANT, pvarsrc: *const PROPVA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
 pub unsafe fn ReadClassStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>>(pstg: Param0) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
@@ -2371,6 +2454,7 @@ pub unsafe fn ReadClassStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
 pub unsafe fn ReadClassStm<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>>(pstm: Param0) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg(windows)]
@@ -2385,6 +2469,7 @@ pub unsafe fn ReadClassStm<'a, Param0: ::windows::core::IntoParam<'a, super::ISt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadFmtUserTypeStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>>(pstg: Param0, pcf: *mut u16, lplpszusertype: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
@@ -2400,6 +2485,7 @@ pub unsafe fn ReadFmtUserTypeStg<'a, Param0: ::windows::core::IntoParam<'a, ISto
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct RemSNB {
     pub ulCntStr: u32,
     pub ulCntChar: u32,
@@ -2426,6 +2512,7 @@ impl ::core::default::Default for RemSNB {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct SERIALIZEDPROPERTYVALUE {
     pub dwType: u32,
     pub rgb: [u8; 1],
@@ -2450,11 +2537,16 @@ impl ::core::default::Default for SERIALIZEDPROPERTYVALUE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub type STATFLAG = i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STATFLAG_DEFAULT: STATFLAG = 0i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STATFLAG_NONAME: STATFLAG = 1i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STATFLAG_NOOPEN: STATFLAG = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STATPROPSETSTG {
     pub fmtid: ::windows::core::GUID,
@@ -2492,6 +2584,7 @@ impl ::core::default::Default for STATPROPSETSTG {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STATPROPSTG {
     pub lpwstrName: super::super::super::Foundation::PWSTR,
@@ -2524,11 +2617,17 @@ impl ::core::default::Default for STATPROPSTG {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub type STGC = i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGC_DEFAULT: STGC = 0i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGC_OVERWRITE: STGC = 1i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGC_ONLYIFCURRENT: STGC = 2i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = 4i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGC_CONSOLIDATE: STGC = 8i32;
 pub const STGFMT_ANY: u32 = 4u32;
 pub const STGFMT_DOCFILE: u32 = 5u32;
@@ -2536,9 +2635,13 @@ pub const STGFMT_DOCUMENT: u32 = 0u32;
 pub const STGFMT_FILE: u32 = 3u32;
 pub const STGFMT_NATIVE: u32 = 1u32;
 pub const STGFMT_STORAGE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub type STGMOVE = i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGMOVE_MOVE: STGMOVE = 0i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGMOVE_COPY: STGMOVE = 1i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGMOVE_SHALLOWCOPY: STGMOVE = 2i32;
 pub const STGM_CONVERT: i32 = 131072i32;
 pub const STGM_CREATE: i32 = 4096i32;
@@ -2559,6 +2662,7 @@ pub const STGM_SIMPLE: i32 = 134217728i32;
 pub const STGM_TRANSACTED: i32 = 65536i32;
 pub const STGM_WRITE: i32 = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STGOPTIONS {
     pub usVersion: u16,
@@ -2593,6 +2697,7 @@ impl ::core::default::Default for STGOPTIONS {
     }
 }
 pub const STGOPTIONS_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetConvertStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(pstg: Param0, fconvert: Param1) -> ::windows::core::Result<()> {
@@ -2607,6 +2712,7 @@ pub unsafe fn SetConvertStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StgConvertPropertyToVariant(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut PROPVARIANT, pma: *const PMemoryAllocator) -> super::super::super::Foundation::BOOLEAN {
@@ -2621,6 +2727,7 @@ pub unsafe fn StgConvertPropertyToVariant(pprop: *const SERIALIZEDPROPERTYVALUE,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StgConvertVariantToProperty<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(pvar: *const PROPVARIANT, codepage: u16, pprop: *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32, pid: u32, freserved: Param5, pcindirect: *mut u32) -> *mut SERIALIZEDPROPERTYVALUE {
@@ -2635,6 +2742,7 @@ pub unsafe fn StgConvertVariantToProperty<'a, Param5: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StgCreateDocfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0, grfmode: u32, reserved: u32) -> ::windows::core::Result<IStorage> {
@@ -2650,6 +2758,7 @@ pub unsafe fn StgCreateDocfile<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
 pub unsafe fn StgCreateDocfileOnILockBytes<'a, Param0: ::windows::core::IntoParam<'a, ILockBytes>>(plkbyt: Param0, grfmode: u32, reserved: u32) -> ::windows::core::Result<IStorage> {
     #[cfg(windows)]
@@ -2664,6 +2773,7 @@ pub unsafe fn StgCreateDocfileOnILockBytes<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
 pub unsafe fn StgCreatePropSetStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>>(pstorage: Param0, dwreserved: u32) -> ::windows::core::Result<IPropertySetStorage> {
     #[cfg(windows)]
@@ -2678,6 +2788,7 @@ pub unsafe fn StgCreatePropSetStg<'a, Param0: ::windows::core::IntoParam<'a, ISt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
 pub unsafe fn StgCreatePropStg<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0, fmtid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, grfflags: u32, dwreserved: u32) -> ::windows::core::Result<IPropertyStorage> {
     #[cfg(windows)]
@@ -2692,6 +2803,7 @@ pub unsafe fn StgCreatePropStg<'a, Param0: ::windows::core::IntoParam<'a, ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn StgCreateStorageEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0, grfmode: u32, stgfmt: u32, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -2706,6 +2818,7 @@ pub unsafe fn StgCreateStorageEx<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbmax: u32) -> ::windows::core::Result<PROPVARIANT> {
@@ -2721,6 +2834,7 @@ pub unsafe fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StgGetIFillLockBytesOnFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0) -> ::windows::core::Result<IFillLockBytes> {
@@ -2736,6 +2850,7 @@ pub unsafe fn StgGetIFillLockBytesOnFile<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
 pub unsafe fn StgGetIFillLockBytesOnILockBytes<'a, Param0: ::windows::core::IntoParam<'a, ILockBytes>>(pilb: Param0) -> ::windows::core::Result<IFillLockBytes> {
     #[cfg(windows)]
@@ -2750,6 +2865,7 @@ pub unsafe fn StgGetIFillLockBytesOnILockBytes<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StgIsStorageFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0) -> ::windows::core::Result<()> {
@@ -2764,6 +2880,7 @@ pub unsafe fn StgIsStorageFile<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
 pub unsafe fn StgIsStorageILockBytes<'a, Param0: ::windows::core::IntoParam<'a, ILockBytes>>(plkbyt: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -2777,6 +2894,7 @@ pub unsafe fn StgIsStorageILockBytes<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
 pub unsafe fn StgOpenAsyncDocfileOnIFillLockBytes<'a, Param0: ::windows::core::IntoParam<'a, IFillLockBytes>>(pflb: Param0, grfmode: u32, asyncflags: u32) -> ::windows::core::Result<IStorage> {
     #[cfg(windows)]
@@ -2791,6 +2909,7 @@ pub unsafe fn StgOpenAsyncDocfileOnIFillLockBytes<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StgOpenLayoutDocfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsdfname: Param0, grfmode: u32, reserved: u32) -> ::windows::core::Result<IStorage> {
@@ -2806,6 +2925,7 @@ pub unsafe fn StgOpenLayoutDocfile<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
 pub unsafe fn StgOpenPropStg<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punk: Param0, fmtid: *const ::windows::core::GUID, grfflags: u32, dwreserved: u32) -> ::windows::core::Result<IPropertyStorage> {
     #[cfg(windows)]
@@ -2820,6 +2940,7 @@ pub unsafe fn StgOpenPropStg<'a, Param0: ::windows::core::IntoParam<'a, ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StgOpenStorage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IStorage>>(pwcsname: Param0, pstgpriority: Param1, grfmode: u32, snbexclude: *const *const u16, reserved: u32) -> ::windows::core::Result<IStorage> {
@@ -2835,6 +2956,7 @@ pub unsafe fn StgOpenStorage<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn StgOpenStorageEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0, grfmode: u32, stgfmt: u32, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -2849,6 +2971,7 @@ pub unsafe fn StgOpenStorageEx<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
 pub unsafe fn StgOpenStorageOnILockBytes<'a, Param0: ::windows::core::IntoParam<'a, ILockBytes>, Param1: ::windows::core::IntoParam<'a, IStorage>>(plkbyt: Param0, pstgpriority: Param1, grfmode: u32, snbexclude: *const *const u16, reserved: u32) -> ::windows::core::Result<IStorage> {
     #[cfg(windows)]
@@ -2863,6 +2986,7 @@ pub unsafe fn StgOpenStorageOnILockBytes<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
 pub unsafe fn StgPropertyLengthAsVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbprop: u32, codepage: u16, breserved: u8) -> u32 {
     #[cfg(windows)]
@@ -2876,6 +3000,7 @@ pub unsafe fn StgPropertyLengthAsVariant(pprop: *const SERIALIZEDPROPERTYVALUE, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StgSerializePropVariant(ppropvar: *const PROPVARIANT, ppprop: *mut *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32) -> ::windows::core::Result<()> {
@@ -2890,6 +3015,7 @@ pub unsafe fn StgSerializePropVariant(ppropvar: *const PROPVARIANT, ppprop: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StgSetTimes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(lpszname: Param0, pctime: *const super::super::super::Foundation::FILETIME, patime: *const super::super::super::Foundation::FILETIME, pmtime: *const super::super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
@@ -2905,6 +3031,7 @@ pub unsafe fn StgSetTimes<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct VERSIONEDSTREAM {
     pub guidVersion: ::windows::core::GUID,
     pub pStream: ::core::option::Option<super::IStream>,
@@ -2928,6 +3055,7 @@ impl ::core::default::Default for VERSIONEDSTREAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
 pub unsafe fn WriteClassStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>>(pstg: Param0, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -2941,6 +3069,7 @@ pub unsafe fn WriteClassStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
 pub unsafe fn WriteClassStm<'a, Param0: ::windows::core::IntoParam<'a, super::IStream>>(pstm: Param0, rclsid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -2954,6 +3083,7 @@ pub unsafe fn WriteClassStm<'a, Param0: ::windows::core::IntoParam<'a, super::IS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteFmtUserTypeStg<'a, Param0: ::windows::core::IntoParam<'a, IStorage>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pstg: Param0, cf: u16, lpszusertype: Param2) -> ::windows::core::Result<()> {

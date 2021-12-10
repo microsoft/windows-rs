@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONVERT_A {
     pub szOldDll: super::super::Foundation::PSTR,
@@ -32,6 +33,7 @@ impl ::core::default::Default for CONVERT_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union CONVERT_A_0 {
     pub fFlags: u32,
@@ -64,6 +66,7 @@ impl ::core::default::Default for CONVERT_A_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONVERT_A_0_0 {
     pub _bitfield: u32,
@@ -95,6 +98,7 @@ impl ::core::default::Default for CONVERT_A_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONVERT_W {
     pub szOldDll: super::super::Foundation::PWSTR,
@@ -127,6 +131,7 @@ impl ::core::default::Default for CONVERT_W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union CONVERT_W_0 {
     pub fFlags: u32,
@@ -159,6 +164,7 @@ impl ::core::default::Default for CONVERT_W_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONVERT_W_0_0 {
     pub _bitfield: u32,
@@ -191,6 +197,7 @@ impl ::core::default::Default for CONVERT_W_0_0 {
 }
 pub const JET_BASE_NAME_LENGTH: u32 = 3u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_BKINFO {
     pub lgposMark: JET_LGPOS,
@@ -225,6 +232,7 @@ impl ::core::default::Default for JET_BKINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_BKINFO_0 {
     pub logtimeMark: JET_LOGTIME,
@@ -257,6 +265,7 @@ impl ::core::default::Default for JET_BKINFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_BKLOGTIME {
     pub bSeconds: super::super::Foundation::CHAR,
@@ -295,6 +304,7 @@ impl ::core::default::Default for JET_BKLOGTIME {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_BKLOGTIME_0 {
     pub bFiller1: super::super::Foundation::CHAR,
@@ -327,6 +337,7 @@ impl ::core::default::Default for JET_BKLOGTIME_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_BKLOGTIME_0_0 {
     pub _bitfield: u8,
@@ -358,6 +369,7 @@ impl ::core::default::Default for JET_BKLOGTIME_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_BKLOGTIME_1 {
     pub bFiller2: super::super::Foundation::CHAR,
@@ -390,6 +402,7 @@ impl ::core::default::Default for JET_BKLOGTIME_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_BKLOGTIME_1_0 {
     pub _bitfield: u8,
@@ -420,9 +433,11 @@ impl ::core::default::Default for JET_BKLOGTIME_1_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub type JET_CALLBACK = ::core::option::Option<unsafe extern "system" fn(sesid: super::StructuredStorage::JET_SESID, dbid: u32, tableid: super::StructuredStorage::JET_TABLEID, cbtyp: u32, pvarg1: *mut ::core::ffi::c_void, pvarg2: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void, ulunused: super::StructuredStorage::JET_API_PTR) -> i32>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_COLUMNBASE_A {
     pub cbStruct: u32,
@@ -464,6 +479,7 @@ impl ::core::default::Default for JET_COLUMNBASE_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_COLUMNBASE_W {
     pub cbStruct: u32,
     pub columnid: u32,
@@ -498,6 +514,7 @@ impl ::core::default::Default for JET_COLUMNBASE_W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_COLUMNCREATE_A {
     pub cbStruct: u32,
@@ -538,6 +555,7 @@ impl ::core::default::Default for JET_COLUMNCREATE_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_COLUMNCREATE_W {
     pub cbStruct: u32,
@@ -578,6 +596,7 @@ impl ::core::default::Default for JET_COLUMNCREATE_W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_COLUMNDEF {
     pub cbStruct: u32,
     pub columnid: u32,
@@ -610,6 +629,7 @@ impl ::core::default::Default for JET_COLUMNDEF {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_COLUMNLIST {
     pub cbStruct: u32,
@@ -657,6 +677,7 @@ impl ::core::default::Default for JET_COLUMNLIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_COMMIT_ID {
@@ -697,6 +718,7 @@ impl ::core::default::Default for JET_COMMIT_ID {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_COMMIT_ID {
@@ -737,6 +759,7 @@ impl ::core::default::Default for JET_COMMIT_ID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_CONDITIONALCOLUMN_A {
     pub cbStruct: u32,
@@ -770,6 +793,7 @@ impl ::core::default::Default for JET_CONDITIONALCOLUMN_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_CONDITIONALCOLUMN_W {
     pub cbStruct: u32,
@@ -806,6 +830,7 @@ pub const JET_ColInfoGrbitMinimalInfo: u32 = 1073741824u32;
 pub const JET_ColInfoGrbitNonDerivedColumnsOnly: u32 = 2147483648u32;
 pub const JET_ColInfoGrbitSortByColumnid: u32 = 536870912u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_DBINFOMISC {
     pub ulVersion: u32,
@@ -857,6 +882,7 @@ impl ::core::default::Default for JET_DBINFOMISC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_DBINFOMISC2 {
     pub ulVersion: u32,
@@ -923,6 +949,7 @@ impl ::core::default::Default for JET_DBINFOMISC2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_DBINFOMISC3 {
     pub ulVersion: u32,
@@ -990,6 +1017,7 @@ impl ::core::default::Default for JET_DBINFOMISC3 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_DBINFOMISC4 {
     pub ulVersion: u32,
@@ -1059,6 +1087,7 @@ impl ::core::default::Default for JET_DBINFOMISC4 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_DBINFOUPGRADE {
     pub cbStruct: u32,
     pub cbFilesizeLow: u32,
@@ -1089,6 +1118,7 @@ impl ::core::default::Default for JET_DBINFOUPGRADE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub union JET_DBINFOUPGRADE_0 {
     pub ulFlags: u32,
     pub Anonymous: JET_DBINFOUPGRADE_0_0,
@@ -1114,6 +1144,7 @@ impl ::core::default::Default for JET_DBINFOUPGRADE_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_DBINFOUPGRADE_0_0 {
     pub _bitfield: u32,
 }
@@ -1158,6 +1189,7 @@ pub const JET_DbInfoTransactions: u32 = 7u32;
 pub const JET_DbInfoUpgrade: u32 = 13u32;
 pub const JET_DbInfoVersion: u32 = 8u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_ENUMCOLUMN {
     pub columnid: u32,
     pub err: i32,
@@ -1184,6 +1216,7 @@ impl ::core::default::Default for JET_ENUMCOLUMN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub union JET_ENUMCOLUMN_0 {
     pub Anonymous1: JET_ENUMCOLUMN_0_0,
     pub Anonymous2: JET_ENUMCOLUMN_0_1,
@@ -1209,6 +1242,7 @@ impl ::core::default::Default for JET_ENUMCOLUMN_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_ENUMCOLUMN_0_0 {
     pub cEnumColumnValue: u32,
     pub rgEnumColumnValue: *mut JET_ENUMCOLUMNVALUE,
@@ -1234,6 +1268,7 @@ impl ::core::default::Default for JET_ENUMCOLUMN_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_ENUMCOLUMN_0_1 {
     pub cbData: u32,
     pub pvData: *mut ::core::ffi::c_void,
@@ -1259,6 +1294,7 @@ impl ::core::default::Default for JET_ENUMCOLUMN_0_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_ENUMCOLUMNID {
     pub columnid: u32,
     pub ctagSequence: u32,
@@ -1285,6 +1321,7 @@ impl ::core::default::Default for JET_ENUMCOLUMNID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_ENUMCOLUMNVALUE {
     pub itagSequence: u32,
     pub err: i32,
@@ -1311,26 +1348,46 @@ impl ::core::default::Default for JET_ENUMCOLUMNVALUE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub type JET_ERRCAT = i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_errcatUnknown: JET_ERRCAT = 0i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_errcatError: JET_ERRCAT = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_errcatOperation: JET_ERRCAT = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_errcatFatal: JET_ERRCAT = 3i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_errcatIO: JET_ERRCAT = 4i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_errcatResource: JET_ERRCAT = 5i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_errcatMemory: JET_ERRCAT = 6i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_errcatQuota: JET_ERRCAT = 7i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_errcatDisk: JET_ERRCAT = 8i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_errcatData: JET_ERRCAT = 9i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_errcatCorruption: JET_ERRCAT = 10i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_errcatInconsistent: JET_ERRCAT = 11i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_errcatFragmentation: JET_ERRCAT = 12i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_errcatApi: JET_ERRCAT = 13i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_errcatUsage: JET_ERRCAT = 14i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_errcatState: JET_ERRCAT = 15i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_errcatObsolete: JET_ERRCAT = 16i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_errcatMax: JET_ERRCAT = 17i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_ERRINFOBASIC_W {
     pub cbStruct: u32,
     pub errValue: i32,
@@ -1368,12 +1425,18 @@ pub const JET_EventLoggingLevelMin: u32 = 1u32;
 pub const JET_ExceptionFailFast: u32 = 4u32;
 pub const JET_ExceptionMsgBox: u32 = 1u32;
 pub const JET_ExceptionNone: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub type JET_INDEXCHECKING = i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_IndexCheckingOff: JET_INDEXCHECKING = 0i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_IndexCheckingOn: JET_INDEXCHECKING = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_IndexCheckingDeferToOpenTable: JET_INDEXCHECKING = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_IndexCheckingMax: JET_INDEXCHECKING = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_INDEXCREATE2_A {
     pub cbStruct: u32,
@@ -1417,6 +1480,7 @@ impl ::core::default::Default for JET_INDEXCREATE2_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_A_0 {
     pub lcid: u32,
@@ -1449,6 +1513,7 @@ impl ::core::default::Default for JET_INDEXCREATE2_A_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_A_1 {
     pub cbVarSegMac: u32,
@@ -1481,6 +1546,7 @@ impl ::core::default::Default for JET_INDEXCREATE2_A_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_INDEXCREATE2_W {
     pub cbStruct: u32,
@@ -1524,6 +1590,7 @@ impl ::core::default::Default for JET_INDEXCREATE2_W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_W_0 {
     pub lcid: u32,
@@ -1556,6 +1623,7 @@ impl ::core::default::Default for JET_INDEXCREATE2_W_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_W_1 {
     pub cbVarSegMac: u32,
@@ -1588,6 +1656,7 @@ impl ::core::default::Default for JET_INDEXCREATE2_W_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_INDEXCREATE3_A {
     pub cbStruct: u32,
@@ -1631,6 +1700,7 @@ impl ::core::default::Default for JET_INDEXCREATE3_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE3_A_0 {
     pub cbVarSegMac: u32,
@@ -1663,6 +1733,7 @@ impl ::core::default::Default for JET_INDEXCREATE3_A_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_INDEXCREATE3_W {
     pub cbStruct: u32,
@@ -1706,6 +1777,7 @@ impl ::core::default::Default for JET_INDEXCREATE3_W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE3_W_0 {
     pub cbVarSegMac: u32,
@@ -1738,6 +1810,7 @@ impl ::core::default::Default for JET_INDEXCREATE3_W_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_INDEXCREATE_A {
     pub cbStruct: u32,
@@ -1780,6 +1853,7 @@ impl ::core::default::Default for JET_INDEXCREATE_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_A_0 {
     pub lcid: u32,
@@ -1812,6 +1886,7 @@ impl ::core::default::Default for JET_INDEXCREATE_A_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_A_1 {
     pub cbVarSegMac: u32,
@@ -1844,6 +1919,7 @@ impl ::core::default::Default for JET_INDEXCREATE_A_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_INDEXCREATE_W {
     pub cbStruct: u32,
@@ -1886,6 +1962,7 @@ impl ::core::default::Default for JET_INDEXCREATE_W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_W_0 {
     pub lcid: u32,
@@ -1918,6 +1995,7 @@ impl ::core::default::Default for JET_INDEXCREATE_W_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_W_1 {
     pub cbVarSegMac: u32,
@@ -1950,6 +2028,7 @@ impl ::core::default::Default for JET_INDEXCREATE_W_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct JET_INDEXID {
     pub cbStruct: u32,
@@ -1982,6 +2061,7 @@ impl ::core::default::Default for JET_INDEXID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[cfg(target_arch = "x86")]
 pub struct JET_INDEXID {
     pub cbStruct: u32,
@@ -2014,6 +2094,7 @@ impl ::core::default::Default for JET_INDEXID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_INDEXLIST {
     pub cbStruct: u32,
@@ -2063,6 +2144,7 @@ impl ::core::default::Default for JET_INDEXLIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_INDEXRANGE {
     pub cbStruct: u32,
@@ -2096,6 +2178,7 @@ impl ::core::default::Default for JET_INDEXRANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_INDEX_COLUMN {
     pub columnid: u32,
     pub relop: JET_RELOP,
@@ -2124,6 +2207,7 @@ impl ::core::default::Default for JET_INDEX_COLUMN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_INDEX_RANGE {
     pub rgStartColumns: *mut JET_INDEX_COLUMN,
     pub cStartColumns: u32,
@@ -2151,6 +2235,7 @@ impl ::core::default::Default for JET_INDEX_RANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_INSTANCE_INFO_A {
     pub hInstanceId: super::StructuredStorage::JET_INSTANCE,
@@ -2187,6 +2272,7 @@ impl ::core::default::Default for JET_INSTANCE_INFO_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_INSTANCE_INFO_W {
     pub hInstanceId: super::StructuredStorage::JET_INSTANCE,
@@ -2225,6 +2311,7 @@ impl ::core::default::Default for JET_INSTANCE_INFO_W {
 pub const JET_IOPriorityLow: u32 = 1u32;
 pub const JET_IOPriorityNormal: u32 = 0u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_LGPOS {
     pub ib: u16,
     pub isec: u16,
@@ -2251,6 +2338,7 @@ impl ::core::default::Default for JET_LGPOS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_LOGINFO_A {
     pub cbSize: u32,
@@ -2285,6 +2373,7 @@ impl ::core::default::Default for JET_LOGINFO_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_LOGINFO_W {
     pub cbSize: u32,
     pub ulGenLow: u32,
@@ -2312,6 +2401,7 @@ impl ::core::default::Default for JET_LOGINFO_W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_LOGTIME {
     pub bSeconds: super::super::Foundation::CHAR,
@@ -2350,6 +2440,7 @@ impl ::core::default::Default for JET_LOGTIME {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_LOGTIME_0 {
     pub bFiller1: super::super::Foundation::CHAR,
@@ -2382,6 +2473,7 @@ impl ::core::default::Default for JET_LOGTIME_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_LOGTIME_0_0 {
     pub _bitfield: u8,
@@ -2413,6 +2505,7 @@ impl ::core::default::Default for JET_LOGTIME_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union JET_LOGTIME_1 {
     pub bFiller2: super::super::Foundation::CHAR,
@@ -2445,6 +2538,7 @@ impl ::core::default::Default for JET_LOGTIME_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_LOGTIME_1_0 {
     pub _bitfield: u8,
@@ -2481,6 +2575,7 @@ pub const JET_MoveFirst: u32 = 2147483648u32;
 pub const JET_MoveLast: u32 = 2147483647u32;
 pub const JET_MovePrevious: i32 = -1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct JET_OBJECTINFO {
     pub cbStruct: u32,
@@ -2519,6 +2614,7 @@ impl ::core::default::Default for JET_OBJECTINFO {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[cfg(target_arch = "x86")]
 pub struct JET_OBJECTINFO {
     pub cbStruct: u32,
@@ -2557,6 +2653,7 @@ impl ::core::default::Default for JET_OBJECTINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_OBJECTLIST {
     pub cbStruct: u32,
@@ -2599,6 +2696,7 @@ impl ::core::default::Default for JET_OBJECTLIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_OPENTEMPORARYTABLE {
     pub cbStruct: u32,
@@ -2638,6 +2736,7 @@ impl ::core::default::Default for JET_OPENTEMPORARYTABLE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_OPENTEMPORARYTABLE2 {
     pub cbStruct: u32,
@@ -2677,6 +2776,7 @@ impl ::core::default::Default for JET_OPENTEMPORARYTABLE2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_OPERATIONCONTEXT {
     pub ulUserID: u32,
     pub nOperationID: u8,
@@ -2710,12 +2810,16 @@ pub const JET_OnlineDefragAllOBSOLETE: u32 = 1u32;
 pub const JET_OnlineDefragDatabases: u32 = 2u32;
 pub const JET_OnlineDefragDisable: u32 = 0u32;
 pub const JET_OnlineDefragSpaceTrees: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub type JET_PFNDURABLECOMMITCALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: super::StructuredStorage::JET_INSTANCE, pcommitidseen: *const JET_COMMIT_ID, grbit: u32) -> i32>;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub type JET_PFNREALLOC = ::core::option::Option<unsafe extern "system" fn(pvcontext: *const ::core::ffi::c_void, pv: *const ::core::ffi::c_void, cb: u32) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub type JET_PFNSTATUS = ::core::option::Option<unsafe extern "system" fn(sesid: super::StructuredStorage::JET_SESID, snp: u32, snt: u32, pv: *const ::core::ffi::c_void) -> i32>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_RBSINFOMISC {
@@ -2759,6 +2863,7 @@ impl ::core::default::Default for JET_RBSINFOMISC {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_RBSINFOMISC {
@@ -2802,6 +2907,7 @@ impl ::core::default::Default for JET_RBSINFOMISC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_RBSREVERTINFOMISC {
@@ -2846,6 +2952,7 @@ impl ::core::default::Default for JET_RBSREVERTINFOMISC {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_RBSREVERTINFOMISC {
@@ -2890,6 +2997,7 @@ impl ::core::default::Default for JET_RBSREVERTINFOMISC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 pub struct JET_RECORDLIST {
     pub cbStruct: u32,
@@ -2924,6 +3032,7 @@ impl ::core::default::Default for JET_RECORDLIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_RECPOS {
     pub cbStruct: u32,
     pub centriesLT: u32,
@@ -2951,6 +3060,7 @@ impl ::core::default::Default for JET_RECPOS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct JET_RECSIZE {
     pub cbData: u64,
@@ -2989,6 +3099,7 @@ impl ::core::default::Default for JET_RECSIZE {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[cfg(target_arch = "x86")]
 pub struct JET_RECSIZE {
     pub cbData: u64,
@@ -3027,6 +3138,7 @@ impl ::core::default::Default for JET_RECSIZE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct JET_RECSIZE2 {
     pub cbData: u64,
@@ -3068,6 +3180,7 @@ impl ::core::default::Default for JET_RECSIZE2 {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[cfg(target_arch = "x86")]
 pub struct JET_RECSIZE2 {
     pub cbData: u64,
@@ -3108,17 +3221,28 @@ impl ::core::default::Default for JET_RECSIZE2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub type JET_RELOP = i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_relopEquals: JET_RELOP = 0i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_relopPrefixEquals: JET_RELOP = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_relopNotEquals: JET_RELOP = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_relopLessThanOrEqual: JET_RELOP = 3i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_relopLessThan: JET_RELOP = 4i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_relopGreaterThanOrEqual: JET_RELOP = 5i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_relopGreaterThan: JET_RELOP = 6i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_relopBitmaskEqualsZero: JET_RELOP = 7i32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_relopBitmaskNotEqualsZero: JET_RELOP = 8i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_RETINFO {
     pub cbStruct: u32,
     pub ibLongValue: u32,
@@ -3146,6 +3270,7 @@ impl ::core::default::Default for JET_RETINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_RETRIEVECOLUMN {
     pub columnid: u32,
     pub pvData: *mut ::core::ffi::c_void,
@@ -3178,6 +3303,7 @@ impl ::core::default::Default for JET_RETRIEVECOLUMN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_RSTINFO_A {
     pub cbStruct: u32,
@@ -3214,6 +3340,7 @@ impl ::core::default::Default for JET_RSTINFO_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_RSTINFO_W {
     pub cbStruct: u32,
@@ -3250,6 +3377,7 @@ impl ::core::default::Default for JET_RSTINFO_W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_RSTMAP_A {
     pub szDatabaseName: super::super::Foundation::PSTR,
@@ -3282,6 +3410,7 @@ impl ::core::default::Default for JET_RSTMAP_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_RSTMAP_W {
     pub szDatabaseName: super::super::Foundation::PWSTR,
@@ -3314,6 +3443,7 @@ impl ::core::default::Default for JET_RSTMAP_W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_SETCOLUMN {
     pub columnid: u32,
     pub pvData: *mut ::core::ffi::c_void,
@@ -3344,6 +3474,7 @@ impl ::core::default::Default for JET_SETCOLUMN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_SETINFO {
     pub cbStruct: u32,
     pub ibLongValue: u32,
@@ -3370,6 +3501,7 @@ impl ::core::default::Default for JET_SETINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_SETSYSPARAM_A {
     pub paramid: u32,
@@ -3404,6 +3536,7 @@ impl ::core::default::Default for JET_SETSYSPARAM_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_SETSYSPARAM_W {
     pub paramid: u32,
@@ -3438,6 +3571,7 @@ impl ::core::default::Default for JET_SETSYSPARAM_W {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_SIGNATURE {
     pub ulRandom: u32,
@@ -3471,6 +3605,7 @@ impl ::core::default::Default for JET_SIGNATURE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_SNPROG {
     pub cbStruct: u32,
     pub cunitDone: u32,
@@ -3497,6 +3632,7 @@ impl ::core::default::Default for JET_SNPROG {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_SPACEHINTS {
     pub cbStruct: u32,
     pub ulInitialDensity: u32,
@@ -3528,6 +3664,7 @@ impl ::core::default::Default for JET_SPACEHINTS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_TABLECREATE2_A {
     pub cbStruct: u32,
@@ -3572,6 +3709,7 @@ impl ::core::default::Default for JET_TABLECREATE2_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_TABLECREATE2_W {
     pub cbStruct: u32,
@@ -3616,6 +3754,7 @@ impl ::core::default::Default for JET_TABLECREATE2_W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_TABLECREATE3_A {
     pub cbStruct: u32,
@@ -3663,6 +3802,7 @@ impl ::core::default::Default for JET_TABLECREATE3_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_TABLECREATE3_W {
     pub cbStruct: u32,
@@ -3710,6 +3850,7 @@ impl ::core::default::Default for JET_TABLECREATE3_W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_TABLECREATE4_A {
     pub cbStruct: u32,
@@ -3757,6 +3898,7 @@ impl ::core::default::Default for JET_TABLECREATE4_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_TABLECREATE4_W {
     pub cbStruct: u32,
@@ -3804,6 +3946,7 @@ impl ::core::default::Default for JET_TABLECREATE4_W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_TABLECREATE_A {
     pub cbStruct: u32,
@@ -3846,6 +3989,7 @@ impl ::core::default::Default for JET_TABLECREATE_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 pub struct JET_TABLECREATE_W {
     pub cbStruct: u32,
@@ -3888,6 +4032,7 @@ impl ::core::default::Default for JET_TABLECREATE_W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_THREADSTATS {
     pub cbStruct: u32,
     pub cPageReferenced: u32,
@@ -3919,6 +4064,7 @@ impl ::core::default::Default for JET_THREADSTATS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct JET_THREADSTATS2 {
     pub cbStruct: u32,
@@ -3959,6 +4105,7 @@ impl ::core::default::Default for JET_THREADSTATS2 {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[cfg(target_arch = "x86")]
 pub struct JET_THREADSTATS2 {
     pub cbStruct: u32,
@@ -3999,6 +4146,7 @@ impl ::core::default::Default for JET_THREADSTATS2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_TUPLELIMITS {
     pub chLengthMin: u32,
     pub chLengthMax: u32,
@@ -4027,6 +4175,7 @@ impl ::core::default::Default for JET_TUPLELIMITS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub struct JET_UNICODEINDEX {
     pub lcid: u32,
     pub dwMapFlags: u32,
@@ -4052,6 +4201,7 @@ impl ::core::default::Default for JET_UNICODEINDEX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_UNICODEINDEX2 {
     pub szLocaleName: super::super::Foundation::PWSTR,
@@ -4084,6 +4234,7 @@ impl ::core::default::Default for JET_UNICODEINDEX2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_USERDEFINEDDEFAULT_A {
     pub szCallback: super::super::Foundation::PSTR,
@@ -4118,6 +4269,7 @@ impl ::core::default::Default for JET_USERDEFINEDDEFAULT_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct JET_USERDEFINEDDEFAULT_W {
     pub szCallback: super::super::Foundation::PWSTR,
@@ -5047,6 +5199,7 @@ pub const JET_wrnTableEmpty: u32 = 1301u32;
 pub const JET_wrnTableInUseBySystem: u32 = 1327u32;
 pub const JET_wrnTargetInstanceRunning: u32 = 578u32;
 pub const JET_wrnUniqueKey: u32 = 345u32;
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetAddColumnA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const i8, pcolumndef: *const JET_COLUMNDEF, pvdefault: *const ::core::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32 {
@@ -5061,6 +5214,7 @@ pub unsafe fn JetAddColumnA<'a, Param0: ::windows::core::IntoParam<'a, super::St
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetAddColumnW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const u16, pcolumndef: *const JET_COLUMNDEF, pvdefault: *const ::core::ffi::c_void, cbdefault: u32, pcolumnid: *mut u32) -> i32 {
@@ -5075,6 +5229,7 @@ pub unsafe fn JetAddColumnW<'a, Param0: ::windows::core::IntoParam<'a, super::St
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetAttachDatabase2A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const i8, cpgdatabasesizemax: u32, grbit: u32) -> i32 {
@@ -5089,6 +5244,7 @@ pub unsafe fn JetAttachDatabase2A<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetAttachDatabase2W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const u16, cpgdatabasesizemax: u32, grbit: u32) -> i32 {
@@ -5103,6 +5259,7 @@ pub unsafe fn JetAttachDatabase2W<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetAttachDatabaseA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const i8, grbit: u32) -> i32 {
@@ -5117,6 +5274,7 @@ pub unsafe fn JetAttachDatabaseA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetAttachDatabaseW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const u16, grbit: u32) -> i32 {
@@ -5131,6 +5289,7 @@ pub unsafe fn JetAttachDatabaseW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32 {
@@ -5145,6 +5304,7 @@ pub unsafe fn JetBackupA(szbackuppath: *const i8, grbit: u32, pfnstatus: JET_PFN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetBackupInstanceA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szbackuppath: *const i8, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32 {
@@ -5159,6 +5319,7 @@ pub unsafe fn JetBackupInstanceA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetBackupInstanceW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szbackuppath: *const u16, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32 {
@@ -5173,6 +5334,7 @@ pub unsafe fn JetBackupInstanceW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetBackupW(szbackuppath: *const u16, grbit: u32, pfnstatus: JET_PFNSTATUS) -> i32 {
@@ -5187,6 +5349,7 @@ pub unsafe fn JetBackupW(szbackuppath: *const u16, grbit: u32, pfnstatus: JET_PF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[inline]
 pub unsafe fn JetBeginExternalBackup(grbit: u32) -> i32 {
     #[cfg(windows)]
@@ -5200,6 +5363,7 @@ pub unsafe fn JetBeginExternalBackup(grbit: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetBeginExternalBackupInstance<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, grbit: u32) -> i32 {
@@ -5214,6 +5378,7 @@ pub unsafe fn JetBeginExternalBackupInstance<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetBeginSessionA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, psesid: *mut super::StructuredStorage::JET_SESID, szusername: *const i8, szpassword: *const i8) -> i32 {
@@ -5228,6 +5393,7 @@ pub unsafe fn JetBeginSessionA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetBeginSessionW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, psesid: *mut super::StructuredStorage::JET_SESID, szusername: *const u16, szpassword: *const u16) -> i32 {
@@ -5242,6 +5408,7 @@ pub unsafe fn JetBeginSessionW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetBeginTransaction<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0) -> i32 {
@@ -5256,6 +5423,7 @@ pub unsafe fn JetBeginTransaction<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetBeginTransaction2<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, grbit: u32) -> i32 {
@@ -5270,6 +5438,7 @@ pub unsafe fn JetBeginTransaction2<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetBeginTransaction3<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, trxid: i64, grbit: u32) -> i32 {
@@ -5284,6 +5453,7 @@ pub unsafe fn JetBeginTransaction3<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetCloseDatabase<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, grbit: u32) -> i32 {
@@ -5298,6 +5468,7 @@ pub unsafe fn JetCloseDatabase<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetCloseFile<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_HANDLE>>(hffile: Param0) -> i32 {
@@ -5312,6 +5483,7 @@ pub unsafe fn JetCloseFile<'a, Param0: ::windows::core::IntoParam<'a, super::Str
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetCloseFileInstance<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_HANDLE>>(instance: Param0, hffile: Param1) -> i32 {
@@ -5326,6 +5498,7 @@ pub unsafe fn JetCloseFileInstance<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetCloseTable<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1) -> i32 {
@@ -5340,6 +5513,7 @@ pub unsafe fn JetCloseTable<'a, Param0: ::windows::core::IntoParam<'a, super::St
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetCommitTransaction<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, grbit: u32) -> i32 {
@@ -5354,6 +5528,7 @@ pub unsafe fn JetCommitTransaction<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetCommitTransaction2<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, grbit: u32, cmsecdurablecommit: u32, pcommitid: *mut JET_COMMIT_ID) -> i32 {
@@ -5368,6 +5543,7 @@ pub unsafe fn JetCommitTransaction2<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetCompactA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasesrc: *const i8, szdatabasedest: *const i8, pfnstatus: JET_PFNSTATUS, pconvert: *const CONVERT_A, grbit: u32) -> i32 {
@@ -5382,6 +5558,7 @@ pub unsafe fn JetCompactA<'a, Param0: ::windows::core::IntoParam<'a, super::Stru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetCompactW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasesrc: *const u16, szdatabasedest: *const u16, pfnstatus: JET_PFNSTATUS, pconvert: *const CONVERT_W, grbit: u32) -> i32 {
@@ -5396,6 +5573,7 @@ pub unsafe fn JetCompactW<'a, Param0: ::windows::core::IntoParam<'a, super::Stru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetComputeStats<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1) -> i32 {
@@ -5410,6 +5588,7 @@ pub unsafe fn JetComputeStats<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[inline]
 pub unsafe fn JetConfigureProcessForCrashDump(grbit: u32) -> i32 {
     #[cfg(windows)]
@@ -5423,6 +5602,7 @@ pub unsafe fn JetConfigureProcessForCrashDump(grbit: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetCreateDatabase2A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const i8, cpgdatabasesizemax: u32, pdbid: *mut u32, grbit: u32) -> i32 {
@@ -5437,6 +5617,7 @@ pub unsafe fn JetCreateDatabase2A<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetCreateDatabase2W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const u16, cpgdatabasesizemax: u32, pdbid: *mut u32, grbit: u32) -> i32 {
@@ -5451,6 +5632,7 @@ pub unsafe fn JetCreateDatabase2W<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetCreateDatabaseA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const i8, szconnect: *const i8, pdbid: *mut u32, grbit: u32) -> i32 {
@@ -5465,6 +5647,7 @@ pub unsafe fn JetCreateDatabaseA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetCreateDatabaseW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const u16, szconnect: *const u16, pdbid: *mut u32, grbit: u32) -> i32 {
@@ -5479,6 +5662,7 @@ pub unsafe fn JetCreateDatabaseW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetCreateIndex2A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pindexcreate: *const JET_INDEXCREATE_A, cindexcreate: u32) -> i32 {
@@ -5493,6 +5677,7 @@ pub unsafe fn JetCreateIndex2A<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetCreateIndex2W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pindexcreate: *const JET_INDEXCREATE_W, cindexcreate: u32) -> i32 {
@@ -5507,6 +5692,7 @@ pub unsafe fn JetCreateIndex2W<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetCreateIndex3A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pindexcreate: *const JET_INDEXCREATE2_A, cindexcreate: u32) -> i32 {
@@ -5521,6 +5707,7 @@ pub unsafe fn JetCreateIndex3A<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetCreateIndex3W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pindexcreate: *const JET_INDEXCREATE2_W, cindexcreate: u32) -> i32 {
@@ -5535,6 +5722,7 @@ pub unsafe fn JetCreateIndex3W<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetCreateIndex4A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pindexcreate: *const JET_INDEXCREATE3_A, cindexcreate: u32) -> i32 {
@@ -5549,6 +5737,7 @@ pub unsafe fn JetCreateIndex4A<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetCreateIndex4W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pindexcreate: *const JET_INDEXCREATE3_W, cindexcreate: u32) -> i32 {
@@ -5563,6 +5752,7 @@ pub unsafe fn JetCreateIndex4W<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetCreateIndexA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(sesid: Param0, tableid: Param1, szindexname: *const i8, grbit: u32, szkey: Param4, cbkey: u32, ldensity: u32) -> i32 {
@@ -5577,6 +5767,7 @@ pub unsafe fn JetCreateIndexA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetCreateIndexW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(sesid: Param0, tableid: Param1, szindexname: *const u16, grbit: u32, szkey: Param4, cbkey: u32, ldensity: u32) -> i32 {
@@ -5591,6 +5782,7 @@ pub unsafe fn JetCreateIndexW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetCreateInstance2A(pinstance: *mut super::StructuredStorage::JET_INSTANCE, szinstancename: *const i8, szdisplayname: *const i8, grbit: u32) -> i32 {
@@ -5605,6 +5797,7 @@ pub unsafe fn JetCreateInstance2A(pinstance: *mut super::StructuredStorage::JET_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetCreateInstance2W(pinstance: *mut super::StructuredStorage::JET_INSTANCE, szinstancename: *const u16, szdisplayname: *const u16, grbit: u32) -> i32 {
@@ -5619,6 +5812,7 @@ pub unsafe fn JetCreateInstance2W(pinstance: *mut super::StructuredStorage::JET_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetCreateInstanceA(pinstance: *mut super::StructuredStorage::JET_INSTANCE, szinstancename: *const i8) -> i32 {
@@ -5633,6 +5827,7 @@ pub unsafe fn JetCreateInstanceA(pinstance: *mut super::StructuredStorage::JET_I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetCreateInstanceW(pinstance: *mut super::StructuredStorage::JET_INSTANCE, szinstancename: *const u16) -> i32 {
@@ -5647,6 +5842,7 @@ pub unsafe fn JetCreateInstanceW(pinstance: *mut super::StructuredStorage::JET_I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetCreateTableA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, lpages: u32, ldensity: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32 {
@@ -5661,6 +5857,7 @@ pub unsafe fn JetCreateTableA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetCreateTableColumnIndex2A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, ptablecreate: *mut JET_TABLECREATE2_A) -> i32 {
@@ -5675,6 +5872,7 @@ pub unsafe fn JetCreateTableColumnIndex2A<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetCreateTableColumnIndex2W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, ptablecreate: *mut JET_TABLECREATE2_W) -> i32 {
@@ -5689,6 +5887,7 @@ pub unsafe fn JetCreateTableColumnIndex2W<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetCreateTableColumnIndex3A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, ptablecreate: *mut JET_TABLECREATE3_A) -> i32 {
@@ -5703,6 +5902,7 @@ pub unsafe fn JetCreateTableColumnIndex3A<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetCreateTableColumnIndex3W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, ptablecreate: *mut JET_TABLECREATE3_W) -> i32 {
@@ -5717,6 +5917,7 @@ pub unsafe fn JetCreateTableColumnIndex3W<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetCreateTableColumnIndex4A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, ptablecreate: *mut JET_TABLECREATE4_A) -> i32 {
@@ -5731,6 +5932,7 @@ pub unsafe fn JetCreateTableColumnIndex4A<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetCreateTableColumnIndex4W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, ptablecreate: *mut JET_TABLECREATE4_W) -> i32 {
@@ -5745,6 +5947,7 @@ pub unsafe fn JetCreateTableColumnIndex4W<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetCreateTableColumnIndexA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, ptablecreate: *mut JET_TABLECREATE_A) -> i32 {
@@ -5759,6 +5962,7 @@ pub unsafe fn JetCreateTableColumnIndexA<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetCreateTableColumnIndexW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, ptablecreate: *mut JET_TABLECREATE_W) -> i32 {
@@ -5773,6 +5977,7 @@ pub unsafe fn JetCreateTableColumnIndexW<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetCreateTableW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, lpages: u32, ldensity: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32 {
@@ -5787,6 +5992,7 @@ pub unsafe fn JetCreateTableW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDefragment2A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, grbit: u32) -> i32 {
@@ -5801,6 +6007,7 @@ pub unsafe fn JetDefragment2A<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDefragment2W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, grbit: u32) -> i32 {
@@ -5815,6 +6022,7 @@ pub unsafe fn JetDefragment2W<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDefragment3A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasename: *const i8, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32 {
@@ -5829,6 +6037,7 @@ pub unsafe fn JetDefragment3A<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDefragment3W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasename: *const u16, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, callback: JET_CALLBACK, pvcontext: *const ::core::ffi::c_void, grbit: u32) -> i32 {
@@ -5843,6 +6052,7 @@ pub unsafe fn JetDefragment3W<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDefragmentA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, pcpasses: *mut u32, pcseconds: *mut u32, grbit: u32) -> i32 {
@@ -5857,6 +6067,7 @@ pub unsafe fn JetDefragmentA<'a, Param0: ::windows::core::IntoParam<'a, super::S
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDefragmentW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, pcpasses: *mut u32, pcseconds: *mut u32, grbit: u32) -> i32 {
@@ -5871,6 +6082,7 @@ pub unsafe fn JetDefragmentW<'a, Param0: ::windows::core::IntoParam<'a, super::S
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDelete<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1) -> i32 {
@@ -5885,6 +6097,7 @@ pub unsafe fn JetDelete<'a, Param0: ::windows::core::IntoParam<'a, super::Struct
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDeleteColumn2A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const i8, grbit: u32) -> i32 {
@@ -5899,6 +6112,7 @@ pub unsafe fn JetDeleteColumn2A<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDeleteColumn2W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const u16, grbit: u32) -> i32 {
@@ -5913,6 +6127,7 @@ pub unsafe fn JetDeleteColumn2W<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDeleteColumnA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const i8) -> i32 {
@@ -5927,6 +6142,7 @@ pub unsafe fn JetDeleteColumnA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDeleteColumnW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const u16) -> i32 {
@@ -5941,6 +6157,7 @@ pub unsafe fn JetDeleteColumnW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDeleteIndexA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const i8) -> i32 {
@@ -5955,6 +6172,7 @@ pub unsafe fn JetDeleteIndexA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDeleteIndexW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const u16) -> i32 {
@@ -5969,6 +6187,7 @@ pub unsafe fn JetDeleteIndexW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDeleteTableA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8) -> i32 {
@@ -5983,6 +6202,7 @@ pub unsafe fn JetDeleteTableA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDeleteTableW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16) -> i32 {
@@ -5997,6 +6217,7 @@ pub unsafe fn JetDeleteTableW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDetachDatabase2A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const i8, grbit: u32) -> i32 {
@@ -6011,6 +6232,7 @@ pub unsafe fn JetDetachDatabase2A<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDetachDatabase2W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const u16, grbit: u32) -> i32 {
@@ -6025,6 +6247,7 @@ pub unsafe fn JetDetachDatabase2W<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDetachDatabaseA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const i8) -> i32 {
@@ -6039,6 +6262,7 @@ pub unsafe fn JetDetachDatabaseA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDetachDatabaseW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const u16) -> i32 {
@@ -6053,6 +6277,7 @@ pub unsafe fn JetDetachDatabaseW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDupCursor<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, ptableid: *mut super::StructuredStorage::JET_TABLEID, grbit: u32) -> i32 {
@@ -6067,6 +6292,7 @@ pub unsafe fn JetDupCursor<'a, Param0: ::windows::core::IntoParam<'a, super::Str
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetDupSession<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, psesid: *mut super::StructuredStorage::JET_SESID) -> i32 {
@@ -6081,6 +6307,7 @@ pub unsafe fn JetDupSession<'a, Param0: ::windows::core::IntoParam<'a, super::St
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetEnableMultiInstanceA(psetsysparam: *const JET_SETSYSPARAM_A, csetsysparam: u32, pcsetsucceed: *mut u32) -> i32 {
@@ -6095,6 +6322,7 @@ pub unsafe fn JetEnableMultiInstanceA(psetsysparam: *const JET_SETSYSPARAM_A, cs
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetEnableMultiInstanceW(psetsysparam: *const JET_SETSYSPARAM_W, csetsysparam: u32, pcsetsucceed: *mut u32) -> i32 {
@@ -6109,6 +6337,7 @@ pub unsafe fn JetEnableMultiInstanceW(psetsysparam: *const JET_SETSYSPARAM_W, cs
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[inline]
 pub unsafe fn JetEndExternalBackup() -> i32 {
     #[cfg(windows)]
@@ -6122,6 +6351,7 @@ pub unsafe fn JetEndExternalBackup() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetEndExternalBackupInstance<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0) -> i32 {
@@ -6136,6 +6366,7 @@ pub unsafe fn JetEndExternalBackupInstance<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetEndExternalBackupInstance2<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, grbit: u32) -> i32 {
@@ -6150,6 +6381,7 @@ pub unsafe fn JetEndExternalBackupInstance2<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetEndSession<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, grbit: u32) -> i32 {
@@ -6164,6 +6396,7 @@ pub unsafe fn JetEndSession<'a, Param0: ::windows::core::IntoParam<'a, super::St
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetEnumerateColumns<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, cenumcolumnid: u32, rgenumcolumnid: *const JET_ENUMCOLUMNID, pcenumcolumn: *mut u32, prgenumcolumn: *mut *mut JET_ENUMCOLUMN, pfnrealloc: JET_PFNREALLOC, pvrealloccontext: *const ::core::ffi::c_void, cbdatamost: u32, grbit: u32) -> i32 {
@@ -6178,6 +6411,7 @@ pub unsafe fn JetEnumerateColumns<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetEscrowUpdate<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, columnid: u32, pv: *const ::core::ffi::c_void, cbmax: u32, pvold: *mut ::core::ffi::c_void, cboldmax: u32, pcboldactual: *mut u32, grbit: u32) -> i32 {
@@ -6192,6 +6426,7 @@ pub unsafe fn JetEscrowUpdate<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetExternalRestore2A(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, ploginfo: *mut JET_LOGINFO_A, sztargetinstancename: *const i8, sztargetinstancelogpath: *const i8, sztargetinstancecheckpointpath: *const i8, pfn: JET_PFNSTATUS) -> i32 {
@@ -6206,6 +6441,7 @@ pub unsafe fn JetExternalRestore2A(szcheckpointfilepath: *const i8, szlogpath: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetExternalRestore2W(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, ploginfo: *mut JET_LOGINFO_W, sztargetinstancename: *const u16, sztargetinstancelogpath: *const u16, sztargetinstancecheckpointpath: *const u16, pfn: JET_PFNSTATUS) -> i32 {
@@ -6220,6 +6456,7 @@ pub unsafe fn JetExternalRestore2W(szcheckpointfilepath: *const u16, szlogpath: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *const i8, rgrstmap: *const JET_RSTMAP_A, crstfilemap: i32, szbackuplogpath: *const i8, genlow: i32, genhigh: i32, pfn: JET_PFNSTATUS) -> i32 {
@@ -6234,6 +6471,7 @@ pub unsafe fn JetExternalRestoreA(szcheckpointfilepath: *const i8, szlogpath: *c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *const u16, rgrstmap: *const JET_RSTMAP_W, crstfilemap: i32, szbackuplogpath: *const u16, genlow: i32, genhigh: i32, pfn: JET_PFNSTATUS) -> i32 {
@@ -6248,6 +6486,7 @@ pub unsafe fn JetExternalRestoreW(szcheckpointfilepath: *const u16, szlogpath: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn JetFreeBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pbbuf: Param0) -> i32 {
@@ -6262,6 +6501,7 @@ pub unsafe fn JetFreeBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[inline]
 pub unsafe fn JetGetAttachInfoA(szzdatabases: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -6275,6 +6515,7 @@ pub unsafe fn JetGetAttachInfoA(szzdatabases: *mut i8, cbmax: u32, pcbactual: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetAttachInfoInstanceA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szzdatabases: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32 {
@@ -6289,6 +6530,7 @@ pub unsafe fn JetGetAttachInfoInstanceA<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetAttachInfoInstanceW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szzdatabases: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32 {
@@ -6303,6 +6545,7 @@ pub unsafe fn JetGetAttachInfoInstanceW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[inline]
 pub unsafe fn JetGetAttachInfoW(wszzdatabases: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -6316,6 +6559,7 @@ pub unsafe fn JetGetAttachInfoW(wszzdatabases: *mut u16, cbmax: u32, pcbactual: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetBookmark<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvbookmark: *mut ::core::ffi::c_void, cbmax: u32, pcbactual: *mut u32) -> i32 {
@@ -6330,6 +6574,7 @@ pub unsafe fn JetGetBookmark<'a, Param0: ::windows::core::IntoParam<'a, super::S
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetColumnInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, pcolumnnameorid: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
@@ -6344,6 +6589,7 @@ pub unsafe fn JetGetColumnInfoA<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetColumnInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, pwcolumnnameorid: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
@@ -6358,6 +6604,7 @@ pub unsafe fn JetGetColumnInfoW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetCurrentIndexA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *mut i8, cbindexname: u32) -> i32 {
@@ -6372,6 +6619,7 @@ pub unsafe fn JetGetCurrentIndexA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetCurrentIndexW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *mut u16, cbindexname: u32) -> i32 {
@@ -6386,6 +6634,7 @@ pub unsafe fn JetGetCurrentIndexW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetCursorInfo<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
@@ -6400,6 +6649,7 @@ pub unsafe fn JetGetCursorInfo<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[inline]
 pub unsafe fn JetGetDatabaseFileInfoA(szdatabasename: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
@@ -6413,6 +6663,7 @@ pub unsafe fn JetGetDatabaseFileInfoA(szdatabasename: *const i8, pvresult: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[inline]
 pub unsafe fn JetGetDatabaseFileInfoW(szdatabasename: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
     #[cfg(windows)]
@@ -6426,6 +6677,7 @@ pub unsafe fn JetGetDatabaseFileInfoW(szdatabasename: *const u16, pvresult: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetDatabaseInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
@@ -6440,6 +6692,7 @@ pub unsafe fn JetGetDatabaseInfoA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetDatabaseInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
@@ -6454,6 +6707,7 @@ pub unsafe fn JetGetDatabaseInfoW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[inline]
 pub unsafe fn JetGetErrorInfoW(pvcontext: *const ::core::ffi::c_void, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32, grbit: u32) -> i32 {
     #[cfg(windows)]
@@ -6467,6 +6721,7 @@ pub unsafe fn JetGetErrorInfoW(pvcontext: *const ::core::ffi::c_void, pvresult: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetIndexInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, szindexname: *const i8, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
@@ -6481,6 +6736,7 @@ pub unsafe fn JetGetIndexInfoA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetIndexInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, szindexname: *const u16, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
@@ -6495,6 +6751,7 @@ pub unsafe fn JetGetIndexInfoW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetGetInstanceInfoA(pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_A) -> i32 {
@@ -6509,6 +6766,7 @@ pub unsafe fn JetGetInstanceInfoA(pcinstanceinfo: *mut u32, painstanceinfo: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetGetInstanceInfoW(pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_W) -> i32 {
@@ -6523,6 +6781,7 @@ pub unsafe fn JetGetInstanceInfoW(pcinstanceinfo: *mut u32, painstanceinfo: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetInstanceMiscInfo<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
@@ -6537,6 +6796,7 @@ pub unsafe fn JetGetInstanceMiscInfo<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetLS<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pls: *mut JET_LS, grbit: u32) -> i32 {
@@ -6551,6 +6811,7 @@ pub unsafe fn JetGetLS<'a, Param0: ::windows::core::IntoParam<'a, super::Structu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetLock<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, grbit: u32) -> i32 {
@@ -6565,6 +6826,7 @@ pub unsafe fn JetGetLock<'a, Param0: ::windows::core::IntoParam<'a, super::Struc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[inline]
 pub unsafe fn JetGetLogInfoA(szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -6578,6 +6840,7 @@ pub unsafe fn JetGetLogInfoA(szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetGetLogInfoInstance2A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32, ploginfo: *mut JET_LOGINFO_A) -> i32 {
@@ -6592,6 +6855,7 @@ pub unsafe fn JetGetLogInfoInstance2A<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetLogInfoInstance2W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, wszzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32, ploginfo: *mut JET_LOGINFO_W) -> i32 {
@@ -6606,6 +6870,7 @@ pub unsafe fn JetGetLogInfoInstance2W<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetLogInfoInstanceA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32 {
@@ -6620,6 +6885,7 @@ pub unsafe fn JetGetLogInfoInstanceA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetLogInfoInstanceW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, wszzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32 {
@@ -6634,6 +6900,7 @@ pub unsafe fn JetGetLogInfoInstanceW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[inline]
 pub unsafe fn JetGetLogInfoW(szzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -6647,6 +6914,7 @@ pub unsafe fn JetGetLogInfoW(szzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetObjectInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, objtyp: u32, szcontainername: *const i8, szobjectname: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
@@ -6661,6 +6929,7 @@ pub unsafe fn JetGetObjectInfoA<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetObjectInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, objtyp: u32, szcontainername: *const u16, szobjectname: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
@@ -6675,6 +6944,7 @@ pub unsafe fn JetGetObjectInfoW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetRecordPosition<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, precpos: *mut JET_RECPOS, cbrecpos: u32) -> i32 {
@@ -6689,6 +6959,7 @@ pub unsafe fn JetGetRecordPosition<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetRecordSize<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, precsize: *mut JET_RECSIZE, grbit: u32) -> i32 {
@@ -6703,6 +6974,7 @@ pub unsafe fn JetGetRecordSize<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetRecordSize2<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, precsize: *mut JET_RECSIZE2, grbit: u32) -> i32 {
@@ -6717,6 +6989,7 @@ pub unsafe fn JetGetRecordSize2<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetSecondaryIndexBookmark<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvsecondarykey: *mut ::core::ffi::c_void, cbsecondarykeymax: u32, pcbsecondarykeyactual: *mut u32, pvprimarybookmark: *mut ::core::ffi::c_void, cbprimarybookmarkmax: u32, pcbprimarybookmarkactual: *mut u32, grbit: u32) -> i32 {
@@ -6731,6 +7004,7 @@ pub unsafe fn JetGetSecondaryIndexBookmark<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetSessionParameter<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, sesparamid: u32, pvparam: *mut ::core::ffi::c_void, cbparammax: u32, pcbparamactual: *mut u32) -> i32 {
@@ -6745,6 +7019,7 @@ pub unsafe fn JetGetSessionParameter<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetSystemParameterA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(instance: Param0, sesid: Param1, paramid: u32, plparam: *mut super::StructuredStorage::JET_API_PTR, szparam: *mut i8, cbmax: u32) -> i32 {
@@ -6759,6 +7034,7 @@ pub unsafe fn JetGetSystemParameterA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetSystemParameterW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(instance: Param0, sesid: Param1, paramid: u32, plparam: *mut super::StructuredStorage::JET_API_PTR, szparam: *mut u16, cbmax: u32) -> i32 {
@@ -6773,6 +7049,7 @@ pub unsafe fn JetGetSystemParameterW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetTableColumnInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const i8, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
@@ -6787,6 +7064,7 @@ pub unsafe fn JetGetTableColumnInfoA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetTableColumnInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szcolumnname: *const u16, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
@@ -6801,6 +7079,7 @@ pub unsafe fn JetGetTableColumnInfoW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetTableIndexInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const i8, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
@@ -6815,6 +7094,7 @@ pub unsafe fn JetGetTableIndexInfoA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetTableIndexInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const u16, pvresult: *mut ::core::ffi::c_void, cbresult: u32, infolevel: u32) -> i32 {
@@ -6829,6 +7109,7 @@ pub unsafe fn JetGetTableIndexInfoW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetTableInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
@@ -6843,6 +7124,7 @@ pub unsafe fn JetGetTableInfoA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetTableInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvresult: *mut ::core::ffi::c_void, cbmax: u32, infolevel: u32) -> i32 {
@@ -6857,6 +7139,7 @@ pub unsafe fn JetGetTableInfoW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[inline]
 pub unsafe fn JetGetThreadStats(pvresult: *mut ::core::ffi::c_void, cbmax: u32) -> i32 {
     #[cfg(windows)]
@@ -6870,6 +7153,7 @@ pub unsafe fn JetGetThreadStats(pvresult: *mut ::core::ffi::c_void, cbmax: u32) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetTruncateLogInfoInstanceA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szzlogs: *mut i8, cbmax: u32, pcbactual: *mut u32) -> i32 {
@@ -6884,6 +7168,7 @@ pub unsafe fn JetGetTruncateLogInfoInstanceA<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetTruncateLogInfoInstanceW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, wszzlogs: *mut u16, cbmax: u32, pcbactual: *mut u32) -> i32 {
@@ -6898,6 +7183,7 @@ pub unsafe fn JetGetTruncateLogInfoInstanceW<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGetVersion<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, pwversion: *mut u32) -> i32 {
@@ -6912,6 +7198,7 @@ pub unsafe fn JetGetVersion<'a, Param0: ::windows::core::IntoParam<'a, super::St
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGotoBookmark<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvbookmark: *const ::core::ffi::c_void, cbbookmark: u32) -> i32 {
@@ -6926,6 +7213,7 @@ pub unsafe fn JetGotoBookmark<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGotoPosition<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, precpos: *const JET_RECPOS) -> i32 {
@@ -6940,6 +7228,7 @@ pub unsafe fn JetGotoPosition<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGotoSecondaryIndexBookmark<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvsecondarykey: *const ::core::ffi::c_void, cbsecondarykey: u32, pvprimarybookmark: *const ::core::ffi::c_void, cbprimarybookmark: u32, grbit: u32) -> i32 {
@@ -6954,6 +7243,7 @@ pub unsafe fn JetGotoSecondaryIndexBookmark<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetGrowDatabase<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, cpg: u32, pcpgreal: *const u32) -> i32 {
@@ -6968,6 +7258,7 @@ pub unsafe fn JetGrowDatabase<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetIdle<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, grbit: u32) -> i32 {
@@ -6982,6 +7273,7 @@ pub unsafe fn JetIdle<'a, Param0: ::windows::core::IntoParam<'a, super::Structur
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetIndexRecordCount<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pcrec: *mut u32, crecmax: u32) -> i32 {
@@ -6996,6 +7288,7 @@ pub unsafe fn JetIndexRecordCount<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetInit(pinstance: *mut super::StructuredStorage::JET_INSTANCE) -> i32 {
@@ -7010,6 +7303,7 @@ pub unsafe fn JetInit(pinstance: *mut super::StructuredStorage::JET_INSTANCE) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetInit2(pinstance: *mut super::StructuredStorage::JET_INSTANCE, grbit: u32) -> i32 {
@@ -7024,6 +7318,7 @@ pub unsafe fn JetInit2(pinstance: *mut super::StructuredStorage::JET_INSTANCE, g
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetInit3A(pinstance: *mut super::StructuredStorage::JET_INSTANCE, prstinfo: *const JET_RSTINFO_A, grbit: u32) -> i32 {
@@ -7038,6 +7333,7 @@ pub unsafe fn JetInit3A(pinstance: *mut super::StructuredStorage::JET_INSTANCE, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetInit3W(pinstance: *mut super::StructuredStorage::JET_INSTANCE, prstinfo: *const JET_RSTINFO_W, grbit: u32) -> i32 {
@@ -7052,6 +7348,7 @@ pub unsafe fn JetInit3W(pinstance: *mut super::StructuredStorage::JET_INSTANCE, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetIntersectIndexes<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, rgindexrange: *const JET_INDEXRANGE, cindexrange: u32, precordlist: *mut JET_RECORDLIST, grbit: u32) -> i32 {
@@ -7066,6 +7363,7 @@ pub unsafe fn JetIntersectIndexes<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetMakeKey<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32 {
@@ -7080,6 +7378,7 @@ pub unsafe fn JetMakeKey<'a, Param0: ::windows::core::IntoParam<'a, super::Struc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetMove<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, crow: i32, grbit: u32) -> i32 {
@@ -7094,6 +7393,7 @@ pub unsafe fn JetMove<'a, Param0: ::windows::core::IntoParam<'a, super::Structur
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[inline]
 pub unsafe fn JetOSSnapshotAbort<'a, Param0: ::windows::core::IntoParam<'a, JET_OSSNAPID>>(snapid: Param0, grbit: u32) -> i32 {
     #[cfg(windows)]
@@ -7107,6 +7407,7 @@ pub unsafe fn JetOSSnapshotAbort<'a, Param0: ::windows::core::IntoParam<'a, JET_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[inline]
 pub unsafe fn JetOSSnapshotEnd<'a, Param0: ::windows::core::IntoParam<'a, JET_OSSNAPID>>(snapid: Param0, grbit: u32) -> i32 {
     #[cfg(windows)]
@@ -7120,6 +7421,7 @@ pub unsafe fn JetOSSnapshotEnd<'a, Param0: ::windows::core::IntoParam<'a, JET_OS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetOSSnapshotFreezeA<'a, Param0: ::windows::core::IntoParam<'a, JET_OSSNAPID>>(snapid: Param0, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_A, grbit: u32) -> i32 {
@@ -7134,6 +7436,7 @@ pub unsafe fn JetOSSnapshotFreezeA<'a, Param0: ::windows::core::IntoParam<'a, JE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetOSSnapshotFreezeW<'a, Param0: ::windows::core::IntoParam<'a, JET_OSSNAPID>>(snapid: Param0, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_W, grbit: u32) -> i32 {
@@ -7148,6 +7451,7 @@ pub unsafe fn JetOSSnapshotFreezeW<'a, Param0: ::windows::core::IntoParam<'a, JE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetOSSnapshotGetFreezeInfoA<'a, Param0: ::windows::core::IntoParam<'a, JET_OSSNAPID>>(snapid: Param0, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_A, grbit: u32) -> i32 {
@@ -7162,6 +7466,7 @@ pub unsafe fn JetOSSnapshotGetFreezeInfoA<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetOSSnapshotGetFreezeInfoW<'a, Param0: ::windows::core::IntoParam<'a, JET_OSSNAPID>>(snapid: Param0, pcinstanceinfo: *mut u32, painstanceinfo: *mut *mut JET_INSTANCE_INFO_W, grbit: u32) -> i32 {
@@ -7176,6 +7481,7 @@ pub unsafe fn JetOSSnapshotGetFreezeInfoW<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[inline]
 pub unsafe fn JetOSSnapshotPrepare(psnapid: *mut JET_OSSNAPID, grbit: u32) -> i32 {
     #[cfg(windows)]
@@ -7189,6 +7495,7 @@ pub unsafe fn JetOSSnapshotPrepare(psnapid: *mut JET_OSSNAPID, grbit: u32) -> i3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetOSSnapshotPrepareInstance<'a, Param0: ::windows::core::IntoParam<'a, JET_OSSNAPID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(snapid: Param0, instance: Param1, grbit: u32) -> i32 {
@@ -7203,6 +7510,7 @@ pub unsafe fn JetOSSnapshotPrepareInstance<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[inline]
 pub unsafe fn JetOSSnapshotThaw<'a, Param0: ::windows::core::IntoParam<'a, JET_OSSNAPID>>(snapid: Param0, grbit: u32) -> i32 {
     #[cfg(windows)]
@@ -7216,6 +7524,7 @@ pub unsafe fn JetOSSnapshotThaw<'a, Param0: ::windows::core::IntoParam<'a, JET_O
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[inline]
 pub unsafe fn JetOSSnapshotTruncateLog<'a, Param0: ::windows::core::IntoParam<'a, JET_OSSNAPID>>(snapid: Param0, grbit: u32) -> i32 {
     #[cfg(windows)]
@@ -7229,6 +7538,7 @@ pub unsafe fn JetOSSnapshotTruncateLog<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetOSSnapshotTruncateLogInstance<'a, Param0: ::windows::core::IntoParam<'a, JET_OSSNAPID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(snapid: Param0, instance: Param1, grbit: u32) -> i32 {
@@ -7243,6 +7553,7 @@ pub unsafe fn JetOSSnapshotTruncateLogInstance<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetOpenDatabaseA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const i8, szconnect: *const i8, pdbid: *mut u32, grbit: u32) -> i32 {
@@ -7257,6 +7568,7 @@ pub unsafe fn JetOpenDatabaseA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetOpenDatabaseW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szfilename: *const u16, szconnect: *const u16, pdbid: *mut u32, grbit: u32) -> i32 {
@@ -7271,6 +7583,7 @@ pub unsafe fn JetOpenDatabaseW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetOpenFileA(szfilename: *const i8, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32 {
@@ -7285,6 +7598,7 @@ pub unsafe fn JetOpenFileA(szfilename: *const i8, phffile: *mut super::Structure
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetOpenFileInstanceA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szfilename: *const i8, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32 {
@@ -7299,6 +7613,7 @@ pub unsafe fn JetOpenFileInstanceA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetOpenFileInstanceW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, szfilename: *const u16, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32 {
@@ -7313,6 +7628,7 @@ pub unsafe fn JetOpenFileInstanceW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetOpenFileW(szfilename: *const u16, phffile: *mut super::StructuredStorage::JET_HANDLE, pulfilesizelow: *mut u32, pulfilesizehigh: *mut u32) -> i32 {
@@ -7327,6 +7643,7 @@ pub unsafe fn JetOpenFileW(szfilename: *const u16, phffile: *mut super::Structur
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetOpenTableA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, pvparameters: *const ::core::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32 {
@@ -7341,6 +7658,7 @@ pub unsafe fn JetOpenTableA<'a, Param0: ::windows::core::IntoParam<'a, super::St
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetOpenTableW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, pvparameters: *const ::core::ffi::c_void, cbparameters: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID) -> i32 {
@@ -7355,6 +7673,7 @@ pub unsafe fn JetOpenTableW<'a, Param0: ::windows::core::IntoParam<'a, super::St
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetOpenTempTable<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32 {
@@ -7369,6 +7688,7 @@ pub unsafe fn JetOpenTempTable<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetOpenTempTable2<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, lcid: u32, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32 {
@@ -7383,6 +7703,7 @@ pub unsafe fn JetOpenTempTable2<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetOpenTempTable3<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, prgcolumndef: *const JET_COLUMNDEF, ccolumn: u32, pidxunicode: *const JET_UNICODEINDEX, grbit: u32, ptableid: *mut super::StructuredStorage::JET_TABLEID, prgcolumnid: *mut u32) -> i32 {
@@ -7397,6 +7718,7 @@ pub unsafe fn JetOpenTempTable3<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetOpenTemporaryTable<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, popentemporarytable: *const JET_OPENTEMPORARYTABLE) -> i32 {
@@ -7411,6 +7733,7 @@ pub unsafe fn JetOpenTemporaryTable<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_StructuredStorage"))]
 #[inline]
 pub unsafe fn JetOpenTemporaryTable2<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, popentemporarytable: *const JET_OPENTEMPORARYTABLE2) -> i32 {
@@ -7425,6 +7748,7 @@ pub unsafe fn JetOpenTemporaryTable2<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetPrepareUpdate<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, prep: u32) -> i32 {
@@ -7439,6 +7763,7 @@ pub unsafe fn JetPrepareUpdate<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetPrereadIndexRanges<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, rgindexranges: *const JET_INDEX_RANGE, cindexranges: u32, pcrangespreread: *mut u32, rgcolumnidpreread: *const u32, ccolumnidpreread: u32, grbit: u32) -> i32 {
@@ -7453,6 +7778,7 @@ pub unsafe fn JetPrereadIndexRanges<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetPrereadKeys<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, rgpvkeys: *const *const ::core::ffi::c_void, rgcbkeys: *const u32, ckeys: i32, pckeyspreread: *mut i32, grbit: u32) -> i32 {
@@ -7467,6 +7793,7 @@ pub unsafe fn JetPrereadKeys<'a, Param0: ::windows::core::IntoParam<'a, super::S
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetReadFile<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_HANDLE>>(hffile: Param0, pv: *mut ::core::ffi::c_void, cb: u32, pcbactual: *mut u32) -> i32 {
@@ -7481,6 +7808,7 @@ pub unsafe fn JetReadFile<'a, Param0: ::windows::core::IntoParam<'a, super::Stru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetReadFileInstance<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_HANDLE>>(instance: Param0, hffile: Param1, pv: *mut ::core::ffi::c_void, cb: u32, pcbactual: *mut u32) -> i32 {
@@ -7495,6 +7823,7 @@ pub unsafe fn JetReadFileInstance<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, cbtyp: u32, pcallback: JET_CALLBACK, pvcontext: *const ::core::ffi::c_void, phcallbackid: *const super::StructuredStorage::JET_HANDLE) -> i32 {
@@ -7509,6 +7838,7 @@ pub unsafe fn JetRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetRenameColumnA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szname: *const i8, sznamenew: *const i8, grbit: u32) -> i32 {
@@ -7523,6 +7853,7 @@ pub unsafe fn JetRenameColumnA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetRenameColumnW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szname: *const u16, sznamenew: *const u16, grbit: u32) -> i32 {
@@ -7537,6 +7868,7 @@ pub unsafe fn JetRenameColumnW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetRenameTableA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, szname: *const i8, sznamenew: *const i8) -> i32 {
@@ -7551,6 +7883,7 @@ pub unsafe fn JetRenameTableA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetRenameTableW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, szname: *const u16, sznamenew: *const u16) -> i32 {
@@ -7565,6 +7898,7 @@ pub unsafe fn JetRenameTableW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetResetSessionContext<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0) -> i32 {
@@ -7579,6 +7913,7 @@ pub unsafe fn JetResetSessionContext<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetResetTableSequential<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, grbit: u32) -> i32 {
@@ -7593,6 +7928,7 @@ pub unsafe fn JetResetTableSequential<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetResizeDatabase<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, cpgtarget: u32, pcpgactual: *mut u32, grbit: u32) -> i32 {
@@ -7607,6 +7943,7 @@ pub unsafe fn JetResizeDatabase<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetRestore2A(sz: *const i8, szdest: *const i8, pfn: JET_PFNSTATUS) -> i32 {
@@ -7621,6 +7958,7 @@ pub unsafe fn JetRestore2A(sz: *const i8, szdest: *const i8, pfn: JET_PFNSTATUS)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetRestore2W(sz: *const u16, szdest: *const u16, pfn: JET_PFNSTATUS) -> i32 {
@@ -7635,6 +7973,7 @@ pub unsafe fn JetRestore2W(sz: *const u16, szdest: *const u16, pfn: JET_PFNSTATU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetRestoreA(szsource: *const i8, pfn: JET_PFNSTATUS) -> i32 {
@@ -7649,6 +7988,7 @@ pub unsafe fn JetRestoreA(szsource: *const i8, pfn: JET_PFNSTATUS) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetRestoreInstanceA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, sz: *const i8, szdest: *const i8, pfn: JET_PFNSTATUS) -> i32 {
@@ -7663,6 +8003,7 @@ pub unsafe fn JetRestoreInstanceA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetRestoreInstanceW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, sz: *const u16, szdest: *const u16, pfn: JET_PFNSTATUS) -> i32 {
@@ -7677,6 +8018,7 @@ pub unsafe fn JetRestoreInstanceW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetRestoreW(szsource: *const u16, pfn: JET_PFNSTATUS) -> i32 {
@@ -7691,6 +8033,7 @@ pub unsafe fn JetRestoreW(szsource: *const u16, pfn: JET_PFNSTATUS) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetRetrieveColumn<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, columnid: u32, pvdata: *mut ::core::ffi::c_void, cbdata: u32, pcbactual: *mut u32, grbit: u32, pretinfo: *mut JET_RETINFO) -> i32 {
@@ -7705,6 +8048,7 @@ pub unsafe fn JetRetrieveColumn<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetRetrieveColumns<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pretrievecolumn: *mut JET_RETRIEVECOLUMN, cretrievecolumn: u32) -> i32 {
@@ -7719,6 +8063,7 @@ pub unsafe fn JetRetrieveColumns<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetRetrieveKey<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvkey: *mut ::core::ffi::c_void, cbmax: u32, pcbactual: *mut u32, grbit: u32) -> i32 {
@@ -7733,6 +8078,7 @@ pub unsafe fn JetRetrieveKey<'a, Param0: ::windows::core::IntoParam<'a, super::S
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetRollback<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, grbit: u32) -> i32 {
@@ -7747,6 +8093,7 @@ pub unsafe fn JetRollback<'a, Param0: ::windows::core::IntoParam<'a, super::Stru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSeek<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, grbit: u32) -> i32 {
@@ -7761,6 +8108,7 @@ pub unsafe fn JetSeek<'a, Param0: ::windows::core::IntoParam<'a, super::Structur
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetColumn<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, columnid: u32, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32, psetinfo: *const JET_SETINFO) -> i32 {
@@ -7775,6 +8123,7 @@ pub unsafe fn JetSetColumn<'a, Param0: ::windows::core::IntoParam<'a, super::Str
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetColumnDefaultValueA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const i8, szcolumnname: *const i8, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32 {
@@ -7789,6 +8138,7 @@ pub unsafe fn JetSetColumnDefaultValueA<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetColumnDefaultValueW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, dbid: u32, sztablename: *const u16, szcolumnname: *const u16, pvdata: *const ::core::ffi::c_void, cbdata: u32, grbit: u32) -> i32 {
@@ -7803,6 +8153,7 @@ pub unsafe fn JetSetColumnDefaultValueW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetColumns<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, psetcolumn: *const JET_SETCOLUMN, csetcolumn: u32) -> i32 {
@@ -7817,6 +8168,7 @@ pub unsafe fn JetSetColumns<'a, Param0: ::windows::core::IntoParam<'a, super::St
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetCurrentIndex2A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const i8, grbit: u32) -> i32 {
@@ -7831,6 +8183,7 @@ pub unsafe fn JetSetCurrentIndex2A<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetCurrentIndex2W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const u16, grbit: u32) -> i32 {
@@ -7845,6 +8198,7 @@ pub unsafe fn JetSetCurrentIndex2W<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetCurrentIndex3A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const i8, grbit: u32, itagsequence: u32) -> i32 {
@@ -7859,6 +8213,7 @@ pub unsafe fn JetSetCurrentIndex3A<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetCurrentIndex3W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const u16, grbit: u32, itagsequence: u32) -> i32 {
@@ -7873,6 +8228,7 @@ pub unsafe fn JetSetCurrentIndex3W<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetCurrentIndex4A<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const i8, pindexid: *const JET_INDEXID, grbit: u32, itagsequence: u32) -> i32 {
@@ -7887,6 +8243,7 @@ pub unsafe fn JetSetCurrentIndex4A<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetCurrentIndex4W<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const u16, pindexid: *const JET_INDEXID, grbit: u32, itagsequence: u32) -> i32 {
@@ -7901,6 +8258,7 @@ pub unsafe fn JetSetCurrentIndex4W<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetCurrentIndexA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const i8) -> i32 {
@@ -7915,6 +8273,7 @@ pub unsafe fn JetSetCurrentIndexA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetCurrentIndexW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, szindexname: *const u16) -> i32 {
@@ -7929,6 +8288,7 @@ pub unsafe fn JetSetCurrentIndexW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetCursorFilter<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, rgcolumnfilters: *const JET_INDEX_COLUMN, ccolumnfilters: u32, grbit: u32) -> i32 {
@@ -7943,6 +8303,7 @@ pub unsafe fn JetSetCursorFilter<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetDatabaseSizeA<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasename: *const i8, cpg: u32, pcpgreal: *mut u32) -> i32 {
@@ -7957,6 +8318,7 @@ pub unsafe fn JetSetDatabaseSizeA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetDatabaseSizeW<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, szdatabasename: *const u16, cpg: u32, pcpgreal: *mut u32) -> i32 {
@@ -7971,6 +8333,7 @@ pub unsafe fn JetSetDatabaseSizeW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetIndexRange<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableidsrc: Param1, grbit: u32) -> i32 {
@@ -7985,6 +8348,7 @@ pub unsafe fn JetSetIndexRange<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetLS<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>, Param2: ::windows::core::IntoParam<'a, JET_LS>>(sesid: Param0, tableid: Param1, ls: Param2, grbit: u32) -> i32 {
@@ -7999,6 +8363,7 @@ pub unsafe fn JetSetLS<'a, Param0: ::windows::core::IntoParam<'a, super::Structu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetSessionContext<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_API_PTR>>(sesid: Param0, ulcontext: Param1) -> i32 {
@@ -8013,6 +8378,7 @@ pub unsafe fn JetSetSessionContext<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetSessionParameter<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>>(sesid: Param0, sesparamid: u32, pvparam: *const ::core::ffi::c_void, cbparam: u32) -> i32 {
@@ -8027,6 +8393,7 @@ pub unsafe fn JetSetSessionParameter<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetSystemParameterA<'a, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param3: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_API_PTR>>(pinstance: *mut super::StructuredStorage::JET_INSTANCE, sesid: Param1, paramid: u32, lparam: Param3, szparam: *const i8) -> i32 {
@@ -8041,6 +8408,7 @@ pub unsafe fn JetSetSystemParameterA<'a, Param1: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetSystemParameterW<'a, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param3: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_API_PTR>>(pinstance: *mut super::StructuredStorage::JET_INSTANCE, sesid: Param1, paramid: u32, lparam: Param3, szparam: *const u16) -> i32 {
@@ -8055,6 +8423,7 @@ pub unsafe fn JetSetSystemParameterW<'a, Param1: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetSetTableSequential<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, grbit: u32) -> i32 {
@@ -8069,6 +8438,7 @@ pub unsafe fn JetSetTableSequential<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[inline]
 pub unsafe fn JetStopBackup() -> i32 {
     #[cfg(windows)]
@@ -8082,6 +8452,7 @@ pub unsafe fn JetStopBackup() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetStopBackupInstance<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0) -> i32 {
@@ -8096,6 +8467,7 @@ pub unsafe fn JetStopBackupInstance<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[inline]
 pub unsafe fn JetStopService() -> i32 {
     #[cfg(windows)]
@@ -8109,6 +8481,7 @@ pub unsafe fn JetStopService() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetStopServiceInstance<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0) -> i32 {
@@ -8123,6 +8496,7 @@ pub unsafe fn JetStopServiceInstance<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetStopServiceInstance2<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, grbit: u32) -> i32 {
@@ -8137,6 +8511,7 @@ pub unsafe fn JetStopServiceInstance2<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetTerm<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0) -> i32 {
@@ -8151,6 +8526,7 @@ pub unsafe fn JetTerm<'a, Param0: ::windows::core::IntoParam<'a, super::Structur
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetTerm2<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0, grbit: u32) -> i32 {
@@ -8165,6 +8541,7 @@ pub unsafe fn JetTerm2<'a, Param0: ::windows::core::IntoParam<'a, super::Structu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 #[inline]
 pub unsafe fn JetTruncateLog() -> i32 {
     #[cfg(windows)]
@@ -8178,6 +8555,7 @@ pub unsafe fn JetTruncateLog() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetTruncateLogInstance<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_INSTANCE>>(instance: Param0) -> i32 {
@@ -8192,6 +8570,7 @@ pub unsafe fn JetTruncateLogInstance<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetUnregisterCallback<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>, Param3: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_HANDLE>>(sesid: Param0, tableid: Param1, cbtyp: u32, hcallbackid: Param3) -> i32 {
@@ -8206,6 +8585,7 @@ pub unsafe fn JetUnregisterCallback<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetUpdate<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvbookmark: *mut ::core::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32) -> i32 {
@@ -8220,6 +8600,7 @@ pub unsafe fn JetUpdate<'a, Param0: ::windows::core::IntoParam<'a, super::Struct
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Storage_StructuredStorage'*"]
 #[cfg(feature = "Win32_Storage_StructuredStorage")]
 #[inline]
 pub unsafe fn JetUpdate2<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_SESID>, Param1: ::windows::core::IntoParam<'a, super::StructuredStorage::JET_TABLEID>>(sesid: Param0, tableid: Param1, pvbookmark: *mut ::core::ffi::c_void, cbbookmark: u32, pcbactual: *mut u32, grbit: u32) -> i32 {

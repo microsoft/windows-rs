@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Phone_UI_Input'*"]
 #[repr(transparent)]
 pub struct BackPressedEventArgs(::windows::core::IUnknown);
 impl BackPressedEventArgs {
@@ -77,6 +78,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
 }
 unsafe impl ::core::marker::Send for BackPressedEventArgs {}
 unsafe impl ::core::marker::Sync for BackPressedEventArgs {}
+#[doc = "*Required features: 'Phone_UI_Input'*"]
 #[repr(transparent)]
 pub struct CameraEventArgs(::windows::core::IUnknown);
 impl CameraEventArgs {}

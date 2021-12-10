@@ -202,6 +202,7 @@ pub struct IPrintTaskConfigurationSaveRequestedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Printers_Extensions'*"]
 #[repr(transparent)]
 pub struct Print3DWorkflow(::windows::core::IUnknown);
 impl Print3DWorkflow {
@@ -320,6 +321,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Print3DWorkflow {}
 unsafe impl ::core::marker::Sync for Print3DWorkflow {}
+#[doc = "*Required features: 'Devices_Printers_Extensions'*"]
 #[repr(transparent)]
 pub struct Print3DWorkflowDetail(pub i32);
 impl Print3DWorkflowDetail {
@@ -352,6 +354,7 @@ unsafe impl ::windows::core::RuntimeType for Print3DWorkflowDetail {
 impl ::windows::core::DefaultType for Print3DWorkflowDetail {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Printers_Extensions'*"]
 #[repr(transparent)]
 pub struct Print3DWorkflowPrintRequestedEventArgs(::windows::core::IUnknown);
 impl Print3DWorkflowPrintRequestedEventArgs {
@@ -438,6 +441,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Print3DWorkflowPrintRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DWorkflowPrintRequestedEventArgs {}
+#[doc = "*Required features: 'Devices_Printers_Extensions'*"]
 #[repr(transparent)]
 pub struct Print3DWorkflowPrinterChangedEventArgs(::windows::core::IUnknown);
 impl Print3DWorkflowPrinterChangedEventArgs {
@@ -512,6 +516,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for Print3DWorkflowPrinterChangedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DWorkflowPrinterChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Printers_Extensions'*"]
 #[repr(transparent)]
 pub struct Print3DWorkflowStatus(pub i32);
 impl Print3DWorkflowStatus {
@@ -558,6 +563,7 @@ impl PrintExtensionContext {
 impl ::windows::core::RuntimeName for PrintExtensionContext {
     const NAME: &'static str = "Windows.Devices.Printers.Extensions.PrintExtensionContext";
 }
+#[doc = "*Required features: 'Devices_Printers_Extensions'*"]
 #[repr(transparent)]
 pub struct PrintNotificationEventDetails(::windows::core::IUnknown);
 impl PrintNotificationEventDetails {
@@ -643,6 +649,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintNotificationEventDetails {}
 unsafe impl ::core::marker::Sync for PrintNotificationEventDetails {}
+#[doc = "*Required features: 'Devices_Printers_Extensions'*"]
 #[repr(transparent)]
 pub struct PrintTaskConfiguration(::windows::core::IUnknown);
 impl PrintTaskConfiguration {
@@ -728,6 +735,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Devices_Printers_Extensions'*"]
 #[repr(transparent)]
 pub struct PrintTaskConfigurationSaveRequest(::windows::core::IUnknown);
 impl PrintTaskConfigurationSaveRequest {
@@ -816,6 +824,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Devices_Printers_Extensions'*"]
 #[repr(transparent)]
 pub struct PrintTaskConfigurationSaveRequestedDeferral(::windows::core::IUnknown);
 impl PrintTaskConfigurationSaveRequestedDeferral {
@@ -885,6 +894,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Devices_Printers_Extensions'*"]
 #[repr(transparent)]
 pub struct PrintTaskConfigurationSaveRequestedEventArgs(::windows::core::IUnknown);
 impl PrintTaskConfigurationSaveRequestedEventArgs {

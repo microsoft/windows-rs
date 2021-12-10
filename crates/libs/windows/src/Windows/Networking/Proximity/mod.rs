@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
 pub struct ConnectionRequestedEventArgs(::windows::core::IUnknown);
 impl ConnectionRequestedEventArgs {
@@ -73,6 +74,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conn
 }
 unsafe impl ::core::marker::Send for ConnectionRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ConnectionRequestedEventArgs {}
+#[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
 pub struct DeviceArrivedEventHandler(pub ::windows::core::IUnknown);
 impl DeviceArrivedEventHandler {
@@ -141,6 +143,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceArrivedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DeviceArrivedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
 pub struct DeviceDepartedEventHandler(pub ::windows::core::IUnknown);
 impl DeviceDepartedEventHandler {
@@ -495,6 +498,7 @@ pub struct ITriggeredConnectionStateChangedEventArgsVtbl(
     #[cfg(feature = "Networking_Sockets")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Networking_Sockets"))] usize,
 );
+#[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
 pub struct MessageReceivedHandler(pub ::windows::core::IUnknown);
 impl MessageReceivedHandler {
@@ -563,6 +567,7 @@ unsafe impl ::windows::core::RuntimeType for MessageReceivedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct MessageReceivedHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, message: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
 pub struct MessageTransmittedHandler(pub ::windows::core::IUnknown);
 impl MessageTransmittedHandler {
@@ -631,6 +636,7 @@ unsafe impl ::windows::core::RuntimeType for MessageTransmittedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct MessageTransmittedHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, messageid: i64) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
 pub struct PeerDiscoveryTypes(pub u32);
 impl PeerDiscoveryTypes {
@@ -793,6 +799,7 @@ impl PeerFinder {
 impl ::windows::core::RuntimeName for PeerFinder {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerFinder";
 }
+#[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
 pub struct PeerInformation(::windows::core::IUnknown);
 impl PeerInformation {
@@ -896,6 +903,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Peer
 }
 unsafe impl ::core::marker::Send for PeerInformation {}
 unsafe impl ::core::marker::Sync for PeerInformation {}
+#[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
 pub struct PeerRole(pub i32);
 impl PeerRole {
@@ -924,6 +932,7 @@ unsafe impl ::windows::core::RuntimeType for PeerRole {
 impl ::windows::core::DefaultType for PeerRole {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
 pub struct PeerWatcher(::windows::core::IUnknown);
 impl PeerWatcher {
@@ -1071,6 +1080,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Peer
 }
 unsafe impl ::core::marker::Send for PeerWatcher {}
 unsafe impl ::core::marker::Sync for PeerWatcher {}
+#[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
 pub struct PeerWatcherStatus(pub i32);
 impl PeerWatcherStatus {
@@ -1102,6 +1112,7 @@ unsafe impl ::windows::core::RuntimeType for PeerWatcherStatus {
 impl ::windows::core::DefaultType for PeerWatcherStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
 pub struct ProximityDevice(::windows::core::IUnknown);
 impl ProximityDevice {
@@ -1299,6 +1310,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prox
 }
 unsafe impl ::core::marker::Send for ProximityDevice {}
 unsafe impl ::core::marker::Sync for ProximityDevice {}
+#[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
 pub struct ProximityMessage(::windows::core::IUnknown);
 impl ProximityMessage {
@@ -1395,6 +1407,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prox
 }
 unsafe impl ::core::marker::Send for ProximityMessage {}
 unsafe impl ::core::marker::Sync for ProximityMessage {}
+#[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
 pub struct TriggeredConnectState(pub i32);
 impl TriggeredConnectState {
@@ -1426,6 +1439,7 @@ unsafe impl ::windows::core::RuntimeType for TriggeredConnectState {
 impl ::windows::core::DefaultType for TriggeredConnectState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
 pub struct TriggeredConnectionStateChangedEventArgs(::windows::core::IUnknown);
 impl TriggeredConnectionStateChangedEventArgs {

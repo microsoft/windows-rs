@@ -3,6 +3,7 @@
 pub mod DataProvider;
 #[cfg(feature = "ApplicationModel_Contacts_Provider")]
 pub mod Provider;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct AggregateContactManager(::windows::core::IUnknown);
 impl AggregateContactManager {
@@ -110,6 +111,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Aggr
 }
 unsafe impl ::core::marker::Send for AggregateContactManager {}
 unsafe impl ::core::marker::Sync for AggregateContactManager {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct Contact(::windows::core::IUnknown);
 impl Contact {
@@ -555,6 +557,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for Contact {}
 unsafe impl ::core::marker::Sync for Contact {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactAddress(::windows::core::IUnknown);
 impl ContactAddress {
@@ -706,6 +709,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactAddress {}
 unsafe impl ::core::marker::Sync for ContactAddress {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactAddressKind(pub i32);
 impl ContactAddressKind {
@@ -734,6 +738,7 @@ unsafe impl ::windows::core::RuntimeType for ContactAddressKind {
 impl ::windows::core::DefaultType for ContactAddressKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactAnnotation(::windows::core::IUnknown);
 impl ContactAnnotation {
@@ -881,6 +886,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactAnnotation {}
 unsafe impl ::core::marker::Sync for ContactAnnotation {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactAnnotationList(::windows::core::IUnknown);
 impl ContactAnnotationList {
@@ -1017,6 +1023,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactAnnotationList {}
 unsafe impl ::core::marker::Sync for ContactAnnotationList {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactAnnotationOperations(pub u32);
 impl ContactAnnotationOperations {
@@ -1049,6 +1056,7 @@ unsafe impl ::windows::core::RuntimeType for ContactAnnotationOperations {
 impl ::windows::core::DefaultType for ContactAnnotationOperations {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactAnnotationStore(::windows::core::IUnknown);
 impl ContactAnnotationStore {
@@ -1188,6 +1196,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactAnnotationStore {}
 unsafe impl ::core::marker::Sync for ContactAnnotationStore {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactAnnotationStoreAccessType(pub i32);
 impl ContactAnnotationStoreAccessType {
@@ -1215,6 +1224,7 @@ unsafe impl ::windows::core::RuntimeType for ContactAnnotationStoreAccessType {
 impl ::windows::core::DefaultType for ContactAnnotationStoreAccessType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactBatch(::windows::core::IUnknown);
 impl ContactBatch {
@@ -1297,6 +1307,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactBatch {}
 unsafe impl ::core::marker::Sync for ContactBatch {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactBatchStatus(pub i32);
 impl ContactBatchStatus {
@@ -1325,6 +1336,7 @@ unsafe impl ::windows::core::RuntimeType for ContactBatchStatus {
 impl ::windows::core::DefaultType for ContactBatchStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactCardDelayedDataLoader(::windows::core::IUnknown);
 impl ContactCardDelayedDataLoader {
@@ -1427,6 +1439,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for ContactCardDelayedDataLoader {}
 unsafe impl ::core::marker::Sync for ContactCardDelayedDataLoader {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactCardHeaderKind(pub i32);
 impl ContactCardHeaderKind {
@@ -1455,6 +1468,7 @@ unsafe impl ::windows::core::RuntimeType for ContactCardHeaderKind {
 impl ::windows::core::DefaultType for ContactCardHeaderKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactCardOptions(::windows::core::IUnknown);
 impl ContactCardOptions {
@@ -1559,6 +1573,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactCardOptions {}
 unsafe impl ::core::marker::Sync for ContactCardOptions {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactCardTabKind(pub i32);
 impl ContactCardTabKind {
@@ -1590,6 +1605,7 @@ unsafe impl ::windows::core::RuntimeType for ContactCardTabKind {
 impl ::windows::core::DefaultType for ContactCardTabKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactChange(::windows::core::IUnknown);
 impl ContactChange {
@@ -1671,6 +1687,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactChange {}
 unsafe impl ::core::marker::Sync for ContactChange {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactChangeReader(::windows::core::IUnknown);
 impl ContactChangeReader {
@@ -1754,6 +1771,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactChangeReader {}
 unsafe impl ::core::marker::Sync for ContactChangeReader {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactChangeTracker(::windows::core::IUnknown);
 impl ContactChangeTracker {
@@ -1843,6 +1861,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactChangeTracker {}
 unsafe impl ::core::marker::Sync for ContactChangeTracker {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactChangeType(pub i32);
 impl ContactChangeType {
@@ -1872,6 +1891,7 @@ unsafe impl ::windows::core::RuntimeType for ContactChangeType {
 impl ::windows::core::DefaultType for ContactChangeType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactChangedDeferral(::windows::core::IUnknown);
 impl ContactChangedDeferral {
@@ -1943,6 +1963,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactChangedDeferral {}
 unsafe impl ::core::marker::Sync for ContactChangedDeferral {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactChangedEventArgs(::windows::core::IUnknown);
 impl ContactChangedEventArgs {
@@ -2017,6 +2038,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactChangedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactConnectedServiceAccount(::windows::core::IUnknown);
 impl ContactConnectedServiceAccount {
@@ -2113,6 +2135,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactConnectedServiceAccount {}
 unsafe impl ::core::marker::Sync for ContactConnectedServiceAccount {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactDate(::windows::core::IUnknown);
 impl ContactDate {
@@ -2248,6 +2271,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactDate {}
 unsafe impl ::core::marker::Sync for ContactDate {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactDateKind(pub i32);
 impl ContactDateKind {
@@ -2276,6 +2300,7 @@ unsafe impl ::windows::core::RuntimeType for ContactDateKind {
 impl ::windows::core::DefaultType for ContactDateKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactEmail(::windows::core::IUnknown);
 impl ContactEmail {
@@ -2383,6 +2408,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactEmail {}
 unsafe impl ::core::marker::Sync for ContactEmail {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactEmailKind(pub i32);
 impl ContactEmailKind {
@@ -2411,6 +2437,7 @@ unsafe impl ::windows::core::RuntimeType for ContactEmailKind {
 impl ::windows::core::DefaultType for ContactEmailKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactField(::windows::core::IUnknown);
 impl ContactField {
@@ -2550,6 +2577,7 @@ impl<'a> ::windows::core::IntoParam<'a, IContactField> for &ContactField {
 }
 unsafe impl ::core::marker::Send for ContactField {}
 unsafe impl ::core::marker::Sync for ContactField {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactFieldCategory(pub i32);
 impl ContactFieldCategory {
@@ -2580,6 +2608,7 @@ unsafe impl ::windows::core::RuntimeType for ContactFieldCategory {
 impl ::windows::core::DefaultType for ContactFieldCategory {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactFieldFactory(::windows::core::IUnknown);
 impl ContactFieldFactory {
@@ -2784,6 +2813,7 @@ impl<'a> ::windows::core::IntoParam<'a, IContactLocationFieldFactory> for &Conta
 }
 unsafe impl ::core::marker::Send for ContactFieldFactory {}
 unsafe impl ::core::marker::Sync for ContactFieldFactory {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactFieldType(pub i32);
 impl ContactFieldType {
@@ -2821,6 +2851,7 @@ unsafe impl ::windows::core::RuntimeType for ContactFieldType {
 impl ::windows::core::DefaultType for ContactFieldType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactGroup(::windows::core::IUnknown);
 impl ContactGroup {}
@@ -2887,6 +2918,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactGroup {}
 unsafe impl ::core::marker::Sync for ContactGroup {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactInformation(::windows::core::IUnknown);
 impl ContactInformation {
@@ -3015,6 +3047,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactInstantMessageField(::windows::core::IUnknown);
 impl ContactInstantMessageField {
@@ -3184,6 +3217,7 @@ impl<'a> ::windows::core::IntoParam<'a, IContactField> for &ContactInstantMessag
 }
 unsafe impl ::core::marker::Send for ContactInstantMessageField {}
 unsafe impl ::core::marker::Sync for ContactInstantMessageField {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactJobInfo(::windows::core::IUnknown);
 impl ContactJobInfo {
@@ -3386,6 +3420,7 @@ impl ContactLaunchActionVerbs {
 impl ::windows::core::RuntimeName for ContactLaunchActionVerbs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactLaunchActionVerbs";
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactList(::windows::core::IUnknown);
 impl ContactList {
@@ -3655,6 +3690,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactList {}
 unsafe impl ::core::marker::Sync for ContactList {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactListLimitedWriteOperations(::windows::core::IUnknown);
 impl ContactListLimitedWriteOperations {
@@ -3738,6 +3774,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactListLimitedWriteOperations {}
 unsafe impl ::core::marker::Sync for ContactListLimitedWriteOperations {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactListOtherAppReadAccess(pub i32);
 impl ContactListOtherAppReadAccess {
@@ -3767,6 +3804,7 @@ unsafe impl ::windows::core::RuntimeType for ContactListOtherAppReadAccess {
 impl ::windows::core::DefaultType for ContactListOtherAppReadAccess {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactListOtherAppWriteAccess(pub i32);
 impl ContactListOtherAppWriteAccess {
@@ -3795,6 +3833,7 @@ unsafe impl ::windows::core::RuntimeType for ContactListOtherAppWriteAccess {
 impl ::windows::core::DefaultType for ContactListOtherAppWriteAccess {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactListSyncConstraints(::windows::core::IUnknown);
 impl ContactListSyncConstraints {
@@ -4224,6 +4263,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactListSyncConstraints {}
 unsafe impl ::core::marker::Sync for ContactListSyncConstraints {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactListSyncManager(::windows::core::IUnknown);
 impl ContactListSyncManager {
@@ -4349,6 +4389,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactListSyncManager {}
 unsafe impl ::core::marker::Sync for ContactListSyncManager {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactListSyncStatus(pub i32);
 impl ContactListSyncStatus {
@@ -4381,6 +4422,7 @@ unsafe impl ::windows::core::RuntimeType for ContactListSyncStatus {
 impl ::windows::core::DefaultType for ContactListSyncStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactLocationField(::windows::core::IUnknown);
 impl ContactLocationField {
@@ -4712,6 +4754,7 @@ impl ContactManager {
 impl ::windows::core::RuntimeName for ContactManager {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactManager";
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactManagerForUser(::windows::core::IUnknown);
 impl ContactManagerForUser {
@@ -4853,6 +4896,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactManagerForUser {}
 unsafe impl ::core::marker::Sync for ContactManagerForUser {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactMatchReason(::windows::core::IUnknown);
 impl ContactMatchReason {
@@ -4942,6 +4986,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactMatchReason {}
 unsafe impl ::core::marker::Sync for ContactMatchReason {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactMatchReasonKind(pub i32);
 impl ContactMatchReasonKind {
@@ -4973,6 +5018,7 @@ unsafe impl ::windows::core::RuntimeType for ContactMatchReasonKind {
 impl ::windows::core::DefaultType for ContactMatchReasonKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactNameOrder(pub i32);
 impl ContactNameOrder {
@@ -5000,6 +5046,7 @@ unsafe impl ::windows::core::RuntimeType for ContactNameOrder {
 impl ::windows::core::DefaultType for ContactNameOrder {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactPanel(::windows::core::IUnknown);
 impl ContactPanel {
@@ -5110,6 +5157,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactPanel {}
 unsafe impl ::core::marker::Sync for ContactPanel {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactPanelClosingEventArgs(::windows::core::IUnknown);
 impl ContactPanelClosingEventArgs {
@@ -5185,6 +5233,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactPanelClosingEventArgs {}
 unsafe impl ::core::marker::Sync for ContactPanelClosingEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactPanelLaunchFullAppRequestedEventArgs(::windows::core::IUnknown);
 impl ContactPanelLaunchFullAppRequestedEventArgs {
@@ -5263,6 +5312,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactPanelLaunchFullAppRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactPanelLaunchFullAppRequestedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactPhone(::windows::core::IUnknown);
 impl ContactPhone {
@@ -5370,6 +5420,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactPhone {}
 unsafe impl ::core::marker::Sync for ContactPhone {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactPhoneKind(pub i32);
 impl ContactPhoneKind {
@@ -5405,6 +5456,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPhoneKind {
 impl ::windows::core::DefaultType for ContactPhoneKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactPicker(::windows::core::IUnknown);
 impl ContactPicker {
@@ -5573,6 +5625,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactQueryDesiredFields(pub u32);
 impl ContactQueryDesiredFields {
@@ -5602,6 +5655,7 @@ unsafe impl ::windows::core::RuntimeType for ContactQueryDesiredFields {
 impl ::windows::core::DefaultType for ContactQueryDesiredFields {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactQueryOptions(::windows::core::IUnknown);
 impl ContactQueryOptions {
@@ -5748,6 +5802,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactQueryOptions {}
 unsafe impl ::core::marker::Sync for ContactQueryOptions {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactQuerySearchFields(pub u32);
 impl ContactQuerySearchFields {
@@ -5778,6 +5833,7 @@ unsafe impl ::windows::core::RuntimeType for ContactQuerySearchFields {
 impl ::windows::core::DefaultType for ContactQuerySearchFields {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactQuerySearchScope(pub i32);
 impl ContactQuerySearchScope {
@@ -5805,6 +5861,7 @@ unsafe impl ::windows::core::RuntimeType for ContactQuerySearchScope {
 impl ::windows::core::DefaultType for ContactQuerySearchScope {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactQueryTextSearch(::windows::core::IUnknown);
 impl ContactQueryTextSearch {
@@ -5905,6 +5962,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactQueryTextSearch {}
 unsafe impl ::core::marker::Sync for ContactQueryTextSearch {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactReader(::windows::core::IUnknown);
 impl ContactReader {
@@ -5988,6 +6046,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactReader {}
 unsafe impl ::core::marker::Sync for ContactReader {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactRelationship(pub i32);
 impl ContactRelationship {
@@ -6019,6 +6078,7 @@ unsafe impl ::windows::core::RuntimeType for ContactRelationship {
 impl ::windows::core::DefaultType for ContactRelationship {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactSelectionMode(pub i32);
 impl ContactSelectionMode {
@@ -6046,6 +6106,7 @@ unsafe impl ::windows::core::RuntimeType for ContactSelectionMode {
 impl ::windows::core::DefaultType for ContactSelectionMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactSignificantOther(::windows::core::IUnknown);
 impl ContactSignificantOther {
@@ -6153,6 +6214,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactSignificantOther {}
 unsafe impl ::core::marker::Sync for ContactSignificantOther {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactStore(::windows::core::IUnknown);
 impl ContactStore {
@@ -6332,6 +6394,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactStore {}
 unsafe impl ::core::marker::Sync for ContactStore {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactStoreAccessType(pub i32);
 impl ContactStoreAccessType {
@@ -6360,6 +6423,7 @@ unsafe impl ::windows::core::RuntimeType for ContactStoreAccessType {
 impl ::windows::core::DefaultType for ContactStoreAccessType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactStoreNotificationTriggerDetails(::windows::core::IUnknown);
 impl ContactStoreNotificationTriggerDetails {}
@@ -6426,6 +6490,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactStoreNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for ContactStoreNotificationTriggerDetails {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactWebsite(::windows::core::IUnknown);
 impl ContactWebsite {
@@ -6535,6 +6600,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactWebsite {}
 unsafe impl ::core::marker::Sync for ContactWebsite {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct FullContactCardOptions(::windows::core::IUnknown);
 impl FullContactCardOptions {
@@ -7209,6 +7275,7 @@ pub struct IContactEmailVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct IContactField(::windows::core::IUnknown);
 impl IContactField {
@@ -7313,6 +7380,7 @@ pub struct IContactFieldVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct IContactFieldFactory(::windows::core::IUnknown);
 impl IContactFieldFactory {
@@ -7480,6 +7548,7 @@ pub struct IContactInstantMessageFieldVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct IContactInstantMessageFieldFactory(::windows::core::IUnknown);
 impl IContactInstantMessageFieldFactory {
@@ -7945,6 +8014,7 @@ pub struct IContactLocationFieldVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct IContactLocationFieldFactory(::windows::core::IUnknown);
 impl IContactLocationFieldFactory {
@@ -8887,6 +8957,7 @@ impl KnownContactField {
 impl ::windows::core::RuntimeName for KnownContactField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.KnownContactField";
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct PinnedContactIdsQueryResult(::windows::core::IUnknown);
 impl PinnedContactIdsQueryResult {
@@ -8962,6 +9033,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pinn
 }
 unsafe impl ::core::marker::Send for PinnedContactIdsQueryResult {}
 unsafe impl ::core::marker::Sync for PinnedContactIdsQueryResult {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct PinnedContactManager(::windows::core::IUnknown);
 impl PinnedContactManager {
@@ -9110,6 +9182,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pinn
 }
 unsafe impl ::core::marker::Send for PinnedContactManager {}
 unsafe impl ::core::marker::Sync for PinnedContactManager {}
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct PinnedContactSurface(pub i32);
 impl PinnedContactSurface {

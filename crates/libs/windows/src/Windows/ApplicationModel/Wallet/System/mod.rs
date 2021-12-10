@@ -65,6 +65,7 @@ pub struct IWalletManagerSystemStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'ApplicationModel_Wallet_System'*"]
 #[repr(transparent)]
 pub struct WalletItemAppAssociation(pub i32);
 impl WalletItemAppAssociation {
@@ -93,6 +94,7 @@ unsafe impl ::windows::core::RuntimeType for WalletItemAppAssociation {
 impl ::windows::core::DefaultType for WalletItemAppAssociation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Wallet_System'*"]
 #[repr(transparent)]
 pub struct WalletItemSystemStore(::windows::core::IUnknown);
 impl WalletItemSystemStore {

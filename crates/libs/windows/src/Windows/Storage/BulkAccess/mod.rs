@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Storage_BulkAccess'*"]
 #[repr(transparent)]
 pub struct FileInformation(::windows::core::IUnknown);
 impl FileInformation {
@@ -650,6 +651,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::IStorageItemPropertiesWithProvide
         ::core::convert::TryInto::<super::IStorageItemPropertiesWithProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage_BulkAccess'*"]
 #[repr(transparent)]
 pub struct FileInformationFactory(::windows::core::IUnknown);
 impl FileInformationFactory {
@@ -818,6 +820,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
 }
 unsafe impl ::core::marker::Send for FileInformationFactory {}
 unsafe impl ::core::marker::Sync for FileInformationFactory {}
+#[doc = "*Required features: 'Storage_BulkAccess'*"]
 #[repr(transparent)]
 pub struct FolderInformation(::windows::core::IUnknown);
 impl FolderInformation {
@@ -1569,6 +1572,7 @@ pub struct IFileInformationFactoryFactoryVtbl(
     #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryresult: ::windows::core::RawPtr, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, delayload: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Storage_FileProperties", feature = "Storage_Search")))] usize,
 );
+#[doc = "*Required features: 'Storage_BulkAccess'*"]
 #[repr(transparent)]
 pub struct IStorageItemInformation(::windows::core::IUnknown);
 impl IStorageItemInformation {

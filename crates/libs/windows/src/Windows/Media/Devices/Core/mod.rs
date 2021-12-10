@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Media_Devices_Core'*"]
 #[repr(transparent)]
 pub struct CameraIntrinsics(::windows::core::IUnknown);
 impl CameraIntrinsics {
@@ -183,6 +184,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Came
 }
 unsafe impl ::core::marker::Send for CameraIntrinsics {}
 unsafe impl ::core::marker::Sync for CameraIntrinsics {}
+#[doc = "*Required features: 'Media_Devices_Core'*"]
 #[repr(transparent)]
 pub struct DepthCorrelatedCoordinateMapper(::windows::core::IUnknown);
 impl DepthCorrelatedCoordinateMapper {
@@ -307,6 +309,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for DepthCorrelatedCoordinateMapper {}
 unsafe impl ::core::marker::Sync for DepthCorrelatedCoordinateMapper {}
+#[doc = "*Required features: 'Media_Devices_Core'*"]
 #[repr(transparent)]
 pub struct FrameControlCapabilities(::windows::core::IUnknown);
 impl FrameControlCapabilities {
@@ -414,6 +417,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Fram
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices_Core'*"]
 #[repr(transparent)]
 pub struct FrameController(::windows::core::IUnknown);
 impl FrameController {
@@ -536,6 +540,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Fram
 }
 unsafe impl ::core::marker::Send for FrameController {}
 unsafe impl ::core::marker::Sync for FrameController {}
+#[doc = "*Required features: 'Media_Devices_Core'*"]
 #[repr(transparent)]
 pub struct FrameExposureCapabilities(::windows::core::IUnknown);
 impl FrameExposureCapabilities {
@@ -632,6 +637,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Fram
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices_Core'*"]
 #[repr(transparent)]
 pub struct FrameExposureCompensationCapabilities(::windows::core::IUnknown);
 impl FrameExposureCompensationCapabilities {
@@ -725,6 +731,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Fram
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices_Core'*"]
 #[repr(transparent)]
 pub struct FrameExposureCompensationControl(::windows::core::IUnknown);
 impl FrameExposureCompensationControl {
@@ -803,6 +810,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Fram
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices_Core'*"]
 #[repr(transparent)]
 pub struct FrameExposureControl(::windows::core::IUnknown);
 impl FrameExposureControl {
@@ -892,6 +900,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Fram
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices_Core'*"]
 #[repr(transparent)]
 pub struct FrameFlashCapabilities(::windows::core::IUnknown);
 impl FrameFlashCapabilities {
@@ -978,6 +987,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Fram
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices_Core'*"]
 #[repr(transparent)]
 pub struct FrameFlashControl(::windows::core::IUnknown);
 impl FrameFlashControl {
@@ -1087,6 +1097,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Fram
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices_Core'*"]
 #[repr(transparent)]
 pub struct FrameFlashMode(pub i32);
 impl FrameFlashMode {
@@ -1115,6 +1126,7 @@ unsafe impl ::windows::core::RuntimeType for FrameFlashMode {
 impl ::windows::core::DefaultType for FrameFlashMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices_Core'*"]
 #[repr(transparent)]
 pub struct FrameFocusCapabilities(::windows::core::IUnknown);
 impl FrameFocusCapabilities {
@@ -1208,6 +1220,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Fram
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices_Core'*"]
 #[repr(transparent)]
 pub struct FrameFocusControl(::windows::core::IUnknown);
 impl FrameFocusControl {
@@ -1286,6 +1299,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Fram
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices_Core'*"]
 #[repr(transparent)]
 pub struct FrameIsoSpeedCapabilities(::windows::core::IUnknown);
 impl FrameIsoSpeedCapabilities {
@@ -1379,6 +1393,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Fram
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices_Core'*"]
 #[repr(transparent)]
 pub struct FrameIsoSpeedControl(::windows::core::IUnknown);
 impl FrameIsoSpeedControl {
@@ -1905,6 +1920,7 @@ pub struct IVariablePhotoSequenceControllerVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Media_Devices_Core'*"]
 #[repr(transparent)]
 pub struct VariablePhotoSequenceController(::windows::core::IUnknown);
 impl VariablePhotoSequenceController {

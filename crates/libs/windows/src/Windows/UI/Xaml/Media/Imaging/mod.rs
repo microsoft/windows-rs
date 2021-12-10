@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapCreateOptions(pub u32);
 impl BitmapCreateOptions {
@@ -26,6 +27,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapCreateOptions {
 impl ::windows::core::DefaultType for BitmapCreateOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapImage(::windows::core::IUnknown);
 impl BitmapImage {
@@ -360,6 +362,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Bit
 }
 unsafe impl ::core::marker::Send for BitmapImage {}
 unsafe impl ::core::marker::Sync for BitmapImage {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapSource(::windows::core::IUnknown);
 impl BitmapSource {
@@ -510,6 +513,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Bit
 }
 unsafe impl ::core::marker::Send for BitmapSource {}
 unsafe impl ::core::marker::Sync for BitmapSource {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct DecodePixelType(pub i32);
 impl DecodePixelType {
@@ -537,6 +541,7 @@ unsafe impl ::windows::core::RuntimeType for DecodePixelType {
 impl ::windows::core::DefaultType for DecodePixelType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct DownloadProgressEventArgs(::windows::core::IUnknown);
 impl DownloadProgressEventArgs {
@@ -615,6 +620,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Down
 }
 unsafe impl ::core::marker::Send for DownloadProgressEventArgs {}
 unsafe impl ::core::marker::Sync for DownloadProgressEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct DownloadProgressEventHandler(pub ::windows::core::IUnknown);
 impl DownloadProgressEventHandler {
@@ -1258,6 +1264,7 @@ pub struct IXamlRenderingBackgroundTaskOverridesVtbl(
     #[cfg(feature = "ApplicationModel_Background")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, taskinstance: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Background"))] usize,
 );
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct RenderTargetBitmap(::windows::core::IUnknown);
 impl RenderTargetBitmap {
@@ -1426,6 +1433,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ren
 }
 unsafe impl ::core::marker::Send for RenderTargetBitmap {}
 unsafe impl ::core::marker::Sync for RenderTargetBitmap {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct SoftwareBitmapSource(::windows::core::IUnknown);
 impl SoftwareBitmapSource {
@@ -1579,6 +1587,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sof
 }
 unsafe impl ::core::marker::Send for SoftwareBitmapSource {}
 unsafe impl ::core::marker::Sync for SoftwareBitmapSource {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct SurfaceImageSource(::windows::core::IUnknown);
 impl SurfaceImageSource {
@@ -1702,6 +1711,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sur
 }
 unsafe impl ::core::marker::Send for SurfaceImageSource {}
 unsafe impl ::core::marker::Sync for SurfaceImageSource {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct SvgImageSource(::windows::core::IUnknown);
 impl SvgImageSource {
@@ -1917,6 +1927,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Svg
 }
 unsafe impl ::core::marker::Send for SvgImageSource {}
 unsafe impl ::core::marker::Sync for SvgImageSource {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct SvgImageSourceFailedEventArgs(::windows::core::IUnknown);
 impl SvgImageSourceFailedEventArgs {
@@ -1991,6 +2002,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SvgI
 }
 unsafe impl ::core::marker::Send for SvgImageSourceFailedEventArgs {}
 unsafe impl ::core::marker::Sync for SvgImageSourceFailedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct SvgImageSourceLoadStatus(pub i32);
 impl SvgImageSourceLoadStatus {
@@ -2020,6 +2032,7 @@ unsafe impl ::windows::core::RuntimeType for SvgImageSourceLoadStatus {
 impl ::windows::core::DefaultType for SvgImageSourceLoadStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct SvgImageSourceOpenedEventArgs(::windows::core::IUnknown);
 impl SvgImageSourceOpenedEventArgs {}
@@ -2086,6 +2099,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SvgI
 }
 unsafe impl ::core::marker::Send for SvgImageSourceOpenedEventArgs {}
 unsafe impl ::core::marker::Sync for SvgImageSourceOpenedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct VirtualSurfaceImageSource(::windows::core::IUnknown);
 impl VirtualSurfaceImageSource {
@@ -2229,6 +2243,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Vir
 }
 unsafe impl ::core::marker::Send for VirtualSurfaceImageSource {}
 unsafe impl ::core::marker::Sync for VirtualSurfaceImageSource {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct WriteableBitmap(::windows::core::IUnknown);
 impl WriteableBitmap {
@@ -2378,6 +2393,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Wri
 }
 unsafe impl ::core::marker::Send for WriteableBitmap {}
 unsafe impl ::core::marker::Sync for WriteableBitmap {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct XamlRenderingBackgroundTask(::windows::core::IUnknown);
 impl XamlRenderingBackgroundTask {}

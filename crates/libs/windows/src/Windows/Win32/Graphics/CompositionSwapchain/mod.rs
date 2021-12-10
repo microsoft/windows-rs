@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct CompositionFrameDisplayInstance {
     pub displayAdapterLUID: super::super::Foundation::LUID,
@@ -37,10 +38,15 @@ impl ::core::default::Default for CompositionFrameDisplayInstance {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub type CompositionFrameInstanceKind = i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const CompositionFrameInstanceKind_ComposedOnScreen: CompositionFrameInstanceKind = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const CompositionFrameInstanceKind_ScanoutOnScreen: CompositionFrameInstanceKind = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const CompositionFrameInstanceKind_ComposedToIntermediate: CompositionFrameInstanceKind = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[inline]
 pub unsafe fn CreatePresentationFactory<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(d3ddevice: Param0, riid: *const ::windows::core::GUID, presentationfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -54,6 +60,7 @@ pub unsafe fn CreatePresentationFactory<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[repr(transparent)]
 pub struct ICompositionFramePresentStatistics(::windows::core::IUnknown);
 impl ICompositionFramePresentStatistics {
@@ -142,6 +149,7 @@ pub struct ICompositionFramePresentStatisticsVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayinstancearraycount: *mut u32, displayinstancearray: *mut *mut CompositionFrameDisplayInstance),
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[repr(transparent)]
 pub struct IIndependentFlipFramePresentStatistics(::windows::core::IUnknown);
 impl IIndependentFlipFramePresentStatistics {
@@ -244,6 +252,7 @@ pub struct IIndependentFlipFramePresentStatisticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SystemInterruptTime),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SystemInterruptTime),
 );
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[repr(transparent)]
 pub struct IPresentStatistics(::windows::core::IUnknown);
 impl IPresentStatistics {
@@ -292,6 +301,7 @@ unsafe impl ::windows::core::Interface for IPresentStatistics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentStatisticsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> PresentStatisticsKind);
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[repr(transparent)]
 pub struct IPresentStatusPresentStatistics(::windows::core::IUnknown);
 impl IPresentStatusPresentStatistics {
@@ -374,6 +384,7 @@ pub struct IPresentStatusPresentStatisticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> PresentStatus,
 );
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[repr(transparent)]
 pub struct IPresentationBuffer(::windows::core::IUnknown);
 impl IPresentationBuffer {
@@ -432,6 +443,7 @@ pub struct IPresentationBufferVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isavailable: *mut u8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[repr(transparent)]
 pub struct IPresentationContent(::windows::core::IUnknown);
 impl IPresentationContent {
@@ -477,6 +489,7 @@ unsafe impl ::windows::core::Interface for IPresentationContent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentationContentVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: usize));
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[repr(transparent)]
 pub struct IPresentationFactory(::windows::core::IUnknown);
 impl IPresentationFactory {
@@ -536,6 +549,7 @@ pub struct IPresentationFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u8,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppresentationmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[repr(transparent)]
 pub struct IPresentationManager(::windows::core::IUnknown);
 impl IPresentationManager {
@@ -645,6 +659,7 @@ pub struct IPresentationManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presentstatisticskind: PresentStatisticsKind, enabled: u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nextpresentstatistics: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[repr(transparent)]
 pub struct IPresentationSurface(::windows::core::IUnknown);
 impl IPresentationSurface {
@@ -753,15 +768,24 @@ pub struct IPresentationSurfaceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, leftletterboxsize: f32, topletterboxsize: f32, rightletterboxsize: f32, bottomletterboxsize: f32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub type PresentStatisticsKind = i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const PresentStatisticsKind_PresentStatus: PresentStatisticsKind = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const PresentStatisticsKind_CompositionFrame: PresentStatisticsKind = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const PresentStatisticsKind_IndependentFlipFrame: PresentStatisticsKind = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub type PresentStatus = i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const PresentStatus_Queued: PresentStatus = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const PresentStatus_Skipped: PresentStatus = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const PresentStatus_Canceled: PresentStatus = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub struct PresentationTransform {
     pub M11: f32,
     pub M12: f32,
@@ -791,6 +815,7 @@ impl ::core::default::Default for PresentationTransform {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub struct SystemInterruptTime {
     pub value: u64,
 }

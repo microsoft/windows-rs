@@ -1,16 +1,21 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_System_CorrelationVector', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32;
+    #[doc = "*Required features: 'Win32_System_CorrelationVector', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32;
+    #[doc = "*Required features: 'Win32_System_CorrelationVector', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: *const ::windows_sys::core::GUID) -> u32;
+    #[doc = "*Required features: 'Win32_System_CorrelationVector', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_CorrelationVector', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CORRELATION_VECTOR {
     pub Version: super::super::Foundation::CHAR,

@@ -7,6 +7,7 @@ pub type GetPreviewPageEventArgs = *mut ::core::ffi::c_void;
 pub type GetPreviewPageEventHandler = *mut ::core::ffi::c_void;
 pub type PaginateEventArgs = *mut ::core::ffi::c_void;
 pub type PaginateEventHandler = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Printing'*"]
 #[repr(transparent)]
 pub struct PreviewPageCountType(pub i32);
 impl PreviewPageCountType {

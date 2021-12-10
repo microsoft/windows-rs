@@ -40,6 +40,7 @@ pub struct IUserDataAccountProviderAddAccountOperationVtbl(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userdataaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
 #[repr(transparent)]
 pub struct IUserDataAccountProviderOperation(::windows::core::IUnknown);
 impl IUserDataAccountProviderOperation {
@@ -158,6 +159,7 @@ pub struct IUserDataAccountProviderSettingsOperationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
 #[repr(transparent)]
 pub struct UserDataAccountPartnerAccountInfo(::windows::core::IUnknown);
 impl UserDataAccountPartnerAccountInfo {
@@ -246,6 +248,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataAccountPartnerAccountInfo {}
 unsafe impl ::core::marker::Sync for UserDataAccountPartnerAccountInfo {}
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
 #[repr(transparent)]
 pub struct UserDataAccountProviderAddAccountOperation(::windows::core::IUnknown);
 impl UserDataAccountProviderAddAccountOperation {
@@ -361,6 +364,7 @@ impl<'a> ::windows::core::IntoParam<'a, IUserDataAccountProviderOperation> for &
 }
 unsafe impl ::core::marker::Send for UserDataAccountProviderAddAccountOperation {}
 unsafe impl ::core::marker::Sync for UserDataAccountProviderAddAccountOperation {}
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
 #[repr(transparent)]
 pub struct UserDataAccountProviderOperationKind(pub i32);
 impl UserDataAccountProviderOperationKind {
@@ -389,6 +393,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountProviderOperationKin
 impl ::windows::core::DefaultType for UserDataAccountProviderOperationKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
 #[repr(transparent)]
 pub struct UserDataAccountProviderPartnerAccountKind(pub i32);
 impl UserDataAccountProviderPartnerAccountKind {
@@ -416,6 +421,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountProviderPartnerAccou
 impl ::windows::core::DefaultType for UserDataAccountProviderPartnerAccountKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
 #[repr(transparent)]
 pub struct UserDataAccountProviderResolveErrorsOperation(::windows::core::IUnknown);
 impl UserDataAccountProviderResolveErrorsOperation {
@@ -523,6 +529,7 @@ impl<'a> ::windows::core::IntoParam<'a, IUserDataAccountProviderOperation> for &
 }
 unsafe impl ::core::marker::Send for UserDataAccountProviderResolveErrorsOperation {}
 unsafe impl ::core::marker::Sync for UserDataAccountProviderResolveErrorsOperation {}
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
 #[repr(transparent)]
 pub struct UserDataAccountProviderSettingsOperation(::windows::core::IUnknown);
 impl UserDataAccountProviderSettingsOperation {

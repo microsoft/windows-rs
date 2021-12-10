@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_WinRT_Display'*"]
 #[repr(transparent)]
 pub struct IDisplayDeviceInterop(::windows::core::IUnknown);
 impl IDisplayDeviceInterop {
@@ -58,6 +59,7 @@ pub struct IDisplayDeviceInteropVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nthandle: super::super::super::Foundation::HANDLE, riid: ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_WinRT_Display'*"]
 #[repr(transparent)]
 pub struct IDisplayPathInterop(::windows::core::IUnknown);
 impl IDisplayPathInterop {

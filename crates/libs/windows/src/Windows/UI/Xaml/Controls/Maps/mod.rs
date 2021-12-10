@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct CustomMapTileDataSource(::windows::core::IUnknown);
 impl CustomMapTileDataSource {
@@ -129,6 +130,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Cus
 }
 unsafe impl ::core::marker::Send for CustomMapTileDataSource {}
 unsafe impl ::core::marker::Sync for CustomMapTileDataSource {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct HttpMapTileDataSource(::windows::core::IUnknown);
 impl HttpMapTileDataSource {
@@ -3021,6 +3023,7 @@ pub struct IStreetsidePanoramaStaticsVtbl(
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: ::windows::core::RawPtr, radiusinmeters: f64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Devices_Geolocation", feature = "Foundation")))] usize,
 );
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct LocalMapTileDataSource(::windows::core::IUnknown);
 impl LocalMapTileDataSource {
@@ -3168,6 +3171,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Loc
 }
 unsafe impl ::core::marker::Send for LocalMapTileDataSource {}
 unsafe impl ::core::marker::Sync for LocalMapTileDataSource {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapActualCameraChangedEventArgs(::windows::core::IUnknown);
 impl MapActualCameraChangedEventArgs {
@@ -3256,6 +3260,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapA
 }
 unsafe impl ::core::marker::Send for MapActualCameraChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MapActualCameraChangedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapActualCameraChangingEventArgs(::windows::core::IUnknown);
 impl MapActualCameraChangingEventArgs {
@@ -3344,6 +3349,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapA
 }
 unsafe impl ::core::marker::Send for MapActualCameraChangingEventArgs {}
 unsafe impl ::core::marker::Sync for MapActualCameraChangingEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapAnimationKind(pub i32);
 impl MapAnimationKind {
@@ -3373,6 +3379,7 @@ unsafe impl ::windows::core::RuntimeType for MapAnimationKind {
 impl ::windows::core::DefaultType for MapAnimationKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapBillboard(::windows::core::IUnknown);
 impl MapBillboard {
@@ -3569,6 +3576,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapBillboard {}
 unsafe impl ::core::marker::Sync for MapBillboard {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapCamera(::windows::core::IUnknown);
 impl MapCamera {
@@ -3745,6 +3753,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapCamera {}
 unsafe impl ::core::marker::Sync for MapCamera {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapCameraChangeReason(pub i32);
 impl MapCameraChangeReason {
@@ -3773,6 +3782,7 @@ unsafe impl ::windows::core::RuntimeType for MapCameraChangeReason {
 impl ::windows::core::DefaultType for MapCameraChangeReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapColorScheme(pub i32);
 impl MapColorScheme {
@@ -3800,6 +3810,7 @@ unsafe impl ::windows::core::RuntimeType for MapColorScheme {
 impl ::windows::core::DefaultType for MapColorScheme {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapContextRequestedEventArgs(::windows::core::IUnknown);
 impl MapContextRequestedEventArgs {
@@ -3898,6 +3909,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
 }
 unsafe impl ::core::marker::Send for MapContextRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for MapContextRequestedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapControl(::windows::core::IUnknown);
 impl MapControl {
@@ -5267,6 +5279,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapControl {}
 unsafe impl ::core::marker::Sync for MapControl {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapControlBusinessLandmarkClickEventArgs(::windows::core::IUnknown);
 impl MapControlBusinessLandmarkClickEventArgs {
@@ -5349,6 +5362,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
 }
 unsafe impl ::core::marker::Send for MapControlBusinessLandmarkClickEventArgs {}
 unsafe impl ::core::marker::Sync for MapControlBusinessLandmarkClickEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapControlBusinessLandmarkPointerEnteredEventArgs(::windows::core::IUnknown);
 impl MapControlBusinessLandmarkPointerEnteredEventArgs {
@@ -5431,6 +5445,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
 }
 unsafe impl ::core::marker::Send for MapControlBusinessLandmarkPointerEnteredEventArgs {}
 unsafe impl ::core::marker::Sync for MapControlBusinessLandmarkPointerEnteredEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapControlBusinessLandmarkPointerExitedEventArgs(::windows::core::IUnknown);
 impl MapControlBusinessLandmarkPointerExitedEventArgs {
@@ -5513,6 +5528,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
 }
 unsafe impl ::core::marker::Send for MapControlBusinessLandmarkPointerExitedEventArgs {}
 unsafe impl ::core::marker::Sync for MapControlBusinessLandmarkPointerExitedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapControlBusinessLandmarkRightTappedEventArgs(::windows::core::IUnknown);
 impl MapControlBusinessLandmarkRightTappedEventArgs {
@@ -5595,6 +5611,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
 }
 unsafe impl ::core::marker::Send for MapControlBusinessLandmarkRightTappedEventArgs {}
 unsafe impl ::core::marker::Sync for MapControlBusinessLandmarkRightTappedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapControlDataHelper(::windows::core::IUnknown);
 impl MapControlDataHelper {
@@ -5806,6 +5823,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapControlDataHelper {}
 unsafe impl ::core::marker::Sync for MapControlDataHelper {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapControlTransitFeatureClickEventArgs(::windows::core::IUnknown);
 impl MapControlTransitFeatureClickEventArgs {
@@ -5903,6 +5921,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
 }
 unsafe impl ::core::marker::Send for MapControlTransitFeatureClickEventArgs {}
 unsafe impl ::core::marker::Sync for MapControlTransitFeatureClickEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapControlTransitFeaturePointerEnteredEventArgs(::windows::core::IUnknown);
 impl MapControlTransitFeaturePointerEnteredEventArgs {
@@ -6000,6 +6019,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
 }
 unsafe impl ::core::marker::Send for MapControlTransitFeaturePointerEnteredEventArgs {}
 unsafe impl ::core::marker::Sync for MapControlTransitFeaturePointerEnteredEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapControlTransitFeaturePointerExitedEventArgs(::windows::core::IUnknown);
 impl MapControlTransitFeaturePointerExitedEventArgs {
@@ -6097,6 +6117,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
 }
 unsafe impl ::core::marker::Send for MapControlTransitFeaturePointerExitedEventArgs {}
 unsafe impl ::core::marker::Sync for MapControlTransitFeaturePointerExitedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapControlTransitFeatureRightTappedEventArgs(::windows::core::IUnknown);
 impl MapControlTransitFeatureRightTappedEventArgs {
@@ -6194,6 +6215,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
 }
 unsafe impl ::core::marker::Send for MapControlTransitFeatureRightTappedEventArgs {}
 unsafe impl ::core::marker::Sync for MapControlTransitFeatureRightTappedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapCustomExperience(::windows::core::IUnknown);
 impl MapCustomExperience {
@@ -6291,6 +6313,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapCustomExperience {}
 unsafe impl ::core::marker::Sync for MapCustomExperience {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapCustomExperienceChangedEventArgs(::windows::core::IUnknown);
 impl MapCustomExperienceChangedEventArgs {
@@ -6365,6 +6388,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapC
 }
 unsafe impl ::core::marker::Send for MapCustomExperienceChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MapCustomExperienceChangedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapElement(::windows::core::IUnknown);
 impl MapElement {
@@ -6597,6 +6621,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapElement {}
 unsafe impl ::core::marker::Sync for MapElement {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapElement3D(::windows::core::IUnknown);
 impl MapElement3D {
@@ -6815,6 +6840,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapElement3D {}
 unsafe impl ::core::marker::Sync for MapElement3D {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapElementClickEventArgs(::windows::core::IUnknown);
 impl MapElementClickEventArgs {
@@ -6913,6 +6939,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapE
 }
 unsafe impl ::core::marker::Send for MapElementClickEventArgs {}
 unsafe impl ::core::marker::Sync for MapElementClickEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapElementCollisionBehavior(pub i32);
 impl MapElementCollisionBehavior {
@@ -6940,6 +6967,7 @@ unsafe impl ::windows::core::RuntimeType for MapElementCollisionBehavior {
 impl ::windows::core::DefaultType for MapElementCollisionBehavior {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapElementPointerEnteredEventArgs(::windows::core::IUnknown);
 impl MapElementPointerEnteredEventArgs {
@@ -7037,6 +7065,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapE
 }
 unsafe impl ::core::marker::Send for MapElementPointerEnteredEventArgs {}
 unsafe impl ::core::marker::Sync for MapElementPointerEnteredEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapElementPointerExitedEventArgs(::windows::core::IUnknown);
 impl MapElementPointerExitedEventArgs {
@@ -7134,6 +7163,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapE
 }
 unsafe impl ::core::marker::Send for MapElementPointerExitedEventArgs {}
 unsafe impl ::core::marker::Sync for MapElementPointerExitedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapElementsLayer(::windows::core::IUnknown);
 impl MapElementsLayer {
@@ -7323,6 +7353,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapElementsLayer {}
 unsafe impl ::core::marker::Sync for MapElementsLayer {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapElementsLayerClickEventArgs(::windows::core::IUnknown);
 impl MapElementsLayerClickEventArgs {
@@ -7421,6 +7452,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapE
 }
 unsafe impl ::core::marker::Send for MapElementsLayerClickEventArgs {}
 unsafe impl ::core::marker::Sync for MapElementsLayerClickEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapElementsLayerContextRequestedEventArgs(::windows::core::IUnknown);
 impl MapElementsLayerContextRequestedEventArgs {
@@ -7519,6 +7551,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapE
 }
 unsafe impl ::core::marker::Send for MapElementsLayerContextRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for MapElementsLayerContextRequestedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapElementsLayerPointerEnteredEventArgs(::windows::core::IUnknown);
 impl MapElementsLayerPointerEnteredEventArgs {
@@ -7616,6 +7649,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapE
 }
 unsafe impl ::core::marker::Send for MapElementsLayerPointerEnteredEventArgs {}
 unsafe impl ::core::marker::Sync for MapElementsLayerPointerEnteredEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapElementsLayerPointerExitedEventArgs(::windows::core::IUnknown);
 impl MapElementsLayerPointerExitedEventArgs {
@@ -7713,6 +7747,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapE
 }
 unsafe impl ::core::marker::Send for MapElementsLayerPointerExitedEventArgs {}
 unsafe impl ::core::marker::Sync for MapElementsLayerPointerExitedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapIcon(::windows::core::IUnknown);
 impl MapIcon {
@@ -7920,6 +7955,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapIcon {}
 unsafe impl ::core::marker::Sync for MapIcon {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapInputEventArgs(::windows::core::IUnknown);
 impl MapInputEventArgs {
@@ -8030,6 +8066,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapInputEventArgs {}
 unsafe impl ::core::marker::Sync for MapInputEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapInteractionMode(pub i32);
 impl MapInteractionMode {
@@ -8063,6 +8100,7 @@ unsafe impl ::windows::core::RuntimeType for MapInteractionMode {
 impl ::windows::core::DefaultType for MapInteractionMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapItemsControl(::windows::core::IUnknown);
 impl MapItemsControl {
@@ -8209,6 +8247,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapItemsControl {}
 unsafe impl ::core::marker::Sync for MapItemsControl {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapLayer(::windows::core::IUnknown);
 impl MapLayer {
@@ -8361,6 +8400,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapLayer {}
 unsafe impl ::core::marker::Sync for MapLayer {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapLoadingStatus(pub i32);
 impl MapLoadingStatus {
@@ -8390,6 +8430,7 @@ unsafe impl ::windows::core::RuntimeType for MapLoadingStatus {
 impl ::windows::core::DefaultType for MapLoadingStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapModel3D(::windows::core::IUnknown);
 impl MapModel3D {
@@ -8505,6 +8546,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapModel3D {}
 unsafe impl ::core::marker::Sync for MapModel3D {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapModel3DShadingOption(pub i32);
 impl MapModel3DShadingOption {
@@ -8533,6 +8575,7 @@ unsafe impl ::windows::core::RuntimeType for MapModel3DShadingOption {
 impl ::windows::core::DefaultType for MapModel3DShadingOption {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapPanInteractionMode(pub i32);
 impl MapPanInteractionMode {
@@ -8560,6 +8603,7 @@ unsafe impl ::windows::core::RuntimeType for MapPanInteractionMode {
 impl ::windows::core::DefaultType for MapPanInteractionMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapPolygon(::windows::core::IUnknown);
 impl MapPolygon {
@@ -8761,6 +8805,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapPolygon {}
 unsafe impl ::core::marker::Sync for MapPolygon {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapPolyline(::windows::core::IUnknown);
 impl MapPolyline {
@@ -8937,6 +8982,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapPolyline {}
 unsafe impl ::core::marker::Sync for MapPolyline {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapProjection(pub i32);
 impl MapProjection {
@@ -8964,6 +9010,7 @@ unsafe impl ::windows::core::RuntimeType for MapProjection {
 impl ::windows::core::DefaultType for MapProjection {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapRightTappedEventArgs(::windows::core::IUnknown);
 impl MapRightTappedEventArgs {
@@ -9054,6 +9101,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapR
 }
 unsafe impl ::core::marker::Send for MapRightTappedEventArgs {}
 unsafe impl ::core::marker::Sync for MapRightTappedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapRouteView(::windows::core::IUnknown);
 impl MapRouteView {
@@ -9182,6 +9230,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapRouteView {}
 unsafe impl ::core::marker::Sync for MapRouteView {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapScene(::windows::core::IUnknown);
 impl MapScene {
@@ -9355,6 +9404,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapScene {}
 unsafe impl ::core::marker::Sync for MapScene {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapStyle(pub i32);
 impl MapStyle {
@@ -9388,6 +9438,7 @@ unsafe impl ::windows::core::RuntimeType for MapStyle {
 impl ::windows::core::DefaultType for MapStyle {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapStyleSheet(::windows::core::IUnknown);
 impl MapStyleSheet {
@@ -9956,6 +10007,7 @@ impl MapStyleSheetEntryStates {
 impl ::windows::core::RuntimeName for MapStyleSheetEntryStates {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntryStates";
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapTargetCameraChangedEventArgs(::windows::core::IUnknown);
 impl MapTargetCameraChangedEventArgs {
@@ -10044,6 +10096,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapT
 }
 unsafe impl ::core::marker::Send for MapTargetCameraChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MapTargetCameraChangedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapTileAnimationState(pub i32);
 impl MapTileAnimationState {
@@ -10072,6 +10125,7 @@ unsafe impl ::windows::core::RuntimeType for MapTileAnimationState {
 impl ::windows::core::DefaultType for MapTileAnimationState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapTileBitmapRequest(::windows::core::IUnknown);
 impl MapTileBitmapRequest {
@@ -10166,6 +10220,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapT
 }
 unsafe impl ::core::marker::Send for MapTileBitmapRequest {}
 unsafe impl ::core::marker::Sync for MapTileBitmapRequest {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapTileBitmapRequestDeferral(::windows::core::IUnknown);
 impl MapTileBitmapRequestDeferral {
@@ -10244,6 +10299,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapT
 }
 unsafe impl ::core::marker::Send for MapTileBitmapRequestDeferral {}
 unsafe impl ::core::marker::Sync for MapTileBitmapRequestDeferral {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapTileBitmapRequestedEventArgs(::windows::core::IUnknown);
 impl MapTileBitmapRequestedEventArgs {
@@ -10353,6 +10409,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapT
 }
 unsafe impl ::core::marker::Send for MapTileBitmapRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for MapTileBitmapRequestedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapTileDataSource(::windows::core::IUnknown);
 impl MapTileDataSource {
@@ -10450,6 +10507,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapTileDataSource {}
 unsafe impl ::core::marker::Sync for MapTileDataSource {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapTileLayer(pub i32);
 impl MapTileLayer {
@@ -10480,6 +10538,7 @@ unsafe impl ::windows::core::RuntimeType for MapTileLayer {
 impl ::windows::core::DefaultType for MapTileLayer {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapTileSource(::windows::core::IUnknown);
 impl MapTileSource {
@@ -10878,6 +10937,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 }
 unsafe impl ::core::marker::Send for MapTileSource {}
 unsafe impl ::core::marker::Sync for MapTileSource {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapTileUriRequest(::windows::core::IUnknown);
 impl MapTileUriRequest {
@@ -10972,6 +11032,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapT
 }
 unsafe impl ::core::marker::Send for MapTileUriRequest {}
 unsafe impl ::core::marker::Sync for MapTileUriRequest {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapTileUriRequestDeferral(::windows::core::IUnknown);
 impl MapTileUriRequestDeferral {
@@ -11050,6 +11111,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapT
 }
 unsafe impl ::core::marker::Send for MapTileUriRequestDeferral {}
 unsafe impl ::core::marker::Sync for MapTileUriRequestDeferral {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapTileUriRequestedEventArgs(::windows::core::IUnknown);
 impl MapTileUriRequestedEventArgs {
@@ -11159,6 +11221,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapT
 }
 unsafe impl ::core::marker::Send for MapTileUriRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for MapTileUriRequestedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapVisibleRegionKind(pub i32);
 impl MapVisibleRegionKind {
@@ -11186,6 +11249,7 @@ unsafe impl ::windows::core::RuntimeType for MapVisibleRegionKind {
 impl ::windows::core::DefaultType for MapVisibleRegionKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapWatermarkMode(pub i32);
 impl MapWatermarkMode {
@@ -11214,6 +11278,7 @@ impl ::windows::core::DefaultType for MapWatermarkMode {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 pub struct MapZoomLevelRange {
     pub Min: f64,
     pub Max: f64,
@@ -11244,6 +11309,7 @@ impl ::core::default::Default for MapZoomLevelRange {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct StreetsideExperience(::windows::core::IUnknown);
 impl StreetsideExperience {
@@ -11433,6 +11499,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Str
 }
 unsafe impl ::core::marker::Send for StreetsideExperience {}
 unsafe impl ::core::marker::Sync for StreetsideExperience {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct StreetsidePanorama(::windows::core::IUnknown);
 impl StreetsidePanorama {

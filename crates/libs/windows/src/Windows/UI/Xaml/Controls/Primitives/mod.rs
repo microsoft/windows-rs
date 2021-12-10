@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct AnimationDirection(pub i32);
 impl AnimationDirection {
@@ -28,6 +29,7 @@ unsafe impl ::windows::core::RuntimeType for AnimationDirection {
 impl ::windows::core::DefaultType for AnimationDirection {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct AppBarButtonTemplateSettings(::windows::core::IUnknown);
 impl AppBarButtonTemplateSettings {
@@ -122,6 +124,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &App
 }
 unsafe impl ::core::marker::Send for AppBarButtonTemplateSettings {}
 unsafe impl ::core::marker::Sync for AppBarButtonTemplateSettings {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct AppBarTemplateSettings(::windows::core::IUnknown);
 impl AppBarTemplateSettings {
@@ -280,6 +283,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &App
 }
 unsafe impl ::core::marker::Send for AppBarTemplateSettings {}
 unsafe impl ::core::marker::Sync for AppBarTemplateSettings {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct AppBarToggleButtonTemplateSettings(::windows::core::IUnknown);
 impl AppBarToggleButtonTemplateSettings {
@@ -374,6 +378,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &App
 }
 unsafe impl ::core::marker::Send for AppBarToggleButtonTemplateSettings {}
 unsafe impl ::core::marker::Sync for AppBarToggleButtonTemplateSettings {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ButtonBase(::windows::core::IUnknown);
 impl ButtonBase {
@@ -689,6 +694,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &But
 }
 unsafe impl ::core::marker::Send for ButtonBase {}
 unsafe impl ::core::marker::Sync for ButtonBase {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct CalendarPanel(::windows::core::IUnknown);
 impl CalendarPanel {
@@ -895,6 +901,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Cal
 }
 unsafe impl ::core::marker::Send for CalendarPanel {}
 unsafe impl ::core::marker::Sync for CalendarPanel {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct CalendarViewTemplateSettings(::windows::core::IUnknown);
 impl CalendarViewTemplateSettings {
@@ -1088,6 +1095,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Cal
 }
 unsafe impl ::core::marker::Send for CalendarViewTemplateSettings {}
 unsafe impl ::core::marker::Sync for CalendarViewTemplateSettings {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct CarouselPanel(::windows::core::IUnknown);
 impl CarouselPanel {
@@ -1533,6 +1541,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Car
 }
 unsafe impl ::core::marker::Send for CarouselPanel {}
 unsafe impl ::core::marker::Sync for CarouselPanel {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ColorPickerSlider(::windows::core::IUnknown);
 impl ColorPickerSlider {
@@ -1803,6 +1812,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Col
 }
 unsafe impl ::core::marker::Send for ColorPickerSlider {}
 unsafe impl ::core::marker::Sync for ColorPickerSlider {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ColorSpectrum(::windows::core::IUnknown);
 impl ColorSpectrum {
@@ -2201,6 +2211,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Col
 }
 unsafe impl ::core::marker::Send for ColorSpectrum {}
 unsafe impl ::core::marker::Sync for ColorSpectrum {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ComboBoxTemplateSettings(::windows::core::IUnknown);
 impl ComboBoxTemplateSettings {
@@ -2323,6 +2334,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Com
 }
 unsafe impl ::core::marker::Send for ComboBoxTemplateSettings {}
 unsafe impl ::core::marker::Sync for ComboBoxTemplateSettings {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct CommandBarFlyoutCommandBar(::windows::core::IUnknown);
 impl CommandBarFlyoutCommandBar {
@@ -2599,6 +2611,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Com
 }
 unsafe impl ::core::marker::Send for CommandBarFlyoutCommandBar {}
 unsafe impl ::core::marker::Sync for CommandBarFlyoutCommandBar {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct CommandBarFlyoutCommandBarTemplateSettings(::windows::core::IUnknown);
 impl CommandBarFlyoutCommandBarTemplateSettings {
@@ -2828,6 +2841,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Com
 }
 unsafe impl ::core::marker::Send for CommandBarFlyoutCommandBarTemplateSettings {}
 unsafe impl ::core::marker::Sync for CommandBarFlyoutCommandBarTemplateSettings {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct CommandBarTemplateSettings(::windows::core::IUnknown);
 impl CommandBarTemplateSettings {
@@ -3000,6 +3014,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Com
 }
 unsafe impl ::core::marker::Send for CommandBarTemplateSettings {}
 unsafe impl ::core::marker::Sync for CommandBarTemplateSettings {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ComponentResourceLocation(pub i32);
 impl ComponentResourceLocation {
@@ -3027,6 +3042,7 @@ unsafe impl ::windows::core::RuntimeType for ComponentResourceLocation {
 impl ::windows::core::DefaultType for ComponentResourceLocation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct DragCompletedEventArgs(::windows::core::IUnknown);
 impl DragCompletedEventArgs {
@@ -3145,6 +3161,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::RoutedEventArgs> for &Drag
 }
 unsafe impl ::core::marker::Send for DragCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for DragCompletedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct DragCompletedEventHandler(pub ::windows::core::IUnknown);
 impl DragCompletedEventHandler {
@@ -3213,6 +3230,7 @@ unsafe impl ::windows::core::RuntimeType for DragCompletedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DragCompletedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct DragDeltaEventArgs(::windows::core::IUnknown);
 impl DragDeltaEventArgs {
@@ -3324,6 +3342,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::RoutedEventArgs> for &Drag
 }
 unsafe impl ::core::marker::Send for DragDeltaEventArgs {}
 unsafe impl ::core::marker::Sync for DragDeltaEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct DragDeltaEventHandler(pub ::windows::core::IUnknown);
 impl DragDeltaEventHandler {
@@ -3392,6 +3411,7 @@ unsafe impl ::windows::core::RuntimeType for DragDeltaEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DragDeltaEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct DragStartedEventArgs(::windows::core::IUnknown);
 impl DragStartedEventArgs {
@@ -3503,6 +3523,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::RoutedEventArgs> for &Drag
 }
 unsafe impl ::core::marker::Send for DragStartedEventArgs {}
 unsafe impl ::core::marker::Sync for DragStartedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct DragStartedEventHandler(pub ::windows::core::IUnknown);
 impl DragStartedEventHandler {
@@ -3571,6 +3592,7 @@ unsafe impl ::windows::core::RuntimeType for DragStartedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DragStartedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct EdgeTransitionLocation(pub i32);
 impl EdgeTransitionLocation {
@@ -3600,6 +3622,7 @@ unsafe impl ::windows::core::RuntimeType for EdgeTransitionLocation {
 impl ::windows::core::DefaultType for EdgeTransitionLocation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct FlyoutBase(::windows::core::IUnknown);
 impl FlyoutBase {
@@ -4004,6 +4027,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Fly
 }
 unsafe impl ::core::marker::Send for FlyoutBase {}
 unsafe impl ::core::marker::Sync for FlyoutBase {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct FlyoutBaseClosingEventArgs(::windows::core::IUnknown);
 impl FlyoutBaseClosingEventArgs {
@@ -4082,6 +4106,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Flyo
 }
 unsafe impl ::core::marker::Send for FlyoutBaseClosingEventArgs {}
 unsafe impl ::core::marker::Sync for FlyoutBaseClosingEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct FlyoutPlacementMode(pub i32);
 impl FlyoutPlacementMode {
@@ -4121,6 +4146,7 @@ unsafe impl ::windows::core::RuntimeType for FlyoutPlacementMode {
 impl ::windows::core::DefaultType for FlyoutPlacementMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct FlyoutShowMode(pub i32);
 impl FlyoutShowMode {
@@ -4150,6 +4176,7 @@ unsafe impl ::windows::core::RuntimeType for FlyoutShowMode {
 impl ::windows::core::DefaultType for FlyoutShowMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct FlyoutShowOptions(::windows::core::IUnknown);
 impl FlyoutShowOptions {
@@ -4275,6 +4302,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Flyo
 }
 unsafe impl ::core::marker::Send for FlyoutShowOptions {}
 unsafe impl ::core::marker::Sync for FlyoutShowOptions {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct GeneratorDirection(pub i32);
 impl GeneratorDirection {
@@ -4303,6 +4331,7 @@ impl ::windows::core::DefaultType for GeneratorDirection {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 pub struct GeneratorPosition {
     pub Index: i32,
     pub Offset: i32,
@@ -4333,6 +4362,7 @@ impl ::core::default::Default for GeneratorPosition {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct GeneratorPositionHelper(::windows::core::IUnknown);
 impl GeneratorPositionHelper {
@@ -4410,6 +4440,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gene
 }
 unsafe impl ::core::marker::Send for GeneratorPositionHelper {}
 unsafe impl ::core::marker::Sync for GeneratorPositionHelper {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct GridViewItemPresenter(::windows::core::IUnknown);
 impl GridViewItemPresenter {
@@ -5030,6 +5061,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Gri
 }
 unsafe impl ::core::marker::Send for GridViewItemPresenter {}
 unsafe impl ::core::marker::Sync for GridViewItemPresenter {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct GridViewItemTemplateSettings(::windows::core::IUnknown);
 impl GridViewItemTemplateSettings {
@@ -5124,6 +5156,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Gri
 }
 unsafe impl ::core::marker::Send for GridViewItemTemplateSettings {}
 unsafe impl ::core::marker::Sync for GridViewItemTemplateSettings {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct GroupHeaderPlacement(pub i32);
 impl GroupHeaderPlacement {
@@ -7880,6 +7913,7 @@ pub struct IScrollEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ScrollEventType) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct IScrollSnapPointsInfo(::windows::core::IUnknown);
 impl IScrollSnapPointsInfo {
@@ -8421,6 +8455,7 @@ pub struct IToolTipTemplateSettingsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ItemsChangedEventArgs(::windows::core::IUnknown);
 impl ItemsChangedEventArgs {
@@ -8523,6 +8558,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Item
 }
 unsafe impl ::core::marker::Send for ItemsChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ItemsChangedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ItemsChangedEventHandler(pub ::windows::core::IUnknown);
 impl ItemsChangedEventHandler {
@@ -8591,6 +8627,7 @@ unsafe impl ::windows::core::RuntimeType for ItemsChangedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ItemsChangedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct JumpListItemBackgroundConverter(::windows::core::IUnknown);
 impl JumpListItemBackgroundConverter {
@@ -8769,6 +8806,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Jum
 }
 unsafe impl ::core::marker::Send for JumpListItemBackgroundConverter {}
 unsafe impl ::core::marker::Sync for JumpListItemBackgroundConverter {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct JumpListItemForegroundConverter(::windows::core::IUnknown);
 impl JumpListItemForegroundConverter {
@@ -8947,6 +8985,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Jum
 }
 unsafe impl ::core::marker::Send for JumpListItemForegroundConverter {}
 unsafe impl ::core::marker::Sync for JumpListItemForegroundConverter {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct LayoutInformation(::windows::core::IUnknown);
 impl LayoutInformation {
@@ -9042,6 +9081,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Layo
 }
 unsafe impl ::core::marker::Send for LayoutInformation {}
 unsafe impl ::core::marker::Sync for LayoutInformation {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ListViewItemPresenter(::windows::core::IUnknown);
 impl ListViewItemPresenter {
@@ -10363,6 +10403,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
 }
 unsafe impl ::core::marker::Send for ListViewItemPresenter {}
 unsafe impl ::core::marker::Sync for ListViewItemPresenter {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ListViewItemPresenterCheckMode(pub i32);
 impl ListViewItemPresenterCheckMode {
@@ -10390,6 +10431,7 @@ unsafe impl ::windows::core::RuntimeType for ListViewItemPresenterCheckMode {
 impl ::windows::core::DefaultType for ListViewItemPresenterCheckMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ListViewItemPresenterSelectionIndicatorMode(pub i32);
 impl ListViewItemPresenterSelectionIndicatorMode {
@@ -10417,6 +10459,7 @@ unsafe impl ::windows::core::RuntimeType for ListViewItemPresenterSelectionIndic
 impl ::windows::core::DefaultType for ListViewItemPresenterSelectionIndicatorMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ListViewItemTemplateSettings(::windows::core::IUnknown);
 impl ListViewItemTemplateSettings {
@@ -10511,6 +10554,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Lis
 }
 unsafe impl ::core::marker::Send for ListViewItemTemplateSettings {}
 unsafe impl ::core::marker::Sync for ListViewItemTemplateSettings {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct LoopingSelector(::windows::core::IUnknown);
 impl LoopingSelector {
@@ -10848,6 +10892,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Loo
 }
 unsafe impl ::core::marker::Send for LoopingSelector {}
 unsafe impl ::core::marker::Sync for LoopingSelector {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct LoopingSelectorItem(::windows::core::IUnknown);
 impl LoopingSelectorItem {}
@@ -11066,6 +11111,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Loo
 }
 unsafe impl ::core::marker::Send for LoopingSelectorItem {}
 unsafe impl ::core::marker::Sync for LoopingSelectorItem {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct LoopingSelectorPanel(::windows::core::IUnknown);
 impl LoopingSelectorPanel {
@@ -11362,6 +11408,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Loo
 }
 unsafe impl ::core::marker::Send for LoopingSelectorPanel {}
 unsafe impl ::core::marker::Sync for LoopingSelectorPanel {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct MenuFlyoutItemTemplateSettings(::windows::core::IUnknown);
 impl MenuFlyoutItemTemplateSettings {
@@ -11456,6 +11503,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Men
 }
 unsafe impl ::core::marker::Send for MenuFlyoutItemTemplateSettings {}
 unsafe impl ::core::marker::Sync for MenuFlyoutItemTemplateSettings {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct MenuFlyoutPresenterTemplateSettings(::windows::core::IUnknown);
 impl MenuFlyoutPresenterTemplateSettings {
@@ -11550,6 +11598,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Men
 }
 unsafe impl ::core::marker::Send for MenuFlyoutPresenterTemplateSettings {}
 unsafe impl ::core::marker::Sync for MenuFlyoutPresenterTemplateSettings {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct NavigationViewItemPresenter(::windows::core::IUnknown);
 impl NavigationViewItemPresenter {
@@ -11800,6 +11849,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Nav
 }
 unsafe impl ::core::marker::Send for NavigationViewItemPresenter {}
 unsafe impl ::core::marker::Sync for NavigationViewItemPresenter {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct OrientedVirtualizingPanel(::windows::core::IUnknown);
 impl OrientedVirtualizingPanel {
@@ -12262,6 +12312,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ori
 }
 unsafe impl ::core::marker::Send for OrientedVirtualizingPanel {}
 unsafe impl ::core::marker::Sync for OrientedVirtualizingPanel {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct PickerFlyoutBase(::windows::core::IUnknown);
 impl PickerFlyoutBase {
@@ -12388,6 +12439,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pic
 }
 unsafe impl ::core::marker::Send for PickerFlyoutBase {}
 unsafe impl ::core::marker::Sync for PickerFlyoutBase {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct PivotHeaderItem(::windows::core::IUnknown);
 impl PivotHeaderItem {
@@ -12617,6 +12669,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Piv
 }
 unsafe impl ::core::marker::Send for PivotHeaderItem {}
 unsafe impl ::core::marker::Sync for PivotHeaderItem {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct PivotHeaderPanel(::windows::core::IUnknown);
 impl PivotHeaderPanel {
@@ -12843,6 +12896,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Piv
 }
 unsafe impl ::core::marker::Send for PivotHeaderPanel {}
 unsafe impl ::core::marker::Sync for PivotHeaderPanel {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct PivotPanel(::windows::core::IUnknown);
 impl PivotPanel {
@@ -13126,6 +13180,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Piv
 }
 unsafe impl ::core::marker::Send for PivotPanel {}
 unsafe impl ::core::marker::Sync for PivotPanel {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct PlacementMode(pub i32);
 impl PlacementMode {
@@ -13156,6 +13211,7 @@ unsafe impl ::windows::core::RuntimeType for PlacementMode {
 impl ::windows::core::DefaultType for PlacementMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct Popup(::windows::core::IUnknown);
 impl Popup {
@@ -13583,6 +13639,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pop
 }
 unsafe impl ::core::marker::Send for Popup {}
 unsafe impl ::core::marker::Sync for Popup {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct PopupPlacementMode(pub i32);
 impl PopupPlacementMode {
@@ -13621,6 +13678,7 @@ unsafe impl ::windows::core::RuntimeType for PopupPlacementMode {
 impl ::windows::core::DefaultType for PopupPlacementMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ProgressBarTemplateSettings(::windows::core::IUnknown);
 impl ProgressBarTemplateSettings {
@@ -13757,6 +13815,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pro
 }
 unsafe impl ::core::marker::Send for ProgressBarTemplateSettings {}
 unsafe impl ::core::marker::Sync for ProgressBarTemplateSettings {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ProgressRingTemplateSettings(::windows::core::IUnknown);
 impl ProgressRingTemplateSettings {
@@ -13865,6 +13924,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Pro
 }
 unsafe impl ::core::marker::Send for ProgressRingTemplateSettings {}
 unsafe impl ::core::marker::Sync for ProgressRingTemplateSettings {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct RangeBase(::windows::core::IUnknown);
 impl RangeBase {
@@ -14166,6 +14226,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ran
 }
 unsafe impl ::core::marker::Send for RangeBase {}
 unsafe impl ::core::marker::Sync for RangeBase {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct RangeBaseValueChangedEventArgs(::windows::core::IUnknown);
 impl RangeBaseValueChangedEventArgs {
@@ -14267,6 +14328,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::RoutedEventArgs> for &Rang
 }
 unsafe impl ::core::marker::Send for RangeBaseValueChangedEventArgs {}
 unsafe impl ::core::marker::Sync for RangeBaseValueChangedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct RangeBaseValueChangedEventHandler(pub ::windows::core::IUnknown);
 impl RangeBaseValueChangedEventHandler {
@@ -14335,6 +14397,7 @@ unsafe impl ::windows::core::RuntimeType for RangeBaseValueChangedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct RangeBaseValueChangedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct RepeatButton(::windows::core::IUnknown);
 impl RepeatButton {
@@ -14619,6 +14682,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Rep
 }
 unsafe impl ::core::marker::Send for RepeatButton {}
 unsafe impl ::core::marker::Sync for RepeatButton {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ScrollBar(::windows::core::IUnknown);
 impl ScrollBar {
@@ -14913,6 +14977,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Scr
 }
 unsafe impl ::core::marker::Send for ScrollBar {}
 unsafe impl ::core::marker::Sync for ScrollBar {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ScrollEventArgs(::windows::core::IUnknown);
 impl ScrollEventArgs {
@@ -15021,6 +15086,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::RoutedEventArgs> for &Scro
 }
 unsafe impl ::core::marker::Send for ScrollEventArgs {}
 unsafe impl ::core::marker::Sync for ScrollEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ScrollEventHandler(pub ::windows::core::IUnknown);
 impl ScrollEventHandler {
@@ -15089,6 +15155,7 @@ unsafe impl ::windows::core::RuntimeType for ScrollEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ScrollEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ScrollEventType(pub i32);
 impl ScrollEventType {
@@ -15123,6 +15190,7 @@ unsafe impl ::windows::core::RuntimeType for ScrollEventType {
 impl ::windows::core::DefaultType for ScrollEventType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ScrollingIndicatorMode(pub i32);
 impl ScrollingIndicatorMode {
@@ -15151,6 +15219,7 @@ unsafe impl ::windows::core::RuntimeType for ScrollingIndicatorMode {
 impl ::windows::core::DefaultType for ScrollingIndicatorMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct Selector(::windows::core::IUnknown);
 impl Selector {
@@ -15502,6 +15571,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sel
 }
 unsafe impl ::core::marker::Send for Selector {}
 unsafe impl ::core::marker::Sync for Selector {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct SelectorItem(::windows::core::IUnknown);
 impl SelectorItem {
@@ -15742,6 +15812,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sel
 }
 unsafe impl ::core::marker::Send for SelectorItem {}
 unsafe impl ::core::marker::Sync for SelectorItem {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct SettingsFlyoutTemplateSettings(::windows::core::IUnknown);
 impl SettingsFlyoutTemplateSettings {
@@ -15876,6 +15947,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Set
 }
 unsafe impl ::core::marker::Send for SettingsFlyoutTemplateSettings {}
 unsafe impl ::core::marker::Sync for SettingsFlyoutTemplateSettings {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct SliderSnapsTo(pub i32);
 impl SliderSnapsTo {
@@ -15903,6 +15975,7 @@ unsafe impl ::windows::core::RuntimeType for SliderSnapsTo {
 impl ::windows::core::DefaultType for SliderSnapsTo {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct SnapPointsAlignment(pub i32);
 impl SnapPointsAlignment {
@@ -15931,6 +16004,7 @@ unsafe impl ::windows::core::RuntimeType for SnapPointsAlignment {
 impl ::windows::core::DefaultType for SnapPointsAlignment {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct SplitViewTemplateSettings(::windows::core::IUnknown);
 impl SplitViewTemplateSettings {
@@ -16060,6 +16134,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Spl
 }
 unsafe impl ::core::marker::Send for SplitViewTemplateSettings {}
 unsafe impl ::core::marker::Sync for SplitViewTemplateSettings {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct Thumb(::windows::core::IUnknown);
 impl Thumb {
@@ -16326,6 +16401,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Thu
 }
 unsafe impl ::core::marker::Send for Thumb {}
 unsafe impl ::core::marker::Sync for Thumb {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct TickBar(::windows::core::IUnknown);
 impl TickBar {
@@ -16535,6 +16611,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tic
 }
 unsafe impl ::core::marker::Send for TickBar {}
 unsafe impl ::core::marker::Sync for TickBar {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct TickPlacement(pub i32);
 impl TickPlacement {
@@ -16565,6 +16642,7 @@ unsafe impl ::windows::core::RuntimeType for TickPlacement {
 impl ::windows::core::DefaultType for TickPlacement {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ToggleButton(::windows::core::IUnknown);
 impl ToggleButton {
@@ -16893,6 +16971,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tog
 }
 unsafe impl ::core::marker::Send for ToggleButton {}
 unsafe impl ::core::marker::Sync for ToggleButton {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ToggleSwitchTemplateSettings(::windows::core::IUnknown);
 impl ToggleSwitchTemplateSettings {
@@ -17036,6 +17115,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Tog
 }
 unsafe impl ::core::marker::Send for ToggleSwitchTemplateSettings {}
 unsafe impl ::core::marker::Sync for ToggleSwitchTemplateSettings {}
+#[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
 pub struct ToolTipTemplateSettings(::windows::core::IUnknown);
 impl ToolTipTemplateSettings {

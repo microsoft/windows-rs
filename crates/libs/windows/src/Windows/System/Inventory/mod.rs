@@ -39,6 +39,7 @@ pub struct IInstalledDesktopAppStaticsVtbl(
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
+#[doc = "*Required features: 'System_Inventory'*"]
 #[repr(transparent)]
 pub struct InstalledDesktopApp(::windows::core::IUnknown);
 impl InstalledDesktopApp {

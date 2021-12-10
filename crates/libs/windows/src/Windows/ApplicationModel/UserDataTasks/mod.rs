@@ -352,6 +352,7 @@ pub struct IUserDataTaskStoreVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tasklistid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTask(::windows::core::IUnknown);
 impl UserDataTask {
@@ -587,6 +588,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataTask {}
 unsafe impl ::core::marker::Sync for UserDataTask {}
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskBatch(::windows::core::IUnknown);
 impl UserDataTaskBatch {
@@ -662,6 +664,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataTaskBatch {}
 unsafe impl ::core::marker::Sync for UserDataTaskBatch {}
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskDaysOfWeek(pub u32);
 impl UserDataTaskDaysOfWeek {
@@ -695,6 +698,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskDaysOfWeek {
 impl ::windows::core::DefaultType for UserDataTaskDaysOfWeek {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskDetailsKind(pub i32);
 impl UserDataTaskDetailsKind {
@@ -722,6 +726,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskDetailsKind {
 impl ::windows::core::DefaultType for UserDataTaskDetailsKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskKind(pub i32);
 impl UserDataTaskKind {
@@ -750,6 +755,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskKind {
 impl ::windows::core::DefaultType for UserDataTaskKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskList(::windows::core::IUnknown);
 impl UserDataTaskList {
@@ -947,6 +953,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataTaskList {}
 unsafe impl ::core::marker::Sync for UserDataTaskList {}
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskListLimitedWriteOperations(::windows::core::IUnknown);
 impl UserDataTaskListLimitedWriteOperations {
@@ -1046,6 +1053,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataTaskListLimitedWriteOperations {}
 unsafe impl ::core::marker::Sync for UserDataTaskListLimitedWriteOperations {}
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskListOtherAppReadAccess(pub i32);
 impl UserDataTaskListOtherAppReadAccess {
@@ -1074,6 +1082,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskListOtherAppReadAccess 
 impl ::windows::core::DefaultType for UserDataTaskListOtherAppReadAccess {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskListOtherAppWriteAccess(pub i32);
 impl UserDataTaskListOtherAppWriteAccess {
@@ -1101,6 +1110,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskListOtherAppWriteAccess
 impl ::windows::core::DefaultType for UserDataTaskListOtherAppWriteAccess {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskListSyncManager(::windows::core::IUnknown);
 impl UserDataTaskListSyncManager {
@@ -1226,6 +1236,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataTaskListSyncManager {}
 unsafe impl ::core::marker::Sync for UserDataTaskListSyncManager {}
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskListSyncStatus(pub i32);
 impl UserDataTaskListSyncStatus {
@@ -1257,6 +1268,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskListSyncStatus {
 impl ::windows::core::DefaultType for UserDataTaskListSyncStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskManager(::windows::core::IUnknown);
 impl UserDataTaskManager {
@@ -1357,6 +1369,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataTaskManager {}
 unsafe impl ::core::marker::Sync for UserDataTaskManager {}
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskPriority(pub i32);
 impl UserDataTaskPriority {
@@ -1385,6 +1398,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskPriority {
 impl ::windows::core::DefaultType for UserDataTaskPriority {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskQueryKind(pub i32);
 impl UserDataTaskQueryKind {
@@ -1413,6 +1427,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskQueryKind {
 impl ::windows::core::DefaultType for UserDataTaskQueryKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskQueryOptions(::windows::core::IUnknown);
 impl UserDataTaskQueryOptions {
@@ -1509,6 +1524,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataTaskQueryOptions {}
 unsafe impl ::core::marker::Sync for UserDataTaskQueryOptions {}
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskQuerySortProperty(pub i32);
 impl UserDataTaskQuerySortProperty {
@@ -1535,6 +1551,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskQuerySortProperty {
 impl ::windows::core::DefaultType for UserDataTaskQuerySortProperty {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskReader(::windows::core::IUnknown);
 impl UserDataTaskReader {
@@ -1610,6 +1627,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataTaskReader {}
 unsafe impl ::core::marker::Sync for UserDataTaskReader {}
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskRecurrenceProperties(::windows::core::IUnknown);
 impl UserDataTaskRecurrenceProperties {
@@ -1784,6 +1802,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataTaskRecurrenceProperties {}
 unsafe impl ::core::marker::Sync for UserDataTaskRecurrenceProperties {}
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskRecurrenceUnit(pub i32);
 impl UserDataTaskRecurrenceUnit {
@@ -1815,6 +1834,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskRecurrenceUnit {
 impl ::windows::core::DefaultType for UserDataTaskRecurrenceUnit {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskRegenerationProperties(::windows::core::IUnknown);
 impl UserDataTaskRegenerationProperties {
@@ -1937,6 +1957,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataTaskRegenerationProperties {}
 unsafe impl ::core::marker::Sync for UserDataTaskRegenerationProperties {}
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskRegenerationUnit(pub i32);
 impl UserDataTaskRegenerationUnit {
@@ -1966,6 +1987,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskRegenerationUnit {
 impl ::windows::core::DefaultType for UserDataTaskRegenerationUnit {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskSensitivity(pub i32);
 impl UserDataTaskSensitivity {
@@ -1993,6 +2015,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskSensitivity {
 impl ::windows::core::DefaultType for UserDataTaskSensitivity {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskStore(::windows::core::IUnknown);
 impl UserDataTaskStore {
@@ -2092,6 +2115,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataTaskStore {}
 unsafe impl ::core::marker::Sync for UserDataTaskStore {}
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskStoreAccessType(pub i32);
 impl UserDataTaskStoreAccessType {
@@ -2119,6 +2143,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskStoreAccessType {
 impl ::windows::core::DefaultType for UserDataTaskStoreAccessType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
 pub struct UserDataTaskWeekOfMonth(pub i32);
 impl UserDataTaskWeekOfMonth {

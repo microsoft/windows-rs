@@ -3,6 +3,7 @@
 extern "system" {}
 pub type Enterprise = *mut ::core::ffi::c_void;
 pub type EnterpriseEnrollmentResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Phone_Management_Deployment'*"]
 #[repr(transparent)]
 pub struct EnterpriseEnrollmentStatus(pub i32);
 impl EnterpriseEnrollmentStatus {
@@ -16,6 +17,7 @@ impl ::core::clone::Clone for EnterpriseEnrollmentStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Phone_Management_Deployment'*"]
 #[repr(transparent)]
 pub struct EnterpriseStatus(pub i32);
 impl EnterpriseStatus {

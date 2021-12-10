@@ -1,43 +1,62 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn OpenPersonalTrustDBDialog(hwndparent: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn OpenPersonalTrustDBDialogEx(hwndparent: super::super::Foundation::HWND, dwflags: u32, pvreserved: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
     pub fn WTHelperCertCheckValidSignature(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub fn WTHelperCertIsSelfSigned(dwencoding: u32, pcert: *mut super::Cryptography::CERT_INFO) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub fn WTHelperGetProvCertFromChain(psgnr: *mut CRYPT_PROVIDER_SGNR, idxcert: u32) -> *mut CRYPT_PROVIDER_CERT;
+    #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
     pub fn WTHelperGetProvPrivateDataFromChain(pprovdata: *mut CRYPT_PROVIDER_DATA, pgproviderid: *mut ::windows_sys::core::GUID) -> *mut CRYPT_PROVIDER_PRIVDATA;
+    #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
     pub fn WTHelperGetProvSignerFromChain(pprovdata: *mut CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersigner: super::super::Foundation::BOOL, idxcountersigner: u32) -> *mut CRYPT_PROVIDER_SGNR;
+    #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
     pub fn WTHelperProvDataFromStateData(hstatedata: super::super::Foundation::HANDLE) -> *mut CRYPT_PROVIDER_DATA;
+    #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WinVerifyTrust(hwnd: super::super::Foundation::HWND, pgactionid: *mut ::windows_sys::core::GUID, pwvtdata: *mut ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub fn WinVerifyTrustEx(hwnd: super::super::Foundation::HWND, pgactionid: *mut ::windows_sys::core::GUID, pwintrustdata: *mut WINTRUST_DATA) -> i32;
+    #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WintrustAddActionID(pgactionid: *const ::windows_sys::core::GUID, fdwflags: u32, psprovinfo: *const CRYPT_REGISTER_ACTIONID) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WintrustAddDefaultForUsage(pszusageoid: super::super::Foundation::PSTR, psdefusage: *const CRYPT_PROVIDER_REGDEFUSAGE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WintrustGetDefaultForUsage(dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid: super::super::Foundation::PSTR, psusage: *mut CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
     pub fn WintrustGetRegPolicyFlags(pdwpolicyflags: *mut WINTRUST_POLICY_FLAGS);
+    #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
     pub fn WintrustLoadFunctionPointers(pgactionid: *mut ::windows_sys::core::GUID, ppfns: *mut CRYPT_PROVIDER_FUNCTIONS) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WintrustRemoveActionID(pgactionid: *const ::windows_sys::core::GUID) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes: super::super::Foundation::BOOL);
+    #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WintrustSetRegPolicyFlags(dwpolicyflags: WINTRUST_POLICY_FLAGS) -> super::super::Foundation::BOOL;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CAT_MEMBERINFO {
     pub pwszSubjGuid: super::super::Foundation::PWSTR,
@@ -52,6 +71,7 @@ impl ::core::clone::Clone for CAT_MEMBERINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub struct CAT_MEMBERINFO2 {
     pub SubjectGuid: ::windows_sys::core::GUID,
     pub dwCertVersion: u32,
@@ -63,6 +83,7 @@ impl ::core::clone::Clone for CAT_MEMBERINFO2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct CAT_NAMEVALUE {
     pub pwszTag: super::super::Foundation::PWSTR,
@@ -78,6 +99,7 @@ impl ::core::clone::Clone for CAT_NAMEVALUE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct CONFIG_CI_PROV_INFO {
     pub cbSize: u32,
@@ -95,6 +117,7 @@ impl ::core::clone::Clone for CONFIG_CI_PROV_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONFIG_CI_PROV_INFO_RESULT {
     pub hr: ::windows_sys::core::HRESULT,
@@ -111,6 +134,7 @@ impl ::core::clone::Clone for CONFIG_CI_PROV_INFO_RESULT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct CRYPT_PROVIDER_CERT {
     pub cbStruct: u32,
@@ -138,6 +162,7 @@ impl ::core::clone::Clone for CRYPT_PROVIDER_CERT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct CRYPT_PROVIDER_DATA {
     pub cbStruct: u32,
@@ -183,6 +208,7 @@ impl ::core::clone::Clone for CRYPT_PROVIDER_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub union CRYPT_PROVIDER_DATA_0 {
     pub pPDSip: *mut PROVDATA_SIP,
@@ -196,6 +222,7 @@ impl ::core::clone::Clone for CRYPT_PROVIDER_DATA_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub struct CRYPT_PROVIDER_DEFUSAGE {
     pub cbStruct: u32,
     pub gActionID: ::windows_sys::core::GUID,
@@ -209,6 +236,7 @@ impl ::core::clone::Clone for CRYPT_PROVIDER_DEFUSAGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct CRYPT_PROVIDER_FUNCTIONS {
     pub cbStruct: u32,
@@ -237,6 +265,7 @@ impl ::core::clone::Clone for CRYPT_PROVIDER_FUNCTIONS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub struct CRYPT_PROVIDER_PRIVDATA {
     pub cbStruct: u32,
     pub gProviderID: ::windows_sys::core::GUID,
@@ -250,6 +279,7 @@ impl ::core::clone::Clone for CRYPT_PROVIDER_PRIVDATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPT_PROVIDER_REGDEFUSAGE {
     pub cbStruct: u32,
@@ -267,6 +297,7 @@ impl ::core::clone::Clone for CRYPT_PROVIDER_REGDEFUSAGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct CRYPT_PROVIDER_SGNR {
     pub cbStruct: u32,
@@ -289,6 +320,7 @@ impl ::core::clone::Clone for CRYPT_PROVIDER_SGNR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct CRYPT_PROVIDER_SIGSTATE {
     pub cbStruct: u32,
@@ -313,6 +345,7 @@ impl ::core::clone::Clone for CRYPT_PROVIDER_SIGSTATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPT_PROVUI_DATA {
     pub cbStruct: u32,
@@ -334,6 +367,7 @@ impl ::core::clone::Clone for CRYPT_PROVUI_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct CRYPT_PROVUI_FUNCS {
     pub cbStruct: u32,
@@ -352,6 +386,7 @@ impl ::core::clone::Clone for CRYPT_PROVUI_FUNCS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPT_REGISTER_ACTIONID {
     pub cbStruct: u32,
@@ -373,6 +408,7 @@ impl ::core::clone::Clone for CRYPT_REGISTER_ACTIONID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPT_TRUST_REG_ENTRY {
     pub cbStruct: u32,
@@ -388,6 +424,7 @@ impl ::core::clone::Clone for CRYPT_TRUST_REG_ENTRY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct DRIVER_VER_INFO {
     pub cbStruct: u32,
@@ -412,6 +449,7 @@ impl ::core::clone::Clone for DRIVER_VER_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub struct DRIVER_VER_MAJORMINOR {
     pub dwMajor: u32,
     pub dwMinor: u32,
@@ -423,6 +461,7 @@ impl ::core::clone::Clone for DRIVER_VER_MAJORMINOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INTENT_TO_SEAL_ATTRIBUTE {
     pub version: u32,
@@ -436,41 +475,60 @@ impl ::core::clone::Clone for INTENT_TO_SEAL_ATTRIBUTE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_ALLOCANDFILLDEFUSAGE = ::core::option::Option<unsafe extern "system" fn(pszusageoid: super::super::Foundation::PSTR, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_CPD_ADD_CERT = ::core::option::Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersigner: super::super::Foundation::BOOL, idxcountersigner: u32, pcert2add: *const super::Cryptography::CERT_CONTEXT) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_CPD_ADD_PRIVDATA = ::core::option::Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, pprivdata2add: *const CRYPT_PROVIDER_PRIVDATA) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_CPD_ADD_SGNR = ::core::option::Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, fcountersigner: super::super::Foundation::BOOL, idxsigner: u32, psgnr2add: *const CRYPT_PROVIDER_SGNR) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_CPD_ADD_STORE = ::core::option::Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, hstore2add: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub type PFN_CPD_MEM_ALLOC = ::core::option::Option<unsafe extern "system" fn(cbsize: u32) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub type PFN_CPD_MEM_FREE = ::core::option::Option<unsafe extern "system" fn(pvmem2free: *const ::core::ffi::c_void)>;
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_FREEDEFUSAGE = ::core::option::Option<unsafe extern "system" fn(pszusageoid: super::super::Foundation::PSTR, psdefusage: *const CRYPT_PROVIDER_DEFUSAGE) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_PROVIDER_CERTCHKPOLICY_CALL = ::core::option::Option<unsafe extern "system" fn(pprovdata: *const CRYPT_PROVIDER_DATA, idxsigner: u32, fcountersignerchain: super::super::Foundation::BOOL, idxcountersigner: u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_PROVIDER_CERTTRUST_CALL = ::core::option::Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_PROVIDER_CLEANUP_CALL = ::core::option::Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_PROVIDER_FINALPOLICY_CALL = ::core::option::Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_PROVIDER_INIT_CALL = ::core::option::Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_PROVIDER_OBJTRUST_CALL = ::core::option::Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_PROVIDER_SIGTRUST_CALL = ::core::option::Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_PROVIDER_TESTFINALPOLICY_CALL = ::core::option::Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_PROVUI_CALL = ::core::option::Option<unsafe extern "system" fn(hwndsecuritydialog: super::super::Foundation::HWND, pprovdata: *const CRYPT_PROVIDER_DATA) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub type PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pprovdata: *mut CRYPT_PROVIDER_DATA, dwsteperror: u32, dwregpolicysettings: u32, csigner: u32, rgpsigner: *mut *mut WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO, pvpolicyarg: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct PROVDATA_SIP {
     pub cbStruct: u32,
@@ -490,6 +548,7 @@ impl ::core::clone::Clone for PROVDATA_SIP {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SEALING_SIGNATURE_ATTRIBUTE {
     pub version: u32,
@@ -506,6 +565,7 @@ impl ::core::clone::Clone for SEALING_SIGNATURE_ATTRIBUTE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SEALING_TIMESTAMP_ATTRIBUTE {
     pub version: u32,
@@ -521,6 +581,7 @@ impl ::core::clone::Clone for SEALING_TIMESTAMP_ATTRIBUTE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPC_FINANCIAL_CRITERIA {
     pub fFinancialInfoAvailable: super::super::Foundation::BOOL,
@@ -535,6 +596,7 @@ impl ::core::clone::Clone for SPC_FINANCIAL_CRITERIA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SPC_IMAGE {
     pub pImageLink: *mut SPC_LINK,
@@ -552,6 +614,7 @@ impl ::core::clone::Clone for SPC_IMAGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SPC_INDIRECT_DATA_CONTENT {
     pub Data: super::Cryptography::CRYPT_ATTRIBUTE_TYPE_VALUE,
@@ -567,6 +630,7 @@ impl ::core::clone::Clone for SPC_INDIRECT_DATA_CONTENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SPC_LINK {
     pub dwLinkChoice: u32,
@@ -581,6 +645,7 @@ impl ::core::clone::Clone for SPC_LINK {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub union SPC_LINK_0 {
     pub pwszUrl: super::super::Foundation::PWSTR,
@@ -596,6 +661,7 @@ impl ::core::clone::Clone for SPC_LINK_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SPC_PE_IMAGE_DATA {
     pub Flags: super::Cryptography::CRYPT_BIT_BLOB,
@@ -610,6 +676,7 @@ impl ::core::clone::Clone for SPC_PE_IMAGE_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Security_Cryptography'*"]
 #[cfg(feature = "Win32_Security_Cryptography")]
 pub struct SPC_SERIALIZED_OBJECT {
     pub ClassId: [u8; 16],
@@ -624,6 +691,7 @@ impl ::core::clone::Clone for SPC_SERIALIZED_OBJECT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub struct SPC_SIGINFO {
     pub dwSipVersion: u32,
     pub gSIPGuid: ::windows_sys::core::GUID,
@@ -640,6 +708,7 @@ impl ::core::clone::Clone for SPC_SIGINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SPC_SP_AGENCY_INFO {
     pub pPolicyInformation: *mut SPC_LINK,
@@ -656,6 +725,7 @@ impl ::core::clone::Clone for SPC_SP_AGENCY_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct SPC_SP_OPUS_INFO {
     pub pwszProgramName: super::super::Foundation::PWSTR,
@@ -671,6 +741,7 @@ impl ::core::clone::Clone for SPC_SP_OPUS_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPC_STATEMENT_TYPE {
     pub cKeyPurposeId: u32,
@@ -713,6 +784,7 @@ pub const TRUSTERROR_STEP_VERIFY_MSGHASH: u32 = 18u32;
 pub const TRUSTERROR_STEP_VERIFY_MSGINDIRECTDATA: u32 = 19u32;
 pub const TRUSTERROR_STEP_WVTPARAMS: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINTRUST_BLOB_INFO {
     pub cbStruct: u32,
@@ -732,6 +804,7 @@ impl ::core::clone::Clone for WINTRUST_BLOB_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WINTRUST_CATALOG_INFO {
     pub cbStruct: u32,
@@ -754,6 +827,7 @@ impl ::core::clone::Clone for WINTRUST_CATALOG_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WINTRUST_CERT_INFO {
     pub cbStruct: u32,
@@ -773,6 +847,7 @@ impl ::core::clone::Clone for WINTRUST_CERT_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WINTRUST_DATA {
     pub cbStruct: u32,
@@ -798,6 +873,7 @@ impl ::core::clone::Clone for WINTRUST_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub union WINTRUST_DATA_0 {
     pub pFile: *mut WINTRUST_FILE_INFO,
@@ -814,30 +890,54 @@ impl ::core::clone::Clone for WINTRUST_DATA_0 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub type WINTRUST_DATA_REVOCATION_CHECKS = u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTD_REVOKE_NONE: WINTRUST_DATA_REVOCATION_CHECKS = 0u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTD_REVOKE_WHOLECHAIN: WINTRUST_DATA_REVOCATION_CHECKS = 1u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub type WINTRUST_DATA_STATE_ACTION = u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTD_STATEACTION_IGNORE: WINTRUST_DATA_STATE_ACTION = 0u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTD_STATEACTION_VERIFY: WINTRUST_DATA_STATE_ACTION = 1u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTD_STATEACTION_CLOSE: WINTRUST_DATA_STATE_ACTION = 2u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTD_STATEACTION_AUTO_CACHE: WINTRUST_DATA_STATE_ACTION = 3u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTD_STATEACTION_AUTO_CACHE_FLUSH: WINTRUST_DATA_STATE_ACTION = 4u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub type WINTRUST_DATA_UICHOICE = u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTD_UI_ALL: WINTRUST_DATA_UICHOICE = 1u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTD_UI_NONE: WINTRUST_DATA_UICHOICE = 2u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTD_UI_NOBAD: WINTRUST_DATA_UICHOICE = 3u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTD_UI_NOGOOD: WINTRUST_DATA_UICHOICE = 4u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub type WINTRUST_DATA_UICONTEXT = u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTD_UICONTEXT_EXECUTE: WINTRUST_DATA_UICONTEXT = 0u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTD_UICONTEXT_INSTALL: WINTRUST_DATA_UICONTEXT = 1u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub type WINTRUST_DATA_UNION_CHOICE = u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTD_CHOICE_FILE: WINTRUST_DATA_UNION_CHOICE = 1u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTD_CHOICE_CATALOG: WINTRUST_DATA_UNION_CHOICE = 2u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTD_CHOICE_BLOB: WINTRUST_DATA_UNION_CHOICE = 3u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTD_CHOICE_SIGNER: WINTRUST_DATA_UNION_CHOICE = 4u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTD_CHOICE_CERT: WINTRUST_DATA_UNION_CHOICE = 5u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINTRUST_FILE_INFO {
     pub cbStruct: u32,
@@ -853,24 +953,40 @@ impl ::core::clone::Clone for WINTRUST_FILE_INFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub type WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const DWACTION_ALLOCANDFILL: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = 1u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const DWACTION_FREE: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = 2u32;
 pub const WINTRUST_MAX_HASH_BYTES_TO_MAP_DEFAULT: u32 = 1048576u32;
 pub const WINTRUST_MAX_HEADER_BYTES_TO_MAP_DEFAULT: u32 = 10485760u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub type WINTRUST_POLICY_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTPF_TRUSTTEST: WINTRUST_POLICY_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTPF_TESTCANBEVALID: WINTRUST_POLICY_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTPF_IGNOREEXPIRATION: WINTRUST_POLICY_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTPF_IGNOREREVOKATION: WINTRUST_POLICY_FLAGS = 512u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTPF_OFFLINEOK_IND: WINTRUST_POLICY_FLAGS = 1024u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTPF_OFFLINEOK_COM: WINTRUST_POLICY_FLAGS = 2048u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTPF_OFFLINEOKNBU_IND: WINTRUST_POLICY_FLAGS = 4096u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTPF_OFFLINEOKNBU_COM: WINTRUST_POLICY_FLAGS = 8192u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTPF_VERIFY_V1_OFF: WINTRUST_POLICY_FLAGS = 65536u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTPF_IGNOREREVOCATIONONTS: WINTRUST_POLICY_FLAGS = 131072u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WTPF_ALLOWONLYPERTRUST: WINTRUST_POLICY_FLAGS = 262144u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WINTRUST_SGNR_INFO {
     pub cbStruct: u32,
@@ -888,6 +1004,7 @@ impl ::core::clone::Clone for WINTRUST_SGNR_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WINTRUST_SIGNATURE_SETTINGS {
     pub cbStruct: u32,
@@ -905,10 +1022,14 @@ impl ::core::clone::Clone for WINTRUST_SIGNATURE_SETTINGS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub type WINTRUST_SIGNATURE_SETTINGS_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WSS_VERIFY_SPECIFIC: WINTRUST_SIGNATURE_SETTINGS_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WSS_GET_SECONDARY_SIG_COUNT: WINTRUST_SIGNATURE_SETTINGS_FLAGS = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub struct WIN_CERTIFICATE {
     pub dwLength: u32,
     pub wRevision: u16,
@@ -928,6 +1049,7 @@ pub const WIN_CERT_TYPE_RESERVED_1: u32 = 3u32;
 pub const WIN_CERT_TYPE_TS_STACK_SIGNED: u32 = 4u32;
 pub const WIN_CERT_TYPE_X509: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIN_SPUB_TRUSTED_PUBLISHER_DATA {
     pub hClientToken: super::super::Foundation::HANDLE,
@@ -942,6 +1064,7 @@ impl ::core::clone::Clone for WIN_SPUB_TRUSTED_PUBLISHER_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT {
     pub hClientToken: super::super::Foundation::HANDLE,
@@ -957,6 +1080,7 @@ impl ::core::clone::Clone for WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub struct WIN_TRUST_ACTDATA_SUBJECT_ONLY {
     pub SubjectType: *mut ::windows_sys::core::GUID,
     pub Subject: *mut ::core::ffi::c_void,
@@ -968,6 +1092,7 @@ impl ::core::clone::Clone for WIN_TRUST_ACTDATA_SUBJECT_ONLY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIN_TRUST_SUBJECT_FILE {
     pub hFile: super::super::Foundation::HANDLE,
@@ -982,6 +1107,7 @@ impl ::core::clone::Clone for WIN_TRUST_SUBJECT_FILE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
     pub hFile: super::super::Foundation::HANDLE,
@@ -1006,6 +1132,7 @@ pub const WSS_OUT_SEALING_STATUS_VERIFIED: u32 = 2147483648u32;
 pub const WSS_SIGTRUST_SUPPORT: u32 = 2u32;
 pub const WSS_VERIFY_SEALING: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
     pub Anonymous: WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0,
@@ -1023,6 +1150,7 @@ impl ::core::clone::Clone for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub union WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
     pub cbStruct: u32,
@@ -1037,6 +1165,7 @@ impl ::core::clone::Clone for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub struct WTD_GENERIC_CHAIN_POLICY_DATA {
     pub Anonymous: WTD_GENERIC_CHAIN_POLICY_DATA_0,
@@ -1054,6 +1183,7 @@ impl ::core::clone::Clone for WTD_GENERIC_CHAIN_POLICY_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub union WTD_GENERIC_CHAIN_POLICY_DATA_0 {
     pub cbStruct: u32,
@@ -1068,6 +1198,7 @@ impl ::core::clone::Clone for WTD_GENERIC_CHAIN_POLICY_DATA_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO {
     pub Anonymous: WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0,
@@ -1087,6 +1218,7 @@ impl ::core::clone::Clone for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub union WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 {
     pub cbStruct: u32,

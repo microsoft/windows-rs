@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 #[repr(transparent)]
 pub struct IItemEnumerator(::windows::core::IUnknown);
 impl IItemEnumerator {
@@ -63,6 +64,7 @@ pub struct IItemEnumeratorVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 #[repr(transparent)]
 pub struct ISettingsContext(::windows::core::IUnknown);
 impl ISettingsContext {
@@ -144,6 +146,7 @@ pub struct ISettingsContextVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidentity: ::windows::core::RawPtr, pwzsetting: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 #[repr(transparent)]
 pub struct ISettingsEngine(::windows::core::IUnknown);
 impl ISettingsEngine {
@@ -272,6 +275,7 @@ pub struct ISettingsEngineVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settingscontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 #[repr(transparent)]
 pub struct ISettingsIdentity(::windows::core::IUnknown);
 impl ISettingsIdentity {
@@ -340,6 +344,7 @@ pub struct ISettingsIdentityVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 #[repr(transparent)]
 pub struct ISettingsItem(::windows::core::IUnknown);
 impl ISettingsItem {
@@ -520,6 +525,7 @@ pub struct ISettingsItemVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 #[repr(transparent)]
 pub struct ISettingsNamespace(::windows::core::IUnknown);
 impl ISettingsNamespace {
@@ -610,6 +616,7 @@ pub struct ISettingsNamespaceVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, value: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 #[repr(transparent)]
 pub struct ISettingsResult(::windows::core::IUnknown);
 impl ISettingsResult {
@@ -692,6 +699,7 @@ pub struct ISettingsResultVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 #[repr(transparent)]
 pub struct ITargetInfo(::windows::core::IUnknown);
 impl ITargetInfo {
@@ -871,93 +879,181 @@ pub struct ITargetInfoVtbl(
 pub const LIMITED_VALIDATION_MODE: u32 = 1u32;
 pub const LINK_STORE_TO_ENGINE_INSTANCE: u32 = 1u32;
 pub const SettingsEngine: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bb5_20b3_11da_81a5_0030f1642e3c);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_ABORTOPERATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255384i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_ASSERTIONFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255398i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_ATTRIBUTENOTALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255420i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_ATTRIBUTENOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255421i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_CONFLICTINGASSERTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255399i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_CYCLICREFERENCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255389i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_DUPLICATENAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255397i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_EXPRESSIONNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255408i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_HANDLERNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255394i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_INTERNALERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255424i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_INVALIDATTRIBUTECOMBINATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255385i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_INVALIDDATATYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255416i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_INVALIDEXPRESSIONSYNTAX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255401i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_INVALIDHANDLERSYNTAX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255393i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_INVALIDKEY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255396i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_INVALIDLANGUAGEFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255410i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_INVALIDPATH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255413i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_INVALIDPROCESSORFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255382i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_INVALIDSTREAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255395i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_INVALIDVALUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255419i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_INVALIDVALUEFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255418i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_INVALIDVERSIONFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255411i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_KEYNOTCHANGEABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255409i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_MANIFESTCOMPILATIONFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255390i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_MISSINGCONFIGURATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255383i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_MIXTYPEASSERTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255388i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_NAMESPACEALREADYREGISTERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255403i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_NAMESPACENOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255404i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_NOTIFICATIONNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255400i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_NOTPOSITIONED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255415i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_NOTSUPPORTEDFUNCTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255387i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_READONLYITEM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255414i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_RESTRICTIONFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255391i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_SOURCEMANEMPTYVALUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255381i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_STATENODENOTALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255422i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_STATENODENOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255423i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_STORECORRUPTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255402i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_SUBSTITUTIONNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255407i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_TYPENOTSPECIFIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255417i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_UNKNOWNRESULT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145251325i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_USERALREADYREGISTERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255406i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_USERNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255405i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_VALIDATIONFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255392i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_VALUETOOBIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255386i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_WRONGESCAPESTRING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255412i32);
 pub const WCM_SETTINGS_ID_FLAG_DEFINITION: u32 = 1u32;
 pub const WCM_SETTINGS_ID_FLAG_REFERENCE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_S_ATTRIBUTENOTALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(2232325i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_S_ATTRIBUTENOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(2232321i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_S_INTERNALERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(2232320i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_S_INVALIDATTRIBUTECOMBINATION: ::windows::core::HRESULT = ::windows::core::HRESULT(2232324i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_S_LEGACYSETTINGWARNING: ::windows::core::HRESULT = ::windows::core::HRESULT(2232322i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_S_NAMESPACENOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(2232326i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub type WcmDataType = i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const dataTypeByte: WcmDataType = 1i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const dataTypeSByte: WcmDataType = 2i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const dataTypeUInt16: WcmDataType = 3i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const dataTypeInt16: WcmDataType = 4i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const dataTypeUInt32: WcmDataType = 5i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const dataTypeInt32: WcmDataType = 6i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const dataTypeUInt64: WcmDataType = 7i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const dataTypeInt64: WcmDataType = 8i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const dataTypeBoolean: WcmDataType = 11i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const dataTypeString: WcmDataType = 12i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const dataTypeFlagArray: WcmDataType = 32768i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub type WcmNamespaceAccess = i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const ReadOnlyAccess: WcmNamespaceAccess = 1i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const ReadWriteAccess: WcmNamespaceAccess = 2i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub type WcmNamespaceEnumerationFlags = i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const SharedEnumeration: WcmNamespaceEnumerationFlags = 1i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const UserEnumeration: WcmNamespaceEnumerationFlags = 2i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const AllEnumeration: WcmNamespaceEnumerationFlags = 3i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub type WcmRestrictionFacets = i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const restrictionFacetMaxLength: WcmRestrictionFacets = 1i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const restrictionFacetEnumeration: WcmRestrictionFacets = 2i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const restrictionFacetMaxInclusive: WcmRestrictionFacets = 4i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const restrictionFacetMinInclusive: WcmRestrictionFacets = 8i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub type WcmSettingType = i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const settingTypeScalar: WcmSettingType = 1i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const settingTypeComplex: WcmSettingType = 2i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const settingTypeList: WcmSettingType = 3i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub type WcmTargetMode = i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const OfflineMode: WcmTargetMode = 1i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const OnlineMode: WcmTargetMode = 2i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub type WcmUserStatus = i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const UnknownStatus: WcmUserStatus = 0i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const UserRegistered: WcmUserStatus = 1i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const UserUnregistered: WcmUserStatus = 2i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const UserLoaded: WcmUserStatus = 3i32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const UserUnloaded: WcmUserStatus = 4i32;

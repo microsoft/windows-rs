@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeDeviceConfigurationStatePreview(pub i32);
 impl GazeDeviceConfigurationStatePreview {
@@ -29,6 +30,7 @@ unsafe impl ::windows::core::RuntimeType for GazeDeviceConfigurationStatePreview
 impl ::windows::core::DefaultType for GazeDeviceConfigurationStatePreview {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeDevicePreview(::windows::core::IUnknown);
 impl GazeDevicePreview {
@@ -148,6 +150,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
 }
 unsafe impl ::core::marker::Send for GazeDevicePreview {}
 unsafe impl ::core::marker::Sync for GazeDevicePreview {}
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeDeviceWatcherAddedPreviewEventArgs(::windows::core::IUnknown);
 impl GazeDeviceWatcherAddedPreviewEventArgs {
@@ -222,6 +225,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
 }
 unsafe impl ::core::marker::Send for GazeDeviceWatcherAddedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeDeviceWatcherAddedPreviewEventArgs {}
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeDeviceWatcherPreview(::windows::core::IUnknown);
 impl GazeDeviceWatcherPreview {
@@ -349,6 +353,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
 }
 unsafe impl ::core::marker::Send for GazeDeviceWatcherPreview {}
 unsafe impl ::core::marker::Sync for GazeDeviceWatcherPreview {}
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeDeviceWatcherRemovedPreviewEventArgs(::windows::core::IUnknown);
 impl GazeDeviceWatcherRemovedPreviewEventArgs {
@@ -423,6 +428,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
 }
 unsafe impl ::core::marker::Send for GazeDeviceWatcherRemovedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeDeviceWatcherRemovedPreviewEventArgs {}
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeDeviceWatcherUpdatedPreviewEventArgs(::windows::core::IUnknown);
 impl GazeDeviceWatcherUpdatedPreviewEventArgs {
@@ -497,6 +503,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
 }
 unsafe impl ::core::marker::Send for GazeDeviceWatcherUpdatedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeDeviceWatcherUpdatedPreviewEventArgs {}
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeEnteredPreviewEventArgs(::windows::core::IUnknown);
 impl GazeEnteredPreviewEventArgs {
@@ -582,6 +589,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
 }
 unsafe impl ::core::marker::Send for GazeEnteredPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeEnteredPreviewEventArgs {}
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeExitedPreviewEventArgs(::windows::core::IUnknown);
 impl GazeExitedPreviewEventArgs {
@@ -667,6 +675,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
 }
 unsafe impl ::core::marker::Send for GazeExitedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeExitedPreviewEventArgs {}
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeInputSourcePreview(::windows::core::IUnknown);
 impl GazeInputSourcePreview {
@@ -789,6 +798,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
 }
 unsafe impl ::core::marker::Send for GazeInputSourcePreview {}
 unsafe impl ::core::marker::Sync for GazeInputSourcePreview {}
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeMovedPreviewEventArgs(::windows::core::IUnknown);
 impl GazeMovedPreviewEventArgs {
@@ -882,6 +892,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
 }
 unsafe impl ::core::marker::Send for GazeMovedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeMovedPreviewEventArgs {}
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazePointPreview(::windows::core::IUnknown);
 impl GazePointPreview {

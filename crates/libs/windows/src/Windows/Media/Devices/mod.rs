@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Media_Devices_Core")]
 pub mod Core;
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct AdvancedPhotoCaptureSettings(::windows::core::IUnknown);
 impl AdvancedPhotoCaptureSettings {
@@ -86,6 +87,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adva
 }
 unsafe impl ::core::marker::Send for AdvancedPhotoCaptureSettings {}
 unsafe impl ::core::marker::Sync for AdvancedPhotoCaptureSettings {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct AdvancedPhotoControl(::windows::core::IUnknown);
 impl AdvancedPhotoControl {
@@ -179,6 +181,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adva
 }
 unsafe impl ::core::marker::Send for AdvancedPhotoControl {}
 unsafe impl ::core::marker::Sync for AdvancedPhotoControl {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct AdvancedPhotoMode(pub i32);
 impl AdvancedPhotoMode {
@@ -208,6 +211,7 @@ unsafe impl ::windows::core::RuntimeType for AdvancedPhotoMode {
 impl ::windows::core::DefaultType for AdvancedPhotoMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct AudioDeviceController(::windows::core::IUnknown);
 impl AudioDeviceController {
@@ -341,6 +345,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaDeviceController> for &AudioDevice
         ::core::convert::TryInto::<IMediaDeviceController>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct AudioDeviceModule(::windows::core::IUnknown);
 impl AudioDeviceModule {
@@ -449,6 +454,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct AudioDeviceModuleNotificationEventArgs(::windows::core::IUnknown);
 impl AudioDeviceModuleNotificationEventArgs {
@@ -531,6 +537,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioDeviceModuleNotificationEventArgs {}
 unsafe impl ::core::marker::Sync for AudioDeviceModuleNotificationEventArgs {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct AudioDeviceModulesManager(::windows::core::IUnknown);
 impl AudioDeviceModulesManager {
@@ -637,6 +644,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioDeviceModulesManager {}
 unsafe impl ::core::marker::Sync for AudioDeviceModulesManager {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct AudioDeviceRole(pub i32);
 impl AudioDeviceRole {
@@ -664,6 +672,7 @@ unsafe impl ::windows::core::RuntimeType for AudioDeviceRole {
 impl ::windows::core::DefaultType for AudioDeviceRole {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct AutoFocusRange(pub i32);
 impl AutoFocusRange {
@@ -692,6 +701,7 @@ unsafe impl ::windows::core::RuntimeType for AutoFocusRange {
 impl ::windows::core::DefaultType for AutoFocusRange {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct CallControl(::windows::core::IUnknown);
 impl CallControl {
@@ -882,6 +892,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Call
 }
 unsafe impl ::core::marker::Send for CallControl {}
 unsafe impl ::core::marker::Sync for CallControl {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct CallControlEventHandler(pub ::windows::core::IUnknown);
 impl CallControlEventHandler {
@@ -950,6 +961,7 @@ unsafe impl ::windows::core::RuntimeType for CallControlEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct CallControlEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct CameraOcclusionInfo(::windows::core::IUnknown);
 impl CameraOcclusionInfo {
@@ -1044,6 +1056,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Came
 }
 unsafe impl ::core::marker::Send for CameraOcclusionInfo {}
 unsafe impl ::core::marker::Sync for CameraOcclusionInfo {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct CameraOcclusionKind(pub i32);
 impl CameraOcclusionKind {
@@ -1071,6 +1084,7 @@ unsafe impl ::windows::core::RuntimeType for CameraOcclusionKind {
 impl ::windows::core::DefaultType for CameraOcclusionKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct CameraOcclusionState(::windows::core::IUnknown);
 impl CameraOcclusionState {
@@ -1152,6 +1166,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Came
 }
 unsafe impl ::core::marker::Send for CameraOcclusionState {}
 unsafe impl ::core::marker::Sync for CameraOcclusionState {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct CameraOcclusionStateChangedEventArgs(::windows::core::IUnknown);
 impl CameraOcclusionStateChangedEventArgs {
@@ -1226,6 +1241,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Came
 }
 unsafe impl ::core::marker::Send for CameraOcclusionStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CameraOcclusionStateChangedEventArgs {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct CameraStreamState(pub i32);
 impl CameraStreamState {
@@ -1255,6 +1271,7 @@ unsafe impl ::windows::core::RuntimeType for CameraStreamState {
 impl ::windows::core::DefaultType for CameraStreamState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct CaptureSceneMode(pub i32);
 impl CaptureSceneMode {
@@ -1293,6 +1310,7 @@ unsafe impl ::windows::core::RuntimeType for CaptureSceneMode {
 impl ::windows::core::DefaultType for CaptureSceneMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct CaptureUse(pub i32);
 impl CaptureUse {
@@ -1321,6 +1339,7 @@ unsafe impl ::windows::core::RuntimeType for CaptureUse {
 impl ::windows::core::DefaultType for CaptureUse {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct ColorTemperaturePreset(pub i32);
 impl ColorTemperaturePreset {
@@ -1354,6 +1373,7 @@ unsafe impl ::windows::core::RuntimeType for ColorTemperaturePreset {
 impl ::windows::core::DefaultType for ColorTemperaturePreset {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct DefaultAudioCaptureDeviceChangedEventArgs(::windows::core::IUnknown);
 impl DefaultAudioCaptureDeviceChangedEventArgs {
@@ -1457,6 +1477,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDefaultAudioDeviceChangedEventArgs> for
 }
 unsafe impl ::core::marker::Send for DefaultAudioCaptureDeviceChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DefaultAudioCaptureDeviceChangedEventArgs {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct DefaultAudioRenderDeviceChangedEventArgs(::windows::core::IUnknown);
 impl DefaultAudioRenderDeviceChangedEventArgs {
@@ -1560,6 +1581,7 @@ impl<'a> ::windows::core::IntoParam<'a, IDefaultAudioDeviceChangedEventArgs> for
 }
 unsafe impl ::core::marker::Send for DefaultAudioRenderDeviceChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DefaultAudioRenderDeviceChangedEventArgs {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct DialRequestedEventArgs(::windows::core::IUnknown);
 impl DialRequestedEventArgs {
@@ -1638,6 +1660,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dial
 }
 unsafe impl ::core::marker::Send for DialRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for DialRequestedEventArgs {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct DialRequestedEventHandler(pub ::windows::core::IUnknown);
 impl DialRequestedEventHandler {
@@ -1706,6 +1729,7 @@ unsafe impl ::windows::core::RuntimeType for DialRequestedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DialRequestedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct DigitalWindowBounds(::windows::core::IUnknown);
 impl DigitalWindowBounds {
@@ -1813,6 +1837,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Digi
 }
 unsafe impl ::core::marker::Send for DigitalWindowBounds {}
 unsafe impl ::core::marker::Sync for DigitalWindowBounds {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct DigitalWindowCapability(::windows::core::IUnknown);
 impl DigitalWindowCapability {
@@ -1923,6 +1948,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Digi
 }
 unsafe impl ::core::marker::Send for DigitalWindowCapability {}
 unsafe impl ::core::marker::Sync for DigitalWindowCapability {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct DigitalWindowControl(::windows::core::IUnknown);
 impl DigitalWindowControl {
@@ -2041,6 +2067,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Digi
 }
 unsafe impl ::core::marker::Send for DigitalWindowControl {}
 unsafe impl ::core::marker::Sync for DigitalWindowControl {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct DigitalWindowMode(pub i32);
 impl DigitalWindowMode {
@@ -2069,6 +2096,7 @@ unsafe impl ::windows::core::RuntimeType for DigitalWindowMode {
 impl ::windows::core::DefaultType for DigitalWindowMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct ExposureCompensationControl(::windows::core::IUnknown);
 impl ExposureCompensationControl {
@@ -2177,6 +2205,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Expo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct ExposureControl(::windows::core::IUnknown);
 impl ExposureControl {
@@ -2304,6 +2333,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Expo
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct ExposurePriorityVideoControl(::windows::core::IUnknown);
 impl ExposurePriorityVideoControl {
@@ -2389,6 +2419,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Expo
 }
 unsafe impl ::core::marker::Send for ExposurePriorityVideoControl {}
 unsafe impl ::core::marker::Sync for ExposurePriorityVideoControl {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct FlashControl(::windows::core::IUnknown);
 impl FlashControl {
@@ -2537,6 +2568,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Flas
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct FocusControl(::windows::core::IUnknown);
 impl FocusControl {
@@ -2756,6 +2788,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Focu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct FocusMode(pub i32);
 impl FocusMode {
@@ -2785,6 +2818,7 @@ unsafe impl ::windows::core::RuntimeType for FocusMode {
 impl ::windows::core::DefaultType for FocusMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct FocusPreset(pub i32);
 impl FocusPreset {
@@ -2816,6 +2850,7 @@ unsafe impl ::windows::core::RuntimeType for FocusPreset {
 impl ::windows::core::DefaultType for FocusPreset {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct FocusSettings(::windows::core::IUnknown);
 impl FocusSettings {
@@ -2960,6 +2995,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Focu
 }
 unsafe impl ::core::marker::Send for FocusSettings {}
 unsafe impl ::core::marker::Sync for FocusSettings {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct HdrVideoControl(::windows::core::IUnknown);
 impl HdrVideoControl {
@@ -3053,6 +3089,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HdrV
 }
 unsafe impl ::core::marker::Send for HdrVideoControl {}
 unsafe impl ::core::marker::Sync for HdrVideoControl {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct HdrVideoMode(pub i32);
 impl HdrVideoMode {
@@ -3562,6 +3599,7 @@ pub struct ICameraOcclusionStateChangedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct IDefaultAudioDeviceChangedEventArgs(::windows::core::IUnknown);
 impl IDefaultAudioDeviceChangedEventArgs {
@@ -4192,6 +4230,7 @@ pub struct IMediaDeviceControlCapabilitiesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct IMediaDeviceController(::windows::core::IUnknown);
 impl IMediaDeviceController {
@@ -4717,6 +4756,7 @@ pub struct IZoomSettingsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct InfraredTorchControl(::windows::core::IUnknown);
 impl InfraredTorchControl {
@@ -4842,6 +4882,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Infr
 }
 unsafe impl ::core::marker::Send for InfraredTorchControl {}
 unsafe impl ::core::marker::Sync for InfraredTorchControl {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct InfraredTorchMode(pub i32);
 impl InfraredTorchMode {
@@ -4870,6 +4911,7 @@ unsafe impl ::windows::core::RuntimeType for InfraredTorchMode {
 impl ::windows::core::DefaultType for InfraredTorchMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct IsoSpeedControl(::windows::core::IUnknown);
 impl IsoSpeedControl {
@@ -5017,6 +5059,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IsoS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices', 'deprecated'*"]
 #[repr(transparent)]
 pub struct IsoSpeedPreset(pub i32);
 impl IsoSpeedPreset {
@@ -5054,6 +5097,7 @@ unsafe impl ::windows::core::RuntimeType for IsoSpeedPreset {
 impl ::windows::core::DefaultType for IsoSpeedPreset {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct KeypadPressedEventArgs(::windows::core::IUnknown);
 impl KeypadPressedEventArgs {
@@ -5128,6 +5172,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Keyp
 }
 unsafe impl ::core::marker::Send for KeypadPressedEventArgs {}
 unsafe impl ::core::marker::Sync for KeypadPressedEventArgs {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct KeypadPressedEventHandler(pub ::windows::core::IUnknown);
 impl KeypadPressedEventHandler {
@@ -5196,6 +5241,7 @@ unsafe impl ::windows::core::RuntimeType for KeypadPressedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct KeypadPressedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct LowLagPhotoControl(::windows::core::IUnknown);
 impl LowLagPhotoControl {
@@ -5319,6 +5365,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LowL
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct LowLagPhotoSequenceControl(::windows::core::IUnknown);
 impl LowLagPhotoSequenceControl {
@@ -5485,6 +5532,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LowL
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct ManualFocusDistance(pub i32);
 impl ManualFocusDistance {
@@ -5513,6 +5561,7 @@ unsafe impl ::windows::core::RuntimeType for ManualFocusDistance {
 impl ::windows::core::DefaultType for ManualFocusDistance {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct MediaCaptureFocusState(pub i32);
 impl MediaCaptureFocusState {
@@ -5543,6 +5592,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureFocusState {
 impl ::windows::core::DefaultType for MediaCaptureFocusState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct MediaCaptureOptimization(pub i32);
 impl MediaCaptureOptimization {
@@ -5575,6 +5625,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureOptimization {
 impl ::windows::core::DefaultType for MediaCaptureOptimization {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct MediaCapturePauseBehavior(pub i32);
 impl MediaCapturePauseBehavior {
@@ -5664,6 +5715,7 @@ impl MediaDevice {
 impl ::windows::core::RuntimeName for MediaDevice {
     const NAME: &'static str = "Windows.Media.Devices.MediaDevice";
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct MediaDeviceControl(::windows::core::IUnknown);
 impl MediaDeviceControl {
@@ -5764,6 +5816,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct MediaDeviceControlCapabilities(::windows::core::IUnknown);
 impl MediaDeviceControlCapabilities {
@@ -5871,6 +5924,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct ModuleCommandResult(::windows::core::IUnknown);
 impl ModuleCommandResult {
@@ -5951,6 +6005,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Modu
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct OpticalImageStabilizationControl(::windows::core::IUnknown);
 impl OpticalImageStabilizationControl {
@@ -6044,6 +6099,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Opti
 }
 unsafe impl ::core::marker::Send for OpticalImageStabilizationControl {}
 unsafe impl ::core::marker::Sync for OpticalImageStabilizationControl {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct OpticalImageStabilizationMode(pub i32);
 impl OpticalImageStabilizationMode {
@@ -6072,6 +6128,7 @@ unsafe impl ::windows::core::RuntimeType for OpticalImageStabilizationMode {
 impl ::windows::core::DefaultType for OpticalImageStabilizationMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct PanelBasedOptimizationControl(::windows::core::IUnknown);
 impl PanelBasedOptimizationControl {
@@ -6159,6 +6216,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pane
 }
 unsafe impl ::core::marker::Send for PanelBasedOptimizationControl {}
 unsafe impl ::core::marker::Sync for PanelBasedOptimizationControl {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct PhotoConfirmationControl(::windows::core::IUnknown);
 impl PhotoConfirmationControl {
@@ -6255,6 +6313,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct RedialRequestedEventArgs(::windows::core::IUnknown);
 impl RedialRequestedEventArgs {
@@ -6326,6 +6385,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Redi
 }
 unsafe impl ::core::marker::Send for RedialRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for RedialRequestedEventArgs {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct RedialRequestedEventHandler(pub ::windows::core::IUnknown);
 impl RedialRequestedEventHandler {
@@ -6394,6 +6454,7 @@ unsafe impl ::windows::core::RuntimeType for RedialRequestedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct RedialRequestedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct RegionOfInterest(::windows::core::IUnknown);
 impl RegionOfInterest {
@@ -6547,6 +6608,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Regi
 }
 unsafe impl ::core::marker::Send for RegionOfInterest {}
 unsafe impl ::core::marker::Sync for RegionOfInterest {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct RegionOfInterestType(pub i32);
 impl RegionOfInterestType {
@@ -6574,6 +6636,7 @@ unsafe impl ::windows::core::RuntimeType for RegionOfInterestType {
 impl ::windows::core::DefaultType for RegionOfInterestType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct RegionsOfInterestControl(::windows::core::IUnknown);
 impl RegionsOfInterestControl {
@@ -6691,6 +6754,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Regi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct SceneModeControl(::windows::core::IUnknown);
 impl SceneModeControl {
@@ -6779,6 +6843,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Scen
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct SendCommandStatus(pub i32);
 impl SendCommandStatus {
@@ -6806,6 +6871,7 @@ unsafe impl ::windows::core::RuntimeType for SendCommandStatus {
 impl ::windows::core::DefaultType for SendCommandStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct TelephonyKey(pub i32);
 impl TelephonyKey {
@@ -6847,6 +6913,7 @@ unsafe impl ::windows::core::RuntimeType for TelephonyKey {
 impl ::windows::core::DefaultType for TelephonyKey {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct TorchControl(::windows::core::IUnknown);
 impl TorchControl {
@@ -6948,6 +7015,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Torc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct VideoDeviceController(::windows::core::IUnknown);
 impl VideoDeviceController {
@@ -7384,6 +7452,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaDeviceController> for &VideoDevice
         ::core::convert::TryInto::<IMediaDeviceController>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct VideoDeviceControllerGetDevicePropertyResult(::windows::core::IUnknown);
 impl VideoDeviceControllerGetDevicePropertyResult {
@@ -7465,6 +7534,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vide
 }
 unsafe impl ::core::marker::Send for VideoDeviceControllerGetDevicePropertyResult {}
 unsafe impl ::core::marker::Sync for VideoDeviceControllerGetDevicePropertyResult {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct VideoDeviceControllerGetDevicePropertyStatus(pub i32);
 impl VideoDeviceControllerGetDevicePropertyStatus {
@@ -7497,6 +7567,7 @@ unsafe impl ::windows::core::RuntimeType for VideoDeviceControllerGetDevicePrope
 impl ::windows::core::DefaultType for VideoDeviceControllerGetDevicePropertyStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct VideoDeviceControllerSetDevicePropertyStatus(pub i32);
 impl VideoDeviceControllerSetDevicePropertyStatus {
@@ -7528,6 +7599,7 @@ unsafe impl ::windows::core::RuntimeType for VideoDeviceControllerSetDevicePrope
 impl ::windows::core::DefaultType for VideoDeviceControllerSetDevicePropertyStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct VideoTemporalDenoisingControl(::windows::core::IUnknown);
 impl VideoTemporalDenoisingControl {
@@ -7621,6 +7693,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vide
 }
 unsafe impl ::core::marker::Send for VideoTemporalDenoisingControl {}
 unsafe impl ::core::marker::Sync for VideoTemporalDenoisingControl {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct VideoTemporalDenoisingMode(pub i32);
 impl VideoTemporalDenoisingMode {
@@ -7649,6 +7722,7 @@ unsafe impl ::windows::core::RuntimeType for VideoTemporalDenoisingMode {
 impl ::windows::core::DefaultType for VideoTemporalDenoisingMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct WhiteBalanceControl(::windows::core::IUnknown);
 impl WhiteBalanceControl {
@@ -7772,6 +7846,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Whit
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct ZoomControl(::windows::core::IUnknown);
 impl ZoomControl {
@@ -7895,6 +7970,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Zoom
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct ZoomSettings(::windows::core::IUnknown);
 impl ZoomSettings {
@@ -7991,6 +8067,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Zoom
 }
 unsafe impl ::core::marker::Send for ZoomSettings {}
 unsafe impl ::core::marker::Sync for ZoomSettings {}
+#[doc = "*Required features: 'Media_Devices'*"]
 #[repr(transparent)]
 pub struct ZoomTransitionMode(pub i32);
 impl ZoomTransitionMode {

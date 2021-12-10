@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub struct ACTION_HEADER {
     pub transport_id: u32,
     pub action_code: u16,
@@ -26,6 +27,7 @@ impl ::core::default::Default for ACTION_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub struct ADAPTER_STATUS {
     pub adapter_address: [u8; 6],
     pub rev_major: u8,
@@ -81,6 +83,7 @@ pub const DEREGISTERED: u32 = 5u32;
 pub const DUPLICATE: u32 = 6u32;
 pub const DUPLICATE_DEREG: u32 = 7u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub struct FIND_NAME_BUFFER {
     pub length: u8,
     pub access_control: u8,
@@ -110,6 +113,7 @@ impl ::core::default::Default for FIND_NAME_BUFFER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub struct FIND_NAME_HEADER {
     pub node_count: u16,
     pub reserved: u8,
@@ -139,6 +143,7 @@ pub const GROUP_NAME: u32 = 128u32;
 pub const HANGUP_COMPLETE: u32 = 5u32;
 pub const HANGUP_PENDING: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub struct LANA_ENUM {
     pub length: u8,
     pub lana: [u8; 255],
@@ -166,6 +171,7 @@ impl ::core::default::Default for LANA_ENUM {
 pub const LISTEN_OUTSTANDING: u32 = 1u32;
 pub const MAX_LANA: u32 = 254u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub struct NAME_BUFFER {
     pub name: [u8; 16],
     pub name_num: u8,
@@ -193,6 +199,7 @@ impl ::core::default::Default for NAME_BUFFER {
 }
 pub const NAME_FLAGS_MASK: u32 = 135u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NCB {
@@ -245,6 +252,7 @@ impl ::core::default::Default for NCB {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NCB {
@@ -362,6 +370,7 @@ pub const NRC_SCLOSED: u32 = 10u32;
 pub const NRC_SNUMOUT: u32 = 8u32;
 pub const NRC_SYSTEM: u32 = 64u32;
 pub const NRC_TOOMANY: u32 = 34u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Netbios(pncb: *mut NCB) -> u8 {
@@ -380,6 +389,7 @@ pub const REGISTERED: u32 = 4u32;
 pub const REGISTERING: u32 = 0u32;
 pub const SESSION_ABORTED: u32 = 6u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub struct SESSION_BUFFER {
     pub lsn: u8,
     pub state: u8,
@@ -410,6 +420,7 @@ impl ::core::default::Default for SESSION_BUFFER {
 }
 pub const SESSION_ESTABLISHED: u32 = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub struct SESSION_HEADER {
     pub sess_name: u8,
     pub num_sess: u8,

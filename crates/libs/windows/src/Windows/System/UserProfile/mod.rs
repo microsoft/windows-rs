@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'System_UserProfile', 'deprecated'*"]
 #[repr(transparent)]
 pub struct AccountPictureKind(pub i32);
 impl AccountPictureKind {
@@ -53,6 +54,7 @@ impl AdvertisingManager {
 impl ::windows::core::RuntimeName for AdvertisingManager {
     const NAME: &'static str = "Windows.System.UserProfile.AdvertisingManager";
 }
+#[doc = "*Required features: 'System_UserProfile'*"]
 #[repr(transparent)]
 pub struct AdvertisingManagerForUser(::windows::core::IUnknown);
 impl AdvertisingManagerForUser {
@@ -134,6 +136,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adve
 }
 unsafe impl ::core::marker::Send for AdvertisingManagerForUser {}
 unsafe impl ::core::marker::Sync for AdvertisingManagerForUser {}
+#[doc = "*Required features: 'System_UserProfile'*"]
 #[repr(transparent)]
 pub struct AssignedAccessSettings(::windows::core::IUnknown);
 impl AssignedAccessSettings {
@@ -238,6 +241,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Assi
 }
 unsafe impl ::core::marker::Send for AssignedAccessSettings {}
 unsafe impl ::core::marker::Sync for AssignedAccessSettings {}
+#[doc = "*Required features: 'System_UserProfile'*"]
 #[repr(transparent)]
 pub struct DiagnosticsSettings(::windows::core::IUnknown);
 impl DiagnosticsSettings {
@@ -335,6 +339,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Diag
 }
 unsafe impl ::core::marker::Send for DiagnosticsSettings {}
 unsafe impl ::core::marker::Sync for DiagnosticsSettings {}
+#[doc = "*Required features: 'System_UserProfile'*"]
 #[repr(transparent)]
 pub struct FirstSignInSettings(::windows::core::IUnknown);
 impl FirstSignInSettings {
@@ -595,6 +600,7 @@ impl GlobalizationPreferences {
 impl ::windows::core::RuntimeName for GlobalizationPreferences {
     const NAME: &'static str = "Windows.System.UserProfile.GlobalizationPreferences";
 }
+#[doc = "*Required features: 'System_UserProfile'*"]
 #[repr(transparent)]
 pub struct GlobalizationPreferencesForUser(::windows::core::IUnknown);
 impl GlobalizationPreferencesForUser {
@@ -1167,6 +1173,7 @@ impl LockScreen {
 impl ::windows::core::RuntimeName for LockScreen {
     const NAME: &'static str = "Windows.System.UserProfile.LockScreen";
 }
+#[doc = "*Required features: 'System_UserProfile', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SetAccountPictureResult(pub i32);
 impl SetAccountPictureResult {
@@ -1198,6 +1205,7 @@ unsafe impl ::windows::core::RuntimeType for SetAccountPictureResult {
 impl ::windows::core::DefaultType for SetAccountPictureResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_UserProfile'*"]
 #[repr(transparent)]
 pub struct SetImageFeedResult(pub i32);
 impl SetImageFeedResult {
@@ -1338,6 +1346,7 @@ impl UserInformation {
 impl ::windows::core::RuntimeName for UserInformation {
     const NAME: &'static str = "Windows.System.UserProfile.UserInformation";
 }
+#[doc = "*Required features: 'System_UserProfile'*"]
 #[repr(transparent)]
 pub struct UserProfilePersonalizationSettings(::windows::core::IUnknown);
 impl UserProfilePersonalizationSettings {

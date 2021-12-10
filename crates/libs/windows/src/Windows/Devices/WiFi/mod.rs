@@ -167,6 +167,7 @@ pub struct IWiFiWpsConfigurationResultVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiAccessStatus(pub i32);
 impl WiFiAccessStatus {
@@ -196,6 +197,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiAccessStatus {
 impl ::windows::core::DefaultType for WiFiAccessStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiAdapter(::windows::core::IUnknown);
 impl WiFiAdapter {
@@ -374,6 +376,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
 }
 unsafe impl ::core::marker::Send for WiFiAdapter {}
 unsafe impl ::core::marker::Sync for WiFiAdapter {}
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiAvailableNetwork(::windows::core::IUnknown);
 impl WiFiAvailableNetwork {
@@ -521,6 +524,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
 }
 unsafe impl ::core::marker::Send for WiFiAvailableNetwork {}
 unsafe impl ::core::marker::Sync for WiFiAvailableNetwork {}
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiConnectionMethod(pub i32);
 impl WiFiConnectionMethod {
@@ -549,6 +553,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiConnectionMethod {
 impl ::windows::core::DefaultType for WiFiConnectionMethod {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiConnectionResult(::windows::core::IUnknown);
 impl WiFiConnectionResult {
@@ -623,6 +628,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
 }
 unsafe impl ::core::marker::Send for WiFiConnectionResult {}
 unsafe impl ::core::marker::Sync for WiFiConnectionResult {}
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiConnectionStatus(pub i32);
 impl WiFiConnectionStatus {
@@ -655,6 +661,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiConnectionStatus {
 impl ::windows::core::DefaultType for WiFiConnectionStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiNetworkKind(pub i32);
 impl WiFiNetworkKind {
@@ -683,6 +690,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiNetworkKind {
 impl ::windows::core::DefaultType for WiFiNetworkKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiNetworkReport(::windows::core::IUnknown);
 impl WiFiNetworkReport {
@@ -766,6 +774,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
 }
 unsafe impl ::core::marker::Send for WiFiNetworkReport {}
 unsafe impl ::core::marker::Sync for WiFiNetworkReport {}
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiPhyKind(pub i32);
 impl WiFiPhyKind {
@@ -802,6 +811,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiPhyKind {
 impl ::windows::core::DefaultType for WiFiPhyKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiReconnectionKind(pub i32);
 impl WiFiReconnectionKind {
@@ -829,6 +839,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiReconnectionKind {
 impl ::windows::core::DefaultType for WiFiReconnectionKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiWpsConfigurationResult(::windows::core::IUnknown);
 impl WiFiWpsConfigurationResult {
@@ -911,6 +922,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
 }
 unsafe impl ::core::marker::Send for WiFiWpsConfigurationResult {}
 unsafe impl ::core::marker::Sync for WiFiWpsConfigurationResult {}
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiWpsConfigurationStatus(pub i32);
 impl WiFiWpsConfigurationStatus {
@@ -939,6 +951,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiWpsConfigurationStatus {
 impl ::windows::core::DefaultType for WiFiWpsConfigurationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiWpsKind(pub i32);
 impl WiFiWpsKind {

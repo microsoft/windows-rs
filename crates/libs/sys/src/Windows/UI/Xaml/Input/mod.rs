@@ -12,6 +12,7 @@ pub type DoubleTappedEventHandler = *mut ::core::ffi::c_void;
 pub type DoubleTappedRoutedEventArgs = *mut ::core::ffi::c_void;
 pub type ExecuteRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type FindNextElementOptions = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct FocusInputDeviceKind(pub i32);
 impl FocusInputDeviceKind {
@@ -32,6 +33,7 @@ pub type FocusManager = *mut ::core::ffi::c_void;
 pub type FocusManagerGotFocusEventArgs = *mut ::core::ffi::c_void;
 pub type FocusManagerLostFocusEventArgs = *mut ::core::ffi::c_void;
 pub type FocusMovementResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct FocusNavigationDirection(pub i32);
 impl FocusNavigationDirection {
@@ -58,6 +60,7 @@ pub type InertiaRotationBehavior = *mut ::core::ffi::c_void;
 pub type InertiaTranslationBehavior = *mut ::core::ffi::c_void;
 pub type InputScope = *mut ::core::ffi::c_void;
 pub type InputScopeName = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct InputScopeNameValue(pub i32);
 impl InputScopeNameValue {
@@ -114,6 +117,7 @@ impl ::core::clone::Clone for InputScopeNameValue {
 }
 pub type KeyEventHandler = *mut ::core::ffi::c_void;
 pub type KeyRoutedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct KeyTipPlacementMode(pub i32);
 impl KeyTipPlacementMode {
@@ -133,6 +137,7 @@ impl ::core::clone::Clone for KeyTipPlacementMode {
 }
 pub type KeyboardAccelerator = *mut ::core::ffi::c_void;
 pub type KeyboardAcceleratorInvokedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct KeyboardAcceleratorPlacementMode(pub i32);
 impl KeyboardAcceleratorPlacementMode {
@@ -145,6 +150,7 @@ impl ::core::clone::Clone for KeyboardAcceleratorPlacementMode {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct KeyboardNavigationMode(pub i32);
 impl KeyboardNavigationMode {
@@ -165,6 +171,7 @@ pub type ManipulationDeltaEventHandler = *mut ::core::ffi::c_void;
 pub type ManipulationDeltaRoutedEventArgs = *mut ::core::ffi::c_void;
 pub type ManipulationInertiaStartingEventHandler = *mut ::core::ffi::c_void;
 pub type ManipulationInertiaStartingRoutedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct ManipulationModes(pub u32);
 impl ManipulationModes {
@@ -200,6 +207,7 @@ pub type ProcessKeyboardAcceleratorEventArgs = *mut ::core::ffi::c_void;
 pub type RightTappedEventHandler = *mut ::core::ffi::c_void;
 pub type RightTappedRoutedEventArgs = *mut ::core::ffi::c_void;
 pub type StandardUICommand = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct StandardUICommandKind(pub i32);
 impl StandardUICommandKind {
@@ -229,6 +237,7 @@ impl ::core::clone::Clone for StandardUICommandKind {
 }
 pub type TappedEventHandler = *mut ::core::ffi::c_void;
 pub type TappedRoutedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct XYFocusKeyboardNavigationMode(pub i32);
 impl XYFocusKeyboardNavigationMode {
@@ -242,6 +251,7 @@ impl ::core::clone::Clone for XYFocusKeyboardNavigationMode {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct XYFocusNavigationStrategy(pub i32);
 impl XYFocusNavigationStrategy {
@@ -256,6 +266,7 @@ impl ::core::clone::Clone for XYFocusNavigationStrategy {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
 pub struct XYFocusNavigationStrategyOverride(pub i32);
 impl XYFocusNavigationStrategyOverride {

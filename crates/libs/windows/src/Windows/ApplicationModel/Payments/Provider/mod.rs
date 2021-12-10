@@ -125,6 +125,7 @@ pub struct IPaymentTransactionStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
 #[repr(transparent)]
 pub struct PaymentAppCanMakePaymentTriggerDetails(::windows::core::IUnknown);
 impl PaymentAppCanMakePaymentTriggerDetails {
@@ -203,6 +204,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentAppCanMakePaymentTriggerDetails {}
 unsafe impl ::core::marker::Sync for PaymentAppCanMakePaymentTriggerDetails {}
+#[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
 #[repr(transparent)]
 pub struct PaymentAppManager(::windows::core::IUnknown);
 impl PaymentAppManager {
@@ -296,6 +298,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentAppManager {}
 unsafe impl ::core::marker::Sync for PaymentAppManager {}
+#[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
 #[repr(transparent)]
 pub struct PaymentTransaction(::windows::core::IUnknown);
 impl PaymentTransaction {
@@ -442,6 +445,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentTransaction {}
 unsafe impl ::core::marker::Sync for PaymentTransaction {}
+#[doc = "*Required features: 'ApplicationModel_Payments_Provider'*"]
 #[repr(transparent)]
 pub struct PaymentTransactionAcceptResult(::windows::core::IUnknown);
 impl PaymentTransactionAcceptResult {

@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_I2c_Provider'*"]
 #[repr(transparent)]
 pub struct II2cControllerProvider(::windows::core::IUnknown);
 impl II2cControllerProvider {
@@ -79,6 +80,7 @@ pub struct II2cControllerProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_I2c_Provider'*"]
 #[repr(transparent)]
 pub struct II2cDeviceProvider(::windows::core::IUnknown);
 impl II2cDeviceProvider {
@@ -229,6 +231,7 @@ pub struct II2cDeviceProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8, result__: *mut ProviderI2cTransferResult) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_I2c_Provider'*"]
 #[repr(transparent)]
 pub struct II2cProvider(::windows::core::IUnknown);
 impl II2cProvider {
@@ -334,6 +337,7 @@ pub struct IProviderI2cConnectionSettingsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ProviderI2cSharingMode) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ProviderI2cSharingMode) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_I2c_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderI2cBusSpeed(pub i32);
 impl ProviderI2cBusSpeed {
@@ -361,6 +365,7 @@ unsafe impl ::windows::core::RuntimeType for ProviderI2cBusSpeed {
 impl ::windows::core::DefaultType for ProviderI2cBusSpeed {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_I2c_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderI2cConnectionSettings(::windows::core::IUnknown);
 impl ProviderI2cConnectionSettings {
@@ -461,6 +466,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prov
 }
 unsafe impl ::core::marker::Send for ProviderI2cConnectionSettings {}
 unsafe impl ::core::marker::Sync for ProviderI2cConnectionSettings {}
+#[doc = "*Required features: 'Devices_I2c_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderI2cSharingMode(pub i32);
 impl ProviderI2cSharingMode {
@@ -489,6 +495,7 @@ impl ::windows::core::DefaultType for ProviderI2cSharingMode {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Devices_I2c_Provider'*"]
 pub struct ProviderI2cTransferResult {
     pub Status: ProviderI2cTransferStatus,
     pub BytesTransferred: u32,
@@ -519,6 +526,7 @@ impl ::core::default::Default for ProviderI2cTransferResult {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Devices_I2c_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderI2cTransferStatus(pub i32);
 impl ProviderI2cTransferStatus {

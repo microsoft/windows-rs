@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct ForegroundText(pub i32);
 impl ForegroundText {
@@ -15,6 +16,7 @@ impl ::core::clone::Clone for ForegroundText {
 }
 pub type JumpList = *mut ::core::ffi::c_void;
 pub type JumpListItem = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct JumpListItemKind(pub i32);
 impl JumpListItemKind {
@@ -27,6 +29,7 @@ impl ::core::clone::Clone for JumpListItemKind {
         *self
     }
 }
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct JumpListSystemGroupKind(pub i32);
 impl JumpListSystemGroupKind {
@@ -44,6 +47,7 @@ pub type SecondaryTile = *mut ::core::ffi::c_void;
 pub type SecondaryTileVisualElements = *mut ::core::ffi::c_void;
 pub type StartScreenManager = *mut ::core::ffi::c_void;
 pub type TileMixedRealityModel = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct TileMixedRealityModelActivationBehavior(pub i32);
 impl TileMixedRealityModelActivationBehavior {
@@ -56,6 +60,7 @@ impl ::core::clone::Clone for TileMixedRealityModelActivationBehavior {
         *self
     }
 }
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct TileOptions(pub u32);
 impl TileOptions {
@@ -70,6 +75,7 @@ impl ::core::clone::Clone for TileOptions {
         *self
     }
 }
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct TileSize(pub i32);
 impl TileSize {

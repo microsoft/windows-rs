@@ -79,6 +79,7 @@ impl PlatformTelemetryClient {
 impl ::windows::core::RuntimeName for PlatformTelemetryClient {
     const NAME: &'static str = "Windows.System.Diagnostics.Telemetry.PlatformTelemetryClient";
 }
+#[doc = "*Required features: 'System_Diagnostics_Telemetry'*"]
 #[repr(transparent)]
 pub struct PlatformTelemetryRegistrationResult(::windows::core::IUnknown);
 impl PlatformTelemetryRegistrationResult {
@@ -153,6 +154,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Plat
 }
 unsafe impl ::core::marker::Send for PlatformTelemetryRegistrationResult {}
 unsafe impl ::core::marker::Sync for PlatformTelemetryRegistrationResult {}
+#[doc = "*Required features: 'System_Diagnostics_Telemetry'*"]
 #[repr(transparent)]
 pub struct PlatformTelemetryRegistrationSettings(::windows::core::IUnknown);
 impl PlatformTelemetryRegistrationSettings {
@@ -249,6 +251,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Plat
 }
 unsafe impl ::core::marker::Send for PlatformTelemetryRegistrationSettings {}
 unsafe impl ::core::marker::Sync for PlatformTelemetryRegistrationSettings {}
+#[doc = "*Required features: 'System_Diagnostics_Telemetry'*"]
 #[repr(transparent)]
 pub struct PlatformTelemetryRegistrationStatus(pub i32);
 impl PlatformTelemetryRegistrationStatus {

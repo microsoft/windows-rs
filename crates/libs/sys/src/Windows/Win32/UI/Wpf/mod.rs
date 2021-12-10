@@ -29,6 +29,7 @@ pub type IMILBitmapEffectRenderContextImpl = *mut ::core::ffi::c_void;
 pub type IMILBitmapEffects = *mut ::core::ffi::c_void;
 pub const MILBITMAPEFFECT_SDK_VERSION: u32 = 16777216u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 pub struct MILMatrixF {
     pub _11: f64,
     pub _12: f64,
@@ -54,6 +55,7 @@ impl ::core::clone::Clone for MILMatrixF {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 pub struct MilPoint2D {
     pub X: f64,
     pub Y: f64,
@@ -65,6 +67,7 @@ impl ::core::clone::Clone for MilPoint2D {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 pub struct MilRectD {
     pub left: f64,
     pub top: f64,

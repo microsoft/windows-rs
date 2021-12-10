@@ -7,6 +7,7 @@ pub mod Inking;
 pub mod Preview;
 #[cfg(feature = "UI_Input_Spatial")]
 pub mod Spatial;
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct AttachableInputObject(::windows::core::IUnknown);
 impl AttachableInputObject {
@@ -106,6 +107,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 unsafe impl ::core::marker::Send for AttachableInputObject {}
 unsafe impl ::core::marker::Sync for AttachableInputObject {}
 #[repr(C)]
+#[doc = "*Required features: 'UI_Input'*"]
 pub struct CrossSlideThresholds {
     pub SelectionStart: f32,
     pub SpeedBumpStart: f32,
@@ -138,6 +140,7 @@ impl ::core::default::Default for CrossSlideThresholds {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct CrossSlidingEventArgs(::windows::core::IUnknown);
 impl CrossSlidingEventArgs {
@@ -233,6 +236,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cros
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct CrossSlidingState(pub i32);
 impl CrossSlidingState {
@@ -265,6 +269,7 @@ unsafe impl ::windows::core::RuntimeType for CrossSlidingState {
 impl ::windows::core::DefaultType for CrossSlidingState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct DraggingEventArgs(::windows::core::IUnknown);
 impl DraggingEventArgs {
@@ -360,6 +365,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Drag
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct DraggingState(pub i32);
 impl DraggingState {
@@ -388,6 +394,7 @@ unsafe impl ::windows::core::RuntimeType for DraggingState {
 impl ::windows::core::DefaultType for DraggingState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct EdgeGesture(::windows::core::IUnknown);
 impl EdgeGesture {
@@ -502,6 +509,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Edge
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct EdgeGestureEventArgs(::windows::core::IUnknown);
 impl EdgeGestureEventArgs {
@@ -574,6 +582,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Edge
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct EdgeGestureKind(pub i32);
 impl EdgeGestureKind {
@@ -602,6 +611,7 @@ unsafe impl ::windows::core::RuntimeType for EdgeGestureKind {
 impl ::windows::core::DefaultType for EdgeGestureKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct GazeInputAccessStatus(pub i32);
 impl GazeInputAccessStatus {
@@ -631,6 +641,7 @@ unsafe impl ::windows::core::RuntimeType for GazeInputAccessStatus {
 impl ::windows::core::DefaultType for GazeInputAccessStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct GestureRecognizer(::windows::core::IUnknown);
 impl GestureRecognizer {
@@ -1130,6 +1141,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gest
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct GestureSettings(pub u32);
 impl GestureSettings {
@@ -1173,6 +1185,7 @@ unsafe impl ::windows::core::RuntimeType for GestureSettings {
 impl ::windows::core::DefaultType for GestureSettings {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct HoldingEventArgs(::windows::core::IUnknown);
 impl HoldingEventArgs {
@@ -1275,6 +1288,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hold
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct HoldingState(pub i32);
 impl HoldingState {
@@ -2057,6 +2071,7 @@ pub struct IPointerPointStaticsVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerid: u32, transform: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct IPointerPointTransform(::windows::core::IUnknown);
 impl IPointerPointTransform {
@@ -2947,6 +2962,7 @@ pub struct ITappedEventArgs2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct InputActivationListener(::windows::core::IUnknown);
 impl InputActivationListener {
@@ -3085,6 +3101,7 @@ impl<'a> ::windows::core::IntoParam<'a, AttachableInputObject> for &InputActivat
 }
 unsafe impl ::core::marker::Send for InputActivationListener {}
 unsafe impl ::core::marker::Sync for InputActivationListener {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct InputActivationListenerActivationChangedEventArgs(::windows::core::IUnknown);
 impl InputActivationListenerActivationChangedEventArgs {
@@ -3159,6 +3176,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inpu
 }
 unsafe impl ::core::marker::Send for InputActivationListenerActivationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for InputActivationListenerActivationChangedEventArgs {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct InputActivationState(pub i32);
 impl InputActivationState {
@@ -3188,6 +3206,7 @@ unsafe impl ::windows::core::RuntimeType for InputActivationState {
 impl ::windows::core::DefaultType for InputActivationState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct KeyboardDeliveryInterceptor(::windows::core::IUnknown);
 impl KeyboardDeliveryInterceptor {
@@ -3302,6 +3321,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Keyb
 }
 unsafe impl ::core::marker::Send for KeyboardDeliveryInterceptor {}
 unsafe impl ::core::marker::Sync for KeyboardDeliveryInterceptor {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct ManipulationCompletedEventArgs(::windows::core::IUnknown);
 impl ManipulationCompletedEventArgs {
@@ -3414,6 +3434,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mani
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'UI_Input', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct ManipulationDelta {
     pub Translation: super::super::Foundation::Point,
@@ -3455,6 +3476,7 @@ impl ::core::default::Default for ManipulationDelta {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct ManipulationInertiaStartingEventArgs(::windows::core::IUnknown);
 impl ManipulationInertiaStartingEventArgs {
@@ -3567,6 +3589,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mani
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct ManipulationStartedEventArgs(::windows::core::IUnknown);
 impl ManipulationStartedEventArgs {
@@ -3663,6 +3686,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mani
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct ManipulationUpdatedEventArgs(::windows::core::IUnknown);
 impl ManipulationUpdatedEventArgs {
@@ -3783,6 +3807,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mani
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'UI_Input', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct ManipulationVelocities {
     pub Linear: super::super::Foundation::Point,
@@ -3823,6 +3848,7 @@ impl ::core::default::Default for ManipulationVelocities {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct MouseWheelParameters(::windows::core::IUnknown);
 impl MouseWheelParameters {
@@ -3936,6 +3962,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mous
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct PointerPoint(::windows::core::IUnknown);
 impl PointerPoint {
@@ -4090,6 +4117,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Poin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct PointerPointProperties(::windows::core::IUnknown);
 impl PointerPointProperties {
@@ -4333,6 +4361,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Poin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct PointerUpdateKind(pub i32);
 impl PointerUpdateKind {
@@ -4369,6 +4398,7 @@ unsafe impl ::windows::core::RuntimeType for PointerUpdateKind {
 impl ::windows::core::DefaultType for PointerUpdateKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct PointerVisualizationSettings(::windows::core::IUnknown);
 impl PointerVisualizationSettings {
@@ -4468,6 +4498,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Poin
 }
 unsafe impl ::core::marker::Send for PointerVisualizationSettings {}
 unsafe impl ::core::marker::Sync for PointerVisualizationSettings {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct RadialController(::windows::core::IUnknown);
 impl RadialController {
@@ -4710,6 +4741,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
 }
 unsafe impl ::core::marker::Send for RadialController {}
 unsafe impl ::core::marker::Sync for RadialController {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct RadialControllerButtonClickedEventArgs(::windows::core::IUnknown);
 impl RadialControllerButtonClickedEventArgs {
@@ -4792,6 +4824,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
 }
 unsafe impl ::core::marker::Send for RadialControllerButtonClickedEventArgs {}
 unsafe impl ::core::marker::Sync for RadialControllerButtonClickedEventArgs {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct RadialControllerButtonHoldingEventArgs(::windows::core::IUnknown);
 impl RadialControllerButtonHoldingEventArgs {
@@ -4874,6 +4907,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
 }
 unsafe impl ::core::marker::Send for RadialControllerButtonHoldingEventArgs {}
 unsafe impl ::core::marker::Sync for RadialControllerButtonHoldingEventArgs {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct RadialControllerButtonPressedEventArgs(::windows::core::IUnknown);
 impl RadialControllerButtonPressedEventArgs {
@@ -4956,6 +4990,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
 }
 unsafe impl ::core::marker::Send for RadialControllerButtonPressedEventArgs {}
 unsafe impl ::core::marker::Sync for RadialControllerButtonPressedEventArgs {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct RadialControllerButtonReleasedEventArgs(::windows::core::IUnknown);
 impl RadialControllerButtonReleasedEventArgs {
@@ -5038,6 +5073,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
 }
 unsafe impl ::core::marker::Send for RadialControllerButtonReleasedEventArgs {}
 unsafe impl ::core::marker::Sync for RadialControllerButtonReleasedEventArgs {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct RadialControllerConfiguration(::windows::core::IUnknown);
 impl RadialControllerConfiguration {
@@ -5175,6 +5211,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
 }
 unsafe impl ::core::marker::Send for RadialControllerConfiguration {}
 unsafe impl ::core::marker::Sync for RadialControllerConfiguration {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct RadialControllerControlAcquiredEventArgs(::windows::core::IUnknown);
 impl RadialControllerControlAcquiredEventArgs {
@@ -5264,6 +5301,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
 }
 unsafe impl ::core::marker::Send for RadialControllerControlAcquiredEventArgs {}
 unsafe impl ::core::marker::Sync for RadialControllerControlAcquiredEventArgs {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct RadialControllerMenu(::windows::core::IUnknown);
 impl RadialControllerMenu {
@@ -5368,6 +5406,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
 }
 unsafe impl ::core::marker::Send for RadialControllerMenu {}
 unsafe impl ::core::marker::Sync for RadialControllerMenu {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct RadialControllerMenuItem(::windows::core::IUnknown);
 impl RadialControllerMenuItem {
@@ -5500,6 +5539,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
 }
 unsafe impl ::core::marker::Send for RadialControllerMenuItem {}
 unsafe impl ::core::marker::Sync for RadialControllerMenuItem {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct RadialControllerMenuKnownIcon(pub i32);
 impl RadialControllerMenuKnownIcon {
@@ -5534,6 +5574,7 @@ unsafe impl ::windows::core::RuntimeType for RadialControllerMenuKnownIcon {
 impl ::windows::core::DefaultType for RadialControllerMenuKnownIcon {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct RadialControllerRotationChangedEventArgs(::windows::core::IUnknown);
 impl RadialControllerRotationChangedEventArgs {
@@ -5630,6 +5671,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
 }
 unsafe impl ::core::marker::Send for RadialControllerRotationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for RadialControllerRotationChangedEventArgs {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct RadialControllerScreenContact(::windows::core::IUnknown);
 impl RadialControllerScreenContact {
@@ -5713,6 +5755,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
 }
 unsafe impl ::core::marker::Send for RadialControllerScreenContact {}
 unsafe impl ::core::marker::Sync for RadialControllerScreenContact {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct RadialControllerScreenContactContinuedEventArgs(::windows::core::IUnknown);
 impl RadialControllerScreenContactContinuedEventArgs {
@@ -5802,6 +5845,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
 }
 unsafe impl ::core::marker::Send for RadialControllerScreenContactContinuedEventArgs {}
 unsafe impl ::core::marker::Sync for RadialControllerScreenContactContinuedEventArgs {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct RadialControllerScreenContactEndedEventArgs(::windows::core::IUnknown);
 impl RadialControllerScreenContactEndedEventArgs {
@@ -5884,6 +5928,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
 }
 unsafe impl ::core::marker::Send for RadialControllerScreenContactEndedEventArgs {}
 unsafe impl ::core::marker::Sync for RadialControllerScreenContactEndedEventArgs {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct RadialControllerScreenContactStartedEventArgs(::windows::core::IUnknown);
 impl RadialControllerScreenContactStartedEventArgs {
@@ -5973,6 +6018,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
 }
 unsafe impl ::core::marker::Send for RadialControllerScreenContactStartedEventArgs {}
 unsafe impl ::core::marker::Sync for RadialControllerScreenContactStartedEventArgs {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct RadialControllerSystemMenuItemKind(pub i32);
 impl RadialControllerSystemMenuItemKind {
@@ -6003,6 +6049,7 @@ unsafe impl ::windows::core::RuntimeType for RadialControllerSystemMenuItemKind 
 impl ::windows::core::DefaultType for RadialControllerSystemMenuItemKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct RightTappedEventArgs(::windows::core::IUnknown);
 impl RightTappedEventArgs {
@@ -6091,6 +6138,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Righ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct SystemButtonEventController(::windows::core::IUnknown);
 impl SystemButtonEventController {
@@ -6272,6 +6320,7 @@ impl<'a> ::windows::core::IntoParam<'a, AttachableInputObject> for &SystemButton
 }
 unsafe impl ::core::marker::Send for SystemButtonEventController {}
 unsafe impl ::core::marker::Sync for SystemButtonEventController {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct SystemFunctionButtonEventArgs(::windows::core::IUnknown);
 impl SystemFunctionButtonEventArgs {
@@ -6357,6 +6406,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemFunctionButtonEventArgs {}
 unsafe impl ::core::marker::Sync for SystemFunctionButtonEventArgs {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct SystemFunctionLockChangedEventArgs(::windows::core::IUnknown);
 impl SystemFunctionLockChangedEventArgs {
@@ -6449,6 +6499,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemFunctionLockChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SystemFunctionLockChangedEventArgs {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct SystemFunctionLockIndicatorChangedEventArgs(::windows::core::IUnknown);
 impl SystemFunctionLockIndicatorChangedEventArgs {
@@ -6541,6 +6592,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemFunctionLockIndicatorChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SystemFunctionLockIndicatorChangedEventArgs {}
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct TappedEventArgs(::windows::core::IUnknown);
 impl TappedEventArgs {

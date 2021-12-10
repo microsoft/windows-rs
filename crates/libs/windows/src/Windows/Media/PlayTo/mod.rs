@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Media_PlayTo'*"]
 #[repr(transparent)]
 pub struct CurrentTimeChangeRequestedEventArgs(::windows::core::IUnknown);
 impl CurrentTimeChangeRequestedEventArgs {
@@ -562,6 +563,7 @@ pub struct IVolumeChangeRequestedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_PlayTo'*"]
 #[repr(transparent)]
 pub struct MuteChangeRequestedEventArgs(::windows::core::IUnknown);
 impl MuteChangeRequestedEventArgs {
@@ -634,6 +636,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mute
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PlayToConnection(::windows::core::IUnknown);
@@ -766,6 +769,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
 unsafe impl ::core::marker::Send for PlayToConnection {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToConnection {}
+#[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
 #[repr(transparent)]
 pub struct PlayToConnectionError(pub i32);
 impl PlayToConnectionError {
@@ -796,6 +800,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToConnectionError {
 impl ::windows::core::DefaultType for PlayToConnectionError {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PlayToConnectionErrorEventArgs(::windows::core::IUnknown);
@@ -897,6 +902,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
 unsafe impl ::core::marker::Send for PlayToConnectionErrorEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToConnectionErrorEventArgs {}
+#[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
 #[repr(transparent)]
 pub struct PlayToConnectionState(pub i32);
 impl PlayToConnectionState {
@@ -925,6 +931,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToConnectionState {
 impl ::windows::core::DefaultType for PlayToConnectionState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PlayToConnectionStateChangedEventArgs(::windows::core::IUnknown);
@@ -1026,6 +1033,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
 unsafe impl ::core::marker::Send for PlayToConnectionStateChangedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToConnectionStateChangedEventArgs {}
+#[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PlayToConnectionTransferredEventArgs(::windows::core::IUnknown);
@@ -1127,6 +1135,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
 unsafe impl ::core::marker::Send for PlayToConnectionTransferredEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToConnectionTransferredEventArgs {}
+#[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PlayToManager(::windows::core::IUnknown);
@@ -1266,6 +1275,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
 unsafe impl ::core::marker::Send for PlayToManager {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToManager {}
+#[doc = "*Required features: 'Media_PlayTo'*"]
 #[repr(transparent)]
 pub struct PlayToReceiver(::windows::core::IUnknown);
 impl PlayToReceiver {
@@ -1573,6 +1583,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PlayToSource(::windows::core::IUnknown);
@@ -1697,6 +1708,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
 unsafe impl ::core::marker::Send for PlayToSource {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToSource {}
+#[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PlayToSourceDeferral(::windows::core::IUnknown);
@@ -1787,6 +1799,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
 unsafe impl ::core::marker::Send for PlayToSourceDeferral {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToSourceDeferral {}
+#[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PlayToSourceRequest(::windows::core::IUnknown);
@@ -1898,6 +1911,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
 unsafe impl ::core::marker::Send for PlayToSourceRequest {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToSourceRequest {}
+#[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PlayToSourceRequestedEventArgs(::windows::core::IUnknown);
@@ -1991,6 +2005,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
 unsafe impl ::core::marker::Send for PlayToSourceRequestedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToSourceRequestedEventArgs {}
+#[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PlayToSourceSelectedEventArgs(::windows::core::IUnknown);
@@ -2116,6 +2131,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
 unsafe impl ::core::marker::Send for PlayToSourceSelectedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToSourceSelectedEventArgs {}
+#[doc = "*Required features: 'Media_PlayTo'*"]
 #[repr(transparent)]
 pub struct PlaybackRateChangeRequestedEventArgs(::windows::core::IUnknown);
 impl PlaybackRateChangeRequestedEventArgs {
@@ -2188,6 +2204,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_PlayTo'*"]
 #[repr(transparent)]
 pub struct SourceChangeRequestedEventArgs(::windows::core::IUnknown);
 impl SourceChangeRequestedEventArgs {
@@ -2328,6 +2345,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sour
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_PlayTo'*"]
 #[repr(transparent)]
 pub struct VolumeChangeRequestedEventArgs(::windows::core::IUnknown);
 impl VolumeChangeRequestedEventArgs {

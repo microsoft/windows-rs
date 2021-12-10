@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct Block(::windows::core::IUnknown);
 impl Block {
@@ -199,6 +200,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Block {
 }
 unsafe impl ::core::marker::Send for Block {}
 unsafe impl ::core::marker::Sync for Block {}
+#[doc = "*Required features: 'UI_Xaml_Documents', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct BlockCollection(::windows::core::IUnknown);
@@ -435,6 +437,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for BlockCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for BlockCollection {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct Bold(::windows::core::IUnknown);
 impl Bold {
@@ -589,6 +592,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Bold {
 }
 unsafe impl ::core::marker::Send for Bold {}
 unsafe impl ::core::marker::Sync for Bold {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct ContactContentLinkProvider(::windows::core::IUnknown);
 impl ContactContentLinkProvider {
@@ -703,6 +707,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ContactCon
 }
 unsafe impl ::core::marker::Send for ContactContentLinkProvider {}
 unsafe impl ::core::marker::Sync for ContactContentLinkProvider {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct ContentLink(::windows::core::IUnknown);
 impl ContentLink {
@@ -1146,6 +1151,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ContentLin
 }
 unsafe impl ::core::marker::Send for ContentLink {}
 unsafe impl ::core::marker::Sync for ContentLink {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct ContentLinkInvokedEventArgs(::windows::core::IUnknown);
 impl ContentLinkInvokedEventArgs {
@@ -1232,6 +1238,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContentLinkInvokedEventArgs {}
 unsafe impl ::core::marker::Sync for ContentLinkInvokedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct ContentLinkProvider(::windows::core::IUnknown);
 impl ContentLinkProvider {}
@@ -1318,6 +1325,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &ContentLin
 }
 unsafe impl ::core::marker::Send for ContentLinkProvider {}
 unsafe impl ::core::marker::Sync for ContentLinkProvider {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct ContentLinkProviderCollection(::windows::core::IUnknown);
 impl ContentLinkProviderCollection {
@@ -1543,6 +1551,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 }
 unsafe impl ::core::marker::Send for ContentLinkProviderCollection {}
 unsafe impl ::core::marker::Sync for ContentLinkProviderCollection {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct Glyphs(::windows::core::IUnknown);
 impl Glyphs {
@@ -1913,6 +1922,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Glyphs {
 }
 unsafe impl ::core::marker::Send for Glyphs {}
 unsafe impl ::core::marker::Sync for Glyphs {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct Hyperlink(::windows::core::IUnknown);
 impl Hyperlink {
@@ -2377,6 +2387,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Hyperlink 
 }
 unsafe impl ::core::marker::Send for Hyperlink {}
 unsafe impl ::core::marker::Sync for Hyperlink {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct HyperlinkClickEventArgs(::windows::core::IUnknown);
 impl HyperlinkClickEventArgs {}
@@ -3930,6 +3941,7 @@ pub struct IUnderlineVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct Inline(::windows::core::IUnknown);
 impl Inline {}
@@ -4036,6 +4048,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Inline {
 }
 unsafe impl ::core::marker::Send for Inline {}
 unsafe impl ::core::marker::Sync for Inline {}
+#[doc = "*Required features: 'UI_Xaml_Documents', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct InlineCollection(::windows::core::IUnknown);
@@ -4272,6 +4285,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for InlineCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for InlineCollection {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct InlineUIContainer(::windows::core::IUnknown);
 impl InlineUIContainer {
@@ -4417,6 +4431,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &InlineUICo
 }
 unsafe impl ::core::marker::Send for InlineUIContainer {}
 unsafe impl ::core::marker::Sync for InlineUIContainer {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct Italic(::windows::core::IUnknown);
 impl Italic {
@@ -4571,6 +4586,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Italic {
 }
 unsafe impl ::core::marker::Send for Italic {}
 unsafe impl ::core::marker::Sync for Italic {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct LineBreak(::windows::core::IUnknown);
 impl LineBreak {
@@ -4705,6 +4721,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &LineBreak 
 }
 unsafe impl ::core::marker::Send for LineBreak {}
 unsafe impl ::core::marker::Sync for LineBreak {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct LogicalDirection(pub i32);
 impl LogicalDirection {
@@ -4732,6 +4749,7 @@ unsafe impl ::windows::core::RuntimeType for LogicalDirection {
 impl ::windows::core::DefaultType for LogicalDirection {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct Paragraph(::windows::core::IUnknown);
 impl Paragraph {
@@ -4895,6 +4913,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Paragraph 
 }
 unsafe impl ::core::marker::Send for Paragraph {}
 unsafe impl ::core::marker::Sync for Paragraph {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct PlaceContentLinkProvider(::windows::core::IUnknown);
 impl PlaceContentLinkProvider {
@@ -5009,6 +5028,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &PlaceConte
 }
 unsafe impl ::core::marker::Send for PlaceContentLinkProvider {}
 unsafe impl ::core::marker::Sync for PlaceContentLinkProvider {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct Run(::windows::core::IUnknown);
 impl Run {
@@ -5175,6 +5195,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Run {
 }
 unsafe impl ::core::marker::Send for Run {}
 unsafe impl ::core::marker::Sync for Run {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct Span(::windows::core::IUnknown);
 impl Span {
@@ -5325,6 +5346,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Span {
 }
 unsafe impl ::core::marker::Send for Span {}
 unsafe impl ::core::marker::Sync for Span {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct TextElement(::windows::core::IUnknown);
 impl TextElement {
@@ -5840,6 +5862,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &TextElemen
 }
 unsafe impl ::core::marker::Send for TextElement {}
 unsafe impl ::core::marker::Sync for TextElement {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct TextHighlighter(::windows::core::IUnknown);
 impl TextHighlighter {
@@ -5967,6 +5990,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Text
 }
 unsafe impl ::core::marker::Send for TextHighlighter {}
 unsafe impl ::core::marker::Sync for TextHighlighter {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct TextHighlighterBase(::windows::core::IUnknown);
 impl TextHighlighterBase {}
@@ -6053,6 +6077,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &TextHighli
 }
 unsafe impl ::core::marker::Send for TextHighlighterBase {}
 unsafe impl ::core::marker::Sync for TextHighlighterBase {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct TextPointer(::windows::core::IUnknown);
 impl TextPointer {
@@ -6164,6 +6189,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Text
 unsafe impl ::core::marker::Send for TextPointer {}
 unsafe impl ::core::marker::Sync for TextPointer {}
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 pub struct TextRange {
     pub StartIndex: i32,
     pub Length: i32,
@@ -6194,6 +6220,7 @@ impl ::core::default::Default for TextRange {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct Typography(::windows::core::IUnknown);
 impl Typography {
@@ -6910,6 +6937,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Typo
 }
 unsafe impl ::core::marker::Send for Typography {}
 unsafe impl ::core::marker::Sync for Typography {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct Underline(::windows::core::IUnknown);
 impl Underline {
@@ -7064,6 +7092,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Underline 
 }
 unsafe impl ::core::marker::Send for Underline {}
 unsafe impl ::core::marker::Sync for Underline {}
+#[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
 pub struct UnderlineStyle(pub i32);
 impl UnderlineStyle {

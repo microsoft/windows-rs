@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const AppDomainHelper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef24f689_14f8_4d92_b4af_d7b1f0e70fd4);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_ComponentServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ApplicationProcessRecycleInfo {
     pub IsRecyclable: super::super::Foundation::BOOL,
@@ -45,6 +46,7 @@ impl ::core::default::Default for ApplicationProcessRecycleInfo {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub struct ApplicationProcessStatistics {
     pub NumCallsOutstanding: u32,
     pub NumTrackedComponents: u32,
@@ -76,6 +78,7 @@ impl ::core::default::Default for ApplicationProcessStatistics {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_ComponentServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ApplicationProcessSummary {
     pub PartitionIdPrimaryApplication: ::windows::core::GUID,
@@ -115,6 +118,7 @@ impl ::core::default::Default for ApplicationProcessSummary {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_ComponentServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ApplicationSummary {
     pub ApplicationInstanceId: ::windows::core::GUID,
@@ -151,35 +155,63 @@ impl ::core::default::Default for ApplicationSummary {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type AutoSvcs_Error_Constants = u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const mtsErrCtxAborted: AutoSvcs_Error_Constants = 2147803138u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const mtsErrCtxAborting: AutoSvcs_Error_Constants = 2147803139u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const mtsErrCtxNoContext: AutoSvcs_Error_Constants = 2147803140u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const mtsErrCtxNotRegistered: AutoSvcs_Error_Constants = 2147803141u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const mtsErrCtxSynchTimeout: AutoSvcs_Error_Constants = 2147803142u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const mtsErrCtxOldReference: AutoSvcs_Error_Constants = 2147803143u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const mtsErrCtxRoleNotFound: AutoSvcs_Error_Constants = 2147803148u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const mtsErrCtxNoSecurity: AutoSvcs_Error_Constants = 2147803149u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const mtsErrCtxWrongThread: AutoSvcs_Error_Constants = 2147803150u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const mtsErrCtxTMNotAvailable: AutoSvcs_Error_Constants = 2147803151u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const comQCErrApplicationNotQueued: AutoSvcs_Error_Constants = 2148599296u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const comQCErrNoQueueableInterfaces: AutoSvcs_Error_Constants = 2148599297u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const comQCErrQueuingServiceNotAvailable: AutoSvcs_Error_Constants = 2148599298u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const comQCErrQueueTransactMismatch: AutoSvcs_Error_Constants = 2148599299u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const comqcErrRecorderMarshalled: AutoSvcs_Error_Constants = 2148599300u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const comqcErrOutParam: AutoSvcs_Error_Constants = 2148599301u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const comqcErrRecorderNotTrusted: AutoSvcs_Error_Constants = 2148599302u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const comqcErrPSLoad: AutoSvcs_Error_Constants = 2148599303u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const comqcErrMarshaledObjSameTxn: AutoSvcs_Error_Constants = 2148599304u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const comqcErrInvalidMessage: AutoSvcs_Error_Constants = 2148599376u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const comqcErrMsmqSidUnavailable: AutoSvcs_Error_Constants = 2148599377u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const comqcErrWrongMsgExtension: AutoSvcs_Error_Constants = 2148599378u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const comqcErrMsmqServiceUnavailable: AutoSvcs_Error_Constants = 2148599379u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const comqcErrMsgNotAuthenticated: AutoSvcs_Error_Constants = 2148599380u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const comqcErrMsmqConnectorUsed: AutoSvcs_Error_Constants = 2148599381u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const comqcErrBadMarshaledObject: AutoSvcs_Error_Constants = 2148599382u32;
 pub const ByotServerEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0aa_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub struct CAppData {
     pub m_idApp: u32,
     pub m_szAppGuid: [u16; 40],
@@ -207,6 +239,7 @@ impl ::core::default::Default for CAppData {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub struct CAppStatistics {
     pub m_cTotalCalls: u32,
     pub m_cTotalInstances: u32,
@@ -234,6 +267,7 @@ impl ::core::default::Default for CAppStatistics {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub struct CCLSIDData {
     pub m_clsid: ::windows::core::GUID,
     pub m_cReferences: u32,
@@ -265,6 +299,7 @@ impl ::core::default::Default for CCLSIDData {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_ComponentServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CCLSIDData2 {
     pub m_clsid: ::windows::core::GUID,
@@ -307,254 +342,498 @@ impl ::core::default::Default for CCLSIDData2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminAccessChecksLevelOptions = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminAccessChecksApplicationLevel: COMAdminAccessChecksLevelOptions = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminAccessChecksApplicationComponentLevel: COMAdminAccessChecksLevelOptions = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminActivationOptions = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminActivationInproc: COMAdminActivationOptions = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminActivationLocal: COMAdminActivationOptions = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminApplicationExportOptions = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminExportNoUsers: COMAdminApplicationExportOptions = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminExportUsers: COMAdminApplicationExportOptions = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminExportApplicationProxy: COMAdminApplicationExportOptions = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminExportForceOverwriteOfFiles: COMAdminApplicationExportOptions = 4i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminExportIn10Format: COMAdminApplicationExportOptions = 16i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminApplicationInstallOptions = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminInstallNoUsers: COMAdminApplicationInstallOptions = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminInstallUsers: COMAdminApplicationInstallOptions = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminInstallForceOverwriteOfFiles: COMAdminApplicationInstallOptions = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminAuthenticationCapabilitiesOptions = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminAuthenticationCapabilitiesNone: COMAdminAuthenticationCapabilitiesOptions = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminAuthenticationCapabilitiesSecureReference: COMAdminAuthenticationCapabilitiesOptions = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminAuthenticationCapabilitiesStaticCloaking: COMAdminAuthenticationCapabilitiesOptions = 32i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminAuthenticationCapabilitiesDynamicCloaking: COMAdminAuthenticationCapabilitiesOptions = 64i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminAuthenticationLevelOptions = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminAuthenticationDefault: COMAdminAuthenticationLevelOptions = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminAuthenticationNone: COMAdminAuthenticationLevelOptions = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminAuthenticationConnect: COMAdminAuthenticationLevelOptions = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminAuthenticationCall: COMAdminAuthenticationLevelOptions = 3i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminAuthenticationPacket: COMAdminAuthenticationLevelOptions = 4i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminAuthenticationIntegrity: COMAdminAuthenticationLevelOptions = 5i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminAuthenticationPrivacy: COMAdminAuthenticationLevelOptions = 6i32;
 pub const COMAdminCatalog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf618c514_dfb8_11d1_a2cf_00805fc79235);
 pub const COMAdminCatalogCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf618c516_dfb8_11d1_a2cf_00805fc79235);
 pub const COMAdminCatalogObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf618c515_dfb8_11d1_a2cf_00805fc79235);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminComponentFlags = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminCompFlagTypeInfoFound: COMAdminComponentFlags = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminCompFlagCOMPlusPropertiesFound: COMAdminComponentFlags = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminCompFlagProxyFound: COMAdminComponentFlags = 4i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminCompFlagInterfacesFound: COMAdminComponentFlags = 8i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminCompFlagAlreadyInstalled: COMAdminComponentFlags = 16i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminCompFlagNotInApplication: COMAdminComponentFlags = 32i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminComponentType = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdmin32BitComponent: COMAdminComponentType = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdmin64BitComponent: COMAdminComponentType = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminErrorCodes = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrObjectErrors: COMAdminErrorCodes = -2146368511i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrObjectInvalid: COMAdminErrorCodes = -2146368510i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrKeyMissing: COMAdminErrorCodes = -2146368509i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrAlreadyInstalled: COMAdminErrorCodes = -2146368508i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrAppFileWriteFail: COMAdminErrorCodes = -2146368505i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrAppFileReadFail: COMAdminErrorCodes = -2146368504i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrAppFileVersion: COMAdminErrorCodes = -2146368503i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrBadPath: COMAdminErrorCodes = -2146368502i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrApplicationExists: COMAdminErrorCodes = -2146368501i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrRoleExists: COMAdminErrorCodes = -2146368500i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCantCopyFile: COMAdminErrorCodes = -2146368499i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrNoUser: COMAdminErrorCodes = -2146368497i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrInvalidUserids: COMAdminErrorCodes = -2146368496i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrNoRegistryCLSID: COMAdminErrorCodes = -2146368495i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrBadRegistryProgID: COMAdminErrorCodes = -2146368494i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrAuthenticationLevel: COMAdminErrorCodes = -2146368493i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrUserPasswdNotValid: COMAdminErrorCodes = -2146368492i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCLSIDOrIIDMismatch: COMAdminErrorCodes = -2146368488i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrRemoteInterface: COMAdminErrorCodes = -2146368487i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrDllRegisterServer: COMAdminErrorCodes = -2146368486i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrNoServerShare: COMAdminErrorCodes = -2146368485i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrDllLoadFailed: COMAdminErrorCodes = -2146368483i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrBadRegistryLibID: COMAdminErrorCodes = -2146368482i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrAppDirNotFound: COMAdminErrorCodes = -2146368481i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrRegistrarFailed: COMAdminErrorCodes = -2146368477i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCompFileDoesNotExist: COMAdminErrorCodes = -2146368476i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCompFileLoadDLLFail: COMAdminErrorCodes = -2146368475i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCompFileGetClassObj: COMAdminErrorCodes = -2146368474i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCompFileClassNotAvail: COMAdminErrorCodes = -2146368473i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCompFileBadTLB: COMAdminErrorCodes = -2146368472i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCompFileNotInstallable: COMAdminErrorCodes = -2146368471i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrNotChangeable: COMAdminErrorCodes = -2146368470i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrNotDeletable: COMAdminErrorCodes = -2146368469i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrSession: COMAdminErrorCodes = -2146368468i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCompMoveLocked: COMAdminErrorCodes = -2146368467i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCompMoveBadDest: COMAdminErrorCodes = -2146368466i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrRegisterTLB: COMAdminErrorCodes = -2146368464i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrSystemApp: COMAdminErrorCodes = -2146368461i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCompFileNoRegistrar: COMAdminErrorCodes = -2146368460i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCoReqCompInstalled: COMAdminErrorCodes = -2146368459i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrServiceNotInstalled: COMAdminErrorCodes = -2146368458i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrPropertySaveFailed: COMAdminErrorCodes = -2146368457i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrObjectExists: COMAdminErrorCodes = -2146368456i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrComponentExists: COMAdminErrorCodes = -2146368455i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrRegFileCorrupt: COMAdminErrorCodes = -2146368453i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrPropertyOverflow: COMAdminErrorCodes = -2146368452i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrNotInRegistry: COMAdminErrorCodes = -2146368450i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrObjectNotPoolable: COMAdminErrorCodes = -2146368449i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrApplidMatchesClsid: COMAdminErrorCodes = -2146368442i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrRoleDoesNotExist: COMAdminErrorCodes = -2146368441i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrStartAppNeedsComponents: COMAdminErrorCodes = -2146368440i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrRequiresDifferentPlatform: COMAdminErrorCodes = -2146368439i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrQueuingServiceNotAvailable: COMAdminErrorCodes = -2146367998i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrObjectParentMissing: COMAdminErrorCodes = -2146367480i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrObjectDoesNotExist: COMAdminErrorCodes = -2146367479i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCanNotExportAppProxy: COMAdminErrorCodes = -2146368438i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCanNotStartApp: COMAdminErrorCodes = -2146368437i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCanNotExportSystemApp: COMAdminErrorCodes = -2146368436i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCanNotSubscribeToComponent: COMAdminErrorCodes = -2146368435i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrAppNotRunning: COMAdminErrorCodes = -2146367478i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrEventClassCannotBeSubscriber: COMAdminErrorCodes = -2146368434i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrLibAppProxyIncompatible: COMAdminErrorCodes = -2146368433i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrBasePartitionOnly: COMAdminErrorCodes = -2146368432i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrDuplicatePartitionName: COMAdminErrorCodes = -2146368425i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrPartitionInUse: COMAdminErrorCodes = -2146368423i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrImportedComponentsNotAllowed: COMAdminErrorCodes = -2146368421i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrRegdbNotInitialized: COMAdminErrorCodes = -2146368398i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrRegdbNotOpen: COMAdminErrorCodes = -2146368397i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrRegdbSystemErr: COMAdminErrorCodes = -2146368396i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrRegdbAlreadyRunning: COMAdminErrorCodes = -2146368395i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrMigVersionNotSupported: COMAdminErrorCodes = -2146368384i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrMigSchemaNotFound: COMAdminErrorCodes = -2146368383i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCatBitnessMismatch: COMAdminErrorCodes = -2146368382i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCatUnacceptableBitness: COMAdminErrorCodes = -2146368381i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCatWrongAppBitnessBitness: COMAdminErrorCodes = -2146368380i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCatPauseResumeNotSupported: COMAdminErrorCodes = -2146368379i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCatServerFault: COMAdminErrorCodes = -2146368378i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCantRecycleLibraryApps: COMAdminErrorCodes = -2146367473i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCantRecycleServiceApps: COMAdminErrorCodes = -2146367471i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrProcessAlreadyRecycled: COMAdminErrorCodes = -2146367470i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrPausedProcessMayNotBeRecycled: COMAdminErrorCodes = -2146367469i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrInvalidPartition: COMAdminErrorCodes = -2146367477i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrPartitionMsiOnly: COMAdminErrorCodes = -2146367463i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrStartAppDisabled: COMAdminErrorCodes = -2146368431i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCompMoveSource: COMAdminErrorCodes = -2146367460i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCompMoveDest: COMAdminErrorCodes = -2146367459i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCompMovePrivate: COMAdminErrorCodes = -2146367458i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminErrCannotCopyEventClass: COMAdminErrorCodes = -2146367456i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminFileFlags = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminFileFlagLoadable: COMAdminFileFlags = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminFileFlagCOM: COMAdminFileFlags = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminFileFlagContainsPS: COMAdminFileFlags = 4i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminFileFlagContainsComp: COMAdminFileFlags = 8i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminFileFlagContainsTLB: COMAdminFileFlags = 16i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminFileFlagSelfReg: COMAdminFileFlags = 32i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminFileFlagSelfUnReg: COMAdminFileFlags = 64i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminFileFlagUnloadableDLL: COMAdminFileFlags = 128i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminFileFlagDoesNotExist: COMAdminFileFlags = 256i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminFileFlagAlreadyInstalled: COMAdminFileFlags = 512i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminFileFlagBadTLB: COMAdminFileFlags = 1024i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminFileFlagGetClassObjFailed: COMAdminFileFlags = 2048i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminFileFlagClassNotAvailable: COMAdminFileFlags = 4096i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminFileFlagRegistrar: COMAdminFileFlags = 8192i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminFileFlagNoRegistrar: COMAdminFileFlags = 16384i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminFileFlagDLLRegsvrFailed: COMAdminFileFlags = 32768i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminFileFlagRegTLBFailed: COMAdminFileFlags = 65536i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminFileFlagRegistrarFailed: COMAdminFileFlags = 131072i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminFileFlagError: COMAdminFileFlags = 262144i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminImpersonationLevelOptions = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminImpersonationAnonymous: COMAdminImpersonationLevelOptions = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminImpersonationIdentify: COMAdminImpersonationLevelOptions = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminImpersonationImpersonate: COMAdminImpersonationLevelOptions = 3i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminImpersonationDelegate: COMAdminImpersonationLevelOptions = 4i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminInUse = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminNotInUse: COMAdminInUse = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminInUseByCatalog: COMAdminInUse = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminInUseByRegistryUnknown: COMAdminInUse = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminInUseByRegistryProxyStub: COMAdminInUse = 3i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminInUseByRegistryTypeLib: COMAdminInUse = 4i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminInUseByRegistryClsid: COMAdminInUse = 5i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminOS = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSNotInitialized: COMAdminOS = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindows3_1: COMAdminOS = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindows9x: COMAdminOS = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindows2000: COMAdminOS = 3i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindows2000AdvancedServer: COMAdminOS = 4i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindows2000Unknown: COMAdminOS = 5i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSUnknown: COMAdminOS = 6i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindowsXPPersonal: COMAdminOS = 11i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindowsXPProfessional: COMAdminOS = 12i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindowsNETStandardServer: COMAdminOS = 13i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindowsNETEnterpriseServer: COMAdminOS = 14i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindowsNETDatacenterServer: COMAdminOS = 15i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindowsNETWebServer: COMAdminOS = 16i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindowsLonghornPersonal: COMAdminOS = 17i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindowsLonghornProfessional: COMAdminOS = 18i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindowsLonghornStandardServer: COMAdminOS = 19i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindowsLonghornEnterpriseServer: COMAdminOS = 20i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindowsLonghornDatacenterServer: COMAdminOS = 21i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindowsLonghornWebServer: COMAdminOS = 22i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindows7Personal: COMAdminOS = 23i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindows7Professional: COMAdminOS = 24i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindows7StandardServer: COMAdminOS = 25i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindows7EnterpriseServer: COMAdminOS = 26i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindows7DatacenterServer: COMAdminOS = 27i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindows7WebServer: COMAdminOS = 28i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindows8Personal: COMAdminOS = 29i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindows8Professional: COMAdminOS = 30i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindows8StandardServer: COMAdminOS = 31i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindows8EnterpriseServer: COMAdminOS = 32i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindows8DatacenterServer: COMAdminOS = 33i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindows8WebServer: COMAdminOS = 34i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindowsBluePersonal: COMAdminOS = 35i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindowsBlueProfessional: COMAdminOS = 36i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindowsBlueStandardServer: COMAdminOS = 37i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindowsBlueEnterpriseServer: COMAdminOS = 38i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindowsBlueDatacenterServer: COMAdminOS = 39i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminOSWindowsBlueWebServer: COMAdminOS = 40i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminQCMessageAuthenticateOptions = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminQCMessageAuthenticateSecureApps: COMAdminQCMessageAuthenticateOptions = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminQCMessageAuthenticateOff: COMAdminQCMessageAuthenticateOptions = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminQCMessageAuthenticateOn: COMAdminQCMessageAuthenticateOptions = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminServiceOptions = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminServiceLoadBalanceRouter: COMAdminServiceOptions = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminServiceStatusOptions = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminServiceStopped: COMAdminServiceStatusOptions = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminServiceStartPending: COMAdminServiceStatusOptions = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminServiceStopPending: COMAdminServiceStatusOptions = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminServiceRunning: COMAdminServiceStatusOptions = 3i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminServiceContinuePending: COMAdminServiceStatusOptions = 4i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminServicePausePending: COMAdminServiceStatusOptions = 5i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminServicePaused: COMAdminServiceStatusOptions = 6i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminServiceUnknownState: COMAdminServiceStatusOptions = 7i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminSynchronizationOptions = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminSynchronizationIgnored: COMAdminSynchronizationOptions = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminSynchronizationNone: COMAdminSynchronizationOptions = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminSynchronizationSupported: COMAdminSynchronizationOptions = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminSynchronizationRequired: COMAdminSynchronizationOptions = 3i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminSynchronizationRequiresNew: COMAdminSynchronizationOptions = 4i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminThreadingModels = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminThreadingModelApartment: COMAdminThreadingModels = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminThreadingModelFree: COMAdminThreadingModels = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminThreadingModelMain: COMAdminThreadingModels = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminThreadingModelBoth: COMAdminThreadingModels = 3i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminThreadingModelNeutral: COMAdminThreadingModels = 4i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminThreadingModelNotSpecified: COMAdminThreadingModels = 5i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminTransactionOptions = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminTransactionIgnored: COMAdminTransactionOptions = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminTransactionNone: COMAdminTransactionOptions = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminTransactionSupported: COMAdminTransactionOptions = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminTransactionRequired: COMAdminTransactionOptions = 3i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminTransactionRequiresNew: COMAdminTransactionOptions = 4i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMAdminTxIsolationLevelOptions = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminTxIsolationLevelAny: COMAdminTxIsolationLevelOptions = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminTxIsolationLevelReadUnCommitted: COMAdminTxIsolationLevelOptions = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminTxIsolationLevelReadCommitted: COMAdminTxIsolationLevelOptions = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminTxIsolationLevelRepeatableRead: COMAdminTxIsolationLevelOptions = 3i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const COMAdminTxIsolationLevelSerializable: COMAdminTxIsolationLevelOptions = 4i32;
 pub const COMEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0ab_7f19_11d2_978e_0000f8757e2a);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type COMPLUS_APPTYPE = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const APPTYPE_UNKNOWN: COMPLUS_APPTYPE = -1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const APPTYPE_SERVER: COMPLUS_APPTYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const APPTYPE_LIBRARY: COMPLUS_APPTYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const APPTYPE_SWC: COMPLUS_APPTYPE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_ComponentServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COMSVCSEVENTINFO {
     pub cbSize: u32,
@@ -592,19 +871,33 @@ impl ::core::default::Default for COMSVCSEVENTINFO {
     }
 }
 pub const CRMClerk: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0bd_7f19_11d2_978e_0000f8757e2a);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type CRMFLAGS = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CRMFLAG_FORGETTARGET: CRMFLAGS = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CRMFLAG_WRITTENDURINGPREPARE: CRMFLAGS = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CRMFLAG_WRITTENDURINGCOMMIT: CRMFLAGS = 4i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CRMFLAG_WRITTENDURINGABORT: CRMFLAGS = 8i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CRMFLAG_WRITTENDURINGRECOVERY: CRMFLAGS = 16i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CRMFLAG_WRITTENDURINGREPLAY: CRMFLAGS = 32i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CRMFLAG_REPLAYINPROGRESS: CRMFLAGS = 64i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type CRMREGFLAGS = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CRMREGFLAG_PREPAREPHASE: CRMREGFLAGS = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CRMREGFLAG_COMMITPHASE: CRMREGFLAGS = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CRMREGFLAG_ABORTPHASE: CRMREGFLAGS = 4i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CRMREGFLAG_ALLPHASES: CRMREGFLAGS = 7i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CRMREGFLAG_FAILIFINDOUBTSREMAIN: CRMREGFLAGS = 16i32;
 pub const CRMRecoveryClerk: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0be_7f19_11d2_978e_0000f8757e2a);
 pub const CRR_ACTIVATION_LIMIT: u32 = 4294967294u32;
@@ -613,46 +906,85 @@ pub const CRR_LIFETIME_LIMIT: u32 = 4294967295u32;
 pub const CRR_MEMORY_LIMIT: u32 = 4294967292u32;
 pub const CRR_NO_REASON_SUPPLIED: u32 = 0u32;
 pub const CRR_RECYCLED_FROM_UI: u32 = 4294967291u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type CSC_Binding = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_NoBinding: CSC_Binding = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_BindToPoolThread: CSC_Binding = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type CSC_COMTIIntrinsicsConfig = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_NoCOMTIIntrinsics: CSC_COMTIIntrinsicsConfig = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_InheritCOMTIIntrinsics: CSC_COMTIIntrinsicsConfig = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type CSC_IISIntrinsicsConfig = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_NoIISIntrinsics: CSC_IISIntrinsicsConfig = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_InheritIISIntrinsics: CSC_IISIntrinsicsConfig = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type CSC_InheritanceConfig = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_Inherit: CSC_InheritanceConfig = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_Ignore: CSC_InheritanceConfig = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type CSC_PartitionConfig = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_NoPartition: CSC_PartitionConfig = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_InheritPartition: CSC_PartitionConfig = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_NewPartition: CSC_PartitionConfig = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type CSC_SxsConfig = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_NoSxs: CSC_SxsConfig = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_InheritSxs: CSC_SxsConfig = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_NewSxs: CSC_SxsConfig = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type CSC_SynchronizationConfig = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_NoSynchronization: CSC_SynchronizationConfig = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_IfContainerIsSynchronized: CSC_SynchronizationConfig = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_NewSynchronizationIfNecessary: CSC_SynchronizationConfig = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_NewSynchronization: CSC_SynchronizationConfig = 3i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type CSC_ThreadPool = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_ThreadPoolNone: CSC_ThreadPool = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_ThreadPoolInherit: CSC_ThreadPool = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_STAThreadPool: CSC_ThreadPool = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_MTAThreadPool: CSC_ThreadPool = 3i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type CSC_TrackerConfig = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_DontUseTracker: CSC_TrackerConfig = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_UseTracker: CSC_TrackerConfig = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type CSC_TransactionConfig = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_NoTransaction: CSC_TransactionConfig = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_IfContainerIsTransactional: CSC_TransactionConfig = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_CreateTransactionIfNecessary: CSC_TransactionConfig = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CSC_NewTransaction: CSC_TransactionConfig = 3i32;
 pub const CServiceConfig: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c8_7f19_11d2_978e_0000f8757e2a);
 pub const ClrAssemblyLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x458aa3b5_265a_4b75_bc05_9bea4630cf18);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[inline]
 pub unsafe fn CoCreateActivity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(piunknown: Param0, riid: *const ::windows::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -666,6 +998,7 @@ pub unsafe fn CoCreateActivity<'a, Param0: ::windows::core::IntoParam<'a, ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[inline]
 pub unsafe fn CoEnterServiceDomain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(pconfigobject: Param0) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -679,6 +1012,7 @@ pub unsafe fn CoEnterServiceDomain<'a, Param0: ::windows::core::IntoParam<'a, ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_ComponentServices', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -693,6 +1027,7 @@ pub unsafe fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[inline]
 pub unsafe fn CoLeaveServiceDomain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(punkstatus: Param0) {
     #[cfg(windows)]
@@ -710,6 +1045,7 @@ pub const CoMTSLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128
 pub const ComServiceEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c3_7f19_11d2_978e_0000f8757e2a);
 pub const ComSystemAppEventData: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c6_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_ComponentServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ComponentHangMonitorInfo {
     pub IsMonitored: super::super::Foundation::BOOL,
@@ -743,6 +1079,7 @@ impl ::core::default::Default for ComponentHangMonitorInfo {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub struct ComponentStatistics {
     pub NumInstances: u32,
     pub NumBoundReferences: u32,
@@ -779,6 +1116,7 @@ impl ::core::default::Default for ComponentStatistics {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_ComponentServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ComponentSummary {
     pub ApplicationInstanceId: ::windows::core::GUID,
@@ -814,6 +1152,7 @@ impl ::core::default::Default for ComponentSummary {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ContextInfo(::windows::core::IUnknown);
 impl ContextInfo {
@@ -941,6 +1280,7 @@ pub struct ContextInfoVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrctxid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ContextInfo2(::windows::core::IUnknown);
 impl ContextInfo2 {
@@ -1110,6 +1450,7 @@ pub struct ContextInfo2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_ComponentServices', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct CrmLogRecordRead {
     pub dwCrmFlags: u32,
@@ -1142,26 +1483,42 @@ impl ::core::default::Default for CrmLogRecordRead {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type CrmTransactionState = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const TxState_Active: CrmTransactionState = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const TxState_Committed: CrmTransactionState = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const TxState_Aborted: CrmTransactionState = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const TxState_Indoubt: CrmTransactionState = 3i32;
 pub const DATA_NOT_AVAILABLE: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type DUMPTYPE = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const DUMPTYPE_FULL: DUMPTYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const DUMPTYPE_MINI: DUMPTYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const DUMPTYPE_NONE: DUMPTYPE = 2i32;
 pub const DispenserManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c0_7f19_11d2_978e_0000f8757e2a);
 pub const Dummy30040732: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a9_7f19_11d2_978e_0000f8757e2a);
 pub const EventServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabafbc_7f19_11d2_978e_0000f8757e2a);
 pub const GUID_STRING_SIZE: u32 = 40u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type GetAppTrackerDataFlags = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const GATD_INCLUDE_PROCESS_EXE_NAME: GetAppTrackerDataFlags = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const GATD_INCLUDE_LIBRARY_APPS: GetAppTrackerDataFlags = 2i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const GATD_INCLUDE_SWC: GetAppTrackerDataFlags = 4i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const GATD_INCLUDE_CLASS_NAME: GetAppTrackerDataFlags = 8i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const GATD_INCLUDE_APPLICATION_NAME: GetAppTrackerDataFlags = 16i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[inline]
 pub unsafe fn GetDispenserManager() -> ::windows::core::Result<IDispenserManager> {
     #[cfg(windows)]
@@ -1176,6 +1533,7 @@ pub unsafe fn GetDispenserManager() -> ::windows::core::Result<IDispenserManager
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[inline]
 pub unsafe fn GetManagedExtensions(dwexts: *mut u32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1191,6 +1549,7 @@ pub unsafe fn GetManagedExtensions(dwexts: *mut u32) -> ::windows::core::Result<
 }
 pub const GetSecurityCallContextAppObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a8_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_ComponentServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HANG_INFO {
     pub fAppHangMonitorEnabled: super::super::Foundation::BOOL,
@@ -1226,6 +1585,7 @@ impl ::core::default::Default for HANG_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IAppDomainHelper(::windows::core::IUnknown);
 impl IAppDomainHelper {
@@ -1330,6 +1690,7 @@ pub struct IAppDomainHelperVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkad: *mut ::core::ffi::c_void, __midl__iappdomainhelper0000: isize, ppool: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkad: *mut ::core::ffi::c_void, __midl__iappdomainhelper0001: isize, ppool: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IAssemblyLocator(::windows::core::IUnknown);
 impl IAssemblyLocator {
@@ -1433,6 +1794,7 @@ pub struct IAssemblyLocatorVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, applicationdir: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, applicationname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, assemblyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pmodules: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IAsyncErrorNotify(::windows::core::IUnknown);
 impl IAsyncErrorNotify {
@@ -1478,6 +1840,7 @@ unsafe impl ::windows::core::Interface for IAsyncErrorNotify {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAsyncErrorNotifyVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ICOMAdminCatalog(::windows::core::IUnknown);
 impl ICOMAdminCatalog {
@@ -1718,6 +2081,7 @@ pub struct ICOMAdminCatalogVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstriid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppsavarclsids: *mut *mut super::Com::SAFEARRAY, ppsavarprogids: *mut *mut super::Com::SAFEARRAY, ppsavardescriptions: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ICOMAdminCatalog2(::windows::core::IUnknown);
 impl ICOMAdminCatalog2 {
@@ -2172,6 +2536,7 @@ pub struct ICOMAdminCatalog2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrclsidorprogid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, plversioncount: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ICOMLBArguments(::windows::core::IUnknown);
 impl ICOMLBArguments {
@@ -2238,6 +2603,7 @@ pub struct ICOMLBArgumentsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchsvr: u32, szservername: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ICatalogCollection(::windows::core::IUnknown);
 impl ICatalogCollection {
@@ -2424,6 +2790,7 @@ pub struct ICatalogCollectionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrquerystring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lquerytype: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ICatalogObject(::windows::core::IUnknown);
 impl ICatalogObject {
@@ -2566,6 +2933,7 @@ pub struct ICatalogObjectVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbretval: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ICheckSxsConfig(::windows::core::IUnknown);
 impl ICheckSxsConfig {
@@ -2618,6 +2986,7 @@ pub struct ICheckSxsConfigVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszsxsname: super::super::Foundation::PWSTR, wszsxsdirectory: super::super::Foundation::PWSTR, wszsxsappname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComActivityEvents(::windows::core::IUnknown);
 impl IComActivityEvents {
@@ -2706,6 +3075,7 @@ pub struct IComActivityEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, dwcalldepth: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComApp2Events(::windows::core::IUnknown);
 impl IComApp2Events {
@@ -2782,6 +3152,7 @@ pub struct IComApp2EventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID, guidprocess: ::windows::core::GUID, lreason: i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComAppEvents(::windows::core::IUnknown);
 impl IComAppEvents {
@@ -2846,6 +3217,7 @@ pub struct IComAppEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComCRMEvents(::windows::core::IUnknown);
 impl IComCRMEvents {
@@ -2982,6 +3354,7 @@ pub struct IComCRMEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, fvariants: super::super::Foundation::BOOL, dwrecordsize: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComExceptionEvents(::windows::core::IUnknown);
 impl IComExceptionEvents {
@@ -3034,6 +3407,7 @@ pub struct IComExceptionEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, code: u32, address: u64, pszstacktrace: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComIdentityEvents(::windows::core::IUnknown);
 impl IComIdentityEvents {
@@ -3086,6 +3460,7 @@ pub struct IComIdentityEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objid: u64, pszclientip: super::super::Foundation::PWSTR, pszserverip: super::super::Foundation::PWSTR, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComInstance2Events(::windows::core::IUnknown);
 impl IComInstance2Events {
@@ -3144,6 +3519,7 @@ pub struct IComInstance2EventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComInstanceEvents(::windows::core::IUnknown);
 impl IComInstanceEvents {
@@ -3202,6 +3578,7 @@ pub struct IComInstanceEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComLTxEvents(::windows::core::IUnknown);
 impl IComLTxEvents {
@@ -3278,6 +3655,7 @@ pub struct IComLTxEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID, txnid: ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComMethod2Events(::windows::core::IUnknown);
 impl IComMethod2Events {
@@ -3342,6 +3720,7 @@ pub struct IComMethod2EventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, dwthread: u32, imeth: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComMethodEvents(::windows::core::IUnknown);
 impl IComMethodEvents {
@@ -3406,6 +3785,7 @@ pub struct IComMethodEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, imeth: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComMtaThreadPoolKnobs(::windows::core::IUnknown);
 impl IComMtaThreadPoolKnobs {
@@ -3470,6 +3850,7 @@ pub struct IComMtaThreadPoolKnobsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwthrottle: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwthrottle: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComObjectConstruction2Events(::windows::core::IUnknown);
 impl IComObjectConstruction2Events {
@@ -3522,6 +3903,7 @@ pub struct IComObjectConstruction2EventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, sconstructstring: super::super::Foundation::PWSTR, oid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComObjectConstructionEvents(::windows::core::IUnknown);
 impl IComObjectConstructionEvents {
@@ -3574,6 +3956,7 @@ pub struct IComObjectConstructionEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, sconstructstring: super::super::Foundation::PWSTR, oid: u64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComObjectEvents(::windows::core::IUnknown);
 impl IComObjectEvents {
@@ -3656,6 +4039,7 @@ pub struct IComObjectEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComObjectPool2Events(::windows::core::IUnknown);
 impl IComObjectPool2Events {
@@ -3726,6 +4110,7 @@ pub struct IComObjectPool2EventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComObjectPoolEvents(::windows::core::IUnknown);
 impl IComObjectPoolEvents {
@@ -3796,6 +4181,7 @@ pub struct IComObjectPoolEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComObjectPoolEvents2(::windows::core::IUnknown);
 impl IComObjectPoolEvents2 {
@@ -3872,6 +4258,7 @@ pub struct IComObjectPoolEvents2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, dwmin: u32, dwmax: u32, dwtimeout: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComQCEvents(::windows::core::IUnknown);
 impl IComQCEvents {
@@ -3960,6 +4347,7 @@ pub struct IComQCEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objid: u64, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComResourceEvents(::windows::core::IUnknown);
 impl IComResourceEvents {
@@ -4036,6 +4424,7 @@ pub struct IComResourceEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objectid: u64, psztype: super::super::Foundation::PWSTR, resid: u64, enlisted: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComSecurityEvents(::windows::core::IUnknown);
 impl IComSecurityEvents {
@@ -4094,6 +4483,7 @@ pub struct IComSecurityEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, objectid: u64, guidiid: *const ::windows::core::GUID, imeth: u32, cbbyteorig: u32, psidoriginaluser: *const u8, cbbytecur: u32, psidcurrentuser: *const u8, bcurrentuserinpersonatinginproc: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComStaThreadPoolKnobs(::windows::core::IUnknown);
 impl IComStaThreadPoolKnobs {
@@ -4190,6 +4580,7 @@ pub struct IComStaThreadPoolKnobsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwqdepth: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwqdepth: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComStaThreadPoolKnobs2(::windows::core::IUnknown);
 impl IComStaThreadPoolKnobs2 {
@@ -4359,6 +4750,7 @@ pub struct IComStaThreadPoolKnobs2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwthreadcleanupwaittime: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwthreadcleanupwaittime: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComThreadEvents(::windows::core::IUnknown);
 impl IComThreadEvents {
@@ -4471,6 +4863,7 @@ pub struct IComThreadEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, aptid: u64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComTrackingInfoCollection(::windows::core::IUnknown);
 impl IComTrackingInfoCollection {
@@ -4531,6 +4924,7 @@ pub struct IComTrackingInfoCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComTrackingInfoEvents(::windows::core::IUnknown);
 impl IComTrackingInfoEvents {
@@ -4576,6 +4970,7 @@ unsafe impl ::windows::core::Interface for IComTrackingInfoEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComTrackingInfoEventsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptoplevelcollection: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComTrackingInfoObject(::windows::core::IUnknown);
 impl IComTrackingInfoObject {
@@ -4629,6 +5024,7 @@ pub struct IComTrackingInfoObjectVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szpropertyname: super::super::Foundation::PWSTR, pvarout: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComTrackingInfoProperties(::windows::core::IUnknown);
 impl IComTrackingInfoProperties {
@@ -4687,6 +5083,7 @@ pub struct IComTrackingInfoPropertiesVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulindex: u32, ppszpropname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComTransaction2Events(::windows::core::IUnknown);
 impl IComTransaction2Events {
@@ -4757,6 +5154,7 @@ pub struct IComTransaction2EventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComTransactionEvents(::windows::core::IUnknown);
 impl IComTransactionEvents {
@@ -4827,6 +5225,7 @@ pub struct IComTransactionEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IComUserEvent(::windows::core::IUnknown);
 impl IComUserEvent {
@@ -4879,6 +5278,7 @@ pub struct IComUserEventVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, pvarevent: *const super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IContextProperties(::windows::core::IUnknown);
 impl IContextProperties {
@@ -4952,6 +5352,7 @@ pub struct IContextPropertiesVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IContextSecurityPerimeter(::windows::core::IUnknown);
 impl IContextSecurityPerimeter {
@@ -5010,6 +5411,7 @@ pub struct IContextSecurityPerimeterVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fflag: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IContextState(::windows::core::IUnknown);
 impl IContextState {
@@ -5072,6 +5474,7 @@ pub struct IContextStateVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, txvote: TransactionVote) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptxvote: *mut TransactionVote) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ICreateWithLocalTransaction(::windows::core::IUnknown);
 impl ICreateWithLocalTransaction {
@@ -5122,6 +5525,7 @@ pub struct ICreateWithLocalTransactionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ICreateWithTipTransactionEx(::windows::core::IUnknown);
 impl ICreateWithTipTransactionEx {
@@ -5174,6 +5578,7 @@ pub struct ICreateWithTipTransactionExVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrtipurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ICreateWithTransactionEx(::windows::core::IUnknown);
 impl ICreateWithTransactionEx {
@@ -5226,6 +5631,7 @@ pub struct ICreateWithTransactionExVtbl(
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: ::windows::core::RawPtr, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_DistributedTransactionCoordinator"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ICrmCompensator(::windows::core::IUnknown);
 impl ICrmCompensator {
@@ -5328,6 +5734,7 @@ pub struct ICrmCompensatorVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ICrmCompensatorVariants(::windows::core::IUnknown);
 impl ICrmCompensatorVariants {
@@ -5424,6 +5831,7 @@ pub struct ICrmCompensatorVariantsVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ICrmFormatLogRecords(::windows::core::IUnknown);
 impl ICrmFormatLogRecords {
@@ -5496,6 +5904,7 @@ pub struct ICrmFormatLogRecordsVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logrecord: ::core::mem::ManuallyDrop<super::Com::VARIANT>, pformattedlogrecord: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ICrmLogControl(::windows::core::IUnknown);
 impl ICrmLogControl {
@@ -5579,6 +5988,7 @@ pub struct ICrmLogControlVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rgblob: *const super::Com::BLOB, cblob: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ICrmMonitor(::windows::core::IUnknown);
 impl ICrmMonitor {
@@ -5637,6 +6047,7 @@ pub struct ICrmMonitorVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, pitem: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ICrmMonitorClerks(::windows::core::IUnknown);
 impl ICrmMonitorClerks {
@@ -5778,6 +6189,7 @@ pub struct ICrmMonitorClerksVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, pitem: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ICrmMonitorLogRecords(::windows::core::IUnknown);
 impl ICrmMonitorLogRecords {
@@ -5852,6 +6264,7 @@ pub struct ICrmMonitorLogRecordsVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexnumber: ::core::mem::ManuallyDrop<super::Com::VARIANT>, plogrecord: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IDispenserDriver(::windows::core::IUnknown);
 impl IDispenserDriver {
@@ -5924,6 +6337,7 @@ pub struct IDispenserDriverVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resid: usize) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resid: *mut u16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IDispenserManager(::windows::core::IUnknown);
 impl IDispenserManager {
@@ -5981,6 +6395,7 @@ pub struct IDispenserManagerVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__idispensermanager0002: *mut usize, __midl__idispensermanager0003: *mut usize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IEnumNames(::windows::core::IUnknown);
 impl IEnumNames {
@@ -6046,6 +6461,7 @@ pub struct IEnumNamesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IEventServerTrace(::windows::core::IUnknown);
 impl IEventServerTrace {
@@ -6160,6 +6576,7 @@ pub struct IEventServerTraceVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcntguids: *mut i32, pbstrguidlist: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IGetAppTrackerData(::windows::core::IUnknown);
 impl IGetAppTrackerData {
@@ -6246,6 +6663,7 @@ pub struct IGetAppTrackerDataVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, toplevelcollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pollingintervalinseconds: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IGetContextProperties(::windows::core::IUnknown);
 impl IGetContextProperties {
@@ -6307,6 +6725,7 @@ pub struct IGetContextPropertiesVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IGetSecurityCallContext(::windows::core::IUnknown);
 impl IGetSecurityCallContext {
@@ -6408,6 +6827,7 @@ pub struct IGetSecurityCallContextVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IHolder(::windows::core::IUnknown);
 impl IHolder {
@@ -6490,6 +6910,7 @@ pub struct IHolderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iholder0009: usize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ILBEvents(::windows::core::IUnknown);
 impl ILBEvents {
@@ -6554,6 +6975,7 @@ pub struct ILBEventsVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrpropname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varpropvalue: *const super::Com::VARIANT, bstrclsideng: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IMTSActivity(::windows::core::IUnknown);
 impl IMTSActivity {
@@ -6620,6 +7042,7 @@ pub struct IMTSActivityVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IMTSCall(::windows::core::IUnknown);
 impl IMTSCall {
@@ -6665,6 +7088,7 @@ unsafe impl ::windows::core::Interface for IMTSCall {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMTSCallVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IMTSLocator(::windows::core::IUnknown);
 impl IMTSLocator {
@@ -6766,6 +7190,7 @@ pub struct IMTSLocatorVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IManagedActivationEvents(::windows::core::IUnknown);
 impl IManagedActivationEvents {
@@ -6822,6 +7247,7 @@ pub struct IManagedActivationEventsVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IManagedObjectInfo(::windows::core::IUnknown);
 impl IManagedObjectInfo {
@@ -6890,6 +7316,7 @@ pub struct IManagedObjectInfoVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrong: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IManagedPoolAction(::windows::core::IUnknown);
 impl IManagedPoolAction {
@@ -6935,6 +7362,7 @@ unsafe impl ::windows::core::Interface for IManagedPoolAction {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IManagedPoolActionVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IManagedPooledObj(::windows::core::IUnknown);
 impl IManagedPooledObj {
@@ -6987,6 +7415,7 @@ pub struct IManagedPooledObjVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, m_bheld: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IMessageMover(::windows::core::IUnknown);
 impl IMessageMover {
@@ -7123,6 +7552,7 @@ pub struct IMessageMoverVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmessagesmoved: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IMtsEventInfo(::windows::core::IUnknown);
 impl IMtsEventInfo {
@@ -7250,6 +7680,7 @@ pub struct IMtsEventInfoVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, skey: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IMtsEvents(::windows::core::IUnknown);
 impl IMtsEvents {
@@ -7376,6 +7807,7 @@ pub struct IMtsEventsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IMtsGrp(::windows::core::IUnknown);
 impl IMtsGrp {
@@ -7486,6 +7918,7 @@ pub struct IMtsGrpVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, ppunkdispatcher: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IObjPool(::windows::core::IUnknown);
 impl IObjPool {
@@ -7560,6 +7993,7 @@ pub struct IObjPoolVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IObjectConstruct(::windows::core::IUnknown);
 impl IObjectConstruct {
@@ -7612,6 +8046,7 @@ pub struct IObjectConstructVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pctorobj: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IObjectConstructString(::windows::core::IUnknown);
 impl IObjectConstructString {
@@ -7714,6 +8149,7 @@ pub struct IObjectConstructStringVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IObjectContext(::windows::core::IUnknown);
 impl IObjectContext {
@@ -7798,6 +8234,7 @@ pub struct IObjectContextVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrrole: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfisinrole: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IObjectContextActivity(::windows::core::IUnknown);
 impl IObjectContextActivity {
@@ -7843,6 +8280,7 @@ unsafe impl ::windows::core::Interface for IObjectContextActivity {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IObjectContextActivityVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IObjectContextInfo(::windows::core::IUnknown);
 impl IObjectContextInfo {
@@ -7912,6 +8350,7 @@ pub struct IObjectContextInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IObjectContextInfo2(::windows::core::IUnknown);
 impl IObjectContextInfo2 {
@@ -8013,6 +8452,7 @@ pub struct IObjectContextInfo2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IObjectContextTip(::windows::core::IUnknown);
 impl IObjectContextTip {
@@ -8065,6 +8505,7 @@ pub struct IObjectContextTipVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptipurl: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IObjectControl(::windows::core::IUnknown);
 impl IObjectControl {
@@ -8125,6 +8566,7 @@ pub struct IObjectControlVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IPlaybackControl(::windows::core::IUnknown);
 impl IPlaybackControl {
@@ -8179,6 +8621,7 @@ pub struct IPlaybackControlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IPoolManager(::windows::core::IUnknown);
 impl IPoolManager {
@@ -8281,6 +8724,7 @@ pub struct IPoolManagerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsidorprogid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IProcessInitializer(::windows::core::IUnknown);
 impl IProcessInitializer {
@@ -8335,6 +8779,7 @@ pub struct IProcessInitializerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkprocesscontrol: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ISecurityCallContext(::windows::core::IUnknown);
 impl ISecurityCallContext {
@@ -8467,6 +8912,7 @@ pub struct ISecurityCallContextVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: *const super::Com::VARIANT, bstrrole: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfinrole: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ISecurityCallersColl(::windows::core::IUnknown);
 impl ISecurityCallersColl {
@@ -8578,6 +9024,7 @@ pub struct ISecurityCallersCollVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, pobj: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ISecurityIdentityColl(::windows::core::IUnknown);
 impl ISecurityIdentityColl {
@@ -8691,6 +9138,7 @@ pub struct ISecurityIdentityCollVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ISecurityProperty(::windows::core::IUnknown);
 impl ISecurityProperty {
@@ -8767,6 +9215,7 @@ pub struct ISecurityPropertyVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psid: super::super::Foundation::PSID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ISelectCOMLBServer(::windows::core::IUnknown);
 impl ISelectCOMLBServer {
@@ -8821,6 +9270,7 @@ pub struct ISelectCOMLBServerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ISendMethodEvents(::windows::core::IUnknown);
 impl ISendMethodEvents {
@@ -8875,6 +9325,7 @@ pub struct ISendMethodEventsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidentity: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwmeth: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidentity: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwmeth: u32, hrcall: ::windows::core::HRESULT, hrserver: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IServiceActivity(::windows::core::IUnknown);
 impl IServiceActivity {
@@ -8937,6 +9388,7 @@ pub struct IServiceActivityVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IServiceCall(::windows::core::IUnknown);
 impl IServiceCall {
@@ -8982,6 +9434,7 @@ unsafe impl ::windows::core::Interface for IServiceCall {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServiceCallVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IServiceComTIIntrinsicsConfig(::windows::core::IUnknown);
 impl IServiceComTIIntrinsicsConfig {
@@ -9027,6 +9480,7 @@ unsafe impl ::windows::core::Interface for IServiceComTIIntrinsicsConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServiceComTIIntrinsicsConfigVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, comtiintrinsicsconfig: CSC_COMTIIntrinsicsConfig) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IServiceIISIntrinsicsConfig(::windows::core::IUnknown);
 impl IServiceIISIntrinsicsConfig {
@@ -9072,6 +9526,7 @@ unsafe impl ::windows::core::Interface for IServiceIISIntrinsicsConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServiceIISIntrinsicsConfigVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iisintrinsicsconfig: CSC_IISIntrinsicsConfig) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IServiceInheritanceConfig(::windows::core::IUnknown);
 impl IServiceInheritanceConfig {
@@ -9117,6 +9572,7 @@ unsafe impl ::windows::core::Interface for IServiceInheritanceConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServiceInheritanceConfigVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inheritanceconfig: CSC_InheritanceConfig) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IServicePartitionConfig(::windows::core::IUnknown);
 impl IServicePartitionConfig {
@@ -9171,6 +9627,7 @@ pub struct IServicePartitionConfigVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partitionconfig: CSC_PartitionConfig) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpartitionid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IServicePool(::windows::core::IUnknown);
 impl IServicePool {
@@ -9229,6 +9686,7 @@ pub struct IServicePoolVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IServicePoolConfig(::windows::core::IUnknown);
 impl IServicePoolConfig {
@@ -9324,6 +9782,7 @@ pub struct IServicePoolConfigVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfactory: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IServiceSxsConfig(::windows::core::IUnknown);
 impl IServiceSxsConfig {
@@ -9386,6 +9845,7 @@ pub struct IServiceSxsConfigVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szsxsdirectory: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IServiceSynchronizationConfig(::windows::core::IUnknown);
 impl IServiceSynchronizationConfig {
@@ -9431,6 +9891,7 @@ unsafe impl ::windows::core::Interface for IServiceSynchronizationConfig {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IServiceSynchronizationConfigVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, synchconfig: CSC_SynchronizationConfig) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IServiceSysTxnConfig(::windows::core::IUnknown);
 impl IServiceSysTxnConfig {
@@ -9551,6 +10012,7 @@ pub struct IServiceSysTxnConfigVtbl(
     #[cfg(not(feature = "Win32_System_DistributedTransactionCoordinator"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptxproxy: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IServiceThreadPoolConfig(::windows::core::IUnknown);
 impl IServiceThreadPoolConfig {
@@ -9605,6 +10067,7 @@ pub struct IServiceThreadPoolConfigVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadpool: CSC_ThreadPool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binding: CSC_Binding) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IServiceTrackerConfig(::windows::core::IUnknown);
 impl IServiceTrackerConfig {
@@ -9657,6 +10120,7 @@ pub struct IServiceTrackerConfigVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, trackerconfig: CSC_TrackerConfig, sztrackerappname: super::super::Foundation::PWSTR, sztrackerctxname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IServiceTransactionConfig(::windows::core::IUnknown);
 impl IServiceTransactionConfig {
@@ -9753,6 +10217,7 @@ pub struct IServiceTransactionConfigVtbl(
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitxbyot: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_DistributedTransactionCoordinator"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IServiceTransactionConfigBase(::windows::core::IUnknown);
 impl IServiceTransactionConfigBase {
@@ -9823,6 +10288,7 @@ pub struct IServiceTransactionConfigBaseVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sztxdesc: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ISharedProperty(::windows::core::IUnknown);
 impl ISharedProperty {
@@ -9932,6 +10398,7 @@ pub struct ISharedPropertyVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, val: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ISharedPropertyGroup(::windows::core::IUnknown);
 impl ISharedPropertyGroup {
@@ -10050,6 +10517,7 @@ pub struct ISharedPropertyGroupVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppproperty: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ISharedPropertyGroupManager(::windows::core::IUnknown);
 impl ISharedPropertyGroupManager {
@@ -10164,6 +10632,7 @@ pub struct ISharedPropertyGroupManagerVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ISystemAppEventData(::windows::core::IUnknown);
 impl ISystemAppEventData {
@@ -10220,6 +10689,7 @@ pub struct ISystemAppEventDataVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwpid: u32, dwmask: u32, dwnumbersinks: u32, bstrdwmethodmask: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, dwreason: u32, u64tracehandle: u64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct IThreadPoolKnobs(::windows::core::IUnknown);
 impl IThreadPoolKnobs {
@@ -10306,6 +10776,7 @@ pub struct IThreadPoolKnobsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcminthreads: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcqueuedepth: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ITransactionContext(::windows::core::IUnknown);
 impl ITransactionContext {
@@ -10417,6 +10888,7 @@ pub struct ITransactionContextVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ITransactionContextEx(::windows::core::IUnknown);
 impl ITransactionContextEx {
@@ -10475,6 +10947,7 @@ pub struct ITransactionContextExVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ITransactionProperty(::windows::core::IUnknown);
 impl ITransactionProperty {
@@ -10594,6 +11067,7 @@ pub struct ITransactionPropertyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ITransactionProxy(::windows::core::IUnknown);
 impl ITransactionProxy {
@@ -10676,6 +11150,7 @@ pub struct ITransactionProxyVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfisreusable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ITransactionResourcePool(::windows::core::IUnknown);
 impl ITransactionResourcePool {
@@ -10731,6 +11206,7 @@ pub struct ITransactionResourcePoolVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppool: ::windows::core::RawPtr, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppool: ::windows::core::RawPtr, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ITransactionStatus(::windows::core::IUnknown);
 impl ITransactionStatus {
@@ -10785,6 +11261,7 @@ pub struct ITransactionStatusVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrstatus: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ITxProxyHolder(::windows::core::IUnknown);
 impl ITxProxyHolder {
@@ -10831,9 +11308,13 @@ unsafe impl ::windows::core::Interface for ITxProxyHolder {
 #[doc(hidden)]
 pub struct ITxProxyHolderVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidltx: *mut ::windows::core::GUID));
 pub const LBEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c1_7f19_11d2_978e_0000f8757e2a);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type LockModes = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const LockSetGet: LockModes = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const LockMethod: LockModes = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[inline]
 pub unsafe fn MTSCreateActivity(riid: *const ::windows::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -10850,6 +11331,7 @@ pub unsafe fn MTSCreateActivity(riid: *const ::windows::core::GUID, ppobj: *mut 
 pub const MTXDM_E_ENLISTRESOURCEFAILED: u32 = 2147803392u32;
 pub const MessageMover: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0bf_7f19_11d2_978e_0000f8757e2a);
 pub const MtsGrp: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b2e958d_0393_11d1_b1ab_00aa00ba3258);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ObjectContext(::windows::core::IUnknown);
 impl ObjectContext {
@@ -11013,6 +11495,7 @@ pub struct ObjectContextVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsecurityproperty: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontextinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct ObjectControl(::windows::core::IUnknown);
 impl ObjectControl {
@@ -11073,6 +11556,7 @@ pub struct ObjectControlVtbl(
 );
 pub const PoolMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabafb5_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub struct RECYCLE_INFO {
     pub guidCombaseProcessIdentifier: ::windows::core::GUID,
     pub ProcessStartTime: i64,
@@ -11100,6 +11584,7 @@ impl ::core::default::Default for RECYCLE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[inline]
 pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -11113,9 +11598,13 @@ pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> ::windows::core::Result<()> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type ReleaseModes = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const Standard: ReleaseModes = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const Process: ReleaseModes = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[inline]
 pub unsafe fn SafeRef<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(rid: *const ::windows::core::GUID, punk: Param1) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -11132,6 +11621,7 @@ pub unsafe fn SafeRef<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core
 pub const SecurityCallContext: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a7_7f19_11d2_978e_0000f8757e2a);
 pub const SecurityCallers: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a6_7f19_11d2_978e_0000f8757e2a);
 pub const SecurityIdentity: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a5_7f19_11d2_978e_0000f8757e2a);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 #[repr(transparent)]
 pub struct SecurityProperty(::windows::core::IUnknown);
 impl SecurityProperty {
@@ -11261,13 +11751,20 @@ pub const ServicePoolConfig: ::windows::core::GUID = ::windows::core::GUID::from
 pub const SharedProperty: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a005c05_a5de_11cf_9e66_00aa00a3f464);
 pub const SharedPropertyGroup: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a005c0b_a5de_11cf_9e66_00aa00a3f464);
 pub const SharedPropertyGroupManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a005c11_a5de_11cf_9e66_00aa00a3f464);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type TRACKING_COLL_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const TRKCOLL_PROCESSES: TRACKING_COLL_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const TRKCOLL_APPLICATIONS: TRACKING_COLL_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const TRKCOLL_COMPONENTS: TRACKING_COLL_TYPE = 2i32;
 pub const TrackerServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabafb9_7f19_11d2_978e_0000f8757e2a);
 pub const TransactionContext: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7999fc25_d3c6_11cf_acab_00a024a55aef);
 pub const TransactionContextEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cb66670_d3d4_11cf_acab_00a024a55aef);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type TransactionVote = i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const TxCommit: TransactionVote = 0i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const TxAbort: TransactionVote = 1i32;

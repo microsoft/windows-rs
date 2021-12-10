@@ -96,6 +96,7 @@ pub struct IInkAnalysisListItemVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct IInkAnalysisNode(::windows::core::IUnknown);
 impl IInkAnalysisNode {
@@ -336,6 +337,7 @@ pub struct IInkAnalyzerVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct IInkAnalyzerFactory(::windows::core::IUnknown);
 impl IInkAnalyzerFactory {
@@ -416,6 +418,7 @@ pub struct IInkAnalyzerFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalysisDrawingKind(pub i32);
 impl InkAnalysisDrawingKind {
@@ -456,6 +459,7 @@ unsafe impl ::windows::core::RuntimeType for InkAnalysisDrawingKind {
 impl ::windows::core::DefaultType for InkAnalysisDrawingKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalysisInkBullet(::windows::core::IUnknown);
 impl InkAnalysisInkBullet {
@@ -605,6 +609,7 @@ impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisInkBul
 }
 unsafe impl ::core::marker::Send for InkAnalysisInkBullet {}
 unsafe impl ::core::marker::Sync for InkAnalysisInkBullet {}
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalysisInkDrawing(::windows::core::IUnknown);
 impl InkAnalysisInkDrawing {
@@ -770,6 +775,7 @@ impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisInkDra
 }
 unsafe impl ::core::marker::Send for InkAnalysisInkDrawing {}
 unsafe impl ::core::marker::Sync for InkAnalysisInkDrawing {}
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalysisInkWord(::windows::core::IUnknown);
 impl InkAnalysisInkWord {
@@ -927,6 +933,7 @@ impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisInkWor
 }
 unsafe impl ::core::marker::Send for InkAnalysisInkWord {}
 unsafe impl ::core::marker::Sync for InkAnalysisInkWord {}
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalysisLine(::windows::core::IUnknown);
 impl InkAnalysisLine {
@@ -1083,6 +1090,7 @@ impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisLine {
 }
 unsafe impl ::core::marker::Send for InkAnalysisLine {}
 unsafe impl ::core::marker::Sync for InkAnalysisLine {}
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalysisListItem(::windows::core::IUnknown);
 impl InkAnalysisListItem {
@@ -1232,6 +1240,7 @@ impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisListIt
 }
 unsafe impl ::core::marker::Send for InkAnalysisListItem {}
 unsafe impl ::core::marker::Sync for InkAnalysisListItem {}
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalysisNode(::windows::core::IUnknown);
 impl InkAnalysisNode {
@@ -1374,6 +1383,7 @@ impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisNode {
 }
 unsafe impl ::core::marker::Send for InkAnalysisNode {}
 unsafe impl ::core::marker::Sync for InkAnalysisNode {}
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalysisNodeKind(pub i32);
 impl InkAnalysisNodeKind {
@@ -1408,6 +1418,7 @@ unsafe impl ::windows::core::RuntimeType for InkAnalysisNodeKind {
 impl ::windows::core::DefaultType for InkAnalysisNodeKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalysisParagraph(::windows::core::IUnknown);
 impl InkAnalysisParagraph {
@@ -1557,6 +1568,7 @@ impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisParagr
 }
 unsafe impl ::core::marker::Send for InkAnalysisParagraph {}
 unsafe impl ::core::marker::Sync for InkAnalysisParagraph {}
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalysisResult(::windows::core::IUnknown);
 impl InkAnalysisResult {
@@ -1631,6 +1643,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkA
 }
 unsafe impl ::core::marker::Send for InkAnalysisResult {}
 unsafe impl ::core::marker::Sync for InkAnalysisResult {}
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalysisRoot(::windows::core::IUnknown);
 impl InkAnalysisRoot {
@@ -1788,6 +1801,7 @@ impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisRoot {
 }
 unsafe impl ::core::marker::Send for InkAnalysisRoot {}
 unsafe impl ::core::marker::Sync for InkAnalysisRoot {}
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalysisStatus(pub i32);
 impl InkAnalysisStatus {
@@ -1815,6 +1829,7 @@ unsafe impl ::windows::core::RuntimeType for InkAnalysisStatus {
 impl ::windows::core::DefaultType for InkAnalysisStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalysisStrokeKind(pub i32);
 impl InkAnalysisStrokeKind {
@@ -1843,6 +1858,7 @@ unsafe impl ::windows::core::RuntimeType for InkAnalysisStrokeKind {
 impl ::windows::core::DefaultType for InkAnalysisStrokeKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalysisWritingRegion(::windows::core::IUnknown);
 impl InkAnalysisWritingRegion {
@@ -1992,6 +2008,7 @@ impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisWritin
 }
 unsafe impl ::core::marker::Send for InkAnalysisWritingRegion {}
 unsafe impl ::core::marker::Sync for InkAnalysisWritingRegion {}
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalyzer(::windows::core::IUnknown);
 impl InkAnalyzer {

@@ -100,6 +100,7 @@ impl MdmPolicy {
 impl ::windows::core::RuntimeName for MdmPolicy {
     const NAME: &'static str = "Windows.Management.Workplace.MdmPolicy";
 }
+#[doc = "*Required features: 'Management_Workplace'*"]
 #[repr(transparent)]
 pub struct MessagingSyncPolicy(pub i32);
 impl MessagingSyncPolicy {

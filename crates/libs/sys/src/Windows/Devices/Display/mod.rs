@@ -4,6 +4,7 @@ pub mod Core;
 #[link(name = "windows")]
 extern "system" {}
 pub type DisplayMonitor = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
 pub struct DisplayMonitorConnectionKind(pub i32);
 impl DisplayMonitorConnectionKind {
@@ -18,6 +19,7 @@ impl ::core::clone::Clone for DisplayMonitorConnectionKind {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
 pub struct DisplayMonitorDescriptorKind(pub i32);
 impl DisplayMonitorDescriptorKind {
@@ -30,6 +32,7 @@ impl ::core::clone::Clone for DisplayMonitorDescriptorKind {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
 pub struct DisplayMonitorPhysicalConnectorKind(pub i32);
 impl DisplayMonitorPhysicalConnectorKind {
@@ -48,6 +51,7 @@ impl ::core::clone::Clone for DisplayMonitorPhysicalConnectorKind {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
 pub struct DisplayMonitorUsageKind(pub i32);
 impl DisplayMonitorUsageKind {

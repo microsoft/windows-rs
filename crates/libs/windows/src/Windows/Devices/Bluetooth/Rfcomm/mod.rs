@@ -234,6 +234,7 @@ pub struct IRfcommServiceProviderStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, serviceid: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
 #[repr(transparent)]
 pub struct RfcommDeviceService(::windows::core::IUnknown);
 impl RfcommDeviceService {
@@ -454,6 +455,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for RfcommDeviceService {}
 unsafe impl ::core::marker::Sync for RfcommDeviceService {}
+#[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
 #[repr(transparent)]
 pub struct RfcommDeviceServicesResult(::windows::core::IUnknown);
 impl RfcommDeviceServicesResult {
@@ -536,6 +538,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rfco
 }
 unsafe impl ::core::marker::Send for RfcommDeviceServicesResult {}
 unsafe impl ::core::marker::Sync for RfcommDeviceServicesResult {}
+#[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
 #[repr(transparent)]
 pub struct RfcommServiceId(::windows::core::IUnknown);
 impl RfcommServiceId {
@@ -676,6 +679,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rfco
 }
 unsafe impl ::core::marker::Send for RfcommServiceId {}
 unsafe impl ::core::marker::Sync for RfcommServiceId {}
+#[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
 #[repr(transparent)]
 pub struct RfcommServiceProvider(::windows::core::IUnknown);
 impl RfcommServiceProvider {

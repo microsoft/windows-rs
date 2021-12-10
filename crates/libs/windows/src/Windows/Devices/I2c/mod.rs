@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Devices_I2c_Provider")]
 pub mod Provider;
+#[doc = "*Required features: 'Devices_I2c'*"]
 #[repr(transparent)]
 pub struct I2cBusSpeed(pub i32);
 impl I2cBusSpeed {
@@ -28,6 +29,7 @@ unsafe impl ::windows::core::RuntimeType for I2cBusSpeed {
 impl ::windows::core::DefaultType for I2cBusSpeed {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_I2c'*"]
 #[repr(transparent)]
 pub struct I2cConnectionSettings(::windows::core::IUnknown);
 impl I2cConnectionSettings {
@@ -138,6 +140,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &I2cC
 }
 unsafe impl ::core::marker::Send for I2cConnectionSettings {}
 unsafe impl ::core::marker::Sync for I2cConnectionSettings {}
+#[doc = "*Required features: 'Devices_I2c'*"]
 #[repr(transparent)]
 pub struct I2cController(::windows::core::IUnknown);
 impl I2cController {
@@ -230,6 +233,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &I2cC
 }
 unsafe impl ::core::marker::Send for I2cController {}
 unsafe impl ::core::marker::Sync for I2cController {}
+#[doc = "*Required features: 'Devices_I2c'*"]
 #[repr(transparent)]
 pub struct I2cDevice(::windows::core::IUnknown);
 impl I2cDevice {
@@ -398,6 +402,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for I2cDevice {}
 unsafe impl ::core::marker::Sync for I2cDevice {}
+#[doc = "*Required features: 'Devices_I2c'*"]
 #[repr(transparent)]
 pub struct I2cSharingMode(pub i32);
 impl I2cSharingMode {
@@ -426,6 +431,7 @@ impl ::windows::core::DefaultType for I2cSharingMode {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Devices_I2c'*"]
 pub struct I2cTransferResult {
     pub Status: I2cTransferStatus,
     pub BytesTransferred: u32,
@@ -456,6 +462,7 @@ impl ::core::default::Default for I2cTransferResult {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Devices_I2c'*"]
 #[repr(transparent)]
 pub struct I2cTransferStatus(pub i32);
 impl I2cTransferStatus {
@@ -591,6 +598,7 @@ pub struct II2cDeviceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8, result__: *mut I2cTransferResult) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_I2c'*"]
 #[repr(transparent)]
 pub struct II2cDeviceStatics(::windows::core::IUnknown);
 impl II2cDeviceStatics {

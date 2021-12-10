@@ -3,6 +3,7 @@
 extern "system" {}
 pub type AppCapability = *mut ::core::ffi::c_void;
 pub type AppCapabilityAccessChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Authorization_AppCapabilityAccess'*"]
 #[repr(transparent)]
 pub struct AppCapabilityAccessStatus(pub i32);
 impl AppCapabilityAccessStatus {

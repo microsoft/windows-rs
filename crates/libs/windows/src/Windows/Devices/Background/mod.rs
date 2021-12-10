@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_Background'*"]
 #[repr(transparent)]
 pub struct DeviceServicingDetails(::windows::core::IUnknown);
 impl DeviceServicingDetails {
@@ -88,6 +89,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DeviceServicingDetails {}
 unsafe impl ::core::marker::Sync for DeviceServicingDetails {}
+#[doc = "*Required features: 'Devices_Background'*"]
 #[repr(transparent)]
 pub struct DeviceUseDetails(::windows::core::IUnknown);
 impl DeviceUseDetails {

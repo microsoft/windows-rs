@@ -69,6 +69,7 @@ pub const MDSP_SEEK_CUR: u32 = 2u32;
 pub const MDSP_SEEK_EOF: u32 = 4u32;
 pub const MDSP_WRITE: u32 = 2u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub struct MTP_COMMAND_DATA_IN {
     pub OpCode: u16,
     pub NumParams: u32,
@@ -84,6 +85,7 @@ impl ::core::clone::Clone for MTP_COMMAND_DATA_IN {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub struct MTP_COMMAND_DATA_OUT {
     pub ResponseCode: u16,
     pub NumParams: u32,
@@ -106,6 +108,7 @@ pub const MTP_RESPONSE_OK: u16 = 8193u16;
 pub const MediaDevMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 632991105, data2: 13664, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
 pub const MediaDevMgrClassFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1342442525, data2: 48575, data3: 18724, data4: [184, 115, 241, 77, 108, 91, 253, 102] };
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub struct OPAQUECOMMAND {
     pub guidCommand: ::windows_sys::core::GUID,
     pub dwDataLen: u32,
@@ -130,6 +133,7 @@ pub const SCP_EVENTID_DRMINFO: ::windows_sys::core::GUID = ::windows_sys::core::
 pub const SCP_EVENTID_NEEDTOINDIV: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2275739591, data2: 46185, data3: 17286, data4: [185, 118, 213, 209, 206, 83, 138, 111] };
 pub const SCP_PARAMID_DRMVERSION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1104155997, data2: 31943, data3: 16919, data4: [173, 169, 0, 80, 116, 98, 77, 164] };
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub struct WMDMDATETIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -145,6 +149,7 @@ impl ::core::clone::Clone for WMDMDATETIME {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub union WMDMDetermineMaxPropStringLen {
     pub sz001: [u16; 27],
     pub sz002: [u16; 31],
@@ -238,6 +243,7 @@ impl ::core::clone::Clone for WMDMDetermineMaxPropStringLen {
 pub const WMDMDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2155560159, data2: 13690, data3: 4563, data4: [132, 113, 0, 192, 79, 121, 219, 192] };
 pub const WMDMDeviceEnum: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1125004719, data2: 14705, data3: 4563, data4: [132, 116, 0, 192, 79, 121, 219, 192] };
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub struct WMDMID {
     pub cbSize: u32,
     pub dwVendorID: u32,
@@ -252,12 +258,18 @@ impl ::core::clone::Clone for WMDMID {
 }
 pub const WMDMID_LENGTH: u32 = 128u32;
 pub const WMDMLogger: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 285880834, data2: 23161, data3: 4563, data4: [141, 120, 68, 69, 83, 84, 0, 0] };
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub type WMDMMessage = i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_MSG_DEVICE_ARRIVAL: WMDMMessage = 0i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_MSG_DEVICE_REMOVAL: WMDMMessage = 1i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_MSG_MEDIA_ARRIVAL: WMDMMessage = 2i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_MSG_MEDIA_REMOVAL: WMDMMessage = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WMDMMetadataView {
     pub pwszViewName: super::super::Foundation::PWSTR,
@@ -273,6 +285,7 @@ impl ::core::clone::Clone for WMDMMetadataView {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub struct WMDMRIGHTS {
     pub cbSize: u32,
     pub dwContentType: u32,
@@ -318,9 +331,13 @@ pub const WMDM_DEVICE_TYPE_SDMI: u32 = 64u32;
 pub const WMDM_DEVICE_TYPE_STORAGE: u32 = 16u32;
 pub const WMDM_DEVICE_TYPE_VIEW_PREF_METADATAVIEW: u32 = 1024u32;
 pub const WMDM_DEVICE_TYPE_VIRTUAL: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub type WMDM_ENUM_PROP_VALID_VALUES_FORM = i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_ENUM_PROP_VALID_VALUES_ANY: WMDM_ENUM_PROP_VALID_VALUES_FORM = 0i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_ENUM_PROP_VALID_VALUES_RANGE: WMDM_ENUM_PROP_VALID_VALUES_FORM = 1i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_ENUM_PROP_VALID_VALUES_ENUM: WMDM_ENUM_PROP_VALID_VALUES_FORM = 2i32;
 pub const WMDM_E_BUFFERTOOSMALL: i32 = -2147201016i32;
 pub const WMDM_E_BUSY: i32 = -2147201024i32;
@@ -360,106 +377,206 @@ pub const WMDM_FILE_ATTR_READONLY: u32 = 16777216u32;
 pub const WMDM_FILE_ATTR_SYSTEM: u32 = 8388608u32;
 pub const WMDM_FILE_ATTR_VIDEO: u32 = 64u32;
 pub const WMDM_FILE_CREATE_OVERWRITE: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub type WMDM_FIND_SCOPE = i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FIND_SCOPE_GLOBAL: WMDM_FIND_SCOPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FIND_SCOPE_IMMEDIATE_CHILDREN: WMDM_FIND_SCOPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub type WMDM_FORMATCODE = i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_NOTUSED: WMDM_FORMATCODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ALLIMAGES: WMDM_FORMATCODE = -1i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINED: WMDM_FORMATCODE = 12288i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ASSOCIATION: WMDM_FORMATCODE = 12289i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_SCRIPT: WMDM_FORMATCODE = 12290i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_EXECUTABLE: WMDM_FORMATCODE = 12291i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_TEXT: WMDM_FORMATCODE = 12292i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_HTML: WMDM_FORMATCODE = 12293i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_DPOF: WMDM_FORMATCODE = 12294i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_AIFF: WMDM_FORMATCODE = 12295i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_WAVE: WMDM_FORMATCODE = 12296i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MP3: WMDM_FORMATCODE = 12297i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_AVI: WMDM_FORMATCODE = 12298i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MPEG: WMDM_FORMATCODE = 12299i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ASF: WMDM_FORMATCODE = 12300i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_RESERVED_FIRST: WMDM_FORMATCODE = 12301i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_RESERVED_LAST: WMDM_FORMATCODE = 14335i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_UNDEFINED: WMDM_FORMATCODE = 14336i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_EXIF: WMDM_FORMATCODE = 14337i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_TIFFEP: WMDM_FORMATCODE = 14338i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_FLASHPIX: WMDM_FORMATCODE = 14339i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_BMP: WMDM_FORMATCODE = 14340i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_CIFF: WMDM_FORMATCODE = 14341i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_GIF: WMDM_FORMATCODE = 14343i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_JFIF: WMDM_FORMATCODE = 14344i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_PCD: WMDM_FORMATCODE = 14345i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_PICT: WMDM_FORMATCODE = 14346i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_PNG: WMDM_FORMATCODE = 14347i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_TIFF: WMDM_FORMATCODE = 14349i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_TIFFIT: WMDM_FORMATCODE = 14350i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_JP2: WMDM_FORMATCODE = 14351i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_JPX: WMDM_FORMATCODE = 14352i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_RESERVED_FIRST: WMDM_FORMATCODE = 14353i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_RESERVED_LAST: WMDM_FORMATCODE = 16383i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINEDFIRMWARE: WMDM_FORMATCODE = 47106i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_WBMP: WMDM_FORMATCODE = 47107i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_JPEGXR: WMDM_FORMATCODE = 47108i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_WINDOWSIMAGEFORMAT: WMDM_FORMATCODE = 47233i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINEDAUDIO: WMDM_FORMATCODE = 47360i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_WMA: WMDM_FORMATCODE = 47361i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_OGG: WMDM_FORMATCODE = 47362i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_AAC: WMDM_FORMATCODE = 47363i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_AUDIBLE: WMDM_FORMATCODE = 47364i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_FLAC: WMDM_FORMATCODE = 47366i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_QCELP: WMDM_FORMATCODE = 47367i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_AMR: WMDM_FORMATCODE = 47368i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINEDVIDEO: WMDM_FORMATCODE = 47488i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_WMV: WMDM_FORMATCODE = 47489i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MP4: WMDM_FORMATCODE = 47490i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MP2: WMDM_FORMATCODE = 47491i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_3GP: WMDM_FORMATCODE = 47492i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_3G2: WMDM_FORMATCODE = 47493i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_AVCHD: WMDM_FORMATCODE = 47494i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ATSCTS: WMDM_FORMATCODE = 47495i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_DVBTS: WMDM_FORMATCODE = 47496i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MKV: WMDM_FORMATCODE = 47497i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MKA: WMDM_FORMATCODE = 47498i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MK3D: WMDM_FORMATCODE = 47499i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINEDCOLLECTION: WMDM_FORMATCODE = 47616i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTMULTIMEDIAALBUM: WMDM_FORMATCODE = 47617i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTIMAGEALBUM: WMDM_FORMATCODE = 47618i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTAUDIOALBUM: WMDM_FORMATCODE = 47619i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTVIDEOALBUM: WMDM_FORMATCODE = 47620i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTAUDIOVIDEOPLAYLIST: WMDM_FORMATCODE = 47621i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTCONTACTGROUP: WMDM_FORMATCODE = 47622i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTMESSAGEFOLDER: WMDM_FORMATCODE = 47623i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTCHAPTEREDPRODUCTION: WMDM_FORMATCODE = 47624i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MEDIA_CAST: WMDM_FORMATCODE = 47627i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_WPLPLAYLIST: WMDM_FORMATCODE = 47632i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_M3UPLAYLIST: WMDM_FORMATCODE = 47633i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MPLPLAYLIST: WMDM_FORMATCODE = 47634i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ASXPLAYLIST: WMDM_FORMATCODE = 47635i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_PLSPLAYLIST: WMDM_FORMATCODE = 47636i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINEDDOCUMENT: WMDM_FORMATCODE = 47744i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTDOCUMENT: WMDM_FORMATCODE = 47745i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_XMLDOCUMENT: WMDM_FORMATCODE = 47746i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MICROSOFTWORDDOCUMENT: WMDM_FORMATCODE = 47747i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MHTCOMPILEDHTMLDOCUMENT: WMDM_FORMATCODE = 47748i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MICROSOFTEXCELSPREADSHEET: WMDM_FORMATCODE = 47749i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MICROSOFTPOWERPOINTDOCUMENT: WMDM_FORMATCODE = 47750i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINEDMESSAGE: WMDM_FORMATCODE = 47872i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTMESSAGE: WMDM_FORMATCODE = 47873i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINEDCONTACT: WMDM_FORMATCODE = 48000i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTCONTACT: WMDM_FORMATCODE = 48001i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_VCARD2: WMDM_FORMATCODE = 48002i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_VCARD3: WMDM_FORMATCODE = 48003i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINEDCALENDARITEM: WMDM_FORMATCODE = 48640i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTCALENDARITEM: WMDM_FORMATCODE = 48641i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_VCALENDAR1: WMDM_FORMATCODE = 48642i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_VCALENDAR2: WMDM_FORMATCODE = 48643i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINEDWINDOWSEXECUTABLE: WMDM_FORMATCODE = 48768i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_M4A: WMDM_FORMATCODE = 1297101889i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_3GPA: WMDM_FORMATCODE = 860311617i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_3G2A: WMDM_FORMATCODE = 860303937i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_SECTION: WMDM_FORMATCODE = 48770i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_FORMAT_CAPABILITY {
     pub nPropConfig: u32,
@@ -494,6 +611,7 @@ pub const WMDM_POWER_IS_BATTERY: u32 = 4u32;
 pub const WMDM_POWER_IS_EXTERNAL: u32 = 8u32;
 pub const WMDM_POWER_PERCENT_AVAILABLE: u32 = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_PROP_CONFIG {
     pub nPreference: u32,
@@ -509,6 +627,7 @@ impl ::core::clone::Clone for WMDM_PROP_CONFIG {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_PROP_DESC {
     pub pwszPropName: super::super::Foundation::PWSTR,
@@ -524,6 +643,7 @@ impl ::core::clone::Clone for WMDM_PROP_DESC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub union WMDM_PROP_DESC_0 {
     pub ValidValuesRange: WMDM_PROP_VALUES_RANGE,
@@ -538,6 +658,7 @@ impl ::core::clone::Clone for WMDM_PROP_DESC_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_PROP_VALUES_ENUM {
     pub cEnumValues: u32,
@@ -552,6 +673,7 @@ impl ::core::clone::Clone for WMDM_PROP_VALUES_ENUM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_PROP_VALUES_RANGE {
     pub rangeMin: super::super::System::Com::StructuredStorage::PROPVARIANT,
@@ -593,11 +715,17 @@ pub const WMDM_SEEK_END: u32 = 8u32;
 pub const WMDM_SEEK_REMOTECONTROL: u32 = 1u32;
 pub const WMDM_SEEK_STREAMINGAUDIO: u32 = 2u32;
 pub const WMDM_SERVICE_PROVIDER_VENDOR_MICROSOFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2112383085, data2: 30958, data3: 17386, data4: [164, 150, 198, 37, 172, 145, 204, 93] };
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub type WMDM_SESSION_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_SESSION_NONE: WMDM_SESSION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_SESSION_TRANSFER_TO_DEVICE: WMDM_SESSION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_SESSION_TRANSFER_FROM_DEVICE: WMDM_SESSION_TYPE = 16i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_SESSION_DELETE: WMDM_SESSION_TYPE = 256i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_SESSION_CUSTOM: WMDM_SESSION_TYPE = 4096i32;
 pub const WMDM_SP_REVOKED: u32 = 4u32;
 pub const WMDM_STATUS_BUSY: u32 = 2u32;
@@ -637,24 +765,38 @@ pub const WMDM_STORAGE_ATTR_NONREMOVABLE: u32 = 4u32;
 pub const WMDM_STORAGE_ATTR_REMOVABLE: u32 = 2u32;
 pub const WMDM_STORAGE_ATTR_VIRTUAL: u32 = 536870912u32;
 pub const WMDM_STORAGE_CONTAINS_DEFAULT: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub type WMDM_STORAGE_ENUM_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const ENUM_MODE_RAW: WMDM_STORAGE_ENUM_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const ENUM_MODE_USE_DEVICE_PREF: WMDM_STORAGE_ENUM_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const ENUM_MODE_METADATA_VIEWS: WMDM_STORAGE_ENUM_MODE = 2i32;
 pub const WMDM_STORAGE_IS_DEFAULT: u32 = 134217728u32;
 pub const WMDM_S_NOT_ALL_PROPERTIES_APPLIED: i32 = 282625i32;
 pub const WMDM_S_NOT_ALL_PROPERTIES_RETRIEVED: i32 = 282626i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub type WMDM_TAG_DATATYPE = i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_TYPE_DWORD: WMDM_TAG_DATATYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_TYPE_STRING: WMDM_TAG_DATATYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_TYPE_BINARY: WMDM_TAG_DATATYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_TYPE_BOOL: WMDM_TAG_DATATYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_TYPE_QWORD: WMDM_TAG_DATATYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_TYPE_WORD: WMDM_TAG_DATATYPE = 5i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_TYPE_GUID: WMDM_TAG_DATATYPE = 6i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_TYPE_DATE: WMDM_TAG_DATATYPE = 7i32;
 pub const WMDM_WMDM_REVOKED: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WMFILECAPABILITIES {
     pub pwszMimeType: super::super::Foundation::PWSTR,
@@ -669,6 +811,7 @@ impl ::core::clone::Clone for WMFILECAPABILITIES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub struct _BITMAPINFOHEADER {
     pub biSize: u32,
     pub biWidth: i32,
@@ -689,6 +832,7 @@ impl ::core::clone::Clone for _BITMAPINFOHEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct _VIDEOINFOHEADER {
     pub rcSource: super::super::Foundation::RECT,
@@ -707,6 +851,7 @@ impl ::core::clone::Clone for _VIDEOINFOHEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub struct _WAVEFORMATEX {
     pub wFormatTag: u16,
     pub nChannels: u16,
@@ -723,6 +868,7 @@ impl ::core::clone::Clone for _WAVEFORMATEX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct __MACINFO {
     pub fUsed: super::super::Foundation::BOOL,

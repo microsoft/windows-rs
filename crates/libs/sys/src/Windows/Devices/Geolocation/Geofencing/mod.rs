@@ -3,6 +3,7 @@
 extern "system" {}
 pub type Geofence = *mut ::core::ffi::c_void;
 pub type GeofenceMonitor = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Geolocation_Geofencing'*"]
 #[repr(transparent)]
 pub struct GeofenceMonitorStatus(pub i32);
 impl GeofenceMonitorStatus {
@@ -19,6 +20,7 @@ impl ::core::clone::Clone for GeofenceMonitorStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Geolocation_Geofencing'*"]
 #[repr(transparent)]
 pub struct GeofenceRemovalReason(pub i32);
 impl GeofenceRemovalReason {
@@ -31,6 +33,7 @@ impl ::core::clone::Clone for GeofenceRemovalReason {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Geolocation_Geofencing'*"]
 #[repr(transparent)]
 pub struct GeofenceState(pub u32);
 impl GeofenceState {
@@ -46,6 +49,7 @@ impl ::core::clone::Clone for GeofenceState {
     }
 }
 pub type GeofenceStateChangeReport = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Geolocation_Geofencing'*"]
 #[repr(transparent)]
 pub struct MonitoredGeofenceStates(pub u32);
 impl MonitoredGeofenceStates {

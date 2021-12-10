@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 pub type AsymmetricKeyAlgorithmProvider = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
 pub struct Capi1KdfTargetAlgorithm(pub i32);
 impl Capi1KdfTargetAlgorithm {
@@ -16,6 +17,7 @@ impl ::core::clone::Clone for Capi1KdfTargetAlgorithm {
 }
 pub type CryptographicHash = *mut ::core::ffi::c_void;
 pub type CryptographicKey = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
 pub struct CryptographicPadding(pub i32);
 impl CryptographicPadding {
@@ -30,6 +32,7 @@ impl ::core::clone::Clone for CryptographicPadding {
         *self
     }
 }
+#[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
 pub struct CryptographicPrivateKeyBlobType(pub i32);
 impl CryptographicPrivateKeyBlobType {
@@ -45,6 +48,7 @@ impl ::core::clone::Clone for CryptographicPrivateKeyBlobType {
         *self
     }
 }
+#[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
 pub struct CryptographicPublicKeyBlobType(pub i32);
 impl CryptographicPublicKeyBlobType {

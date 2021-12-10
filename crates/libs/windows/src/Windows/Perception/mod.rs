@@ -83,6 +83,7 @@ pub struct IPerceptionTimestampHelperStatics2Vtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targettime: super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Perception'*"]
 #[repr(transparent)]
 pub struct PerceptionTimestamp(::windows::core::IUnknown);
 impl PerceptionTimestamp {

@@ -14,6 +14,7 @@ pub type WebViewControlNavigationStartingEventArgs = *mut ::core::ffi::c_void;
 pub type WebViewControlNewWindowRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type WebViewControlPermissionRequest = *mut ::core::ffi::c_void;
 pub type WebViewControlPermissionRequestedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlPermissionState(pub i32);
 impl WebViewControlPermissionState {
@@ -28,6 +29,7 @@ impl ::core::clone::Clone for WebViewControlPermissionState {
         *self
     }
 }
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlPermissionType(pub i32);
 impl WebViewControlPermissionType {

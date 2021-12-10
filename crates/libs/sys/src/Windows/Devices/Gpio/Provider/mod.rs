@@ -5,6 +5,7 @@ pub type GpioPinProviderValueChangedEventArgs = *mut ::core::ffi::c_void;
 pub type IGpioControllerProvider = *mut ::core::ffi::c_void;
 pub type IGpioPinProvider = *mut ::core::ffi::c_void;
 pub type IGpioProvider = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Gpio_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderGpioPinDriveMode(pub i32);
 impl ProviderGpioPinDriveMode {
@@ -23,6 +24,7 @@ impl ::core::clone::Clone for ProviderGpioPinDriveMode {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Gpio_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderGpioPinEdge(pub i32);
 impl ProviderGpioPinEdge {
@@ -35,6 +37,7 @@ impl ::core::clone::Clone for ProviderGpioPinEdge {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Gpio_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderGpioPinValue(pub i32);
 impl ProviderGpioPinValue {
@@ -47,6 +50,7 @@ impl ::core::clone::Clone for ProviderGpioPinValue {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Gpio_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderGpioSharingMode(pub i32);
 impl ProviderGpioSharingMode {

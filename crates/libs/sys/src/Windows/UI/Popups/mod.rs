@@ -3,6 +3,7 @@
 extern "system" {}
 pub type IUICommand = *mut ::core::ffi::c_void;
 pub type MessageDialog = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Popups'*"]
 #[repr(transparent)]
 pub struct MessageDialogOptions(pub u32);
 impl MessageDialogOptions {
@@ -15,6 +16,7 @@ impl ::core::clone::Clone for MessageDialogOptions {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Popups'*"]
 #[repr(transparent)]
 pub struct Placement(pub i32);
 impl Placement {

@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 pub type ActivitySensorTrigger = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
 pub struct AlarmAccessStatus(pub i32);
 impl AlarmAccessStatus {
@@ -20,6 +21,7 @@ pub type AppBroadcastTrigger = *mut ::core::ffi::c_void;
 pub type AppBroadcastTriggerProviderInfo = *mut ::core::ffi::c_void;
 pub type ApplicationTrigger = *mut ::core::ffi::c_void;
 pub type ApplicationTriggerDetails = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
 pub struct ApplicationTriggerResult(pub i32);
 impl ApplicationTriggerResult {
@@ -35,6 +37,7 @@ impl ::core::clone::Clone for ApplicationTriggerResult {
     }
 }
 pub type AppointmentStoreNotificationTrigger = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
 pub struct BackgroundAccessRequestKind(pub i32);
 impl BackgroundAccessRequestKind {
@@ -47,6 +50,7 @@ impl ::core::clone::Clone for BackgroundAccessRequestKind {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
 pub struct BackgroundAccessStatus(pub i32);
 impl BackgroundAccessStatus {
@@ -67,6 +71,7 @@ impl ::core::clone::Clone for BackgroundAccessStatus {
 }
 pub type BackgroundTaskBuilder = *mut ::core::ffi::c_void;
 pub type BackgroundTaskCanceledEventHandler = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
 pub struct BackgroundTaskCancellationReason(pub i32);
 impl BackgroundTaskCancellationReason {
@@ -96,6 +101,7 @@ pub type BackgroundTaskProgressEventArgs = *mut ::core::ffi::c_void;
 pub type BackgroundTaskProgressEventHandler = *mut ::core::ffi::c_void;
 pub type BackgroundTaskRegistration = *mut ::core::ffi::c_void;
 pub type BackgroundTaskRegistrationGroup = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
 pub struct BackgroundTaskThrottleCounter(pub i32);
 impl BackgroundTaskThrottleCounter {
@@ -109,6 +115,7 @@ impl ::core::clone::Clone for BackgroundTaskThrottleCounter {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
 pub struct BackgroundWorkCostValue(pub i32);
 impl BackgroundWorkCostValue {
@@ -133,6 +140,7 @@ pub type ContactStoreNotificationTrigger = *mut ::core::ffi::c_void;
 pub type ContentPrefetchTrigger = *mut ::core::ffi::c_void;
 pub type ConversationalAgentTrigger = *mut ::core::ffi::c_void;
 pub type CustomSystemEventTrigger = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
 pub struct CustomSystemEventTriggerRecurrence(pub i32);
 impl CustomSystemEventTriggerRecurrence {
@@ -148,6 +156,7 @@ impl ::core::clone::Clone for CustomSystemEventTriggerRecurrence {
 pub type DeviceConnectionChangeTrigger = *mut ::core::ffi::c_void;
 pub type DeviceManufacturerNotificationTrigger = *mut ::core::ffi::c_void;
 pub type DeviceServicingTrigger = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
 pub struct DeviceTriggerResult(pub i32);
 impl DeviceTriggerResult {
@@ -179,6 +188,7 @@ pub type IBackgroundTaskRegistration2 = *mut ::core::ffi::c_void;
 pub type IBackgroundTaskRegistration3 = *mut ::core::ffi::c_void;
 pub type IBackgroundTrigger = *mut ::core::ffi::c_void;
 pub type LocationTrigger = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
 pub struct LocationTriggerType(pub i32);
 impl LocationTriggerType {
@@ -192,6 +202,7 @@ impl ::core::clone::Clone for LocationTriggerType {
 }
 pub type MaintenanceTrigger = *mut ::core::ffi::c_void;
 pub type MediaProcessingTrigger = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
 pub struct MediaProcessingTriggerResult(pub i32);
 impl MediaProcessingTriggerResult {
@@ -227,6 +238,7 @@ pub type SocketActivityTrigger = *mut ::core::ffi::c_void;
 pub type StorageLibraryChangeTrackerTrigger = *mut ::core::ffi::c_void;
 pub type StorageLibraryContentChangedTrigger = *mut ::core::ffi::c_void;
 pub type SystemCondition = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
 pub struct SystemConditionType(pub i32);
 impl SystemConditionType {
@@ -247,6 +259,7 @@ impl ::core::clone::Clone for SystemConditionType {
     }
 }
 pub type SystemTrigger = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
 pub struct SystemTriggerType(pub i32);
 impl SystemTriggerType {

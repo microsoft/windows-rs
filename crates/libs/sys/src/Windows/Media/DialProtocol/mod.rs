@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 pub type DialApp = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
 pub struct DialAppLaunchResult(pub i32);
 impl DialAppLaunchResult {
@@ -16,6 +17,7 @@ impl ::core::clone::Clone for DialAppLaunchResult {
         *self
     }
 }
+#[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
 pub struct DialAppState(pub i32);
 impl DialAppState {
@@ -31,6 +33,7 @@ impl ::core::clone::Clone for DialAppState {
     }
 }
 pub type DialAppStateDetails = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
 pub struct DialAppStopResult(pub i32);
 impl DialAppStopResult {
@@ -46,6 +49,7 @@ impl ::core::clone::Clone for DialAppStopResult {
     }
 }
 pub type DialDevice = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
 pub struct DialDeviceDisplayStatus(pub i32);
 impl DialDeviceDisplayStatus {

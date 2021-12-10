@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct ForegroundText(pub i32);
 impl ForegroundText {
@@ -560,6 +561,7 @@ pub struct IVisualElementsRequestedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct JumpList(::windows::core::IUnknown);
 impl JumpList {
@@ -671,6 +673,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Jump
 }
 unsafe impl ::core::marker::Send for JumpList {}
 unsafe impl ::core::marker::Sync for JumpList {}
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct JumpListItem(::windows::core::IUnknown);
 impl JumpListItem {
@@ -821,6 +824,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Jump
 }
 unsafe impl ::core::marker::Send for JumpListItem {}
 unsafe impl ::core::marker::Sync for JumpListItem {}
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct JumpListItemKind(pub i32);
 impl JumpListItemKind {
@@ -848,6 +852,7 @@ unsafe impl ::windows::core::RuntimeType for JumpListItemKind {
 impl ::windows::core::DefaultType for JumpListItemKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct JumpListSystemGroupKind(pub i32);
 impl JumpListSystemGroupKind {
@@ -876,6 +881,7 @@ unsafe impl ::windows::core::RuntimeType for JumpListSystemGroupKind {
 impl ::windows::core::DefaultType for JumpListSystemGroupKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct SecondaryTile(::windows::core::IUnknown);
 impl SecondaryTile {
@@ -1278,6 +1284,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Seco
 }
 unsafe impl ::core::marker::Send for SecondaryTile {}
 unsafe impl ::core::marker::Sync for SecondaryTile {}
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct SecondaryTileVisualElements(::windows::core::IUnknown);
 impl SecondaryTileVisualElements {
@@ -1498,6 +1505,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Seco
 }
 unsafe impl ::core::marker::Send for SecondaryTileVisualElements {}
 unsafe impl ::core::marker::Sync for SecondaryTileVisualElements {}
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct StartScreenManager(::windows::core::IUnknown);
 impl StartScreenManager {
@@ -1630,6 +1638,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Star
 }
 unsafe impl ::core::marker::Send for StartScreenManager {}
 unsafe impl ::core::marker::Sync for StartScreenManager {}
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct TileMixedRealityModel(::windows::core::IUnknown);
 impl TileMixedRealityModel {
@@ -1734,6 +1743,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tile
 }
 unsafe impl ::core::marker::Send for TileMixedRealityModel {}
 unsafe impl ::core::marker::Sync for TileMixedRealityModel {}
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct TileMixedRealityModelActivationBehavior(pub i32);
 impl TileMixedRealityModelActivationBehavior {
@@ -1761,6 +1771,7 @@ unsafe impl ::windows::core::RuntimeType for TileMixedRealityModelActivationBeha
 impl ::windows::core::DefaultType for TileMixedRealityModelActivationBehavior {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct TileOptions(pub u32);
 impl TileOptions {
@@ -1790,6 +1801,7 @@ unsafe impl ::windows::core::RuntimeType for TileOptions {
 impl ::windows::core::DefaultType for TileOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct TileSize(pub i32);
 impl TileSize {
@@ -1823,6 +1835,7 @@ unsafe impl ::windows::core::RuntimeType for TileSize {
 impl ::windows::core::DefaultType for TileSize {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct VisualElementsRequest(::windows::core::IUnknown);
 impl VisualElementsRequest {
@@ -1920,6 +1933,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Visu
 }
 unsafe impl ::core::marker::Send for VisualElementsRequest {}
 unsafe impl ::core::marker::Sync for VisualElementsRequest {}
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct VisualElementsRequestDeferral(::windows::core::IUnknown);
 impl VisualElementsRequestDeferral {
@@ -1991,6 +2005,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Visu
 }
 unsafe impl ::core::marker::Send for VisualElementsRequestDeferral {}
 unsafe impl ::core::marker::Sync for VisualElementsRequestDeferral {}
+#[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
 pub struct VisualElementsRequestedEventArgs(::windows::core::IUnknown);
 impl VisualElementsRequestedEventArgs {

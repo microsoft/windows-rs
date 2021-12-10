@@ -1,10 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
     pub fn CoGetInterceptor(iidintercepted: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, iid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
     pub fn CoGetInterceptorFromTypeInfo(iidintercepted: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, typeinfo: super::ITypeInfo, iid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_CallObj', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CALLFRAMEINFO {
     pub iMethod: u32,
@@ -29,6 +32,7 @@ impl ::core::clone::Clone for CALLFRAMEINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_CallObj', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CALLFRAMEPARAMINFO {
     pub fIn: super::super::super::Foundation::BOOLEAN,
@@ -44,18 +48,30 @@ impl ::core::clone::Clone for CALLFRAMEPARAMINFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub type CALLFRAME_COPY = i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_COPY_NESTED: CALLFRAME_COPY = 1i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_COPY_INDEPENDENT: CALLFRAME_COPY = 2i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub type CALLFRAME_FREE = i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_FREE_NONE: CALLFRAME_FREE = 0i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_FREE_IN: CALLFRAME_FREE = 1i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_FREE_INOUT: CALLFRAME_FREE = 2i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_FREE_OUT: CALLFRAME_FREE = 4i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_FREE_TOP_INOUT: CALLFRAME_FREE = 8i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_FREE_TOP_OUT: CALLFRAME_FREE = 16i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_FREE_ALL: CALLFRAME_FREE = 31i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Com_CallObj', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CALLFRAME_MARSHALCONTEXT {
     pub fIn: super::super::super::Foundation::BOOLEAN,
@@ -72,14 +88,23 @@ impl ::core::clone::Clone for CALLFRAME_MARSHALCONTEXT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub type CALLFRAME_NULL = i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_NULL_NONE: CALLFRAME_NULL = 0i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_NULL_INOUT: CALLFRAME_NULL = 2i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_NULL_OUT: CALLFRAME_NULL = 4i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_NULL_ALL: CALLFRAME_NULL = 6i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub type CALLFRAME_WALK = i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_WALK_IN: CALLFRAME_WALK = 1i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_WALK_INOUT: CALLFRAME_WALK = 2i32;
+#[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 pub const CALLFRAME_WALK_OUT: CALLFRAME_WALK = 4i32;
 pub type ICallFrame = *mut ::core::ffi::c_void;
 pub type ICallFrameEvents = *mut ::core::ffi::c_void;

@@ -3,6 +3,7 @@
 pub mod Direct3D11;
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'Graphics_DirectX'*"]
 #[repr(transparent)]
 pub struct DirectXAlphaMode(pub i32);
 impl DirectXAlphaMode {
@@ -17,6 +18,7 @@ impl ::core::clone::Clone for DirectXAlphaMode {
         *self
     }
 }
+#[doc = "*Required features: 'Graphics_DirectX'*"]
 #[repr(transparent)]
 pub struct DirectXColorSpace(pub i32);
 impl DirectXColorSpace {
@@ -52,6 +54,7 @@ impl ::core::clone::Clone for DirectXColorSpace {
         *self
     }
 }
+#[doc = "*Required features: 'Graphics_DirectX'*"]
 #[repr(transparent)]
 pub struct DirectXPixelFormat(pub i32);
 impl DirectXPixelFormat {
@@ -183,6 +186,7 @@ impl ::core::clone::Clone for DirectXPixelFormat {
         *self
     }
 }
+#[doc = "*Required features: 'Graphics_DirectX'*"]
 #[repr(transparent)]
 pub struct DirectXPrimitiveTopology(pub i32);
 impl DirectXPrimitiveTopology {

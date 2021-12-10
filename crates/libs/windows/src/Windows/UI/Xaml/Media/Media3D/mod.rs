@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Xaml_Media_Media3D'*"]
 #[repr(transparent)]
 pub struct CompositeTransform3D(::windows::core::IUnknown);
 impl CompositeTransform3D {
@@ -510,6 +511,7 @@ pub struct ITransform3DFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Media_Media3D'*"]
 pub struct Matrix3D {
     pub M11: f64,
     pub M12: f64,
@@ -554,6 +556,7 @@ impl ::core::default::Default for Matrix3D {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Media_Media3D'*"]
 #[repr(transparent)]
 pub struct Matrix3DHelper(::windows::core::IUnknown);
 impl Matrix3DHelper {
@@ -661,6 +664,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Matr
 }
 unsafe impl ::core::marker::Send for Matrix3DHelper {}
 unsafe impl ::core::marker::Sync for Matrix3DHelper {}
+#[doc = "*Required features: 'UI_Xaml_Media_Media3D'*"]
 #[repr(transparent)]
 pub struct PerspectiveTransform3D(::windows::core::IUnknown);
 impl PerspectiveTransform3D {
@@ -830,6 +834,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Per
 }
 unsafe impl ::core::marker::Send for PerspectiveTransform3D {}
 unsafe impl ::core::marker::Sync for PerspectiveTransform3D {}
+#[doc = "*Required features: 'UI_Xaml_Media_Media3D'*"]
 #[repr(transparent)]
 pub struct Transform3D(::windows::core::IUnknown);
 impl Transform3D {}

@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_WinRT_Isolation'*"]
 #[repr(transparent)]
 pub struct IIsolatedEnvironmentInterop(::windows::core::IUnknown);
 impl IIsolatedEnvironmentInterop {

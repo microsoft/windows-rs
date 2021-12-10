@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Phone_PersonalInformation_Provisioning")]
 pub mod Provisioning;
+#[doc = "*Required features: 'Phone_PersonalInformation'*"]
 #[repr(transparent)]
 pub struct ContactAddress(::windows::core::IUnknown);
 impl ContactAddress {
@@ -130,6 +131,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactAddress {}
 unsafe impl ::core::marker::Sync for ContactAddress {}
+#[doc = "*Required features: 'Phone_PersonalInformation'*"]
 #[repr(transparent)]
 pub struct ContactChangeRecord(::windows::core::IUnknown);
 impl ContactChangeRecord {
@@ -225,6 +227,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactChangeRecord {}
 unsafe impl ::core::marker::Sync for ContactChangeRecord {}
+#[doc = "*Required features: 'Phone_PersonalInformation'*"]
 #[repr(transparent)]
 pub struct ContactChangeType(pub i32);
 impl ContactChangeType {
@@ -253,6 +256,7 @@ unsafe impl ::windows::core::RuntimeType for ContactChangeType {
 impl ::windows::core::DefaultType for ContactChangeType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_PersonalInformation'*"]
 #[repr(transparent)]
 pub struct ContactInformation(::windows::core::IUnknown);
 impl ContactInformation {
@@ -463,6 +467,7 @@ impl<'a> ::windows::core::IntoParam<'a, IContactInformation> for &ContactInforma
 }
 unsafe impl ::core::marker::Send for ContactInformation {}
 unsafe impl ::core::marker::Sync for ContactInformation {}
+#[doc = "*Required features: 'Phone_PersonalInformation'*"]
 #[repr(transparent)]
 pub struct ContactQueryOptions(::windows::core::IUnknown);
 impl ContactQueryOptions {
@@ -556,6 +561,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactQueryOptions {}
 unsafe impl ::core::marker::Sync for ContactQueryOptions {}
+#[doc = "*Required features: 'Phone_PersonalInformation'*"]
 #[repr(transparent)]
 pub struct ContactQueryResult(::windows::core::IUnknown);
 impl ContactQueryResult {
@@ -654,6 +660,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactQueryResult {}
 unsafe impl ::core::marker::Sync for ContactQueryResult {}
+#[doc = "*Required features: 'Phone_PersonalInformation'*"]
 #[repr(transparent)]
 pub struct ContactQueryResultOrdering(pub i32);
 impl ContactQueryResultOrdering {
@@ -682,6 +689,7 @@ unsafe impl ::windows::core::RuntimeType for ContactQueryResultOrdering {
 impl ::windows::core::DefaultType for ContactQueryResultOrdering {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_PersonalInformation'*"]
 #[repr(transparent)]
 pub struct ContactStore(::windows::core::IUnknown);
 impl ContactStore {
@@ -852,6 +860,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactStore {}
 unsafe impl ::core::marker::Sync for ContactStore {}
+#[doc = "*Required features: 'Phone_PersonalInformation'*"]
 #[repr(transparent)]
 pub struct ContactStoreApplicationAccessMode(pub i32);
 impl ContactStoreApplicationAccessMode {
@@ -879,6 +888,7 @@ unsafe impl ::windows::core::RuntimeType for ContactStoreApplicationAccessMode {
 impl ::windows::core::DefaultType for ContactStoreApplicationAccessMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_PersonalInformation'*"]
 #[repr(transparent)]
 pub struct ContactStoreSystemAccessMode(pub i32);
 impl ContactStoreSystemAccessMode {
@@ -954,6 +964,7 @@ pub struct IContactChangeRecordVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Phone_PersonalInformation'*"]
 #[repr(transparent)]
 pub struct IContactInformation(::windows::core::IUnknown);
 impl IContactInformation {
@@ -1151,6 +1162,7 @@ pub struct IContactInformationVtbl(
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: VCardFormat, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
+#[doc = "*Required features: 'Phone_PersonalInformation'*"]
 #[repr(transparent)]
 pub struct IContactInformation2(::windows::core::IUnknown);
 impl IContactInformation2 {
@@ -1696,6 +1708,7 @@ impl KnownContactProperties {
 impl ::windows::core::RuntimeName for KnownContactProperties {
     const NAME: &'static str = "Windows.Phone.PersonalInformation.KnownContactProperties";
 }
+#[doc = "*Required features: 'Phone_PersonalInformation'*"]
 #[repr(transparent)]
 pub struct StoredContact(::windows::core::IUnknown);
 impl StoredContact {
@@ -1988,6 +2001,7 @@ impl<'a> ::windows::core::IntoParam<'a, IContactInformation2> for &StoredContact
 }
 unsafe impl ::core::marker::Send for StoredContact {}
 unsafe impl ::core::marker::Sync for StoredContact {}
+#[doc = "*Required features: 'Phone_PersonalInformation'*"]
 #[repr(transparent)]
 pub struct VCardFormat(pub i32);
 impl VCardFormat {

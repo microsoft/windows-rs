@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct AttributedNetworkUsage(::windows::core::IUnknown);
 impl AttributedNetworkUsage {
@@ -102,6 +103,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Attr
 }
 unsafe impl ::core::marker::Send for AttributedNetworkUsage {}
 unsafe impl ::core::marker::Sync for AttributedNetworkUsage {}
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct CellularApnAuthenticationType(pub i32);
 impl CellularApnAuthenticationType {
@@ -131,6 +133,7 @@ unsafe impl ::windows::core::RuntimeType for CellularApnAuthenticationType {
 impl ::windows::core::DefaultType for CellularApnAuthenticationType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct CellularApnContext(::windows::core::IUnknown);
 impl CellularApnContext {
@@ -282,6 +285,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cell
 }
 unsafe impl ::core::marker::Send for CellularApnContext {}
 unsafe impl ::core::marker::Sync for CellularApnContext {}
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct ConnectionCost(::windows::core::IUnknown);
 impl ConnectionCost {
@@ -384,6 +388,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conn
 }
 unsafe impl ::core::marker::Send for ConnectionCost {}
 unsafe impl ::core::marker::Sync for ConnectionCost {}
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct ConnectionProfile(::windows::core::IUnknown);
 impl ConnectionProfile {
@@ -615,6 +620,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conn
 }
 unsafe impl ::core::marker::Send for ConnectionProfile {}
 unsafe impl ::core::marker::Sync for ConnectionProfile {}
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct ConnectionProfileDeleteStatus(pub i32);
 impl ConnectionProfileDeleteStatus {
@@ -644,6 +650,7 @@ unsafe impl ::windows::core::RuntimeType for ConnectionProfileDeleteStatus {
 impl ::windows::core::DefaultType for ConnectionProfileDeleteStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct ConnectionProfileFilter(::windows::core::IUnknown);
 impl ConnectionProfileFilter {
@@ -835,6 +842,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Conn
 }
 unsafe impl ::core::marker::Send for ConnectionProfileFilter {}
 unsafe impl ::core::marker::Sync for ConnectionProfileFilter {}
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct ConnectionSession(::windows::core::IUnknown);
 impl ConnectionSession {
@@ -940,6 +948,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for ConnectionSession {}
 unsafe impl ::core::marker::Sync for ConnectionSession {}
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct ConnectivityInterval(::windows::core::IUnknown);
 impl ConnectivityInterval {
@@ -1046,6 +1055,7 @@ impl ConnectivityManager {
 impl ::windows::core::RuntimeName for ConnectivityManager {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectivityManager";
 }
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct DataPlanStatus(::windows::core::IUnknown);
 impl DataPlanStatus {
@@ -1160,6 +1170,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
 }
 unsafe impl ::core::marker::Send for DataPlanStatus {}
 unsafe impl ::core::marker::Sync for DataPlanStatus {}
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct DataPlanUsage(::windows::core::IUnknown);
 impl DataPlanUsage {
@@ -1242,6 +1253,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
 }
 unsafe impl ::core::marker::Send for DataPlanUsage {}
 unsafe impl ::core::marker::Sync for DataPlanUsage {}
+#[doc = "*Required features: 'Networking_Connectivity', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct DataUsage(::windows::core::IUnknown);
@@ -1343,6 +1355,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
 unsafe impl ::core::marker::Send for DataUsage {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for DataUsage {}
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct DataUsageGranularity(pub i32);
 impl DataUsageGranularity {
@@ -1372,6 +1385,7 @@ unsafe impl ::windows::core::RuntimeType for DataUsageGranularity {
 impl ::windows::core::DefaultType for DataUsageGranularity {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct DomainConnectivityLevel(pub i32);
 impl DomainConnectivityLevel {
@@ -2075,6 +2089,7 @@ pub struct INetworkUsageVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct IPInformation(::windows::core::IUnknown);
 impl IPInformation {
@@ -2294,6 +2309,7 @@ pub struct IWwanConnectionProfileDetails2Vtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct LanIdentifier(::windows::core::IUnknown);
 impl LanIdentifier {
@@ -2382,6 +2398,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LanI
 }
 unsafe impl ::core::marker::Send for LanIdentifier {}
 unsafe impl ::core::marker::Sync for LanIdentifier {}
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct LanIdentifierData(::windows::core::IUnknown);
 impl LanIdentifierData {
@@ -2464,6 +2481,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LanI
 }
 unsafe impl ::core::marker::Send for LanIdentifierData {}
 unsafe impl ::core::marker::Sync for LanIdentifierData {}
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct NetworkAdapter(::windows::core::IUnknown);
 impl NetworkAdapter {
@@ -2574,6 +2592,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
 }
 unsafe impl ::core::marker::Send for NetworkAdapter {}
 unsafe impl ::core::marker::Sync for NetworkAdapter {}
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct NetworkAuthenticationType(pub i32);
 impl NetworkAuthenticationType {
@@ -2614,6 +2633,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkAuthenticationType {
 impl ::windows::core::DefaultType for NetworkAuthenticationType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct NetworkConnectivityLevel(pub i32);
 impl NetworkConnectivityLevel {
@@ -2643,6 +2663,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkConnectivityLevel {
 impl ::windows::core::DefaultType for NetworkConnectivityLevel {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct NetworkCostType(pub i32);
 impl NetworkCostType {
@@ -2672,6 +2693,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkCostType {
 impl ::windows::core::DefaultType for NetworkCostType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct NetworkEncryptionType(pub i32);
 impl NetworkEncryptionType {
@@ -2782,6 +2804,7 @@ impl NetworkInformation {
 impl ::windows::core::RuntimeName for NetworkInformation {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkInformation";
 }
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct NetworkItem(::windows::core::IUnknown);
 impl NetworkItem {
@@ -2863,6 +2886,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
 }
 unsafe impl ::core::marker::Send for NetworkItem {}
 unsafe impl ::core::marker::Sync for NetworkItem {}
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct NetworkSecuritySettings(::windows::core::IUnknown);
 impl NetworkSecuritySettings {
@@ -2944,6 +2968,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
 }
 unsafe impl ::core::marker::Send for NetworkSecuritySettings {}
 unsafe impl ::core::marker::Sync for NetworkSecuritySettings {}
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct NetworkStateChangeEventDetails(::windows::core::IUnknown);
 impl NetworkStateChangeEventDetails {
@@ -3067,6 +3092,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
 }
 unsafe impl ::core::marker::Send for NetworkStateChangeEventDetails {}
 unsafe impl ::core::marker::Sync for NetworkStateChangeEventDetails {}
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct NetworkStatusChangedEventHandler(pub ::windows::core::IUnknown);
 impl NetworkStatusChangedEventHandler {
@@ -3135,6 +3161,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkStatusChangedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct NetworkStatusChangedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct NetworkTypes(pub u32);
 impl NetworkTypes {
@@ -3163,6 +3190,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkTypes {
 impl ::windows::core::DefaultType for NetworkTypes {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct NetworkUsage(::windows::core::IUnknown);
 impl NetworkUsage {
@@ -3253,6 +3281,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Netw
 unsafe impl ::core::marker::Send for NetworkUsage {}
 unsafe impl ::core::marker::Sync for NetworkUsage {}
 #[repr(C)]
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 pub struct NetworkUsageStates {
     pub Roaming: TriStates,
     pub Shared: TriStates,
@@ -3283,6 +3312,7 @@ impl ::core::default::Default for NetworkUsageStates {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct ProviderNetworkUsage(::windows::core::IUnknown);
 impl ProviderNetworkUsage {
@@ -3371,6 +3401,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prov
 }
 unsafe impl ::core::marker::Send for ProviderNetworkUsage {}
 unsafe impl ::core::marker::Sync for ProviderNetworkUsage {}
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct ProxyConfiguration(::windows::core::IUnknown);
 impl ProxyConfiguration {
@@ -3453,6 +3484,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prox
 }
 unsafe impl ::core::marker::Send for ProxyConfiguration {}
 unsafe impl ::core::marker::Sync for ProxyConfiguration {}
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct RoamingStates(pub u32);
 impl RoamingStates {
@@ -3481,6 +3513,7 @@ unsafe impl ::windows::core::RuntimeType for RoamingStates {
 impl ::windows::core::DefaultType for RoamingStates {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct RoutePolicy(::windows::core::IUnknown);
 impl RoutePolicy {
@@ -3579,6 +3612,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rout
 }
 unsafe impl ::core::marker::Send for RoutePolicy {}
 unsafe impl ::core::marker::Sync for RoutePolicy {}
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct TriStates(pub i32);
 impl TriStates {
@@ -3607,6 +3641,7 @@ unsafe impl ::windows::core::RuntimeType for TriStates {
 impl ::windows::core::DefaultType for TriStates {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct WlanConnectionProfileDetails(::windows::core::IUnknown);
 impl WlanConnectionProfileDetails {
@@ -3681,6 +3716,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wlan
 }
 unsafe impl ::core::marker::Send for WlanConnectionProfileDetails {}
 unsafe impl ::core::marker::Sync for WlanConnectionProfileDetails {}
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct WwanConnectionProfileDetails(::windows::core::IUnknown);
 impl WwanConnectionProfileDetails {
@@ -3791,6 +3827,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wwan
 }
 unsafe impl ::core::marker::Send for WwanConnectionProfileDetails {}
 unsafe impl ::core::marker::Sync for WwanConnectionProfileDetails {}
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct WwanDataClass(pub u32);
 impl WwanDataClass {
@@ -3831,6 +3868,7 @@ unsafe impl ::windows::core::RuntimeType for WwanDataClass {
 impl ::windows::core::DefaultType for WwanDataClass {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct WwanNetworkIPKind(pub i32);
 impl WwanNetworkIPKind {
@@ -3861,6 +3899,7 @@ unsafe impl ::windows::core::RuntimeType for WwanNetworkIPKind {
 impl ::windows::core::DefaultType for WwanNetworkIPKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
 pub struct WwanNetworkRegistrationState(pub i32);
 impl WwanNetworkRegistrationState {

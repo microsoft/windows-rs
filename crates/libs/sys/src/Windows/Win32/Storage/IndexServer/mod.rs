@@ -1,24 +1,38 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub fn BindIFilterFromStorage(pstg: super::super::System::Com::StructuredStorage::IStorage, punkouter: ::windows_sys::core::IUnknown, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn BindIFilterFromStream(pstm: super::super::System::Com::IStream, punkouter: ::windows_sys::core::IUnknown, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LoadIFilter(pwcspath: super::super::Foundation::PWSTR, punkouter: ::windows_sys::core::IUnknown, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LoadIFilterEx(pwcspath: super::super::Foundation::PWSTR, dwflags: u32, riid: *const ::windows_sys::core::GUID, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub type CHUNKSTATE = i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const CHUNK_TEXT: CHUNKSTATE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const CHUNK_VALUE: CHUNKSTATE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const CHUNK_FILTER_OWNED_VALUE: CHUNKSTATE = 4i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub type CHUNK_BREAKTYPE = i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const CHUNK_NO_BREAK: CHUNK_BREAKTYPE = 0i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const CHUNK_EOW: CHUNK_BREAKTYPE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const CHUNK_EOS: CHUNK_BREAKTYPE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const CHUNK_EOP: CHUNK_BREAKTYPE = 3i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const CHUNK_EOC: CHUNK_BREAKTYPE = 4i32;
 pub const CICAT_ALL_OPENED: u32 = 32u32;
 pub const CICAT_GET_STATE: u32 = 16u32;
@@ -30,6 +44,7 @@ pub const CI_PROVIDER_ALL: u32 = 4294967295u32;
 pub const CI_PROVIDER_INDEXING_SERVICE: u32 = 2u32;
 pub const CI_PROVIDER_MSSEARCH: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub struct CI_STATE {
     pub cbStruct: u32,
     pub cWordList: u32,
@@ -76,17 +91,18 @@ pub const CI_VERSION_WDS30: u32 = 258u32;
 pub const CI_VERSION_WDS40: u32 = 265u32;
 pub const CI_VERSION_WIN70: u32 = 1792u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DBID {
     pub uGuid: DBID_0,
     pub eKind: u32,
     pub uName: DBID_1,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID {
     fn clone(&self) -> Self {
@@ -94,16 +110,17 @@ impl ::core::clone::Clone for DBID {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub union DBID_0 {
     pub guid: ::windows_sys::core::GUID,
     pub pguid: *mut ::windows_sys::core::GUID,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID_0 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_0 {
     fn clone(&self) -> Self {
@@ -111,16 +128,17 @@ impl ::core::clone::Clone for DBID_0 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub union DBID_1 {
     pub pwszName: super::super::Foundation::PWSTR,
     pub ulPropid: u32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID_1 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_1 {
     fn clone(&self) -> Self {
@@ -128,17 +146,18 @@ impl ::core::clone::Clone for DBID_1 {
     }
 }
 #[repr(C, packed(2))]
-#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DBID {
     pub uGuid: DBID_0,
     pub eKind: u32,
     pub uName: DBID_1,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID {
     fn clone(&self) -> Self {
@@ -146,16 +165,17 @@ impl ::core::clone::Clone for DBID {
     }
 }
 #[repr(C, packed(2))]
-#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub union DBID_0 {
     pub guid: ::windows_sys::core::GUID,
     pub pguid: *mut ::windows_sys::core::GUID,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID_0 {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_0 {
     fn clone(&self) -> Self {
@@ -163,29 +183,38 @@ impl ::core::clone::Clone for DBID_0 {
     }
 }
 #[repr(C, packed(2))]
-#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub union DBID_1 {
     pub pwszName: super::super::Foundation::PWSTR,
     pub ulPropid: u32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID_1 {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub type DBKINDENUM = i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const DBKIND_GUID_NAME: DBKINDENUM = 0i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const DBKIND_GUID_PROPID: DBKINDENUM = 1i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const DBKIND_NAME: DBKINDENUM = 2i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const DBKIND_PGUID_NAME: DBKINDENUM = 3i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const DBKIND_PGUID_PROPID: DBKINDENUM = 4i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const DBKIND_PROPID: DBKINDENUM = 5i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const DBKIND_GUID: DBKINDENUM = 6i32;
 pub const DBPROP_APPLICATION_NAME: u32 = 11u32;
 pub const DBPROP_CATALOGLISTID: u32 = 9u32;
@@ -217,6 +246,7 @@ pub const DBSETFUNC_ALL: u32 = 1u32;
 pub const DBSETFUNC_DISTINCT: u32 = 2u32;
 pub const DBSETFUNC_NONE: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub struct FILTERREGION {
     pub idChunk: u32,
     pub cwcStart: u32,
@@ -228,20 +258,34 @@ impl ::core::clone::Clone for FILTERREGION {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const FILTER_E_ACCESS: ::windows_sys::core::HRESULT = -2147215613i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const FILTER_E_EMBEDDING_UNAVAILABLE: ::windows_sys::core::HRESULT = -2147215609i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const FILTER_E_END_OF_CHUNKS: ::windows_sys::core::HRESULT = -2147215616i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const FILTER_E_LINK_UNAVAILABLE: ::windows_sys::core::HRESULT = -2147215608i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const FILTER_E_NO_MORE_TEXT: ::windows_sys::core::HRESULT = -2147215615i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const FILTER_E_NO_MORE_VALUES: ::windows_sys::core::HRESULT = -2147215614i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const FILTER_E_NO_TEXT: ::windows_sys::core::HRESULT = -2147215611i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const FILTER_E_NO_VALUES: ::windows_sys::core::HRESULT = -2147215610i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const FILTER_E_PASSWORD: ::windows_sys::core::HRESULT = -2147215605i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const FILTER_E_UNKNOWNFORMAT: ::windows_sys::core::HRESULT = -2147215604i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const FILTER_S_LAST_TEXT: ::windows_sys::core::HRESULT = 268041i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const FILTER_S_LAST_VALUES: ::windows_sys::core::HRESULT = 268042i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const FILTER_W_MONIKER_CLIPPED: ::windows_sys::core::HRESULT = 268036i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct FULLPROPSPEC {
     pub guidPropSet: ::windows_sys::core::GUID,
@@ -258,21 +302,37 @@ impl ::core::clone::Clone for FULLPROPSPEC {
 pub const GENERATE_METHOD_EXACT: u32 = 0u32;
 pub const GENERATE_METHOD_INFLECT: u32 = 2u32;
 pub const GENERATE_METHOD_PREFIX: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub type IFILTER_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const IFILTER_FLAGS_OLE_PROPERTIES: IFILTER_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub type IFILTER_INIT = i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const IFILTER_INIT_CANON_PARAGRAPHS: IFILTER_INIT = 1i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const IFILTER_INIT_HARD_LINE_BREAKS: IFILTER_INIT = 2i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const IFILTER_INIT_CANON_HYPHENS: IFILTER_INIT = 4i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const IFILTER_INIT_CANON_SPACES: IFILTER_INIT = 8i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const IFILTER_INIT_APPLY_INDEX_ATTRIBUTES: IFILTER_INIT = 16i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const IFILTER_INIT_APPLY_OTHER_ATTRIBUTES: IFILTER_INIT = 32i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const IFILTER_INIT_APPLY_CRAWL_ATTRIBUTES: IFILTER_INIT = 256i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const IFILTER_INIT_INDEXING_ONLY: IFILTER_INIT = 64i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const IFILTER_INIT_SEARCH_LINKS: IFILTER_INIT = 128i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const IFILTER_INIT_FILTER_OWNED_VALUE_OK: IFILTER_INIT = 512i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const IFILTER_INIT_FILTER_AGGRESSIVE_BREAK: IFILTER_INIT = 1024i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const IFILTER_INIT_DISABLE_EMBEDDED: IFILTER_INIT = 2048i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const IFILTER_INIT_EMIT_FORMATTING: IFILTER_INIT = 4096i32;
 pub type IFilter = *mut ::core::ffi::c_void;
 pub type IPhraseSink = *mut ::core::ffi::c_void;
@@ -292,6 +352,7 @@ pub const MSIDXSPROP_SERVER_VERSION: u32 = 9u32;
 pub const MSIDXSPROP_SERVER_WINVER_MAJOR: u32 = 10u32;
 pub const MSIDXSPROP_SERVER_WINVER_MINOR: u32 = 11u32;
 pub const MSIDXSPROP_WHEREID: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const NOT_AN_ERROR: ::windows_sys::core::HRESULT = 524288i32;
 pub const PID_FILENAME: u32 = 100u32;
 pub const PROPID_QUERY_ALL: u32 = 6u32;
@@ -319,6 +380,7 @@ pub const SCOPE_TYPE_VPATH: u32 = 512u32;
 pub const SCOPE_TYPE_WINPATH: u32 = 256u32;
 pub const STAT_BUSY: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct STAT_CHUNK {
     pub idChunk: u32,
@@ -357,8 +419,13 @@ pub const VECTOR_RANK_INNER: u32 = 2u32;
 pub const VECTOR_RANK_JACCARD: u32 = 4u32;
 pub const VECTOR_RANK_MAX: u32 = 1u32;
 pub const VECTOR_RANK_MIN: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub type WORDREP_BREAK_TYPE = i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const WORDREP_BREAK_EOW: WORDREP_BREAK_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const WORDREP_BREAK_EOS: WORDREP_BREAK_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const WORDREP_BREAK_EOP: WORDREP_BREAK_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub const WORDREP_BREAK_EOC: WORDREP_BREAK_TYPE = 3i32;

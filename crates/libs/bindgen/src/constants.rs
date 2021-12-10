@@ -7,7 +7,9 @@ pub fn gen(def: &Field, gen: &Gen) -> TokenStream {
 
     let signature = def.signature(None);
 
-    let cfg = gen.field_cfg(def).gen(gen);
+    let cfg = gen.field_cfg(def);
+    let doc = cfg.gen_doc(gen);
+    let cfg = cfg.gen(gen);
 
     if let Some(constant) = def.constant() {
         if signature.kind == constant.value_type() {
@@ -27,11 +29,13 @@ pub fn gen(def: &Field, gen: &Gen) -> TokenStream {
 
             if !gen.sys && signature.kind.has_replacement() {
                 quote! {
+                    #doc
                     #cfg
                     pub const #name: #kind = #kind(#value);
                 }
             } else {
                 quote! {
+                    #doc
                     #cfg
                     pub const #name: #kind = #value;
                 }
@@ -45,6 +49,7 @@ pub fn gen(def: &Field, gen: &Gen) -> TokenStream {
         let kind = gen_sig(&signature, gen);
         let guid = gen_guid(&guid, gen);
         quote! {
+            #doc
             #cfg
             pub const #name: #kind = #kind {
                 fmtid: #guid,

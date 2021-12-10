@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Management_Deployment_Preview")]
 pub mod Preview;
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct AddPackageByAppInstallerOptions(pub u32);
 impl AddPackageByAppInstallerOptions {
@@ -31,6 +32,7 @@ unsafe impl ::windows::core::RuntimeType for AddPackageByAppInstallerOptions {
 impl ::windows::core::DefaultType for AddPackageByAppInstallerOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct AddPackageOptions(::windows::core::IUnknown);
 impl AddPackageOptions {
@@ -282,6 +284,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AddP
 }
 unsafe impl ::core::marker::Send for AddPackageOptions {}
 unsafe impl ::core::marker::Sync for AddPackageOptions {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct AppInstallerManager(::windows::core::IUnknown);
 impl AppInstallerManager {
@@ -378,6 +381,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppI
 }
 unsafe impl ::core::marker::Send for AppInstallerManager {}
 unsafe impl ::core::marker::Sync for AppInstallerManager {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct AutoUpdateSettingsOptions(::windows::core::IUnknown);
 impl AutoUpdateSettingsOptions {
@@ -598,6 +602,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
 }
 unsafe impl ::core::marker::Send for AutoUpdateSettingsOptions {}
 unsafe impl ::core::marker::Sync for AutoUpdateSettingsOptions {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct CreateSharedPackageContainerOptions(::windows::core::IUnknown);
 impl CreateSharedPackageContainerOptions {
@@ -702,6 +707,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Crea
 }
 unsafe impl ::core::marker::Send for CreateSharedPackageContainerOptions {}
 unsafe impl ::core::marker::Sync for CreateSharedPackageContainerOptions {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct CreateSharedPackageContainerResult(::windows::core::IUnknown);
 impl CreateSharedPackageContainerResult {
@@ -790,6 +796,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Crea
 }
 unsafe impl ::core::marker::Send for CreateSharedPackageContainerResult {}
 unsafe impl ::core::marker::Sync for CreateSharedPackageContainerResult {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct DeleteSharedPackageContainerOptions(::windows::core::IUnknown);
 impl DeleteSharedPackageContainerOptions {
@@ -886,6 +893,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dele
 }
 unsafe impl ::core::marker::Send for DeleteSharedPackageContainerOptions {}
 unsafe impl ::core::marker::Sync for DeleteSharedPackageContainerOptions {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct DeleteSharedPackageContainerResult(::windows::core::IUnknown);
 impl DeleteSharedPackageContainerResult {
@@ -967,6 +975,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dele
 }
 unsafe impl ::core::marker::Send for DeleteSharedPackageContainerResult {}
 unsafe impl ::core::marker::Sync for DeleteSharedPackageContainerResult {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct DeploymentOptions(pub u32);
 impl DeploymentOptions {
@@ -1002,6 +1011,7 @@ impl ::windows::core::DefaultType for DeploymentOptions {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Management_Deployment'*"]
 pub struct DeploymentProgress {
     pub state: DeploymentProgressState,
     pub percentage: u32,
@@ -1032,6 +1042,7 @@ impl ::core::default::Default for DeploymentProgress {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct DeploymentProgressState(pub i32);
 impl DeploymentProgressState {
@@ -1059,6 +1070,7 @@ unsafe impl ::windows::core::RuntimeType for DeploymentProgressState {
 impl ::windows::core::DefaultType for DeploymentProgressState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct DeploymentResult(::windows::core::IUnknown);
 impl DeploymentResult {
@@ -1154,6 +1166,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Depl
 }
 unsafe impl ::core::marker::Send for DeploymentResult {}
 unsafe impl ::core::marker::Sync for DeploymentResult {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct FindSharedPackageContainerOptions(::windows::core::IUnknown);
 impl FindSharedPackageContainerOptions {
@@ -2200,6 +2213,7 @@ pub struct IUpdateSharedPackageContainerResultVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SharedPackageContainerOperationStatus) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct PackageAllUserProvisioningOptions(::windows::core::IUnknown);
 impl PackageAllUserProvisioningOptions {
@@ -2290,6 +2304,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
 }
 unsafe impl ::core::marker::Send for PackageAllUserProvisioningOptions {}
 unsafe impl ::core::marker::Sync for PackageAllUserProvisioningOptions {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct PackageInstallState(pub i32);
 impl PackageInstallState {
@@ -2319,6 +2334,7 @@ unsafe impl ::windows::core::RuntimeType for PackageInstallState {
 impl ::windows::core::DefaultType for PackageInstallState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct PackageManager(::windows::core::IUnknown);
 impl PackageManager {
@@ -2916,6 +2932,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
 }
 unsafe impl ::core::marker::Send for PackageManager {}
 unsafe impl ::core::marker::Sync for PackageManager {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct PackageManagerDebugSettings(::windows::core::IUnknown);
 impl PackageManagerDebugSettings {
@@ -2999,6 +3016,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
 }
 unsafe impl ::core::marker::Send for PackageManagerDebugSettings {}
 unsafe impl ::core::marker::Sync for PackageManagerDebugSettings {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct PackageState(pub i32);
 impl PackageState {
@@ -3028,6 +3046,7 @@ unsafe impl ::windows::core::RuntimeType for PackageState {
 impl ::windows::core::DefaultType for PackageState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct PackageStatus(pub u32);
 impl PackageStatus {
@@ -3058,6 +3077,7 @@ unsafe impl ::windows::core::RuntimeType for PackageStatus {
 impl ::windows::core::DefaultType for PackageStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct PackageStubPreference(pub i32);
 impl PackageStubPreference {
@@ -3085,6 +3105,7 @@ unsafe impl ::windows::core::RuntimeType for PackageStubPreference {
 impl ::windows::core::DefaultType for PackageStubPreference {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct PackageTypes(pub u32);
 impl PackageTypes {
@@ -3118,6 +3139,7 @@ unsafe impl ::windows::core::RuntimeType for PackageTypes {
 impl ::windows::core::DefaultType for PackageTypes {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct PackageUserInformation(::windows::core::IUnknown);
 impl PackageUserInformation {
@@ -3199,6 +3221,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
 }
 unsafe impl ::core::marker::Send for PackageUserInformation {}
 unsafe impl ::core::marker::Sync for PackageUserInformation {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct PackageVolume(::windows::core::IUnknown);
 impl PackageVolume {
@@ -3442,6 +3465,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pack
 }
 unsafe impl ::core::marker::Send for PackageVolume {}
 unsafe impl ::core::marker::Sync for PackageVolume {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct RegisterPackageOptions(::windows::core::IUnknown);
 impl RegisterPackageOptions {
@@ -3644,6 +3668,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Regi
 }
 unsafe impl ::core::marker::Send for RegisterPackageOptions {}
 unsafe impl ::core::marker::Sync for RegisterPackageOptions {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct RemovalOptions(pub u32);
 impl RemovalOptions {
@@ -3673,6 +3698,7 @@ unsafe impl ::windows::core::RuntimeType for RemovalOptions {
 impl ::windows::core::DefaultType for RemovalOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct SharedPackageContainer(::windows::core::IUnknown);
 impl SharedPackageContainer {
@@ -3776,6 +3802,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
 }
 unsafe impl ::core::marker::Send for SharedPackageContainer {}
 unsafe impl ::core::marker::Sync for SharedPackageContainer {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct SharedPackageContainerCreationCollisionOptions(pub i32);
 impl SharedPackageContainerCreationCollisionOptions {
@@ -3804,6 +3831,7 @@ unsafe impl ::windows::core::RuntimeType for SharedPackageContainerCreationColli
 impl ::windows::core::DefaultType for SharedPackageContainerCreationCollisionOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct SharedPackageContainerManager(::windows::core::IUnknown);
 impl SharedPackageContainerManager {
@@ -3930,6 +3958,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
 }
 unsafe impl ::core::marker::Send for SharedPackageContainerManager {}
 unsafe impl ::core::marker::Sync for SharedPackageContainerManager {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct SharedPackageContainerMember(::windows::core::IUnknown);
 impl SharedPackageContainerMember {
@@ -4014,6 +4043,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
 }
 unsafe impl ::core::marker::Send for SharedPackageContainerMember {}
 unsafe impl ::core::marker::Sync for SharedPackageContainerMember {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct SharedPackageContainerOperationStatus(pub i32);
 impl SharedPackageContainerOperationStatus {
@@ -4045,6 +4075,7 @@ unsafe impl ::windows::core::RuntimeType for SharedPackageContainerOperationStat
 impl ::windows::core::DefaultType for SharedPackageContainerOperationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct StagePackageOptions(::windows::core::IUnknown);
 impl StagePackageOptions {
@@ -4252,6 +4283,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stag
 }
 unsafe impl ::core::marker::Send for StagePackageOptions {}
 unsafe impl ::core::marker::Sync for StagePackageOptions {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct StubPackageOption(pub i32);
 impl StubPackageOption {
@@ -4281,6 +4313,7 @@ unsafe impl ::windows::core::RuntimeType for StubPackageOption {
 impl ::windows::core::DefaultType for StubPackageOption {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct UpdateSharedPackageContainerOptions(::windows::core::IUnknown);
 impl UpdateSharedPackageContainerOptions {
@@ -4377,6 +4410,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Upda
 }
 unsafe impl ::core::marker::Send for UpdateSharedPackageContainerOptions {}
 unsafe impl ::core::marker::Sync for UpdateSharedPackageContainerOptions {}
+#[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct UpdateSharedPackageContainerResult(::windows::core::IUnknown);
 impl UpdateSharedPackageContainerResult {

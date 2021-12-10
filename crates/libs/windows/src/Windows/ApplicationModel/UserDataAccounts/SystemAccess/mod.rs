@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
 #[repr(transparent)]
 pub struct DeviceAccountAuthenticationType(pub i32);
 impl DeviceAccountAuthenticationType {
@@ -27,6 +28,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceAccountAuthenticationType {
 impl ::windows::core::DefaultType for DeviceAccountAuthenticationType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
 #[repr(transparent)]
 pub struct DeviceAccountConfiguration(::windows::core::IUnknown);
 impl DeviceAccountConfiguration {
@@ -596,6 +598,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DeviceAccountConfiguration {}
 unsafe impl ::core::marker::Sync for DeviceAccountConfiguration {}
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
 #[repr(transparent)]
 pub struct DeviceAccountIconId(pub i32);
 impl DeviceAccountIconId {
@@ -625,6 +628,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceAccountIconId {
 impl ::windows::core::DefaultType for DeviceAccountIconId {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
 #[repr(transparent)]
 pub struct DeviceAccountMailAgeFilter(pub i32);
 impl DeviceAccountMailAgeFilter {
@@ -657,6 +661,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceAccountMailAgeFilter {
 impl ::windows::core::DefaultType for DeviceAccountMailAgeFilter {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
 #[repr(transparent)]
 pub struct DeviceAccountServerType(pub i32);
 impl DeviceAccountServerType {
@@ -685,6 +690,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceAccountServerType {
 impl ::windows::core::DefaultType for DeviceAccountServerType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
 #[repr(transparent)]
 pub struct DeviceAccountSyncScheduleKind(pub i32);
 impl DeviceAccountSyncScheduleKind {

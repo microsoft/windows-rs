@@ -1,95 +1,142 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DirectInput8Create(hinst: super::super::Foundation::HINSTANCE, dwversion: u32, riidltf: *const ::windows_sys::core::GUID, ppvout: *mut *mut ::core::ffi::c_void, punkouter: ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_FlushQueue(hiddeviceobject: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_FreePreparsedData(preparseddata: isize) -> super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_GetAttributes(hiddeviceobject: super::super::Foundation::HANDLE, attributes: *mut HIDD_ATTRIBUTES) -> super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_GetConfiguration(hiddeviceobject: super::super::Foundation::HANDLE, configuration: *mut HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_GetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
     pub fn HidD_GetHidGuid(hidguid: *mut ::windows_sys::core::GUID);
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_GetIndexedString(hiddeviceobject: super::super::Foundation::HANDLE, stringindex: u32, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_GetInputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_GetManufacturerString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_GetMsGenreDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_GetNumInputBuffers(hiddeviceobject: super::super::Foundation::HANDLE, numberbuffers: *mut u32) -> super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_GetPhysicalDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_GetPreparsedData(hiddeviceobject: super::super::Foundation::HANDLE, preparseddata: *mut isize) -> super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_GetProductString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_GetSerialNumberString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::core::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_SetConfiguration(hiddeviceobject: super::super::Foundation::HANDLE, configuration: *const HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_SetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_SetNumInputBuffers(hiddeviceobject: super::super::Foundation::HANDLE, numberbuffers: u32) -> super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidD_SetOutputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const ::core::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_GetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength: *mut u16, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_GetButtonCaps(reporttype: HIDP_REPORT_TYPE, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: isize) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_GetCaps(preparseddata: isize, capabilities: *mut HIDP_CAPS) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_GetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_GetExtendedAttributes(reporttype: HIDP_REPORT_TYPE, dataindex: u16, preparseddata: isize, attributes: *mut HIDP_EXTENDED_ATTRIBUTES, lengthattributes: *mut u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_GetLinkCollectionNodes(linkcollectionnodes: *mut HIDP_LINK_COLLECTION_NODE, linkcollectionnodeslength: *mut u32, preparseddata: isize) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_GetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut i32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_GetSpecificButtonCaps(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: isize) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_GetSpecificValueCaps(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: isize) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_GetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_GetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: super::super::Foundation::PSTR, usagevaluebytelength: u16, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_GetUsagesEx(reporttype: HIDP_REPORT_TYPE, linkcollection: u16, buttonlist: *mut USAGE_AND_PAGE, usagelength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_GetValueCaps(reporttype: HIDP_REPORT_TYPE, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: isize) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_InitializeReportForID(reporttype: HIDP_REPORT_TYPE, reportid: u8, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
     pub fn HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata: isize) -> u32;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
     pub fn HidP_MaxUsageListLength(reporttype: HIDP_REPORT_TYPE, usagepage: u16, preparseddata: isize) -> u32;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_SetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *const HIDP_BUTTON_ARRAY_DATA, buttondatalength: u16, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_SetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_SetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: i32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_SetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_SetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: super::super::Foundation::PSTR, usagevaluebytelength: u16, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_SetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: *const u16, usagelistlength: u32, keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: PHIDP_INSERT_SCANCODES, insertcodescontext: *const ::core::ffi::c_void) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_UnsetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HidP_UsageListDifference(previoususagelist: *const u16, currentusagelist: *const u16, breakusagelist: *mut u16, makeusagelist: *mut u16, usagelistlength: u32) -> super::super::Foundation::NTSTATUS;
+    #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
     pub fn joyConfigChanged(dwflags: u32) -> u32;
 }
 pub const BALLPOINT_I8042_HARDWARE: u32 = 8u32;
@@ -116,6 +163,7 @@ pub const CLSID_DirectInput8: ::windows_sys::core::GUID = ::windows_sys::core::G
 pub const CLSID_DirectInputDevice: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 635832801, data2: 45657, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 pub const CLSID_DirectInputDevice8: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 635832805, data2: 45657, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct CPOINT {
     pub lP: i32,
     pub dwLog: u32,
@@ -126,20 +174,28 @@ impl ::core::clone::Clone for CPOINT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_HID_BackgroundAccess: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] }, pid: 8u32 };
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_HID_IsReadOnly: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] }, pid: 4u32 };
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_HID_ProductId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] }, pid: 6u32 };
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_HID_UsageId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] }, pid: 3u32 };
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_HID_UsagePage: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] }, pid: 2u32 };
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_HID_VendorId: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] }, pid: 5u32 };
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_HID_VersionNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] }, pid: 7u32 };
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DeviceInterface_HID_WakeScreenOnInputCapable: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3421733648, data2: 18967, data3: 17168, data4: [161, 235, 36, 127, 11, 103, 89, 59] }, pid: 9u32 };
 pub const DI8DEVCLASS_ALL: u32 = 0u32;
@@ -218,6 +274,7 @@ pub const DI8DEVTYPE_REMOTE: u32 = 27u32;
 pub const DI8DEVTYPE_SCREENPOINTER: u32 = 26u32;
 pub const DI8DEVTYPE_SUPPLEMENTAL: u32 = 28u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIACTIONA {
     pub uAppData: usize,
@@ -237,6 +294,7 @@ impl ::core::clone::Clone for DIACTIONA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DIACTIONA_0 {
     pub lptszActionName: super::super::Foundation::PSTR,
@@ -251,6 +309,7 @@ impl ::core::clone::Clone for DIACTIONA_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIACTIONFORMATA {
     pub dwSize: u32,
@@ -277,6 +336,7 @@ impl ::core::clone::Clone for DIACTIONFORMATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIACTIONFORMATW {
     pub dwSize: u32,
@@ -303,6 +363,7 @@ impl ::core::clone::Clone for DIACTIONFORMATW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIACTIONW {
     pub uAppData: usize,
@@ -322,6 +383,7 @@ impl ::core::clone::Clone for DIACTIONW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DIACTIONW_0 {
     pub lptszActionName: super::super::Foundation::PWSTR,
@@ -1179,6 +1241,7 @@ pub const DIBUTTON_TPS_VIEW: u32 = 167789574u32;
 pub const DICD_DEFAULT: u32 = 0u32;
 pub const DICD_EDIT: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DICOLORSET {
     pub dwSize: u32,
     pub cTextFore: u32,
@@ -1197,6 +1260,7 @@ impl ::core::clone::Clone for DICOLORSET {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DICONDITION {
     pub lOffset: i32,
     pub lPositiveCoefficient: i32,
@@ -1212,6 +1276,7 @@ impl ::core::clone::Clone for DICONDITION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DICONFIGUREDEVICESPARAMSA {
     pub dwSize: u32,
@@ -1232,6 +1297,7 @@ impl ::core::clone::Clone for DICONFIGUREDEVICESPARAMSA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DICONFIGUREDEVICESPARAMSW {
     pub dwSize: u32,
@@ -1252,6 +1318,7 @@ impl ::core::clone::Clone for DICONFIGUREDEVICESPARAMSW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DICONSTANTFORCE {
     pub lMagnitude: i32,
 }
@@ -1262,6 +1329,7 @@ impl ::core::clone::Clone for DICONSTANTFORCE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DICUSTOMFORCE {
     pub cChannels: u32,
     pub dwSamplePeriod: u32,
@@ -1281,6 +1349,7 @@ pub const DIDAL_MIDDLE: u32 = 0u32;
 pub const DIDAL_RIGHTALIGNED: u32 = 2u32;
 pub const DIDAL_TOPALIGNED: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIDATAFORMAT {
     pub dwSize: u32,
     pub dwObjSize: u32,
@@ -1315,6 +1384,7 @@ pub const DIDC_POSNEGSATURATION: u32 = 8192u32;
 pub const DIDC_SATURATION: u32 = 2048u32;
 pub const DIDC_STARTDELAY: u32 = 32768u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIDEVCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1335,6 +1405,7 @@ impl ::core::clone::Clone for DIDEVCAPS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIDEVCAPS_DX3 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1350,6 +1421,7 @@ impl ::core::clone::Clone for DIDEVCAPS_DX3 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEIMAGEINFOA {
     pub tszImagePath: [super::super::Foundation::CHAR; 260],
@@ -1371,6 +1443,7 @@ impl ::core::clone::Clone for DIDEVICEIMAGEINFOA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEIMAGEINFOHEADERA {
     pub dwSize: u32,
@@ -1392,6 +1465,7 @@ impl ::core::clone::Clone for DIDEVICEIMAGEINFOHEADERA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEIMAGEINFOHEADERW {
     pub dwSize: u32,
@@ -1413,6 +1487,7 @@ impl ::core::clone::Clone for DIDEVICEIMAGEINFOHEADERW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEIMAGEINFOW {
     pub tszImagePath: [u16; 260],
@@ -1434,6 +1509,7 @@ impl ::core::clone::Clone for DIDEVICEIMAGEINFOW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEINSTANCEA {
     pub dwSize: u32,
@@ -1455,6 +1531,7 @@ impl ::core::clone::Clone for DIDEVICEINSTANCEA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIDEVICEINSTANCEW {
     pub dwSize: u32,
     pub guidInstance: ::windows_sys::core::GUID,
@@ -1473,6 +1550,7 @@ impl ::core::clone::Clone for DIDEVICEINSTANCEW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEINSTANCE_DX3A {
     pub dwSize: u32,
@@ -1491,6 +1569,7 @@ impl ::core::clone::Clone for DIDEVICEINSTANCE_DX3A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIDEVICEINSTANCE_DX3W {
     pub dwSize: u32,
     pub guidInstance: ::windows_sys::core::GUID,
@@ -1506,6 +1585,7 @@ impl ::core::clone::Clone for DIDEVICEINSTANCE_DX3W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIDEVICEOBJECTDATA {
     pub dwOfs: u32,
     pub dwData: u32,
@@ -1520,6 +1600,7 @@ impl ::core::clone::Clone for DIDEVICEOBJECTDATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIDEVICEOBJECTDATA_DX3 {
     pub dwOfs: u32,
     pub dwData: u32,
@@ -1533,6 +1614,7 @@ impl ::core::clone::Clone for DIDEVICEOBJECTDATA_DX3 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEOBJECTINSTANCEA {
     pub dwSize: u32,
@@ -1560,6 +1642,7 @@ impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCEA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIDEVICEOBJECTINSTANCEW {
     pub dwSize: u32,
     pub guidType: ::windows_sys::core::GUID,
@@ -1584,6 +1667,7 @@ impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCEW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIDEVICEOBJECTINSTANCE_DX3A {
     pub dwSize: u32,
@@ -1602,6 +1686,7 @@ impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCE_DX3A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIDEVICEOBJECTINSTANCE_DX3W {
     pub dwSize: u32,
     pub guidType: ::windows_sys::core::GUID,
@@ -1617,6 +1702,7 @@ impl ::core::clone::Clone for DIDEVICEOBJECTINSTANCE_DX3W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIDEVICESTATE {
     pub dwSize: u32,
     pub dwState: u32,
@@ -1691,6 +1777,7 @@ pub const DIDOI_FFEFFECTTRIGGER: u32 = 2u32;
 pub const DIDOI_GUIDISUSAGE: u32 = 65536u32;
 pub const DIDOI_POLLED: u32 = 32768u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIDRIVERVERSIONS {
     pub dwSize: u32,
     pub dwFirmwareRevision: u32,
@@ -1725,6 +1812,7 @@ pub const DIEDFL_INCLUDEALIASES: u32 = 65536u32;
 pub const DIEDFL_INCLUDEHIDDEN: u32 = 262144u32;
 pub const DIEDFL_INCLUDEPHANTOMS: u32 = 131072u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIEFFECT {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1748,6 +1836,7 @@ impl ::core::clone::Clone for DIEFFECT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIEFFECTATTRIBUTES {
     pub dwEffectId: u32,
     pub dwEffType: u32,
@@ -1762,6 +1851,7 @@ impl ::core::clone::Clone for DIEFFECTATTRIBUTES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIEFFECTINFOA {
     pub dwSize: u32,
@@ -1780,6 +1870,7 @@ impl ::core::clone::Clone for DIEFFECTINFOA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIEFFECTINFOW {
     pub dwSize: u32,
     pub guid: ::windows_sys::core::GUID,
@@ -1795,6 +1886,7 @@ impl ::core::clone::Clone for DIEFFECTINFOW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIEFFECT_DX5 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1817,6 +1909,7 @@ impl ::core::clone::Clone for DIEFFECT_DX5 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIEFFESCAPE {
     pub dwSize: u32,
     pub dwCommand: u32,
@@ -1855,6 +1948,7 @@ pub const DIEGES_PLAYING: u32 = 1u32;
 pub const DIENUM_CONTINUE: u32 = 1u32;
 pub const DIENUM_STOP: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIENVELOPE {
     pub dwSize: u32,
     pub dwAttackLevel: u32,
@@ -1883,10 +1977,14 @@ pub const DIEP_STARTDELAY: u32 = 512u32;
 pub const DIEP_TRIGGERBUTTON: u32 = 8u32;
 pub const DIEP_TRIGGERREPEATINTERVAL: u32 = 16u32;
 pub const DIEP_TYPESPECIFICPARAMS: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const DIERR_ACQUIRED: ::windows_sys::core::HRESULT = -2147024726i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const DIERR_ALREADYINITIALIZED: ::windows_sys::core::HRESULT = -2147023649i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const DIERR_BADDRIVERVER: ::windows_sys::core::HRESULT = -2147024777i32;
 pub const DIERR_BADINF: i32 = -2147220478i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const DIERR_BETADIRECTINPUTVERSION: ::windows_sys::core::HRESULT = -2147023743i32;
 pub const DIERR_CANCELLED: i32 = -2147220479i32;
 pub const DIERR_DEVICEFULL: i32 = -2147220991i32;
@@ -1898,6 +1996,7 @@ pub const DIERR_GENERIC: i32 = -2147467259i32;
 pub const DIERR_HANDLEEXISTS: i32 = -2147024891i32;
 pub const DIERR_HASEFFECTS: i32 = -2147220988i32;
 pub const DIERR_INCOMPLETEEFFECT: i32 = -2147220986i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const DIERR_INPUTLOST: ::windows_sys::core::HRESULT = -2147024866i32;
 pub const DIERR_INSUFFICIENTPRIVS: i32 = -2147220992i32;
 pub const DIERR_INVALIDCLASSINSTALLER: i32 = -2147220480i32;
@@ -1906,14 +2005,20 @@ pub const DIERR_MAPFILEFAIL: i32 = -2147220981i32;
 pub const DIERR_MOREDATA: i32 = -2147220990i32;
 pub const DIERR_NOAGGREGATION: i32 = -2147221232i32;
 pub const DIERR_NOINTERFACE: i32 = -2147467262i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const DIERR_NOMOREITEMS: ::windows_sys::core::HRESULT = -2147024637i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const DIERR_NOTACQUIRED: ::windows_sys::core::HRESULT = -2147024884i32;
 pub const DIERR_NOTBUFFERED: i32 = -2147220985i32;
 pub const DIERR_NOTDOWNLOADED: i32 = -2147220989i32;
 pub const DIERR_NOTEXCLUSIVEACQUIRED: i32 = -2147220987i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const DIERR_NOTFOUND: ::windows_sys::core::HRESULT = -2147024894i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const DIERR_NOTINITIALIZED: ::windows_sys::core::HRESULT = -2147024875i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const DIERR_OBJECTNOTFOUND: ::windows_sys::core::HRESULT = -2147024894i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const DIERR_OLDDIRECTINPUTVERSION: ::windows_sys::core::HRESULT = -2147023746i32;
 pub const DIERR_OTHERAPPHASPRIO: i32 = -2147024891i32;
 pub const DIERR_OUTOFMEMORY: i32 = -2147024882i32;
@@ -1927,6 +2032,7 @@ pub const DIFEF_DEFAULT: u32 = 0u32;
 pub const DIFEF_INCLUDENONSTANDARD: u32 = 1u32;
 pub const DIFEF_MODIFYIFNEEDED: u32 = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIFFDEVICEATTRIBUTES {
     pub dwFlags: u32,
     pub dwFFSamplePeriod: u32,
@@ -1939,6 +2045,7 @@ impl ::core::clone::Clone for DIFFDEVICEATTRIBUTES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIFFOBJECTATTRIBUTES {
     pub dwFFMaxForce: u32,
     pub dwFFForceResolution: u32,
@@ -1950,6 +2057,7 @@ impl ::core::clone::Clone for DIFFOBJECTATTRIBUTES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIFILEEFFECT {
     pub dwSize: u32,
@@ -2010,6 +2118,7 @@ pub const DIHATSWITCH_SPACESIM_GLANCE: u32 = 117458433u32;
 pub const DIHATSWITCH_STRATEGYR_GLANCE: u32 = 184567297u32;
 pub const DIHATSWITCH_TPS_GLANCE: u32 = 167790081u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIHIDFFINITINFO {
     pub dwSize: u32,
@@ -2030,6 +2139,7 @@ pub const DIJC_GUIDINSTANCE: u32 = 1u32;
 pub const DIJC_REGHWCONFIGTYPE: u32 = 2u32;
 pub const DIJC_WDMGAMEPORT: u32 = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIJOYCONFIG {
     pub dwSize: u32,
     pub guidInstance: ::windows_sys::core::GUID,
@@ -2046,6 +2156,7 @@ impl ::core::clone::Clone for DIJOYCONFIG {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIJOYCONFIG_DX5 {
     pub dwSize: u32,
     pub guidInstance: ::windows_sys::core::GUID,
@@ -2061,6 +2172,7 @@ impl ::core::clone::Clone for DIJOYCONFIG_DX5 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIJOYSTATE {
     pub lX: i32,
     pub lY: i32,
@@ -2079,6 +2191,7 @@ impl ::core::clone::Clone for DIJOYSTATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIJOYSTATE2 {
     pub lX: i32,
     pub lY: i32,
@@ -2118,6 +2231,7 @@ impl ::core::clone::Clone for DIJOYSTATE2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIJOYTYPEINFO {
     pub dwSize: u32,
     pub hws: JOYREGHWSETTINGS,
@@ -2136,6 +2250,7 @@ impl ::core::clone::Clone for DIJOYTYPEINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIJOYTYPEINFO_DX5 {
     pub dwSize: u32,
     pub hws: JOYREGHWSETTINGS,
@@ -2150,6 +2265,7 @@ impl ::core::clone::Clone for DIJOYTYPEINFO_DX5 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIJOYTYPEINFO_DX6 {
     pub dwSize: u32,
     pub hws: JOYREGHWSETTINGS,
@@ -2166,6 +2282,7 @@ impl ::core::clone::Clone for DIJOYTYPEINFO_DX6 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIJOYUSERVALUES {
     pub dwSize: u32,
     pub ruv: JOYREGUSERVALUES,
@@ -2486,6 +2603,7 @@ pub const DIK_Y: u32 = 21u32;
 pub const DIK_YEN: u32 = 125u32;
 pub const DIK_Z: u32 = 44u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIMOUSESTATE {
     pub lX: i32,
     pub lY: i32,
@@ -2499,6 +2617,7 @@ impl ::core::clone::Clone for DIMOUSESTATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIMOUSESTATE2 {
     pub lX: i32,
     pub lY: i32,
@@ -2515,6 +2634,7 @@ pub const DIMSGWP_DX8APPSTART: u32 = 2u32;
 pub const DIMSGWP_DX8MAPPERAPPSTART: u32 = 3u32;
 pub const DIMSGWP_NEWAPPSTART: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIOBJECTATTRIBUTES {
     pub dwFlags: u32,
     pub wUsagePage: u16,
@@ -2527,6 +2647,7 @@ impl ::core::clone::Clone for DIOBJECTATTRIBUTES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIOBJECTCALIBRATION {
     pub lMin: i32,
     pub lCenter: i32,
@@ -2539,6 +2660,7 @@ impl ::core::clone::Clone for DIOBJECTCALIBRATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIOBJECTDATAFORMAT {
     pub pguid: *mut ::windows_sys::core::GUID,
     pub dwOfs: u32,
@@ -2552,6 +2674,7 @@ impl ::core::clone::Clone for DIOBJECTDATAFORMAT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIPERIODIC {
     pub dwMagnitude: u32,
     pub lOffset: i32,
@@ -2569,6 +2692,7 @@ pub const DIPH_BYOFFSET: u32 = 1u32;
 pub const DIPH_BYUSAGE: u32 = 3u32;
 pub const DIPH_DEVICE: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIPOVCALIBRATION {
     pub lMin: [i32; 5],
     pub lMax: [i32; 5],
@@ -2588,6 +2712,7 @@ pub const DIPROPAUTOCENTER_ON: u32 = 1u32;
 pub const DIPROPAXISMODE_ABS: u32 = 0u32;
 pub const DIPROPAXISMODE_REL: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIPROPCAL {
     pub diph: DIPROPHEADER,
     pub lMin: i32,
@@ -2603,6 +2728,7 @@ impl ::core::clone::Clone for DIPROPCAL {
 pub const DIPROPCALIBRATIONMODE_COOKED: u32 = 0u32;
 pub const DIPROPCALIBRATIONMODE_RAW: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIPROPCALPOV {
     pub diph: DIPROPHEADER,
     pub lMin: [i32; 5],
@@ -2615,6 +2741,7 @@ impl ::core::clone::Clone for DIPROPCALPOV {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIPROPCPOINTS {
     pub diph: DIPROPHEADER,
     pub dwCPointsNum: u32,
@@ -2627,6 +2754,7 @@ impl ::core::clone::Clone for DIPROPCPOINTS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIPROPDWORD {
     pub diph: DIPROPHEADER,
     pub dwData: u32,
@@ -2638,6 +2766,7 @@ impl ::core::clone::Clone for DIPROPDWORD {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIPROPGUIDANDPATH {
     pub diph: DIPROPHEADER,
     pub guidClass: ::windows_sys::core::GUID,
@@ -2650,6 +2779,7 @@ impl ::core::clone::Clone for DIPROPGUIDANDPATH {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIPROPHEADER {
     pub dwSize: u32,
     pub dwHeaderSize: u32,
@@ -2663,6 +2793,7 @@ impl ::core::clone::Clone for DIPROPHEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIPROPPOINTER {
     pub diph: DIPROPHEADER,
     pub uData: usize,
@@ -2674,6 +2805,7 @@ impl ::core::clone::Clone for DIPROPPOINTER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIPROPRANGE {
     pub diph: DIPROPHEADER,
     pub lMin: i32,
@@ -2686,6 +2818,7 @@ impl ::core::clone::Clone for DIPROPRANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIPROPSTRING {
     pub diph: DIPROPHEADER,
     pub wsz: [u16; 260],
@@ -2697,6 +2830,7 @@ impl ::core::clone::Clone for DIPROPSTRING {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct DIRAMPFORCE {
     pub lStart: i32,
     pub lEnd: i32,
@@ -2786,37 +2920,63 @@ pub const DIVOICE_TRANSMIT: u32 = 2197816333u32;
 pub const DIVOICE_VOICECOMMAND: u32 = 2197816336u32;
 pub const DI_BUFFEROVERFLOW: i32 = 1i32;
 pub const DI_DEGREES: u32 = 100u32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const DI_DOWNLOADSKIPPED: ::windows_sys::core::HRESULT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const DI_EFFECTRESTARTED: ::windows_sys::core::HRESULT = 4i32;
 pub const DI_FFNOMINALMAX: u32 = 10000u32;
 pub const DI_NOEFFECT: i32 = 1i32;
 pub const DI_NOTATTACHED: i32 = 1i32;
 pub const DI_OK: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const DI_POLLEDDEVICE: ::windows_sys::core::HRESULT = 2i32;
 pub const DI_PROPNOEFFECT: i32 = 1i32;
 pub const DI_SECONDS: u32 = 1000000u32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const DI_SETTINGSNOTSAVED: ::windows_sys::core::HRESULT = 11i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const DI_TRUNCATED: ::windows_sys::core::HRESULT = 8i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const DI_TRUNCATEDANDRESTARTED: ::windows_sys::core::HRESULT = 12i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const DI_WRITEPROTECT: ::windows_sys::core::HRESULT = 19i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub type GPIOBUTTONS_BUTTON_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const GPIO_BUTTON_POWER: GPIOBUTTONS_BUTTON_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const GPIO_BUTTON_WINDOWS: GPIOBUTTONS_BUTTON_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const GPIO_BUTTON_VOLUME_UP: GPIOBUTTONS_BUTTON_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const GPIO_BUTTON_VOLUME_DOWN: GPIOBUTTONS_BUTTON_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const GPIO_BUTTON_ROTATION_LOCK: GPIOBUTTONS_BUTTON_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const GPIO_BUTTON_BACK: GPIOBUTTONS_BUTTON_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const GPIO_BUTTON_SEARCH: GPIOBUTTONS_BUTTON_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const GPIO_BUTTON_CAMERA_FOCUS: GPIOBUTTONS_BUTTON_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const GPIO_BUTTON_CAMERA_SHUTTER: GPIOBUTTONS_BUTTON_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const GPIO_BUTTON_RINGER_TOGGLE: GPIOBUTTONS_BUTTON_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const GPIO_BUTTON_HEADSET: GPIOBUTTONS_BUTTON_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const GPIO_BUTTON_HWKB_DEPLOY: GPIOBUTTONS_BUTTON_TYPE = 11i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const GPIO_BUTTON_CAMERA_LENS: GPIOBUTTONS_BUTTON_TYPE = 12i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const GPIO_BUTTON_OEM_CUSTOM: GPIOBUTTONS_BUTTON_TYPE = 13i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const GPIO_BUTTON_OEM_CUSTOM2: GPIOBUTTONS_BUTTON_TYPE = 14i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const GPIO_BUTTON_OEM_CUSTOM3: GPIOBUTTONS_BUTTON_TYPE = 15i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const GPIO_BUTTON_COUNT_MIN: GPIOBUTTONS_BUTTON_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const GPIO_BUTTON_COUNT: GPIOBUTTONS_BUTTON_TYPE = 16i32;
 pub const GUID_Button: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2741830384, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 pub const GUID_ConstantForce: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 324279328, data2: 36403, data3: 4560, data4: [154, 208, 0, 160, 201, 160, 110, 53] };
@@ -2858,6 +3018,7 @@ pub const GUID_XAxis: ::windows_sys::core::GUID = ::windows_sys::core::GUID { da
 pub const GUID_YAxis: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2741830369, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 pub const GUID_ZAxis: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2741830370, data2: 51699, data3: 4559, data4: [191, 199, 68, 69, 83, 84, 0, 0] };
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct HIDD_ATTRIBUTES {
     pub Size: u32,
     pub VendorID: u16,
@@ -2871,6 +3032,7 @@ impl ::core::clone::Clone for HIDD_ATTRIBUTES {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct HIDD_CONFIGURATION {
     pub cookie: *mut ::core::ffi::c_void,
     pub size: u32,
@@ -2883,6 +3045,7 @@ impl ::core::clone::Clone for HIDD_CONFIGURATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_BUTTON_ARRAY_DATA {
     pub ArrayIndex: u16,
@@ -2897,6 +3060,7 @@ impl ::core::clone::Clone for HIDP_BUTTON_ARRAY_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_BUTTON_CAPS {
     pub UsagePage: u16,
@@ -2924,6 +3088,7 @@ impl ::core::clone::Clone for HIDP_BUTTON_CAPS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union HIDP_BUTTON_CAPS_0 {
     pub Range: HIDP_BUTTON_CAPS_0_1,
@@ -2938,6 +3103,7 @@ impl ::core::clone::Clone for HIDP_BUTTON_CAPS_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_BUTTON_CAPS_0_0 {
     pub Usage: u16,
@@ -2958,6 +3124,7 @@ impl ::core::clone::Clone for HIDP_BUTTON_CAPS_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_BUTTON_CAPS_0_1 {
     pub UsageMin: u16,
@@ -2978,6 +3145,7 @@ impl ::core::clone::Clone for HIDP_BUTTON_CAPS_0_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct HIDP_CAPS {
     pub Usage: u16,
     pub UsagePage: u16,
@@ -3003,6 +3171,7 @@ impl ::core::clone::Clone for HIDP_CAPS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_DATA {
     pub DataIndex: u16,
@@ -3018,6 +3187,7 @@ impl ::core::clone::Clone for HIDP_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union HIDP_DATA_0 {
     pub RawValue: u32,
@@ -3032,6 +3202,7 @@ impl ::core::clone::Clone for HIDP_DATA_0 {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct HIDP_EXTENDED_ATTRIBUTES {
     pub NumGlobalUnknowns: u8,
     pub Reserved: [u8; 3],
@@ -3044,10 +3215,14 @@ impl ::core::clone::Clone for HIDP_EXTENDED_ATTRIBUTES {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub type HIDP_KEYBOARD_DIRECTION = i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const HidP_Keyboard_Break: HIDP_KEYBOARD_DIRECTION = 0i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const HidP_Keyboard_Make: HIDP_KEYBOARD_DIRECTION = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct HIDP_KEYBOARD_MODIFIER_STATE {
     pub Anonymous: HIDP_KEYBOARD_MODIFIER_STATE_0,
 }
@@ -3058,6 +3233,7 @@ impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub union HIDP_KEYBOARD_MODIFIER_STATE_0 {
     pub Anonymous: HIDP_KEYBOARD_MODIFIER_STATE_0_0,
     pub ul: u32,
@@ -3069,6 +3245,7 @@ impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     pub _bitfield: u32,
 }
@@ -3079,6 +3256,7 @@ impl ::core::clone::Clone for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct HIDP_LINK_COLLECTION_NODE {
     pub LinkUsage: u16,
     pub LinkUsagePage: u16,
@@ -3095,11 +3273,16 @@ impl ::core::clone::Clone for HIDP_LINK_COLLECTION_NODE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub type HIDP_REPORT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const HidP_Input: HIDP_REPORT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const HidP_Output: HIDP_REPORT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub const HidP_Feature: HIDP_REPORT_TYPE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct HIDP_UNKNOWN_TOKEN {
     pub Token: u8,
     pub Reserved: [u8; 3],
@@ -3112,6 +3295,7 @@ impl ::core::clone::Clone for HIDP_UNKNOWN_TOKEN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_VALUE_CAPS {
     pub UsagePage: u16,
@@ -3147,6 +3331,7 @@ impl ::core::clone::Clone for HIDP_VALUE_CAPS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union HIDP_VALUE_CAPS_0 {
     pub Range: HIDP_VALUE_CAPS_0_1,
@@ -3161,6 +3346,7 @@ impl ::core::clone::Clone for HIDP_VALUE_CAPS_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_VALUE_CAPS_0_0 {
     pub Usage: u16,
@@ -3181,6 +3367,7 @@ impl ::core::clone::Clone for HIDP_VALUE_CAPS_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_VALUE_CAPS_0_1 {
     pub UsageMin: u16,
@@ -3201,6 +3388,7 @@ impl ::core::clone::Clone for HIDP_VALUE_CAPS_0_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HID_COLLECTION_INFORMATION {
     pub DescriptorSize: u32,
@@ -3219,6 +3407,7 @@ impl ::core::clone::Clone for HID_COLLECTION_INFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct HID_DRIVER_CONFIG {
     pub Size: u32,
     pub RingBufferSize: u32,
@@ -3843,6 +4032,7 @@ pub const HID_USAGE_VR_OCULOMETER: u16 = 8u16;
 pub const HID_USAGE_VR_STEREO_ENABLE: u16 = 32u16;
 pub const HID_USAGE_VR_VEST: u16 = 9u16;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct HID_XFER_PACKET {
     pub reportBuffer: *mut u8,
     pub reportBufferLen: u32,
@@ -3876,6 +4066,7 @@ pub type IDirectInputJoyConfig = *mut ::core::ffi::c_void;
 pub type IDirectInputJoyConfig8 = *mut ::core::ffi::c_void;
 pub type IDirectInputW = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct INDICATOR_LIST {
     pub MakeCode: u16,
     pub IndicatorFlags: u16,
@@ -3887,6 +4078,7 @@ impl ::core::clone::Clone for INDICATOR_LIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INPUT_BUTTON_ENABLE_INFO {
     pub ButtonType: GPIOBUTTONS_BUTTON_TYPE,
@@ -3915,6 +4107,7 @@ pub const IOCTL_KEYBOARD_SET_TYPEMATIC: u32 = 720900u32;
 pub const IOCTL_MOUSE_INSERT_DATA: u32 = 983044u32;
 pub const IOCTL_MOUSE_QUERY_ATTRIBUTES: u32 = 983040u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct JOYCALIBRATE {
     pub wXbase: u32,
     pub wXdelta: u32,
@@ -3930,6 +4123,7 @@ impl ::core::clone::Clone for JOYCALIBRATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct JOYPOS {
     pub dwX: u32,
     pub dwY: u32,
@@ -3945,6 +4139,7 @@ impl ::core::clone::Clone for JOYPOS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct JOYRANGE {
     pub jpMin: JOYPOS,
     pub jpMax: JOYPOS,
@@ -3957,6 +4152,7 @@ impl ::core::clone::Clone for JOYRANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct JOYREGHWCONFIG {
     pub hws: JOYREGHWSETTINGS,
     pub dwUsageSettings: u32,
@@ -3971,6 +4167,7 @@ impl ::core::clone::Clone for JOYREGHWCONFIG {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct JOYREGHWSETTINGS {
     pub dwFlags: u32,
     pub dwNumButtons: u32,
@@ -3982,6 +4179,7 @@ impl ::core::clone::Clone for JOYREGHWSETTINGS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct JOYREGHWVALUES {
     pub jrvHardware: JOYRANGE,
     pub dwPOVValues: [u32; 4],
@@ -3994,6 +4192,7 @@ impl ::core::clone::Clone for JOYREGHWVALUES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct JOYREGUSERVALUES {
     pub dwTimeOut: u32,
     pub jrvRanges: JOYRANGE,
@@ -4089,6 +4288,7 @@ pub const JOY_US_PRESENT: i32 = 2i32;
 pub const JOY_US_RESERVED: i32 = -2147483648i32;
 pub const JOY_US_VOLATILE: i32 = 8i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct KEYBOARD_ATTRIBUTES {
     pub KeyboardIdentifier: KEYBOARD_ID,
     pub KeyboardMode: u16,
@@ -4108,6 +4308,7 @@ impl ::core::clone::Clone for KEYBOARD_ATTRIBUTES {
 pub const KEYBOARD_CAPS_LOCK_ON: u32 = 4u32;
 pub const KEYBOARD_ERROR_VALUE_BASE: u32 = 10000u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct KEYBOARD_EXTENDED_ATTRIBUTES {
     pub Version: u8,
     pub FormFactor: u8,
@@ -4125,6 +4326,7 @@ impl ::core::clone::Clone for KEYBOARD_EXTENDED_ATTRIBUTES {
 }
 pub const KEYBOARD_EXTENDED_ATTRIBUTES_STRUCT_VERSION_1: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct KEYBOARD_ID {
     pub Type: u8,
     pub Subtype: u8,
@@ -4136,6 +4338,7 @@ impl ::core::clone::Clone for KEYBOARD_ID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct KEYBOARD_IME_STATUS {
     pub UnitId: u16,
     pub ImeOpen: u32,
@@ -4148,6 +4351,7 @@ impl ::core::clone::Clone for KEYBOARD_IME_STATUS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct KEYBOARD_INDICATOR_PARAMETERS {
     pub UnitId: u16,
     pub LedFlags: u16,
@@ -4159,6 +4363,7 @@ impl ::core::clone::Clone for KEYBOARD_INDICATOR_PARAMETERS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct KEYBOARD_INDICATOR_TRANSLATION {
     pub NumberOfIndicatorKeys: u16,
     pub IndicatorList: [INDICATOR_LIST; 1],
@@ -4170,6 +4375,7 @@ impl ::core::clone::Clone for KEYBOARD_INDICATOR_TRANSLATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct KEYBOARD_INPUT_DATA {
     pub UnitId: u16,
     pub MakeCode: u16,
@@ -4190,6 +4396,7 @@ pub const KEYBOARD_OVERRUN_MAKE_CODE: u32 = 255u32;
 pub const KEYBOARD_SCROLL_LOCK_ON: u32 = 1u32;
 pub const KEYBOARD_SHADOW: u32 = 16384u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct KEYBOARD_TYPEMATIC_PARAMETERS {
     pub UnitId: u16,
     pub Rate: u16,
@@ -4202,6 +4409,7 @@ impl ::core::clone::Clone for KEYBOARD_TYPEMATIC_PARAMETERS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct KEYBOARD_UNIT_ID_PARAMETER {
     pub UnitId: u16,
 }
@@ -4222,36 +4430,50 @@ pub const KEY_TERMSRV_SHADOW: u32 = 16u32;
 pub const KEY_TERMSRV_VKPACKET: u32 = 32u32;
 pub const KEY_UNICODE_SEQUENCE_END: u32 = 512u32;
 pub const KEY_UNICODE_SEQUENCE_ITEM: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDICONFIGUREDEVICESCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: ::windows_sys::core::IUnknown, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: IDirectInputEffect, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMDEVICEOBJECTSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMDEVICEOBJECTSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMDEVICESBYSEMANTICSCBA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: IDirectInputDevice8A, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMDEVICESBYSEMANTICSCBW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: IDirectInputDevice8W, param2: u32, param3: u32, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMDEVICESCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMDEVICESCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMEFFECTSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIEFFECTINFOA, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMEFFECTSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIEFFECTINFOW, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDIENUMEFFECTSINFILECALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DIFILEEFFECT, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDIJOYTYPECALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNSHOWJOYCPL = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND)>;
 pub const MAXCPOINTSNUM: u32 = 8u32;
 pub const MAX_JOYSTICKOEMVXDNAME: u32 = 260u32;
 pub const MAX_JOYSTRING: u32 = 256u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct MOUSE_ATTRIBUTES {
     pub MouseIdentifier: u16,
     pub NumberOfButtons: u16,
@@ -4281,6 +4503,7 @@ pub const MOUSE_HWHEEL: u32 = 2048u32;
 pub const MOUSE_I8042_HARDWARE: u32 = 2u32;
 pub const MOUSE_INPORT_HARDWARE: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct MOUSE_INPUT_DATA {
     pub UnitId: u16,
     pub Flags: u16,
@@ -4297,6 +4520,7 @@ impl ::core::clone::Clone for MOUSE_INPUT_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub union MOUSE_INPUT_DATA_0 {
     pub Buttons: u32,
     pub Anonymous: MOUSE_INPUT_DATA_0_0,
@@ -4308,6 +4532,7 @@ impl ::core::clone::Clone for MOUSE_INPUT_DATA_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct MOUSE_INPUT_DATA_0_0 {
     pub ButtonFlags: u16,
     pub ButtonData: u16,
@@ -4330,6 +4555,7 @@ pub const MOUSE_RIGHT_BUTTON_UP: u32 = 8u32;
 pub const MOUSE_SERIAL_HARDWARE: u32 = 4u32;
 pub const MOUSE_TERMSRV_SRC_SHADOW: u32 = 256u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct MOUSE_UNIT_ID_PARAMETER {
     pub UnitId: u16,
 }
@@ -4341,11 +4567,14 @@ impl ::core::clone::Clone for MOUSE_UNIT_ID_PARAMETER {
 }
 pub const MOUSE_VIRTUAL_DESKTOP: u32 = 2u32;
 pub const MOUSE_WHEEL: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HidP_GetVersionInternal = ::core::option::Option<unsafe extern "system" fn(version: *mut u32) -> super::super::Foundation::NTSTATUS>;
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PHIDP_INSERT_SCANCODES = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, newscancodes: super::super::Foundation::PSTR, length: u32) -> super::super::Foundation::BOOLEAN>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct USAGE_AND_PAGE {
     pub Usage: u16,
     pub UsagePage: u16,

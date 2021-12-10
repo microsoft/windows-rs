@@ -1,8 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub type ACCOUNT_STATE = i32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const NOT_CONNECTED: ACCOUNT_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const CONNECTING: ACCOUNT_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const CONNECT_COMPLETED: ACCOUNT_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 #[repr(transparent)]
 pub struct AsyncIAssociatedIdentityProvider(::windows::core::IUnknown);
 impl AsyncIAssociatedIdentityProvider {
@@ -82,6 +87,7 @@ pub struct AsyncIAssociatedIdentityProviderVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 #[repr(transparent)]
 pub struct AsyncIConnectedIdentityProvider(::windows::core::IUnknown);
 impl AsyncIConnectedIdentityProvider {
@@ -176,6 +182,7 @@ pub struct AsyncIConnectedIdentityProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut ACCOUNT_STATE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 #[repr(transparent)]
 pub struct AsyncIIdentityAdvise(::windows::core::IUnknown);
 impl AsyncIIdentityAdvise {
@@ -232,6 +239,7 @@ pub struct AsyncIIdentityAdviseVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 #[repr(transparent)]
 pub struct AsyncIIdentityAuthentication(::windows::core::IUnknown);
 impl AsyncIIdentityAuthentication {
@@ -298,6 +306,7 @@ pub struct AsyncIIdentityAuthenticationVtbl(
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppidentityproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))] usize,
 );
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 #[repr(transparent)]
 pub struct AsyncIIdentityProvider(::windows::core::IUnknown);
 impl AsyncIIdentityProvider {
@@ -431,6 +440,7 @@ pub struct AsyncIIdentityProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 #[repr(transparent)]
 pub struct AsyncIIdentityStore(::windows::core::IUnknown);
 impl AsyncIIdentityStore {
@@ -535,6 +545,7 @@ pub struct AsyncIIdentityStoreVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 #[repr(transparent)]
 pub struct AsyncIIdentityStoreEx(::windows::core::IUnknown);
 impl AsyncIIdentityStoreEx {
@@ -603,6 +614,7 @@ pub struct AsyncIIdentityStoreExVtbl(
 );
 pub const CIdentityProfileHandler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecf5bf46_e3b6_449a_b56b_43f58f867814);
 pub const CoClassIdentityStore: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30d49246_d217_465f_b00b_ac9ddd652eb7);
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 #[repr(transparent)]
 pub struct IAssociatedIdentityProvider(::windows::core::IUnknown);
 impl IAssociatedIdentityProvider {
@@ -668,6 +680,7 @@ pub struct IAssociatedIdentityProviderVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::super::super::Foundation::HWND, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 #[repr(transparent)]
 pub struct IConnectedIdentityProvider(::windows::core::IUnknown);
 impl IConnectedIdentityProvider {
@@ -740,17 +753,29 @@ pub struct IConnectedIdentityProviderVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut ACCOUNT_STATE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub type IDENTITY_TYPE = i32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const IDENTITIES_ALL: IDENTITY_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const IDENTITIES_ME_ONLY: IDENTITY_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub type IDENTITY_URL = i32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const IDENTITY_URL_CREATE_ACCOUNT_WIZARD: IDENTITY_URL = 0i32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const IDENTITY_URL_SIGN_IN_WIZARD: IDENTITY_URL = 1i32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const IDENTITY_URL_CHANGE_PASSWORD_WIZARD: IDENTITY_URL = 2i32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const IDENTITY_URL_IFEXISTS_WIZARD: IDENTITY_URL = 3i32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const IDENTITY_URL_ACCOUNT_SETTINGS: IDENTITY_URL = 4i32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const IDENTITY_URL_RESTORE_WIZARD: IDENTITY_URL = 5i32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const IDENTITY_URL_CONNECT_WIZARD: IDENTITY_URL = 6i32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 #[repr(transparent)]
 pub struct IIdentityAdvise(::windows::core::IUnknown);
 impl IIdentityAdvise {
@@ -803,6 +828,7 @@ pub struct IIdentityAdviseVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwidentityupdateevents: IdentityUpdateEvent, lpszuniqueid: super::super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 #[repr(transparent)]
 pub struct IIdentityAuthentication(::windows::core::IUnknown);
 impl IIdentityAuthentication {
@@ -859,6 +885,7 @@ pub struct IIdentityAuthenticationVtbl(
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))] usize,
 );
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 #[repr(transparent)]
 pub struct IIdentityProvider(::windows::core::IUnknown);
 impl IIdentityProvider {
@@ -953,6 +980,7 @@ pub struct IIdentityProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidentityadvise: ::windows::core::RawPtr, dwidentityupdateevents: IdentityUpdateEvent, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 #[repr(transparent)]
 pub struct IIdentityStore(::windows::core::IUnknown);
 impl IIdentityStore {
@@ -1031,6 +1059,7 @@ pub struct IIdentityStoreVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 #[repr(transparent)]
 pub struct IIdentityStoreEx(::windows::core::IUnknown);
 impl IIdentityStoreEx {
@@ -1089,13 +1118,22 @@ pub struct IIdentityStoreExVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectedname: super::super::super::super::Foundation::PWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub type IdentityUpdateEvent = u32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const IDENTITY_ASSOCIATED: IdentityUpdateEvent = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const IDENTITY_DISASSOCIATED: IdentityUpdateEvent = 2u32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const IDENTITY_CREATED: IdentityUpdateEvent = 4u32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const IDENTITY_IMPORTED: IdentityUpdateEvent = 8u32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const IDENTITY_DELETED: IdentityUpdateEvent = 16u32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const IDENTITY_PROPCHANGED: IdentityUpdateEvent = 32u32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const IDENTITY_CONNECTED: IdentityUpdateEvent = 64u32;
+#[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 pub const IDENTITY_DISCONNECTED: IdentityUpdateEvent = 128u32;
 pub const OID_OAssociatedIdentityProviderObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98c5a3dd_db68_4f1a_8d2b_9079cdfeaf61);

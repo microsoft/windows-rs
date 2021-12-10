@@ -1,11 +1,19 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub type DEVICE_SELECTION_DEVICE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const DST_UNKNOWN_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const DST_WPD_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const DST_WIA_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const DST_STI_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const DSF_TWAIN_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const DST_FS_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const DST_DV_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = 6i32;
 pub const DSF_ALL_DEVICES: u32 = 65535u32;
 pub const DSF_CPL_MODE: u32 = 65536u32;
@@ -17,19 +25,33 @@ pub const DSF_TWAIN_DEVICES: u32 = 16u32;
 pub const DSF_WIA_CAMERAS: u32 = 2u32;
 pub const DSF_WIA_SCANNERS: u32 = 4u32;
 pub const DSF_WPD_DEVICES: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub type ERROR_ADVISE_MESSAGE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const PHOTOACQUIRE_ERROR_SKIPRETRYCANCEL: ERROR_ADVISE_MESSAGE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const PHOTOACQUIRE_ERROR_RETRYCANCEL: ERROR_ADVISE_MESSAGE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const PHOTOACQUIRE_ERROR_YESNO: ERROR_ADVISE_MESSAGE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const PHOTOACQUIRE_ERROR_OK: ERROR_ADVISE_MESSAGE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub type ERROR_ADVISE_RESULT = i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const PHOTOACQUIRE_RESULT_YES: ERROR_ADVISE_RESULT = 0i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const PHOTOACQUIRE_RESULT_NO: ERROR_ADVISE_RESULT = 1i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const PHOTOACQUIRE_RESULT_OK: ERROR_ADVISE_RESULT = 2i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const PHOTOACQUIRE_RESULT_SKIP: ERROR_ADVISE_RESULT = 3i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const PHOTOACQUIRE_RESULT_SKIP_ALL: ERROR_ADVISE_RESULT = 4i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const PHOTOACQUIRE_RESULT_RETRY: ERROR_ADVISE_RESULT = 5i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const PHOTOACQUIRE_RESULT_ABORT: ERROR_ADVISE_RESULT = 6i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 #[repr(transparent)]
 pub struct IPhotoAcquire(::windows::core::IUnknown);
 impl IPhotoAcquire {
@@ -96,6 +118,7 @@ pub struct IPhotoAcquireVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumfilepaths: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 #[repr(transparent)]
 pub struct IPhotoAcquireDeviceSelectionDialog(::windows::core::IUnknown);
 impl IPhotoAcquireDeviceSelectionDialog {
@@ -160,6 +183,7 @@ pub struct IPhotoAcquireDeviceSelectionDialogVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwdeviceflags: u32, pbstrdeviceid: *mut super::super::Foundation::BSTR, pndevicetype: *mut DEVICE_SELECTION_DEVICE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 #[repr(transparent)]
 pub struct IPhotoAcquireItem(::windows::core::IUnknown);
 impl IPhotoAcquireItem {
@@ -261,6 +285,7 @@ pub struct IPhotoAcquireItemVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pncount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nitemindex: u32, ppphotoacquireitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 #[repr(transparent)]
 pub struct IPhotoAcquireOptionsDialog(::windows::core::IUnknown);
 impl IPhotoAcquireOptionsDialog {
@@ -334,6 +359,7 @@ pub struct IPhotoAcquireOptionsDialogVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 #[repr(transparent)]
 pub struct IPhotoAcquirePlugin(::windows::core::IUnknown);
 impl IPhotoAcquirePlugin {
@@ -400,6 +426,7 @@ pub struct IPhotoAcquirePluginVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 #[repr(transparent)]
 pub struct IPhotoAcquireProgressCB(::windows::core::IUnknown);
 impl IPhotoAcquireProgressCB {
@@ -537,6 +564,7 @@ pub struct IPhotoAcquireProgressCBVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riidtype: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void, ppropvarresult: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvardefault: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 #[repr(transparent)]
 pub struct IPhotoAcquireSettings(::windows::core::IUnknown);
 impl IPhotoAcquireSettings {
@@ -659,6 +687,7 @@ pub struct IPhotoAcquireSettingsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pftacquisitiontime: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 #[repr(transparent)]
 pub struct IPhotoAcquireSource(::windows::core::IUnknown);
 impl IPhotoAcquireSource {
@@ -750,6 +779,7 @@ pub struct IPhotoAcquireSourceVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 #[repr(transparent)]
 pub struct IPhotoProgressActionCB(::windows::core::IUnknown);
 impl IPhotoProgressActionCB {
@@ -802,6 +832,7 @@ pub struct IPhotoProgressActionCBVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 #[repr(transparent)]
 pub struct IPhotoProgressDialog(::windows::core::IUnknown);
 impl IPhotoProgressDialog {
@@ -953,6 +984,7 @@ pub struct IPhotoProgressDialogVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riidtype: *const ::windows::core::GUID, punknown: *mut ::core::ffi::c_void, ppropvarresult: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, ppropvardefault: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 #[repr(transparent)]
 pub struct IUserInputString(::windows::core::IUnknown);
 impl IUserInputString {
@@ -1076,34 +1108,51 @@ pub const PHOTOACQ_DISABLE_PLUGINS: u32 = 4u32;
 pub const PHOTOACQ_DISABLE_SETTINGS_LINK: u32 = 1024u32;
 pub const PHOTOACQ_DISABLE_THUMBNAIL_PROGRESS: u32 = 512u32;
 pub const PHOTOACQ_ENABLE_THUMBNAIL_CACHING: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const PHOTOACQ_ERROR_RESTART_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147180543i32);
 pub const PHOTOACQ_IMPORT_VIDEO_AS_MULTIPLE_FILES: u32 = 4096u32;
 pub const PHOTOACQ_NO_GALLERY_LAUNCH: u32 = 1u32;
 pub const PHOTOACQ_RUN_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_CameraSequenceNumber: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 7u32 };
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_DuplicateDetectionID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 10u32 };
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_FinalFilename: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 3u32 };
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_GroupTag: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 4u32 };
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_IntermediateFile: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 8u32 };
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_OriginalFilename: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 6u32 };
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_RelativePathname: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 2u32 };
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_SkipImport: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 9u32 };
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_TransferResult: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 5u32 };
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub type PROGRESS_DIALOG_CHECKBOX_ID = i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const PROGRESS_DIALOG_CHECKBOX_ID_DEFAULT: PROGRESS_DIALOG_CHECKBOX_ID = 0i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub type PROGRESS_DIALOG_IMAGE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const PROGRESS_DIALOG_ICON_SMALL: PROGRESS_DIALOG_IMAGE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const PROGRESS_DIALOG_ICON_LARGE: PROGRESS_DIALOG_IMAGE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const PROGRESS_DIALOG_ICON_THUMBNAIL: PROGRESS_DIALOG_IMAGE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const PROGRESS_DIALOG_BITMAP_THUMBNAIL: PROGRESS_DIALOG_IMAGE_TYPE = 3i32;
 pub const PROGRESS_INDETERMINATE: i32 = -1i32;
 pub const PhotoAcquire: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f26e02_e9f2_4a9f_9fdd_5a962fb26a98);
@@ -1112,6 +1161,9 @@ pub const PhotoAcquireAutoPlayHWEventHandler: ::windows::core::GUID = ::windows:
 pub const PhotoAcquireDeviceSelectionDialog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f29a34_b8a1_482c_bcf8_3ac7b0fe8f62);
 pub const PhotoAcquireOptionsDialog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f210a1_62f0_438b_9f7e_9618d72a1831);
 pub const PhotoProgressDialog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f24ca0_748f_4e8a_894f_0e0357c6799f);
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub type USER_INPUT_STRING_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const USER_INPUT_DEFAULT: USER_INPUT_STRING_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const USER_INPUT_PATH_ELEMENT: USER_INPUT_STRING_TYPE = 1i32;

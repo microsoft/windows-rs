@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
 #[repr(transparent)]
 pub struct GameSaveBlobGetResult(::windows::core::IUnknown);
 impl GameSaveBlobGetResult {
@@ -81,6 +82,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameSaveBlobGetResult {}
 unsafe impl ::core::marker::Sync for GameSaveBlobGetResult {}
+#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
 #[repr(transparent)]
 pub struct GameSaveBlobInfo(::windows::core::IUnknown);
 impl GameSaveBlobInfo {
@@ -162,6 +164,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameSaveBlobInfo {}
 unsafe impl ::core::marker::Sync for GameSaveBlobInfo {}
+#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
 #[repr(transparent)]
 pub struct GameSaveBlobInfoGetResult(::windows::core::IUnknown);
 impl GameSaveBlobInfoGetResult {
@@ -244,6 +247,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameSaveBlobInfoGetResult {}
 unsafe impl ::core::marker::Sync for GameSaveBlobInfoGetResult {}
+#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
 #[repr(transparent)]
 pub struct GameSaveBlobInfoQuery(::windows::core::IUnknown);
 impl GameSaveBlobInfoQuery {
@@ -335,6 +339,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameSaveBlobInfoQuery {}
 unsafe impl ::core::marker::Sync for GameSaveBlobInfoQuery {}
+#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
 #[repr(transparent)]
 pub struct GameSaveContainer(::windows::core::IUnknown);
 impl GameSaveContainer {
@@ -455,6 +460,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameSaveContainer {}
 unsafe impl ::core::marker::Sync for GameSaveContainer {}
+#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
 #[repr(transparent)]
 pub struct GameSaveContainerInfo(::windows::core::IUnknown);
 impl GameSaveContainerInfo {
@@ -558,6 +564,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameSaveContainerInfo {}
 unsafe impl ::core::marker::Sync for GameSaveContainerInfo {}
+#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
 #[repr(transparent)]
 pub struct GameSaveContainerInfoGetResult(::windows::core::IUnknown);
 impl GameSaveContainerInfoGetResult {
@@ -640,6 +647,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameSaveContainerInfoGetResult {}
 unsafe impl ::core::marker::Sync for GameSaveContainerInfoGetResult {}
+#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
 #[repr(transparent)]
 pub struct GameSaveContainerInfoQuery(::windows::core::IUnknown);
 impl GameSaveContainerInfoQuery {
@@ -731,6 +739,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameSaveContainerInfoQuery {}
 unsafe impl ::core::marker::Sync for GameSaveContainerInfoQuery {}
+#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
 #[repr(transparent)]
 pub struct GameSaveErrorStatus(pub i32);
 impl GameSaveErrorStatus {
@@ -771,6 +780,7 @@ unsafe impl ::windows::core::RuntimeType for GameSaveErrorStatus {
 impl ::windows::core::DefaultType for GameSaveErrorStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
 #[repr(transparent)]
 pub struct GameSaveOperationResult(::windows::core::IUnknown);
 impl GameSaveOperationResult {
@@ -845,6 +855,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameSaveOperationResult {}
 unsafe impl ::core::marker::Sync for GameSaveOperationResult {}
+#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
 #[repr(transparent)]
 pub struct GameSaveProvider(::windows::core::IUnknown);
 impl GameSaveProvider {
@@ -983,6 +994,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameSaveProvider {}
 unsafe impl ::core::marker::Sync for GameSaveProvider {}
+#[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
 #[repr(transparent)]
 pub struct GameSaveProviderGetResult(::windows::core::IUnknown);
 impl GameSaveProviderGetResult {

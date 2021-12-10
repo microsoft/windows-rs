@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 pub type EyesPose = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Perception_People'*"]
 #[repr(transparent)]
 pub struct HandJointKind(pub i32);
 impl HandJointKind {
@@ -40,6 +41,7 @@ impl ::core::clone::Clone for HandJointKind {
 }
 pub type HandMeshObserver = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Perception_People', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct HandMeshVertex {
     pub Position: super::super::Foundation::Numerics::Vector3,
@@ -57,6 +59,7 @@ pub type HandMeshVertexState = *mut ::core::ffi::c_void;
 pub type HandPose = *mut ::core::ffi::c_void;
 pub type HeadPose = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Perception_People', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct JointPose {
     pub Orientation: super::super::Foundation::Numerics::Quaternion,
@@ -72,6 +75,7 @@ impl ::core::clone::Clone for JointPose {
         *self
     }
 }
+#[doc = "*Required features: 'Perception_People'*"]
 #[repr(transparent)]
 pub struct JointPoseAccuracy(pub i32);
 impl JointPoseAccuracy {

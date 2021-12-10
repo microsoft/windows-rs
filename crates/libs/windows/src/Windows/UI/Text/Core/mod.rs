@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextCompositionCompletedEventArgs(::windows::core::IUnknown);
 impl CoreTextCompositionCompletedEventArgs {
@@ -89,6 +90,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreTextCompositionCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextCompositionCompletedEventArgs {}
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextCompositionSegment(::windows::core::IUnknown);
 impl CoreTextCompositionSegment {
@@ -170,6 +172,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreTextCompositionSegment {}
 unsafe impl ::core::marker::Sync for CoreTextCompositionSegment {}
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextCompositionStartedEventArgs(::windows::core::IUnknown);
 impl CoreTextCompositionStartedEventArgs {
@@ -252,6 +255,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreTextCompositionStartedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextCompositionStartedEventArgs {}
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextEditContext(::windows::core::IUnknown);
 impl CoreTextEditContext {
@@ -513,6 +517,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreTextEditContext {}
 unsafe impl ::core::marker::Sync for CoreTextEditContext {}
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextFormatUpdatingEventArgs(::windows::core::IUnknown);
 impl CoreTextFormatUpdatingEventArgs {
@@ -652,6 +657,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreTextFormatUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextFormatUpdatingEventArgs {}
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextFormatUpdatingReason(pub i32);
 impl CoreTextFormatUpdatingReason {
@@ -682,6 +688,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextFormatUpdatingReason {
 impl ::windows::core::DefaultType for CoreTextFormatUpdatingReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextFormatUpdatingResult(pub i32);
 impl CoreTextFormatUpdatingResult {
@@ -709,6 +716,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextFormatUpdatingResult {
 impl ::windows::core::DefaultType for CoreTextFormatUpdatingResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextInputPaneDisplayPolicy(pub i32);
 impl CoreTextInputPaneDisplayPolicy {
@@ -736,6 +744,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextInputPaneDisplayPolicy {
 impl ::windows::core::DefaultType for CoreTextInputPaneDisplayPolicy {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextInputScope(pub i32);
 impl CoreTextInputScope {
@@ -828,6 +837,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextInputScope {
 impl ::windows::core::DefaultType for CoreTextInputScope {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextLayoutBounds(::windows::core::IUnknown);
 impl CoreTextLayoutBounds {
@@ -921,6 +931,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreTextLayoutBounds {}
 unsafe impl ::core::marker::Sync for CoreTextLayoutBounds {}
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextLayoutRequest(::windows::core::IUnknown);
 impl CoreTextLayoutRequest {
@@ -1024,6 +1035,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreTextLayoutRequest {}
 unsafe impl ::core::marker::Sync for CoreTextLayoutRequest {}
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextLayoutRequestedEventArgs(::windows::core::IUnknown);
 impl CoreTextLayoutRequestedEventArgs {
@@ -1099,6 +1111,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 unsafe impl ::core::marker::Send for CoreTextLayoutRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextLayoutRequestedEventArgs {}
 #[repr(C)]
+#[doc = "*Required features: 'UI_Text_Core'*"]
 pub struct CoreTextRange {
     pub StartCaretPosition: i32,
     pub EndCaretPosition: i32,
@@ -1129,6 +1142,7 @@ impl ::core::default::Default for CoreTextRange {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextSelectionRequest(::windows::core::IUnknown);
 impl CoreTextSelectionRequest {
@@ -1222,6 +1236,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreTextSelectionRequest {}
 unsafe impl ::core::marker::Sync for CoreTextSelectionRequest {}
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextSelectionRequestedEventArgs(::windows::core::IUnknown);
 impl CoreTextSelectionRequestedEventArgs {
@@ -1296,6 +1311,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreTextSelectionRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextSelectionRequestedEventArgs {}
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextSelectionUpdatingEventArgs(::windows::core::IUnknown);
 impl CoreTextSelectionUpdatingEventArgs {
@@ -1396,6 +1412,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreTextSelectionUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextSelectionUpdatingEventArgs {}
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextSelectionUpdatingResult(pub i32);
 impl CoreTextSelectionUpdatingResult {
@@ -1439,6 +1456,7 @@ impl CoreTextServicesConstants {
 impl ::windows::core::RuntimeName for CoreTextServicesConstants {
     const NAME: &'static str = "Windows.UI.Text.Core.CoreTextServicesConstants";
 }
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextServicesManager(::windows::core::IUnknown);
 impl CoreTextServicesManager {
@@ -1544,6 +1562,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreTextServicesManager {}
 unsafe impl ::core::marker::Sync for CoreTextServicesManager {}
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextTextRequest(::windows::core::IUnknown);
 impl CoreTextTextRequest {
@@ -1644,6 +1663,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreTextTextRequest {}
 unsafe impl ::core::marker::Sync for CoreTextTextRequest {}
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextTextRequestedEventArgs(::windows::core::IUnknown);
 impl CoreTextTextRequestedEventArgs {
@@ -1718,6 +1738,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreTextTextRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextTextRequestedEventArgs {}
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextTextUpdatingEventArgs(::windows::core::IUnknown);
 impl CoreTextTextUpdatingEventArgs {
@@ -1840,6 +1861,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Core
 }
 unsafe impl ::core::marker::Send for CoreTextTextUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextTextUpdatingEventArgs {}
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextTextUpdatingResult(pub i32);
 impl CoreTextTextUpdatingResult {

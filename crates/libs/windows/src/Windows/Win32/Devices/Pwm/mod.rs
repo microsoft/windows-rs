@@ -11,6 +11,7 @@ pub const IOCTL_PWM_PIN_SET_POLARITY: u32 = 295324u32;
 pub const IOCTL_PWM_PIN_START: u32 = 295331u32;
 pub const IOCTL_PWM_PIN_STOP: u32 = 295335u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Pwm'*"]
 pub struct PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
     pub ActualPeriod: u64,
 }
@@ -35,6 +36,7 @@ impl ::core::default::Default for PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Pwm'*"]
 pub struct PWM_CONTROLLER_INFO {
     pub Size: usize,
     pub PinCount: u32,
@@ -62,6 +64,7 @@ impl ::core::default::Default for PWM_CONTROLLER_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Pwm'*"]
 pub struct PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
     pub DesiredPeriod: u64,
 }
@@ -86,6 +89,7 @@ impl ::core::default::Default for PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Pwm'*"]
 pub struct PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT {
     pub ActualPeriod: u64,
 }
@@ -120,6 +124,7 @@ pub const PWM_IOCTL_ID_PIN_SET_POLARITY: i32 = 103i32;
 pub const PWM_IOCTL_ID_PIN_START: i32 = 104i32;
 pub const PWM_IOCTL_ID_PIN_STOP: i32 = 105i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Pwm'*"]
 pub struct PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT {
     pub Percentage: u64,
 }
@@ -144,6 +149,7 @@ impl ::core::default::Default for PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPU
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Pwm'*"]
 pub struct PWM_PIN_GET_POLARITY_OUTPUT {
     pub Polarity: PWM_POLARITY,
 }
@@ -168,6 +174,7 @@ impl ::core::default::Default for PWM_PIN_GET_POLARITY_OUTPUT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Pwm', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PWM_PIN_IS_STARTED_OUTPUT {
     pub IsStarted: super::super::Foundation::BOOLEAN,
@@ -199,6 +206,7 @@ impl ::core::default::Default for PWM_PIN_IS_STARTED_OUTPUT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Pwm'*"]
 pub struct PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT {
     pub Percentage: u64,
 }
@@ -223,6 +231,7 @@ impl ::core::default::Default for PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Pwm'*"]
 pub struct PWM_PIN_SET_POLARITY_INPUT {
     pub Polarity: PWM_POLARITY,
 }
@@ -246,6 +255,9 @@ impl ::core::default::Default for PWM_PIN_SET_POLARITY_INPUT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Pwm'*"]
 pub type PWM_POLARITY = i32;
+#[doc = "*Required features: 'Win32_Devices_Pwm'*"]
 pub const PWM_ACTIVE_HIGH: PWM_POLARITY = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Pwm'*"]
 pub const PWM_ACTIVE_LOW: PWM_POLARITY = 1i32;

@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_SerialCommunication'*"]
 #[repr(transparent)]
 pub struct ErrorReceivedEventArgs(::windows::core::IUnknown);
 impl ErrorReceivedEventArgs {
@@ -191,6 +192,7 @@ pub struct ISerialDeviceStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Devices_SerialCommunication'*"]
 #[repr(transparent)]
 pub struct PinChangedEventArgs(::windows::core::IUnknown);
 impl PinChangedEventArgs {
@@ -265,6 +267,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PinC
 }
 unsafe impl ::core::marker::Send for PinChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PinChangedEventArgs {}
+#[doc = "*Required features: 'Devices_SerialCommunication'*"]
 #[repr(transparent)]
 pub struct SerialDevice(::windows::core::IUnknown);
 impl SerialDevice {
@@ -597,6 +600,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for SerialDevice {}
 unsafe impl ::core::marker::Sync for SerialDevice {}
+#[doc = "*Required features: 'Devices_SerialCommunication'*"]
 #[repr(transparent)]
 pub struct SerialError(pub i32);
 impl SerialError {
@@ -627,6 +631,7 @@ unsafe impl ::windows::core::RuntimeType for SerialError {
 impl ::windows::core::DefaultType for SerialError {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SerialCommunication'*"]
 #[repr(transparent)]
 pub struct SerialHandshake(pub i32);
 impl SerialHandshake {
@@ -656,6 +661,7 @@ unsafe impl ::windows::core::RuntimeType for SerialHandshake {
 impl ::windows::core::DefaultType for SerialHandshake {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SerialCommunication'*"]
 #[repr(transparent)]
 pub struct SerialParity(pub i32);
 impl SerialParity {
@@ -686,6 +692,7 @@ unsafe impl ::windows::core::RuntimeType for SerialParity {
 impl ::windows::core::DefaultType for SerialParity {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SerialCommunication'*"]
 #[repr(transparent)]
 pub struct SerialPinChange(pub i32);
 impl SerialPinChange {
@@ -716,6 +723,7 @@ unsafe impl ::windows::core::RuntimeType for SerialPinChange {
 impl ::windows::core::DefaultType for SerialPinChange {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_SerialCommunication'*"]
 #[repr(transparent)]
 pub struct SerialStopBitCount(pub i32);
 impl SerialStopBitCount {

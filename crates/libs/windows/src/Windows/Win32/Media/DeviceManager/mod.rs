@@ -2,6 +2,7 @@
 pub const ALLOW_OUTOFBAND_NOTIFICATION: u32 = 2u32;
 pub const DO_NOT_VIRTUALIZE_STORAGES_AS_DEVICES: u32 = 1u32;
 pub const EVENT_WMDM_CONTENT_TRANSFER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x339c9bf4_bcfe_4ed8_94df_eaf8c26ab61b);
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IComponentAuthenticate(::windows::core::IUnknown);
 impl IComponentAuthenticate {
@@ -56,6 +57,7 @@ pub struct IComponentAuthenticateVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwprotocolid: u32, dwpass: u32, pbdatain: *const u8, dwdatainlen: u32, ppbdataout: *mut *mut u8, pdwdataoutlen: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdwprotocols: *mut *mut u32, pdwprotocolcount: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IMDSPDevice(::windows::core::IUnknown);
 impl IMDSPDevice {
@@ -157,6 +159,7 @@ pub struct IMDSPDeviceVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IMDSPDevice2(::windows::core::IUnknown);
 impl IMDSPDevice2 {
@@ -303,6 +306,7 @@ pub struct IMDSPDevice2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszpnpname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IMDSPDevice3(::windows::core::IUnknown);
 impl IMDSPDevice3 {
@@ -500,6 +504,7 @@ pub struct IMDSPDevice3Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, findscope: WMDM_FIND_SCOPE, pwszuniqueid: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IMDSPDeviceControl(::windows::core::IUnknown);
 impl IMDSPDeviceControl {
@@ -580,6 +585,7 @@ pub struct IMDSPDeviceControlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, noffset: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IMDSPDirectTransfer(::windows::core::IUnknown);
 impl IMDSPDirectTransfer {
@@ -633,6 +639,7 @@ pub struct IMDSPDirectTransferVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszsourcefilepath: super::super::Foundation::PWSTR, psourceoperation: ::windows::core::RawPtr, fuflags: u32, pwszdestinationname: super::super::Foundation::PWSTR, psourcemetadata: ::windows::core::RawPtr, ptransferprogress: ::windows::core::RawPtr, ppnewobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IMDSPEnumDevice(::windows::core::IUnknown);
 impl IMDSPEnumDevice {
@@ -697,6 +704,7 @@ pub struct IMDSPEnumDeviceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IMDSPEnumStorage(::windows::core::IUnknown);
 impl IMDSPEnumStorage {
@@ -761,6 +769,7 @@ pub struct IMDSPEnumStorageVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IMDSPObject(::windows::core::IUnknown);
 impl IMDSPObject {
@@ -841,6 +850,7 @@ pub struct IMDSPObjectVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, pprogress: ::windows::core::RawPtr, ptarget: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IMDSPObject2(::windows::core::IUnknown);
 impl IMDSPObject2 {
@@ -949,6 +959,7 @@ pub struct IMDSPObject2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const u8, pdwsize: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IMDSPObjectInfo(::windows::core::IUnknown);
 impl IMDSPObjectInfo {
@@ -1028,6 +1039,7 @@ pub struct IMDSPObjectInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlastpos: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlongestpos: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IMDSPRevoked(::windows::core::IUnknown);
 impl IMDSPRevoked {
@@ -1080,6 +1092,7 @@ pub struct IMDSPRevokedVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszrevocationurl: *mut super::super::Foundation::PWSTR, pdwbufferlen: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IMDSPStorage(::windows::core::IUnknown);
 impl IMDSPStorage {
@@ -1174,6 +1187,7 @@ pub struct IMDSPStorageVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IMDSPStorage2(::windows::core::IUnknown);
 impl IMDSPStorage2 {
@@ -1314,6 +1328,7 @@ pub struct IMDSPStorage2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IMDSPStorage3(::windows::core::IUnknown);
 impl IMDSPStorage3 {
@@ -1482,6 +1497,7 @@ pub struct IMDSPStorage3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmetadata: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmetadata: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IMDSPStorage4(::windows::core::IUnknown);
 impl IMDSPStorage4 {
@@ -1703,6 +1719,7 @@ pub struct IMDSPStorage4Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IMDSPStorageGlobals(::windows::core::IUnknown);
 impl IMDSPStorageGlobals {
@@ -1789,6 +1806,7 @@ pub struct IMDSPStorageGlobalsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pproot: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IMDServiceProvider(::windows::core::IUnknown);
 impl IMDServiceProvider {
@@ -1845,6 +1863,7 @@ pub struct IMDServiceProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IMDServiceProvider2(::windows::core::IUnknown);
 impl IMDServiceProvider2 {
@@ -1927,6 +1946,7 @@ pub struct IMDServiceProvider2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszdevicepath: super::super::Foundation::PWSTR, pdwcount: *mut u32, pppdevicearray: *mut *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IMDServiceProvider3(::windows::core::IUnknown);
 impl IMDServiceProvider3 {
@@ -2034,6 +2054,7 @@ pub struct IMDServiceProvider3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwenumpref: u32) -> ::windows::core::HRESULT,
 );
 pub const IOCTL_MTP_CUSTOM_COMMAND: u32 = 827348045u32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct ISCPSecureAuthenticate(::windows::core::IUnknown);
 impl ISCPSecureAuthenticate {
@@ -2080,6 +2101,7 @@ unsafe impl ::windows::core::Interface for ISCPSecureAuthenticate {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISCPSecureAuthenticateVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsecurequery: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct ISCPSecureAuthenticate2(::windows::core::IUnknown);
 impl ISCPSecureAuthenticate2 {
@@ -2156,6 +2178,7 @@ pub struct ISCPSecureAuthenticate2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsecurequery: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppscpsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct ISCPSecureExchange(::windows::core::IUnknown);
 impl ISCPSecureExchange {
@@ -2214,6 +2237,7 @@ pub struct ISCPSecureExchangeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct ISCPSecureExchange2(::windows::core::IUnknown);
 impl ISCPSecureExchange2 {
@@ -2296,6 +2320,7 @@ pub struct ISCPSecureExchange2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const u8, dwsize: u32, pprogresscallback: ::windows::core::RawPtr, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct ISCPSecureExchange3(::windows::core::IUnknown);
 impl ISCPSecureExchange3 {
@@ -2411,6 +2436,7 @@ pub struct ISCPSecureExchange3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct ISCPSecureQuery(::windows::core::IUnknown);
 impl ISCPSecureQuery {
@@ -2475,6 +2501,7 @@ pub struct ISCPSecureQueryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: ::windows::core::RawPtr, ppexchange: *mut ::windows::core::RawPtr, abmac: *mut u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: ::windows::core::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct ISCPSecureQuery2(::windows::core::IUnknown);
 impl ISCPSecureQuery2 {
@@ -2586,6 +2613,7 @@ pub struct ISCPSecureQuery2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: ::windows::core::RawPtr, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut super::super::Foundation::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: *mut ::core::ffi::c_void, ppexchange: *mut ::windows::core::RawPtr, abmac: *mut u8) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct ISCPSecureQuery3(::windows::core::IUnknown);
 impl ISCPSecureQuery3 {
@@ -2748,6 +2776,7 @@ pub struct ISCPSecureQuery3Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: ::windows::core::RawPtr, pprogresscallback: ::windows::core::RawPtr, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut super::super::Foundation::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: *mut ::core::ffi::c_void, ppexchange: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct ISCPSession(::windows::core::IUnknown);
 impl ISCPSession {
@@ -2807,6 +2836,7 @@ pub struct ISCPSessionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pctx: *const u8, dwsizectx: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsecurequery: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMDevice(::windows::core::IUnknown);
 impl IWMDMDevice {
@@ -2908,6 +2938,7 @@ pub struct IWMDMDeviceVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMDevice2(::windows::core::IUnknown);
 impl IWMDMDevice2 {
@@ -3054,6 +3085,7 @@ pub struct IWMDMDevice2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszpnpname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMDevice3(::windows::core::IUnknown);
 impl IWMDMDevice3 {
@@ -3251,6 +3283,7 @@ pub struct IWMDMDevice3Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, findscope: WMDM_FIND_SCOPE, pwszuniqueid: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMDeviceControl(::windows::core::IUnknown);
 impl IWMDMDeviceControl {
@@ -3331,6 +3364,7 @@ pub struct IWMDMDeviceControlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, noffset: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMDeviceSession(::windows::core::IUnknown);
 impl IWMDMDeviceSession {
@@ -3385,6 +3419,7 @@ pub struct IWMDMDeviceSessionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMEnumDevice(::windows::core::IUnknown);
 impl IWMDMEnumDevice {
@@ -3449,6 +3484,7 @@ pub struct IWMDMEnumDeviceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMEnumStorage(::windows::core::IUnknown);
 impl IWMDMEnumStorage {
@@ -3513,6 +3549,7 @@ pub struct IWMDMEnumStorageVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMLogger(::windows::core::IUnknown);
 impl IWMDMLogger {
@@ -3608,6 +3645,7 @@ pub struct IWMDMLoggerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmaxsize: *mut u32, pdwshrinktosize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxsize: u32, dwshrinktosize: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMMetaData(::windows::core::IUnknown);
 impl IWMDMMetaData {
@@ -3675,6 +3713,7 @@ pub struct IWMDMMetaDataVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iindex: u32, ppwszname: *mut *mut u16, ptype: *mut WMDM_TAG_DATATYPE, ppvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, icount: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMNotification(::windows::core::IUnknown);
 impl IWMDMNotification {
@@ -3727,6 +3766,7 @@ pub struct IWMDMNotificationVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmessagetype: u32, pwszcanonicalname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMObjectInfo(::windows::core::IUnknown);
 impl IWMDMObjectInfo {
@@ -3806,6 +3846,7 @@ pub struct IWMDMObjectInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlastpos: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwlongestpos: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMOperation(::windows::core::IUnknown);
 impl IWMDMOperation {
@@ -3896,6 +3937,7 @@ pub struct IWMDMOperationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMOperation2(::windows::core::IUnknown);
 impl IWMDMOperation2 {
@@ -4018,6 +4060,7 @@ pub struct IWMDMOperation2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMOperation3(::windows::core::IUnknown);
 impl IWMDMOperation3 {
@@ -4132,6 +4175,7 @@ pub struct IWMDMOperation3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phcompletioncode: *const ::windows::core::HRESULT, pnewobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMProgress(::windows::core::IUnknown);
 impl IWMDMProgress {
@@ -4190,6 +4234,7 @@ pub struct IWMDMProgressVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtranspiredticks: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMProgress2(::windows::core::IUnknown);
 impl IWMDMProgress2 {
@@ -4272,6 +4317,7 @@ pub struct IWMDMProgress2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrcompletioncode: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMProgress3(::windows::core::IUnknown);
 impl IWMDMProgress3 {
@@ -4386,6 +4432,7 @@ pub struct IWMDMProgress3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: ::windows::core::GUID, dwtranspiredticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: ::windows::core::GUID, hrcompletioncode: ::windows::core::HRESULT, pcontext: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMRevoked(::windows::core::IUnknown);
 impl IWMDMRevoked {
@@ -4438,6 +4485,7 @@ pub struct IWMDMRevokedVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszrevocationurl: *mut super::super::Foundation::PWSTR, pdwbufferlen: *mut u32, pdwrevokedbitflag: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMStorage(::windows::core::IUnknown);
 impl IWMDMStorage {
@@ -4525,6 +4573,7 @@ pub struct IWMDMStorageVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penumstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcommand: *mut OPAQUECOMMAND) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMStorage2(::windows::core::IUnknown);
 impl IWMDMStorage2 {
@@ -4651,6 +4700,7 @@ pub struct IWMDMStorage2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMStorage3(::windows::core::IUnknown);
 impl IWMDMStorage3 {
@@ -4817,6 +4867,7 @@ pub struct IWMDMStorage3Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmode: *mut WMDM_STORAGE_ENUM_MODE, nviews: u32, pviews: *const WMDMMetadataView) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMStorage4(::windows::core::IUnknown);
 impl IWMDMStorage4 {
@@ -5034,6 +5085,7 @@ pub struct IWMDMStorage4Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstorage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMStorageControl(::windows::core::IUnknown);
 impl IWMDMStorageControl {
@@ -5107,6 +5159,7 @@ pub struct IWMDMStorageControlVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, ptargetobject: ::windows::core::RawPtr, pprogress: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMStorageControl2(::windows::core::IUnknown);
 impl IWMDMStorageControl2 {
@@ -5206,6 +5259,7 @@ pub struct IWMDMStorageControl2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, pwszfilesource: super::super::Foundation::PWSTR, pwszfiledest: super::super::Foundation::PWSTR, poperation: ::windows::core::RawPtr, pprogress: ::windows::core::RawPtr, punknown: *mut ::core::ffi::c_void, ppnewobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMStorageControl3(::windows::core::IUnknown);
 impl IWMDMStorageControl3 {
@@ -5331,6 +5385,7 @@ pub struct IWMDMStorageControl3Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, futype: u32, pwszfilesource: super::super::Foundation::PWSTR, pwszfiledest: super::super::Foundation::PWSTR, poperation: ::windows::core::RawPtr, pprogress: ::windows::core::RawPtr, pmetadata: ::windows::core::RawPtr, punknown: *mut ::core::ffi::c_void, ppnewobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDMStorageGlobals(::windows::core::IUnknown);
 impl IWMDMStorageGlobals {
@@ -5407,6 +5462,7 @@ pub struct IWMDMStorageGlobalsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fumode: u32, pprogress: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDeviceManager(::windows::core::IUnknown);
 impl IWMDeviceManager {
@@ -5468,6 +5524,7 @@ pub struct IWMDeviceManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDeviceManager2(::windows::core::IUnknown);
 impl IWMDeviceManager2 {
@@ -5565,6 +5622,7 @@ pub struct IWMDeviceManager2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 #[repr(transparent)]
 pub struct IWMDeviceManager3(::windows::core::IUnknown);
 impl IWMDeviceManager3 {
@@ -5692,6 +5750,7 @@ pub const MDSP_SEEK_CUR: u32 = 2u32;
 pub const MDSP_SEEK_EOF: u32 = 4u32;
 pub const MDSP_WRITE: u32 = 2u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub struct MTP_COMMAND_DATA_IN {
     pub OpCode: u16,
     pub NumParams: u32,
@@ -5721,6 +5780,7 @@ impl ::core::default::Default for MTP_COMMAND_DATA_IN {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub struct MTP_COMMAND_DATA_OUT {
     pub ResponseCode: u16,
     pub NumParams: u32,
@@ -5757,6 +5817,7 @@ pub const MTP_RESPONSE_OK: u16 = 8193u16;
 pub const MediaDevMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25baad81_3560_11d3_8471_00c04f79dbc0);
 pub const MediaDevMgrClassFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50040c1d_bdbf_4924_b873_f14d6c5bfd66);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub struct OPAQUECOMMAND {
     pub guidCommand: ::windows::core::GUID,
     pub dwDataLen: u32,
@@ -5795,6 +5856,7 @@ pub const SCP_EVENTID_DRMINFO: ::windows::core::GUID = ::windows::core::GUID::fr
 pub const SCP_EVENTID_NEEDTOINDIV: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87a507c7_b469_4386_b976_d5d1ce538a6f);
 pub const SCP_PARAMID_DRMVERSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41d0155d_7cc7_4217_ada9_005074624da4);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub struct WMDMDATETIME {
     pub wYear: u16,
     pub wMonth: u16,
@@ -5824,6 +5886,7 @@ impl ::core::default::Default for WMDMDATETIME {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub union WMDMDetermineMaxPropStringLen {
     pub sz001: [u16; 27],
     pub sz002: [u16; 31],
@@ -5931,6 +5994,7 @@ impl ::core::default::Default for WMDMDetermineMaxPropStringLen {
 pub const WMDMDevice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x807b3cdf_357a_11d3_8471_00c04f79dbc0);
 pub const WMDMDeviceEnum: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x430e35af_3971_11d3_8474_00c04f79dbc0);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub struct WMDMID {
     pub cbSize: u32,
     pub dwVendorID: u32,
@@ -5959,12 +6023,18 @@ impl ::core::default::Default for WMDMID {
 }
 pub const WMDMID_LENGTH: u32 = 128u32;
 pub const WMDMLogger: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x110a3202_5a79_11d3_8d78_444553540000);
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub type WMDMMessage = i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_MSG_DEVICE_ARRIVAL: WMDMMessage = 0i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_MSG_DEVICE_REMOVAL: WMDMMessage = 1i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_MSG_MEDIA_ARRIVAL: WMDMMessage = 2i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_MSG_MEDIA_REMOVAL: WMDMMessage = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WMDMMetadataView {
     pub pwszViewName: super::super::Foundation::PWSTR,
@@ -5998,6 +6068,7 @@ impl ::core::default::Default for WMDMMetadataView {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub struct WMDMRIGHTS {
     pub cbSize: u32,
     pub dwContentType: u32,
@@ -6057,9 +6128,13 @@ pub const WMDM_DEVICE_TYPE_SDMI: u32 = 64u32;
 pub const WMDM_DEVICE_TYPE_STORAGE: u32 = 16u32;
 pub const WMDM_DEVICE_TYPE_VIEW_PREF_METADATAVIEW: u32 = 1024u32;
 pub const WMDM_DEVICE_TYPE_VIRTUAL: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub type WMDM_ENUM_PROP_VALID_VALUES_FORM = i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_ENUM_PROP_VALID_VALUES_ANY: WMDM_ENUM_PROP_VALID_VALUES_FORM = 0i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_ENUM_PROP_VALID_VALUES_RANGE: WMDM_ENUM_PROP_VALID_VALUES_FORM = 1i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_ENUM_PROP_VALID_VALUES_ENUM: WMDM_ENUM_PROP_VALID_VALUES_FORM = 2i32;
 pub const WMDM_E_BUFFERTOOSMALL: i32 = -2147201016i32;
 pub const WMDM_E_BUSY: i32 = -2147201024i32;
@@ -6099,106 +6174,206 @@ pub const WMDM_FILE_ATTR_READONLY: u32 = 16777216u32;
 pub const WMDM_FILE_ATTR_SYSTEM: u32 = 8388608u32;
 pub const WMDM_FILE_ATTR_VIDEO: u32 = 64u32;
 pub const WMDM_FILE_CREATE_OVERWRITE: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub type WMDM_FIND_SCOPE = i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FIND_SCOPE_GLOBAL: WMDM_FIND_SCOPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FIND_SCOPE_IMMEDIATE_CHILDREN: WMDM_FIND_SCOPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub type WMDM_FORMATCODE = i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_NOTUSED: WMDM_FORMATCODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ALLIMAGES: WMDM_FORMATCODE = -1i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINED: WMDM_FORMATCODE = 12288i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ASSOCIATION: WMDM_FORMATCODE = 12289i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_SCRIPT: WMDM_FORMATCODE = 12290i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_EXECUTABLE: WMDM_FORMATCODE = 12291i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_TEXT: WMDM_FORMATCODE = 12292i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_HTML: WMDM_FORMATCODE = 12293i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_DPOF: WMDM_FORMATCODE = 12294i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_AIFF: WMDM_FORMATCODE = 12295i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_WAVE: WMDM_FORMATCODE = 12296i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MP3: WMDM_FORMATCODE = 12297i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_AVI: WMDM_FORMATCODE = 12298i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MPEG: WMDM_FORMATCODE = 12299i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ASF: WMDM_FORMATCODE = 12300i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_RESERVED_FIRST: WMDM_FORMATCODE = 12301i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_RESERVED_LAST: WMDM_FORMATCODE = 14335i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_UNDEFINED: WMDM_FORMATCODE = 14336i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_EXIF: WMDM_FORMATCODE = 14337i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_TIFFEP: WMDM_FORMATCODE = 14338i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_FLASHPIX: WMDM_FORMATCODE = 14339i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_BMP: WMDM_FORMATCODE = 14340i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_CIFF: WMDM_FORMATCODE = 14341i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_GIF: WMDM_FORMATCODE = 14343i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_JFIF: WMDM_FORMATCODE = 14344i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_PCD: WMDM_FORMATCODE = 14345i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_PICT: WMDM_FORMATCODE = 14346i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_PNG: WMDM_FORMATCODE = 14347i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_TIFF: WMDM_FORMATCODE = 14349i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_TIFFIT: WMDM_FORMATCODE = 14350i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_JP2: WMDM_FORMATCODE = 14351i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_JPX: WMDM_FORMATCODE = 14352i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_RESERVED_FIRST: WMDM_FORMATCODE = 14353i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_IMAGE_RESERVED_LAST: WMDM_FORMATCODE = 16383i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINEDFIRMWARE: WMDM_FORMATCODE = 47106i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_WBMP: WMDM_FORMATCODE = 47107i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_JPEGXR: WMDM_FORMATCODE = 47108i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_WINDOWSIMAGEFORMAT: WMDM_FORMATCODE = 47233i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINEDAUDIO: WMDM_FORMATCODE = 47360i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_WMA: WMDM_FORMATCODE = 47361i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_OGG: WMDM_FORMATCODE = 47362i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_AAC: WMDM_FORMATCODE = 47363i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_AUDIBLE: WMDM_FORMATCODE = 47364i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_FLAC: WMDM_FORMATCODE = 47366i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_QCELP: WMDM_FORMATCODE = 47367i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_AMR: WMDM_FORMATCODE = 47368i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINEDVIDEO: WMDM_FORMATCODE = 47488i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_WMV: WMDM_FORMATCODE = 47489i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MP4: WMDM_FORMATCODE = 47490i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MP2: WMDM_FORMATCODE = 47491i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_3GP: WMDM_FORMATCODE = 47492i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_3G2: WMDM_FORMATCODE = 47493i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_AVCHD: WMDM_FORMATCODE = 47494i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ATSCTS: WMDM_FORMATCODE = 47495i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_DVBTS: WMDM_FORMATCODE = 47496i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MKV: WMDM_FORMATCODE = 47497i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MKA: WMDM_FORMATCODE = 47498i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MK3D: WMDM_FORMATCODE = 47499i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINEDCOLLECTION: WMDM_FORMATCODE = 47616i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTMULTIMEDIAALBUM: WMDM_FORMATCODE = 47617i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTIMAGEALBUM: WMDM_FORMATCODE = 47618i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTAUDIOALBUM: WMDM_FORMATCODE = 47619i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTVIDEOALBUM: WMDM_FORMATCODE = 47620i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTAUDIOVIDEOPLAYLIST: WMDM_FORMATCODE = 47621i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTCONTACTGROUP: WMDM_FORMATCODE = 47622i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTMESSAGEFOLDER: WMDM_FORMATCODE = 47623i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTCHAPTEREDPRODUCTION: WMDM_FORMATCODE = 47624i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MEDIA_CAST: WMDM_FORMATCODE = 47627i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_WPLPLAYLIST: WMDM_FORMATCODE = 47632i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_M3UPLAYLIST: WMDM_FORMATCODE = 47633i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MPLPLAYLIST: WMDM_FORMATCODE = 47634i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ASXPLAYLIST: WMDM_FORMATCODE = 47635i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_PLSPLAYLIST: WMDM_FORMATCODE = 47636i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINEDDOCUMENT: WMDM_FORMATCODE = 47744i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTDOCUMENT: WMDM_FORMATCODE = 47745i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_XMLDOCUMENT: WMDM_FORMATCODE = 47746i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MICROSOFTWORDDOCUMENT: WMDM_FORMATCODE = 47747i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MHTCOMPILEDHTMLDOCUMENT: WMDM_FORMATCODE = 47748i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MICROSOFTEXCELSPREADSHEET: WMDM_FORMATCODE = 47749i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_MICROSOFTPOWERPOINTDOCUMENT: WMDM_FORMATCODE = 47750i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINEDMESSAGE: WMDM_FORMATCODE = 47872i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTMESSAGE: WMDM_FORMATCODE = 47873i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINEDCONTACT: WMDM_FORMATCODE = 48000i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTCONTACT: WMDM_FORMATCODE = 48001i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_VCARD2: WMDM_FORMATCODE = 48002i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_VCARD3: WMDM_FORMATCODE = 48003i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINEDCALENDARITEM: WMDM_FORMATCODE = 48640i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_ABSTRACTCALENDARITEM: WMDM_FORMATCODE = 48641i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_VCALENDAR1: WMDM_FORMATCODE = 48642i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_VCALENDAR2: WMDM_FORMATCODE = 48643i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_UNDEFINEDWINDOWSEXECUTABLE: WMDM_FORMATCODE = 48768i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_M4A: WMDM_FORMATCODE = 1297101889i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_3GPA: WMDM_FORMATCODE = 860311617i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_3G2A: WMDM_FORMATCODE = 860303937i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_FORMATCODE_SECTION: WMDM_FORMATCODE = 48770i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_FORMAT_CAPABILITY {
     pub nPropConfig: u32,
@@ -6251,6 +6426,7 @@ pub const WMDM_POWER_IS_BATTERY: u32 = 4u32;
 pub const WMDM_POWER_IS_EXTERNAL: u32 = 8u32;
 pub const WMDM_POWER_PERCENT_AVAILABLE: u32 = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_PROP_CONFIG {
     pub nPreference: u32,
@@ -6284,6 +6460,7 @@ impl ::core::default::Default for WMDM_PROP_CONFIG {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_PROP_DESC {
     pub pwszPropName: super::super::Foundation::PWSTR,
@@ -6315,6 +6492,7 @@ impl ::core::default::Default for WMDM_PROP_DESC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub union WMDM_PROP_DESC_0 {
     pub ValidValuesRange: ::core::mem::ManuallyDrop<WMDM_PROP_VALUES_RANGE>,
@@ -6345,6 +6523,7 @@ impl ::core::default::Default for WMDM_PROP_DESC_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_PROP_VALUES_ENUM {
     pub cEnumValues: u32,
@@ -6377,6 +6556,7 @@ impl ::core::default::Default for WMDM_PROP_VALUES_ENUM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub struct WMDM_PROP_VALUES_RANGE {
     pub rangeMin: super::super::System::Com::StructuredStorage::PROPVARIANT,
@@ -6434,11 +6614,17 @@ pub const WMDM_SEEK_END: u32 = 8u32;
 pub const WMDM_SEEK_REMOTECONTROL: u32 = 1u32;
 pub const WMDM_SEEK_STREAMINGAUDIO: u32 = 2u32;
 pub const WMDM_SERVICE_PROVIDER_VENDOR_MICROSOFT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7de8686d_78ee_43ea_a496_c625ac91cc5d);
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub type WMDM_SESSION_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_SESSION_NONE: WMDM_SESSION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_SESSION_TRANSFER_TO_DEVICE: WMDM_SESSION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_SESSION_TRANSFER_FROM_DEVICE: WMDM_SESSION_TYPE = 16i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_SESSION_DELETE: WMDM_SESSION_TYPE = 256i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_SESSION_CUSTOM: WMDM_SESSION_TYPE = 4096i32;
 pub const WMDM_SP_REVOKED: u32 = 4u32;
 pub const WMDM_STATUS_BUSY: u32 = 2u32;
@@ -6478,24 +6664,38 @@ pub const WMDM_STORAGE_ATTR_NONREMOVABLE: u32 = 4u32;
 pub const WMDM_STORAGE_ATTR_REMOVABLE: u32 = 2u32;
 pub const WMDM_STORAGE_ATTR_VIRTUAL: u32 = 536870912u32;
 pub const WMDM_STORAGE_CONTAINS_DEFAULT: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub type WMDM_STORAGE_ENUM_MODE = i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const ENUM_MODE_RAW: WMDM_STORAGE_ENUM_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const ENUM_MODE_USE_DEVICE_PREF: WMDM_STORAGE_ENUM_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const ENUM_MODE_METADATA_VIEWS: WMDM_STORAGE_ENUM_MODE = 2i32;
 pub const WMDM_STORAGE_IS_DEFAULT: u32 = 134217728u32;
 pub const WMDM_S_NOT_ALL_PROPERTIES_APPLIED: i32 = 282625i32;
 pub const WMDM_S_NOT_ALL_PROPERTIES_RETRIEVED: i32 = 282626i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub type WMDM_TAG_DATATYPE = i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_TYPE_DWORD: WMDM_TAG_DATATYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_TYPE_STRING: WMDM_TAG_DATATYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_TYPE_BINARY: WMDM_TAG_DATATYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_TYPE_BOOL: WMDM_TAG_DATATYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_TYPE_QWORD: WMDM_TAG_DATATYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_TYPE_WORD: WMDM_TAG_DATATYPE = 5i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_TYPE_GUID: WMDM_TAG_DATATYPE = 6i32;
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub const WMDM_TYPE_DATE: WMDM_TAG_DATATYPE = 7i32;
 pub const WMDM_WMDM_REVOKED: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WMFILECAPABILITIES {
     pub pwszMimeType: super::super::Foundation::PWSTR,
@@ -6528,6 +6728,7 @@ impl ::core::default::Default for WMFILECAPABILITIES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub struct _BITMAPINFOHEADER {
     pub biSize: u32,
     pub biWidth: i32,
@@ -6562,6 +6763,7 @@ impl ::core::default::Default for _BITMAPINFOHEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct _VIDEOINFOHEADER {
     pub rcSource: super::super::Foundation::RECT,
@@ -6598,6 +6800,7 @@ impl ::core::default::Default for _VIDEOINFOHEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager'*"]
 pub struct _WAVEFORMATEX {
     pub wFormatTag: u16,
     pub nChannels: u16,
@@ -6628,6 +6831,7 @@ impl ::core::default::Default for _WAVEFORMATEX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_DeviceManager', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct __MACINFO {
     pub fUsed: super::super::Foundation::BOOL,

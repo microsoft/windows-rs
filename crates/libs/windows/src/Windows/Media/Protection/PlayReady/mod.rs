@@ -67,6 +67,7 @@ pub struct INDClientFactoryVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, downloadengine: ::windows::core::RawPtr, streamparser: ::windows::core::RawPtr, pmessenger: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct INDClosedCaptionDataReceivedEventArgs(::windows::core::IUnknown);
 impl INDClosedCaptionDataReceivedEventArgs {
@@ -175,6 +176,7 @@ pub struct INDClosedCaptionDataReceivedEventArgsVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct INDCustomData(::windows::core::IUnknown);
 impl INDCustomData {
@@ -294,6 +296,7 @@ pub struct INDCustomDataFactoryVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customDataTypeIDBytes_array_size: u32, customdatatypeidbytes: *const u8, customDataBytes_array_size: u32, customdatabytes: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct INDDownloadEngine(::windows::core::IUnknown);
 impl INDDownloadEngine {
@@ -447,6 +450,7 @@ pub struct INDDownloadEngineVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct INDDownloadEngineNotifier(::windows::core::IUnknown);
 impl INDDownloadEngineNotifier {
@@ -567,6 +571,7 @@ pub struct INDDownloadEngineNotifierVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct INDLicenseFetchCompletedEventArgs(::windows::core::IUnknown);
 impl INDLicenseFetchCompletedEventArgs {
@@ -655,6 +660,7 @@ pub struct INDLicenseFetchCompletedEventArgsVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct INDLicenseFetchDescriptor(::windows::core::IUnknown);
 impl INDLicenseFetchDescriptor {
@@ -791,6 +797,7 @@ pub struct INDLicenseFetchDescriptorFactoryVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentidtype: NDContentIDType, contentIDBytes_array_size: u32, contentidbytes: *const u8, licensefetchchallengecustomdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct INDLicenseFetchResult(::windows::core::IUnknown);
 impl INDLicenseFetchResult {
@@ -879,6 +886,7 @@ pub struct INDLicenseFetchResultVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct INDMessenger(::windows::core::IUnknown);
 impl INDMessenger {
@@ -997,6 +1005,7 @@ pub struct INDMessengerVtbl(
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionIDBytes_array_size: u32, sessionidbytes: *const u8, challengeDataBytes_array_size: u32, challengedatabytes: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct INDProximityDetectionCompletedEventArgs(::windows::core::IUnknown);
 impl INDProximityDetectionCompletedEventArgs {
@@ -1085,6 +1094,7 @@ pub struct INDProximityDetectionCompletedEventArgsVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct INDRegistrationCompletedEventArgs(::windows::core::IUnknown);
 impl INDRegistrationCompletedEventArgs {
@@ -1200,6 +1210,7 @@ pub struct INDRegistrationCompletedEventArgsVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, accept: bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct INDSendResult(::windows::core::IUnknown);
 impl INDSendResult {
@@ -1288,6 +1299,7 @@ pub struct INDSendResultVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut u8) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct INDStartResult(::windows::core::IUnknown);
 impl INDStartResult {
@@ -1376,6 +1388,7 @@ pub struct INDStartResultVtbl(
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Media_Core", feature = "deprecated")))] usize,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct INDStorageFileHelper(::windows::core::IUnknown);
 impl INDStorageFileHelper {
@@ -1464,6 +1477,7 @@ pub struct INDStorageFileHelperVtbl(
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated")))] usize,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct INDStreamParser(::windows::core::IUnknown);
 impl INDStreamParser {
@@ -1583,6 +1597,7 @@ pub struct INDStreamParserVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct INDStreamParserNotifier(::windows::core::IUnknown);
 impl INDStreamParserNotifier {
@@ -1710,6 +1725,7 @@ pub struct INDTCPMessengerFactoryVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remotehostname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, remotehostport: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct INDTransmitterProperties(::windows::core::IUnknown);
 impl INDTransmitterProperties {
@@ -2005,6 +2021,7 @@ pub struct IPlayReadyContentResolverVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentheader: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct IPlayReadyDomain(::windows::core::IUnknown);
 impl IPlayReadyDomain {
@@ -2218,6 +2235,7 @@ pub struct IPlayReadyIndividualizationServiceRequestVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct IPlayReadyLicense(::windows::core::IUnknown);
 impl IPlayReadyLicense {
@@ -2369,6 +2387,7 @@ pub struct IPlayReadyLicense2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct IPlayReadyLicenseAcquisitionServiceRequest(::windows::core::IUnknown);
 impl IPlayReadyLicenseAcquisitionServiceRequest {
@@ -2660,6 +2679,7 @@ pub struct IPlayReadyLicenseManagementVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contentheader: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct IPlayReadyLicenseSession(::windows::core::IUnknown);
 impl IPlayReadyLicenseSession {
@@ -2745,6 +2765,7 @@ pub struct IPlayReadyLicenseSessionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mpm: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct IPlayReadyLicenseSession2(::windows::core::IUnknown);
 impl IPlayReadyLicenseSession2 {
@@ -2934,6 +2955,7 @@ pub struct IPlayReadySecureStopIterableFactoryVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, publisherCertBytes_array_size: u32, publishercertbytes: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct IPlayReadySecureStopServiceRequest(::windows::core::IUnknown);
 impl IPlayReadySecureStopServiceRequest {
@@ -3187,6 +3209,7 @@ pub struct IPlayReadySecureStopServiceRequestFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, publisherCertBytes_array_size: u32, publishercertbytes: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionid: ::windows::core::GUID, publisherCertBytes_array_size: u32, publishercertbytes: *const u8, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct IPlayReadyServiceRequest(::windows::core::IUnknown);
 impl IPlayReadyServiceRequest {
@@ -3492,6 +3515,7 @@ pub struct IPlayReadyStatics5Vtbl(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct NDCertificateFeature(pub i32);
 impl NDCertificateFeature {
@@ -3524,6 +3548,7 @@ unsafe impl ::windows::core::RuntimeType for NDCertificateFeature {
 impl ::windows::core::DefaultType for NDCertificateFeature {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct NDCertificatePlatformID(pub i32);
 impl NDCertificatePlatformID {
@@ -3561,6 +3586,7 @@ unsafe impl ::windows::core::RuntimeType for NDCertificatePlatformID {
 impl ::windows::core::DefaultType for NDCertificatePlatformID {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct NDCertificateType(pub i32);
 impl NDCertificateType {
@@ -3599,6 +3625,7 @@ unsafe impl ::windows::core::RuntimeType for NDCertificateType {
 impl ::windows::core::DefaultType for NDCertificateType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDClient(::windows::core::IUnknown);
@@ -3785,6 +3812,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NDCl
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct NDClosedCaptionFormat(pub i32);
 impl NDClosedCaptionFormat {
@@ -3813,6 +3841,7 @@ unsafe impl ::windows::core::RuntimeType for NDClosedCaptionFormat {
 impl ::windows::core::DefaultType for NDClosedCaptionFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct NDContentIDType(pub i32);
 impl NDContentIDType {
@@ -3841,6 +3870,7 @@ unsafe impl ::windows::core::RuntimeType for NDContentIDType {
 impl ::windows::core::DefaultType for NDContentIDType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDCustomData(::windows::core::IUnknown);
@@ -3975,6 +4005,7 @@ impl<'a> ::windows::core::IntoParam<'a, INDCustomData> for &NDCustomData {
         ::core::convert::TryInto::<INDCustomData>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDDownloadEngineNotifier(::windows::core::IUnknown);
@@ -4119,6 +4150,7 @@ impl<'a> ::windows::core::IntoParam<'a, INDDownloadEngineNotifier> for &NDDownlo
         ::core::convert::TryInto::<INDDownloadEngineNotifier>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDLicenseFetchDescriptor(::windows::core::IUnknown);
@@ -4266,6 +4298,7 @@ impl<'a> ::windows::core::IntoParam<'a, INDLicenseFetchDescriptor> for &NDLicens
         ::core::convert::TryInto::<INDLicenseFetchDescriptor>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct NDMediaStreamType(pub i32);
 impl NDMediaStreamType {
@@ -4293,6 +4326,7 @@ unsafe impl ::windows::core::RuntimeType for NDMediaStreamType {
 impl ::windows::core::DefaultType for NDMediaStreamType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct NDProximityDetectionType(pub i32);
 impl NDProximityDetectionType {
@@ -4321,6 +4355,7 @@ unsafe impl ::windows::core::RuntimeType for NDProximityDetectionType {
 impl ::windows::core::DefaultType for NDProximityDetectionType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[repr(transparent)]
 pub struct NDStartAsyncOptions(pub i32);
 impl NDStartAsyncOptions {
@@ -4348,6 +4383,7 @@ unsafe impl ::windows::core::RuntimeType for NDStartAsyncOptions {
 impl ::windows::core::DefaultType for NDStartAsyncOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDStorageFileHelper(::windows::core::IUnknown);
@@ -4470,6 +4506,7 @@ impl<'a> ::windows::core::IntoParam<'a, INDStorageFileHelper> for &NDStorageFile
         ::core::convert::TryInto::<INDStorageFileHelper>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDStreamParserNotifier(::windows::core::IUnknown);
@@ -4604,6 +4641,7 @@ impl<'a> ::windows::core::IntoParam<'a, INDStreamParserNotifier> for &NDStreamPa
         ::core::convert::TryInto::<INDStreamParserNotifier>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDTCPMessenger(::windows::core::IUnknown);
@@ -4754,6 +4792,7 @@ impl<'a> ::windows::core::IntoParam<'a, INDMessenger> for &NDTCPMessenger {
         ::core::convert::TryInto::<INDMessenger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadyContentHeader(::windows::core::IUnknown);
 impl PlayReadyContentHeader {
@@ -4956,6 +4995,7 @@ impl PlayReadyContentResolver {
 impl ::windows::core::RuntimeName for PlayReadyContentResolver {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyContentResolver";
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadyDecryptorSetup(pub i32);
 impl PlayReadyDecryptorSetup {
@@ -4983,6 +5023,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyDecryptorSetup {
 impl ::windows::core::DefaultType for PlayReadyDecryptorSetup {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadyDomain(::windows::core::IUnknown);
 impl PlayReadyDomain {
@@ -5106,6 +5147,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPlayReadyDomain> for &PlayReadyDomain {
         ::core::convert::TryInto::<IPlayReadyDomain>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PlayReadyDomainIterable(::windows::core::IUnknown);
@@ -5248,6 +5290,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PlayReadyDomainIterator(::windows::core::IUnknown);
@@ -5387,6 +5430,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadyDomainJoinServiceRequest(::windows::core::IUnknown);
 impl PlayReadyDomainJoinServiceRequest {
@@ -5610,6 +5654,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReady
         ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadyDomainLeaveServiceRequest(::windows::core::IUnknown);
 impl PlayReadyDomainLeaveServiceRequest {
@@ -5822,6 +5867,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReady
         ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadyEncryptionAlgorithm(pub i32);
 impl PlayReadyEncryptionAlgorithm {
@@ -5853,6 +5899,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyEncryptionAlgorithm {
 impl ::windows::core::DefaultType for PlayReadyEncryptionAlgorithm {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadyHardwareDRMFeatures(pub i32);
 impl PlayReadyHardwareDRMFeatures {
@@ -5881,6 +5928,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyHardwareDRMFeatures {
 impl ::windows::core::DefaultType for PlayReadyHardwareDRMFeatures {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadyITADataFormat(pub i32);
 impl PlayReadyITADataFormat {
@@ -5908,6 +5956,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyITADataFormat {
 impl ::windows::core::DefaultType for PlayReadyITADataFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadyITADataGenerator(::windows::core::IUnknown);
 impl PlayReadyITADataGenerator {
@@ -5988,6 +6037,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadyIndividualizationServiceRequest(::windows::core::IUnknown);
 impl PlayReadyIndividualizationServiceRequest {
@@ -6178,6 +6228,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReady
         ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadyLicense(::windows::core::IUnknown);
 impl PlayReadyLicense {
@@ -6343,6 +6394,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPlayReadyLicense> for &PlayReadyLicense
         ::core::convert::TryInto::<IPlayReadyLicense>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadyLicenseAcquisitionServiceRequest(::windows::core::IUnknown);
 impl PlayReadyLicenseAcquisitionServiceRequest {
@@ -6592,6 +6644,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReady
         ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PlayReadyLicenseIterable(::windows::core::IUnknown);
@@ -6741,6 +6794,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PlayReadyLicenseIterator(::windows::core::IUnknown);
@@ -6897,6 +6951,7 @@ impl PlayReadyLicenseManagement {
 impl ::windows::core::RuntimeName for PlayReadyLicenseManagement {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseManagement";
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadyLicenseSession(::windows::core::IUnknown);
 impl PlayReadyLicenseSession {
@@ -7036,6 +7091,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPlayReadyLicenseSession2> for &PlayRead
         ::core::convert::TryInto::<IPlayReadyLicenseSession2>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadyMeteringReportServiceRequest(::windows::core::IUnknown);
 impl PlayReadyMeteringReportServiceRequest {
@@ -7237,6 +7293,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReady
         ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadyRevocationServiceRequest(::windows::core::IUnknown);
 impl PlayReadyRevocationServiceRequest {
@@ -7427,6 +7484,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReady
         ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PlayReadySecureStopIterable(::windows::core::IUnknown);
@@ -7569,6 +7627,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PlayReadySecureStopIterator(::windows::core::IUnknown);
@@ -7708,6 +7767,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadySecureStopServiceRequest(::windows::core::IUnknown);
 impl PlayReadySecureStopServiceRequest {
@@ -7966,6 +8026,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReady
         ::core::convert::TryInto::<IPlayReadyServiceRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
 pub struct PlayReadySoapMessage(::windows::core::IUnknown);
 impl PlayReadySoapMessage {

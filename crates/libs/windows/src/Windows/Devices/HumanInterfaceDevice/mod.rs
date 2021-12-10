@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_HumanInterfaceDevice'*"]
 #[repr(transparent)]
 pub struct HidBooleanControl(::windows::core::IUnknown);
 impl HidBooleanControl {
@@ -105,6 +106,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidB
 }
 unsafe impl ::core::marker::Send for HidBooleanControl {}
 unsafe impl ::core::marker::Sync for HidBooleanControl {}
+#[doc = "*Required features: 'Devices_HumanInterfaceDevice'*"]
 #[repr(transparent)]
 pub struct HidBooleanControlDescription(::windows::core::IUnknown);
 impl HidBooleanControlDescription {
@@ -222,6 +224,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidB
 }
 unsafe impl ::core::marker::Send for HidBooleanControlDescription {}
 unsafe impl ::core::marker::Sync for HidBooleanControlDescription {}
+#[doc = "*Required features: 'Devices_HumanInterfaceDevice'*"]
 #[repr(transparent)]
 pub struct HidCollection(::windows::core::IUnknown);
 impl HidCollection {
@@ -317,6 +320,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidC
 }
 unsafe impl ::core::marker::Send for HidCollection {}
 unsafe impl ::core::marker::Sync for HidCollection {}
+#[doc = "*Required features: 'Devices_HumanInterfaceDevice'*"]
 #[repr(transparent)]
 pub struct HidCollectionType(pub i32);
 impl HidCollectionType {
@@ -350,6 +354,7 @@ unsafe impl ::windows::core::RuntimeType for HidCollectionType {
 impl ::windows::core::DefaultType for HidCollectionType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_HumanInterfaceDevice'*"]
 #[repr(transparent)]
 pub struct HidDevice(::windows::core::IUnknown);
 impl HidDevice {
@@ -611,6 +616,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for HidDevice {}
 unsafe impl ::core::marker::Sync for HidDevice {}
+#[doc = "*Required features: 'Devices_HumanInterfaceDevice'*"]
 #[repr(transparent)]
 pub struct HidFeatureReport(::windows::core::IUnknown);
 impl HidFeatureReport {
@@ -726,6 +732,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidF
 }
 unsafe impl ::core::marker::Send for HidFeatureReport {}
 unsafe impl ::core::marker::Sync for HidFeatureReport {}
+#[doc = "*Required features: 'Devices_HumanInterfaceDevice'*"]
 #[repr(transparent)]
 pub struct HidInputReport(::windows::core::IUnknown);
 impl HidInputReport {
@@ -852,6 +859,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidI
 }
 unsafe impl ::core::marker::Send for HidInputReport {}
 unsafe impl ::core::marker::Sync for HidInputReport {}
+#[doc = "*Required features: 'Devices_HumanInterfaceDevice'*"]
 #[repr(transparent)]
 pub struct HidInputReportReceivedEventArgs(::windows::core::IUnknown);
 impl HidInputReportReceivedEventArgs {
@@ -926,6 +934,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidI
 }
 unsafe impl ::core::marker::Send for HidInputReportReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for HidInputReportReceivedEventArgs {}
+#[doc = "*Required features: 'Devices_HumanInterfaceDevice'*"]
 #[repr(transparent)]
 pub struct HidNumericControl(::windows::core::IUnknown);
 impl HidNumericControl {
@@ -1050,6 +1059,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidN
 }
 unsafe impl ::core::marker::Send for HidNumericControl {}
 unsafe impl ::core::marker::Sync for HidNumericControl {}
+#[doc = "*Required features: 'Devices_HumanInterfaceDevice'*"]
 #[repr(transparent)]
 pub struct HidNumericControlDescription(::windows::core::IUnknown);
 impl HidNumericControlDescription {
@@ -1230,6 +1240,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidN
 }
 unsafe impl ::core::marker::Send for HidNumericControlDescription {}
 unsafe impl ::core::marker::Sync for HidNumericControlDescription {}
+#[doc = "*Required features: 'Devices_HumanInterfaceDevice'*"]
 #[repr(transparent)]
 pub struct HidOutputReport(::windows::core::IUnknown);
 impl HidOutputReport {
@@ -1345,6 +1356,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HidO
 }
 unsafe impl ::core::marker::Send for HidOutputReport {}
 unsafe impl ::core::marker::Sync for HidOutputReport {}
+#[doc = "*Required features: 'Devices_HumanInterfaceDevice'*"]
 #[repr(transparent)]
 pub struct HidReportType(pub i32);
 impl HidReportType {

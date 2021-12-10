@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Media_Control'*"]
 #[repr(transparent)]
 pub struct CurrentSessionChangedEventArgs(::windows::core::IUnknown);
 impl CurrentSessionChangedEventArgs {}
@@ -65,6 +66,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Curr
 }
 unsafe impl ::core::marker::Send for CurrentSessionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CurrentSessionChangedEventArgs {}
+#[doc = "*Required features: 'Media_Control'*"]
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSession(::windows::core::IUnknown);
 impl GlobalSystemMediaTransportControlsSession {
@@ -320,6 +322,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Glob
 }
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSession {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSession {}
+#[doc = "*Required features: 'Media_Control'*"]
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSessionManager(::windows::core::IUnknown);
 impl GlobalSystemMediaTransportControlsSessionManager {
@@ -439,6 +442,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Glob
 }
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionManager {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionManager {}
+#[doc = "*Required features: 'Media_Control'*"]
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSessionMediaProperties(::windows::core::IUnknown);
 impl GlobalSystemMediaTransportControlsSessionMediaProperties {
@@ -579,6 +583,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Glob
 }
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionMediaProperties {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionMediaProperties {}
+#[doc = "*Required features: 'Media_Control'*"]
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackControls(::windows::core::IUnknown);
 impl GlobalSystemMediaTransportControlsSessionPlaybackControls {
@@ -751,6 +756,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Glob
 }
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionPlaybackControls {}
+#[doc = "*Required features: 'Media_Control'*"]
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackInfo(::windows::core::IUnknown);
 impl GlobalSystemMediaTransportControlsSessionPlaybackInfo {
@@ -864,6 +870,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Glob
 }
 unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
+#[doc = "*Required features: 'Media_Control'*"]
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackStatus(pub i32);
 impl GlobalSystemMediaTransportControlsSessionPlaybackStatus {
@@ -895,6 +902,7 @@ unsafe impl ::windows::core::RuntimeType for GlobalSystemMediaTransportControlsS
 impl ::windows::core::DefaultType for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Control'*"]
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSessionTimelineProperties(::windows::core::IUnknown);
 impl GlobalSystemMediaTransportControlsSessionTimelineProperties {
@@ -1324,6 +1332,7 @@ pub struct ITimelinePropertiesChangedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Control'*"]
 #[repr(transparent)]
 pub struct MediaPropertiesChangedEventArgs(::windows::core::IUnknown);
 impl MediaPropertiesChangedEventArgs {}
@@ -1390,6 +1399,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaPropertiesChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPropertiesChangedEventArgs {}
+#[doc = "*Required features: 'Media_Control'*"]
 #[repr(transparent)]
 pub struct PlaybackInfoChangedEventArgs(::windows::core::IUnknown);
 impl PlaybackInfoChangedEventArgs {}
@@ -1456,6 +1466,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
 }
 unsafe impl ::core::marker::Send for PlaybackInfoChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PlaybackInfoChangedEventArgs {}
+#[doc = "*Required features: 'Media_Control'*"]
 #[repr(transparent)]
 pub struct SessionsChangedEventArgs(::windows::core::IUnknown);
 impl SessionsChangedEventArgs {}
@@ -1522,6 +1533,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sess
 }
 unsafe impl ::core::marker::Send for SessionsChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SessionsChangedEventArgs {}
+#[doc = "*Required features: 'Media_Control'*"]
 #[repr(transparent)]
 pub struct TimelinePropertiesChangedEventArgs(::windows::core::IUnknown);
 impl TimelinePropertiesChangedEventArgs {}

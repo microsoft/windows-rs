@@ -185,6 +185,7 @@ pub struct IPasswordVaultVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
 pub struct IWebAccount(::windows::core::IUnknown);
 impl IWebAccount {
@@ -421,6 +422,7 @@ pub struct IWebAccountProviderFactoryVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, iconuri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
 pub struct KeyCredential(::windows::core::IUnknown);
 impl KeyCredential {
@@ -527,6 +529,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &KeyC
 }
 unsafe impl ::core::marker::Send for KeyCredential {}
 unsafe impl ::core::marker::Sync for KeyCredential {}
+#[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
 pub struct KeyCredentialAttestationResult(::windows::core::IUnknown);
 impl KeyCredentialAttestationResult {
@@ -617,6 +620,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &KeyC
 }
 unsafe impl ::core::marker::Send for KeyCredentialAttestationResult {}
 unsafe impl ::core::marker::Sync for KeyCredentialAttestationResult {}
+#[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
 pub struct KeyCredentialAttestationStatus(pub i32);
 impl KeyCredentialAttestationStatus {
@@ -646,6 +650,7 @@ unsafe impl ::windows::core::RuntimeType for KeyCredentialAttestationStatus {
 impl ::windows::core::DefaultType for KeyCredentialAttestationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
 pub struct KeyCredentialCreationOption(pub i32);
 impl KeyCredentialCreationOption {
@@ -718,6 +723,7 @@ impl KeyCredentialManager {
 impl ::windows::core::RuntimeName for KeyCredentialManager {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialManager";
 }
+#[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
 pub struct KeyCredentialOperationResult(::windows::core::IUnknown);
 impl KeyCredentialOperationResult {
@@ -800,6 +806,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &KeyC
 }
 unsafe impl ::core::marker::Send for KeyCredentialOperationResult {}
 unsafe impl ::core::marker::Sync for KeyCredentialOperationResult {}
+#[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
 pub struct KeyCredentialRetrievalResult(::windows::core::IUnknown);
 impl KeyCredentialRetrievalResult {
@@ -881,6 +888,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &KeyC
 }
 unsafe impl ::core::marker::Send for KeyCredentialRetrievalResult {}
 unsafe impl ::core::marker::Sync for KeyCredentialRetrievalResult {}
+#[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
 pub struct KeyCredentialStatus(pub i32);
 impl KeyCredentialStatus {
@@ -913,6 +921,7 @@ unsafe impl ::windows::core::RuntimeType for KeyCredentialStatus {
 impl ::windows::core::DefaultType for KeyCredentialStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
 pub struct PasswordCredential(::windows::core::IUnknown);
 impl PasswordCredential {
@@ -1042,6 +1051,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pass
 }
 unsafe impl ::core::marker::Send for PasswordCredential {}
 unsafe impl ::core::marker::Sync for PasswordCredential {}
+#[doc = "*Required features: 'Security_Credentials', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct PasswordCredentialPropertyStore(::windows::core::IUnknown);
@@ -1325,6 +1335,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 unsafe impl ::core::marker::Send for PasswordCredentialPropertyStore {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for PasswordCredentialPropertyStore {}
+#[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
 pub struct PasswordVault(::windows::core::IUnknown);
 impl PasswordVault {
@@ -1438,6 +1449,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pass
 }
 unsafe impl ::core::marker::Send for PasswordVault {}
 unsafe impl ::core::marker::Sync for PasswordVault {}
+#[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
 pub struct WebAccount(::windows::core::IUnknown);
 impl WebAccount {
@@ -1597,6 +1609,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAccount> for &WebAccount {
 }
 unsafe impl ::core::marker::Send for WebAccount {}
 unsafe impl ::core::marker::Sync for WebAccount {}
+#[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
 pub struct WebAccountPictureSize(pub i32);
 impl WebAccountPictureSize {
@@ -1626,6 +1639,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountPictureSize {
 impl ::windows::core::DefaultType for WebAccountPictureSize {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
 pub struct WebAccountProvider(::windows::core::IUnknown);
 impl WebAccountProvider {
@@ -1755,6 +1769,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebA
 }
 unsafe impl ::core::marker::Send for WebAccountProvider {}
 unsafe impl ::core::marker::Sync for WebAccountProvider {}
+#[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
 pub struct WebAccountState(pub i32);
 impl WebAccountState {

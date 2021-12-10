@@ -18,6 +18,7 @@ pub const MIN_RPT: u32 = 0u32;
 pub const OE_SETTING: u32 = 4u32;
 pub const RESTORE: u32 = 6u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Restore', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RESTOREPOINTINFOA {
     pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
@@ -52,6 +53,7 @@ impl ::core::default::Default for RESTOREPOINTINFOA {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Restore'*"]
 pub struct RESTOREPOINTINFOW {
     pub dwEventType: RESTOREPOINTINFO_EVENT_TYPE,
     pub dwRestorePtType: RESTOREPOINTINFO_TYPE,
@@ -78,17 +80,29 @@ impl ::core::default::Default for RESTOREPOINTINFOW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Restore'*"]
 pub type RESTOREPOINTINFO_EVENT_TYPE = u32;
+#[doc = "*Required features: 'Win32_System_Restore'*"]
 pub const BEGIN_NESTED_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = 102u32;
+#[doc = "*Required features: 'Win32_System_Restore'*"]
 pub const BEGIN_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = 100u32;
+#[doc = "*Required features: 'Win32_System_Restore'*"]
 pub const END_NESTED_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = 103u32;
+#[doc = "*Required features: 'Win32_System_Restore'*"]
 pub const END_SYSTEM_CHANGE: RESTOREPOINTINFO_EVENT_TYPE = 101u32;
+#[doc = "*Required features: 'Win32_System_Restore'*"]
 pub type RESTOREPOINTINFO_TYPE = u32;
+#[doc = "*Required features: 'Win32_System_Restore'*"]
 pub const APPLICATION_INSTALL: RESTOREPOINTINFO_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_System_Restore'*"]
 pub const APPLICATION_UNINSTALL: RESTOREPOINTINFO_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_System_Restore'*"]
 pub const DEVICE_DRIVER_INSTALL: RESTOREPOINTINFO_TYPE = 10u32;
+#[doc = "*Required features: 'Win32_System_Restore'*"]
 pub const MODIFY_SETTINGS: RESTOREPOINTINFO_TYPE = 12u32;
+#[doc = "*Required features: 'Win32_System_Restore'*"]
 pub const CANCELLED_OPERATION: RESTOREPOINTINFO_TYPE = 13u32;
+#[doc = "*Required features: 'Win32_System_Restore', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SRSetRestorePointA(prestoreptspec: *const RESTOREPOINTINFOA, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL {
@@ -103,6 +117,7 @@ pub unsafe fn SRSetRestorePointA(prestoreptspec: *const RESTOREPOINTINFOA, psmgr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Restore', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SRSetRestorePointW(prestoreptspec: *const RESTOREPOINTINFOW, psmgrstatus: *mut STATEMGRSTATUS) -> super::super::Foundation::BOOL {
@@ -118,6 +133,7 @@ pub unsafe fn SRSetRestorePointW(prestoreptspec: *const RESTOREPOINTINFOW, psmgr
     unimplemented!("Unsupported target OS");
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Restore'*"]
 pub struct STATEMGRSTATUS {
     pub nStatus: u32,
     pub llSequenceNumber: i64,
@@ -146,6 +162,7 @@ pub const WINDOWS_BOOT: u32 = 9u32;
 pub const WINDOWS_SHUTDOWN: u32 = 8u32;
 pub const WINDOWS_UPDATE: u32 = 17u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_System_Restore', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct _RESTOREPTINFOEX {
     pub ftCreation: super::super::Foundation::FILETIME,

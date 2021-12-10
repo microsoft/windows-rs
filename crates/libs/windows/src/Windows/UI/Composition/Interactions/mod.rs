@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct CompositionConditionalValue(::windows::core::IUnknown);
 impl CompositionConditionalValue {
@@ -250,6 +251,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &Compositi
 }
 unsafe impl ::core::marker::Send for CompositionConditionalValue {}
 unsafe impl ::core::marker::Sync for CompositionConditionalValue {}
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct CompositionInteractionSourceCollection(::windows::core::IUnknown);
 impl CompositionInteractionSourceCollection {
@@ -577,6 +579,7 @@ pub struct ICompositionConditionalValueStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct ICompositionInteractionSource(::windows::core::IUnknown);
 impl ICompositionInteractionSource {}
@@ -1166,6 +1169,7 @@ pub struct IInteractionTrackerInteractingStateEnteredArgs2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct IInteractionTrackerOwner(::windows::core::IUnknown);
 impl IInteractionTrackerOwner {
@@ -1563,6 +1567,7 @@ pub struct IVisualInteractionSourceStatics2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionBindingAxisModes(pub u32);
 impl InteractionBindingAxisModes {
@@ -1592,6 +1597,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionBindingAxisModes {
 impl ::windows::core::DefaultType for InteractionBindingAxisModes {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionChainingMode(pub i32);
 impl InteractionChainingMode {
@@ -1620,6 +1626,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionChainingMode {
 impl ::windows::core::DefaultType for InteractionChainingMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionSourceConfiguration(::windows::core::IUnknown);
 impl InteractionSourceConfiguration {
@@ -1872,6 +1879,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &Interacti
 }
 unsafe impl ::core::marker::Send for InteractionSourceConfiguration {}
 unsafe impl ::core::marker::Sync for InteractionSourceConfiguration {}
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionSourceMode(pub i32);
 impl InteractionSourceMode {
@@ -1900,6 +1908,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionSourceMode {
 impl ::windows::core::DefaultType for InteractionSourceMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionSourceRedirectionMode(pub i32);
 impl InteractionSourceRedirectionMode {
@@ -1927,6 +1936,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionSourceRedirectionMode {
 impl ::windows::core::DefaultType for InteractionSourceRedirectionMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionTracker(::windows::core::IUnknown);
 impl InteractionTracker {
@@ -2439,6 +2449,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &Interacti
 }
 unsafe impl ::core::marker::Send for InteractionTracker {}
 unsafe impl ::core::marker::Sync for InteractionTracker {}
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionTrackerClampingOption(pub i32);
 impl InteractionTrackerClampingOption {
@@ -2466,6 +2477,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionTrackerClampingOption {
 impl ::windows::core::DefaultType for InteractionTrackerClampingOption {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionTrackerCustomAnimationStateEnteredArgs(::windows::core::IUnknown);
 impl InteractionTrackerCustomAnimationStateEnteredArgs {
@@ -2547,6 +2559,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inte
 }
 unsafe impl ::core::marker::Send for InteractionTrackerCustomAnimationStateEnteredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerCustomAnimationStateEnteredArgs {}
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionTrackerIdleStateEnteredArgs(::windows::core::IUnknown);
 impl InteractionTrackerIdleStateEnteredArgs {
@@ -2628,6 +2641,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inte
 }
 unsafe impl ::core::marker::Send for InteractionTrackerIdleStateEnteredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerIdleStateEnteredArgs {}
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionTrackerInertiaModifier(::windows::core::IUnknown);
 impl InteractionTrackerInertiaModifier {
@@ -2847,6 +2861,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &Interacti
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaModifier {}
 unsafe impl ::core::marker::Sync for InteractionTrackerInertiaModifier {}
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionTrackerInertiaMotion(::windows::core::IUnknown);
 impl InteractionTrackerInertiaMotion {
@@ -3118,6 +3133,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &Interacti
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaMotion {}
 unsafe impl ::core::marker::Sync for InteractionTrackerInertiaMotion {}
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionTrackerInertiaNaturalMotion(::windows::core::IUnknown);
 impl InteractionTrackerInertiaNaturalMotion {
@@ -3389,6 +3405,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &Interacti
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaNaturalMotion {}
 unsafe impl ::core::marker::Sync for InteractionTrackerInertiaNaturalMotion {}
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionTrackerInertiaRestingValue(::windows::core::IUnknown);
 impl InteractionTrackerInertiaRestingValue {
@@ -3660,6 +3677,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &Interacti
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaRestingValue {}
 unsafe impl ::core::marker::Sync for InteractionTrackerInertiaRestingValue {}
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionTrackerInertiaStateEnteredArgs(::windows::core::IUnknown);
 impl InteractionTrackerInertiaStateEnteredArgs {
@@ -3794,6 +3812,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inte
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaStateEnteredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerInertiaStateEnteredArgs {}
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionTrackerInteractingStateEnteredArgs(::windows::core::IUnknown);
 impl InteractionTrackerInteractingStateEnteredArgs {
@@ -3875,6 +3894,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inte
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInteractingStateEnteredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerInteractingStateEnteredArgs {}
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionTrackerPositionUpdateOption(pub i32);
 impl InteractionTrackerPositionUpdateOption {
@@ -3902,6 +3922,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionTrackerPositionUpdateOpt
 impl ::windows::core::DefaultType for InteractionTrackerPositionUpdateOption {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionTrackerRequestIgnoredArgs(::windows::core::IUnknown);
 impl InteractionTrackerRequestIgnoredArgs {
@@ -3976,6 +3997,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inte
 }
 unsafe impl ::core::marker::Send for InteractionTrackerRequestIgnoredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerRequestIgnoredArgs {}
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionTrackerValuesChangedArgs(::windows::core::IUnknown);
 impl InteractionTrackerValuesChangedArgs {
@@ -4065,6 +4087,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inte
 }
 unsafe impl ::core::marker::Send for InteractionTrackerValuesChangedArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerValuesChangedArgs {}
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionTrackerVector2InertiaModifier(::windows::core::IUnknown);
 impl InteractionTrackerVector2InertiaModifier {
@@ -4284,6 +4307,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &Interacti
 }
 unsafe impl ::core::marker::Send for InteractionTrackerVector2InertiaModifier {}
 unsafe impl ::core::marker::Sync for InteractionTrackerVector2InertiaModifier {}
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionTrackerVector2InertiaNaturalMotion(::windows::core::IUnknown);
 impl InteractionTrackerVector2InertiaNaturalMotion {
@@ -4555,6 +4579,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &Interacti
 }
 unsafe impl ::core::marker::Send for InteractionTrackerVector2InertiaNaturalMotion {}
 unsafe impl ::core::marker::Sync for InteractionTrackerVector2InertiaNaturalMotion {}
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct VisualInteractionSource(::windows::core::IUnknown);
 impl VisualInteractionSource {
@@ -5004,6 +5029,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &VisualInt
 }
 unsafe impl ::core::marker::Send for VisualInteractionSource {}
 unsafe impl ::core::marker::Sync for VisualInteractionSource {}
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct VisualInteractionSourceRedirectionMode(pub i32);
 impl VisualInteractionSourceRedirectionMode {

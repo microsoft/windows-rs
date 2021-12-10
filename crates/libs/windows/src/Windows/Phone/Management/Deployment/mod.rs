@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Phone_Management_Deployment'*"]
 #[repr(transparent)]
 pub struct Enterprise(::windows::core::IUnknown);
 impl Enterprise {
@@ -154,6 +155,7 @@ impl EnterpriseEnrollmentManager {
 impl ::windows::core::RuntimeName for EnterpriseEnrollmentManager {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.EnterpriseEnrollmentManager";
 }
+#[doc = "*Required features: 'Phone_Management_Deployment'*"]
 #[repr(transparent)]
 pub struct EnterpriseEnrollmentResult(::windows::core::IUnknown);
 impl EnterpriseEnrollmentResult {
@@ -233,6 +235,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ente
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Phone_Management_Deployment'*"]
 #[repr(transparent)]
 pub struct EnterpriseEnrollmentStatus(pub i32);
 impl EnterpriseEnrollmentStatus {
@@ -261,6 +264,7 @@ unsafe impl ::windows::core::RuntimeType for EnterpriseEnrollmentStatus {
 impl ::windows::core::DefaultType for EnterpriseEnrollmentStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Phone_Management_Deployment'*"]
 #[repr(transparent)]
 pub struct EnterpriseStatus(pub i32);
 impl EnterpriseStatus {
@@ -518,6 +522,7 @@ impl InstallationManager {
 impl ::windows::core::RuntimeName for InstallationManager {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.InstallationManager";
 }
+#[doc = "*Required features: 'Phone_Management_Deployment'*"]
 #[repr(transparent)]
 pub struct PackageInstallResult(::windows::core::IUnknown);
 impl PackageInstallResult {

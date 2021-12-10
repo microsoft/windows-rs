@@ -5,6 +5,7 @@ pub type CompositionConditionalValue = *mut ::core::ffi::c_void;
 pub type CompositionInteractionSourceCollection = *mut ::core::ffi::c_void;
 pub type ICompositionInteractionSource = *mut ::core::ffi::c_void;
 pub type IInteractionTrackerOwner = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionBindingAxisModes(pub u32);
 impl InteractionBindingAxisModes {
@@ -19,6 +20,7 @@ impl ::core::clone::Clone for InteractionBindingAxisModes {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionChainingMode(pub i32);
 impl InteractionChainingMode {
@@ -33,6 +35,7 @@ impl ::core::clone::Clone for InteractionChainingMode {
     }
 }
 pub type InteractionSourceConfiguration = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionSourceMode(pub i32);
 impl InteractionSourceMode {
@@ -46,6 +49,7 @@ impl ::core::clone::Clone for InteractionSourceMode {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionSourceRedirectionMode(pub i32);
 impl InteractionSourceRedirectionMode {
@@ -59,6 +63,7 @@ impl ::core::clone::Clone for InteractionSourceRedirectionMode {
     }
 }
 pub type InteractionTracker = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionTrackerClampingOption(pub i32);
 impl InteractionTrackerClampingOption {
@@ -79,6 +84,7 @@ pub type InteractionTrackerInertiaNaturalMotion = *mut ::core::ffi::c_void;
 pub type InteractionTrackerInertiaRestingValue = *mut ::core::ffi::c_void;
 pub type InteractionTrackerInertiaStateEnteredArgs = *mut ::core::ffi::c_void;
 pub type InteractionTrackerInteractingStateEnteredArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct InteractionTrackerPositionUpdateOption(pub i32);
 impl InteractionTrackerPositionUpdateOption {
@@ -96,6 +102,7 @@ pub type InteractionTrackerValuesChangedArgs = *mut ::core::ffi::c_void;
 pub type InteractionTrackerVector2InertiaModifier = *mut ::core::ffi::c_void;
 pub type InteractionTrackerVector2InertiaNaturalMotion = *mut ::core::ffi::c_void;
 pub type VisualInteractionSource = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
 pub struct VisualInteractionSourceRedirectionMode(pub i32);
 impl VisualInteractionSourceRedirectionMode {

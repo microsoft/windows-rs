@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_Sensors_Custom'*"]
 #[repr(transparent)]
 pub struct CustomSensor(::windows::core::IUnknown);
 impl CustomSensor {
@@ -146,6 +147,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cust
 }
 unsafe impl ::core::marker::Send for CustomSensor {}
 unsafe impl ::core::marker::Sync for CustomSensor {}
+#[doc = "*Required features: 'Devices_Sensors_Custom'*"]
 #[repr(transparent)]
 pub struct CustomSensorReading(::windows::core::IUnknown);
 impl CustomSensorReading {
@@ -237,6 +239,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cust
 }
 unsafe impl ::core::marker::Send for CustomSensorReading {}
 unsafe impl ::core::marker::Sync for CustomSensorReading {}
+#[doc = "*Required features: 'Devices_Sensors_Custom'*"]
 #[repr(transparent)]
 pub struct CustomSensorReadingChangedEventArgs(::windows::core::IUnknown);
 impl CustomSensorReadingChangedEventArgs {

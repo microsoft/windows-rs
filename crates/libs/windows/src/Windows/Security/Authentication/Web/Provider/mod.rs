@@ -186,6 +186,7 @@ pub struct IWebAccountProviderAddAccountOperationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct IWebAccountProviderBaseReportOperation(::windows::core::IUnknown);
 impl IWebAccountProviderBaseReportOperation {
@@ -309,6 +310,7 @@ pub struct IWebAccountProviderManageAccountOperationVtbl(
     #[cfg(not(feature = "Security_Credentials"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct IWebAccountProviderOperation(::windows::core::IUnknown);
 impl IWebAccountProviderOperation {
@@ -438,6 +440,7 @@ pub struct IWebAccountProviderSignOutAccountOperationVtbl(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct IWebAccountProviderSilentReportOperation(::windows::core::IUnknown);
 impl IWebAccountProviderSilentReportOperation {
@@ -553,6 +556,7 @@ pub struct IWebAccountProviderSilentReportOperationVtbl(
     #[cfg(feature = "Security_Authentication_Web_Core")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Security_Authentication_Web_Core"))] usize,
 );
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct IWebAccountProviderTokenObjects(::windows::core::IUnknown);
 impl IWebAccountProviderTokenObjects {
@@ -633,6 +637,7 @@ pub struct IWebAccountProviderTokenObjectsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct IWebAccountProviderTokenObjects2(::windows::core::IUnknown);
 impl IWebAccountProviderTokenObjects2 {
@@ -744,6 +749,7 @@ pub struct IWebAccountProviderTokenObjects2Vtbl(
     #[cfg(feature = "System")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))] usize,
 );
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct IWebAccountProviderTokenOperation(::windows::core::IUnknown);
 impl IWebAccountProviderTokenOperation {
@@ -880,6 +886,7 @@ pub struct IWebAccountProviderTokenOperationVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct IWebAccountProviderUIReportOperation(::windows::core::IUnknown);
 impl IWebAccountProviderUIReportOperation {
@@ -1115,6 +1122,7 @@ pub struct IWebProviderTokenResponseFactoryVtbl(
     #[cfg(feature = "Security_Authentication_Web_Core")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webtokenresponse: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Security_Authentication_Web_Core"))] usize,
 );
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct WebAccountClientView(::windows::core::IUnknown);
 impl WebAccountClientView {
@@ -1222,6 +1230,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebA
 }
 unsafe impl ::core::marker::Send for WebAccountClientView {}
 unsafe impl ::core::marker::Sync for WebAccountClientView {}
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct WebAccountClientViewType(pub i32);
 impl WebAccountClientViewType {
@@ -1447,6 +1456,7 @@ impl WebAccountManager {
 impl ::windows::core::RuntimeName for WebAccountManager {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountManager";
 }
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct WebAccountProviderAddAccountOperation(::windows::core::IUnknown);
 impl WebAccountProviderAddAccountOperation {
@@ -1547,6 +1557,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAccountProviderOperation> for &WebAc
 }
 unsafe impl ::core::marker::Send for WebAccountProviderAddAccountOperation {}
 unsafe impl ::core::marker::Sync for WebAccountProviderAddAccountOperation {}
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct WebAccountProviderDeleteAccountOperation(::windows::core::IUnknown);
 impl WebAccountProviderDeleteAccountOperation {
@@ -1682,6 +1693,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAccountProviderOperation> for &WebAc
 }
 unsafe impl ::core::marker::Send for WebAccountProviderDeleteAccountOperation {}
 unsafe impl ::core::marker::Sync for WebAccountProviderDeleteAccountOperation {}
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct WebAccountProviderGetTokenSilentOperation(::windows::core::IUnknown);
 impl WebAccountProviderGetTokenSilentOperation {
@@ -1890,6 +1902,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAccountProviderTokenOperation> for &
 }
 unsafe impl ::core::marker::Send for WebAccountProviderGetTokenSilentOperation {}
 unsafe impl ::core::marker::Sync for WebAccountProviderGetTokenSilentOperation {}
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct WebAccountProviderManageAccountOperation(::windows::core::IUnknown);
 impl WebAccountProviderManageAccountOperation {
@@ -1998,6 +2011,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAccountProviderOperation> for &WebAc
 }
 unsafe impl ::core::marker::Send for WebAccountProviderManageAccountOperation {}
 unsafe impl ::core::marker::Sync for WebAccountProviderManageAccountOperation {}
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct WebAccountProviderOperationKind(pub i32);
 impl WebAccountProviderOperationKind {
@@ -2030,6 +2044,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderOperationKind {
 impl ::windows::core::DefaultType for WebAccountProviderOperationKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct WebAccountProviderRequestTokenOperation(::windows::core::IUnknown);
 impl WebAccountProviderRequestTokenOperation {
@@ -2233,6 +2248,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAccountProviderUIReportOperation> fo
 }
 unsafe impl ::core::marker::Send for WebAccountProviderRequestTokenOperation {}
 unsafe impl ::core::marker::Sync for WebAccountProviderRequestTokenOperation {}
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct WebAccountProviderRetrieveCookiesOperation(::windows::core::IUnknown);
 impl WebAccountProviderRetrieveCookiesOperation {
@@ -2397,6 +2413,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAccountProviderOperation> for &WebAc
 }
 unsafe impl ::core::marker::Send for WebAccountProviderRetrieveCookiesOperation {}
 unsafe impl ::core::marker::Sync for WebAccountProviderRetrieveCookiesOperation {}
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct WebAccountProviderSignOutAccountOperation(::windows::core::IUnknown);
 impl WebAccountProviderSignOutAccountOperation {
@@ -2547,6 +2564,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAccountProviderOperation> for &WebAc
 }
 unsafe impl ::core::marker::Send for WebAccountProviderSignOutAccountOperation {}
 unsafe impl ::core::marker::Sync for WebAccountProviderSignOutAccountOperation {}
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct WebAccountProviderTriggerDetails(::windows::core::IUnknown);
 impl WebAccountProviderTriggerDetails {
@@ -2673,6 +2691,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWebAccountProviderTokenObjects2> for &W
 }
 unsafe impl ::core::marker::Send for WebAccountProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for WebAccountProviderTriggerDetails {}
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct WebAccountScope(pub i32);
 impl WebAccountScope {
@@ -2700,6 +2719,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountScope {
 impl ::windows::core::DefaultType for WebAccountScope {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct WebAccountSelectionOptions(pub u32);
 impl WebAccountSelectionOptions {
@@ -2727,6 +2747,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountSelectionOptions {
 impl ::windows::core::DefaultType for WebAccountSelectionOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct WebProviderTokenRequest(::windows::core::IUnknown);
 impl WebProviderTokenRequest {
@@ -2863,6 +2884,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebP
 }
 unsafe impl ::core::marker::Send for WebProviderTokenRequest {}
 unsafe impl ::core::marker::Sync for WebProviderTokenRequest {}
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct WebProviderTokenResponse(::windows::core::IUnknown);
 impl WebProviderTokenResponse {

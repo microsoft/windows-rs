@@ -17,6 +17,7 @@ pub mod Sockets;
 pub mod Vpn;
 #[cfg(feature = "Networking_XboxLive")]
 pub mod XboxLive;
+#[doc = "*Required features: 'Networking'*"]
 #[repr(transparent)]
 pub struct DomainNameType(pub i32);
 impl DomainNameType {
@@ -44,6 +45,7 @@ unsafe impl ::windows::core::RuntimeType for DomainNameType {
 impl ::windows::core::DefaultType for DomainNameType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking'*"]
 #[repr(transparent)]
 pub struct EndpointPair(::windows::core::IUnknown);
 impl EndpointPair {
@@ -165,6 +167,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Endp
 }
 unsafe impl ::core::marker::Send for EndpointPair {}
 unsafe impl ::core::marker::Sync for EndpointPair {}
+#[doc = "*Required features: 'Networking'*"]
 #[repr(transparent)]
 pub struct HostName(::windows::core::IUnknown);
 impl HostName {
@@ -329,6 +332,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IStringable> for &Hos
 }
 unsafe impl ::core::marker::Send for HostName {}
 unsafe impl ::core::marker::Sync for HostName {}
+#[doc = "*Required features: 'Networking'*"]
 #[repr(transparent)]
 pub struct HostNameSortOptions(pub u32);
 impl HostNameSortOptions {
@@ -356,6 +360,7 @@ unsafe impl ::windows::core::RuntimeType for HostNameSortOptions {
 impl ::windows::core::DefaultType for HostNameSortOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking'*"]
 #[repr(transparent)]
 pub struct HostNameType(pub i32);
 impl HostNameType {

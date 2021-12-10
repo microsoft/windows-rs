@@ -84,6 +84,7 @@ pub struct IXamlDirectVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, eventindex: XamlEventIndex, handler: *mut ::core::ffi::c_void, handledeventstoo: bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, eventindex: XamlEventIndex, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
 #[repr(transparent)]
 pub struct IXamlDirectObject(::windows::core::IUnknown);
 impl IXamlDirectObject {}
@@ -173,6 +174,7 @@ pub struct IXamlDirectStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
 #[repr(transparent)]
 pub struct XamlDirect(::windows::core::IUnknown);
 impl XamlDirect {
@@ -549,6 +551,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
 }
 unsafe impl ::core::marker::Send for XamlDirect {}
 unsafe impl ::core::marker::Sync for XamlDirect {}
+#[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
 #[repr(transparent)]
 pub struct XamlEventIndex(pub i32);
 impl XamlEventIndex {
@@ -712,6 +715,7 @@ unsafe impl ::windows::core::RuntimeType for XamlEventIndex {
 impl ::windows::core::DefaultType for XamlEventIndex {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
 #[repr(transparent)]
 pub struct XamlPropertyIndex(pub i32);
 impl XamlPropertyIndex {
@@ -2406,6 +2410,7 @@ unsafe impl ::windows::core::RuntimeType for XamlPropertyIndex {
 impl ::windows::core::DefaultType for XamlPropertyIndex {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
 #[repr(transparent)]
 pub struct XamlTypeIndex(pub i32);
 impl XamlTypeIndex {

@@ -47,6 +47,7 @@ pub struct ISceneLightingEffect2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SceneLightingEffectReflectanceModel) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: SceneLightingEffectReflectanceModel) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Composition_Effects'*"]
 #[repr(transparent)]
 pub struct SceneLightingEffect(::windows::core::IUnknown);
 impl SceneLightingEffect {
@@ -254,6 +255,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Graphics::Effects::
 }
 unsafe impl ::core::marker::Send for SceneLightingEffect {}
 unsafe impl ::core::marker::Sync for SceneLightingEffect {}
+#[doc = "*Required features: 'UI_Composition_Effects'*"]
 #[repr(transparent)]
 pub struct SceneLightingEffectReflectanceModel(pub i32);
 impl SceneLightingEffectReflectanceModel {

@@ -5,6 +5,7 @@ pub mod Analysis;
 pub mod Core;
 #[cfg(feature = "UI_Input_Inking_Preview")]
 pub mod Preview;
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct HandwritingLineHeight(pub i32);
 impl HandwritingLineHeight {
@@ -347,6 +348,7 @@ pub struct IInkPoint2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct IInkPointFactory(::windows::core::IUnknown);
 impl IInkPointFactory {
@@ -616,6 +618,7 @@ pub struct IInkPresenterRuler2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct IInkPresenterRulerFactory(::windows::core::IUnknown);
 impl IInkPresenterRulerFactory {
@@ -696,6 +699,7 @@ pub struct IInkPresenterRulerFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpresenter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct IInkPresenterStencil(::windows::core::IUnknown);
 impl IInkPresenterStencil {
@@ -873,6 +877,7 @@ pub struct IInkRecognizerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct IInkRecognizerContainer(::windows::core::IUnknown);
 impl IInkRecognizerContainer {
@@ -1125,6 +1130,7 @@ pub struct IInkStrokeBuilder3Vtbl(
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkpoints: ::windows::core::RawPtr, transform: super::super::super::Foundation::Numerics::Matrix3x2, strokestartedtime: ::windows::core::RawPtr, strokeduration: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections", feature = "Foundation_Numerics")))] usize,
 );
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct IInkStrokeContainer(::windows::core::IUnknown);
 impl IInkStrokeContainer {
@@ -1586,6 +1592,7 @@ pub struct IPenAndInkSettingsStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkDrawingAttributes(::windows::core::IUnknown);
 impl InkDrawingAttributes {
@@ -1783,6 +1790,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkD
 }
 unsafe impl ::core::marker::Send for InkDrawingAttributes {}
 unsafe impl ::core::marker::Sync for InkDrawingAttributes {}
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkDrawingAttributesKind(pub i32);
 impl InkDrawingAttributesKind {
@@ -1810,6 +1818,7 @@ unsafe impl ::windows::core::RuntimeType for InkDrawingAttributesKind {
 impl ::windows::core::DefaultType for InkDrawingAttributesKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkDrawingAttributesPencilProperties(::windows::core::IUnknown);
 impl InkDrawingAttributesPencilProperties {
@@ -1888,6 +1897,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkD
 }
 unsafe impl ::core::marker::Send for InkDrawingAttributesPencilProperties {}
 unsafe impl ::core::marker::Sync for InkDrawingAttributesPencilProperties {}
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkHighContrastAdjustment(pub i32);
 impl InkHighContrastAdjustment {
@@ -1916,6 +1926,7 @@ unsafe impl ::windows::core::RuntimeType for InkHighContrastAdjustment {
 impl ::windows::core::DefaultType for InkHighContrastAdjustment {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkInputConfiguration(::windows::core::IUnknown);
 impl InkInputConfiguration {
@@ -2016,6 +2027,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkI
 }
 unsafe impl ::core::marker::Send for InkInputConfiguration {}
 unsafe impl ::core::marker::Sync for InkInputConfiguration {}
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkInputProcessingConfiguration(::windows::core::IUnknown);
 impl InkInputProcessingConfiguration {
@@ -2105,6 +2117,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkI
 }
 unsafe impl ::core::marker::Send for InkInputProcessingConfiguration {}
 unsafe impl ::core::marker::Sync for InkInputProcessingConfiguration {}
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkInputProcessingMode(pub i32);
 impl InkInputProcessingMode {
@@ -2133,6 +2146,7 @@ unsafe impl ::windows::core::RuntimeType for InkInputProcessingMode {
 impl ::windows::core::DefaultType for InkInputProcessingMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkInputRightDragAction(pub i32);
 impl InkInputRightDragAction {
@@ -2160,6 +2174,7 @@ unsafe impl ::windows::core::RuntimeType for InkInputRightDragAction {
 impl ::windows::core::DefaultType for InkInputRightDragAction {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkManager(::windows::core::IUnknown);
 impl InkManager {
@@ -2438,6 +2453,7 @@ impl<'a> ::windows::core::IntoParam<'a, IInkStrokeContainer> for &InkManager {
         ::core::convert::TryInto::<IInkStrokeContainer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkManipulationMode(pub i32);
 impl InkManipulationMode {
@@ -2466,6 +2482,7 @@ unsafe impl ::windows::core::RuntimeType for InkManipulationMode {
 impl ::windows::core::DefaultType for InkManipulationMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkModelerAttributes(::windows::core::IUnknown);
 impl InkModelerAttributes {
@@ -2568,6 +2585,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkM
 }
 unsafe impl ::core::marker::Send for InkModelerAttributes {}
 unsafe impl ::core::marker::Sync for InkModelerAttributes {}
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkPersistenceFormat(pub i32);
 impl InkPersistenceFormat {
@@ -2595,6 +2613,7 @@ unsafe impl ::windows::core::RuntimeType for InkPersistenceFormat {
 impl ::windows::core::DefaultType for InkPersistenceFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkPoint(::windows::core::IUnknown);
 impl InkPoint {
@@ -2720,6 +2739,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkP
 }
 unsafe impl ::core::marker::Send for InkPoint {}
 unsafe impl ::core::marker::Sync for InkPoint {}
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkPresenter(::windows::core::IUnknown);
 impl InkPresenter {
@@ -2909,6 +2929,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkP
 }
 unsafe impl ::core::marker::Send for InkPresenter {}
 unsafe impl ::core::marker::Sync for InkPresenter {}
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkPresenterPredefinedConfiguration(pub i32);
 impl InkPresenterPredefinedConfiguration {
@@ -2936,6 +2957,7 @@ unsafe impl ::windows::core::RuntimeType for InkPresenterPredefinedConfiguration
 impl ::windows::core::DefaultType for InkPresenterPredefinedConfiguration {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkPresenterProtractor(::windows::core::IUnknown);
 impl InkPresenterProtractor {
@@ -3165,6 +3187,7 @@ impl<'a> ::windows::core::IntoParam<'a, IInkPresenterStencil> for &InkPresenterP
 }
 unsafe impl ::core::marker::Send for InkPresenterProtractor {}
 unsafe impl ::core::marker::Sync for InkPresenterProtractor {}
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkPresenterRuler(::windows::core::IUnknown);
 impl InkPresenterRuler {
@@ -3361,6 +3384,7 @@ impl<'a> ::windows::core::IntoParam<'a, IInkPresenterStencil> for &InkPresenterR
 }
 unsafe impl ::core::marker::Send for InkPresenterRuler {}
 unsafe impl ::core::marker::Sync for InkPresenterRuler {}
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkPresenterStencilKind(pub i32);
 impl InkPresenterStencilKind {
@@ -3389,6 +3413,7 @@ unsafe impl ::windows::core::RuntimeType for InkPresenterStencilKind {
 impl ::windows::core::DefaultType for InkPresenterStencilKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkRecognitionResult(::windows::core::IUnknown);
 impl InkRecognitionResult {
@@ -3480,6 +3505,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkR
 }
 unsafe impl ::core::marker::Send for InkRecognitionResult {}
 unsafe impl ::core::marker::Sync for InkRecognitionResult {}
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkRecognitionTarget(pub i32);
 impl InkRecognitionTarget {
@@ -3508,6 +3534,7 @@ unsafe impl ::windows::core::RuntimeType for InkRecognitionTarget {
 impl ::windows::core::DefaultType for InkRecognitionTarget {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkRecognizer(::windows::core::IUnknown);
 impl InkRecognizer {
@@ -3580,6 +3607,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkRecognizerContainer(::windows::core::IUnknown);
 impl InkRecognizerContainer {
@@ -3694,6 +3722,7 @@ impl<'a> ::windows::core::IntoParam<'a, IInkRecognizerContainer> for &InkRecogni
         ::core::convert::TryInto::<IInkRecognizerContainer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkStroke(::windows::core::IUnknown);
 impl InkStroke {
@@ -3874,6 +3903,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkS
 }
 unsafe impl ::core::marker::Send for InkStroke {}
 unsafe impl ::core::marker::Sync for InkStroke {}
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkStrokeBuilder(::windows::core::IUnknown);
 impl InkStrokeBuilder {
@@ -3992,6 +4022,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkStrokeContainer(::windows::core::IUnknown);
 impl InkStrokeContainer {
@@ -4210,6 +4241,7 @@ impl<'a> ::windows::core::IntoParam<'a, IInkStrokeContainer> for &InkStrokeConta
         ::core::convert::TryInto::<IInkStrokeContainer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkStrokeInput(::windows::core::IUnknown);
 impl InkStrokeInput {
@@ -4336,6 +4368,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkS
 }
 unsafe impl ::core::marker::Send for InkStrokeInput {}
 unsafe impl ::core::marker::Sync for InkStrokeInput {}
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkStrokeRenderingSegment(::windows::core::IUnknown);
 impl InkStrokeRenderingSegment {
@@ -4455,6 +4488,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkS
 }
 unsafe impl ::core::marker::Send for InkStrokeRenderingSegment {}
 unsafe impl ::core::marker::Sync for InkStrokeRenderingSegment {}
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkStrokesCollectedEventArgs(::windows::core::IUnknown);
 impl InkStrokesCollectedEventArgs {
@@ -4528,6 +4562,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkStrokesErasedEventArgs(::windows::core::IUnknown);
 impl InkStrokesErasedEventArgs {
@@ -4601,6 +4636,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkSynchronizer(::windows::core::IUnknown);
 impl InkSynchronizer {
@@ -4678,6 +4714,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct InkUnprocessedInput(::windows::core::IUnknown);
 impl InkUnprocessedInput {
@@ -4843,6 +4880,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &InkU
 }
 unsafe impl ::core::marker::Send for InkUnprocessedInput {}
 unsafe impl ::core::marker::Sync for InkUnprocessedInput {}
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct PenAndInkSettings(::windows::core::IUnknown);
 impl PenAndInkSettings {
@@ -4966,6 +5004,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PenA
 }
 unsafe impl ::core::marker::Send for PenAndInkSettings {}
 unsafe impl ::core::marker::Sync for PenAndInkSettings {}
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct PenHandedness(pub i32);
 impl PenHandedness {
@@ -4993,6 +5032,7 @@ unsafe impl ::windows::core::RuntimeType for PenHandedness {
 impl ::windows::core::DefaultType for PenHandedness {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
 pub struct PenTipShape(pub i32);
 impl PenTipShape {

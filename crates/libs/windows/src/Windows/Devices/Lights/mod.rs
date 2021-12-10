@@ -178,6 +178,7 @@ pub struct ILampStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Devices_Lights'*"]
 #[repr(transparent)]
 pub struct Lamp(::windows::core::IUnknown);
 impl Lamp {
@@ -362,6 +363,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for Lamp {}
 unsafe impl ::core::marker::Sync for Lamp {}
+#[doc = "*Required features: 'Devices_Lights'*"]
 #[repr(transparent)]
 pub struct LampArray(::windows::core::IUnknown);
 impl LampArray {
@@ -613,6 +615,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lamp
 }
 unsafe impl ::core::marker::Send for LampArray {}
 unsafe impl ::core::marker::Sync for LampArray {}
+#[doc = "*Required features: 'Devices_Lights'*"]
 #[repr(transparent)]
 pub struct LampArrayKind(pub i32);
 impl LampArrayKind {
@@ -649,6 +652,7 @@ unsafe impl ::windows::core::RuntimeType for LampArrayKind {
 impl ::windows::core::DefaultType for LampArrayKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Lights'*"]
 #[repr(transparent)]
 pub struct LampAvailabilityChangedEventArgs(::windows::core::IUnknown);
 impl LampAvailabilityChangedEventArgs {
@@ -723,6 +727,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lamp
 }
 unsafe impl ::core::marker::Send for LampAvailabilityChangedEventArgs {}
 unsafe impl ::core::marker::Sync for LampAvailabilityChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Lights'*"]
 #[repr(transparent)]
 pub struct LampInfo(::windows::core::IUnknown);
 impl LampInfo {
@@ -864,6 +869,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lamp
 }
 unsafe impl ::core::marker::Send for LampInfo {}
 unsafe impl ::core::marker::Sync for LampInfo {}
+#[doc = "*Required features: 'Devices_Lights'*"]
 #[repr(transparent)]
 pub struct LampPurposes(pub u32);
 impl LampPurposes {

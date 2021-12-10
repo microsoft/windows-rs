@@ -278,6 +278,7 @@ pub struct IVoiceCommandUserMessageVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_VoiceCommands'*"]
 #[repr(transparent)]
 pub struct VoiceCommand(::windows::core::IUnknown);
 impl VoiceCommand {
@@ -368,6 +369,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
 }
 unsafe impl ::core::marker::Send for VoiceCommand {}
 unsafe impl ::core::marker::Sync for VoiceCommand {}
+#[doc = "*Required features: 'ApplicationModel_VoiceCommands'*"]
 #[repr(transparent)]
 pub struct VoiceCommandCompletedEventArgs(::windows::core::IUnknown);
 impl VoiceCommandCompletedEventArgs {
@@ -442,6 +444,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
 }
 unsafe impl ::core::marker::Send for VoiceCommandCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for VoiceCommandCompletedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_VoiceCommands'*"]
 #[repr(transparent)]
 pub struct VoiceCommandCompletionReason(pub i32);
 impl VoiceCommandCompletionReason {
@@ -474,6 +477,7 @@ unsafe impl ::windows::core::RuntimeType for VoiceCommandCompletionReason {
 impl ::windows::core::DefaultType for VoiceCommandCompletionReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_VoiceCommands'*"]
 #[repr(transparent)]
 pub struct VoiceCommandConfirmationResult(::windows::core::IUnknown);
 impl VoiceCommandConfirmationResult {
@@ -548,6 +552,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
 }
 unsafe impl ::core::marker::Send for VoiceCommandConfirmationResult {}
 unsafe impl ::core::marker::Sync for VoiceCommandConfirmationResult {}
+#[doc = "*Required features: 'ApplicationModel_VoiceCommands'*"]
 #[repr(transparent)]
 pub struct VoiceCommandContentTile(::windows::core::IUnknown);
 impl VoiceCommandContentTile {
@@ -712,6 +717,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
 }
 unsafe impl ::core::marker::Send for VoiceCommandContentTile {}
 unsafe impl ::core::marker::Sync for VoiceCommandContentTile {}
+#[doc = "*Required features: 'ApplicationModel_VoiceCommands'*"]
 #[repr(transparent)]
 pub struct VoiceCommandContentTileType(pub i32);
 impl VoiceCommandContentTileType {
@@ -745,6 +751,7 @@ unsafe impl ::windows::core::RuntimeType for VoiceCommandContentTileType {
 impl ::windows::core::DefaultType for VoiceCommandContentTileType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_VoiceCommands'*"]
 #[repr(transparent)]
 pub struct VoiceCommandDefinition(::windows::core::IUnknown);
 impl VoiceCommandDefinition {
@@ -858,6 +865,7 @@ impl VoiceCommandDefinitionManager {
 impl ::windows::core::RuntimeName for VoiceCommandDefinitionManager {
     const NAME: &'static str = "Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinitionManager";
 }
+#[doc = "*Required features: 'ApplicationModel_VoiceCommands'*"]
 #[repr(transparent)]
 pub struct VoiceCommandDisambiguationResult(::windows::core::IUnknown);
 impl VoiceCommandDisambiguationResult {
@@ -932,6 +940,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
 }
 unsafe impl ::core::marker::Send for VoiceCommandDisambiguationResult {}
 unsafe impl ::core::marker::Sync for VoiceCommandDisambiguationResult {}
+#[doc = "*Required features: 'ApplicationModel_VoiceCommands'*"]
 #[repr(transparent)]
 pub struct VoiceCommandResponse(::windows::core::IUnknown);
 impl VoiceCommandResponse {
@@ -1076,6 +1085,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
 }
 unsafe impl ::core::marker::Send for VoiceCommandResponse {}
 unsafe impl ::core::marker::Sync for VoiceCommandResponse {}
+#[doc = "*Required features: 'ApplicationModel_VoiceCommands'*"]
 #[repr(transparent)]
 pub struct VoiceCommandServiceConnection(::windows::core::IUnknown);
 impl VoiceCommandServiceConnection {
@@ -1231,6 +1241,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Voic
 }
 unsafe impl ::core::marker::Send for VoiceCommandServiceConnection {}
 unsafe impl ::core::marker::Sync for VoiceCommandServiceConnection {}
+#[doc = "*Required features: 'ApplicationModel_VoiceCommands'*"]
 #[repr(transparent)]
 pub struct VoiceCommandUserMessage(::windows::core::IUnknown);
 impl VoiceCommandUserMessage {

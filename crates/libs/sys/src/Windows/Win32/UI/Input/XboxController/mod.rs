@@ -1,14 +1,21 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_UI_Input_XboxController', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn XInputEnable(enable: super::super::super::Foundation::BOOL);
+    #[doc = "*Required features: 'Win32_UI_Input_XboxController', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn XInputGetAudioDeviceIds(dwuserindex: u32, prenderdeviceid: super::super::super::Foundation::PWSTR, prendercount: *mut u32, pcapturedeviceid: super::super::super::Foundation::PWSTR, pcapturecount: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
     pub fn XInputGetBatteryInformation(dwuserindex: u32, devtype: u8, pbatteryinformation: *mut XINPUT_BATTERY_INFORMATION) -> u32;
+    #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
     pub fn XInputGetCapabilities(dwuserindex: u32, dwflags: u32, pcapabilities: *mut XINPUT_CAPABILITIES) -> u32;
+    #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
     pub fn XInputGetKeystroke(dwuserindex: u32, dwreserved: u32, pkeystroke: *mut XINPUT_KEYSTROKE) -> u32;
+    #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
     pub fn XInputGetState(dwuserindex: u32, pstate: *mut XINPUT_STATE) -> u32;
+    #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
     pub fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATION) -> u32;
 }
 pub const BATTERY_DEVTYPE_GAMEPAD: u32 = 0u32;
@@ -23,6 +30,7 @@ pub const BATTERY_TYPE_NIMH: u32 = 3u32;
 pub const BATTERY_TYPE_UNKNOWN: u32 = 255u32;
 pub const BATTERY_TYPE_WIRED: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub struct XINPUT_BATTERY_INFORMATION {
     pub BatteryType: u8,
     pub BatteryLevel: u8,
@@ -34,6 +42,7 @@ impl ::core::clone::Clone for XINPUT_BATTERY_INFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub struct XINPUT_CAPABILITIES {
     pub Type: u8,
     pub SubType: u8,
@@ -66,6 +75,7 @@ pub const XINPUT_DEVSUBTYPE_WHEEL: u32 = 2u32;
 pub const XINPUT_DEVTYPE_GAMEPAD: u32 = 1u32;
 pub const XINPUT_FLAG_GAMEPAD: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub struct XINPUT_GAMEPAD {
     pub wButtons: u16,
     pub bLeftTrigger: u8,
@@ -99,6 +109,7 @@ pub const XINPUT_GAMEPAD_TRIGGER_THRESHOLD: u32 = 30u32;
 pub const XINPUT_GAMEPAD_X: u32 = 16384u32;
 pub const XINPUT_GAMEPAD_Y: u32 = 32768u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub struct XINPUT_KEYSTROKE {
     pub VirtualKey: XINPUT_VIRTUAL_KEY,
     pub Unicode: u16,
@@ -116,6 +127,7 @@ pub const XINPUT_KEYSTROKE_KEYDOWN: u32 = 1u32;
 pub const XINPUT_KEYSTROKE_KEYUP: u32 = 2u32;
 pub const XINPUT_KEYSTROKE_REPEAT: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub struct XINPUT_STATE {
     pub dwPacketNumber: u32,
     pub Gamepad: XINPUT_GAMEPAD,
@@ -127,6 +139,7 @@ impl ::core::clone::Clone for XINPUT_STATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub struct XINPUT_VIBRATION {
     pub wLeftMotorSpeed: u16,
     pub wRightMotorSpeed: u16,
@@ -137,38 +150,71 @@ impl ::core::clone::Clone for XINPUT_VIBRATION {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub type XINPUT_VIRTUAL_KEY = u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_A: XINPUT_VIRTUAL_KEY = 22528u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_B: XINPUT_VIRTUAL_KEY = 22529u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_X: XINPUT_VIRTUAL_KEY = 22530u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_Y: XINPUT_VIRTUAL_KEY = 22531u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_RSHOULDER: XINPUT_VIRTUAL_KEY = 22532u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_LSHOULDER: XINPUT_VIRTUAL_KEY = 22533u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_LTRIGGER: XINPUT_VIRTUAL_KEY = 22534u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_RTRIGGER: XINPUT_VIRTUAL_KEY = 22535u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_DPAD_UP: XINPUT_VIRTUAL_KEY = 22544u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_DPAD_DOWN: XINPUT_VIRTUAL_KEY = 22545u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_DPAD_LEFT: XINPUT_VIRTUAL_KEY = 22546u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_DPAD_RIGHT: XINPUT_VIRTUAL_KEY = 22547u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_START: XINPUT_VIRTUAL_KEY = 22548u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_BACK: XINPUT_VIRTUAL_KEY = 22549u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_LTHUMB_PRESS: XINPUT_VIRTUAL_KEY = 22550u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_RTHUMB_PRESS: XINPUT_VIRTUAL_KEY = 22551u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_LTHUMB_UP: XINPUT_VIRTUAL_KEY = 22560u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_LTHUMB_DOWN: XINPUT_VIRTUAL_KEY = 22561u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_LTHUMB_RIGHT: XINPUT_VIRTUAL_KEY = 22562u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_LTHUMB_LEFT: XINPUT_VIRTUAL_KEY = 22563u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_LTHUMB_UPLEFT: XINPUT_VIRTUAL_KEY = 22564u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_LTHUMB_UPRIGHT: XINPUT_VIRTUAL_KEY = 22565u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_LTHUMB_DOWNRIGHT: XINPUT_VIRTUAL_KEY = 22566u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_LTHUMB_DOWNLEFT: XINPUT_VIRTUAL_KEY = 22567u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_RTHUMB_UP: XINPUT_VIRTUAL_KEY = 22576u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_RTHUMB_DOWN: XINPUT_VIRTUAL_KEY = 22577u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_RTHUMB_RIGHT: XINPUT_VIRTUAL_KEY = 22578u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_RTHUMB_LEFT: XINPUT_VIRTUAL_KEY = 22579u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_RTHUMB_UPLEFT: XINPUT_VIRTUAL_KEY = 22580u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_RTHUMB_UPRIGHT: XINPUT_VIRTUAL_KEY = 22581u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_RTHUMB_DOWNRIGHT: XINPUT_VIRTUAL_KEY = 22582u16;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const VK_PAD_RTHUMB_DOWNLEFT: XINPUT_VIRTUAL_KEY = 22583u16;
 pub const XUSER_INDEX_ANY: u32 = 255u32;
 pub const XUSER_MAX_COUNT: u32 = 4u32;

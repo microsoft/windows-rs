@@ -248,6 +248,7 @@ impl KnownSimpleHapticsControllerWaveforms {
 impl ::windows::core::RuntimeName for KnownSimpleHapticsControllerWaveforms {
     const NAME: &'static str = "Windows.Devices.Haptics.KnownSimpleHapticsControllerWaveforms";
 }
+#[doc = "*Required features: 'Devices_Haptics'*"]
 #[repr(transparent)]
 pub struct SimpleHapticsController(::windows::core::IUnknown);
 impl SimpleHapticsController {
@@ -380,6 +381,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Simp
 }
 unsafe impl ::core::marker::Send for SimpleHapticsController {}
 unsafe impl ::core::marker::Sync for SimpleHapticsController {}
+#[doc = "*Required features: 'Devices_Haptics'*"]
 #[repr(transparent)]
 pub struct SimpleHapticsControllerFeedback(::windows::core::IUnknown);
 impl SimpleHapticsControllerFeedback {
@@ -462,6 +464,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Simp
 }
 unsafe impl ::core::marker::Send for SimpleHapticsControllerFeedback {}
 unsafe impl ::core::marker::Sync for SimpleHapticsControllerFeedback {}
+#[doc = "*Required features: 'Devices_Haptics'*"]
 #[repr(transparent)]
 pub struct VibrationAccessStatus(pub i32);
 impl VibrationAccessStatus {
@@ -491,6 +494,7 @@ unsafe impl ::windows::core::RuntimeType for VibrationAccessStatus {
 impl ::windows::core::DefaultType for VibrationAccessStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Haptics'*"]
 #[repr(transparent)]
 pub struct VibrationDevice(::windows::core::IUnknown);
 impl VibrationDevice {

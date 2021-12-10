@@ -244,6 +244,7 @@ pub struct IInputInjectorStatics2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
 pub struct InjectedInputButtonChangeKind(pub i32);
 impl InjectedInputButtonChangeKind {
@@ -280,6 +281,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputButtonChangeKind {
 impl ::windows::core::DefaultType for InjectedInputButtonChangeKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
 pub struct InjectedInputGamepadInfo(::windows::core::IUnknown);
 impl InjectedInputGamepadInfo {
@@ -442,6 +444,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inje
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
 pub struct InjectedInputKeyOptions(pub u32);
 impl InjectedInputKeyOptions {
@@ -472,6 +475,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputKeyOptions {
 impl ::windows::core::DefaultType for InjectedInputKeyOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
 pub struct InjectedInputKeyboardInfo(::windows::core::IUnknown);
 impl InjectedInputKeyboardInfo {
@@ -577,6 +581,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inje
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
 pub struct InjectedInputMouseInfo(::windows::core::IUnknown);
 impl InjectedInputMouseInfo {
@@ -704,6 +709,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inje
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
 pub struct InjectedInputMouseOptions(pub u32);
 impl InjectedInputMouseOptions {
@@ -744,6 +750,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputMouseOptions {
 impl ::windows::core::DefaultType for InjectedInputMouseOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
 pub struct InjectedInputPenButtons(pub u32);
 impl InjectedInputPenButtons {
@@ -773,6 +780,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputPenButtons {
 impl ::windows::core::DefaultType for InjectedInputPenButtons {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
 pub struct InjectedInputPenInfo(::windows::core::IUnknown);
 impl InjectedInputPenInfo {
@@ -922,6 +930,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inje
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
 pub struct InjectedInputPenParameters(pub u32);
 impl InjectedInputPenParameters {
@@ -953,6 +962,7 @@ impl ::windows::core::DefaultType for InjectedInputPenParameters {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 pub struct InjectedInputPoint {
     pub PositionX: i32,
     pub PositionY: i32,
@@ -984,6 +994,7 @@ impl ::core::default::Default for InjectedInputPoint {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 pub struct InjectedInputPointerInfo {
     pub PointerId: u32,
     pub PointerOptions: InjectedInputPointerOptions,
@@ -1017,6 +1028,7 @@ impl ::core::default::Default for InjectedInputPointerInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
 pub struct InjectedInputPointerOptions(pub u32);
 impl InjectedInputPointerOptions {
@@ -1056,6 +1068,7 @@ impl ::windows::core::DefaultType for InjectedInputPointerOptions {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 pub struct InjectedInputRectangle {
     pub Left: i32,
     pub Top: i32,
@@ -1088,6 +1101,7 @@ impl ::core::default::Default for InjectedInputRectangle {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
 pub struct InjectedInputShortcut(pub i32);
 impl InjectedInputShortcut {
@@ -1116,6 +1130,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputShortcut {
 impl ::windows::core::DefaultType for InjectedInputShortcut {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
 pub struct InjectedInputTouchInfo(::windows::core::IUnknown);
 impl InjectedInputTouchInfo {
@@ -1243,6 +1258,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inje
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
 pub struct InjectedInputTouchParameters(pub u32);
 impl InjectedInputTouchParameters {
@@ -1272,6 +1288,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputTouchParameters {
 impl ::windows::core::DefaultType for InjectedInputTouchParameters {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
 pub struct InjectedInputVisualizationMode(pub i32);
 impl InjectedInputVisualizationMode {
@@ -1300,6 +1317,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputVisualizationMode {
 impl ::windows::core::DefaultType for InjectedInputVisualizationMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
 pub struct InputInjector(::windows::core::IUnknown);
 impl InputInjector {

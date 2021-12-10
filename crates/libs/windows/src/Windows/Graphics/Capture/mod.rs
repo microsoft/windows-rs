@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Graphics_Capture'*"]
 #[repr(transparent)]
 pub struct Direct3D11CaptureFrame(::windows::core::IUnknown);
 impl Direct3D11CaptureFrame {
@@ -120,6 +121,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for Direct3D11CaptureFrame {}
 unsafe impl ::core::marker::Sync for Direct3D11CaptureFrame {}
+#[doc = "*Required features: 'Graphics_Capture'*"]
 #[repr(transparent)]
 pub struct Direct3D11CaptureFramePool(::windows::core::IUnknown);
 impl Direct3D11CaptureFramePool {
@@ -297,6 +299,7 @@ impl GraphicsCaptureAccess {
 impl ::windows::core::RuntimeName for GraphicsCaptureAccess {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCaptureAccess";
 }
+#[doc = "*Required features: 'Graphics_Capture'*"]
 #[repr(transparent)]
 pub struct GraphicsCaptureAccessKind(pub i32);
 impl GraphicsCaptureAccessKind {
@@ -324,6 +327,7 @@ unsafe impl ::windows::core::RuntimeType for GraphicsCaptureAccessKind {
 impl ::windows::core::DefaultType for GraphicsCaptureAccessKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Capture'*"]
 #[repr(transparent)]
 pub struct GraphicsCaptureItem(::windows::core::IUnknown);
 impl GraphicsCaptureItem {
@@ -446,6 +450,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Grap
 }
 unsafe impl ::core::marker::Send for GraphicsCaptureItem {}
 unsafe impl ::core::marker::Sync for GraphicsCaptureItem {}
+#[doc = "*Required features: 'Graphics_Capture'*"]
 #[repr(transparent)]
 pub struct GraphicsCapturePicker(::windows::core::IUnknown);
 impl GraphicsCapturePicker {
@@ -528,6 +533,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Grap
 }
 unsafe impl ::core::marker::Send for GraphicsCapturePicker {}
 unsafe impl ::core::marker::Sync for GraphicsCapturePicker {}
+#[doc = "*Required features: 'Graphics_Capture'*"]
 #[repr(transparent)]
 pub struct GraphicsCaptureSession(::windows::core::IUnknown);
 impl GraphicsCaptureSession {

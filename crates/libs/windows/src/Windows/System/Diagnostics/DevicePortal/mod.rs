@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'System_Diagnostics_DevicePortal'*"]
 #[repr(transparent)]
 pub struct DevicePortalConnection(::windows::core::IUnknown);
 impl DevicePortalConnection {
@@ -143,6 +144,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DevicePortalConnection {}
 unsafe impl ::core::marker::Sync for DevicePortalConnection {}
+#[doc = "*Required features: 'System_Diagnostics_DevicePortal'*"]
 #[repr(transparent)]
 pub struct DevicePortalConnectionClosedEventArgs(::windows::core::IUnknown);
 impl DevicePortalConnectionClosedEventArgs {
@@ -217,6 +219,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DevicePortalConnectionClosedEventArgs {}
 unsafe impl ::core::marker::Sync for DevicePortalConnectionClosedEventArgs {}
+#[doc = "*Required features: 'System_Diagnostics_DevicePortal'*"]
 #[repr(transparent)]
 pub struct DevicePortalConnectionClosedReason(pub i32);
 impl DevicePortalConnectionClosedReason {
@@ -248,6 +251,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePortalConnectionClosedReason 
 impl ::windows::core::DefaultType for DevicePortalConnectionClosedReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_Diagnostics_DevicePortal'*"]
 #[repr(transparent)]
 pub struct DevicePortalConnectionRequestReceivedEventArgs(::windows::core::IUnknown);
 impl DevicePortalConnectionRequestReceivedEventArgs {

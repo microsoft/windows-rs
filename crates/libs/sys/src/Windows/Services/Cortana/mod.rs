@@ -3,6 +3,7 @@
 extern "system" {}
 pub type CortanaActionableInsights = *mut ::core::ffi::c_void;
 pub type CortanaActionableInsightsOptions = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Services_Cortana', 'deprecated'*"]
 #[repr(transparent)]
 pub struct CortanaPermission(pub i32);
 impl CortanaPermission {
@@ -24,6 +25,7 @@ impl ::core::clone::Clone for CortanaPermission {
         *self
     }
 }
+#[doc = "*Required features: 'Services_Cortana', 'deprecated'*"]
 #[repr(transparent)]
 pub struct CortanaPermissionsChangeResult(pub i32);
 impl CortanaPermissionsChangeResult {

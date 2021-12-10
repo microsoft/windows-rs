@@ -7,6 +7,7 @@ pub mod Core;
 pub mod DataProtection;
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'Security_Cryptography'*"]
 #[repr(transparent)]
 pub struct BinaryStringEncoding(pub i32);
 impl BinaryStringEncoding {

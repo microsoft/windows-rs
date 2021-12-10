@@ -5,6 +5,7 @@ pub mod Provisioning;
 extern "system" {}
 pub type ContactAddress = *mut ::core::ffi::c_void;
 pub type ContactChangeRecord = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Phone_PersonalInformation'*"]
 #[repr(transparent)]
 pub struct ContactChangeType(pub i32);
 impl ContactChangeType {
@@ -21,6 +22,7 @@ impl ::core::clone::Clone for ContactChangeType {
 pub type ContactInformation = *mut ::core::ffi::c_void;
 pub type ContactQueryOptions = *mut ::core::ffi::c_void;
 pub type ContactQueryResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Phone_PersonalInformation'*"]
 #[repr(transparent)]
 pub struct ContactQueryResultOrdering(pub i32);
 impl ContactQueryResultOrdering {
@@ -35,6 +37,7 @@ impl ::core::clone::Clone for ContactQueryResultOrdering {
     }
 }
 pub type ContactStore = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Phone_PersonalInformation'*"]
 #[repr(transparent)]
 pub struct ContactStoreApplicationAccessMode(pub i32);
 impl ContactStoreApplicationAccessMode {
@@ -47,6 +50,7 @@ impl ::core::clone::Clone for ContactStoreApplicationAccessMode {
         *self
     }
 }
+#[doc = "*Required features: 'Phone_PersonalInformation'*"]
 #[repr(transparent)]
 pub struct ContactStoreSystemAccessMode(pub i32);
 impl ContactStoreSystemAccessMode {
@@ -62,6 +66,7 @@ impl ::core::clone::Clone for ContactStoreSystemAccessMode {
 pub type IContactInformation = *mut ::core::ffi::c_void;
 pub type IContactInformation2 = *mut ::core::ffi::c_void;
 pub type StoredContact = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Phone_PersonalInformation'*"]
 #[repr(transparent)]
 pub struct VCardFormat(pub i32);
 impl VCardFormat {

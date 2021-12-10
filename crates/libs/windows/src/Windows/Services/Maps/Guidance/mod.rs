@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
 pub struct GuidanceAudioMeasurementSystem(pub i32);
 impl GuidanceAudioMeasurementSystem {
@@ -27,6 +28,7 @@ unsafe impl ::windows::core::RuntimeType for GuidanceAudioMeasurementSystem {
 impl ::windows::core::DefaultType for GuidanceAudioMeasurementSystem {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
 pub struct GuidanceAudioNotificationKind(pub i32);
 impl GuidanceAudioNotificationKind {
@@ -58,6 +60,7 @@ unsafe impl ::windows::core::RuntimeType for GuidanceAudioNotificationKind {
 impl ::windows::core::DefaultType for GuidanceAudioNotificationKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
 pub struct GuidanceAudioNotificationRequestedEventArgs(::windows::core::IUnknown);
 impl GuidanceAudioNotificationRequestedEventArgs {
@@ -147,6 +150,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
 }
 unsafe impl ::core::marker::Send for GuidanceAudioNotificationRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for GuidanceAudioNotificationRequestedEventArgs {}
+#[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
 pub struct GuidanceAudioNotifications(pub u32);
 impl GuidanceAudioNotifications {
@@ -179,6 +183,7 @@ unsafe impl ::windows::core::RuntimeType for GuidanceAudioNotifications {
 impl ::windows::core::DefaultType for GuidanceAudioNotifications {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
 pub struct GuidanceLaneInfo(::windows::core::IUnknown);
 impl GuidanceLaneInfo {
@@ -260,6 +265,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
 }
 unsafe impl ::core::marker::Send for GuidanceLaneInfo {}
 unsafe impl ::core::marker::Sync for GuidanceLaneInfo {}
+#[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
 pub struct GuidanceLaneMarkers(pub u32);
 impl GuidanceLaneMarkers {
@@ -296,6 +302,7 @@ unsafe impl ::windows::core::RuntimeType for GuidanceLaneMarkers {
 impl ::windows::core::DefaultType for GuidanceLaneMarkers {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
 pub struct GuidanceManeuver(::windows::core::IUnknown);
 impl GuidanceManeuver {
@@ -448,6 +455,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
 }
 unsafe impl ::core::marker::Send for GuidanceManeuver {}
 unsafe impl ::core::marker::Sync for GuidanceManeuver {}
+#[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
 pub struct GuidanceManeuverKind(pub i32);
 impl GuidanceManeuverKind {
@@ -521,6 +529,7 @@ unsafe impl ::windows::core::RuntimeType for GuidanceManeuverKind {
 impl ::windows::core::DefaultType for GuidanceManeuverKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
 pub struct GuidanceMapMatchedCoordinate(::windows::core::IUnknown);
 impl GuidanceMapMatchedCoordinate {
@@ -624,6 +633,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
 }
 unsafe impl ::core::marker::Send for GuidanceMapMatchedCoordinate {}
 unsafe impl ::core::marker::Sync for GuidanceMapMatchedCoordinate {}
+#[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
 pub struct GuidanceMode(pub i32);
 impl GuidanceMode {
@@ -653,6 +663,7 @@ unsafe impl ::windows::core::RuntimeType for GuidanceMode {
 impl ::windows::core::DefaultType for GuidanceMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
 pub struct GuidanceNavigator(::windows::core::IUnknown);
 impl GuidanceNavigator {
@@ -919,6 +930,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
 }
 unsafe impl ::core::marker::Send for GuidanceNavigator {}
 unsafe impl ::core::marker::Sync for GuidanceNavigator {}
+#[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
 pub struct GuidanceReroutedEventArgs(::windows::core::IUnknown);
 impl GuidanceReroutedEventArgs {
@@ -993,6 +1005,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
 }
 unsafe impl ::core::marker::Send for GuidanceReroutedEventArgs {}
 unsafe impl ::core::marker::Sync for GuidanceReroutedEventArgs {}
+#[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
 pub struct GuidanceRoadSegment(::windows::core::IUnknown);
 impl GuidanceRoadSegment {
@@ -1132,6 +1145,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
 }
 unsafe impl ::core::marker::Send for GuidanceRoadSegment {}
 unsafe impl ::core::marker::Sync for GuidanceRoadSegment {}
+#[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
 pub struct GuidanceRoadSignpost(::windows::core::IUnknown);
 impl GuidanceRoadSignpost {
@@ -1237,6 +1251,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
 }
 unsafe impl ::core::marker::Send for GuidanceRoadSignpost {}
 unsafe impl ::core::marker::Sync for GuidanceRoadSignpost {}
+#[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
 pub struct GuidanceRoute(::windows::core::IUnknown);
 impl GuidanceRoute {
@@ -1374,6 +1389,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
 }
 unsafe impl ::core::marker::Send for GuidanceRoute {}
 unsafe impl ::core::marker::Sync for GuidanceRoute {}
+#[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
 pub struct GuidanceTelemetryCollector(::windows::core::IUnknown);
 impl GuidanceTelemetryCollector {
@@ -1488,6 +1504,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Guid
 }
 unsafe impl ::core::marker::Send for GuidanceTelemetryCollector {}
 unsafe impl ::core::marker::Sync for GuidanceTelemetryCollector {}
+#[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
 pub struct GuidanceUpdatedEventArgs(::windows::core::IUnknown);
 impl GuidanceUpdatedEventArgs {

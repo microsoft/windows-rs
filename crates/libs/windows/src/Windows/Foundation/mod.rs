@@ -7,6 +7,7 @@ pub mod Diagnostics;
 pub mod Metadata;
 #[cfg(feature = "Foundation_Numerics")]
 pub mod Numerics;
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct AsyncActionCompletedHandler(pub ::windows::core::IUnknown);
 impl AsyncActionCompletedHandler {
@@ -75,6 +76,7 @@ unsafe impl ::windows::core::RuntimeType for AsyncActionCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct AsyncActionCompletedHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, asyncinfo: ::windows::core::RawPtr, asyncstatus: AsyncStatus) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct AsyncActionProgressHandler<TProgress>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<TProgress>)
 where
@@ -156,6 +158,7 @@ pub struct AsyncActionProgressHandlerVtbl<TProgress>(
 )
 where
     TProgress: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct AsyncActionWithProgressCompletedHandler<TProgress>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<TProgress>)
 where
@@ -237,6 +240,7 @@ pub struct AsyncActionWithProgressCompletedHandlerVtbl<TProgress>(
 )
 where
     TProgress: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct AsyncOperationCompletedHandler<TResult>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<TResult>)
 where
@@ -318,6 +322,7 @@ pub struct AsyncOperationCompletedHandlerVtbl<TResult>(
 )
 where
     TResult: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct AsyncOperationProgressHandler<TResult, TProgress>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<TResult>, ::core::marker::PhantomData<TProgress>)
 where
@@ -403,6 +408,7 @@ pub struct AsyncOperationProgressHandlerVtbl<TResult, TProgress>(
 where
     TResult: ::windows::core::RuntimeType + 'static,
     TProgress: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct AsyncOperationWithProgressCompletedHandler<TResult, TProgress>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<TResult>, ::core::marker::PhantomData<TProgress>)
 where
@@ -488,6 +494,7 @@ pub struct AsyncOperationWithProgressCompletedHandlerVtbl<TResult, TProgress>(
 where
     TResult: ::windows::core::RuntimeType + 'static,
     TProgress: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct AsyncStatus(pub i32);
 impl AsyncStatus {
@@ -518,6 +525,7 @@ impl ::windows::core::DefaultType for AsyncStatus {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Foundation'*"]
 pub struct DateTime {
     pub UniversalTime: i64,
 }
@@ -547,6 +555,7 @@ impl ::core::default::Default for DateTime {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct Deferral(::windows::core::IUnknown);
 impl Deferral {
@@ -654,6 +663,7 @@ impl<'a> ::windows::core::IntoParam<'a, IClosable> for &Deferral {
 }
 unsafe impl ::core::marker::Send for Deferral {}
 unsafe impl ::core::marker::Sync for Deferral {}
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct DeferralCompletedHandler(pub ::windows::core::IUnknown);
 impl DeferralCompletedHandler {
@@ -722,6 +732,7 @@ unsafe impl ::windows::core::RuntimeType for DeferralCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DeferralCompletedHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct EventHandler<T>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
@@ -804,6 +815,7 @@ pub struct EventHandlerVtbl<T>(
 where
     T: ::windows::core::RuntimeType + 'static;
 #[repr(C)]
+#[doc = "*Required features: 'Foundation'*"]
 pub struct EventRegistrationToken {
     pub Value: i64,
 }
@@ -861,6 +873,7 @@ impl GuidHelper {
 impl ::windows::core::RuntimeName for GuidHelper {
     const NAME: &'static str = "Windows.Foundation.GuidHelper";
 }
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct IAsyncAction(::windows::core::IUnknown);
 impl IAsyncAction {
@@ -1032,6 +1045,7 @@ pub struct IAsyncActionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct IAsyncActionWithProgress<TProgress>(::windows::core::IUnknown, ::core::marker::PhantomData<TProgress>)
 where
@@ -1221,6 +1235,7 @@ pub struct IAsyncActionWithProgressVtbl<TProgress>(
 )
 where
     TProgress: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct IAsyncInfo(::windows::core::IUnknown);
 impl IAsyncInfo {
@@ -1327,6 +1342,7 @@ pub struct IAsyncInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct IAsyncOperation<TResult>(::windows::core::IUnknown, ::core::marker::PhantomData<TResult>)
 where
@@ -1506,6 +1522,7 @@ pub struct IAsyncOperationVtbl<TResult>(
 )
 where
     TResult: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct IAsyncOperationWithProgress<TResult, TProgress>(::windows::core::IUnknown, ::core::marker::PhantomData<TResult>, ::core::marker::PhantomData<TProgress>)
 where
@@ -1701,6 +1718,7 @@ pub struct IAsyncOperationWithProgressVtbl<TResult, TProgress>(
 where
     TResult: ::windows::core::RuntimeType + 'static,
     TProgress: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct IClosable(::windows::core::IUnknown);
 impl IClosable {
@@ -1814,6 +1832,7 @@ pub struct IDeferralFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct IGetActivationFactory(::windows::core::IUnknown);
 impl IGetActivationFactory {
@@ -1914,6 +1933,7 @@ pub struct IGuidHelperStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: &::windows::core::GUID, value: &::windows::core::GUID, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct IMemoryBuffer(::windows::core::IUnknown);
 impl IMemoryBuffer {
@@ -2038,6 +2058,7 @@ pub struct IMemoryBufferFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capacity: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct IMemoryBufferReference(::windows::core::IUnknown);
 impl IMemoryBufferReference {
@@ -2157,6 +2178,7 @@ pub struct IMemoryBufferReferenceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut EventRegistrationToken) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: EventRegistrationToken) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct IPropertyValue(::windows::core::IUnknown);
 impl IPropertyValue {
@@ -2540,6 +2562,7 @@ pub struct IPropertyValueStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const Size, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const Rect, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct IReference<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
@@ -2863,6 +2886,7 @@ pub struct IReferenceVtbl<T>(
 )
 where
     T: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct IReferenceArray<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
@@ -3186,6 +3210,7 @@ pub struct IReferenceArrayVtbl<T>(
 )
 where
     T: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct IStringable(::windows::core::IUnknown);
 impl IStringable {
@@ -3357,6 +3382,7 @@ pub struct IUriRuntimeClassWithAbsoluteCanonicalUriVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct IWwwFormUrlDecoderEntry(::windows::core::IUnknown);
 impl IWwwFormUrlDecoderEntry {
@@ -3481,6 +3507,7 @@ pub struct IWwwFormUrlDecoderRuntimeClassFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, query: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct MemoryBuffer(::windows::core::IUnknown);
 impl MemoryBuffer {
@@ -3614,6 +3641,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMemoryBuffer> for &MemoryBuffer {
 unsafe impl ::core::marker::Send for MemoryBuffer {}
 unsafe impl ::core::marker::Sync for MemoryBuffer {}
 #[repr(C)]
+#[doc = "*Required features: 'Foundation'*"]
 pub struct Point {
     pub X: f32,
     pub Y: f32,
@@ -3644,6 +3672,7 @@ impl ::core::default::Default for Point {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct PropertyType(pub i32);
 impl PropertyType {
@@ -3955,6 +3984,7 @@ impl ::windows::core::RuntimeName for PropertyValue {
     const NAME: &'static str = "Windows.Foundation.PropertyValue";
 }
 #[repr(C)]
+#[doc = "*Required features: 'Foundation'*"]
 pub struct Rect {
     pub X: f32,
     pub Y: f32,
@@ -3988,6 +4018,7 @@ impl ::core::default::Default for Rect {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Foundation'*"]
 pub struct Size {
     pub Width: f32,
     pub Height: f32,
@@ -4019,6 +4050,7 @@ impl ::core::default::Default for Size {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Foundation'*"]
 pub struct TimeSpan {
     pub Duration: i64,
 }
@@ -4063,6 +4095,7 @@ impl<'a> ::windows::core::IntoParam<'a, TimeSpan> for ::core::time::Duration {
         ::windows::core::Param::Owned(self.into())
     }
 }
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct TypedEventHandler<TSender, TResult>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<TSender>, ::core::marker::PhantomData<TResult>)
 where
@@ -4148,6 +4181,7 @@ pub struct TypedEventHandlerVtbl<TSender, TResult>(
 where
     TSender: ::windows::core::RuntimeType + 'static,
     TResult: ::windows::core::RuntimeType + 'static;
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct Uri(::windows::core::IUnknown);
 impl Uri {
@@ -4409,6 +4443,7 @@ impl<'a> ::windows::core::IntoParam<'a, IStringable> for &Uri {
 }
 unsafe impl ::core::marker::Send for Uri {}
 unsafe impl ::core::marker::Sync for Uri {}
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct WwwFormUrlDecoder(::windows::core::IUnknown);
 impl WwwFormUrlDecoder {
@@ -4601,6 +4636,7 @@ impl<'a> ::windows::core::IntoParam<'a, Collections::IVectorView<IWwwFormUrlDeco
 }
 unsafe impl ::core::marker::Send for WwwFormUrlDecoder {}
 unsafe impl ::core::marker::Sync for WwwFormUrlDecoder {}
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct WwwFormUrlDecoderEntry(::windows::core::IUnknown);
 impl WwwFormUrlDecoderEntry {

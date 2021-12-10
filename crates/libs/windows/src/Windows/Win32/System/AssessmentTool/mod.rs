@@ -5,6 +5,7 @@ pub const CProvideWinSATVisuals: ::windows::core::GUID = ::windows::core::GUID::
 pub const CQueryAllWinSAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05df8d13_c355_47f4_a11e_851b338cefb8);
 pub const CQueryOEMWinSATCustomization: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc47a41b7_b729_424f_9af9_5cb3934f2dfa);
 pub const CQueryWinSAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3bdfad3_f276_49e9_9b17_c474f48f0764);
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 #[repr(transparent)]
 pub struct IAccessibleWinSAT(::windows::core::IUnknown);
 impl IAccessibleWinSAT {
@@ -272,6 +273,7 @@ pub struct IAccessibleWinSATVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wsname: super::super::Foundation::PWSTR, wsvalue: super::super::Foundation::PWSTR, wsdesc: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 #[repr(transparent)]
 pub struct IInitiateWinSATAssessment(::windows::core::IUnknown);
 impl IInitiateWinSATAssessment {
@@ -334,6 +336,7 @@ pub struct IInitiateWinSATAssessmentVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 #[repr(transparent)]
 pub struct IProvideWinSATAssessmentInfo(::windows::core::IUnknown);
 impl IProvideWinSATAssessmentInfo {
@@ -449,6 +452,7 @@ pub struct IProvideWinSATAssessmentInfoVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 #[repr(transparent)]
 pub struct IProvideWinSATResultsInfo(::windows::core::IUnknown);
 impl IProvideWinSATResultsInfo {
@@ -574,6 +578,7 @@ pub struct IProvideWinSATResultsInfoVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 #[repr(transparent)]
 pub struct IProvideWinSATVisuals(::windows::core::IUnknown);
 impl IProvideWinSATVisuals {
@@ -627,6 +632,7 @@ pub struct IProvideWinSATVisualsVtbl(
     #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmapsize: WINSAT_BITMAP_SIZE, state: WINSAT_ASSESSMENT_STATE, rating: f32, pbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 #[repr(transparent)]
 pub struct IQueryAllWinSATAssessments(::windows::core::IUnknown);
 impl IQueryAllWinSATAssessments {
@@ -730,6 +736,7 @@ pub struct IQueryAllWinSATAssessmentsVtbl(
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, namespaces: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdomnodelist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 #[repr(transparent)]
 pub struct IQueryOEMWinSATCustomization(::windows::core::IUnknown);
 impl IQueryOEMWinSATCustomization {
@@ -776,6 +783,7 @@ unsafe impl ::windows::core::Interface for IQueryOEMWinSATCustomization {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IQueryOEMWinSATCustomizationVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: *mut WINSAT_OEM_DATA_TYPE) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 #[repr(transparent)]
 pub struct IQueryRecentWinSATAssessment(::windows::core::IUnknown);
 impl IQueryRecentWinSATAssessment {
@@ -884,6 +892,7 @@ pub struct IQueryRecentWinSATAssessmentVtbl(
     #[cfg(not(any(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwinsatassessmentinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 #[repr(transparent)]
 pub struct IWinSATInitiateEvents(::windows::core::IUnknown);
 impl IWinSATInitiateEvents {
@@ -942,25 +951,47 @@ pub struct IWinSATInitiateEventsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ucurrenttick: u32, uticktotal: u32, strcurrentstate: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub type WINSAT_ASSESSMENT_STATE = i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub const WINSAT_ASSESSMENT_STATE_MIN: WINSAT_ASSESSMENT_STATE = 0i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub const WINSAT_ASSESSMENT_STATE_UNKNOWN: WINSAT_ASSESSMENT_STATE = 0i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub const WINSAT_ASSESSMENT_STATE_VALID: WINSAT_ASSESSMENT_STATE = 1i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub const WINSAT_ASSESSMENT_STATE_INCOHERENT_WITH_HARDWARE: WINSAT_ASSESSMENT_STATE = 2i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub const WINSAT_ASSESSMENT_STATE_NOT_AVAILABLE: WINSAT_ASSESSMENT_STATE = 3i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub const WINSAT_ASSESSMENT_STATE_INVALID: WINSAT_ASSESSMENT_STATE = 4i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub const WINSAT_ASSESSMENT_STATE_MAX: WINSAT_ASSESSMENT_STATE = 4i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub type WINSAT_ASSESSMENT_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub const WINSAT_ASSESSMENT_MEMORY: WINSAT_ASSESSMENT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub const WINSAT_ASSESSMENT_CPU: WINSAT_ASSESSMENT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub const WINSAT_ASSESSMENT_DISK: WINSAT_ASSESSMENT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub const WINSAT_ASSESSMENT_D3D: WINSAT_ASSESSMENT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub const WINSAT_ASSESSMENT_GRAPHICS: WINSAT_ASSESSMENT_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub type WINSAT_BITMAP_SIZE = i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub const WINSAT_BITMAP_SIZE_SMALL: WINSAT_BITMAP_SIZE = 0i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub const WINSAT_BITMAP_SIZE_NORMAL: WINSAT_BITMAP_SIZE = 1i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub type WINSAT_OEM_DATA_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub const WINSAT_OEM_DATA_VALID: WINSAT_OEM_DATA_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub const WINSAT_OEM_DATA_NON_SYS_CONFIG_MATCH: WINSAT_OEM_DATA_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub const WINSAT_OEM_DATA_INVALID: WINSAT_OEM_DATA_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_AssessmentTool'*"]
 pub const WINSAT_OEM_NO_DATA_SUPPLIED: WINSAT_OEM_DATA_TYPE = 3i32;

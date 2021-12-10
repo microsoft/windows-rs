@@ -459,6 +459,7 @@ pub struct IPhotoImportVideoSegmentVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportAccessMode(pub i32);
 impl PhotoImportAccessMode {
@@ -487,6 +488,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportAccessMode {
 impl ::windows::core::DefaultType for PhotoImportAccessMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportConnectionTransport(pub i32);
 impl PhotoImportConnectionTransport {
@@ -516,6 +518,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportConnectionTransport {
 impl ::windows::core::DefaultType for PhotoImportConnectionTransport {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportContentType(pub i32);
 impl PhotoImportContentType {
@@ -544,6 +547,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportContentType {
 impl ::windows::core::DefaultType for PhotoImportContentType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportContentTypeFilter(pub i32);
 impl PhotoImportContentTypeFilter {
@@ -573,6 +577,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportContentTypeFilter {
 impl ::windows::core::DefaultType for PhotoImportContentTypeFilter {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportDeleteImportedItemsFromSourceResult(::windows::core::IUnknown);
 impl PhotoImportDeleteImportedItemsFromSourceResult {
@@ -732,6 +737,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
 }
 unsafe impl ::core::marker::Send for PhotoImportDeleteImportedItemsFromSourceResult {}
 unsafe impl ::core::marker::Sync for PhotoImportDeleteImportedItemsFromSourceResult {}
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportFindItemsResult(::windows::core::IUnknown);
 impl PhotoImportFindItemsResult {
@@ -1027,6 +1033,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
 }
 unsafe impl ::core::marker::Send for PhotoImportFindItemsResult {}
 unsafe impl ::core::marker::Sync for PhotoImportFindItemsResult {}
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportImportItemsResult(::windows::core::IUnknown);
 impl PhotoImportImportItemsResult {
@@ -1194,6 +1201,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
 }
 unsafe impl ::core::marker::Send for PhotoImportImportItemsResult {}
 unsafe impl ::core::marker::Sync for PhotoImportImportItemsResult {}
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportImportMode(pub i32);
 impl PhotoImportImportMode {
@@ -1223,6 +1231,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportImportMode {
 impl ::windows::core::DefaultType for PhotoImportImportMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportItem(::windows::core::IUnknown);
 impl PhotoImportItem {
@@ -1391,6 +1400,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
 }
 unsafe impl ::core::marker::Send for PhotoImportItem {}
 unsafe impl ::core::marker::Sync for PhotoImportItem {}
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportItemImportedEventArgs(::windows::core::IUnknown);
 impl PhotoImportItemImportedEventArgs {
@@ -1465,6 +1475,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
 }
 unsafe impl ::core::marker::Send for PhotoImportItemImportedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoImportItemImportedEventArgs {}
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportItemSelectionMode(pub i32);
 impl PhotoImportItemSelectionMode {
@@ -1524,6 +1535,7 @@ impl PhotoImportManager {
 impl ::windows::core::RuntimeName for PhotoImportManager {
     const NAME: &'static str = "Windows.Media.Import.PhotoImportManager";
 }
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportOperation(::windows::core::IUnknown);
 impl PhotoImportOperation {
@@ -1629,6 +1641,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
 }
 unsafe impl ::core::marker::Send for PhotoImportOperation {}
 unsafe impl ::core::marker::Sync for PhotoImportOperation {}
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportPowerSource(pub i32);
 impl PhotoImportPowerSource {
@@ -1658,6 +1671,7 @@ impl ::windows::core::DefaultType for PhotoImportPowerSource {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Media_Import'*"]
 pub struct PhotoImportProgress {
     pub ItemsImported: u32,
     pub TotalItemsToImport: u32,
@@ -1691,6 +1705,7 @@ impl ::core::default::Default for PhotoImportProgress {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportSelectionChangedEventArgs(::windows::core::IUnknown);
 impl PhotoImportSelectionChangedEventArgs {
@@ -1765,6 +1780,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
 }
 unsafe impl ::core::marker::Send for PhotoImportSelectionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoImportSelectionChangedEventArgs {}
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportSession(::windows::core::IUnknown);
 impl PhotoImportSession {
@@ -1953,6 +1969,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for PhotoImportSession {}
 unsafe impl ::core::marker::Sync for PhotoImportSession {}
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportSidecar(::windows::core::IUnknown);
 impl PhotoImportSidecar {
@@ -2042,6 +2059,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
 }
 unsafe impl ::core::marker::Send for PhotoImportSidecar {}
 unsafe impl ::core::marker::Sync for PhotoImportSidecar {}
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportSource(::windows::core::IUnknown);
 impl PhotoImportSource {
@@ -2251,6 +2269,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
 }
 unsafe impl ::core::marker::Send for PhotoImportSource {}
 unsafe impl ::core::marker::Sync for PhotoImportSource {}
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportSourceType(pub i32);
 impl PhotoImportSourceType {
@@ -2283,6 +2302,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportSourceType {
 impl ::windows::core::DefaultType for PhotoImportSourceType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportStage(pub i32);
 impl PhotoImportStage {
@@ -2312,6 +2332,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportStage {
 impl ::windows::core::DefaultType for PhotoImportStage {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportStorageMedium(::windows::core::IUnknown);
 impl PhotoImportStorageMedium {
@@ -2432,6 +2453,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
 }
 unsafe impl ::core::marker::Send for PhotoImportStorageMedium {}
 unsafe impl ::core::marker::Sync for PhotoImportStorageMedium {}
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportStorageMediumType(pub i32);
 impl PhotoImportStorageMediumType {
@@ -2460,6 +2482,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportStorageMediumType {
 impl ::windows::core::DefaultType for PhotoImportStorageMediumType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportSubfolderCreationMode(pub i32);
 impl PhotoImportSubfolderCreationMode {
@@ -2489,6 +2512,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportSubfolderCreationMode {
 impl ::windows::core::DefaultType for PhotoImportSubfolderCreationMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportSubfolderDateFormat(pub i32);
 impl PhotoImportSubfolderDateFormat {
@@ -2517,6 +2541,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportSubfolderDateFormat {
 impl ::windows::core::DefaultType for PhotoImportSubfolderDateFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportVideoSegment(::windows::core::IUnknown);
 impl PhotoImportVideoSegment {

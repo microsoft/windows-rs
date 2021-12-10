@@ -3,6 +3,7 @@
 extern "system" {}
 pub type IAdcControllerProvider = *mut ::core::ffi::c_void;
 pub type IAdcProvider = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Adc_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderAdcChannelMode(pub i32);
 impl ProviderAdcChannelMode {

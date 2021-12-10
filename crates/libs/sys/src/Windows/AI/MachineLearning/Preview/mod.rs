@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[repr(transparent)]
 pub struct FeatureElementKindPreview(pub i32);
 impl FeatureElementKindPreview {
@@ -32,6 +33,7 @@ pub type ImageVariableDescriptorPreview = *mut ::core::ffi::c_void;
 pub type InferencingOptionsPreview = *mut ::core::ffi::c_void;
 pub type LearningModelBindingPreview = *mut ::core::ffi::c_void;
 pub type LearningModelDescriptionPreview = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[repr(transparent)]
 pub struct LearningModelDeviceKindPreview(pub i32);
 impl LearningModelDeviceKindPreview {
@@ -49,6 +51,7 @@ impl ::core::clone::Clone for LearningModelDeviceKindPreview {
     }
 }
 pub type LearningModelEvaluationResultPreview = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[repr(transparent)]
 pub struct LearningModelFeatureKindPreview(pub i32);
 impl LearningModelFeatureKindPreview {

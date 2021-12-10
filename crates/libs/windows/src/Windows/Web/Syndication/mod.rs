@@ -82,6 +82,7 @@ pub struct ISyndicationCategoryFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, term: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, term: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, scheme: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct ISyndicationClient(::windows::core::IUnknown);
 impl ISyndicationClient {
@@ -573,6 +574,7 @@ pub struct ISyndicationLinkFactoryVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, relationship: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, title: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, mediatype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, length: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct ISyndicationNode(::windows::core::IUnknown);
 impl ISyndicationNode {
@@ -807,6 +809,7 @@ pub struct ISyndicationPersonFactoryVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, email: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct ISyndicationText(::windows::core::IUnknown);
 impl ISyndicationText {
@@ -1045,6 +1048,7 @@ pub struct ISyndicationTextFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, r#type: SyndicationTextType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(C)]
+#[doc = "*Required features: 'Web_Syndication'*"]
 pub struct RetrievalProgress {
     pub BytesRetrieved: u32,
     pub TotalBytesToRetrieve: u32,
@@ -1075,6 +1079,7 @@ impl ::core::default::Default for RetrievalProgress {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct SyndicationAttribute(::windows::core::IUnknown);
 impl SyndicationAttribute {
@@ -1192,6 +1197,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Synd
 }
 unsafe impl ::core::marker::Send for SyndicationAttribute {}
 unsafe impl ::core::marker::Sync for SyndicationAttribute {}
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct SyndicationCategory(::windows::core::IUnknown);
 impl SyndicationCategory {
@@ -1418,6 +1424,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationNode> for &SyndicationCatego
 }
 unsafe impl ::core::marker::Send for SyndicationCategory {}
 unsafe impl ::core::marker::Sync for SyndicationCategory {}
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct SyndicationClient(::windows::core::IUnknown);
 impl SyndicationClient {
@@ -1596,6 +1603,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationClient> for &SyndicationClie
 }
 unsafe impl ::core::marker::Send for SyndicationClient {}
 unsafe impl ::core::marker::Sync for SyndicationClient {}
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct SyndicationContent(::windows::core::IUnknown);
 impl SyndicationContent {
@@ -1876,6 +1884,7 @@ impl SyndicationError {
 impl ::windows::core::RuntimeName for SyndicationError {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationError";
 }
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct SyndicationErrorStatus(pub i32);
 impl SyndicationErrorStatus {
@@ -1907,6 +1916,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationErrorStatus {
 impl ::windows::core::DefaultType for SyndicationErrorStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct SyndicationFeed(::windows::core::IUnknown);
 impl SyndicationFeed {
@@ -2277,6 +2287,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationNode> for &SyndicationFeed {
 }
 unsafe impl ::core::marker::Send for SyndicationFeed {}
 unsafe impl ::core::marker::Sync for SyndicationFeed {}
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct SyndicationFormat(pub i32);
 impl SyndicationFormat {
@@ -2308,6 +2319,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationFormat {
 impl ::windows::core::DefaultType for SyndicationFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct SyndicationGenerator(::windows::core::IUnknown);
 impl SyndicationGenerator {
@@ -2530,6 +2542,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationNode> for &SyndicationGenera
 }
 unsafe impl ::core::marker::Send for SyndicationGenerator {}
 unsafe impl ::core::marker::Sync for SyndicationGenerator {}
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct SyndicationItem(::windows::core::IUnknown);
 impl SyndicationItem {
@@ -2895,6 +2908,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationNode> for &SyndicationItem {
 }
 unsafe impl ::core::marker::Send for SyndicationItem {}
 unsafe impl ::core::marker::Sync for SyndicationItem {}
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct SyndicationLink(::windows::core::IUnknown);
 impl SyndicationLink {
@@ -3158,6 +3172,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationNode> for &SyndicationLink {
 }
 unsafe impl ::core::marker::Send for SyndicationLink {}
 unsafe impl ::core::marker::Sync for SyndicationLink {}
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct SyndicationNode(::windows::core::IUnknown);
 impl SyndicationNode {
@@ -3345,6 +3360,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationNode> for &SyndicationNode {
 }
 unsafe impl ::core::marker::Send for SyndicationNode {}
 unsafe impl ::core::marker::Sync for SyndicationNode {}
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct SyndicationPerson(::windows::core::IUnknown);
 impl SyndicationPerson {
@@ -3574,6 +3590,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationNode> for &SyndicationPerson
 }
 unsafe impl ::core::marker::Send for SyndicationPerson {}
 unsafe impl ::core::marker::Sync for SyndicationPerson {}
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct SyndicationText(::windows::core::IUnknown);
 impl SyndicationText {
@@ -3824,6 +3841,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationText> for &SyndicationText {
 }
 unsafe impl ::core::marker::Send for SyndicationText {}
 unsafe impl ::core::marker::Sync for SyndicationText {}
+#[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
 pub struct SyndicationTextType(pub i32);
 impl SyndicationTextType {
@@ -3853,6 +3871,7 @@ impl ::windows::core::DefaultType for SyndicationTextType {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Web_Syndication'*"]
 pub struct TransferProgress {
     pub BytesSent: u32,
     pub TotalBytesToSend: u32,

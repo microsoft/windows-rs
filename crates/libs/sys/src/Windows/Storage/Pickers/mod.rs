@@ -9,6 +9,7 @@ pub type FilePickerFileTypesOrderedMap = *mut ::core::ffi::c_void;
 pub type FilePickerSelectedFilesArray = *mut ::core::ffi::c_void;
 pub type FileSavePicker = *mut ::core::ffi::c_void;
 pub type FolderPicker = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage_Pickers'*"]
 #[repr(transparent)]
 pub struct PickerLocationId(pub i32);
 impl PickerLocationId {
@@ -29,6 +30,7 @@ impl ::core::clone::Clone for PickerLocationId {
         *self
     }
 }
+#[doc = "*Required features: 'Storage_Pickers'*"]
 #[repr(transparent)]
 pub struct PickerViewMode(pub i32);
 impl PickerViewMode {

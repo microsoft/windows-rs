@@ -93,6 +93,7 @@ pub struct ISpeechRecognitionCompilationResultVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SpeechRecognitionResultStatus) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct ISpeechRecognitionConstraint(::windows::core::IUnknown);
 impl ISpeechRecognitionConstraint {
@@ -705,6 +706,7 @@ pub struct IVoiceCommandSetVtbl(
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phraselistname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, phraselist: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechContinuousRecognitionCompletedEventArgs(::windows::core::IUnknown);
 impl SpeechContinuousRecognitionCompletedEventArgs {
@@ -779,6 +781,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
 }
 unsafe impl ::core::marker::Send for SpeechContinuousRecognitionCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for SpeechContinuousRecognitionCompletedEventArgs {}
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechContinuousRecognitionMode(pub i32);
 impl SpeechContinuousRecognitionMode {
@@ -806,6 +809,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechContinuousRecognitionMode {
 impl ::windows::core::DefaultType for SpeechContinuousRecognitionMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechContinuousRecognitionResultGeneratedEventArgs(::windows::core::IUnknown);
 impl SpeechContinuousRecognitionResultGeneratedEventArgs {
@@ -880,6 +884,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
 }
 unsafe impl ::core::marker::Send for SpeechContinuousRecognitionResultGeneratedEventArgs {}
 unsafe impl ::core::marker::Sync for SpeechContinuousRecognitionResultGeneratedEventArgs {}
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechContinuousRecognitionSession(::windows::core::IUnknown);
 impl SpeechContinuousRecognitionSession {
@@ -1030,6 +1035,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
 }
 unsafe impl ::core::marker::Send for SpeechContinuousRecognitionSession {}
 unsafe impl ::core::marker::Sync for SpeechContinuousRecognitionSession {}
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionAudioProblem(pub i32);
 impl SpeechRecognitionAudioProblem {
@@ -1062,6 +1068,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionAudioProblem {
 impl ::windows::core::DefaultType for SpeechRecognitionAudioProblem {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionCompilationResult(::windows::core::IUnknown);
 impl SpeechRecognitionCompilationResult {
@@ -1136,6 +1143,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionCompilationResult {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionCompilationResult {}
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionConfidence(pub i32);
 impl SpeechRecognitionConfidence {
@@ -1165,6 +1173,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConfidence {
 impl ::windows::core::DefaultType for SpeechRecognitionConfidence {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionConstraintProbability(pub i32);
 impl SpeechRecognitionConstraintProbability {
@@ -1193,6 +1202,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConstraintProbabil
 impl ::windows::core::DefaultType for SpeechRecognitionConstraintProbability {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionConstraintType(pub i32);
 impl SpeechRecognitionConstraintType {
@@ -1222,6 +1232,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionConstraintType {
 impl ::windows::core::DefaultType for SpeechRecognitionConstraintType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionGrammarFileConstraint(::windows::core::IUnknown);
 impl SpeechRecognitionGrammarFileConstraint {
@@ -1377,6 +1388,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISpeechRecognitionConstraint> for &Speec
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionGrammarFileConstraint {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionGrammarFileConstraint {}
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionHypothesis(::windows::core::IUnknown);
 impl SpeechRecognitionHypothesis {
@@ -1451,6 +1463,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionHypothesis {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionHypothesis {}
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionHypothesisGeneratedEventArgs(::windows::core::IUnknown);
 impl SpeechRecognitionHypothesisGeneratedEventArgs {
@@ -1525,6 +1538,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionHypothesisGeneratedEventArgs {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionHypothesisGeneratedEventArgs {}
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionListConstraint(::windows::core::IUnknown);
 impl SpeechRecognitionListConstraint {
@@ -1680,6 +1694,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISpeechRecognitionConstraint> for &Speec
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionListConstraint {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionListConstraint {}
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionQualityDegradingEventArgs(::windows::core::IUnknown);
 impl SpeechRecognitionQualityDegradingEventArgs {
@@ -1754,6 +1769,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionQualityDegradingEventArgs {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionQualityDegradingEventArgs {}
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionResult(::windows::core::IUnknown);
 impl SpeechRecognitionResult {
@@ -1895,6 +1911,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionResult {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionResult {}
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionResultStatus(pub i32);
 impl SpeechRecognitionResultStatus {
@@ -1931,6 +1948,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionResultStatus {
 impl ::windows::core::DefaultType for SpeechRecognitionResultStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionScenario(pub i32);
 impl SpeechRecognitionScenario {
@@ -1959,6 +1977,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionScenario {
 impl ::windows::core::DefaultType for SpeechRecognitionScenario {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionSemanticInterpretation(::windows::core::IUnknown);
 impl SpeechRecognitionSemanticInterpretation {
@@ -2034,6 +2053,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionSemanticInterpretation {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionSemanticInterpretation {}
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionTopicConstraint(::windows::core::IUnknown);
 impl SpeechRecognitionTopicConstraint {
@@ -2193,6 +2213,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISpeechRecognitionConstraint> for &Speec
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionTopicConstraint {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionTopicConstraint {}
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognitionVoiceCommandDefinitionConstraint(::windows::core::IUnknown);
 impl SpeechRecognitionVoiceCommandDefinitionConstraint {
@@ -2322,6 +2343,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISpeechRecognitionConstraint> for &Speec
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionVoiceCommandDefinitionConstraint {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionVoiceCommandDefinitionConstraint {}
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognizer(::windows::core::IUnknown);
 impl SpeechRecognizer {
@@ -2589,6 +2611,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for SpeechRecognizer {}
 unsafe impl ::core::marker::Sync for SpeechRecognizer {}
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognizerState(pub i32);
 impl SpeechRecognizerState {
@@ -2621,6 +2644,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognizerState {
 impl ::windows::core::DefaultType for SpeechRecognizerState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognizerStateChangedEventArgs(::windows::core::IUnknown);
 impl SpeechRecognizerStateChangedEventArgs {
@@ -2695,6 +2719,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
 }
 unsafe impl ::core::marker::Send for SpeechRecognizerStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SpeechRecognizerStateChangedEventArgs {}
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognizerTimeouts(::windows::core::IUnknown);
 impl SpeechRecognizerTimeouts {
@@ -2801,6 +2826,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spee
 }
 unsafe impl ::core::marker::Send for SpeechRecognizerTimeouts {}
 unsafe impl ::core::marker::Sync for SpeechRecognizerTimeouts {}
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct SpeechRecognizerUIOptions(::windows::core::IUnknown);
 impl SpeechRecognizerUIOptions {
@@ -2936,6 +2962,7 @@ impl VoiceCommandManager {
 impl ::windows::core::RuntimeName for VoiceCommandManager {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.VoiceCommandManager";
 }
+#[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
 pub struct VoiceCommandSet(::windows::core::IUnknown);
 impl VoiceCommandSet {

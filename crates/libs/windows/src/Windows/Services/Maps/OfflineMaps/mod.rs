@@ -87,6 +87,7 @@ pub struct IOfflineMapPackageStaticsVtbl(
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, querycircle: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Devices_Geolocation", feature = "Foundation")))] usize,
 );
+#[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
 #[repr(transparent)]
 pub struct OfflineMapPackage(::windows::core::IUnknown);
 impl OfflineMapPackage {
@@ -228,6 +229,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Offl
 }
 unsafe impl ::core::marker::Send for OfflineMapPackage {}
 unsafe impl ::core::marker::Sync for OfflineMapPackage {}
+#[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
 #[repr(transparent)]
 pub struct OfflineMapPackageQueryResult(::windows::core::IUnknown);
 impl OfflineMapPackageQueryResult {
@@ -310,6 +312,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Offl
 }
 unsafe impl ::core::marker::Send for OfflineMapPackageQueryResult {}
 unsafe impl ::core::marker::Sync for OfflineMapPackageQueryResult {}
+#[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
 #[repr(transparent)]
 pub struct OfflineMapPackageQueryStatus(pub i32);
 impl OfflineMapPackageQueryStatus {
@@ -339,6 +342,7 @@ unsafe impl ::windows::core::RuntimeType for OfflineMapPackageQueryStatus {
 impl ::windows::core::DefaultType for OfflineMapPackageQueryStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
 #[repr(transparent)]
 pub struct OfflineMapPackageStartDownloadResult(::windows::core::IUnknown);
 impl OfflineMapPackageStartDownloadResult {
@@ -413,6 +417,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Offl
 }
 unsafe impl ::core::marker::Send for OfflineMapPackageStartDownloadResult {}
 unsafe impl ::core::marker::Sync for OfflineMapPackageStartDownloadResult {}
+#[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
 #[repr(transparent)]
 pub struct OfflineMapPackageStartDownloadStatus(pub i32);
 impl OfflineMapPackageStartDownloadStatus {
@@ -442,6 +447,7 @@ unsafe impl ::windows::core::RuntimeType for OfflineMapPackageStartDownloadStatu
 impl ::windows::core::DefaultType for OfflineMapPackageStartDownloadStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
 #[repr(transparent)]
 pub struct OfflineMapPackageStatus(pub i32);
 impl OfflineMapPackageStatus {

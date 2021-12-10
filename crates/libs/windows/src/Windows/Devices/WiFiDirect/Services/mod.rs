@@ -291,6 +291,7 @@ pub struct IWiFiDirectServiceStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectService(::windows::core::IUnknown);
 impl WiFiDirectService {
@@ -466,6 +467,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
 }
 unsafe impl ::core::marker::Send for WiFiDirectService {}
 unsafe impl ::core::marker::Sync for WiFiDirectService {}
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceAdvertisementStatus(pub i32);
 impl WiFiDirectServiceAdvertisementStatus {
@@ -495,6 +497,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceAdvertisementStatu
 impl ::windows::core::DefaultType for WiFiDirectServiceAdvertisementStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceAdvertiser(::windows::core::IUnknown);
 impl WiFiDirectServiceAdvertiser {
@@ -742,6 +745,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
 }
 unsafe impl ::core::marker::Send for WiFiDirectServiceAdvertiser {}
 unsafe impl ::core::marker::Sync for WiFiDirectServiceAdvertiser {}
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceAutoAcceptSessionConnectedEventArgs(::windows::core::IUnknown);
 impl WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {
@@ -824,6 +828,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
 }
 unsafe impl ::core::marker::Send for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {}
 unsafe impl ::core::marker::Sync for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {}
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceConfigurationMethod(pub i32);
 impl WiFiDirectServiceConfigurationMethod {
@@ -852,6 +857,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceConfigurationMetho
 impl ::windows::core::DefaultType for WiFiDirectServiceConfigurationMethod {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceError(pub i32);
 impl WiFiDirectServiceError {
@@ -882,6 +888,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceError {
 impl ::windows::core::DefaultType for WiFiDirectServiceError {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceIPProtocol(pub i32);
 impl WiFiDirectServiceIPProtocol {
@@ -909,6 +916,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceIPProtocol {
 impl ::windows::core::DefaultType for WiFiDirectServiceIPProtocol {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceProvisioningInfo(::windows::core::IUnknown);
 impl WiFiDirectServiceProvisioningInfo {
@@ -990,6 +998,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
 }
 unsafe impl ::core::marker::Send for WiFiDirectServiceProvisioningInfo {}
 unsafe impl ::core::marker::Sync for WiFiDirectServiceProvisioningInfo {}
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceRemotePortAddedEventArgs(::windows::core::IUnknown);
 impl WiFiDirectServiceRemotePortAddedEventArgs {
@@ -1072,6 +1081,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
 }
 unsafe impl ::core::marker::Send for WiFiDirectServiceRemotePortAddedEventArgs {}
 unsafe impl ::core::marker::Sync for WiFiDirectServiceRemotePortAddedEventArgs {}
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceSession(::windows::core::IUnknown);
 impl WiFiDirectServiceSession {
@@ -1269,6 +1279,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for WiFiDirectServiceSession {}
 unsafe impl ::core::marker::Sync for WiFiDirectServiceSession {}
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionDeferredEventArgs(::windows::core::IUnknown);
 impl WiFiDirectServiceSessionDeferredEventArgs {
@@ -1344,6 +1355,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
 }
 unsafe impl ::core::marker::Send for WiFiDirectServiceSessionDeferredEventArgs {}
 unsafe impl ::core::marker::Sync for WiFiDirectServiceSessionDeferredEventArgs {}
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionErrorStatus(pub i32);
 impl WiFiDirectServiceSessionErrorStatus {
@@ -1375,6 +1387,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceSessionErrorStatus
 impl ::windows::core::DefaultType for WiFiDirectServiceSessionErrorStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionRequest(::windows::core::IUnknown);
 impl WiFiDirectServiceSessionRequest {
@@ -1496,6 +1509,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for WiFiDirectServiceSessionRequest {}
 unsafe impl ::core::marker::Sync for WiFiDirectServiceSessionRequest {}
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionRequestedEventArgs(::windows::core::IUnknown);
 impl WiFiDirectServiceSessionRequestedEventArgs {
@@ -1570,6 +1584,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WiFi
 }
 unsafe impl ::core::marker::Send for WiFiDirectServiceSessionRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for WiFiDirectServiceSessionRequestedEventArgs {}
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionStatus(pub i32);
 impl WiFiDirectServiceSessionStatus {
@@ -1599,6 +1614,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectServiceSessionStatus {
 impl ::windows::core::DefaultType for WiFiDirectServiceSessionStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceStatus(pub i32);
 impl WiFiDirectServiceStatus {

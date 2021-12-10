@@ -30,6 +30,7 @@ pub mod WindowManagement;
 #[cfg(feature = "UI_Xaml")]
 pub mod Xaml;
 #[repr(C)]
+#[doc = "*Required features: 'UI'*"]
 pub struct Color {
     pub A: u8,
     pub R: u8,
@@ -62,6 +63,7 @@ impl ::core::default::Default for Color {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI'*"]
 #[repr(transparent)]
 pub struct ColorHelper(::windows::core::IUnknown);
 impl ColorHelper {
@@ -149,6 +151,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Colo
 }
 unsafe impl ::core::marker::Send for ColorHelper {}
 unsafe impl ::core::marker::Sync for ColorHelper {}
+#[doc = "*Required features: 'UI'*"]
 #[repr(transparent)]
 pub struct Colors(::windows::core::IUnknown);
 impl Colors {
@@ -1329,6 +1332,7 @@ pub struct IUIContextVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI'*"]
 #[repr(transparent)]
 pub struct UIContentRoot(::windows::core::IUnknown);
 impl UIContentRoot {
@@ -1403,6 +1407,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UICo
 }
 unsafe impl ::core::marker::Send for UIContentRoot {}
 unsafe impl ::core::marker::Sync for UIContentRoot {}
+#[doc = "*Required features: 'UI'*"]
 #[repr(transparent)]
 pub struct UIContext(::windows::core::IUnknown);
 impl UIContext {}
@@ -1470,6 +1475,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UICo
 unsafe impl ::core::marker::Send for UIContext {}
 unsafe impl ::core::marker::Sync for UIContext {}
 #[repr(C)]
+#[doc = "*Required features: 'UI'*"]
 pub struct WindowId {
     pub Value: u64,
 }

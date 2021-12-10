@@ -91,6 +91,7 @@ pub struct IShareOperation3Vtbl(
     #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections")))] usize,
 );
+#[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget'*"]
 #[repr(transparent)]
 pub struct QuickLink(::windows::core::IUnknown);
 impl QuickLink {
@@ -214,6 +215,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Quic
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget'*"]
 #[repr(transparent)]
 pub struct ShareOperation(::windows::core::IUnknown);
 impl ShareOperation {

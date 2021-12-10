@@ -6,6 +6,7 @@ extern "system" {}
 pub type SocialFeedChildItem = *mut ::core::ffi::c_void;
 pub type SocialFeedContent = *mut ::core::ffi::c_void;
 pub type SocialFeedItem = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_SocialInfo', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SocialFeedItemStyle(pub i32);
 impl SocialFeedItemStyle {
@@ -18,6 +19,7 @@ impl ::core::clone::Clone for SocialFeedItemStyle {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_SocialInfo', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SocialFeedKind(pub i32);
 impl SocialFeedKind {
@@ -32,6 +34,7 @@ impl ::core::clone::Clone for SocialFeedKind {
     }
 }
 pub type SocialFeedSharedItem = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_SocialInfo', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SocialFeedUpdateMode(pub i32);
 impl SocialFeedUpdateMode {
@@ -44,6 +47,7 @@ impl ::core::clone::Clone for SocialFeedUpdateMode {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_SocialInfo', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SocialItemBadgeStyle(pub i32);
 impl SocialItemBadgeStyle {

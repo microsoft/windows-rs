@@ -118,6 +118,7 @@ impl LicenseManager {
 impl ::windows::core::RuntimeName for LicenseManager {
     const NAME: &'static str = "Windows.ApplicationModel.Store.LicenseManagement.LicenseManager";
 }
+#[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement'*"]
 #[repr(transparent)]
 pub struct LicenseRefreshOption(pub i32);
 impl LicenseRefreshOption {
@@ -145,6 +146,7 @@ unsafe impl ::windows::core::RuntimeType for LicenseRefreshOption {
 impl ::windows::core::DefaultType for LicenseRefreshOption {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement'*"]
 #[repr(transparent)]
 pub struct LicenseSatisfactionInfo(::windows::core::IUnknown);
 impl LicenseSatisfactionInfo {
@@ -261,6 +263,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lice
 }
 unsafe impl ::core::marker::Send for LicenseSatisfactionInfo {}
 unsafe impl ::core::marker::Sync for LicenseSatisfactionInfo {}
+#[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement'*"]
 #[repr(transparent)]
 pub struct LicenseSatisfactionResult(::windows::core::IUnknown);
 impl LicenseSatisfactionResult {

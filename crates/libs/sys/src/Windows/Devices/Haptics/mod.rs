@@ -3,6 +3,7 @@
 extern "system" {}
 pub type SimpleHapticsController = *mut ::core::ffi::c_void;
 pub type SimpleHapticsControllerFeedback = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Haptics'*"]
 #[repr(transparent)]
 pub struct VibrationAccessStatus(pub i32);
 impl VibrationAccessStatus {

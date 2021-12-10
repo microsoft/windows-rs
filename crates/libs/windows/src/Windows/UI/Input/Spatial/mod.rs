@@ -996,6 +996,7 @@ pub struct ISpatialTappedEventArgsVtbl(
     #[cfg(not(feature = "Perception_Spatial"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialGestureRecognizer(::windows::core::IUnknown);
 impl SpatialGestureRecognizer {
@@ -1277,6 +1278,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialGestureRecognizer {}
 unsafe impl ::core::marker::Sync for SpatialGestureRecognizer {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialGestureSettings(pub u32);
 impl SpatialGestureSettings {
@@ -1313,6 +1315,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialGestureSettings {
 impl ::windows::core::DefaultType for SpatialGestureSettings {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialHoldCanceledEventArgs(::windows::core::IUnknown);
 impl SpatialHoldCanceledEventArgs {
@@ -1387,6 +1390,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialHoldCanceledEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialHoldCanceledEventArgs {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialHoldCompletedEventArgs(::windows::core::IUnknown);
 impl SpatialHoldCompletedEventArgs {
@@ -1461,6 +1465,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialHoldCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialHoldCompletedEventArgs {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialHoldStartedEventArgs(::windows::core::IUnknown);
 impl SpatialHoldStartedEventArgs {
@@ -1543,6 +1548,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialHoldStartedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialHoldStartedEventArgs {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialInteraction(::windows::core::IUnknown);
 impl SpatialInteraction {
@@ -1617,6 +1623,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialInteraction {}
 unsafe impl ::core::marker::Sync for SpatialInteraction {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialInteractionController(::windows::core::IUnknown);
 impl SpatialInteractionController {
@@ -1743,6 +1750,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialInteractionController {}
 unsafe impl ::core::marker::Sync for SpatialInteractionController {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialInteractionControllerProperties(::windows::core::IUnknown);
 impl SpatialInteractionControllerProperties {
@@ -1859,6 +1867,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialInteractionControllerProperties {}
 unsafe impl ::core::marker::Sync for SpatialInteractionControllerProperties {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialInteractionDetectedEventArgs(::windows::core::IUnknown);
 impl SpatialInteractionDetectedEventArgs {
@@ -1955,6 +1964,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialInteractionDetectedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialInteractionDetectedEventArgs {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialInteractionManager(::windows::core::IUnknown);
 impl SpatialInteractionManager {
@@ -2128,6 +2138,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialInteractionManager {}
 unsafe impl ::core::marker::Sync for SpatialInteractionManager {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialInteractionPressKind(pub i32);
 impl SpatialInteractionPressKind {
@@ -2159,6 +2170,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionPressKind {
 impl ::windows::core::DefaultType for SpatialInteractionPressKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialInteractionSource(::windows::core::IUnknown);
 impl SpatialInteractionSource {
@@ -2299,6 +2311,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialInteractionSource {}
 unsafe impl ::core::marker::Sync for SpatialInteractionSource {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialInteractionSourceEventArgs(::windows::core::IUnknown);
 impl SpatialInteractionSourceEventArgs {
@@ -2380,6 +2393,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialInteractionSourceEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialInteractionSourceEventArgs {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialInteractionSourceHandedness(pub i32);
 impl SpatialInteractionSourceHandedness {
@@ -2408,6 +2422,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceHandedness 
 impl ::windows::core::DefaultType for SpatialInteractionSourceHandedness {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialInteractionSourceKind(pub i32);
 impl SpatialInteractionSourceKind {
@@ -2437,6 +2452,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceKind {
 impl ::windows::core::DefaultType for SpatialInteractionSourceKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialInteractionSourceLocation(::windows::core::IUnknown);
 impl SpatialInteractionSourceLocation {
@@ -2550,6 +2566,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialInteractionSourceLocation {}
 unsafe impl ::core::marker::Sync for SpatialInteractionSourceLocation {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialInteractionSourcePositionAccuracy(pub i32);
 impl SpatialInteractionSourcePositionAccuracy {
@@ -2577,6 +2594,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourcePositionAcc
 impl ::windows::core::DefaultType for SpatialInteractionSourcePositionAccuracy {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialInteractionSourceProperties(::windows::core::IUnknown);
 impl SpatialInteractionSourceProperties {
@@ -2667,6 +2685,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialInteractionSourceProperties {}
 unsafe impl ::core::marker::Sync for SpatialInteractionSourceProperties {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialInteractionSourceState(::windows::core::IUnknown);
 impl SpatialInteractionSourceState {
@@ -2814,6 +2833,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialInteractionSourceState {}
 unsafe impl ::core::marker::Sync for SpatialInteractionSourceState {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialManipulationCanceledEventArgs(::windows::core::IUnknown);
 impl SpatialManipulationCanceledEventArgs {
@@ -2888,6 +2908,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialManipulationCanceledEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialManipulationCanceledEventArgs {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialManipulationCompletedEventArgs(::windows::core::IUnknown);
 impl SpatialManipulationCompletedEventArgs {
@@ -2970,6 +2991,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialManipulationCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialManipulationCompletedEventArgs {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialManipulationDelta(::windows::core::IUnknown);
 impl SpatialManipulationDelta {
@@ -3045,6 +3067,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialManipulationDelta {}
 unsafe impl ::core::marker::Sync for SpatialManipulationDelta {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialManipulationStartedEventArgs(::windows::core::IUnknown);
 impl SpatialManipulationStartedEventArgs {
@@ -3127,6 +3150,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialManipulationStartedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialManipulationStartedEventArgs {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialManipulationUpdatedEventArgs(::windows::core::IUnknown);
 impl SpatialManipulationUpdatedEventArgs {
@@ -3209,6 +3233,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialManipulationUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialManipulationUpdatedEventArgs {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialNavigationCanceledEventArgs(::windows::core::IUnknown);
 impl SpatialNavigationCanceledEventArgs {
@@ -3283,6 +3308,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialNavigationCanceledEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialNavigationCanceledEventArgs {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialNavigationCompletedEventArgs(::windows::core::IUnknown);
 impl SpatialNavigationCompletedEventArgs {
@@ -3365,6 +3391,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialNavigationCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialNavigationCompletedEventArgs {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialNavigationStartedEventArgs(::windows::core::IUnknown);
 impl SpatialNavigationStartedEventArgs {
@@ -3468,6 +3495,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialNavigationStartedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialNavigationStartedEventArgs {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialNavigationUpdatedEventArgs(::windows::core::IUnknown);
 impl SpatialNavigationUpdatedEventArgs {
@@ -3550,6 +3578,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialNavigationUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialNavigationUpdatedEventArgs {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialPointerInteractionSourcePose(::windows::core::IUnknown);
 impl SpatialPointerInteractionSourcePose {
@@ -3656,6 +3685,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialPointerInteractionSourcePose {}
 unsafe impl ::core::marker::Sync for SpatialPointerInteractionSourcePose {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialPointerPose(::windows::core::IUnknown);
 impl SpatialPointerPose {
@@ -3772,6 +3802,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialPointerPose {}
 unsafe impl ::core::marker::Sync for SpatialPointerPose {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialRecognitionEndedEventArgs(::windows::core::IUnknown);
 impl SpatialRecognitionEndedEventArgs {
@@ -3846,6 +3877,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialRecognitionEndedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialRecognitionEndedEventArgs {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialRecognitionStartedEventArgs(::windows::core::IUnknown);
 impl SpatialRecognitionStartedEventArgs {
@@ -3935,6 +3967,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialRecognitionStartedEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialRecognitionStartedEventArgs {}
+#[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
 pub struct SpatialTappedEventArgs(::windows::core::IUnknown);
 impl SpatialTappedEventArgs {

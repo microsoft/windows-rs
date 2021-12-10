@@ -139,6 +139,7 @@ impl AsymmetricAlgorithmNames {
 impl ::windows::core::RuntimeName for AsymmetricAlgorithmNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.AsymmetricAlgorithmNames";
 }
+#[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
 pub struct AsymmetricKeyAlgorithmProvider(::windows::core::IUnknown);
 impl AsymmetricKeyAlgorithmProvider {
@@ -276,6 +277,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Asym
 }
 unsafe impl ::core::marker::Send for AsymmetricKeyAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for AsymmetricKeyAlgorithmProvider {}
+#[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
 pub struct Capi1KdfTargetAlgorithm(pub i32);
 impl Capi1KdfTargetAlgorithm {
@@ -401,6 +403,7 @@ impl CryptographicEngine {
 impl ::windows::core::RuntimeName for CryptographicEngine {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.CryptographicEngine";
 }
+#[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
 pub struct CryptographicHash(::windows::core::IUnknown);
 impl CryptographicHash {
@@ -481,6 +484,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cryp
 }
 unsafe impl ::core::marker::Send for CryptographicHash {}
 unsafe impl ::core::marker::Sync for CryptographicHash {}
+#[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
 pub struct CryptographicKey(::windows::core::IUnknown);
 impl CryptographicKey {
@@ -587,6 +591,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cryp
 }
 unsafe impl ::core::marker::Send for CryptographicKey {}
 unsafe impl ::core::marker::Sync for CryptographicKey {}
+#[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
 pub struct CryptographicPadding(pub i32);
 impl CryptographicPadding {
@@ -616,6 +621,7 @@ unsafe impl ::windows::core::RuntimeType for CryptographicPadding {
 impl ::windows::core::DefaultType for CryptographicPadding {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
 pub struct CryptographicPrivateKeyBlobType(pub i32);
 impl CryptographicPrivateKeyBlobType {
@@ -646,6 +652,7 @@ unsafe impl ::windows::core::RuntimeType for CryptographicPrivateKeyBlobType {
 impl ::windows::core::DefaultType for CryptographicPrivateKeyBlobType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
 pub struct CryptographicPublicKeyBlobType(pub i32);
 impl CryptographicPublicKeyBlobType {
@@ -963,6 +970,7 @@ impl EccCurveNames {
 impl ::windows::core::RuntimeName for EccCurveNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.EccCurveNames";
 }
+#[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
 pub struct EncryptedAndAuthenticatedData(::windows::core::IUnknown);
 impl EncryptedAndAuthenticatedData {
@@ -1086,6 +1094,7 @@ impl HashAlgorithmNames {
 impl ::windows::core::RuntimeName for HashAlgorithmNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.HashAlgorithmNames";
 }
+#[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
 pub struct HashAlgorithmProvider(::windows::core::IUnknown);
 impl HashAlgorithmProvider {
@@ -2048,6 +2057,7 @@ impl KeyDerivationAlgorithmNames {
 impl ::windows::core::RuntimeName for KeyDerivationAlgorithmNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.KeyDerivationAlgorithmNames";
 }
+#[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
 pub struct KeyDerivationAlgorithmProvider(::windows::core::IUnknown);
 impl KeyDerivationAlgorithmProvider {
@@ -2140,6 +2150,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &KeyD
 }
 unsafe impl ::core::marker::Send for KeyDerivationAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for KeyDerivationAlgorithmProvider {}
+#[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
 pub struct KeyDerivationParameters(::windows::core::IUnknown);
 impl KeyDerivationParameters {
@@ -2319,6 +2330,7 @@ impl MacAlgorithmNames {
 impl ::windows::core::RuntimeName for MacAlgorithmNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.MacAlgorithmNames";
 }
+#[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
 pub struct MacAlgorithmProvider(::windows::core::IUnknown);
 impl MacAlgorithmProvider {
@@ -2574,6 +2586,7 @@ impl SymmetricAlgorithmNames {
 impl ::windows::core::RuntimeName for SymmetricAlgorithmNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.SymmetricAlgorithmNames";
 }
+#[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
 pub struct SymmetricKeyAlgorithmProvider(::windows::core::IUnknown);
 impl SymmetricKeyAlgorithmProvider {

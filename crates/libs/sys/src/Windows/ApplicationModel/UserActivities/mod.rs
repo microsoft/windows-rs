@@ -13,6 +13,7 @@ pub type UserActivityRequestManager = *mut ::core::ffi::c_void;
 pub type UserActivityRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type UserActivitySession = *mut ::core::ffi::c_void;
 pub type UserActivitySessionHistoryItem = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
 #[repr(transparent)]
 pub struct UserActivityState(pub i32);
 impl UserActivityState {

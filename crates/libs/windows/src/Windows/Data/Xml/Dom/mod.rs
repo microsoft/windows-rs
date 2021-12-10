@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct DtdEntity(::windows::core::IUnknown);
 impl DtdEntity {
@@ -351,6 +352,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &DtdEntity {
 }
 unsafe impl ::core::marker::Send for DtdEntity {}
 unsafe impl ::core::marker::Sync for DtdEntity {}
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct DtdNotation(::windows::core::IUnknown);
 impl DtdNotation {
@@ -773,6 +775,7 @@ pub struct IXmlCDataSectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct IXmlCharacterData(::windows::core::IUnknown);
 impl IXmlCharacterData {
@@ -1430,6 +1433,7 @@ pub struct IXmlNamedNodeMapVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, namespaceuri: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, node: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct IXmlNode(::windows::core::IUnknown);
 impl IXmlNode {
@@ -1786,6 +1790,7 @@ pub struct IXmlNodeListVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct IXmlNodeSelector(::windows::core::IUnknown);
 impl IXmlNodeSelector {
@@ -1890,6 +1895,7 @@ pub struct IXmlNodeSelectorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, namespaces: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, namespaces: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct IXmlNodeSerializer(::windows::core::IUnknown);
 impl IXmlNodeSerializer {
@@ -2003,6 +2009,7 @@ pub struct IXmlProcessingInstructionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct IXmlText(::windows::core::IUnknown);
 impl IXmlText {
@@ -2410,6 +2417,7 @@ pub struct IXmlTextVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct NodeType(pub i32);
 impl NodeType {
@@ -2448,6 +2456,7 @@ unsafe impl ::windows::core::RuntimeType for NodeType {
 impl ::windows::core::DefaultType for NodeType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct XmlAttribute(::windows::core::IUnknown);
 impl XmlAttribute {
@@ -2804,6 +2813,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlAttribute {
 }
 unsafe impl ::core::marker::Send for XmlAttribute {}
 unsafe impl ::core::marker::Sync for XmlAttribute {}
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct XmlCDataSection(::windows::core::IUnknown);
 impl XmlCDataSection {
@@ -3227,6 +3237,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlText> for &XmlCDataSection {
 }
 unsafe impl ::core::marker::Send for XmlCDataSection {}
 unsafe impl ::core::marker::Sync for XmlCDataSection {}
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct XmlComment(::windows::core::IUnknown);
 impl XmlComment {
@@ -3621,6 +3632,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlComment {
 }
 unsafe impl ::core::marker::Send for XmlComment {}
 unsafe impl ::core::marker::Sync for XmlComment {}
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct XmlDocument(::windows::core::IUnknown);
 impl XmlDocument {
@@ -4136,6 +4148,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlDocument {
 }
 unsafe impl ::core::marker::Send for XmlDocument {}
 unsafe impl ::core::marker::Sync for XmlDocument {}
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct XmlDocumentFragment(::windows::core::IUnknown);
 impl XmlDocumentFragment {
@@ -4467,6 +4480,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlDocumentFrag
 }
 unsafe impl ::core::marker::Send for XmlDocumentFragment {}
 unsafe impl ::core::marker::Sync for XmlDocumentFragment {}
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct XmlDocumentType(::windows::core::IUnknown);
 impl XmlDocumentType {
@@ -4819,6 +4833,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlDocumentType
 }
 unsafe impl ::core::marker::Send for XmlDocumentType {}
 unsafe impl ::core::marker::Sync for XmlDocumentType {}
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct XmlDomImplementation(::windows::core::IUnknown);
 impl XmlDomImplementation {
@@ -4893,6 +4908,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XmlD
 }
 unsafe impl ::core::marker::Send for XmlDomImplementation {}
 unsafe impl ::core::marker::Sync for XmlDomImplementation {}
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct XmlElement(::windows::core::IUnknown);
 impl XmlElement {
@@ -5303,6 +5319,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlElement {
 }
 unsafe impl ::core::marker::Send for XmlElement {}
 unsafe impl ::core::marker::Sync for XmlElement {}
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct XmlEntityReference(::windows::core::IUnknown);
 impl XmlEntityReference {
@@ -5634,6 +5651,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlEntityRefere
 }
 unsafe impl ::core::marker::Send for XmlEntityReference {}
 unsafe impl ::core::marker::Sync for XmlEntityReference {}
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct XmlLoadSettings(::windows::core::IUnknown);
 impl XmlLoadSettings {
@@ -5763,6 +5781,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &XmlL
 }
 unsafe impl ::core::marker::Send for XmlLoadSettings {}
 unsafe impl ::core::marker::Sync for XmlLoadSettings {}
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct XmlNamedNodeMap(::windows::core::IUnknown);
 impl XmlNamedNodeMap {
@@ -5994,6 +6013,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 }
 unsafe impl ::core::marker::Send for XmlNamedNodeMap {}
 unsafe impl ::core::marker::Sync for XmlNamedNodeMap {}
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct XmlNodeList(::windows::core::IUnknown);
 impl XmlNodeList {
@@ -6183,6 +6203,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 }
 unsafe impl ::core::marker::Send for XmlNodeList {}
 unsafe impl ::core::marker::Sync for XmlNodeList {}
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct XmlProcessingInstruction(::windows::core::IUnknown);
 impl XmlProcessingInstruction {
@@ -6532,6 +6553,7 @@ impl<'a> ::windows::core::IntoParam<'a, IXmlNodeSerializer> for &XmlProcessingIn
 }
 unsafe impl ::core::marker::Send for XmlProcessingInstruction {}
 unsafe impl ::core::marker::Sync for XmlProcessingInstruction {}
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct XmlText(::windows::core::IUnknown);
 impl XmlText {

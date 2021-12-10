@@ -3,6 +3,7 @@
 extern "system" {}
 pub type DevicePortalConnection = *mut ::core::ffi::c_void;
 pub type DevicePortalConnectionClosedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_Diagnostics_DevicePortal'*"]
 #[repr(transparent)]
 pub struct DevicePortalConnectionClosedReason(pub i32);
 impl DevicePortalConnectionClosedReason {

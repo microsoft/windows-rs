@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Devices_Sensors_Custom")]
 pub mod Custom;
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct Accelerometer(::windows::core::IUnknown);
 impl Accelerometer {
@@ -208,6 +209,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
 }
 unsafe impl ::core::marker::Send for Accelerometer {}
 unsafe impl ::core::marker::Sync for Accelerometer {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct AccelerometerDataThreshold(::windows::core::IUnknown);
 impl AccelerometerDataThreshold {
@@ -308,6 +310,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
 }
 unsafe impl ::core::marker::Send for AccelerometerDataThreshold {}
 unsafe impl ::core::marker::Sync for AccelerometerDataThreshold {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct AccelerometerReading(::windows::core::IUnknown);
 impl AccelerometerReading {
@@ -420,6 +423,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
 }
 unsafe impl ::core::marker::Send for AccelerometerReading {}
 unsafe impl ::core::marker::Sync for AccelerometerReading {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct AccelerometerReadingChangedEventArgs(::windows::core::IUnknown);
 impl AccelerometerReadingChangedEventArgs {
@@ -494,6 +498,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
 }
 unsafe impl ::core::marker::Send for AccelerometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AccelerometerReadingChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct AccelerometerReadingType(pub i32);
 impl AccelerometerReadingType {
@@ -522,6 +527,7 @@ unsafe impl ::windows::core::RuntimeType for AccelerometerReadingType {
 impl ::windows::core::DefaultType for AccelerometerReadingType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct AccelerometerShakenEventArgs(::windows::core::IUnknown);
 impl AccelerometerShakenEventArgs {
@@ -597,6 +603,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
 }
 unsafe impl ::core::marker::Send for AccelerometerShakenEventArgs {}
 unsafe impl ::core::marker::Sync for AccelerometerShakenEventArgs {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct ActivitySensor(::windows::core::IUnknown);
 impl ActivitySensor {
@@ -760,6 +767,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acti
 }
 unsafe impl ::core::marker::Send for ActivitySensor {}
 unsafe impl ::core::marker::Sync for ActivitySensor {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct ActivitySensorReading(::windows::core::IUnknown);
 impl ActivitySensorReading {
@@ -849,6 +857,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acti
 }
 unsafe impl ::core::marker::Send for ActivitySensorReading {}
 unsafe impl ::core::marker::Sync for ActivitySensorReading {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct ActivitySensorReadingChangeReport(::windows::core::IUnknown);
 impl ActivitySensorReadingChangeReport {
@@ -923,6 +932,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acti
 }
 unsafe impl ::core::marker::Send for ActivitySensorReadingChangeReport {}
 unsafe impl ::core::marker::Sync for ActivitySensorReadingChangeReport {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct ActivitySensorReadingChangedEventArgs(::windows::core::IUnknown);
 impl ActivitySensorReadingChangedEventArgs {
@@ -997,6 +1007,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acti
 }
 unsafe impl ::core::marker::Send for ActivitySensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ActivitySensorReadingChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct ActivitySensorReadingConfidence(pub i32);
 impl ActivitySensorReadingConfidence {
@@ -1024,6 +1035,7 @@ unsafe impl ::windows::core::RuntimeType for ActivitySensorReadingConfidence {
 impl ::windows::core::DefaultType for ActivitySensorReadingConfidence {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct ActivitySensorTriggerDetails(::windows::core::IUnknown);
 impl ActivitySensorTriggerDetails {
@@ -1099,6 +1111,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acti
 }
 unsafe impl ::core::marker::Send for ActivitySensorTriggerDetails {}
 unsafe impl ::core::marker::Sync for ActivitySensorTriggerDetails {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct ActivityType(pub i32);
 impl ActivityType {
@@ -1132,6 +1145,7 @@ unsafe impl ::windows::core::RuntimeType for ActivityType {
 impl ::windows::core::DefaultType for ActivityType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct Altimeter(::windows::core::IUnknown);
 impl Altimeter {
@@ -1272,6 +1286,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Alti
 }
 unsafe impl ::core::marker::Send for Altimeter {}
 unsafe impl ::core::marker::Sync for Altimeter {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct AltimeterReading(::windows::core::IUnknown);
 impl AltimeterReading {
@@ -1370,6 +1385,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Alti
 }
 unsafe impl ::core::marker::Send for AltimeterReading {}
 unsafe impl ::core::marker::Sync for AltimeterReading {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct AltimeterReadingChangedEventArgs(::windows::core::IUnknown);
 impl AltimeterReadingChangedEventArgs {
@@ -1444,6 +1460,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Alti
 }
 unsafe impl ::core::marker::Send for AltimeterReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AltimeterReadingChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct Barometer(::windows::core::IUnknown);
 impl Barometer {
@@ -1608,6 +1625,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Baro
 }
 unsafe impl ::core::marker::Send for Barometer {}
 unsafe impl ::core::marker::Sync for Barometer {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct BarometerDataThreshold(::windows::core::IUnknown);
 impl BarometerDataThreshold {
@@ -1686,6 +1704,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Baro
 }
 unsafe impl ::core::marker::Send for BarometerDataThreshold {}
 unsafe impl ::core::marker::Sync for BarometerDataThreshold {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct BarometerReading(::windows::core::IUnknown);
 impl BarometerReading {
@@ -1784,6 +1803,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Baro
 }
 unsafe impl ::core::marker::Send for BarometerReading {}
 unsafe impl ::core::marker::Sync for BarometerReading {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct BarometerReadingChangedEventArgs(::windows::core::IUnknown);
 impl BarometerReadingChangedEventArgs {
@@ -1858,6 +1878,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Baro
 }
 unsafe impl ::core::marker::Send for BarometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for BarometerReadingChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct Compass(::windows::core::IUnknown);
 impl Compass {
@@ -2035,6 +2056,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comp
 }
 unsafe impl ::core::marker::Send for Compass {}
 unsafe impl ::core::marker::Sync for Compass {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct CompassDataThreshold(::windows::core::IUnknown);
 impl CompassDataThreshold {
@@ -2113,6 +2135,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comp
 }
 unsafe impl ::core::marker::Send for CompassDataThreshold {}
 unsafe impl ::core::marker::Sync for CompassDataThreshold {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct CompassReading(::windows::core::IUnknown);
 impl CompassReading {
@@ -2226,6 +2249,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comp
 }
 unsafe impl ::core::marker::Send for CompassReading {}
 unsafe impl ::core::marker::Sync for CompassReading {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct CompassReadingChangedEventArgs(::windows::core::IUnknown);
 impl CompassReadingChangedEventArgs {
@@ -2300,6 +2324,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Comp
 }
 unsafe impl ::core::marker::Send for CompassReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CompassReadingChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct Gyrometer(::windows::core::IUnknown);
 impl Gyrometer {
@@ -2477,6 +2502,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gyro
 }
 unsafe impl ::core::marker::Send for Gyrometer {}
 unsafe impl ::core::marker::Sync for Gyrometer {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct GyrometerDataThreshold(::windows::core::IUnknown);
 impl GyrometerDataThreshold {
@@ -2577,6 +2603,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gyro
 }
 unsafe impl ::core::marker::Send for GyrometerDataThreshold {}
 unsafe impl ::core::marker::Sync for GyrometerDataThreshold {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct GyrometerReading(::windows::core::IUnknown);
 impl GyrometerReading {
@@ -2689,6 +2716,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gyro
 }
 unsafe impl ::core::marker::Send for GyrometerReading {}
 unsafe impl ::core::marker::Sync for GyrometerReading {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct GyrometerReadingChangedEventArgs(::windows::core::IUnknown);
 impl GyrometerReadingChangedEventArgs {
@@ -2763,6 +2791,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gyro
 }
 unsafe impl ::core::marker::Send for GyrometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GyrometerReadingChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct HingeAngleReading(::windows::core::IUnknown);
 impl HingeAngleReading {
@@ -2853,6 +2882,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hing
 }
 unsafe impl ::core::marker::Send for HingeAngleReading {}
 unsafe impl ::core::marker::Sync for HingeAngleReading {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct HingeAngleSensor(::windows::core::IUnknown);
 impl HingeAngleSensor {
@@ -2997,6 +3027,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hing
 }
 unsafe impl ::core::marker::Send for HingeAngleSensor {}
 unsafe impl ::core::marker::Sync for HingeAngleSensor {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct HingeAngleSensorReadingChangedEventArgs(::windows::core::IUnknown);
 impl HingeAngleSensorReadingChangedEventArgs {
@@ -5558,6 +5589,7 @@ pub struct IProximitySensorStatics2Vtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, triggerdetails: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct ISensorDataThreshold(::windows::core::IUnknown);
 impl ISensorDataThreshold {}
@@ -5814,6 +5846,7 @@ pub struct ISimpleOrientationSensorStatics2Vtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct Inclinometer(::windows::core::IUnknown);
 impl Inclinometer {
@@ -6018,6 +6051,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Incl
 }
 unsafe impl ::core::marker::Send for Inclinometer {}
 unsafe impl ::core::marker::Sync for Inclinometer {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct InclinometerDataThreshold(::windows::core::IUnknown);
 impl InclinometerDataThreshold {
@@ -6118,6 +6152,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Incl
 }
 unsafe impl ::core::marker::Send for InclinometerDataThreshold {}
 unsafe impl ::core::marker::Sync for InclinometerDataThreshold {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct InclinometerReading(::windows::core::IUnknown);
 impl InclinometerReading {
@@ -6237,6 +6272,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Incl
 }
 unsafe impl ::core::marker::Send for InclinometerReading {}
 unsafe impl ::core::marker::Sync for InclinometerReading {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct InclinometerReadingChangedEventArgs(::windows::core::IUnknown);
 impl InclinometerReadingChangedEventArgs {
@@ -6311,6 +6347,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Incl
 }
 unsafe impl ::core::marker::Send for InclinometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for InclinometerReadingChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct LightSensor(::windows::core::IUnknown);
 impl LightSensor {
@@ -6475,6 +6512,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ligh
 }
 unsafe impl ::core::marker::Send for LightSensor {}
 unsafe impl ::core::marker::Sync for LightSensor {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct LightSensorDataThreshold(::windows::core::IUnknown);
 impl LightSensorDataThreshold {
@@ -6564,6 +6602,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ligh
 }
 unsafe impl ::core::marker::Send for LightSensorDataThreshold {}
 unsafe impl ::core::marker::Sync for LightSensorDataThreshold {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct LightSensorReading(::windows::core::IUnknown);
 impl LightSensorReading {
@@ -6662,6 +6701,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ligh
 }
 unsafe impl ::core::marker::Send for LightSensorReading {}
 unsafe impl ::core::marker::Sync for LightSensorReading {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct LightSensorReadingChangedEventArgs(::windows::core::IUnknown);
 impl LightSensorReadingChangedEventArgs {
@@ -6736,6 +6776,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ligh
 }
 unsafe impl ::core::marker::Send for LightSensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for LightSensorReadingChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct Magnetometer(::windows::core::IUnknown);
 impl Magnetometer {
@@ -6913,6 +6954,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
 }
 unsafe impl ::core::marker::Send for Magnetometer {}
 unsafe impl ::core::marker::Sync for Magnetometer {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct MagnetometerAccuracy(pub i32);
 impl MagnetometerAccuracy {
@@ -6942,6 +6984,7 @@ unsafe impl ::windows::core::RuntimeType for MagnetometerAccuracy {
 impl ::windows::core::DefaultType for MagnetometerAccuracy {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct MagnetometerDataThreshold(::windows::core::IUnknown);
 impl MagnetometerDataThreshold {
@@ -7042,6 +7085,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
 }
 unsafe impl ::core::marker::Send for MagnetometerDataThreshold {}
 unsafe impl ::core::marker::Sync for MagnetometerDataThreshold {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct MagnetometerReading(::windows::core::IUnknown);
 impl MagnetometerReading {
@@ -7161,6 +7205,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
 }
 unsafe impl ::core::marker::Send for MagnetometerReading {}
 unsafe impl ::core::marker::Sync for MagnetometerReading {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct MagnetometerReadingChangedEventArgs(::windows::core::IUnknown);
 impl MagnetometerReadingChangedEventArgs {
@@ -7235,6 +7280,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
 }
 unsafe impl ::core::marker::Send for MagnetometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MagnetometerReadingChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct OrientationSensor(::windows::core::IUnknown);
 impl OrientationSensor {
@@ -7444,6 +7490,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Orie
 }
 unsafe impl ::core::marker::Send for OrientationSensor {}
 unsafe impl ::core::marker::Sync for OrientationSensor {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct OrientationSensorReading(::windows::core::IUnknown);
 impl OrientationSensorReading {
@@ -7556,6 +7603,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Orie
 }
 unsafe impl ::core::marker::Send for OrientationSensorReading {}
 unsafe impl ::core::marker::Sync for OrientationSensorReading {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct OrientationSensorReadingChangedEventArgs(::windows::core::IUnknown);
 impl OrientationSensorReadingChangedEventArgs {
@@ -7630,6 +7678,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Orie
 }
 unsafe impl ::core::marker::Send for OrientationSensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for OrientationSensorReadingChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct Pedometer(::windows::core::IUnknown);
 impl Pedometer {
@@ -7799,6 +7848,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pedo
 }
 unsafe impl ::core::marker::Send for Pedometer {}
 unsafe impl ::core::marker::Sync for Pedometer {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct PedometerDataThreshold(::windows::core::IUnknown);
 impl PedometerDataThreshold {
@@ -7898,6 +7948,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISensorDataThreshold> for &PedometerData
 }
 unsafe impl ::core::marker::Send for PedometerDataThreshold {}
 unsafe impl ::core::marker::Sync for PedometerDataThreshold {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct PedometerReading(::windows::core::IUnknown);
 impl PedometerReading {
@@ -7995,6 +8046,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pedo
 }
 unsafe impl ::core::marker::Send for PedometerReading {}
 unsafe impl ::core::marker::Sync for PedometerReading {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct PedometerReadingChangedEventArgs(::windows::core::IUnknown);
 impl PedometerReadingChangedEventArgs {
@@ -8069,6 +8121,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pedo
 }
 unsafe impl ::core::marker::Send for PedometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PedometerReadingChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct PedometerStepKind(pub i32);
 impl PedometerStepKind {
@@ -8097,6 +8150,7 @@ unsafe impl ::windows::core::RuntimeType for PedometerStepKind {
 impl ::windows::core::DefaultType for PedometerStepKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct ProximitySensor(::windows::core::IUnknown);
 impl ProximitySensor {
@@ -8242,6 +8296,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prox
 }
 unsafe impl ::core::marker::Send for ProximitySensor {}
 unsafe impl ::core::marker::Sync for ProximitySensor {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct ProximitySensorDataThreshold(::windows::core::IUnknown);
 impl ProximitySensorDataThreshold {
@@ -8341,6 +8396,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISensorDataThreshold> for &ProximitySens
 }
 unsafe impl ::core::marker::Send for ProximitySensorDataThreshold {}
 unsafe impl ::core::marker::Sync for ProximitySensorDataThreshold {}
+#[doc = "*Required features: 'Devices_Sensors', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 #[repr(transparent)]
 pub struct ProximitySensorDisplayOnOffController(::windows::core::IUnknown);
@@ -8457,6 +8513,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 unsafe impl ::core::marker::Send for ProximitySensorDisplayOnOffController {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::core::marker::Sync for ProximitySensorDisplayOnOffController {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct ProximitySensorReading(::windows::core::IUnknown);
 impl ProximitySensorReading {
@@ -8547,6 +8604,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prox
 }
 unsafe impl ::core::marker::Send for ProximitySensorReading {}
 unsafe impl ::core::marker::Sync for ProximitySensorReading {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct ProximitySensorReadingChangedEventArgs(::windows::core::IUnknown);
 impl ProximitySensorReadingChangedEventArgs {
@@ -8621,6 +8679,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prox
 }
 unsafe impl ::core::marker::Send for ProximitySensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ProximitySensorReadingChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct SensorDataThresholdTriggerDetails(::windows::core::IUnknown);
 impl SensorDataThresholdTriggerDetails {
@@ -8702,6 +8761,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sens
 }
 unsafe impl ::core::marker::Send for SensorDataThresholdTriggerDetails {}
 unsafe impl ::core::marker::Sync for SensorDataThresholdTriggerDetails {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct SensorOptimizationGoal(pub i32);
 impl SensorOptimizationGoal {
@@ -8729,6 +8789,7 @@ unsafe impl ::windows::core::RuntimeType for SensorOptimizationGoal {
 impl ::windows::core::DefaultType for SensorOptimizationGoal {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct SensorQuaternion(::windows::core::IUnknown);
 impl SensorQuaternion {
@@ -8824,6 +8885,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sens
 }
 unsafe impl ::core::marker::Send for SensorQuaternion {}
 unsafe impl ::core::marker::Sync for SensorQuaternion {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct SensorReadingType(pub i32);
 impl SensorReadingType {
@@ -8851,6 +8913,7 @@ unsafe impl ::windows::core::RuntimeType for SensorReadingType {
 impl ::windows::core::DefaultType for SensorReadingType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct SensorRotationMatrix(::windows::core::IUnknown);
 impl SensorRotationMatrix {
@@ -8981,6 +9044,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sens
 }
 unsafe impl ::core::marker::Send for SensorRotationMatrix {}
 unsafe impl ::core::marker::Sync for SensorRotationMatrix {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct SensorType(pub i32);
 impl SensorType {
@@ -9020,6 +9084,7 @@ unsafe impl ::windows::core::RuntimeType for SensorType {
 impl ::windows::core::DefaultType for SensorType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct SimpleOrientation(pub i32);
 impl SimpleOrientation {
@@ -9051,6 +9116,7 @@ unsafe impl ::windows::core::RuntimeType for SimpleOrientation {
 impl ::windows::core::DefaultType for SimpleOrientation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct SimpleOrientationSensor(::windows::core::IUnknown);
 impl SimpleOrientationSensor {
@@ -9185,6 +9251,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Simp
 }
 unsafe impl ::core::marker::Send for SimpleOrientationSensor {}
 unsafe impl ::core::marker::Sync for SimpleOrientationSensor {}
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct SimpleOrientationSensorOrientationChangedEventArgs(::windows::core::IUnknown);
 impl SimpleOrientationSensorOrientationChangedEventArgs {

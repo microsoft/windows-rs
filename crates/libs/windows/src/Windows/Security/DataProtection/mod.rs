@@ -106,6 +106,7 @@ pub struct IUserDataStorageItemProtectionInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut UserDataAvailability) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Security_DataProtection'*"]
 #[repr(transparent)]
 pub struct UserDataAvailability(pub i32);
 impl UserDataAvailability {
@@ -134,6 +135,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAvailability {
 impl ::windows::core::DefaultType for UserDataAvailability {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_DataProtection'*"]
 #[repr(transparent)]
 pub struct UserDataAvailabilityStateChangedEventArgs(::windows::core::IUnknown);
 impl UserDataAvailabilityStateChangedEventArgs {
@@ -209,6 +211,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataAvailabilityStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataAvailabilityStateChangedEventArgs {}
+#[doc = "*Required features: 'Security_DataProtection'*"]
 #[repr(transparent)]
 pub struct UserDataBufferUnprotectResult(::windows::core::IUnknown);
 impl UserDataBufferUnprotectResult {
@@ -291,6 +294,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataBufferUnprotectResult {}
 unsafe impl ::core::marker::Sync for UserDataBufferUnprotectResult {}
+#[doc = "*Required features: 'Security_DataProtection'*"]
 #[repr(transparent)]
 pub struct UserDataBufferUnprotectStatus(pub i32);
 impl UserDataBufferUnprotectStatus {
@@ -318,6 +322,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataBufferUnprotectStatus {
 impl ::windows::core::DefaultType for UserDataBufferUnprotectStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_DataProtection'*"]
 #[repr(transparent)]
 pub struct UserDataProtectionManager(::windows::core::IUnknown);
 impl UserDataProtectionManager {
@@ -454,6 +459,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataProtectionManager {}
 unsafe impl ::core::marker::Sync for UserDataProtectionManager {}
+#[doc = "*Required features: 'Security_DataProtection'*"]
 #[repr(transparent)]
 pub struct UserDataStorageItemProtectionInfo(::windows::core::IUnknown);
 impl UserDataStorageItemProtectionInfo {
@@ -528,6 +534,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataStorageItemProtectionInfo {}
 unsafe impl ::core::marker::Sync for UserDataStorageItemProtectionInfo {}
+#[doc = "*Required features: 'Security_DataProtection'*"]
 #[repr(transparent)]
 pub struct UserDataStorageItemProtectionStatus(pub i32);
 impl UserDataStorageItemProtectionStatus {

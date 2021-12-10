@@ -72,6 +72,7 @@ pub struct IVariablePhotoSequenceCapture2Vtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Media_Capture_Core'*"]
 #[repr(transparent)]
 pub struct VariablePhotoCapturedEventArgs(::windows::core::IUnknown);
 impl VariablePhotoCapturedEventArgs {
@@ -169,6 +170,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vari
 }
 unsafe impl ::core::marker::Send for VariablePhotoCapturedEventArgs {}
 unsafe impl ::core::marker::Sync for VariablePhotoCapturedEventArgs {}
+#[doc = "*Required features: 'Media_Capture_Core'*"]
 #[repr(transparent)]
 pub struct VariablePhotoSequenceCapture(::windows::core::IUnknown);
 impl VariablePhotoSequenceCapture {

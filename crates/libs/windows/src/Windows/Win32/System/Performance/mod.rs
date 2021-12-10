@@ -2,17 +2,29 @@
 #[cfg(feature = "Win32_System_Performance_HardwareCounterProfiling")]
 pub mod HardwareCounterProfiling;
 pub const AppearPropPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe49741e9_93a8_4ab1_8e96_bf4482282e9c);
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type AutoPathFormat = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaNone: AutoPathFormat = 0i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaPattern: AutoPathFormat = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaComputer: AutoPathFormat = 2i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaMonthDayHour: AutoPathFormat = 256i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaSerialNumber: AutoPathFormat = 512i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaYearDayOfYear: AutoPathFormat = 1024i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaYearMonth: AutoPathFormat = 2048i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaYearMonthDay: AutoPathFormat = 4096i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaYearMonthDayHour: AutoPathFormat = 8192i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaMonthDayHourMinute: AutoPathFormat = 16384i32;
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BackupPerfRegistryToFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szfilename: Param0, szcommentstring: Param1) -> u32 {
@@ -29,23 +41,37 @@ pub unsafe fn BackupPerfRegistryToFileW<'a, Param0: ::windows::core::IntoParam<'
 }
 pub const BootTraceSession: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837538_098b_11d8_9414_505054503030);
 pub const BootTraceSessionCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837539_098b_11d8_9414_505054503030);
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type ClockType = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaTimeStamp: ClockType = 0i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaPerformance: ClockType = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaSystem: ClockType = 2i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaCycle: ClockType = 3i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type CommitMode = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaCreateNew: CommitMode = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaModify: CommitMode = 2i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaCreateOrModify: CommitMode = 3i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaUpdateRunningInstance: CommitMode = 16i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaFlushTrace: CommitMode = 32i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaValidateOnly: CommitMode = 4096i32;
 pub const CounterItem: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4d2d8e0_d1dd_11ce_940f_008029004348);
 pub const CounterItem2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43196c62_c31f_4ce3_a02e_79efe0f6a525);
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type CounterPathCallBack = ::core::option::Option<unsafe extern "system" fn(param0: usize) -> i32>;
 pub const CounterPropPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf948561_ede8_11ce_941e_008029004347);
 pub const Counters: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2b066d2_2aac_11cf_942f_008029004347);
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct DICounterItem(::windows::core::IUnknown);
 impl DICounterItem {
@@ -147,6 +173,7 @@ pub const DIID_DILogFileItem: ::windows::core::GUID = ::windows::core::GUID::fro
 pub const DIID_DISystemMonitor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13d73d81_c32e_11cf_9398_00aa00a3ddea);
 pub const DIID_DISystemMonitorEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84979930_4ab3_11cf_943a_008029004347);
 pub const DIID_DISystemMonitorInternal: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x194eb242_c32c_11cf_9398_00aa00a3ddea);
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct DILogFileItem(::windows::core::IUnknown);
 impl DILogFileItem {
@@ -243,6 +270,7 @@ pub struct DILogFileItemVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct DISystemMonitor(::windows::core::IUnknown);
 impl DISystemMonitor {
@@ -339,6 +367,7 @@ pub struct DISystemMonitorVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct DISystemMonitorEvents(::windows::core::IUnknown);
 impl DISystemMonitorEvents {
@@ -435,6 +464,7 @@ pub struct DISystemMonitorEventsVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::Com::DISPPARAMS, pvarresult: *mut super::Com::VARIANT, pexcepinfo: *mut super::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct DISystemMonitorInternal(::windows::core::IUnknown);
 impl DISystemMonitorInternal {
@@ -533,49 +563,90 @@ pub struct DISystemMonitorInternalVtbl(
 );
 pub const DataCollectorSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837521_098b_11d8_9414_505054503030);
 pub const DataCollectorSetCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837525_098b_11d8_9414_505054503030);
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type DataCollectorSetStatus = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaStopped: DataCollectorSetStatus = 0i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaRunning: DataCollectorSetStatus = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaCompiling: DataCollectorSetStatus = 2i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaPending: DataCollectorSetStatus = 3i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaUndefined: DataCollectorSetStatus = 4i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type DataCollectorType = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaPerformanceCounter: DataCollectorType = 0i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaTrace: DataCollectorType = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaConfiguration: DataCollectorType = 2i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaAlert: DataCollectorType = 3i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaApiTrace: DataCollectorType = 4i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type DataManagerSteps = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaCreateReport: DataManagerSteps = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaRunRules: DataManagerSteps = 2i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaCreateHtml: DataManagerSteps = 4i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaFolderActions: DataManagerSteps = 8i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaResourceFreeing: DataManagerSteps = 16i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type DataSourceTypeConstants = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonNullDataSource: DataSourceTypeConstants = -1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonCurrentActivity: DataSourceTypeConstants = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonLogFiles: DataSourceTypeConstants = 2i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonSqlLog: DataSourceTypeConstants = 3i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type DisplayTypeConstants = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonLineGraph: DisplayTypeConstants = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonHistogram: DisplayTypeConstants = 2i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonReport: DisplayTypeConstants = 3i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonChartArea: DisplayTypeConstants = 4i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonChartStackedArea: DisplayTypeConstants = 5i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type FileFormat = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaCommaSeparated: FileFormat = 0i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaTabSeparated: FileFormat = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaSql: FileFormat = 2i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaBinary: FileFormat = 3i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type FolderActionSteps = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaCreateCab: FolderActionSteps = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaDeleteData: FolderActionSteps = 2i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaSendCab: FolderActionSteps = 4i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaDeleteCab: FolderActionSteps = 8i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaDeleteReport: FolderActionSteps = 16i32;
 pub const GeneralPropPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3e5d3d2_1a03_11cf_942d_008029004347);
 pub const GraphPropPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3e5d3d3_1a03_11cf_942d_008029004347);
 pub const H_WBEM_DATASOURCE: i32 = -1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct IAlertDataCollector(::windows::core::IUnknown);
 impl IAlertDataCollector {
@@ -923,6 +994,7 @@ pub struct IAlertDataCollectorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct IApiTracingDataCollector(::windows::core::IUnknown);
 impl IApiTracingDataCollector {
@@ -1261,6 +1333,7 @@ pub struct IApiTracingDataCollectorVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, excludeapis: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct IConfigurationDataCollector(::windows::core::IUnknown);
 impl IConfigurationDataCollector {
@@ -1613,6 +1686,7 @@ pub struct IConfigurationDataCollectorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct ICounterItem(::windows::core::IUnknown);
 impl ICounterItem {
@@ -1715,6 +1789,7 @@ pub struct ICounterItemVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut f64, status: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct ICounterItem2(::windows::core::IUnknown);
 impl ICounterItem2 {
@@ -1862,6 +1937,7 @@ pub struct ICounterItem2Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iindex: i32, iwhich: SysmonDataType, pvariant: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct ICounters(::windows::core::IUnknown);
 impl ICounters {
@@ -1988,6 +2064,7 @@ pub struct ICountersVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct IDataCollector(::windows::core::IUnknown);
 impl IDataCollector {
@@ -2223,6 +2300,7 @@ pub struct IDataCollectorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, latest: i16, location: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct IDataCollectorCollection(::windows::core::IUnknown);
 impl IDataCollectorCollection {
@@ -2365,6 +2443,7 @@ pub struct IDataCollectorCollectionVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: DataCollectorType, collector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct IDataCollectorSet(::windows::core::IUnknown);
 impl IDataCollectorSet {
@@ -2805,6 +2884,7 @@ pub struct IDataCollectorSetVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct IDataCollectorSetCollection(::windows::core::IUnknown);
 impl IDataCollectorSetCollection {
@@ -2942,6 +3022,7 @@ pub struct IDataCollectorSetCollectionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, filter: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct IDataManager(::windows::core::IUnknown);
 impl IDataManager {
@@ -3175,6 +3256,7 @@ pub struct IDataManagerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cabfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, destinationpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct IFolderAction(::windows::core::IUnknown);
 impl IFolderAction {
@@ -3311,6 +3393,7 @@ pub struct IFolderActionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdestination: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct IFolderActionCollection(::windows::core::IUnknown);
 impl IFolderActionCollection {
@@ -3447,6 +3530,7 @@ pub struct IFolderActionCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, actions: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, folderaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct ILogFileItem(::windows::core::IUnknown);
 impl ILogFileItem {
@@ -3500,6 +3584,7 @@ pub struct ILogFileItemVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct ILogFiles(::windows::core::IUnknown);
 impl ILogFiles {
@@ -3626,6 +3711,7 @@ pub struct ILogFilesVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct IPerformanceCounterDataCollector(::windows::core::IUnknown);
 impl IPerformanceCounterDataCollector {
@@ -3934,6 +4020,7 @@ pub struct IPerformanceCounterDataCollectorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, records: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, records: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct ISchedule(::windows::core::IUnknown);
 impl ISchedule {
@@ -4078,6 +4165,7 @@ pub struct IScheduleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, days: *mut WeekDays) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, days: WeekDays) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct IScheduleCollection(::windows::core::IUnknown);
 impl IScheduleCollection {
@@ -4214,6 +4302,7 @@ pub struct IScheduleCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pschedules: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, schedule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct ISystemMonitor(::windows::core::IUnknown);
 impl ISystemMonitor {
@@ -4626,6 +4715,7 @@ pub struct ISystemMonitorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bssqllogsetname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct ISystemMonitor2(::windows::core::IUnknown);
 impl ISystemMonitor2 {
@@ -5151,6 +5241,7 @@ pub struct ISystemMonitor2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrsettingfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct ISystemMonitorEvents(::windows::core::IUnknown);
 impl ISystemMonitorEvents {
@@ -5217,6 +5308,7 @@ pub struct ISystemMonitorEventsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32),
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct ITraceDataCollector(::windows::core::IUnknown);
 impl ITraceDataCollector {
@@ -5657,6 +5749,7 @@ pub struct ITraceDataCollectorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: StreamMode) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, providers: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct ITraceDataProvider(::windows::core::IUnknown);
 impl ITraceDataProvider {
@@ -5856,6 +5949,7 @@ pub struct ITraceDataProviderVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, processes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct ITraceDataProviderCollection(::windows::core::IUnknown);
 impl ITraceDataProviderCollection {
@@ -6004,6 +6098,7 @@ pub struct ITraceDataProviderCollectionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, server: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pid: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct IValueMap(::windows::core::IUnknown);
 impl IValueMap {
@@ -6177,6 +6272,7 @@ pub struct IValueMapVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, map: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct IValueMapItem(::windows::core::IUnknown);
 impl IValueMapItem {
@@ -6330,6 +6426,7 @@ pub struct IValueMapItemVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut ValueMapType) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: ValueMapType) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InstallPerfDllA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szcomputername: Param0, lpinifile: Param1, dwflags: usize) -> u32 {
@@ -6344,6 +6441,7 @@ pub unsafe fn InstallPerfDllA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InstallPerfDllW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szcomputername: Param0, lpinifile: Param1, dwflags: usize) -> u32 {
@@ -6363,6 +6461,7 @@ pub const LegacyDataCollectorSet: ::windows::core::GUID = ::windows::core::GUID:
 pub const LegacyDataCollectorSetCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837527_098b_11d8_9414_505054503030);
 pub const LegacyTraceSession: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837528_098b_11d8_9414_505054503030);
 pub const LegacyTraceSessionCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837529_098b_11d8_9414_505054503030);
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadPerfCounterTextStringsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpcommandline: Param0, bquietmodearg: Param1) -> u32 {
@@ -6377,6 +6476,7 @@ pub unsafe fn LoadPerfCounterTextStringsA<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadPerfCounterTextStringsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpcommandline: Param0, bquietmodearg: Param1) -> u32 {
@@ -6399,6 +6499,7 @@ pub const PDH_ACCESS_DENIED: i32 = -1073738789i32;
 pub const PDH_ASYNC_QUERY_TIMEOUT: i32 = -2147481637i32;
 pub const PDH_BINARY_LOG_CORRUPT: i32 = -1073738761i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_BROWSE_DLG_CONFIG_A {
     pub _bitfield: u32,
@@ -6439,6 +6540,7 @@ impl ::core::default::Default for PDH_BROWSE_DLG_CONFIG_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_BROWSE_DLG_CONFIG_HA {
     pub _bitfield: u32,
@@ -6479,6 +6581,7 @@ impl ::core::default::Default for PDH_BROWSE_DLG_CONFIG_HA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_BROWSE_DLG_CONFIG_HW {
     pub _bitfield: u32,
@@ -6519,6 +6622,7 @@ impl ::core::default::Default for PDH_BROWSE_DLG_CONFIG_HW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_BROWSE_DLG_CONFIG_W {
     pub _bitfield: u32,
@@ -6567,6 +6671,7 @@ pub const PDH_CANNOT_READ_NAME_STRINGS: i32 = -1073738808i32;
 pub const PDH_CANNOT_SET_DEFAULT_REALTIME_DATASOURCE: i32 = -2147481636i32;
 pub const PDH_COUNTER_ALREADY_IN_QUERY: i32 = -1073738762i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_COUNTER_INFO_A {
     pub dwLength: u32,
@@ -6609,6 +6714,7 @@ impl ::core::default::Default for PDH_COUNTER_INFO_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PDH_COUNTER_INFO_A_0 {
     pub DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_A,
@@ -6642,6 +6748,7 @@ impl ::core::default::Default for PDH_COUNTER_INFO_A_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_COUNTER_INFO_A_0_0 {
     pub szMachineName: super::super::Foundation::PSTR,
@@ -6678,6 +6785,7 @@ impl ::core::default::Default for PDH_COUNTER_INFO_A_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_COUNTER_INFO_W {
     pub dwLength: u32,
@@ -6720,6 +6828,7 @@ impl ::core::default::Default for PDH_COUNTER_INFO_W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PDH_COUNTER_INFO_W_0 {
     pub DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_W,
@@ -6753,6 +6862,7 @@ impl ::core::default::Default for PDH_COUNTER_INFO_W_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_COUNTER_INFO_W_0_0 {
     pub szMachineName: super::super::Foundation::PWSTR,
@@ -6789,6 +6899,7 @@ impl ::core::default::Default for PDH_COUNTER_INFO_W_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_COUNTER_PATH_ELEMENTS_A {
     pub szMachineName: super::super::Foundation::PSTR,
@@ -6825,6 +6936,7 @@ impl ::core::default::Default for PDH_COUNTER_PATH_ELEMENTS_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_COUNTER_PATH_ELEMENTS_W {
     pub szMachineName: super::super::Foundation::PWSTR,
@@ -6871,6 +6983,7 @@ pub const PDH_CSTATUS_NO_MACHINE: i32 = -2147481648i32;
 pub const PDH_CSTATUS_NO_OBJECT: i32 = -1073738824i32;
 pub const PDH_CSTATUS_VALID_DATA: i32 = 0i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_A {
     pub szMachineName: super::super::Foundation::PSTR,
@@ -6905,6 +7018,7 @@ impl ::core::default::Default for PDH_DATA_ITEM_PATH_ELEMENTS_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_W {
     pub szMachineName: super::super::Foundation::PWSTR,
@@ -6941,18 +7055,26 @@ impl ::core::default::Default for PDH_DATA_ITEM_PATH_ELEMENTS_W {
 pub const PDH_DATA_SOURCE_IS_LOG_FILE: i32 = -1073738802i32;
 pub const PDH_DATA_SOURCE_IS_REAL_TIME: i32 = -1073738801i32;
 pub const PDH_DIALOG_CANCELLED: i32 = -2147481639i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type PDH_DLL_VERSION = u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_CVERSION_WIN50: PDH_DLL_VERSION = 1280u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_VERSION: PDH_DLL_VERSION = 1283u32;
 pub const PDH_END_OF_LOG_FILE: i32 = -2147481638i32;
 pub const PDH_ENTRY_NOT_IN_LOG_FILE: i32 = -1073738803i32;
 pub const PDH_FILE_ALREADY_EXISTS: i32 = -1073738798i32;
 pub const PDH_FILE_NOT_FOUND: i32 = -1073738799i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type PDH_FMT = u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_FMT_DOUBLE: PDH_FMT = 512u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_FMT_LARGE: PDH_FMT = 1024u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_FMT_LONG: PDH_FMT = 256u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_FMT_COUNTERVALUE {
     pub CStatus: u32,
@@ -6985,6 +7107,7 @@ impl ::core::default::Default for PDH_FMT_COUNTERVALUE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PDH_FMT_COUNTERVALUE_0 {
     pub longValue: i32,
@@ -7020,6 +7143,7 @@ impl ::core::default::Default for PDH_FMT_COUNTERVALUE_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_FMT_COUNTERVALUE_ITEM_A {
     pub szName: super::super::Foundation::PSTR,
@@ -7052,6 +7176,7 @@ impl ::core::default::Default for PDH_FMT_COUNTERVALUE_ITEM_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_FMT_COUNTERVALUE_ITEM_W {
     pub szName: super::super::Foundation::PWSTR,
@@ -7095,9 +7220,13 @@ pub const PDH_INVALID_INSTANCE: i32 = -1073738811i32;
 pub const PDH_INVALID_PATH: i32 = -1073738812i32;
 pub const PDH_INVALID_SQLDB: i32 = -1073738786i32;
 pub const PDH_INVALID_SQL_LOG_FORMAT: i32 = -1073738763i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type PDH_LOG = u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_LOG_READ_ACCESS: PDH_LOG = 65536u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_LOG_WRITE_ACCESS: PDH_LOG = 131072u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_LOG_UPDATE_ACCESS: PDH_LOG = 262144u32;
 pub const PDH_LOGSVC_NOT_OPENED: i32 = -1073738791i32;
 pub const PDH_LOGSVC_QUERY_NOT_FOUND: i32 = -1073738792i32;
@@ -7106,6 +7235,7 @@ pub const PDH_LOG_FILE_OPEN_ERROR: i32 = -1073738806i32;
 pub const PDH_LOG_FILE_TOO_SMALL: i32 = -1073738788i32;
 pub const PDH_LOG_SAMPLE_TOO_SMALL: i32 = -1073738760i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A {
     pub dwSize: u32,
@@ -7145,6 +7275,7 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PDH_LOG_SERVICE_QUERY_INFO_A_0 {
     pub Anonymous1: PDH_LOG_SERVICE_QUERY_INFO_A_0_0,
@@ -7177,6 +7308,7 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     pub PdlAutoNameInterval: u32,
@@ -7215,6 +7347,7 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     pub TlNumberOfBuffers: u32,
@@ -7255,6 +7388,7 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W {
     pub dwSize: u32,
@@ -7294,6 +7428,7 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PDH_LOG_SERVICE_QUERY_INFO_W_0 {
     pub Anonymous1: PDH_LOG_SERVICE_QUERY_INFO_W_0_0,
@@ -7326,6 +7461,7 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     pub PdlAutoNameInterval: u32,
@@ -7364,6 +7500,7 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     pub TlNumberOfBuffers: u32,
@@ -7403,12 +7540,19 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type PDH_LOG_TYPE = u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_LOG_TYPE_UNDEFINED: PDH_LOG_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_LOG_TYPE_CSV: PDH_LOG_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_LOG_TYPE_SQL: PDH_LOG_TYPE = 7u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_LOG_TYPE_TSV: PDH_LOG_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_LOG_TYPE_BINARY: PDH_LOG_TYPE = 8u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_LOG_TYPE_PERFMON: PDH_LOG_TYPE = 6u32;
 pub const PDH_LOG_TYPE_NOT_FOUND: i32 = -1073738805i32;
 pub const PDH_LOG_TYPE_RETIRED_BIN: u32 = 3u32;
@@ -7431,9 +7575,13 @@ pub const PDH_NO_DIALOG_DATA: i32 = -1073738809i32;
 pub const PDH_NO_MORE_DATA: i32 = -1073738804i32;
 pub const PDH_OS_EARLIER_VERSION: i32 = -1073738758i32;
 pub const PDH_OS_LATER_VERSION: i32 = -1073738759i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type PDH_PATH_FLAGS = u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_PATH_WBEM_RESULT: PDH_PATH_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_PATH_WBEM_INPUT: PDH_PATH_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_PATH_WBEM_NONE: PDH_PATH_FLAGS = 0u32;
 pub const PDH_PLA_COLLECTION_ALREADY_RUNNING: i32 = -1073738775i32;
 pub const PDH_PLA_COLLECTION_NOT_FOUND: i32 = -1073738773i32;
@@ -7449,6 +7597,7 @@ pub const PDH_PLA_VALIDATION_ERROR: i32 = -1073738766i32;
 pub const PDH_PLA_VALIDATION_WARNING: i32 = -2147480589i32;
 pub const PDH_QUERY_PERF_DATA_TIMEOUT: i32 = -1073738754i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_RAW_COUNTER {
     pub CStatus: u32,
@@ -7484,6 +7633,7 @@ impl ::core::default::Default for PDH_RAW_COUNTER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_RAW_COUNTER_ITEM_A {
     pub szName: super::super::Foundation::PSTR,
@@ -7516,6 +7666,7 @@ impl ::core::default::Default for PDH_RAW_COUNTER_ITEM_A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_RAW_COUNTER_ITEM_W {
     pub szName: super::super::Foundation::PWSTR,
@@ -7548,6 +7699,7 @@ impl ::core::default::Default for PDH_RAW_COUNTER_ITEM_W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PDH_RAW_LOG_RECORD {
     pub dwStructureSize: u32,
     pub dwRecordType: PDH_LOG_TYPE,
@@ -7576,8 +7728,11 @@ impl ::core::default::Default for PDH_RAW_LOG_RECORD {
 }
 pub const PDH_REFRESHCOUNTERS: u32 = 4u32;
 pub const PDH_RETRY: i32 = -2147481644i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type PDH_SELECT_DATA_SOURCE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_FLAGS_FILE_BROWSER_ONLY: PDH_SELECT_DATA_SOURCE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_FLAGS_NONE: PDH_SELECT_DATA_SOURCE_FLAGS = 0u32;
 pub const PDH_SQL_ALLOCCON_FAILED: i32 = -1073738783i32;
 pub const PDH_SQL_ALLOC_FAILED: i32 = -1073738784i32;
@@ -7589,6 +7744,7 @@ pub const PDH_SQL_FETCH_FAILED: i32 = -1073738781i32;
 pub const PDH_SQL_MORE_RESULTS_FAILED: i32 = -1073738779i32;
 pub const PDH_SQL_ROWCOUNT_FAILED: i32 = -1073738780i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PDH_STATISTICS {
     pub dwFormat: u32,
@@ -7625,6 +7781,7 @@ impl ::core::default::Default for PDH_STATISTICS {
 }
 pub const PDH_STRING_NOT_FOUND: i32 = -1073738796i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PDH_TIME_INFO {
     pub StartTime: i64,
     pub EndTime: i64,
@@ -7656,6 +7813,7 @@ pub const PDH_UNKNOWN_LOGSVC_COMMAND: i32 = -1073738793i32;
 pub const PDH_UNKNOWN_LOG_FORMAT: i32 = -1073738794i32;
 pub const PDH_UNMATCHED_APPEND_COUNTER: i32 = -1073738756i32;
 pub const PDH_WBEM_ERROR: i32 = -1073738790i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type PERFLIBREQUEST = ::core::option::Option<unsafe extern "system" fn(requestcode: u32, buffer: *mut ::core::ffi::c_void, buffersize: u32) -> u32>;
 pub const PERF_ADD_COUNTER: u32 = 1u32;
 pub const PERF_AGGREGATE_MAX: u32 = 4u32;
@@ -7671,6 +7829,7 @@ pub const PERF_COUNTERSET_FLAG_HISTORY: u32 = 8u32;
 pub const PERF_COUNTERSET_FLAG_INSTANCE: u32 = 16u32;
 pub const PERF_COUNTERSET_FLAG_MULTIPLE: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PERF_COUNTERSET_INFO {
     pub CounterSetGuid: ::windows::core::GUID,
     pub ProviderGuid: ::windows::core::GUID,
@@ -7698,6 +7857,7 @@ impl ::core::default::Default for PERF_COUNTERSET_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PERF_COUNTERSET_INSTANCE {
     pub CounterSetGuid: ::windows::core::GUID,
     pub dwSize: u32,
@@ -7727,6 +7887,7 @@ impl ::core::default::Default for PERF_COUNTERSET_INSTANCE {
 }
 pub const PERF_COUNTERSET_MULTI_INSTANCES: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PERF_COUNTERSET_REG_INFO {
     pub CounterSetGuid: ::windows::core::GUID,
     pub CounterSetType: u32,
@@ -7756,13 +7917,19 @@ impl ::core::default::Default for PERF_COUNTERSET_REG_INFO {
 }
 pub const PERF_COUNTERSET_SINGLE_AGGREGATE: u32 = 4u32;
 pub const PERF_COUNTERSET_SINGLE_INSTANCE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type PERF_COUNTER_AGGREGATE_FUNC = u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_AGGREGATE_UNDEFINED: PERF_COUNTER_AGGREGATE_FUNC = 0u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_AGGREGATE_TOTAL: PERF_COUNTER_AGGREGATE_FUNC = 1u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_AGGREGATE_AVG: PERF_COUNTER_AGGREGATE_FUNC = 2u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_AGGREGATE_MIN: PERF_COUNTER_AGGREGATE_FUNC = 3u32;
 pub const PERF_COUNTER_BASE: u32 = 196608u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PERF_COUNTER_BLOCK {
     pub ByteLength: u32,
 }
@@ -7787,6 +7954,7 @@ impl ::core::default::Default for PERF_COUNTER_BLOCK {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PERF_COUNTER_DATA {
     pub dwDataSize: u32,
     pub dwSize: u32,
@@ -7812,6 +7980,7 @@ impl ::core::default::Default for PERF_COUNTER_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PERF_COUNTER_DEFINITION {
@@ -7859,6 +8028,7 @@ impl ::core::default::Default for PERF_COUNTER_DEFINITION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PERF_COUNTER_DEFINITION {
@@ -7908,6 +8078,7 @@ impl ::core::default::Default for PERF_COUNTER_DEFINITION {
 pub const PERF_COUNTER_ELAPSED: u32 = 262144u32;
 pub const PERF_COUNTER_FRACTION: u32 = 131072u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PERF_COUNTER_HEADER {
     pub dwStatus: u32,
     pub dwType: PerfCounterDataType,
@@ -7937,6 +8108,7 @@ impl ::core::default::Default for PERF_COUNTER_HEADER {
 pub const PERF_COUNTER_HISTOGRAM: u32 = 393216u32;
 pub const PERF_COUNTER_HISTOGRAM_TYPE: u32 = 2147483648u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PERF_COUNTER_IDENTIFIER {
     pub CounterSetGuid: ::windows::core::GUID,
     pub Status: u32,
@@ -7967,6 +8139,7 @@ impl ::core::default::Default for PERF_COUNTER_IDENTIFIER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PERF_COUNTER_IDENTITY {
     pub CounterSetGuid: ::windows::core::GUID,
     pub BufferSize: u32,
@@ -7997,6 +8170,7 @@ impl ::core::default::Default for PERF_COUNTER_IDENTITY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PERF_COUNTER_INFO {
     pub CounterId: u32,
     pub Type: u32,
@@ -8030,6 +8204,7 @@ pub const PERF_COUNTER_PRECISION: u32 = 458752u32;
 pub const PERF_COUNTER_QUEUELEN: u32 = 327680u32;
 pub const PERF_COUNTER_RATE: u32 = 65536u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PERF_COUNTER_REG_INFO {
     pub CounterId: u32,
     pub Type: u32,
@@ -8065,6 +8240,7 @@ impl ::core::default::Default for PERF_COUNTER_REG_INFO {
 }
 pub const PERF_COUNTER_VALUE: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PERF_DATA_BLOCK {
     pub Signature: [u16; 4],
@@ -8109,6 +8285,7 @@ impl ::core::default::Default for PERF_DATA_BLOCK {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PERF_DATA_HEADER {
     pub dwTotalSize: u32,
@@ -8148,10 +8325,15 @@ pub const PERF_DATA_REVISION: u32 = 1u32;
 pub const PERF_DATA_VERSION: u32 = 1u32;
 pub const PERF_DELTA_BASE: u32 = 8388608u32;
 pub const PERF_DELTA_COUNTER: u32 = 4194304u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type PERF_DETAIL = u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_DETAIL_NOVICE: PERF_DETAIL = 100u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_DETAIL_ADVANCED: PERF_DETAIL = 200u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_DETAIL_EXPERT: PERF_DETAIL = 300u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_DETAIL_WIZARD: PERF_DETAIL = 400u32;
 pub const PERF_DISPLAY_NOSHOW: u32 = 1073741824u32;
 pub const PERF_DISPLAY_NO_SUFFIX: u32 = 0u32;
@@ -8161,6 +8343,7 @@ pub const PERF_DISPLAY_SECONDS: u32 = 805306368u32;
 pub const PERF_ENUM_INSTANCES: u32 = 3u32;
 pub const PERF_FILTER: u32 = 9u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PERF_INSTANCE_DEFINITION {
     pub ByteLength: u32,
     pub ParentObjectTitleIndex: u32,
@@ -8190,6 +8373,7 @@ impl ::core::default::Default for PERF_INSTANCE_DEFINITION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PERF_INSTANCE_HEADER {
     pub Size: u32,
     pub InstanceId: u32,
@@ -8216,12 +8400,15 @@ impl ::core::default::Default for PERF_INSTANCE_HEADER {
 }
 pub const PERF_INVERSE_COUNTER: u32 = 16777216u32;
 pub const PERF_MAX_INSTANCE_NAME: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type PERF_MEM_ALLOC = ::core::option::Option<unsafe extern "system" fn(allocsize: usize, pcontext: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type PERF_MEM_FREE = ::core::option::Option<unsafe extern "system" fn(pbuffer: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void)>;
 pub const PERF_METADATA_MULTIPLE_INSTANCES: i32 = -2i32;
 pub const PERF_METADATA_NO_INSTANCES: i32 = -3i32;
 pub const PERF_MULTI_COUNTER: u32 = 33554432u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PERF_MULTI_COUNTERS {
     pub dwSize: u32,
     pub dwCounters: u32,
@@ -8247,6 +8434,7 @@ impl ::core::default::Default for PERF_MULTI_COUNTERS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PERF_MULTI_INSTANCES {
     pub dwTotalSize: u32,
     pub dwInstances: u32,
@@ -8278,6 +8466,7 @@ pub const PERF_NUMBER_DEC_1000: u32 = 131072u32;
 pub const PERF_NUMBER_HEX: u32 = 0u32;
 pub const PERF_OBJECT_TIMER: u32 = 2097152u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PERF_OBJECT_TYPE {
@@ -8329,6 +8518,7 @@ impl ::core::default::Default for PERF_OBJECT_TYPE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PERF_OBJECT_TYPE {
@@ -8380,6 +8570,7 @@ impl ::core::default::Default for PERF_OBJECT_TYPE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PERF_PROVIDER_CONTEXT {
     pub ContextSize: u32,
     pub Reserved: u32,
@@ -8417,6 +8608,7 @@ pub const PERF_SIZE_LARGE: u32 = 256u32;
 pub const PERF_SIZE_VARIABLE_LEN: u32 = 768u32;
 pub const PERF_SIZE_ZERO: u32 = 512u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PERF_STRING_BUFFER_HEADER {
     pub dwSize: u32,
     pub dwCounters: u32,
@@ -8442,6 +8634,7 @@ impl ::core::default::Default for PERF_STRING_BUFFER_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub struct PERF_STRING_COUNTER_HEADER {
     pub dwCounterId: u32,
     pub dwOffset: u32,
@@ -8475,6 +8668,7 @@ pub const PERF_TYPE_NUMBER: u32 = 0u32;
 pub const PERF_TYPE_TEXT: u32 = 2048u32;
 pub const PERF_TYPE_ZERO: u32 = 3072u32;
 pub const PERF_WILDCARD_COUNTER: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLA_CABEXTRACT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filename: super::super::Foundation::PWSTR, context: *mut ::core::ffi::c_void)>;
 pub const PLA_CAPABILITY_AUTOLOGGER: u32 = 32u32;
@@ -8484,11 +8678,15 @@ pub const PLA_CAPABILITY_LOCAL: u32 = 268435456u32;
 pub const PLA_CAPABILITY_V1_SESSION: u32 = 2u32;
 pub const PLA_CAPABILITY_V1_SVC: u32 = 1u32;
 pub const PLA_CAPABILITY_V1_SYSTEM: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type PM_CLOSE_PROC = ::core::option::Option<unsafe extern "system" fn() -> u32>;
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PM_COLLECT_PROC = ::core::option::Option<unsafe extern "system" fn(pvaluename: super::super::Foundation::PWSTR, ppdata: *mut *mut ::core::ffi::c_void, pcbtotalbytes: *mut u32, pnumobjecttypes: *mut u32) -> u32>;
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PM_OPEN_PROC = ::core::option::Option<unsafe extern "system" fn(pcontext: super::super::Foundation::PWSTR) -> u32>;
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhAddCounterA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hquery: isize, szfullcounterpath: Param1, dwuserdata: usize, phcounter: *mut isize) -> i32 {
@@ -8503,6 +8701,7 @@ pub unsafe fn PdhAddCounterA<'a, Param1: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhAddCounterW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hquery: isize, szfullcounterpath: Param1, dwuserdata: usize, phcounter: *mut isize) -> i32 {
@@ -8517,6 +8716,7 @@ pub unsafe fn PdhAddCounterW<'a, Param1: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhAddEnglishCounterA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hquery: isize, szfullcounterpath: Param1, dwuserdata: usize, phcounter: *mut isize) -> i32 {
@@ -8531,6 +8731,7 @@ pub unsafe fn PdhAddEnglishCounterA<'a, Param1: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhAddEnglishCounterW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hquery: isize, szfullcounterpath: Param1, dwuserdata: usize, phcounter: *mut isize) -> i32 {
@@ -8545,6 +8746,7 @@ pub unsafe fn PdhAddEnglishCounterW<'a, Param1: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhBindInputDataSourceA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(phdatasource: *mut isize, logfilenamelist: Param1) -> i32 {
@@ -8559,6 +8761,7 @@ pub unsafe fn PdhBindInputDataSourceA<'a, Param1: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhBindInputDataSourceW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(phdatasource: *mut isize, logfilenamelist: Param1) -> i32 {
@@ -8573,6 +8776,7 @@ pub unsafe fn PdhBindInputDataSourceW<'a, Param1: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhBrowseCountersA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_A) -> i32 {
@@ -8587,6 +8791,7 @@ pub unsafe fn PdhBrowseCountersA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_A)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhBrowseCountersHA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HA) -> i32 {
@@ -8601,6 +8806,7 @@ pub unsafe fn PdhBrowseCountersHA(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhBrowseCountersHW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_HW) -> i32 {
@@ -8615,6 +8821,7 @@ pub unsafe fn PdhBrowseCountersHW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhBrowseCountersW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_W) -> i32 {
@@ -8629,6 +8836,7 @@ pub unsafe fn PdhBrowseCountersW(pbrowsedlgdata: *const PDH_BROWSE_DLG_CONFIG_W)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhCalculateCounterFromRawValue(hcounter: isize, dwformat: PDH_FMT, rawvalue1: *const PDH_RAW_COUNTER, rawvalue2: *const PDH_RAW_COUNTER, fmtvalue: *mut PDH_FMT_COUNTERVALUE) -> i32 {
@@ -8643,6 +8851,7 @@ pub unsafe fn PdhCalculateCounterFromRawValue(hcounter: isize, dwformat: PDH_FMT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PdhCloseLog(hlog: isize, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -8656,6 +8865,7 @@ pub unsafe fn PdhCloseLog(hlog: isize, dwflags: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PdhCloseQuery(hquery: isize) -> i32 {
     #[cfg(windows)]
@@ -8669,6 +8879,7 @@ pub unsafe fn PdhCloseQuery(hquery: isize) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PdhCollectQueryData(hquery: isize) -> i32 {
     #[cfg(windows)]
@@ -8682,6 +8893,7 @@ pub unsafe fn PdhCollectQueryData(hquery: isize) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhCollectQueryDataEx<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hquery: isize, dwintervaltime: u32, hnewdataevent: Param2) -> i32 {
@@ -8696,6 +8908,7 @@ pub unsafe fn PdhCollectQueryDataEx<'a, Param2: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PdhCollectQueryDataWithTime(hquery: isize, plltimestamp: *mut i64) -> i32 {
     #[cfg(windows)]
@@ -8709,6 +8922,7 @@ pub unsafe fn PdhCollectQueryDataWithTime(hquery: isize, plltimestamp: *mut i64)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhComputeCounterStatistics(hcounter: isize, dwformat: PDH_FMT, dwfirstentry: u32, dwnumentries: u32, lprawvaluearray: *const PDH_RAW_COUNTER, data: *mut PDH_STATISTICS) -> i32 {
@@ -8723,6 +8937,7 @@ pub unsafe fn PdhComputeCounterStatistics(hcounter: isize, dwformat: PDH_FMT, dw
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhConnectMachineA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szmachinename: Param0) -> i32 {
@@ -8737,6 +8952,7 @@ pub unsafe fn PdhConnectMachineA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhConnectMachineW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szmachinename: Param0) -> i32 {
@@ -8751,6 +8967,7 @@ pub unsafe fn PdhConnectMachineW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhCreateSQLTablesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0) -> i32 {
@@ -8765,6 +8982,7 @@ pub unsafe fn PdhCreateSQLTablesA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhCreateSQLTablesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0) -> i32 {
@@ -8779,6 +8997,7 @@ pub unsafe fn PdhCreateSQLTablesW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumLogSetNamesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0, mszdatasetnamelist: super::super::Foundation::PSTR, pcchbufferlength: *mut u32) -> i32 {
@@ -8793,6 +9012,7 @@ pub unsafe fn PdhEnumLogSetNamesA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumLogSetNamesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0, mszdatasetnamelist: super::super::Foundation::PWSTR, pcchbufferlength: *mut u32) -> i32 {
@@ -8807,6 +9027,7 @@ pub unsafe fn PdhEnumLogSetNamesW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumMachinesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0, mszmachinelist: super::super::Foundation::PSTR, pcchbuffersize: *mut u32) -> i32 {
@@ -8821,6 +9042,7 @@ pub unsafe fn PdhEnumMachinesA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumMachinesHA(hdatasource: isize, mszmachinelist: super::super::Foundation::PSTR, pcchbuffersize: *mut u32) -> i32 {
@@ -8835,6 +9057,7 @@ pub unsafe fn PdhEnumMachinesHA(hdatasource: isize, mszmachinelist: super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumMachinesHW(hdatasource: isize, mszmachinelist: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32) -> i32 {
@@ -8849,6 +9072,7 @@ pub unsafe fn PdhEnumMachinesHW(hdatasource: isize, mszmachinelist: super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumMachinesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0, mszmachinelist: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32) -> i32 {
@@ -8863,6 +9087,7 @@ pub unsafe fn PdhEnumMachinesW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectItemsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0, szmachinename: Param1, szobjectname: Param2, mszcounterlist: super::super::Foundation::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: super::super::Foundation::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32 {
@@ -8877,6 +9102,7 @@ pub unsafe fn PdhEnumObjectItemsA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectItemsHA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatasource: isize, szmachinename: Param1, szobjectname: Param2, mszcounterlist: super::super::Foundation::PSTR, pcchcounterlistlength: *mut u32, mszinstancelist: super::super::Foundation::PSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32 {
@@ -8891,6 +9117,7 @@ pub unsafe fn PdhEnumObjectItemsHA<'a, Param1: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectItemsHW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatasource: isize, szmachinename: Param1, szobjectname: Param2, mszcounterlist: super::super::Foundation::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: super::super::Foundation::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32 {
@@ -8905,6 +9132,7 @@ pub unsafe fn PdhEnumObjectItemsHW<'a, Param1: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectItemsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0, szmachinename: Param1, szobjectname: Param2, mszcounterlist: super::super::Foundation::PWSTR, pcchcounterlistlength: *mut u32, mszinstancelist: super::super::Foundation::PWSTR, pcchinstancelistlength: *mut u32, dwdetaillevel: PERF_DETAIL, dwflags: u32) -> i32 {
@@ -8919,6 +9147,7 @@ pub unsafe fn PdhEnumObjectItemsW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(szdatasource: Param0, szmachinename: Param1, mszobjectlist: super::super::Foundation::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: Param5) -> i32 {
@@ -8933,6 +9162,7 @@ pub unsafe fn PdhEnumObjectsA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectsHA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hdatasource: isize, szmachinename: Param1, mszobjectlist: super::super::Foundation::PSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: Param5) -> i32 {
@@ -8947,6 +9177,7 @@ pub unsafe fn PdhEnumObjectsHA<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectsHW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hdatasource: isize, szmachinename: Param1, mszobjectlist: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: Param5) -> i32 {
@@ -8961,6 +9192,7 @@ pub unsafe fn PdhEnumObjectsHW<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhEnumObjectsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(szdatasource: Param0, szmachinename: Param1, mszobjectlist: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32, dwdetaillevel: PERF_DETAIL, brefresh: Param5) -> i32 {
@@ -8975,6 +9207,7 @@ pub unsafe fn PdhEnumObjectsW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhExpandCounterPathA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szwildcardpath: Param0, mszexpandedpathlist: super::super::Foundation::PSTR, pcchpathlistlength: *mut u32) -> i32 {
@@ -8989,6 +9222,7 @@ pub unsafe fn PdhExpandCounterPathA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhExpandCounterPathW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szwildcardpath: Param0, mszexpandedpathlist: super::super::Foundation::PWSTR, pcchpathlistlength: *mut u32) -> i32 {
@@ -9003,6 +9237,7 @@ pub unsafe fn PdhExpandCounterPathW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhExpandWildCardPathA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0, szwildcardpath: Param1, mszexpandedpathlist: super::super::Foundation::PSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32 {
@@ -9017,6 +9252,7 @@ pub unsafe fn PdhExpandWildCardPathA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhExpandWildCardPathHA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatasource: isize, szwildcardpath: Param1, mszexpandedpathlist: super::super::Foundation::PSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32 {
@@ -9031,6 +9267,7 @@ pub unsafe fn PdhExpandWildCardPathHA<'a, Param1: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhExpandWildCardPathHW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatasource: isize, szwildcardpath: Param1, mszexpandedpathlist: super::super::Foundation::PWSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32 {
@@ -9045,6 +9282,7 @@ pub unsafe fn PdhExpandWildCardPathHW<'a, Param1: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhExpandWildCardPathW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0, szwildcardpath: Param1, mszexpandedpathlist: super::super::Foundation::PWSTR, pcchpathlistlength: *mut u32, dwflags: u32) -> i32 {
@@ -9059,6 +9297,7 @@ pub unsafe fn PdhExpandWildCardPathW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: PDH_FMT, ptimebase: *const i64, prawvalue1: *const PDH_RAW_COUNTER, prawvalue2: *const PDH_RAW_COUNTER, pfmtvalue: *mut PDH_FMT_COUNTERVALUE) -> i32 {
@@ -9073,6 +9312,7 @@ pub unsafe fn PdhFormatFromRawValue(dwcountertype: u32, dwformat: PDH_FMT, ptime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetCounterInfoA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(hcounter: isize, bretrieveexplaintext: Param1, pdwbuffersize: *mut u32, lpbuffer: *mut PDH_COUNTER_INFO_A) -> i32 {
@@ -9087,6 +9327,7 @@ pub unsafe fn PdhGetCounterInfoA<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetCounterInfoW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(hcounter: isize, bretrieveexplaintext: Param1, pdwbuffersize: *mut u32, lpbuffer: *mut PDH_COUNTER_INFO_W) -> i32 {
@@ -9101,6 +9342,7 @@ pub unsafe fn PdhGetCounterInfoW<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PdhGetCounterTimeBase(hcounter: isize, ptimebase: *mut i64) -> i32 {
     #[cfg(windows)]
@@ -9114,6 +9356,7 @@ pub unsafe fn PdhGetCounterTimeBase(hcounter: isize, ptimebase: *mut i64) -> i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDataSourceTimeRangeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> i32 {
@@ -9128,6 +9371,7 @@ pub unsafe fn PdhGetDataSourceTimeRangeA<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PdhGetDataSourceTimeRangeH(hdatasource: isize, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9141,6 +9385,7 @@ pub unsafe fn PdhGetDataSourceTimeRangeH(hdatasource: isize, pdwnumentries: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDataSourceTimeRangeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0, pdwnumentries: *mut u32, pinfo: *mut PDH_TIME_INFO, pdwbuffersize: *mut u32) -> i32 {
@@ -9155,6 +9400,7 @@ pub unsafe fn PdhGetDataSourceTimeRangeW<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfCounterA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0, szmachinename: Param1, szobjectname: Param2, szdefaultcountername: super::super::Foundation::PSTR, pcchbuffersize: *mut u32) -> i32 {
@@ -9169,6 +9415,7 @@ pub unsafe fn PdhGetDefaultPerfCounterA<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfCounterHA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatasource: isize, szmachinename: Param1, szobjectname: Param2, szdefaultcountername: super::super::Foundation::PSTR, pcchbuffersize: *mut u32) -> i32 {
@@ -9183,6 +9430,7 @@ pub unsafe fn PdhGetDefaultPerfCounterHA<'a, Param1: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfCounterHW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatasource: isize, szmachinename: Param1, szobjectname: Param2, szdefaultcountername: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32) -> i32 {
@@ -9197,6 +9445,7 @@ pub unsafe fn PdhGetDefaultPerfCounterHW<'a, Param1: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfCounterW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0, szmachinename: Param1, szobjectname: Param2, szdefaultcountername: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32) -> i32 {
@@ -9211,6 +9460,7 @@ pub unsafe fn PdhGetDefaultPerfCounterW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfObjectA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0, szmachinename: Param1, szdefaultobjectname: super::super::Foundation::PSTR, pcchbuffersize: *mut u32) -> i32 {
@@ -9225,6 +9475,7 @@ pub unsafe fn PdhGetDefaultPerfObjectA<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfObjectHA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatasource: isize, szmachinename: Param1, szdefaultobjectname: super::super::Foundation::PSTR, pcchbuffersize: *mut u32) -> i32 {
@@ -9239,6 +9490,7 @@ pub unsafe fn PdhGetDefaultPerfObjectHA<'a, Param1: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfObjectHW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatasource: isize, szmachinename: Param1, szdefaultobjectname: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32) -> i32 {
@@ -9253,6 +9505,7 @@ pub unsafe fn PdhGetDefaultPerfObjectHW<'a, Param1: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetDefaultPerfObjectW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0, szmachinename: Param1, szdefaultobjectname: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32) -> i32 {
@@ -9267,6 +9520,7 @@ pub unsafe fn PdhGetDefaultPerfObjectW<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PdhGetDllVersion(lpdwversion: *mut PDH_DLL_VERSION) -> i32 {
     #[cfg(windows)]
@@ -9280,6 +9534,7 @@ pub unsafe fn PdhGetDllVersion(lpdwversion: *mut PDH_DLL_VERSION) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetFormattedCounterArrayA(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_A) -> i32 {
@@ -9294,6 +9549,7 @@ pub unsafe fn PdhGetFormattedCounterArrayA(hcounter: isize, dwformat: PDH_FMT, l
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetFormattedCounterArrayW(hcounter: isize, dwformat: PDH_FMT, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_FMT_COUNTERVALUE_ITEM_W) -> i32 {
@@ -9308,6 +9564,7 @@ pub unsafe fn PdhGetFormattedCounterArrayW(hcounter: isize, dwformat: PDH_FMT, l
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetFormattedCounterValue(hcounter: isize, dwformat: PDH_FMT, lpdwtype: *mut u32, pvalue: *mut PDH_FMT_COUNTERVALUE) -> i32 {
@@ -9322,6 +9579,7 @@ pub unsafe fn PdhGetFormattedCounterValue(hcounter: isize, dwformat: PDH_FMT, lp
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PdhGetLogFileSize(hlog: isize, llsize: *mut i64) -> i32 {
     #[cfg(windows)]
@@ -9335,6 +9593,7 @@ pub unsafe fn PdhGetLogFileSize(hlog: isize, llsize: *mut i64) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PdhGetLogSetGUID(hlog: isize, pguid: *mut ::windows::core::GUID, prunid: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -9348,6 +9607,7 @@ pub unsafe fn PdhGetLogSetGUID(hlog: isize, pguid: *mut ::windows::core::GUID, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetRawCounterArrayA(hcounter: isize, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_RAW_COUNTER_ITEM_A) -> i32 {
@@ -9362,6 +9622,7 @@ pub unsafe fn PdhGetRawCounterArrayA(hcounter: isize, lpdwbuffersize: *mut u32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetRawCounterArrayW(hcounter: isize, lpdwbuffersize: *mut u32, lpdwitemcount: *mut u32, itembuffer: *mut PDH_RAW_COUNTER_ITEM_W) -> i32 {
@@ -9376,6 +9637,7 @@ pub unsafe fn PdhGetRawCounterArrayW(hcounter: isize, lpdwbuffersize: *mut u32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhGetRawCounterValue(hcounter: isize, lpdwtype: *mut u32, pvalue: *mut PDH_RAW_COUNTER) -> i32 {
@@ -9390,6 +9652,7 @@ pub unsafe fn PdhGetRawCounterValue(hcounter: isize, lpdwtype: *mut u32, pvalue:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhIsRealTimeQuery(hquery: isize) -> super::super::Foundation::BOOL {
@@ -9404,6 +9667,7 @@ pub unsafe fn PdhIsRealTimeQuery(hquery: isize) -> super::super::Foundation::BOO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhLookupPerfIndexByNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szmachinename: Param0, sznamebuffer: Param1, pdwindex: *mut u32) -> i32 {
@@ -9418,6 +9682,7 @@ pub unsafe fn PdhLookupPerfIndexByNameA<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhLookupPerfIndexByNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szmachinename: Param0, sznamebuffer: Param1, pdwindex: *mut u32) -> i32 {
@@ -9432,6 +9697,7 @@ pub unsafe fn PdhLookupPerfIndexByNameW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhLookupPerfNameByIndexA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szmachinename: Param0, dwnameindex: u32, sznamebuffer: super::super::Foundation::PSTR, pcchnamebuffersize: *mut u32) -> i32 {
@@ -9446,6 +9712,7 @@ pub unsafe fn PdhLookupPerfNameByIndexA<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhLookupPerfNameByIndexW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szmachinename: Param0, dwnameindex: u32, sznamebuffer: super::super::Foundation::PWSTR, pcchnamebuffersize: *mut u32) -> i32 {
@@ -9460,6 +9727,7 @@ pub unsafe fn PdhLookupPerfNameByIndexW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhMakeCounterPathA(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_A, szfullpathbuffer: super::super::Foundation::PSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32 {
@@ -9474,6 +9742,7 @@ pub unsafe fn PdhMakeCounterPathA(pcounterpathelements: *const PDH_COUNTER_PATH_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhMakeCounterPathW(pcounterpathelements: *const PDH_COUNTER_PATH_ELEMENTS_W, szfullpathbuffer: super::super::Foundation::PWSTR, pcchbuffersize: *mut u32, dwflags: PDH_PATH_FLAGS) -> i32 {
@@ -9488,6 +9757,7 @@ pub unsafe fn PdhMakeCounterPathW(pcounterpathelements: *const PDH_COUNTER_PATH_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhOpenLogA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szlogfilename: Param0, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: Param5, phlog: *mut isize) -> i32 {
@@ -9502,6 +9772,7 @@ pub unsafe fn PdhOpenLogA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhOpenLogW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szlogfilename: Param0, dwaccessflags: PDH_LOG, lpdwlogtype: *mut PDH_LOG_TYPE, hquery: isize, dwmaxsize: u32, szusercaption: Param5, phlog: *mut isize) -> i32 {
@@ -9516,6 +9787,7 @@ pub unsafe fn PdhOpenLogW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhOpenQueryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0, dwuserdata: usize, phquery: *mut isize) -> i32 {
@@ -9530,6 +9802,7 @@ pub unsafe fn PdhOpenQueryA<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PdhOpenQueryH(hdatasource: isize, dwuserdata: usize, phquery: *mut isize) -> i32 {
     #[cfg(windows)]
@@ -9543,6 +9816,7 @@ pub unsafe fn PdhOpenQueryH(hdatasource: isize, dwuserdata: usize, phquery: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhOpenQueryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0, dwuserdata: usize, phquery: *mut isize) -> i32 {
@@ -9557,6 +9831,7 @@ pub unsafe fn PdhOpenQueryW<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhParseCounterPathA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szfullpathbuffer: Param0, pcounterpathelements: *mut PDH_COUNTER_PATH_ELEMENTS_A, pdwbuffersize: *mut u32, dwflags: u32) -> i32 {
@@ -9571,6 +9846,7 @@ pub unsafe fn PdhParseCounterPathA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhParseCounterPathW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szfullpathbuffer: Param0, pcounterpathelements: *mut PDH_COUNTER_PATH_ELEMENTS_W, pdwbuffersize: *mut u32, dwflags: u32) -> i32 {
@@ -9585,6 +9861,7 @@ pub unsafe fn PdhParseCounterPathW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhParseInstanceNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szinstancestring: Param0, szinstancename: super::super::Foundation::PSTR, pcchinstancenamelength: *mut u32, szparentname: super::super::Foundation::PSTR, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> i32 {
@@ -9599,6 +9876,7 @@ pub unsafe fn PdhParseInstanceNameA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhParseInstanceNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szinstancestring: Param0, szinstancename: super::super::Foundation::PWSTR, pcchinstancenamelength: *mut u32, szparentname: super::super::Foundation::PWSTR, pcchparentnamelength: *mut u32, lpindex: *mut u32) -> i32 {
@@ -9613,6 +9891,7 @@ pub unsafe fn PdhParseInstanceNameW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhReadRawLogRecord<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::FILETIME>>(hlog: isize, ftrecord: Param1, prawlogrecord: *mut PDH_RAW_LOG_RECORD, pdwbufferlength: *mut u32) -> i32 {
@@ -9627,6 +9906,7 @@ pub unsafe fn PdhReadRawLogRecord<'a, Param1: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PdhRemoveCounter(hcounter: isize) -> i32 {
     #[cfg(windows)]
@@ -9640,6 +9920,7 @@ pub unsafe fn PdhRemoveCounter(hcounter: isize) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhSelectDataSourceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hwndowner: Param0, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: Param2, pcchbufferlength: *mut u32) -> i32 {
@@ -9654,6 +9935,7 @@ pub unsafe fn PdhSelectDataSourceA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhSelectDataSourceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndowner: Param0, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: Param2, pcchbufferlength: *mut u32) -> i32 {
@@ -9668,6 +9950,7 @@ pub unsafe fn PdhSelectDataSourceW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PdhSetCounterScaleFactor(hcounter: isize, lfactor: i32) -> i32 {
     #[cfg(windows)]
@@ -9681,6 +9964,7 @@ pub unsafe fn PdhSetCounterScaleFactor(hcounter: isize, lfactor: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PdhSetDefaultRealTimeDataSource(dwdatasourceid: REAL_TIME_DATA_SOURCE_ID_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -9694,6 +9978,7 @@ pub unsafe fn PdhSetDefaultRealTimeDataSource(dwdatasourceid: REAL_TIME_DATA_SOU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PdhSetLogSetRunID(hlog: isize, runid: i32) -> i32 {
     #[cfg(windows)]
@@ -9707,6 +9992,7 @@ pub unsafe fn PdhSetLogSetRunID(hlog: isize, runid: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PdhSetQueryTimeRange(hquery: isize, pinfo: *const PDH_TIME_INFO) -> i32 {
     #[cfg(windows)]
@@ -9720,6 +10006,7 @@ pub unsafe fn PdhSetQueryTimeRange(hquery: isize, pinfo: *const PDH_TIME_INFO) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhUpdateLogA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hlog: isize, szuserstring: Param1) -> i32 {
@@ -9734,6 +10021,7 @@ pub unsafe fn PdhUpdateLogA<'a, Param1: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PdhUpdateLogFileCatalog(hlog: isize) -> i32 {
     #[cfg(windows)]
@@ -9747,6 +10035,7 @@ pub unsafe fn PdhUpdateLogFileCatalog(hlog: isize) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhUpdateLogW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlog: isize, szuserstring: Param1) -> i32 {
@@ -9761,6 +10050,7 @@ pub unsafe fn PdhUpdateLogW<'a, Param1: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhValidatePathA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szfullpathbuffer: Param0) -> i32 {
@@ -9775,6 +10065,7 @@ pub unsafe fn PdhValidatePathA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhValidatePathExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdatasource: isize, szfullpathbuffer: Param1) -> i32 {
@@ -9789,6 +10080,7 @@ pub unsafe fn PdhValidatePathExA<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhValidatePathExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdatasource: isize, szfullpathbuffer: Param1) -> i32 {
@@ -9803,6 +10095,7 @@ pub unsafe fn PdhValidatePathExW<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhValidatePathW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szfullpathbuffer: Param0) -> i32 {
@@ -9817,6 +10110,7 @@ pub unsafe fn PdhValidatePathW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhVerifySQLDBA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szdatasource: Param0) -> i32 {
@@ -9831,6 +10125,7 @@ pub unsafe fn PdhVerifySQLDBA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PdhVerifySQLDBW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szdatasource: Param0) -> i32 {
@@ -9845,6 +10140,7 @@ pub unsafe fn PdhVerifySQLDBW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PerfAddCounters<'a, Param0: ::windows::core::IntoParam<'a, PerfQueryHandle>>(hquery: Param0, pcounters: *const PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32 {
     #[cfg(windows)]
@@ -9858,6 +10154,7 @@ pub unsafe fn PerfAddCounters<'a, Param0: ::windows::core::IntoParam<'a, PerfQue
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfCloseQueryHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hquery: Param0) -> u32 {
@@ -9872,12 +10169,19 @@ pub unsafe fn PerfCloseQueryHandle<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type PerfCounterDataType = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_ERROR_RETURN: PerfCounterDataType = 0i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_SINGLE_COUNTER: PerfCounterDataType = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_MULTIPLE_COUNTERS: PerfCounterDataType = 2i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_MULTIPLE_INSTANCES: PerfCounterDataType = 4i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_COUNTERSET: PerfCounterDataType = 6i32;
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfCreateInstance<'a, Param0: ::windows::core::IntoParam<'a, PerfProviderHandle>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(providerhandle: Param0, countersetguid: *const ::windows::core::GUID, name: Param2, id: u32) -> *mut PERF_COUNTERSET_INSTANCE {
@@ -9892,6 +10196,7 @@ pub unsafe fn PerfCreateInstance<'a, Param0: ::windows::core::IntoParam<'a, Perf
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfDecrementULongCounterValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(provider: Param0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32 {
@@ -9906,6 +10211,7 @@ pub unsafe fn PerfDecrementULongCounterValue<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfDecrementULongLongCounterValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(provider: Param0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32 {
@@ -9920,6 +10226,7 @@ pub unsafe fn PerfDecrementULongLongCounterValue<'a, Param0: ::windows::core::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PerfDeleteCounters<'a, Param0: ::windows::core::IntoParam<'a, PerfQueryHandle>>(hquery: Param0, pcounters: *const PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32 {
     #[cfg(windows)]
@@ -9933,6 +10240,7 @@ pub unsafe fn PerfDeleteCounters<'a, Param0: ::windows::core::IntoParam<'a, Perf
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PerfDeleteInstance<'a, Param0: ::windows::core::IntoParam<'a, PerfProviderHandle>>(provider: Param0, instanceblock: *const PERF_COUNTERSET_INSTANCE) -> u32 {
     #[cfg(windows)]
@@ -9946,6 +10254,7 @@ pub unsafe fn PerfDeleteInstance<'a, Param0: ::windows::core::IntoParam<'a, Perf
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfEnumerateCounterSet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szmachine: Param0, pcountersetids: *mut ::windows::core::GUID, ccountersetids: u32, pccountersetidsactual: *mut u32) -> u32 {
@@ -9960,6 +10269,7 @@ pub unsafe fn PerfEnumerateCounterSet<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfEnumerateCounterSetInstances<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szmachine: Param0, pcountersetid: *const ::windows::core::GUID, pinstances: *mut PERF_INSTANCE_HEADER, cbinstances: u32, pcbinstancesactual: *mut u32) -> u32 {
@@ -9974,6 +10284,7 @@ pub unsafe fn PerfEnumerateCounterSetInstances<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfIncrementULongCounterValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(provider: Param0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32 {
@@ -9988,6 +10299,7 @@ pub unsafe fn PerfIncrementULongCounterValue<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfIncrementULongLongCounterValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(provider: Param0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32 {
@@ -10002,6 +10314,7 @@ pub unsafe fn PerfIncrementULongLongCounterValue<'a, Param0: ::windows::core::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfOpenQueryHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szmachine: Param0, phquery: *mut PerfQueryHandle) -> u32 {
@@ -10017,6 +10330,7 @@ pub unsafe fn PerfOpenQueryHandle<'a, Param0: ::windows::core::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 pub type PerfProviderHandle = isize;
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfQueryCounterData<'a, Param0: ::windows::core::IntoParam<'a, PerfQueryHandle>>(hquery: Param0, pcounterblock: *mut PERF_DATA_HEADER, cbcounterblock: u32, pcbcounterblockactual: *mut u32) -> u32 {
@@ -10031,6 +10345,7 @@ pub unsafe fn PerfQueryCounterData<'a, Param0: ::windows::core::IntoParam<'a, Pe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PerfQueryCounterInfo<'a, Param0: ::windows::core::IntoParam<'a, PerfQueryHandle>>(hquery: Param0, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32, pcbcountersactual: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -10044,6 +10359,7 @@ pub unsafe fn PerfQueryCounterInfo<'a, Param0: ::windows::core::IntoParam<'a, Pe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfQueryCounterSetRegistrationInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szmachine: Param0, pcountersetid: *const ::windows::core::GUID, requestcode: PerfRegInfoType, requestlangid: u32, pbreginfo: *mut u8, cbreginfo: u32, pcbreginfoactual: *mut u32) -> u32 {
@@ -10059,6 +10375,7 @@ pub unsafe fn PerfQueryCounterSetRegistrationInfo<'a, Param0: ::windows::core::I
     unimplemented!("Unsupported target OS");
 }
 pub type PerfQueryHandle = isize;
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfQueryInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(providerhandle: Param0, countersetguid: *const ::windows::core::GUID, name: Param2, id: u32) -> *mut PERF_COUNTERSET_INSTANCE {
@@ -10073,17 +10390,29 @@ pub unsafe fn PerfQueryInstance<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type PerfRegInfoType = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_REG_COUNTERSET_STRUCT: PerfRegInfoType = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_REG_COUNTER_STRUCT: PerfRegInfoType = 2i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_REG_COUNTERSET_NAME_STRING: PerfRegInfoType = 3i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_REG_COUNTERSET_HELP_STRING: PerfRegInfoType = 4i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_REG_COUNTER_NAME_STRINGS: PerfRegInfoType = 5i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_REG_COUNTER_HELP_STRINGS: PerfRegInfoType = 6i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_REG_PROVIDER_NAME: PerfRegInfoType = 7i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_REG_PROVIDER_GUID: PerfRegInfoType = 8i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_REG_COUNTERSET_ENGLISH_NAME: PerfRegInfoType = 9i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_REG_COUNTER_ENGLISH_NAMES: PerfRegInfoType = 10i32;
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfSetCounterRefValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(provider: Param0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, address: *const ::core::ffi::c_void) -> u32 {
@@ -10098,6 +10427,7 @@ pub unsafe fn PerfSetCounterRefValue<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfSetCounterSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(providerhandle: Param0, template: *mut PERF_COUNTERSET_INFO, templatesize: u32) -> u32 {
@@ -10112,6 +10442,7 @@ pub unsafe fn PerfSetCounterSetInfo<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfSetULongCounterValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(provider: Param0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u32) -> u32 {
@@ -10126,6 +10457,7 @@ pub unsafe fn PerfSetULongCounterValue<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PerfSetULongLongCounterValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(provider: Param0, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32 {
@@ -10140,6 +10472,7 @@ pub unsafe fn PerfSetULongLongCounterValue<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PerfStartProvider(providerguid: *const ::windows::core::GUID, controlcallback: PERFLIBREQUEST, phprovider: *mut PerfProviderHandle) -> u32 {
     #[cfg(windows)]
@@ -10153,6 +10486,7 @@ pub unsafe fn PerfStartProvider(providerguid: *const ::windows::core::GUID, cont
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PerfStartProviderEx(providerguid: *const ::windows::core::GUID, providercontext: *const PERF_PROVIDER_CONTEXT, provider: *mut PerfProviderHandle) -> u32 {
     #[cfg(windows)]
@@ -10166,6 +10500,7 @@ pub unsafe fn PerfStartProviderEx(providerguid: *const ::windows::core::GUID, pr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[inline]
 pub unsafe fn PerfStopProvider<'a, Param0: ::windows::core::IntoParam<'a, PerfProviderHandle>>(providerhandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -10179,6 +10514,7 @@ pub unsafe fn PerfStopProvider<'a, Param0: ::windows::core::IntoParam<'a, PerfPr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryPerformanceCounter(lpperformancecount: *mut i64) -> super::super::Foundation::BOOL {
@@ -10193,6 +10529,7 @@ pub unsafe fn QueryPerformanceCounter(lpperformancecount: *mut i64) -> super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryPerformanceFrequency(lpfrequency: *mut i64) -> super::super::Foundation::BOOL {
@@ -10207,18 +10544,31 @@ pub unsafe fn QueryPerformanceFrequency(lpfrequency: *mut i64) -> super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type REAL_TIME_DATA_SOURCE_ID_FLAGS = u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const DATA_SOURCE_REGISTRY: REAL_TIME_DATA_SOURCE_ID_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const DATA_SOURCE_WBEM: REAL_TIME_DATA_SOURCE_ID_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type ReportValueTypeConstants = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonDefaultValue: ReportValueTypeConstants = 0i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonCurrentValue: ReportValueTypeConstants = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonAverage: ReportValueTypeConstants = 2i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonMinimum: ReportValueTypeConstants = 3i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonMaximum: ReportValueTypeConstants = 4i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type ResourcePolicy = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaDeleteLargest: ResourcePolicy = 0i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaDeleteOldest: ResourcePolicy = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RestorePerfRegistryFromFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szfilename: Param0, szlangid: Param1) -> u32 {
@@ -10236,6 +10586,7 @@ pub unsafe fn RestorePerfRegistryFromFileW<'a, Param0: ::windows::core::IntoPara
 pub const S_PDH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04d66358_c4a1_419b_8023_23b73902de2c);
 pub const ServerDataCollectorSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837531_098b_11d8_9414_505054503030);
 pub const ServerDataCollectorSetCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837532_098b_11d8_9414_505054503030);
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetServiceAsTrustedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(szreserved: Param0, szservicename: Param1) -> u32 {
@@ -10250,6 +10601,7 @@ pub unsafe fn SetServiceAsTrustedA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetServiceAsTrustedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(szreserved: Param0, szservicename: Param1) -> u32 {
@@ -10265,29 +10617,53 @@ pub unsafe fn SetServiceAsTrustedW<'a, Param0: ::windows::core::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 pub const SourcePropPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cf32aa1_7571_11d0_93c4_00aa00a3ddea);
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type StreamMode = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaFile: StreamMode = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaRealTime: StreamMode = 2i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaBoth: StreamMode = 3i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaBuffering: StreamMode = 4i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type SysmonBatchReason = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonBatchNone: SysmonBatchReason = 0i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonBatchAddFiles: SysmonBatchReason = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonBatchAddCounters: SysmonBatchReason = 2i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonBatchAddFilesAutoCounters: SysmonBatchReason = 3i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type SysmonDataType = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonDataAvg: SysmonDataType = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonDataMin: SysmonDataType = 2i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonDataMax: SysmonDataType = 3i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonDataTime: SysmonDataType = 4i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonDataCount: SysmonDataType = 5i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type SysmonFileType = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonFileHtml: SysmonFileType = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonFileReport: SysmonFileType = 2i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonFileCsv: SysmonFileType = 3i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonFileTsv: SysmonFileType = 4i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonFileBlg: SysmonFileType = 5i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonFileRetiredBlg: SysmonFileType = 6i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const sysmonFileGif: SysmonFileType = 7i32;
 pub const SystemDataCollectorSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837546_098b_11d8_9414_505054503030);
 pub const SystemDataCollectorSetCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837547_098b_11d8_9414_505054503030);
@@ -10297,6 +10673,7 @@ pub const TraceDataProvider: ::windows::core::GUID = ::windows::core::GUID::from
 pub const TraceDataProviderCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837511_098b_11d8_9414_505054503030);
 pub const TraceSession: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0383751c_098b_11d8_9414_505054503030);
 pub const TraceSessionCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837530_098b_11d8_9414_505054503030);
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnloadPerfCounterTextStringsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpcommandline: Param0, bquietmodearg: Param1) -> u32 {
@@ -10311,6 +10688,7 @@ pub unsafe fn UnloadPerfCounterTextStringsA<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnloadPerfCounterTextStringsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpcommandline: Param0, bquietmodearg: Param1) -> u32 {
@@ -10325,6 +10703,7 @@ pub unsafe fn UnloadPerfCounterTextStringsW<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UpdatePerfNameFilesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(sznewctrfilepath: Param0, sznewhlpfilepath: Param1, szlanguageid: Param2, dwflags: usize) -> u32 {
@@ -10339,6 +10718,7 @@ pub unsafe fn UpdatePerfNameFilesA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UpdatePerfNameFilesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(sznewctrfilepath: Param0, sznewhlpfilepath: Param1, szlanguageid: Param2, dwflags: usize) -> u32 {
@@ -10353,25 +10733,41 @@ pub unsafe fn UpdatePerfNameFilesW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type ValueMapType = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaIndex: ValueMapType = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaFlag: ValueMapType = 2i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaFlagArray: ValueMapType = 3i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaValidation: ValueMapType = 4i32;
 pub const WINPERF_LOG_DEBUG: u32 = 2u32;
 pub const WINPERF_LOG_NONE: u32 = 0u32;
 pub const WINPERF_LOG_USER: u32 = 1u32;
 pub const WINPERF_LOG_VERBOSE: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub type WeekDays = i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaRunOnce: WeekDays = 0i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaSunday: WeekDays = 1i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaMonday: WeekDays = 2i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaTuesday: WeekDays = 4i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaWednesday: WeekDays = 8i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaThursday: WeekDays = 16i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaFriday: WeekDays = 32i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaSaturday: WeekDays = 64i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const plaEveryday: WeekDays = 127i32;
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct _ICounterItemUnion(::windows::core::IUnknown);
 impl _ICounterItemUnion {
@@ -10499,6 +10895,7 @@ pub struct _ICounterItemUnionVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iindex: i32, iwhich: SysmonDataType, pvariant: *mut super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct _ISystemMonitorUnion(::windows::core::IUnknown);
 impl _ISystemMonitorUnion {

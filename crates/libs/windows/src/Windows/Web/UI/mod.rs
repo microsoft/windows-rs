@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Web_UI_Interop")]
 pub mod Interop;
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct IWebViewControl(::windows::core::IUnknown);
 impl IWebViewControl {
@@ -537,6 +538,7 @@ pub struct IWebViewControlVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct IWebViewControl2(::windows::core::IUnknown);
 impl IWebViewControl2 {
@@ -936,6 +938,7 @@ pub struct IWebViewControlWebResourceRequestedEventArgsVtbl(
     #[cfg(feature = "Web_Http")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Web_Http"))] usize,
 );
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlContentLoadingEventArgs(::windows::core::IUnknown);
 impl WebViewControlContentLoadingEventArgs {
@@ -1009,6 +1012,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlDOMContentLoadedEventArgs(::windows::core::IUnknown);
 impl WebViewControlDOMContentLoadedEventArgs {
@@ -1082,6 +1086,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlDeferredPermissionRequest(::windows::core::IUnknown);
 impl WebViewControlDeferredPermissionRequest {
@@ -1177,6 +1182,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlLongRunningScriptDetectedEventArgs(::windows::core::IUnknown);
 impl WebViewControlLongRunningScriptDetectedEventArgs {
@@ -1261,6 +1267,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlNavigationCompletedEventArgs(::windows::core::IUnknown);
 impl WebViewControlNavigationCompletedEventArgs {
@@ -1348,6 +1355,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlNavigationStartingEventArgs(::windows::core::IUnknown);
 impl WebViewControlNavigationStartingEventArgs {
@@ -1432,6 +1440,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlNewWindowRequestedEventArgs(::windows::core::IUnknown);
 impl WebViewControlNewWindowRequestedEventArgs {
@@ -1543,6 +1552,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlPermissionRequest(::windows::core::IUnknown);
 impl WebViewControlPermissionRequest {
@@ -1649,6 +1659,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlPermissionRequestedEventArgs(::windows::core::IUnknown);
 impl WebViewControlPermissionRequestedEventArgs {
@@ -1721,6 +1732,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlPermissionState(pub i32);
 impl WebViewControlPermissionState {
@@ -1750,6 +1762,7 @@ unsafe impl ::windows::core::RuntimeType for WebViewControlPermissionState {
 impl ::windows::core::DefaultType for WebViewControlPermissionState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlPermissionType(pub i32);
 impl WebViewControlPermissionType {
@@ -1782,6 +1795,7 @@ unsafe impl ::windows::core::RuntimeType for WebViewControlPermissionType {
 impl ::windows::core::DefaultType for WebViewControlPermissionType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlScriptNotifyEventArgs(::windows::core::IUnknown);
 impl WebViewControlScriptNotifyEventArgs {
@@ -1862,6 +1876,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlSettings(::windows::core::IUnknown);
 impl WebViewControlSettings {
@@ -1960,6 +1975,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlUnsupportedUriSchemeIdentifiedEventArgs(::windows::core::IUnknown);
 impl WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
@@ -2044,6 +2060,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlUnviewableContentIdentifiedEventArgs(::windows::core::IUnknown);
 impl WebViewControlUnviewableContentIdentifiedEventArgs {
@@ -2132,6 +2149,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlWebResourceRequestedEventArgs(::windows::core::IUnknown);
 impl WebViewControlWebResourceRequestedEventArgs {

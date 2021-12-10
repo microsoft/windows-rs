@@ -95,6 +95,7 @@ pub struct ISearchPaneVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, query: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'ApplicationModel_Search', 'deprecated'*"]
 #[repr(transparent)]
 pub struct ISearchPaneQueryChangedEventArgs(::windows::core::IUnknown);
 impl ISearchPaneQueryChangedEventArgs {
@@ -521,6 +522,7 @@ pub struct ISearchSuggestionsRequestDeferralVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Search'*"]
 #[repr(transparent)]
 pub struct LocalContentSuggestionSettings(::windows::core::IUnknown);
 impl LocalContentSuggestionSettings {
@@ -631,6 +633,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Loca
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Search', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SearchPane(::windows::core::IUnknown);
@@ -895,6 +898,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Search', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SearchPaneQueryChangedEventArgs(::windows::core::IUnknown);
@@ -1030,6 +1034,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISearchPaneQueryChangedEventArgs> for &S
 unsafe impl ::core::marker::Send for SearchPaneQueryChangedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SearchPaneQueryChangedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Search'*"]
 #[repr(transparent)]
 pub struct SearchPaneQueryLinguisticDetails(::windows::core::IUnknown);
 impl SearchPaneQueryLinguisticDetails {
@@ -1119,6 +1124,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
 }
 unsafe impl ::core::marker::Send for SearchPaneQueryLinguisticDetails {}
 unsafe impl ::core::marker::Sync for SearchPaneQueryLinguisticDetails {}
+#[doc = "*Required features: 'ApplicationModel_Search', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SearchPaneQuerySubmittedEventArgs(::windows::core::IUnknown);
@@ -1228,6 +1234,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
 unsafe impl ::core::marker::Send for SearchPaneQuerySubmittedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SearchPaneQuerySubmittedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Search', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SearchPaneResultSuggestionChosenEventArgs(::windows::core::IUnknown);
@@ -1321,6 +1328,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
 unsafe impl ::core::marker::Send for SearchPaneResultSuggestionChosenEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SearchPaneResultSuggestionChosenEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Search', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SearchPaneSuggestionsRequest(::windows::core::IUnknown);
@@ -1430,6 +1438,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
 unsafe impl ::core::marker::Send for SearchPaneSuggestionsRequest {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SearchPaneSuggestionsRequest {}
+#[doc = "*Required features: 'ApplicationModel_Search', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SearchPaneSuggestionsRequestDeferral(::windows::core::IUnknown);
@@ -1520,6 +1529,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
 unsafe impl ::core::marker::Send for SearchPaneSuggestionsRequestDeferral {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SearchPaneSuggestionsRequestDeferral {}
+#[doc = "*Required features: 'ApplicationModel_Search', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SearchPaneSuggestionsRequestedEventArgs(::windows::core::IUnknown);
@@ -1663,6 +1673,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISearchPaneQueryChangedEventArgs> for &S
 unsafe impl ::core::marker::Send for SearchPaneSuggestionsRequestedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SearchPaneSuggestionsRequestedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Search', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SearchPaneVisibilityChangedEventArgs(::windows::core::IUnknown);
@@ -1756,6 +1767,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
 unsafe impl ::core::marker::Send for SearchPaneVisibilityChangedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SearchPaneVisibilityChangedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Search'*"]
 #[repr(transparent)]
 pub struct SearchQueryLinguisticDetails(::windows::core::IUnknown);
 impl SearchQueryLinguisticDetails {
@@ -1856,6 +1868,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
 }
 unsafe impl ::core::marker::Send for SearchQueryLinguisticDetails {}
 unsafe impl ::core::marker::Sync for SearchQueryLinguisticDetails {}
+#[doc = "*Required features: 'ApplicationModel_Search'*"]
 #[repr(transparent)]
 pub struct SearchSuggestionCollection(::windows::core::IUnknown);
 impl SearchSuggestionCollection {
@@ -1948,6 +1961,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
 }
 unsafe impl ::core::marker::Send for SearchSuggestionCollection {}
 unsafe impl ::core::marker::Sync for SearchSuggestionCollection {}
+#[doc = "*Required features: 'ApplicationModel_Search'*"]
 #[repr(transparent)]
 pub struct SearchSuggestionsRequest(::windows::core::IUnknown);
 impl SearchSuggestionsRequest {
@@ -2036,6 +2050,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
 }
 unsafe impl ::core::marker::Send for SearchSuggestionsRequest {}
 unsafe impl ::core::marker::Sync for SearchSuggestionsRequest {}
+#[doc = "*Required features: 'ApplicationModel_Search'*"]
 #[repr(transparent)]
 pub struct SearchSuggestionsRequestDeferral(::windows::core::IUnknown);
 impl SearchSuggestionsRequestDeferral {

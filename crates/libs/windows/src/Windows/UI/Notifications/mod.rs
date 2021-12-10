@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "UI_Notifications_Management")]
 pub mod Management;
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct AdaptiveNotificationContentKind(pub i32);
 impl AdaptiveNotificationContentKind {
@@ -27,6 +28,7 @@ unsafe impl ::windows::core::RuntimeType for AdaptiveNotificationContentKind {
 impl ::windows::core::DefaultType for AdaptiveNotificationContentKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct AdaptiveNotificationText(::windows::core::IUnknown);
 impl AdaptiveNotificationText {
@@ -160,6 +162,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAdaptiveNotificationContent> for &Adapt
 }
 unsafe impl ::core::marker::Send for AdaptiveNotificationText {}
 unsafe impl ::core::marker::Sync for AdaptiveNotificationText {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct BadgeNotification(::windows::core::IUnknown);
 impl BadgeNotification {
@@ -259,6 +262,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Badg
 }
 unsafe impl ::core::marker::Send for BadgeNotification {}
 unsafe impl ::core::marker::Sync for BadgeNotification {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct BadgeTemplateType(pub i32);
 impl BadgeTemplateType {
@@ -332,6 +336,7 @@ impl BadgeUpdateManager {
 impl ::windows::core::RuntimeName for BadgeUpdateManager {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdateManager";
 }
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct BadgeUpdateManagerForUser(::windows::core::IUnknown);
 impl BadgeUpdateManagerForUser {
@@ -428,6 +433,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Badg
 }
 unsafe impl ::core::marker::Send for BadgeUpdateManagerForUser {}
 unsafe impl ::core::marker::Sync for BadgeUpdateManagerForUser {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct BadgeUpdater(::windows::core::IUnknown);
 impl BadgeUpdater {
@@ -517,6 +523,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Badg
 }
 unsafe impl ::core::marker::Send for BadgeUpdater {}
 unsafe impl ::core::marker::Sync for BadgeUpdater {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct IAdaptiveNotificationContent(::windows::core::IUnknown);
 impl IAdaptiveNotificationContent {
@@ -2197,6 +2204,7 @@ impl KnownNotificationBindings {
 impl ::windows::core::RuntimeName for KnownNotificationBindings {
     const NAME: &'static str = "Windows.UI.Notifications.KnownNotificationBindings";
 }
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct Notification(::windows::core::IUnknown);
 impl Notification {
@@ -2295,6 +2303,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Noti
 }
 unsafe impl ::core::marker::Send for Notification {}
 unsafe impl ::core::marker::Sync for Notification {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct NotificationBinding(::windows::core::IUnknown);
 impl NotificationBinding {
@@ -2400,6 +2409,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Noti
 }
 unsafe impl ::core::marker::Send for NotificationBinding {}
 unsafe impl ::core::marker::Sync for NotificationBinding {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct NotificationData(::windows::core::IUnknown);
 impl NotificationData {
@@ -2511,6 +2521,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Noti
 }
 unsafe impl ::core::marker::Send for NotificationData {}
 unsafe impl ::core::marker::Sync for NotificationData {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct NotificationKinds(pub u32);
 impl NotificationKinds {
@@ -2538,6 +2549,7 @@ unsafe impl ::windows::core::RuntimeType for NotificationKinds {
 impl ::windows::core::DefaultType for NotificationKinds {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct NotificationMirroring(pub i32);
 impl NotificationMirroring {
@@ -2565,6 +2577,7 @@ unsafe impl ::windows::core::RuntimeType for NotificationMirroring {
 impl ::windows::core::DefaultType for NotificationMirroring {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct NotificationSetting(pub i32);
 impl NotificationSetting {
@@ -2595,6 +2608,7 @@ unsafe impl ::windows::core::RuntimeType for NotificationSetting {
 impl ::windows::core::DefaultType for NotificationSetting {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct NotificationUpdateResult(pub i32);
 impl NotificationUpdateResult {
@@ -2623,6 +2637,7 @@ unsafe impl ::windows::core::RuntimeType for NotificationUpdateResult {
 impl ::windows::core::DefaultType for NotificationUpdateResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct NotificationVisual(::windows::core::IUnknown);
 impl NotificationVisual {
@@ -2716,6 +2731,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Noti
 }
 unsafe impl ::core::marker::Send for NotificationVisual {}
 unsafe impl ::core::marker::Sync for NotificationVisual {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct PeriodicUpdateRecurrence(pub i32);
 impl PeriodicUpdateRecurrence {
@@ -2746,6 +2762,7 @@ unsafe impl ::windows::core::RuntimeType for PeriodicUpdateRecurrence {
 impl ::windows::core::DefaultType for PeriodicUpdateRecurrence {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct ScheduledTileNotification(::windows::core::IUnknown);
 impl ScheduledTileNotification {
@@ -2875,6 +2892,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sche
 }
 unsafe impl ::core::marker::Send for ScheduledTileNotification {}
 unsafe impl ::core::marker::Sync for ScheduledTileNotification {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct ScheduledToastNotification(::windows::core::IUnknown);
 impl ScheduledToastNotification {
@@ -3070,6 +3088,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sche
 }
 unsafe impl ::core::marker::Send for ScheduledToastNotification {}
 unsafe impl ::core::marker::Sync for ScheduledToastNotification {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct ScheduledToastNotificationShowingEventArgs(::windows::core::IUnknown);
 impl ScheduledToastNotificationShowingEventArgs {
@@ -3163,6 +3182,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sche
 }
 unsafe impl ::core::marker::Send for ScheduledToastNotificationShowingEventArgs {}
 unsafe impl ::core::marker::Sync for ScheduledToastNotificationShowingEventArgs {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct ShownTileNotification(::windows::core::IUnknown);
 impl ShownTileNotification {
@@ -3237,6 +3257,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Show
 }
 unsafe impl ::core::marker::Send for ShownTileNotification {}
 unsafe impl ::core::marker::Sync for ShownTileNotification {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct TileFlyoutNotification(::windows::core::IUnknown);
 impl TileFlyoutNotification {
@@ -3336,6 +3357,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tile
 }
 unsafe impl ::core::marker::Send for TileFlyoutNotification {}
 unsafe impl ::core::marker::Sync for TileFlyoutNotification {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct TileFlyoutTemplateType(pub i32);
 impl TileFlyoutTemplateType {
@@ -3397,6 +3419,7 @@ impl TileFlyoutUpdateManager {
 impl ::windows::core::RuntimeName for TileFlyoutUpdateManager {
     const NAME: &'static str = "Windows.UI.Notifications.TileFlyoutUpdateManager";
 }
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct TileFlyoutUpdater(::windows::core::IUnknown);
 impl TileFlyoutUpdater {
@@ -3491,6 +3514,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tile
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct TileNotification(::windows::core::IUnknown);
 impl TileNotification {
@@ -3601,6 +3625,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tile
 }
 unsafe impl ::core::marker::Send for TileNotification {}
 unsafe impl ::core::marker::Sync for TileNotification {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct TileTemplateType(pub i32);
 impl TileTemplateType {
@@ -3798,6 +3823,7 @@ impl TileUpdateManager {
 impl ::windows::core::RuntimeName for TileUpdateManager {
     const NAME: &'static str = "Windows.UI.Notifications.TileUpdateManager";
 }
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct TileUpdateManagerForUser(::windows::core::IUnknown);
 impl TileUpdateManagerForUser {
@@ -3894,6 +3920,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tile
 }
 unsafe impl ::core::marker::Send for TileUpdateManagerForUser {}
 unsafe impl ::core::marker::Sync for TileUpdateManagerForUser {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct TileUpdater(::windows::core::IUnknown);
 impl TileUpdater {
@@ -4032,6 +4059,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tile
 }
 unsafe impl ::core::marker::Send for TileUpdater {}
 unsafe impl ::core::marker::Sync for TileUpdater {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct ToastActivatedEventArgs(::windows::core::IUnknown);
 impl ToastActivatedEventArgs {
@@ -4112,6 +4140,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Toas
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct ToastCollection(::windows::core::IUnknown);
 impl ToastCollection {
@@ -4232,6 +4261,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Toas
 }
 unsafe impl ::core::marker::Send for ToastCollection {}
 unsafe impl ::core::marker::Sync for ToastCollection {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct ToastCollectionManager(::windows::core::IUnknown);
 impl ToastCollectionManager {
@@ -4354,6 +4384,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Toas
 }
 unsafe impl ::core::marker::Send for ToastCollectionManager {}
 unsafe impl ::core::marker::Sync for ToastCollectionManager {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct ToastDismissalReason(pub i32);
 impl ToastDismissalReason {
@@ -4382,6 +4413,7 @@ unsafe impl ::windows::core::RuntimeType for ToastDismissalReason {
 impl ::windows::core::DefaultType for ToastDismissalReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct ToastDismissedEventArgs(::windows::core::IUnknown);
 impl ToastDismissedEventArgs {
@@ -4456,6 +4488,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Toas
 }
 unsafe impl ::core::marker::Send for ToastDismissedEventArgs {}
 unsafe impl ::core::marker::Sync for ToastDismissedEventArgs {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct ToastFailedEventArgs(::windows::core::IUnknown);
 impl ToastFailedEventArgs {
@@ -4530,6 +4563,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Toas
 }
 unsafe impl ::core::marker::Send for ToastFailedEventArgs {}
 unsafe impl ::core::marker::Sync for ToastFailedEventArgs {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct ToastHistoryChangedType(pub i32);
 impl ToastHistoryChangedType {
@@ -4559,6 +4593,7 @@ unsafe impl ::windows::core::RuntimeType for ToastHistoryChangedType {
 impl ::windows::core::DefaultType for ToastHistoryChangedType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct ToastNotification(::windows::core::IUnknown);
 impl ToastNotification {
@@ -4785,6 +4820,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Toas
 }
 unsafe impl ::core::marker::Send for ToastNotification {}
 unsafe impl ::core::marker::Sync for ToastNotification {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct ToastNotificationActionTriggerDetail(::windows::core::IUnknown);
 impl ToastNotificationActionTriggerDetail {
@@ -4865,6 +4901,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Toas
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct ToastNotificationHistory(::windows::core::IUnknown);
 impl ToastNotificationHistory {
@@ -4974,6 +5011,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Toas
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct ToastNotificationHistoryChangedTriggerDetail(::windows::core::IUnknown);
 impl ToastNotificationHistoryChangedTriggerDetail {
@@ -5116,6 +5154,7 @@ impl ToastNotificationManager {
 impl ::windows::core::RuntimeName for ToastNotificationManager {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationManager";
 }
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct ToastNotificationManagerForUser(::windows::core::IUnknown);
 impl ToastNotificationManagerForUser {
@@ -5242,6 +5281,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Toas
 }
 unsafe impl ::core::marker::Send for ToastNotificationManagerForUser {}
 unsafe impl ::core::marker::Sync for ToastNotificationManagerForUser {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct ToastNotificationPriority(pub i32);
 impl ToastNotificationPriority {
@@ -5269,6 +5309,7 @@ unsafe impl ::windows::core::RuntimeType for ToastNotificationPriority {
 impl ::windows::core::DefaultType for ToastNotificationPriority {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct ToastNotifier(::windows::core::IUnknown);
 impl ToastNotifier {
@@ -5394,6 +5435,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Toas
 }
 unsafe impl ::core::marker::Send for ToastNotifier {}
 unsafe impl ::core::marker::Sync for ToastNotifier {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct ToastTemplateType(pub i32);
 impl ToastTemplateType {
@@ -5427,6 +5469,7 @@ unsafe impl ::windows::core::RuntimeType for ToastTemplateType {
 impl ::windows::core::DefaultType for ToastTemplateType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct UserNotification(::windows::core::IUnknown);
 impl UserNotification {
@@ -5524,6 +5567,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserNotification {}
 unsafe impl ::core::marker::Sync for UserNotification {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct UserNotificationChangedEventArgs(::windows::core::IUnknown);
 impl UserNotificationChangedEventArgs {
@@ -5605,6 +5649,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserNotificationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserNotificationChangedEventArgs {}
+#[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
 pub struct UserNotificationChangedKind(pub i32);
 impl UserNotificationChangedKind {

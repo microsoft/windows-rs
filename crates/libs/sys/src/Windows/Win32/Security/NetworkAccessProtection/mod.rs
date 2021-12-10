@@ -4,6 +4,7 @@ extern "system" {}
 pub const ComponentTypeEnforcementClientRp: u32 = 2u32;
 pub const ComponentTypeEnforcementClientSoH: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CorrelationId {
     pub connId: ::windows_sys::core::GUID,
@@ -18,6 +19,7 @@ impl ::core::clone::Clone for CorrelationId {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CountedString {
     pub length: u16,
@@ -31,19 +33,32 @@ impl ::core::clone::Clone for CountedString {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub type ExtendedIsolationState = i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const extendedIsolationStateNoData: ExtendedIsolationState = 0i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const extendedIsolationStateTransition: ExtendedIsolationState = 1i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const extendedIsolationStateInfected: ExtendedIsolationState = 2i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const extendedIsolationStateUnknown: ExtendedIsolationState = 3i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub type FailureCategory = i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const failureCategoryNone: FailureCategory = 0i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const failureCategoryOther: FailureCategory = 1i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const failureCategoryClientComponent: FailureCategory = 2i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const failureCategoryClientCommunication: FailureCategory = 3i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const failureCategoryServerComponent: FailureCategory = 4i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const failureCategoryServerCommunication: FailureCategory = 5i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FailureCategoryMapping {
     pub mappingCompliance: [super::super::Foundation::BOOL; 5],
@@ -57,6 +72,7 @@ impl ::core::clone::Clone for FailureCategoryMapping {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub struct FixupInfo {
     pub state: FixupState,
     pub percentage: u8,
@@ -69,11 +85,16 @@ impl ::core::clone::Clone for FixupInfo {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub type FixupState = i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const fixupStateSuccess: FixupState = 0i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const fixupStateInProgress: FixupState = 1i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const fixupStateCouldNotUpdate: FixupState = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub struct Ipv4Address {
     pub addr: [u8; 4],
 }
@@ -84,6 +105,7 @@ impl ::core::clone::Clone for Ipv4Address {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub struct Ipv6Address {
     pub addr: [u8; 16],
 }
@@ -94,6 +116,7 @@ impl ::core::clone::Clone for Ipv6Address {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IsolationInfo {
     pub isolationState: IsolationState,
@@ -109,6 +132,7 @@ impl ::core::clone::Clone for IsolationInfo {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IsolationInfoEx {
     pub isolationState: IsolationState,
@@ -124,11 +148,16 @@ impl ::core::clone::Clone for IsolationInfoEx {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub type IsolationState = i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const isolationStateNotRestricted: IsolationState = 1i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const isolationStateInProbation: IsolationState = 2i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const isolationStateRestrictedAccess: IsolationState = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NapComponentRegistrationInfo {
     pub id: u32,
@@ -149,16 +178,26 @@ impl ::core::clone::Clone for NapComponentRegistrationInfo {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub type NapNotifyType = i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const napNotifyTypeUnknown: NapNotifyType = 0i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const napNotifyTypeServiceState: NapNotifyType = 1i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const napNotifyTypeQuarState: NapNotifyType = 2i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub type NapTracingLevel = i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const tracingLevelUndefined: NapTracingLevel = 0i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const tracingLevelBasic: NapTracingLevel = 1i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const tracingLevelAdvanced: NapTracingLevel = 2i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const tracingLevelDebug: NapTracingLevel = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub struct NetworkSoH {
     pub size: u16,
     pub data: *mut u8,
@@ -170,6 +209,7 @@ impl ::core::clone::Clone for NetworkSoH {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub struct PrivateData {
     pub size: u16,
     pub data: *mut u8,
@@ -180,10 +220,14 @@ impl ::core::clone::Clone for PrivateData {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub type RemoteConfigurationType = i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const remoteConfigTypeMachine: RemoteConfigurationType = 1i32;
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub const remoteConfigTypeConfigBlob: RemoteConfigurationType = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub struct ResultCodes {
     pub count: u16,
     pub results: *mut ::windows_sys::core::HRESULT,
@@ -195,6 +239,7 @@ impl ::core::clone::Clone for ResultCodes {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub struct SoH {
     pub count: u16,
     pub attributes: *mut SoHAttribute,
@@ -206,6 +251,7 @@ impl ::core::clone::Clone for SoH {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub struct SoHAttribute {
     pub r#type: u16,
     pub size: u16,
@@ -218,6 +264,7 @@ impl ::core::clone::Clone for SoHAttribute {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_NetworkAccessProtection'*"]
 pub struct SystemHealthAgentState {
     pub id: u32,
     pub shaResultCodes: ResultCodes,

@@ -1,30 +1,54 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub type ATTRIBUTE_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const AT_INVALID: ATTRIBUTE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const AT_BOOLEAN: ATTRIBUTE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const AT_INT8: ATTRIBUTE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const AT_UINT8: ATTRIBUTE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const AT_INT16: ATTRIBUTE_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const AT_UINT16: ATTRIBUTE_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const AT_INT32: ATTRIBUTE_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const AT_UINT32: ATTRIBUTE_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const AT_INT64: ATTRIBUTE_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const AT_UINT64: ATTRIBUTE_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const AT_STRING: ATTRIBUTE_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const AT_GUID: ATTRIBUTE_TYPE = 11i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const AT_LIFE_TIME: ATTRIBUTE_TYPE = 12i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const AT_SOCKADDR: ATTRIBUTE_TYPE = 13i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const AT_OCTET_STRING: ATTRIBUTE_TYPE = 14i32;
 pub const DF_IMPERSONATION: u32 = 2147483648u32;
 pub const DF_TRACELESS: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub type DIAGNOSIS_STATUS = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const DS_NOT_IMPLEMENTED: DIAGNOSIS_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const DS_CONFIRMED: DIAGNOSIS_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const DS_REJECTED: DIAGNOSIS_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const DS_INDETERMINATE: DIAGNOSIS_STATUS = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const DS_DEFERRED: DIAGNOSIS_STATUS = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const DS_PASSTHROUGH: DIAGNOSIS_STATUS = 5i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIAG_SOCKADDR {
     pub family: u16,
@@ -57,6 +81,7 @@ impl ::core::default::Default for DIAG_SOCKADDR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub struct DiagnosticsInfo {
     pub cost: i32,
     pub flags: u32,
@@ -82,6 +107,7 @@ impl ::core::default::Default for DiagnosticsInfo {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HELPER_ATTRIBUTE {
     pub pwszName: super::super::Foundation::PWSTR,
@@ -115,6 +141,7 @@ impl ::core::default::Default for HELPER_ATTRIBUTE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union HELPER_ATTRIBUTE_0 {
     pub Boolean: super::super::Foundation::BOOL,
@@ -159,6 +186,7 @@ impl ::core::default::Default for HELPER_ATTRIBUTE_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HYPOTHESIS {
     pub pwszClassName: super::super::Foundation::PWSTR,
@@ -193,6 +221,7 @@ impl ::core::default::Default for HYPOTHESIS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HelperAttributeInfo {
     pub pwszName: super::super::Foundation::PWSTR,
@@ -225,6 +254,7 @@ impl ::core::default::Default for HelperAttributeInfo {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HypothesisResult {
     pub hypothesis: HYPOTHESIS,
@@ -256,6 +286,7 @@ impl ::core::default::Default for HypothesisResult {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 #[repr(transparent)]
 pub struct INetDiagExtensibleHelper(::windows::core::IUnknown);
 impl INetDiagExtensibleHelper {
@@ -308,6 +339,7 @@ pub struct INetDiagExtensibleHelperVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 #[repr(transparent)]
 pub struct INetDiagHelper(::windows::core::IUnknown);
 impl INetDiagHelper {
@@ -457,6 +489,7 @@ pub struct INetDiagHelperVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 #[repr(transparent)]
 pub struct INetDiagHelperEx(::windows::core::IUnknown);
 impl INetDiagHelperEx {
@@ -517,6 +550,7 @@ pub struct INetDiagHelperExVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, putilities: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 #[repr(transparent)]
 pub struct INetDiagHelperInfo(::windows::core::IUnknown);
 impl INetDiagHelperInfo {
@@ -569,6 +603,7 @@ pub struct INetDiagHelperInfoVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 #[repr(transparent)]
 pub struct INetDiagHelperUtilFactory(::windows::core::IUnknown);
 impl INetDiagHelperUtilFactory {
@@ -616,6 +651,7 @@ unsafe impl ::windows::core::Interface for INetDiagHelperUtilFactory {
 #[doc(hidden)]
 pub struct INetDiagHelperUtilFactoryVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LIFE_TIME {
     pub startTime: super::super::Foundation::FILETIME,
@@ -650,16 +686,25 @@ impl ::core::default::Default for LIFE_TIME {
 pub const NDF_ADD_CAPTURE_TRACE: u32 = 1u32;
 pub const NDF_APPLY_INCLUSION_LIST_FILTER: u32 = 2u32;
 pub const NDF_ERROR_START: u32 = 63744u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const NDF_E_BAD_PARAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146895611i32);
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const NDF_E_CANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146895614i32);
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const NDF_E_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146895612i32);
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const NDF_E_LENGTH_EXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146895616i32);
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const NDF_E_NOHELPERCLASS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146895615i32);
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const NDF_E_PROBLEM_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146895608i32);
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const NDF_E_UNKNOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146895609i32);
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const NDF_E_VALIDATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146895610i32);
 pub const NDF_INBOUND_FLAG_EDGETRAVERSAL: u32 = 1u32;
 pub const NDF_INBOUND_FLAG_HEALTHCHECK: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 #[inline]
 pub unsafe fn NdfCancelIncident(handle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -673,6 +718,7 @@ pub unsafe fn NdfCancelIncident(handle: *const ::core::ffi::c_void) -> ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 #[inline]
 pub unsafe fn NdfCloseIncident(handle: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -686,6 +732,7 @@ pub unsafe fn NdfCloseIncident(handle: *mut ::core::ffi::c_void) -> ::windows::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 #[inline]
 pub unsafe fn NdfCreateConnectivityIncident(handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -699,6 +746,7 @@ pub unsafe fn NdfCreateConnectivityIncident(handle: *mut *mut ::core::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfCreateDNSIncident<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, querytype: u16, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -713,6 +761,7 @@ pub unsafe fn NdfCreateDNSIncident<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn NdfCreateGroupingIncident<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(cloudname: Param0, groupname: Param1, identity: Param2, invitation: Param3, addresses: *const super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, appid: Param5, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -727,6 +776,7 @@ pub unsafe fn NdfCreateGroupingIncident<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfCreateIncident<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(helperclassname: Param0, celt: u32, attributes: *const HELPER_ATTRIBUTE, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -741,6 +791,7 @@ pub unsafe fn NdfCreateIncident<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 #[inline]
 pub unsafe fn NdfCreateNetConnectionIncident<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(handle: *mut *mut ::core::ffi::c_void, id: Param1) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -754,6 +805,7 @@ pub unsafe fn NdfCreateNetConnectionIncident<'a, Param1: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfCreatePnrpIncident<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(cloudname: Param0, peername: Param1, diagnosepublish: Param2, appid: Param3, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -768,6 +820,7 @@ pub unsafe fn NdfCreatePnrpIncident<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfCreateSharingIncident<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(uncpath: Param0, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -782,6 +835,7 @@ pub unsafe fn NdfCreateSharingIncident<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfCreateWebIncident<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(url: Param0, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -796,6 +850,7 @@ pub unsafe fn NdfCreateWebIncident<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfCreateWebIncidentEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(url: Param0, usewinhttp: Param1, modulename: Param2, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -810,6 +865,7 @@ pub unsafe fn NdfCreateWebIncidentEx<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation', 'Win32_Networking_WinSock', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NdfCreateWinSockIncident<'a, Param0: ::windows::core::IntoParam<'a, super::super::Networking::WinSock::SOCKET>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(sock: Param0, host: Param1, port: u16, appid: Param3, userid: *const super::super::Security::SID, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -824,6 +880,7 @@ pub unsafe fn NdfCreateWinSockIncident<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfDiagnoseIncident(handle: *const ::core::ffi::c_void, rootcausecount: *mut u32, rootcauses: *mut *mut RootCauseInfo, dwwait: u32, dwflags: u32) -> ::windows::core::Result<()> {
@@ -838,6 +895,7 @@ pub unsafe fn NdfDiagnoseIncident(handle: *const ::core::ffi::c_void, rootcausec
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfExecuteDiagnosis<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(handle: *const ::core::ffi::c_void, hwnd: Param1) -> ::windows::core::Result<()> {
@@ -852,6 +910,7 @@ pub unsafe fn NdfExecuteDiagnosis<'a, Param1: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfGetTraceFile(handle: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
@@ -867,6 +926,7 @@ pub unsafe fn NdfGetTraceFile(handle: *const ::core::ffi::c_void) -> ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NdfRepairIncident(handle: *const ::core::ffi::c_void, repairex: *const RepairInfoEx, dwwait: u32) -> ::windows::core::Result<()> {
@@ -882,6 +942,7 @@ pub unsafe fn NdfRepairIncident(handle: *const ::core::ffi::c_void, repairex: *c
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub struct OCTET_STRING {
     pub dwLength: u32,
     pub lpValue: *mut u8,
@@ -906,31 +967,54 @@ impl ::core::default::Default for OCTET_STRING {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub type PROBLEM_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const PT_INVALID: PROBLEM_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const PT_LOW_HEALTH: PROBLEM_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const PT_LOWER_HEALTH: PROBLEM_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const PT_DOWN_STREAM_HEALTH: PROBLEM_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const PT_HIGH_UTILIZATION: PROBLEM_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const PT_HIGHER_UTILIZATION: PROBLEM_TYPE = 16i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const PT_UP_STREAM_UTILIZATION: PROBLEM_TYPE = 32i32;
 pub const RCF_ISCONFIRMED: u32 = 2u32;
 pub const RCF_ISLEAF: u32 = 1u32;
 pub const RCF_ISTHIRDPARTY: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub type REPAIR_RISK = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const RR_NOROLLBACK: REPAIR_RISK = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const RR_ROLLBACK: REPAIR_RISK = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const RR_NORISK: REPAIR_RISK = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub type REPAIR_SCOPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const RS_SYSTEM: REPAIR_SCOPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const RS_USER: REPAIR_SCOPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const RS_APPLICATION: REPAIR_SCOPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const RS_PROCESS: REPAIR_SCOPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub type REPAIR_STATUS = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const RS_NOT_IMPLEMENTED: REPAIR_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const RS_REPAIRED: REPAIR_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const RS_UNREPAIRED: REPAIR_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const RS_DEFERRED: REPAIR_STATUS = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const RS_USER_ACTION: REPAIR_STATUS = 4i32;
 pub const RF_CONTACT_ADMIN: u32 = 131072u32;
 pub const RF_INFORMATION_ONLY: u32 = 33554432u32;
@@ -945,6 +1029,7 @@ pub const RF_USER_CONFIRMATION: u32 = 134217728u32;
 pub const RF_VALIDATE_HELPTOPIC: u32 = 4194304u32;
 pub const RF_WORKAROUND: u32 = 536870912u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RepairInfo {
     pub guid: ::windows::core::GUID,
@@ -985,6 +1070,7 @@ impl ::core::default::Default for RepairInfo {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RepairInfoEx {
     pub repair: RepairInfo,
@@ -1017,6 +1103,7 @@ impl ::core::default::Default for RepairInfoEx {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RootCauseInfo {
     pub pwszDescription: super::super::Foundation::PWSTR,
@@ -1053,6 +1140,7 @@ impl ::core::default::Default for RootCauseInfo {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ShellCommandInfo {
     pub pwszOperation: super::super::Foundation::PWSTR,
@@ -1087,13 +1175,20 @@ impl ::core::default::Default for ShellCommandInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub type UI_INFO_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const UIT_INVALID: UI_INFO_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const UIT_NONE: UI_INFO_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const UIT_SHELL_COMMAND: UI_INFO_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const UIT_HELP_PANE: UI_INFO_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const UIT_DUI: UI_INFO_TYPE = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct UiInfo {
     pub r#type: UI_INFO_TYPE,
@@ -1126,6 +1221,7 @@ impl ::core::default::Default for UiInfo {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union UiInfo_0 {
     pub pwzNull: super::super::Foundation::PWSTR,

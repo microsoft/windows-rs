@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'System_Preview', 'deprecated'*"]
 #[repr(transparent)]
 pub struct HingeState(pub i32);
 impl HingeState {
@@ -128,6 +129,7 @@ pub struct ITwoPanelHingedDevicePosturePreviewStaticsVtbl(
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
 );
+#[doc = "*Required features: 'System_Preview', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct TwoPanelHingedDevicePosturePreview(::windows::core::IUnknown);
@@ -245,6 +247,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TwoP
 unsafe impl ::core::marker::Send for TwoPanelHingedDevicePosturePreview {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for TwoPanelHingedDevicePosturePreview {}
+#[doc = "*Required features: 'System_Preview', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct TwoPanelHingedDevicePosturePreviewReading(::windows::core::IUnknown);
@@ -378,6 +381,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &TwoP
 unsafe impl ::core::marker::Send for TwoPanelHingedDevicePosturePreviewReading {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for TwoPanelHingedDevicePosturePreviewReading {}
+#[doc = "*Required features: 'System_Preview', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs(::windows::core::IUnknown);

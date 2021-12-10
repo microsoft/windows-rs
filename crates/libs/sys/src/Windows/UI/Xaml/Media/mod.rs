@@ -7,6 +7,7 @@ pub mod Imaging;
 pub mod Media3D;
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct AcrylicBackgroundSource(pub i32);
 impl AcrylicBackgroundSource {
@@ -20,6 +21,7 @@ impl ::core::clone::Clone for AcrylicBackgroundSource {
     }
 }
 pub type AcrylicBrush = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct AlignmentX(pub i32);
 impl AlignmentX {
@@ -33,6 +35,7 @@ impl ::core::clone::Clone for AlignmentX {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct AlignmentY(pub i32);
 impl AlignmentY {
@@ -47,6 +50,7 @@ impl ::core::clone::Clone for AlignmentY {
     }
 }
 pub type ArcSegment = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct AudioCategory(pub i32);
 impl AudioCategory {
@@ -69,6 +73,7 @@ impl ::core::clone::Clone for AudioCategory {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct AudioDeviceType(pub i32);
 impl AudioDeviceType {
@@ -86,6 +91,7 @@ pub type BezierSegment = *mut ::core::ffi::c_void;
 pub type BitmapCache = *mut ::core::ffi::c_void;
 pub type Brush = *mut ::core::ffi::c_void;
 pub type BrushCollection = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct BrushMappingMode(pub i32);
 impl BrushMappingMode {
@@ -99,6 +105,7 @@ impl ::core::clone::Clone for BrushMappingMode {
     }
 }
 pub type CacheMode = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct ColorInterpolationMode(pub i32);
 impl ColorInterpolationMode {
@@ -114,6 +121,7 @@ impl ::core::clone::Clone for ColorInterpolationMode {
 pub type CompositeTransform = *mut ::core::ffi::c_void;
 pub type CompositionTarget = *mut ::core::ffi::c_void;
 pub type DoubleCollection = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct ElementCompositeMode(pub i32);
 impl ElementCompositeMode {
@@ -128,6 +136,7 @@ impl ::core::clone::Clone for ElementCompositeMode {
     }
 }
 pub type EllipseGeometry = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct FastPlayFallbackBehaviour(pub i32);
 impl FastPlayFallbackBehaviour {
@@ -141,6 +150,7 @@ impl ::core::clone::Clone for FastPlayFallbackBehaviour {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct FillRule(pub i32);
 impl FillRule {
@@ -159,6 +169,7 @@ pub type Geometry = *mut ::core::ffi::c_void;
 pub type GeometryCollection = *mut ::core::ffi::c_void;
 pub type GeometryGroup = *mut ::core::ffi::c_void;
 pub type GradientBrush = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct GradientSpreadMethod(pub i32);
 impl GradientSpreadMethod {
@@ -180,6 +191,7 @@ pub type LineGeometry = *mut ::core::ffi::c_void;
 pub type LineSegment = *mut ::core::ffi::c_void;
 pub type LinearGradientBrush = *mut ::core::ffi::c_void;
 pub type LoadedImageSourceLoadCompletedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct LoadedImageSourceLoadStatus(pub i32);
 impl LoadedImageSourceLoadStatus {
@@ -196,6 +208,7 @@ impl ::core::clone::Clone for LoadedImageSourceLoadStatus {
 }
 pub type LoadedImageSurface = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 pub struct Matrix {
     pub M11: f64,
     pub M12: f64,
@@ -213,6 +226,7 @@ impl ::core::clone::Clone for Matrix {
 pub type Matrix3DProjection = *mut ::core::ffi::c_void;
 pub type MatrixHelper = *mut ::core::ffi::c_void;
 pub type MatrixTransform = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct MediaCanPlayResponse(pub i32);
 impl MediaCanPlayResponse {
@@ -226,6 +240,7 @@ impl ::core::clone::Clone for MediaCanPlayResponse {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct MediaElementState(pub i32);
 impl MediaElementState {
@@ -249,6 +264,7 @@ pub type PathFigureCollection = *mut ::core::ffi::c_void;
 pub type PathGeometry = *mut ::core::ffi::c_void;
 pub type PathSegment = *mut ::core::ffi::c_void;
 pub type PathSegmentCollection = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct PenLineCap(pub i32);
 impl PenLineCap {
@@ -263,6 +279,7 @@ impl ::core::clone::Clone for PenLineCap {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct PenLineJoin(pub i32);
 impl PenLineJoin {
@@ -291,6 +308,7 @@ pub type RenderingEventArgs = *mut ::core::ffi::c_void;
 pub type RevealBackgroundBrush = *mut ::core::ffi::c_void;
 pub type RevealBorderBrush = *mut ::core::ffi::c_void;
 pub type RevealBrush = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct RevealBrushState(pub i32);
 impl RevealBrushState {
@@ -309,6 +327,7 @@ pub type ScaleTransform = *mut ::core::ffi::c_void;
 pub type Shadow = *mut ::core::ffi::c_void;
 pub type SkewTransform = *mut ::core::ffi::c_void;
 pub type SolidColorBrush = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct Stereo3DVideoPackingMode(pub i32);
 impl Stereo3DVideoPackingMode {
@@ -322,6 +341,7 @@ impl ::core::clone::Clone for Stereo3DVideoPackingMode {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct Stereo3DVideoRenderMode(pub i32);
 impl Stereo3DVideoRenderMode {
@@ -334,6 +354,7 @@ impl ::core::clone::Clone for Stereo3DVideoRenderMode {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct Stretch(pub i32);
 impl Stretch {
@@ -348,6 +369,7 @@ impl ::core::clone::Clone for Stretch {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct StyleSimulations(pub i32);
 impl StyleSimulations {
@@ -362,6 +384,7 @@ impl ::core::clone::Clone for StyleSimulations {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct SweepDirection(pub i32);
 impl SweepDirection {

@@ -119,6 +119,7 @@ impl Clipboard {
 impl ::windows::core::RuntimeName for Clipboard {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.Clipboard";
 }
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct ClipboardContentOptions(::windows::core::IUnknown);
 impl ClipboardContentOptions {
@@ -231,6 +232,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clip
 }
 unsafe impl ::core::marker::Send for ClipboardContentOptions {}
 unsafe impl ::core::marker::Sync for ClipboardContentOptions {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct ClipboardHistoryChangedEventArgs(::windows::core::IUnknown);
 impl ClipboardHistoryChangedEventArgs {}
@@ -297,6 +299,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clip
 }
 unsafe impl ::core::marker::Send for ClipboardHistoryChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ClipboardHistoryChangedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct ClipboardHistoryItem(::windows::core::IUnknown);
 impl ClipboardHistoryItem {
@@ -386,6 +389,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clip
 }
 unsafe impl ::core::marker::Send for ClipboardHistoryItem {}
 unsafe impl ::core::marker::Sync for ClipboardHistoryItem {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct ClipboardHistoryItemsResult(::windows::core::IUnknown);
 impl ClipboardHistoryItemsResult {
@@ -468,6 +472,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clip
 }
 unsafe impl ::core::marker::Send for ClipboardHistoryItemsResult {}
 unsafe impl ::core::marker::Sync for ClipboardHistoryItemsResult {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct ClipboardHistoryItemsResultStatus(pub i32);
 impl ClipboardHistoryItemsResultStatus {
@@ -496,6 +501,7 @@ unsafe impl ::windows::core::RuntimeType for ClipboardHistoryItemsResultStatus {
 impl ::windows::core::DefaultType for ClipboardHistoryItemsResultStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct DataPackage(::windows::core::IUnknown);
 impl DataPackage {
@@ -705,6 +711,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
 }
 unsafe impl ::core::marker::Send for DataPackage {}
 unsafe impl ::core::marker::Sync for DataPackage {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct DataPackageOperation(pub u32);
 impl DataPackageOperation {
@@ -734,6 +741,7 @@ unsafe impl ::windows::core::RuntimeType for DataPackageOperation {
 impl ::windows::core::DefaultType for DataPackageOperation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct DataPackagePropertySet(::windows::core::IUnknown);
 impl DataPackagePropertySet {
@@ -1079,6 +1087,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 }
 unsafe impl ::core::marker::Send for DataPackagePropertySet {}
 unsafe impl ::core::marker::Sync for DataPackagePropertySet {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct DataPackagePropertySetView(::windows::core::IUnknown);
 impl DataPackagePropertySetView {
@@ -1356,6 +1365,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 }
 unsafe impl ::core::marker::Send for DataPackagePropertySetView {}
 unsafe impl ::core::marker::Sync for DataPackagePropertySetView {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct DataPackageView(::windows::core::IUnknown);
 impl DataPackageView {
@@ -1572,6 +1582,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
 }
 unsafe impl ::core::marker::Send for DataPackageView {}
 unsafe impl ::core::marker::Sync for DataPackageView {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct DataProviderDeferral(::windows::core::IUnknown);
 impl DataProviderDeferral {
@@ -1643,6 +1654,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
 }
 unsafe impl ::core::marker::Send for DataProviderDeferral {}
 unsafe impl ::core::marker::Sync for DataProviderDeferral {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct DataProviderHandler(pub ::windows::core::IUnknown);
 impl DataProviderHandler {
@@ -1711,6 +1723,7 @@ unsafe impl ::windows::core::RuntimeType for DataProviderHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct DataProviderHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct DataProviderRequest(::windows::core::IUnknown);
 impl DataProviderRequest {
@@ -1804,6 +1817,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
 }
 unsafe impl ::core::marker::Send for DataProviderRequest {}
 unsafe impl ::core::marker::Sync for DataProviderRequest {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct DataRequest(::windows::core::IUnknown);
 impl DataRequest {
@@ -1901,6 +1915,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
 }
 unsafe impl ::core::marker::Send for DataRequest {}
 unsafe impl ::core::marker::Sync for DataRequest {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct DataRequestDeferral(::windows::core::IUnknown);
 impl DataRequestDeferral {
@@ -1972,6 +1987,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
 }
 unsafe impl ::core::marker::Send for DataRequestDeferral {}
 unsafe impl ::core::marker::Sync for DataRequestDeferral {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct DataRequestedEventArgs(::windows::core::IUnknown);
 impl DataRequestedEventArgs {
@@ -2046,6 +2062,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
 }
 unsafe impl ::core::marker::Send for DataRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for DataRequestedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct DataTransferManager(::windows::core::IUnknown);
 impl DataTransferManager {
@@ -3270,6 +3287,7 @@ pub struct ITargetApplicationChosenEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct OperationCompletedEventArgs(::windows::core::IUnknown);
 impl OperationCompletedEventArgs {
@@ -3351,6 +3369,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Oper
 }
 unsafe impl ::core::marker::Send for OperationCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for OperationCompletedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct SetHistoryItemAsContentStatus(pub i32);
 impl SetHistoryItemAsContentStatus {
@@ -3379,6 +3398,7 @@ unsafe impl ::windows::core::RuntimeType for SetHistoryItemAsContentStatus {
 impl ::windows::core::DefaultType for SetHistoryItemAsContentStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct ShareCompletedEventArgs(::windows::core::IUnknown);
 impl ShareCompletedEventArgs {
@@ -3453,6 +3473,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
 }
 unsafe impl ::core::marker::Send for ShareCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for ShareCompletedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct ShareProvider(::windows::core::IUnknown);
 impl ShareProvider {
@@ -3565,6 +3586,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
 }
 unsafe impl ::core::marker::Send for ShareProvider {}
 unsafe impl ::core::marker::Sync for ShareProvider {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct ShareProviderHandler(pub ::windows::core::IUnknown);
 impl ShareProviderHandler {
@@ -3633,6 +3655,7 @@ unsafe impl ::windows::core::RuntimeType for ShareProviderHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ShareProviderHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operation: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct ShareProviderOperation(::windows::core::IUnknown);
 impl ShareProviderOperation {
@@ -3718,6 +3741,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
 }
 unsafe impl ::core::marker::Send for ShareProviderOperation {}
 unsafe impl ::core::marker::Sync for ShareProviderOperation {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct ShareProvidersRequestedEventArgs(::windows::core::IUnknown);
 impl ShareProvidersRequestedEventArgs {
@@ -3808,6 +3832,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
 }
 unsafe impl ::core::marker::Send for ShareProvidersRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ShareProvidersRequestedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct ShareTargetInfo(::windows::core::IUnknown);
 impl ShareTargetInfo {
@@ -3889,6 +3914,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
 }
 unsafe impl ::core::marker::Send for ShareTargetInfo {}
 unsafe impl ::core::marker::Sync for ShareTargetInfo {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct ShareUIOptions(::windows::core::IUnknown);
 impl ShareUIOptions {
@@ -3987,6 +4013,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shar
 }
 unsafe impl ::core::marker::Send for ShareUIOptions {}
 unsafe impl ::core::marker::Sync for ShareUIOptions {}
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct ShareUITheme(pub i32);
 impl ShareUITheme {
@@ -4115,6 +4142,7 @@ impl StandardDataFormats {
 impl ::windows::core::RuntimeName for StandardDataFormats {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.StandardDataFormats";
 }
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct TargetApplicationChosenEventArgs(::windows::core::IUnknown);
 impl TargetApplicationChosenEventArgs {

@@ -1,21 +1,36 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APOERR_ALREADY_INITIALIZED: ::windows_sys::core::HRESULT = -2005073919i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APOERR_ALREADY_UNLOCKED: ::windows_sys::core::HRESULT = -2005073914i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APOERR_APO_LOCKED: ::windows_sys::core::HRESULT = -2005073910i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APOERR_BUFFERS_OVERLAP: ::windows_sys::core::HRESULT = -2005073915i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APOERR_FORMAT_NOT_SUPPORTED: ::windows_sys::core::HRESULT = -2005073917i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APOERR_INVALID_APO_CLSID: ::windows_sys::core::HRESULT = -2005073916i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APOERR_INVALID_COEFFCOUNT: ::windows_sys::core::HRESULT = -2005073909i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APOERR_INVALID_COEFFICIENT: ::windows_sys::core::HRESULT = -2005073908i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APOERR_INVALID_CONNECTION_FORMAT: ::windows_sys::core::HRESULT = -2005073911i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APOERR_INVALID_CURVE_PARAM: ::windows_sys::core::HRESULT = -2005073907i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APOERR_INVALID_INPUTID: ::windows_sys::core::HRESULT = -2005073906i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APOERR_INVALID_OUTPUT_MAXFRAMECOUNT: ::windows_sys::core::HRESULT = -2005073912i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APOERR_NOT_INITIALIZED: ::windows_sys::core::HRESULT = -2005073918i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APOERR_NUM_CONNECTIONS_INVALID: ::windows_sys::core::HRESULT = -2005073913i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub struct APOInitBaseStruct {
     pub cbSize: u32,
     pub clsid: ::windows_sys::core::GUID,
@@ -27,6 +42,7 @@ impl ::core::clone::Clone for APOInitBaseStruct {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct APOInitSystemEffects {
     pub APOInit: APOInitBaseStruct,
@@ -44,6 +60,7 @@ impl ::core::clone::Clone for APOInitSystemEffects {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_Foundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct APOInitSystemEffects2 {
     pub APOInit: APOInitBaseStruct,
@@ -65,6 +82,7 @@ impl ::core::clone::Clone for APOInitSystemEffects2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_Foundation', 'Win32_System_Com', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct APOInitSystemEffects3 {
     pub APOInit: APOInitBaseStruct,
@@ -84,15 +102,24 @@ impl ::core::clone::Clone for APOInitSystemEffects3 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub type APO_BUFFER_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const BUFFER_INVALID: APO_BUFFER_FLAGS = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const BUFFER_VALID: APO_BUFFER_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const BUFFER_SILENT: APO_BUFFER_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub type APO_CONNECTION_BUFFER_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_CONNECTION_BUFFER_TYPE_ALLOCATED: APO_CONNECTION_BUFFER_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_CONNECTION_BUFFER_TYPE_EXTERNAL: APO_CONNECTION_BUFFER_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_CONNECTION_BUFFER_TYPE_DEPENDANT: APO_CONNECTION_BUFFER_TYPE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub struct APO_CONNECTION_DESCRIPTOR {
     pub Type: APO_CONNECTION_BUFFER_TYPE,
     pub pBuffer: usize,
@@ -107,6 +134,7 @@ impl ::core::clone::Clone for APO_CONNECTION_DESCRIPTOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub struct APO_CONNECTION_PROPERTY {
     pub pBuffer: usize,
     pub u32ValidFrameCount: u32,
@@ -120,6 +148,7 @@ impl ::core::clone::Clone for APO_CONNECTION_PROPERTY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub struct APO_CONNECTION_PROPERTY_V2 {
     pub property: APO_CONNECTION_PROPERTY,
     pub u64QPCTime: u64,
@@ -130,22 +159,38 @@ impl ::core::clone::Clone for APO_CONNECTION_PROPERTY_V2 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub type APO_FLAG = i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_FLAG_NONE: APO_FLAG = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_FLAG_INPLACE: APO_FLAG = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_FLAG_SAMPLESPERFRAME_MUST_MATCH: APO_FLAG = 2i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_FLAG_FRAMESPERSECOND_MUST_MATCH: APO_FLAG = 4i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_FLAG_BITSPERSAMPLE_MUST_MATCH: APO_FLAG = 8i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_FLAG_MIXER: APO_FLAG = 16i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_FLAG_DEFAULT: APO_FLAG = 14i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub type APO_LOG_LEVEL = i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_LOG_LEVEL_ALWAYS: APO_LOG_LEVEL = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_LOG_LEVEL_CRITICAL: APO_LOG_LEVEL = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_LOG_LEVEL_ERROR: APO_LOG_LEVEL = 2i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_LOG_LEVEL_WARNING: APO_LOG_LEVEL = 3i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_LOG_LEVEL_INFO: APO_LOG_LEVEL = 4i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_LOG_LEVEL_VERBOSE: APO_LOG_LEVEL = 5i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_Foundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct APO_NOTIFICATION {
     pub r#type: APO_NOTIFICATION_TYPE,
@@ -160,6 +205,7 @@ impl ::core::clone::Clone for APO_NOTIFICATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_Foundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub union APO_NOTIFICATION_0 {
     pub audioEndpointVolumeChange: AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION,
@@ -175,6 +221,7 @@ impl ::core::clone::Clone for APO_NOTIFICATION_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub struct APO_NOTIFICATION_DESCRIPTOR {
     pub r#type: APO_NOTIFICATION_TYPE,
     pub Anonymous: APO_NOTIFICATION_DESCRIPTOR_0,
@@ -186,6 +233,7 @@ impl ::core::clone::Clone for APO_NOTIFICATION_DESCRIPTOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub union APO_NOTIFICATION_DESCRIPTOR_0 {
     pub audioEndpointVolume: AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR,
     pub audioEndpointPropertyChange: AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR,
@@ -197,12 +245,18 @@ impl ::core::clone::Clone for APO_NOTIFICATION_DESCRIPTOR_0 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub type APO_NOTIFICATION_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_NOTIFICATION_TYPE_NONE: APO_NOTIFICATION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_NOTIFICATION_TYPE_ENDPOINT_VOLUME: APO_NOTIFICATION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_NOTIFICATION_TYPE_ENDPOINT_PROPERTY_CHANGE: APO_NOTIFICATION_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const APO_NOTIFICATION_TYPE_SYSTEM_EFFECTS_PROPERTY_CHANGE: APO_NOTIFICATION_TYPE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub struct APO_REG_PROPERTIES {
     pub clsid: ::windows_sys::core::GUID,
     pub Flags: APO_FLAG,
@@ -228,6 +282,7 @@ pub const AUDIOMEDIATYPE_EQUAL_FORMAT_DATA: u32 = 4u32;
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_TYPES: u32 = 2u32;
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_USER_DATA: u32 = 8u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     pub device: super::IMMDevice,
 }
@@ -238,6 +293,7 @@ impl ::core::clone::Clone for AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DE
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
     pub endpoint: super::IMMDevice,
@@ -253,6 +309,7 @@ impl ::core::clone::Clone for AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub struct AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR {
     pub device: super::IMMDevice,
 }
@@ -263,6 +320,7 @@ impl ::core::clone::Clone for AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR 
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
     pub endpoint: super::IMMDevice,
@@ -276,14 +334,18 @@ impl ::core::clone::Clone for AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub type AUDIO_FLOW_TYPE = i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const AUDIO_FLOW_PULL: AUDIO_FLOW_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const AUDIO_FLOW_PUSH: AUDIO_FLOW_TYPE = 1i32;
 pub const AUDIO_MAX_CHANNELS: u32 = 4096u32;
 pub const AUDIO_MAX_FRAMERATE: f64 = 384000f64;
 pub const AUDIO_MIN_CHANNELS: u32 = 1u32;
 pub const AUDIO_MIN_FRAMERATE: f64 = 10f64;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AUDIO_SYSTEMEFFECT {
     pub id: ::windows_sys::core::GUID,
@@ -299,6 +361,7 @@ impl ::core::clone::Clone for AUDIO_SYSTEMEFFECT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR {
     pub device: super::IMMDevice,
     pub propertyStoreContext: ::windows_sys::core::GUID,
@@ -310,6 +373,7 @@ impl ::core::clone::Clone for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATI
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
     pub endpoint: super::IMMDevice,
@@ -326,10 +390,14 @@ impl ::core::clone::Clone for AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub type AUDIO_SYSTEMEFFECT_STATE = i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const AUDIO_SYSTEMEFFECT_STATE_OFF: AUDIO_SYSTEMEFFECT_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const AUDIO_SYSTEMEFFECT_STATE_ON: AUDIO_SYSTEMEFFECT_STATE = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_Foundation', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct AudioFXExtensionParams {
     pub AddPageParam: super::super::super::Foundation::LPARAM,
@@ -344,12 +412,19 @@ impl ::core::clone::Clone for AudioFXExtensionParams {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub type EAudioConstriction = i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const eAudioConstrictionOff: EAudioConstriction = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const eAudioConstriction48_16: EAudioConstriction = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const eAudioConstriction44_16: EAudioConstriction = 2i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const eAudioConstriction14_14: EAudioConstriction = 3i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const eAudioConstrictionMute: EAudioConstriction = 4i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub type FNAPONOTIFICATIONCALLBACK = ::core::option::Option<unsafe extern "system" fn(pproperties: *mut APO_REG_PROPERTIES, pvrefdata: *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
 pub type IApoAcousticEchoCancellation = *mut ::core::ffi::c_void;
 pub type IApoAuxiliaryInputConfiguration = *mut ::core::ffi::c_void;
@@ -367,69 +442,100 @@ pub type IAudioSystemEffects = *mut ::core::ffi::c_void;
 pub type IAudioSystemEffects2 = *mut ::core::ffi::c_void;
 pub type IAudioSystemEffects3 = *mut ::core::ffi::c_void;
 pub type IAudioSystemEffectsCustomFormats = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_APO_SWFallback_ProcessingModes: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3550034495, data2: 39362, data3: 17410, data4: [181, 236, 169, 42, 3, 103, 102, 75] }, pid: 13u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CompositeFX_EndpointEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 15u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CompositeFX_KeywordDetector_EndpointEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 18u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CompositeFX_KeywordDetector_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 17u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CompositeFX_KeywordDetector_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 16u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CompositeFX_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 14u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CompositeFX_Offload_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 20u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CompositeFX_Offload_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 19u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_CompositeFX_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 13u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_EFX_KeywordDetector_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3550034495, data2: 39362, data3: 17410, data4: [181, 236, 169, 42, 3, 103, 102, 75] }, pid: 10u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_EFX_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3550034495, data2: 39362, data3: 17410, data4: [181, 236, 169, 42, 3, 103, 102, 75] }, pid: 7u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_Association: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 0u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_EndpointEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 7u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_FriendlyName: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 4u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_KeywordDetector_EndpointEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 10u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_KeywordDetector_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 9u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_KeywordDetector_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 8u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 6u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_Offload_ModeEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 12u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_Offload_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 11u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_PostMixEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 2u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_PreMixEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 1u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_StreamEffectClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 5u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_FX_UserInterfaceClsid: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3494774182, data2: 22859, data3: 20406, data4: [168, 13, 1, 175, 94, 237, 125, 29] }, pid: 3u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_MFX_KeywordDetector_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3550034495, data2: 39362, data3: 17410, data4: [181, 236, 169, 42, 3, 103, 102, 75] }, pid: 9u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_MFX_Offload_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3550034495, data2: 39362, data3: 17410, data4: [181, 236, 169, 42, 3, 103, 102, 75] }, pid: 12u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_MFX_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3550034495, data2: 39362, data3: 17410, data4: [181, 236, 169, 42, 3, 103, 102, 75] }, pid: 6u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_SFX_KeywordDetector_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3550034495, data2: 39362, data3: 17410, data4: [181, 236, 169, 42, 3, 103, 102, 75] }, pid: 8u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_SFX_Offload_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3550034495, data2: 39362, data3: 17410, data4: [181, 236, 169, 42, 3, 103, 102, 75] }, pid: 11u32 };
+#[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_SFX_ProcessingModes_Supported_For_Streaming: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_sys::core::GUID { data1: 3550034495, data2: 39362, data3: 17410, data4: [181, 236, 169, 42, 3, 103, 102, 75] }, pid: 5u32 };
 pub const SID_AudioProcessingObjectLoggingService: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2340423855, data2: 2553, data3: 17774, data4: [161, 115, 189, 181, 132, 153, 188, 231] };
 pub const SID_AudioProcessingObjectRTQueue: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1166809631, data2: 26777, data3: 19474, data4: [153, 172, 226, 230, 172, 37, 49, 4] };
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub struct UNCOMPRESSEDAUDIOFORMAT {
     pub guidFormatType: ::windows_sys::core::GUID,
     pub dwSamplesPerFrame: u32,

@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
 pub struct PlatformDiagnosticActionState(pub i32);
 impl PlatformDiagnosticActionState {
@@ -14,6 +15,7 @@ impl ::core::clone::Clone for PlatformDiagnosticActionState {
         *self
     }
 }
+#[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
 pub struct PlatformDiagnosticEscalationType(pub i32);
 impl PlatformDiagnosticEscalationType {
@@ -26,6 +28,7 @@ impl ::core::clone::Clone for PlatformDiagnosticEscalationType {
         *self
     }
 }
+#[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
 pub struct PlatformDiagnosticEventBufferLatencies(pub u32);
 impl PlatformDiagnosticEventBufferLatencies {
@@ -40,6 +43,7 @@ impl ::core::clone::Clone for PlatformDiagnosticEventBufferLatencies {
     }
 }
 pub type PlatformDiagnosticTraceInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
 pub struct PlatformDiagnosticTracePriority(pub i32);
 impl PlatformDiagnosticTracePriority {
@@ -53,6 +57,7 @@ impl ::core::clone::Clone for PlatformDiagnosticTracePriority {
     }
 }
 pub type PlatformDiagnosticTraceRuntimeInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
 pub struct PlatformDiagnosticTraceSlotState(pub i32);
 impl PlatformDiagnosticTraceSlotState {
@@ -66,6 +71,7 @@ impl ::core::clone::Clone for PlatformDiagnosticTraceSlotState {
         *self
     }
 }
+#[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
 pub struct PlatformDiagnosticTraceSlotType(pub i32);
 impl PlatformDiagnosticTraceSlotType {

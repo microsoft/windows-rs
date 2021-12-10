@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
 #[repr(transparent)]
 pub struct IWebApplicationActivation(::windows::core::IUnknown);
 impl IWebApplicationActivation {
@@ -44,6 +45,7 @@ unsafe impl ::windows::core::Interface for IWebApplicationActivation {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebApplicationActivationVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
 #[repr(transparent)]
 pub struct IWebApplicationAuthoringMode(::windows::core::IUnknown);
 impl IWebApplicationAuthoringMode {
@@ -127,6 +129,7 @@ pub struct IWebApplicationAuthoringModeVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, designmodedllpath: *mut super::super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
 #[repr(transparent)]
 pub struct IWebApplicationHost(::windows::core::IUnknown);
 impl IWebApplicationHost {
@@ -198,6 +201,7 @@ pub struct IWebApplicationHostVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interfaceid: *const ::windows::core::GUID, callback: *mut ::core::ffi::c_void, cookie: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
 #[repr(transparent)]
 pub struct IWebApplicationNavigationEvents(::windows::core::IUnknown);
 impl IWebApplicationNavigationEvents {
@@ -276,6 +280,7 @@ pub struct IWebApplicationNavigationEventsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
 #[repr(transparent)]
 pub struct IWebApplicationScriptEvents(::windows::core::IUnknown);
 impl IWebApplicationScriptEvents {
@@ -334,6 +339,7 @@ pub struct IWebApplicationScriptEventsVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, htmlwindow: ::windows::core::RawPtr, scripterror: ::windows::core::RawPtr, url: super::super::super::super::Foundation::PWSTR, errorhandled: super::super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
 #[repr(transparent)]
 pub struct IWebApplicationUIEvents(::windows::core::IUnknown);
 impl IWebApplicationUIEvents {
@@ -379,6 +385,7 @@ unsafe impl ::windows::core::Interface for IWebApplicationUIEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWebApplicationUIEventsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, securityproblem: u32, result: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
 #[repr(transparent)]
 pub struct IWebApplicationUpdateEvents(::windows::core::IUnknown);
 impl IWebApplicationUpdateEvents {
@@ -433,5 +440,7 @@ pub struct IWebApplicationUpdateEventsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
 pub type RegisterAuthoringClientFunctionType = ::core::option::Option<unsafe extern "system" fn(authoringmodeobject: ::core::option::Option<IWebApplicationAuthoringMode>, host: ::core::option::Option<IWebApplicationHost>) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp'*"]
 pub type UnregisterAuthoringClientFunctionType = ::core::option::Option<unsafe extern "system" fn(host: ::core::option::Option<IWebApplicationHost>) -> ::windows::core::HRESULT>;

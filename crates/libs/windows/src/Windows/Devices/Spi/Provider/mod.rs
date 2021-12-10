@@ -44,6 +44,7 @@ pub struct IProviderSpiConnectionSettingsFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, chipselectline: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Spi_Provider'*"]
 #[repr(transparent)]
 pub struct ISpiControllerProvider(::windows::core::IUnknown);
 impl ISpiControllerProvider {
@@ -124,6 +125,7 @@ pub struct ISpiControllerProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Spi_Provider'*"]
 #[repr(transparent)]
 pub struct ISpiDeviceProvider(::windows::core::IUnknown);
 impl ISpiDeviceProvider {
@@ -263,6 +265,7 @@ pub struct ISpiDeviceProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Spi_Provider'*"]
 #[repr(transparent)]
 pub struct ISpiProvider(::windows::core::IUnknown);
 impl ISpiProvider {
@@ -345,6 +348,7 @@ pub struct ISpiProviderVtbl(
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
+#[doc = "*Required features: 'Devices_Spi_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderSpiConnectionSettings(::windows::core::IUnknown);
 impl ProviderSpiConnectionSettings {
@@ -477,6 +481,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prov
 }
 unsafe impl ::core::marker::Send for ProviderSpiConnectionSettings {}
 unsafe impl ::core::marker::Sync for ProviderSpiConnectionSettings {}
+#[doc = "*Required features: 'Devices_Spi_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderSpiMode(pub i32);
 impl ProviderSpiMode {
@@ -506,6 +511,7 @@ unsafe impl ::windows::core::RuntimeType for ProviderSpiMode {
 impl ::windows::core::DefaultType for ProviderSpiMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Spi_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderSpiSharingMode(pub i32);
 impl ProviderSpiSharingMode {

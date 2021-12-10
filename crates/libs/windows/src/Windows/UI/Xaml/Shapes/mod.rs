@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Xaml_Shapes'*"]
 #[repr(transparent)]
 pub struct Ellipse(::windows::core::IUnknown);
 impl Ellipse {
@@ -575,6 +576,7 @@ pub struct IShapeStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Shapes'*"]
 #[repr(transparent)]
 pub struct Line(::windows::core::IUnknown);
 impl Line {
@@ -853,6 +855,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Line {
 }
 unsafe impl ::core::marker::Send for Line {}
 unsafe impl ::core::marker::Sync for Line {}
+#[doc = "*Required features: 'UI_Xaml_Shapes'*"]
 #[repr(transparent)]
 pub struct Path(::windows::core::IUnknown);
 impl Path {
@@ -1085,6 +1088,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Path {
 }
 unsafe impl ::core::marker::Send for Path {}
 unsafe impl ::core::marker::Sync for Path {}
+#[doc = "*Required features: 'UI_Xaml_Shapes'*"]
 #[repr(transparent)]
 pub struct Polygon(::windows::core::IUnknown);
 impl Polygon {
@@ -1333,6 +1337,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Polygon {
 }
 unsafe impl ::core::marker::Send for Polygon {}
 unsafe impl ::core::marker::Sync for Polygon {}
+#[doc = "*Required features: 'UI_Xaml_Shapes'*"]
 #[repr(transparent)]
 pub struct Polyline(::windows::core::IUnknown);
 impl Polyline {
@@ -1581,6 +1586,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Polyline {
 }
 unsafe impl ::core::marker::Send for Polyline {}
 unsafe impl ::core::marker::Sync for Polyline {}
+#[doc = "*Required features: 'UI_Xaml_Shapes'*"]
 #[repr(transparent)]
 pub struct Rectangle(::windows::core::IUnknown);
 impl Rectangle {
@@ -1825,6 +1831,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Rectangle 
 }
 unsafe impl ::core::marker::Send for Rectangle {}
 unsafe impl ::core::marker::Sync for Rectangle {}
+#[doc = "*Required features: 'UI_Xaml_Shapes'*"]
 #[repr(transparent)]
 pub struct Shape(::windows::core::IUnknown);
 impl Shape {

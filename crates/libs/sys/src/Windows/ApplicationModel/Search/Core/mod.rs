@@ -3,6 +3,7 @@
 extern "system" {}
 pub type RequestingFocusOnKeyboardInputEventArgs = *mut ::core::ffi::c_void;
 pub type SearchSuggestion = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
 #[repr(transparent)]
 pub struct SearchSuggestionKind(pub i32);
 impl SearchSuggestionKind {

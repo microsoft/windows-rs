@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct CommonFileQuery(pub i32);
 impl CommonFileQuery {
@@ -30,6 +31,7 @@ unsafe impl ::windows::core::RuntimeType for CommonFileQuery {
 impl ::windows::core::DefaultType for CommonFileQuery {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct CommonFolderQuery(pub i32);
 impl CommonFolderQuery {
@@ -68,6 +70,7 @@ unsafe impl ::windows::core::RuntimeType for CommonFolderQuery {
 impl ::windows::core::DefaultType for CommonFolderQuery {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct ContentIndexer(::windows::core::IUnknown);
 impl ContentIndexer {
@@ -230,6 +233,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContentIndexer {}
 unsafe impl ::core::marker::Sync for ContentIndexer {}
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct ContentIndexerQuery(::windows::core::IUnknown);
 impl ContentIndexerQuery {
@@ -344,6 +348,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContentIndexerQuery {}
 unsafe impl ::core::marker::Sync for ContentIndexerQuery {}
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct DateStackOption(pub i32);
 impl DateStackOption {
@@ -372,6 +377,7 @@ unsafe impl ::windows::core::RuntimeType for DateStackOption {
 impl ::windows::core::DefaultType for DateStackOption {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct FolderDepth(pub i32);
 impl FolderDepth {
@@ -499,6 +505,7 @@ pub struct IContentIndexerStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct IIndexableContent(::windows::core::IUnknown);
 impl IIndexableContent {
@@ -742,6 +749,7 @@ pub struct IStorageFileQueryResult2Vtbl(
     #[cfg(all(feature = "Data_Text", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Data_Text", feature = "Foundation_Collections")))] usize,
 );
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct IStorageFolderQueryOperations(::windows::core::IUnknown);
 impl IStorageFolderQueryOperations {
@@ -1043,6 +1051,7 @@ pub struct IStorageLibraryContentChangedTriggerDetailsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lastquerytime: super::super::Foundation::DateTime, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct IStorageQueryResultBase(::windows::core::IUnknown);
 impl IStorageQueryResultBase {
@@ -1211,6 +1220,7 @@ pub struct IValueAndLanguageVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct IndexableContent(::windows::core::IUnknown);
 impl IndexableContent {
@@ -1350,6 +1360,7 @@ impl<'a> ::windows::core::IntoParam<'a, IIndexableContent> for &IndexableContent
 }
 unsafe impl ::core::marker::Send for IndexableContent {}
 unsafe impl ::core::marker::Sync for IndexableContent {}
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct IndexedState(pub i32);
 impl IndexedState {
@@ -1379,6 +1390,7 @@ unsafe impl ::windows::core::RuntimeType for IndexedState {
 impl ::windows::core::DefaultType for IndexedState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct IndexerOption(pub i32);
 impl IndexerOption {
@@ -1408,6 +1420,7 @@ unsafe impl ::windows::core::RuntimeType for IndexerOption {
 impl ::windows::core::DefaultType for IndexerOption {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct QueryOptions(::windows::core::IUnknown);
 impl QueryOptions {
@@ -1614,6 +1627,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Quer
 unsafe impl ::core::marker::Send for QueryOptions {}
 unsafe impl ::core::marker::Sync for QueryOptions {}
 #[repr(C)]
+#[doc = "*Required features: 'Storage_Search'*"]
 pub struct SortEntry {
     pub PropertyName: ::windows::core::HSTRING,
     pub AscendingOrder: bool,
@@ -1643,6 +1657,7 @@ impl ::core::default::Default for SortEntry {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Storage_Search', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct SortEntryVector(::windows::core::IUnknown);
@@ -1875,6 +1890,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
         ::core::convert::TryInto::<super::super::Foundation::Collections::IVector<SortEntry>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct StorageFileQueryResult(::windows::core::IUnknown);
 impl StorageFileQueryResult {
@@ -2046,6 +2062,7 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageQueryResultBase> for &StorageFil
         ::core::convert::TryInto::<IStorageQueryResultBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct StorageFolderQueryResult(::windows::core::IUnknown);
 impl StorageFolderQueryResult {
@@ -2209,6 +2226,7 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageQueryResultBase> for &StorageFol
         ::core::convert::TryInto::<IStorageQueryResultBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct StorageItemQueryResult(::windows::core::IUnknown);
 impl StorageItemQueryResult {
@@ -2372,6 +2390,7 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageQueryResultBase> for &StorageIte
         ::core::convert::TryInto::<IStorageQueryResultBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct StorageLibraryChangeTrackerTriggerDetails(::windows::core::IUnknown);
 impl StorageLibraryChangeTrackerTriggerDetails {
@@ -2451,6 +2470,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct StorageLibraryContentChangedTriggerDetails(::windows::core::IUnknown);
 impl StorageLibraryContentChangedTriggerDetails {
@@ -2531,6 +2551,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
 pub struct ValueAndLanguage(::windows::core::IUnknown);
 impl ValueAndLanguage {

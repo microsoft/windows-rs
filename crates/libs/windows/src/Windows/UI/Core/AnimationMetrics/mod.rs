@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Core_AnimationMetrics'*"]
 #[repr(transparent)]
 pub struct AnimationDescription(::windows::core::IUnknown);
 impl AnimationDescription {
@@ -114,6 +115,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Anim
 }
 unsafe impl ::core::marker::Send for AnimationDescription {}
 unsafe impl ::core::marker::Sync for AnimationDescription {}
+#[doc = "*Required features: 'UI_Core_AnimationMetrics'*"]
 #[repr(transparent)]
 pub struct AnimationEffect(pub i32);
 impl AnimationEffect {
@@ -175,6 +177,7 @@ unsafe impl ::windows::core::RuntimeType for AnimationEffect {
 impl ::windows::core::DefaultType for AnimationEffect {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Core_AnimationMetrics'*"]
 #[repr(transparent)]
 pub struct AnimationEffectTarget(pub i32);
 impl AnimationEffectTarget {
@@ -283,6 +286,7 @@ pub struct IOpacityAnimationVtbl(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Core_AnimationMetrics'*"]
 #[repr(transparent)]
 pub struct IPropertyAnimation(::windows::core::IUnknown);
 impl IPropertyAnimation {
@@ -428,6 +432,7 @@ pub struct IScaleAnimationVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Point) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'UI_Core_AnimationMetrics'*"]
 #[repr(transparent)]
 pub struct OpacityAnimation(::windows::core::IUnknown);
 impl OpacityAnimation {
@@ -571,6 +576,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPropertyAnimation> for &OpacityAnimatio
 }
 unsafe impl ::core::marker::Send for OpacityAnimation {}
 unsafe impl ::core::marker::Sync for OpacityAnimation {}
+#[doc = "*Required features: 'UI_Core_AnimationMetrics'*"]
 #[repr(transparent)]
 pub struct PropertyAnimation(::windows::core::IUnknown);
 impl PropertyAnimation {
@@ -699,6 +705,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPropertyAnimation> for &PropertyAnimati
 }
 unsafe impl ::core::marker::Send for PropertyAnimation {}
 unsafe impl ::core::marker::Sync for PropertyAnimation {}
+#[doc = "*Required features: 'UI_Core_AnimationMetrics'*"]
 #[repr(transparent)]
 pub struct PropertyAnimationType(pub i32);
 impl PropertyAnimationType {
@@ -727,6 +734,7 @@ unsafe impl ::windows::core::RuntimeType for PropertyAnimationType {
 impl ::windows::core::DefaultType for PropertyAnimationType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Core_AnimationMetrics'*"]
 #[repr(transparent)]
 pub struct ScaleAnimation(::windows::core::IUnknown);
 impl ScaleAnimation {
@@ -893,6 +901,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPropertyAnimation> for &ScaleAnimation 
 }
 unsafe impl ::core::marker::Send for ScaleAnimation {}
 unsafe impl ::core::marker::Sync for ScaleAnimation {}
+#[doc = "*Required features: 'UI_Core_AnimationMetrics'*"]
 #[repr(transparent)]
 pub struct TranslationAnimation(::windows::core::IUnknown);
 impl TranslationAnimation {

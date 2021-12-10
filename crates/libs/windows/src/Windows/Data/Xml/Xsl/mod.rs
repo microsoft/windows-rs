@@ -56,6 +56,7 @@ pub struct IXsltProcessorFactoryVtbl(
     #[cfg(feature = "Data_Xml_Dom")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, document: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
+#[doc = "*Required features: 'Data_Xml_Xsl'*"]
 #[repr(transparent)]
 pub struct XsltProcessor(::windows::core::IUnknown);
 impl XsltProcessor {

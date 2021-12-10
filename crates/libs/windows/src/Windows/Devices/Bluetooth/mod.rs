@@ -7,6 +7,7 @@ pub mod Background;
 pub mod GenericAttributeProfile;
 #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
 pub mod Rfcomm;
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothAdapter(::windows::core::IUnknown);
 impl BluetoothAdapter {
@@ -183,6 +184,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothAdapter {}
 unsafe impl ::core::marker::Sync for BluetoothAdapter {}
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothAddressType(pub i32);
 impl BluetoothAddressType {
@@ -211,6 +213,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothAddressType {
 impl ::windows::core::DefaultType for BluetoothAddressType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothCacheMode(pub i32);
 impl BluetoothCacheMode {
@@ -238,6 +241,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothCacheMode {
 impl ::windows::core::DefaultType for BluetoothCacheMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothClassOfDevice(::windows::core::IUnknown);
 impl BluetoothClassOfDevice {
@@ -349,6 +353,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothClassOfDevice {}
 unsafe impl ::core::marker::Sync for BluetoothClassOfDevice {}
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothConnectionStatus(pub i32);
 impl BluetoothConnectionStatus {
@@ -376,6 +381,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothConnectionStatus {
 impl ::windows::core::DefaultType for BluetoothConnectionStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothDevice(::windows::core::IUnknown);
 impl BluetoothDevice {
@@ -707,6 +713,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for BluetoothDevice {}
 unsafe impl ::core::marker::Sync for BluetoothDevice {}
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothDeviceId(::windows::core::IUnknown);
 impl BluetoothDeviceId {
@@ -805,6 +812,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothDeviceId {}
 unsafe impl ::core::marker::Sync for BluetoothDeviceId {}
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothError(pub i32);
 impl BluetoothError {
@@ -840,6 +848,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothError {
 impl ::windows::core::DefaultType for BluetoothError {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAppearance(::windows::core::IUnknown);
 impl BluetoothLEAppearance {
@@ -1264,6 +1273,7 @@ impl BluetoothLEAppearanceSubcategories {
 impl ::windows::core::RuntimeName for BluetoothLEAppearanceSubcategories {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEAppearanceSubcategories";
 }
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothLEConnectionParameters(::windows::core::IUnknown);
 impl BluetoothLEConnectionParameters {
@@ -1352,6 +1362,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEConnectionParameters {}
 unsafe impl ::core::marker::Sync for BluetoothLEConnectionParameters {}
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothLEConnectionPhy(::windows::core::IUnknown);
 impl BluetoothLEConnectionPhy {
@@ -1433,6 +1444,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEConnectionPhy {}
 unsafe impl ::core::marker::Sync for BluetoothLEConnectionPhy {}
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothLEConnectionPhyInfo(::windows::core::IUnknown);
 impl BluetoothLEConnectionPhyInfo {
@@ -1521,6 +1533,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEConnectionPhyInfo {}
 unsafe impl ::core::marker::Sync for BluetoothLEConnectionPhyInfo {}
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothLEDevice(::windows::core::IUnknown);
 impl BluetoothLEDevice {
@@ -1904,6 +1917,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for BluetoothLEDevice {}
 unsafe impl ::core::marker::Sync for BluetoothLEDevice {}
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothLEPreferredConnectionParameters(::windows::core::IUnknown);
 impl BluetoothLEPreferredConnectionParameters {
@@ -2021,6 +2035,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEPreferredConnectionParameters {}
 unsafe impl ::core::marker::Sync for BluetoothLEPreferredConnectionParameters {}
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothLEPreferredConnectionParametersRequest(::windows::core::IUnknown);
 impl BluetoothLEPreferredConnectionParametersRequest {
@@ -2126,6 +2141,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for BluetoothLEPreferredConnectionParametersRequest {}
 unsafe impl ::core::marker::Sync for BluetoothLEPreferredConnectionParametersRequest {}
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothLEPreferredConnectionParametersRequestStatus(pub i32);
 impl BluetoothLEPreferredConnectionParametersRequestStatus {
@@ -2155,6 +2171,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEPreferredConnectionParam
 impl ::windows::core::DefaultType for BluetoothLEPreferredConnectionParametersRequestStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothMajorClass(pub i32);
 impl BluetoothMajorClass {
@@ -2190,6 +2207,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothMajorClass {
 impl ::windows::core::DefaultType for BluetoothMajorClass {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothMinorClass(pub i32);
 impl BluetoothMinorClass {
@@ -2286,6 +2304,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothMinorClass {
 impl ::windows::core::DefaultType for BluetoothMinorClass {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothServiceCapabilities(pub u32);
 impl BluetoothServiceCapabilities {
@@ -2321,6 +2340,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothServiceCapabilities {
 impl ::windows::core::DefaultType for BluetoothServiceCapabilities {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
 pub struct BluetoothSignalStrengthFilter(::windows::core::IUnknown);
 impl BluetoothSignalStrengthFilter {

@@ -472,6 +472,7 @@ pub struct IRemoteSystemEnumerationCompletedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct IRemoteSystemFilter(::windows::core::IUnknown);
 impl IRemoteSystemFilter {}
@@ -1444,6 +1445,7 @@ impl KnownRemoteSystemCapabilities {
 impl ::windows::core::RuntimeName for KnownRemoteSystemCapabilities {
     const NAME: &'static str = "Windows.System.RemoteSystems.KnownRemoteSystemCapabilities";
 }
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystem(::windows::core::IUnknown);
 impl RemoteSystem {
@@ -1655,6 +1657,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystem {}
 unsafe impl ::core::marker::Sync for RemoteSystem {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemAccessStatus(pub i32);
 impl RemoteSystemAccessStatus {
@@ -1684,6 +1687,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemAccessStatus {
 impl ::windows::core::DefaultType for RemoteSystemAccessStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemAddedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemAddedEventArgs {
@@ -1758,6 +1762,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemAddedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemAddedEventArgs {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemApp(::windows::core::IUnknown);
 impl RemoteSystemApp {
@@ -1875,6 +1880,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemApp {}
 unsafe impl ::core::marker::Sync for RemoteSystemApp {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemAppRegistration(::windows::core::IUnknown);
 impl RemoteSystemAppRegistration {
@@ -1981,6 +1987,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemAppRegistration {}
 unsafe impl ::core::marker::Sync for RemoteSystemAppRegistration {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemAuthorizationKind(pub i32);
 impl RemoteSystemAuthorizationKind {
@@ -2008,6 +2015,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemAuthorizationKind {
 impl ::windows::core::DefaultType for RemoteSystemAuthorizationKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemAuthorizationKindFilter(::windows::core::IUnknown);
 impl RemoteSystemAuthorizationKindFilter {
@@ -2114,6 +2122,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRemoteSystemFilter> for &RemoteSystemAu
 }
 unsafe impl ::core::marker::Send for RemoteSystemAuthorizationKindFilter {}
 unsafe impl ::core::marker::Sync for RemoteSystemAuthorizationKindFilter {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemConnectionInfo(::windows::core::IUnknown);
 impl RemoteSystemConnectionInfo {
@@ -2199,6 +2208,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemConnectionInfo {}
 unsafe impl ::core::marker::Sync for RemoteSystemConnectionInfo {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemConnectionRequest(::windows::core::IUnknown);
 impl RemoteSystemConnectionRequest {
@@ -2323,6 +2333,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemConnectionRequest {}
 unsafe impl ::core::marker::Sync for RemoteSystemConnectionRequest {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemDiscoveryType(pub i32);
 impl RemoteSystemDiscoveryType {
@@ -2352,6 +2363,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemDiscoveryType {
 impl ::windows::core::DefaultType for RemoteSystemDiscoveryType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemDiscoveryTypeFilter(::windows::core::IUnknown);
 impl RemoteSystemDiscoveryTypeFilter {
@@ -2458,6 +2470,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRemoteSystemFilter> for &RemoteSystemDi
 }
 unsafe impl ::core::marker::Send for RemoteSystemDiscoveryTypeFilter {}
 unsafe impl ::core::marker::Sync for RemoteSystemDiscoveryTypeFilter {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemEnumerationCompletedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemEnumerationCompletedEventArgs {}
@@ -2524,6 +2537,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemEnumerationCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemEnumerationCompletedEventArgs {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemKindFilter(::windows::core::IUnknown);
 impl RemoteSystemKindFilter {
@@ -2694,6 +2708,7 @@ impl RemoteSystemKinds {
 impl ::windows::core::RuntimeName for RemoteSystemKinds {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemKinds";
 }
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemPlatform(pub i32);
 impl RemoteSystemPlatform {
@@ -2724,6 +2739,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemPlatform {
 impl ::windows::core::DefaultType for RemoteSystemPlatform {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemRemovedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemRemovedEventArgs {
@@ -2798,6 +2814,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemRemovedEventArgs {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSession(::windows::core::IUnknown);
 impl RemoteSystemSession {
@@ -2955,6 +2972,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for RemoteSystemSession {}
 unsafe impl ::core::marker::Sync for RemoteSystemSession {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionAddedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionAddedEventArgs {
@@ -3029,6 +3047,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionAddedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionAddedEventArgs {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionController(::windows::core::IUnknown);
 impl RemoteSystemSessionController {
@@ -3141,6 +3160,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionController {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionController {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionCreationResult(::windows::core::IUnknown);
 impl RemoteSystemSessionCreationResult {
@@ -3222,6 +3242,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionCreationResult {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionCreationResult {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionCreationStatus(pub i32);
 impl RemoteSystemSessionCreationStatus {
@@ -3250,6 +3271,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionCreationStatus {
 impl ::windows::core::DefaultType for RemoteSystemSessionCreationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionDisconnectedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionDisconnectedEventArgs {
@@ -3324,6 +3346,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionDisconnectedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionDisconnectedEventArgs {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionDisconnectedReason(pub i32);
 impl RemoteSystemSessionDisconnectedReason {
@@ -3352,6 +3375,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionDisconnectedReas
 impl ::windows::core::DefaultType for RemoteSystemSessionDisconnectedReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionInfo(::windows::core::IUnknown);
 impl RemoteSystemSessionInfo {
@@ -3441,6 +3465,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionInfo {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionInfo {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionInvitation(::windows::core::IUnknown);
 impl RemoteSystemSessionInvitation {
@@ -3522,6 +3547,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionInvitation {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionInvitation {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionInvitationListener(::windows::core::IUnknown);
 impl RemoteSystemSessionInvitationListener {
@@ -3609,6 +3635,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionInvitationListener {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionInvitationListener {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionInvitationReceivedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionInvitationReceivedEventArgs {
@@ -3683,6 +3710,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionInvitationReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionInvitationReceivedEventArgs {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionJoinRequest(::windows::core::IUnknown);
 impl RemoteSystemSessionJoinRequest {
@@ -3761,6 +3789,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionJoinRequest {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionJoinRequest {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionJoinRequestedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionJoinRequestedEventArgs {
@@ -3843,6 +3872,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionJoinRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionJoinRequestedEventArgs {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionJoinResult(::windows::core::IUnknown);
 impl RemoteSystemSessionJoinResult {
@@ -3924,6 +3954,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionJoinResult {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionJoinResult {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionJoinStatus(pub i32);
 impl RemoteSystemSessionJoinStatus {
@@ -3954,6 +3985,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionJoinStatus {
 impl ::windows::core::DefaultType for RemoteSystemSessionJoinStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionMessageChannel(::windows::core::IUnknown);
 impl RemoteSystemSessionMessageChannel {
@@ -4081,6 +4113,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionMessageChannel {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionMessageChannel {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionMessageChannelReliability(pub i32);
 impl RemoteSystemSessionMessageChannelReliability {
@@ -4108,6 +4141,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionMessageChannelRe
 impl ::windows::core::DefaultType for RemoteSystemSessionMessageChannelReliability {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionOptions(::windows::core::IUnknown);
 impl RemoteSystemSessionOptions {
@@ -4193,6 +4227,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionOptions {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionOptions {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionParticipant(::windows::core::IUnknown);
 impl RemoteSystemSessionParticipant {
@@ -4275,6 +4310,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionParticipant {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipant {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionParticipantAddedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionParticipantAddedEventArgs {
@@ -4349,6 +4385,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantAddedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipantAddedEventArgs {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionParticipantRemovedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionParticipantRemovedEventArgs {
@@ -4423,6 +4460,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipantRemovedEventArgs {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionParticipantWatcher(::windows::core::IUnknown);
 impl RemoteSystemSessionParticipantWatcher {
@@ -4544,6 +4582,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantWatcher {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipantWatcher {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionParticipantWatcherStatus(pub i32);
 impl RemoteSystemSessionParticipantWatcherStatus {
@@ -4575,6 +4614,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionParticipantWatch
 impl ::windows::core::DefaultType for RemoteSystemSessionParticipantWatcherStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionRemovedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionRemovedEventArgs {
@@ -4649,6 +4689,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionRemovedEventArgs {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionUpdatedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionUpdatedEventArgs {
@@ -4723,6 +4764,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionUpdatedEventArgs {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionValueSetReceivedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionValueSetReceivedEventArgs {
@@ -4805,6 +4847,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionValueSetReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionValueSetReceivedEventArgs {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionWatcher(::windows::core::IUnknown);
 impl RemoteSystemSessionWatcher {
@@ -4926,6 +4969,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionWatcher {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionWatcher {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionWatcherStatus(pub i32);
 impl RemoteSystemSessionWatcherStatus {
@@ -4957,6 +5001,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionWatcherStatus {
 impl ::windows::core::DefaultType for RemoteSystemSessionWatcherStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemStatus(pub i32);
 impl RemoteSystemStatus {
@@ -4986,6 +5031,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemStatus {
 impl ::windows::core::DefaultType for RemoteSystemStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemStatusType(pub i32);
 impl RemoteSystemStatusType {
@@ -5013,6 +5059,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemStatusType {
 impl ::windows::core::DefaultType for RemoteSystemStatusType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemStatusTypeFilter(::windows::core::IUnknown);
 impl RemoteSystemStatusTypeFilter {
@@ -5119,6 +5166,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRemoteSystemFilter> for &RemoteSystemSt
 }
 unsafe impl ::core::marker::Send for RemoteSystemStatusTypeFilter {}
 unsafe impl ::core::marker::Sync for RemoteSystemStatusTypeFilter {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemUpdatedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemUpdatedEventArgs {
@@ -5193,6 +5241,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemUpdatedEventArgs {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemWatcher(::windows::core::IUnknown);
 impl RemoteSystemWatcher {
@@ -5340,6 +5389,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemWatcher {}
 unsafe impl ::core::marker::Sync for RemoteSystemWatcher {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemWatcherError(pub i32);
 impl RemoteSystemWatcherError {
@@ -5368,6 +5418,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemWatcherError {
 impl ::windows::core::DefaultType for RemoteSystemWatcherError {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemWatcherErrorOccurredEventArgs(::windows::core::IUnknown);
 impl RemoteSystemWatcherErrorOccurredEventArgs {
@@ -5442,6 +5493,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteSystemWatcherErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemWatcherErrorOccurredEventArgs {}
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemWebAccountFilter(::windows::core::IUnknown);
 impl RemoteSystemWebAccountFilter {

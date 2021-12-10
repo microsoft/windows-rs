@@ -35,6 +35,7 @@ impl DeviceLockdownProfile {
 impl ::windows::core::RuntimeName for DeviceLockdownProfile {
     const NAME: &'static str = "Windows.Embedded.DeviceLockdown.DeviceLockdownProfile";
 }
+#[doc = "*Required features: 'Embedded_DeviceLockdown'*"]
 #[repr(transparent)]
 pub struct DeviceLockdownProfileInformation(::windows::core::IUnknown);
 impl DeviceLockdownProfileInformation {

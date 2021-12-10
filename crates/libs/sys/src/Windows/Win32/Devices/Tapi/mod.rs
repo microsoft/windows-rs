@@ -1,632 +1,1143 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn GetTnefStreamCodepage(lpstream: super::super::System::Com::IStream, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_AddressBook', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
     pub fn OpenTnefStream(lpvsupport: *mut ::core::ffi::c_void, lpstream: super::super::System::Com::IStream, lpszstreamname: *const i8, ulflags: u32, lpmessage: super::super::System::AddressBook::IMessage, wkeyval: u16, lpptnef: *mut ITnef) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_AddressBook', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
     pub fn OpenTnefStreamEx(lpvsupport: *mut ::core::ffi::c_void, lpstream: super::super::System::Com::IStream, lpszstreamname: *const i8, ulflags: u32, lpmessage: super::super::System::AddressBook::IMessage, wkeyval: u16, lpadressbook: super::super::System::AddressBook::IAddrBook, lpptnef: *mut ITnef) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineAccept(hcall: u32, lpsuseruserinfo: super::super::Foundation::PSTR, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineAddProvider(lpszproviderfilename: super::super::Foundation::PSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineAddProviderA(lpszproviderfilename: super::super::Foundation::PSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineAddProviderW(lpszproviderfilename: super::super::Foundation::PWSTR, hwndowner: super::super::Foundation::HWND, lpdwpermanentproviderid: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineAddToConference(hconfcall: u32, hconsultcall: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineAgentSpecific(hline: u32, dwaddressid: u32, dwagentextensionidindex: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineAnswer(hcall: u32, lpsuseruserinfo: super::super::Foundation::PSTR, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineBlindTransfer(hcall: u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineBlindTransferA(hcall: u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineBlindTransferW(hcall: u32, lpszdestaddressw: super::super::Foundation::PWSTR, dwcountrycode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineClose(hline: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineCompleteCall(hcall: u32, lpdwcompletionid: *mut u32, dwcompletionmode: u32, dwmessageid: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineCompleteTransfer(hcall: u32, hconsultcall: u32, lphconfcall: *mut u32, dwtransfermode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineConfigDialog(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineConfigDialogA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineConfigDialogEdit(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineConfigDialogEditA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineConfigDialogEditW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PWSTR, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineConfigDialogW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineConfigProvider(hwndowner: super::super::Foundation::HWND, dwpermanentproviderid: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineCreateAgentA(hline: u32, lpszagentid: super::super::Foundation::PSTR, lpszagentpin: super::super::Foundation::PSTR, lphagent: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineCreateAgentSessionA(hline: u32, hagent: u32, lpszagentpin: super::super::Foundation::PSTR, dwworkingaddressid: u32, lpgroupid: *mut ::windows_sys::core::GUID, lphagentsession: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineCreateAgentSessionW(hline: u32, hagent: u32, lpszagentpin: super::super::Foundation::PWSTR, dwworkingaddressid: u32, lpgroupid: *mut ::windows_sys::core::GUID, lphagentsession: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineCreateAgentW(hline: u32, lpszagentid: super::super::Foundation::PWSTR, lpszagentpin: super::super::Foundation::PWSTR, lphagent: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineDeallocateCall(hcall: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineDevSpecific(hline: u32, dwaddressid: u32, hcall: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineDevSpecificFeature(hline: u32, dwfeature: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineDial(hcall: u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineDialA(hcall: u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineDialW(hcall: u32, lpszdestaddress: super::super::Foundation::PWSTR, dwcountrycode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineDrop(hcall: u32, lpsuseruserinfo: super::super::Foundation::PSTR, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineForward(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineForwardA(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineForwardW(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGatherDigits(hcall: u32, dwdigitmodes: u32, lpsdigits: super::super::Foundation::PSTR, dwnumdigits: u32, lpszterminationdigits: super::super::Foundation::PSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGatherDigitsA(hcall: u32, dwdigitmodes: u32, lpsdigits: super::super::Foundation::PSTR, dwnumdigits: u32, lpszterminationdigits: super::super::Foundation::PSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGatherDigitsW(hcall: u32, dwdigitmodes: u32, lpsdigits: super::super::Foundation::PWSTR, dwnumdigits: u32, lpszterminationdigits: super::super::Foundation::PWSTR, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGenerateDigits(hcall: u32, dwdigitmode: u32, lpszdigits: super::super::Foundation::PSTR, dwduration: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGenerateDigitsA(hcall: u32, dwdigitmode: u32, lpszdigits: super::super::Foundation::PSTR, dwduration: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGenerateDigitsW(hcall: u32, dwdigitmode: u32, lpszdigits: super::super::Foundation::PWSTR, dwduration: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGenerateTone(hcall: u32, dwtonemode: u32, dwduration: u32, dwnumtones: u32, lptones: *const LINEGENERATETONE) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetAddressCaps(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetAddressCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetAddressCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGetAddressID(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: super::super::Foundation::PSTR, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGetAddressIDA(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: super::super::Foundation::PSTR, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGetAddressIDW(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: super::super::Foundation::PWSTR, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetAddressStatus(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetAddressStatusA(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetAddressStatusW(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetAgentActivityListA(hline: u32, dwaddressid: u32, lpagentactivitylist: *mut LINEAGENTACTIVITYLIST) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetAgentActivityListW(hline: u32, dwaddressid: u32, lpagentactivitylist: *mut LINEAGENTACTIVITYLIST) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetAgentCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwappapiversion: u32, lpagentcaps: *mut LINEAGENTCAPS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetAgentCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwappapiversion: u32, lpagentcaps: *mut LINEAGENTCAPS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetAgentGroupListA(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetAgentGroupListW(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn lineGetAgentInfo(hline: u32, hagent: u32, lpagentinfo: *mut LINEAGENTINFO) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn lineGetAgentSessionInfo(hline: u32, hagentsession: u32, lpagentsessioninfo: *mut LINEAGENTSESSIONINFO) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetAgentSessionList(hline: u32, hagent: u32, lpagentsessionlist: *mut LINEAGENTSESSIONLIST) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetAgentStatusA(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetAgentStatusW(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGetAppPriority(lpszappfilename: super::super::Foundation::PSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGetAppPriorityA(lpszappfilename: super::super::Foundation::PSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGetAppPriorityW(lpszappfilename: super::super::Foundation::PWSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetCallInfo(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetCallInfoA(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetCallInfoW(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGetCallStatus(hcall: u32, lpcallstatus: *mut LINECALLSTATUS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetConfRelatedCalls(hcall: u32, lpcalllist: *mut LINECALLLIST) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetCountry(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetCountryA(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetCountryW(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetDevCaps(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetDevCapsA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetDevCapsW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGetDevConfig(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGetDevConfigA(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGetDevConfigW(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetGroupListA(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetGroupListW(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGetID(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGetIDA(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGetIDW(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGetIcon(dwdeviceid: u32, lpszdeviceclass: super::super::Foundation::PSTR, lphicon: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGetIconA(dwdeviceid: u32, lpszdeviceclass: super::super::Foundation::PSTR, lphicon: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineGetIconW(dwdeviceid: u32, lpszdeviceclass: super::super::Foundation::PWSTR, lphicon: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetLineDevStatus(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetLineDevStatusA(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetLineDevStatusW(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetMessage(hlineapp: u32, lpmessage: *mut LINEMESSAGE, dwtimeout: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetNewCalls(hline: u32, dwaddressid: u32, dwselect: u32, lpcalllist: *mut LINECALLLIST) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetNumRings(hline: u32, dwaddressid: u32, lpdwnumrings: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetProviderList(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetProviderListA(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetProviderListW(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetProxyStatus(hlineapp: u32, dwdeviceid: u32, dwappapiversion: u32, lplineproxyreqestlist: *mut LINEPROXYREQUESTLIST) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetQueueInfo(hline: u32, dwqueueid: u32, lplinequeueinfo: *mut LINEQUEUEINFO) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetQueueListA(hline: u32, lpgroupid: *mut ::windows_sys::core::GUID, lpqueuelist: *mut LINEQUEUELIST) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetQueueListW(hline: u32, lpgroupid: *mut ::windows_sys::core::GUID, lpqueuelist: *mut LINEQUEUELIST) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetRequest(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetRequestA(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetRequestW(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetStatusMessages(hline: u32, lpdwlinestates: *mut u32, lpdwaddressstates: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetTranslateCaps(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetTranslateCapsA(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineGetTranslateCapsW(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineHandoff(hcall: u32, lpszfilename: super::super::Foundation::PSTR, dwmediamode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineHandoffA(hcall: u32, lpszfilename: super::super::Foundation::PSTR, dwmediamode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineHandoffW(hcall: u32, lpszfilename: super::super::Foundation::PWSTR, dwmediamode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineHold(hcall: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineInitialize(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: LINECALLBACK, lpszappname: super::super::Foundation::PSTR, lpdwnumdevs: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineInitializeExA(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: LINECALLBACK, lpszfriendlyappname: super::super::Foundation::PSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineInitializeExW(lphlineapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: LINECALLBACK, lpszfriendlyappname: super::super::Foundation::PWSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineMakeCall(hline: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineMakeCallA(hline: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineMakeCallW(hline: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PWSTR, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineMonitorMedia(hcall: u32, dwmediamodes: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineMonitorTones(hcall: u32, lptonelist: *const LINEMONITORTONE, dwnumentries: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineNegotiateAPIVersion(hlineapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut LINEEXTENSIONID) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineNegotiateExtVersion(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextlowversion: u32, dwexthighversion: u32, lpdwextversion: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineOpen(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineOpenA(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineOpenW(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn linePark(hcall: u32, dwparkmode: u32, lpszdiraddress: super::super::Foundation::PSTR, lpnondiraddress: *mut VARSTRING) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineParkA(hcall: u32, dwparkmode: u32, lpszdiraddress: super::super::Foundation::PSTR, lpnondiraddress: *mut VARSTRING) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineParkW(hcall: u32, dwparkmode: u32, lpszdiraddress: super::super::Foundation::PWSTR, lpnondiraddress: *mut VARSTRING) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn linePickup(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PSTR, lpszgroupid: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn linePickupA(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PSTR, lpszgroupid: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn linePickupW(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PWSTR, lpszgroupid: super::super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn linePrepareAddToConference(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn linePrepareAddToConferenceA(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn linePrepareAddToConferenceW(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineProxyMessage(hline: u32, hcall: u32, dwmsg: u32, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn lineProxyResponse(hline: u32, lpproxyrequest: *mut LINEPROXYREQUEST, dwresult: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineRedirect(hcall: u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineRedirectA(hcall: u32, lpszdestaddress: super::super::Foundation::PSTR, dwcountrycode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineRedirectW(hcall: u32, lpszdestaddress: super::super::Foundation::PWSTR, dwcountrycode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineRegisterRequestRecipient(hlineapp: u32, dwregistrationinstance: u32, dwrequestmode: u32, benable: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineReleaseUserUserInfo(hcall: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineRemoveFromConference(hcall: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineRemoveProvider(dwpermanentproviderid: u32, hwndowner: super::super::Foundation::HWND) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSecureCall(hcall: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineSendUserUserInfo(hcall: u32, lpsuseruserinfo: super::super::Foundation::PSTR, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetAgentActivity(hline: u32, dwaddressid: u32, dwactivityid: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetAgentGroup(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetAgentMeasurementPeriod(hline: u32, hagent: u32, dwmeasurementperiod: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetAgentSessionState(hline: u32, hagentsession: u32, dwagentsessionstate: u32, dwnextagentsessionstate: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetAgentState(hline: u32, dwaddressid: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetAgentStateEx(hline: u32, hagent: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineSetAppPriority(lpszappfilename: super::super::Foundation::PSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: super::super::Foundation::PSTR, dwpriority: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineSetAppPriorityA(lpszappfilename: super::super::Foundation::PSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: super::super::Foundation::PSTR, dwpriority: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineSetAppPriorityW(lpszappfilename: super::super::Foundation::PWSTR, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: super::super::Foundation::PWSTR, dwpriority: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetAppSpecific(hcall: u32, dwappspecific: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetCallData(hcall: u32, lpcalldata: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetCallParams(hcall: u32, dwbearermode: u32, dwminrate: u32, dwmaxrate: u32, lpdialparams: *const LINEDIALPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetCallPrivilege(hcall: u32, dwcallprivilege: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetCallQualityOfService(hcall: u32, lpsendingflowspec: *mut ::core::ffi::c_void, dwsendingflowspecsize: u32, lpreceivingflowspec: *mut ::core::ffi::c_void, dwreceivingflowspecsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetCallTreatment(hcall: u32, dwtreatment: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetCurrentLocation(hlineapp: u32, dwlocation: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineSetDevConfig(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineSetDevConfigA(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineSetDevConfigW(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: super::super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetLineDevStatus(hline: u32, dwstatustochange: u32, fstatus: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetMediaControl(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdigitlist: *const LINEMEDIACONTROLDIGIT, dwdigitnumentries: u32, lpmedialist: *const LINEMEDIACONTROLMEDIA, dwmedianumentries: u32, lptonelist: *const LINEMEDIACONTROLTONE, dwtonenumentries: u32, lpcallstatelist: *const LINEMEDIACONTROLCALLSTATE, dwcallstatenumentries: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetMediaMode(hcall: u32, dwmediamodes: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetNumRings(hline: u32, dwaddressid: u32, dwnumrings: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetQueueMeasurementPeriod(hline: u32, dwqueueid: u32, dwmeasurementperiod: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetStatusMessages(hline: u32, dwlinestates: u32, dwaddressstates: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetTerminal(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, dwterminalmodes: u32, dwterminalid: u32, benable: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineSetTollList(hlineapp: u32, dwdeviceid: u32, lpszaddressin: super::super::Foundation::PSTR, dwtolllistoption: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineSetTollListA(hlineapp: u32, dwdeviceid: u32, lpszaddressin: super::super::Foundation::PSTR, dwtolllistoption: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineSetTollListW(hlineapp: u32, dwdeviceid: u32, lpszaddressinw: super::super::Foundation::PWSTR, dwtolllistoption: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetupConference(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetupConferenceA(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetupConferenceW(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetupTransfer(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetupTransferA(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSetupTransferW(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineShutdown(hlineapp: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineSwapHold(hactivecall: u32, hheldcall: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineTranslateAddress(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: super::super::Foundation::PSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineTranslateAddressA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: super::super::Foundation::PSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineTranslateAddressW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: super::super::Foundation::PWSTR, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineTranslateDialog(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineTranslateDialogA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineTranslateDialogW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: super::super::Foundation::HWND, lpszaddressin: super::super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn lineUnhold(hcall: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineUnpark(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineUnparkA(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn lineUnparkW(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: super::super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneClose(hphone: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn phoneConfigDialog(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn phoneConfigDialogA(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn phoneConfigDialogW(dwdeviceid: u32, hwndowner: super::super::Foundation::HWND, lpszdeviceclass: super::super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneDevSpecific(hphone: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetData(hphone: u32, dwdataid: u32, lpdata: *mut ::core::ffi::c_void, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetDevCaps(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetDevCapsA(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetDevCapsW(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetDisplay(hphone: u32, lpdisplay: *mut VARSTRING) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetGain(hphone: u32, dwhookswitchdev: u32, lpdwgain: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetHookSwitch(hphone: u32, lpdwhookswitchdevs: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn phoneGetID(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn phoneGetIDA(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn phoneGetIDW(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: super::super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn phoneGetIcon(dwdeviceid: u32, lpszdeviceclass: super::super::Foundation::PSTR, lphicon: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn phoneGetIconA(dwdeviceid: u32, lpszdeviceclass: super::super::Foundation::PSTR, lphicon: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn phoneGetIconW(dwdeviceid: u32, lpszdeviceclass: super::super::Foundation::PWSTR, lphicon: *mut isize) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetLamp(hphone: u32, dwbuttonlampid: u32, lpdwlampmode: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetMessage(hphoneapp: u32, lpmessage: *mut PHONEMESSAGE, dwtimeout: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetRing(hphone: u32, lpdwringmode: *mut u32, lpdwvolume: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetStatus(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetStatusA(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetStatusMessages(hphone: u32, lpdwphonestates: *mut u32, lpdwbuttonmodes: *mut u32, lpdwbuttonstates: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetStatusW(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn phoneInitialize(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: PHONECALLBACK, lpszappname: super::super::Foundation::PSTR, lpdwnumdevs: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn phoneInitializeExA(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: PHONECALLBACK, lpszfriendlyappname: super::super::Foundation::PSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn phoneInitializeExW(lphphoneapp: *mut u32, hinstance: super::super::Foundation::HINSTANCE, lpfncallback: PHONECALLBACK, lpszfriendlyappname: super::super::Foundation::PWSTR, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneNegotiateAPIVersion(hphoneapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut PHONEEXTENSIONID) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneNegotiateExtVersion(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextlowversion: u32, dwexthighversion: u32, lpdwextversion: *mut u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneOpen(hphoneapp: u32, dwdeviceid: u32, lphphone: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivilege: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneSetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneSetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneSetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneSetData(hphone: u32, dwdataid: u32, lpdata: *const ::core::ffi::c_void, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn phoneSetDisplay(hphone: u32, dwrow: u32, dwcolumn: u32, lpsdisplay: super::super::Foundation::PSTR, dwsize: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneSetGain(hphone: u32, dwhookswitchdev: u32, dwgain: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneSetHookSwitch(hphone: u32, dwhookswitchdevs: u32, dwhookswitchmode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneSetLamp(hphone: u32, dwbuttonlampid: u32, dwlampmode: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneSetRing(hphone: u32, dwringmode: u32, dwvolume: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneSetStatusMessages(hphone: u32, dwphonestates: u32, dwbuttonmodes: u32, dwbuttonstates: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneSetVolume(hphone: u32, dwhookswitchdev: u32, dwvolume: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi'*"]
     pub fn phoneShutdown(hphoneapp: u32) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn tapiGetLocationInfo(lpszcountrycode: super::super::Foundation::PSTR, lpszcitycode: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn tapiGetLocationInfoA(lpszcountrycode: super::super::Foundation::PSTR, lpszcitycode: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn tapiGetLocationInfoW(lpszcountrycodew: super::super::Foundation::PWSTR, lpszcitycodew: super::super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn tapiRequestDrop(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn tapiRequestMakeCall(lpszdestaddress: super::super::Foundation::PSTR, lpszappname: super::super::Foundation::PSTR, lpszcalledparty: super::super::Foundation::PSTR, lpszcomment: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn tapiRequestMakeCallA(lpszdestaddress: super::super::Foundation::PSTR, lpszappname: super::super::Foundation::PSTR, lpszcalledparty: super::super::Foundation::PSTR, lpszcomment: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn tapiRequestMakeCallW(lpszdestaddress: super::super::Foundation::PWSTR, lpszappname: super::super::Foundation::PWSTR, lpszcalledparty: super::super::Foundation::PWSTR, lpszcomment: super::super::Foundation::PWSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn tapiRequestMediaCall(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: super::super::Foundation::PSTR, lpdeviceid: super::super::Foundation::PSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: super::super::Foundation::PSTR, lpszappname: super::super::Foundation::PSTR, lpszcalledparty: super::super::Foundation::PSTR, lpszcomment: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn tapiRequestMediaCallA(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: super::super::Foundation::PSTR, lpdeviceid: super::super::Foundation::PSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: super::super::Foundation::PSTR, lpszappname: super::super::Foundation::PSTR, lpszcalledparty: super::super::Foundation::PSTR, lpszcomment: super::super::Foundation::PSTR) -> i32;
+    #[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn tapiRequestMediaCallW(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM, lpszdeviceclass: super::super::Foundation::PWSTR, lpdeviceid: super::super::Foundation::PWSTR, dwsize: u32, dwsecure: u32, lpszdestaddress: super::super::Foundation::PWSTR, lpszappname: super::super::Foundation::PWSTR, lpszcalledparty: super::super::Foundation::PWSTR, lpszcomment: super::super::Foundation::PWSTR) -> i32;
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type ACDGROUP_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACDGE_NEW_GROUP: ACDGROUP_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACDGE_GROUP_REMOVED: ACDGROUP_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type ACDQUEUE_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACDQE_NEW_QUEUE: ACDQUEUE_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACDQE_QUEUE_REMOVED: ACDQUEUE_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type ADDRESS_CAPABILITY = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_ADDRESSTYPES: ADDRESS_CAPABILITY = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_BEARERMODES: ADDRESS_CAPABILITY = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXACTIVECALLS: ADDRESS_CAPABILITY = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXONHOLDCALLS: ADDRESS_CAPABILITY = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXONHOLDPENDINGCALLS: ADDRESS_CAPABILITY = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXNUMCONFERENCE: ADDRESS_CAPABILITY = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXNUMTRANSCONF: ADDRESS_CAPABILITY = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MONITORDIGITSUPPORT: ADDRESS_CAPABILITY = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_GENERATEDIGITSUPPORT: ADDRESS_CAPABILITY = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_GENERATETONEMODES: ADDRESS_CAPABILITY = 9i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_GENERATETONEMAXNUMFREQ: ADDRESS_CAPABILITY = 10i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MONITORTONEMAXNUMFREQ: ADDRESS_CAPABILITY = 11i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MONITORTONEMAXNUMENTRIES: ADDRESS_CAPABILITY = 12i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_DEVCAPFLAGS: ADDRESS_CAPABILITY = 13i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_ANSWERMODES: ADDRESS_CAPABILITY = 14i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_LINEFEATURES: ADDRESS_CAPABILITY = 15i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_SETTABLEDEVSTATUS: ADDRESS_CAPABILITY = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_PARKSUPPORT: ADDRESS_CAPABILITY = 17i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_CALLERIDSUPPORT: ADDRESS_CAPABILITY = 18i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_CALLEDIDSUPPORT: ADDRESS_CAPABILITY = 19i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_CONNECTEDIDSUPPORT: ADDRESS_CAPABILITY = 20i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_REDIRECTIONIDSUPPORT: ADDRESS_CAPABILITY = 21i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_REDIRECTINGIDSUPPORT: ADDRESS_CAPABILITY = 22i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_ADDRESSCAPFLAGS: ADDRESS_CAPABILITY = 23i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_CALLFEATURES1: ADDRESS_CAPABILITY = 24i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_CALLFEATURES2: ADDRESS_CAPABILITY = 25i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_REMOVEFROMCONFCAPS: ADDRESS_CAPABILITY = 26i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_REMOVEFROMCONFSTATE: ADDRESS_CAPABILITY = 27i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_TRANSFERMODES: ADDRESS_CAPABILITY = 28i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_ADDRESSFEATURES: ADDRESS_CAPABILITY = 29i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_PREDICTIVEAUTOTRANSFERSTATES: ADDRESS_CAPABILITY = 30i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXCALLDATASIZE: ADDRESS_CAPABILITY = 31i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_LINEID: ADDRESS_CAPABILITY = 32i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_ADDRESSID: ADDRESS_CAPABILITY = 33i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_FORWARDMODES: ADDRESS_CAPABILITY = 34i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXFORWARDENTRIES: ADDRESS_CAPABILITY = 35i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXSPECIFICENTRIES: ADDRESS_CAPABILITY = 36i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MINFWDNUMRINGS: ADDRESS_CAPABILITY = 37i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXFWDNUMRINGS: ADDRESS_CAPABILITY = 38i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXCALLCOMPLETIONS: ADDRESS_CAPABILITY = 39i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_CALLCOMPLETIONCONDITIONS: ADDRESS_CAPABILITY = 40i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_CALLCOMPLETIONMODES: ADDRESS_CAPABILITY = 41i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_PERMANENTDEVICEID: ADDRESS_CAPABILITY = 42i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_GATHERDIGITSMINTIMEOUT: ADDRESS_CAPABILITY = 43i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_GATHERDIGITSMAXTIMEOUT: ADDRESS_CAPABILITY = 44i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_GENERATEDIGITMINDURATION: ADDRESS_CAPABILITY = 45i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_GENERATEDIGITMAXDURATION: ADDRESS_CAPABILITY = 46i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_GENERATEDIGITDEFAULTDURATION: ADDRESS_CAPABILITY = 47i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type ADDRESS_CAPABILITY_STRING = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACS_PROTOCOL: ADDRESS_CAPABILITY_STRING = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACS_ADDRESSDEVICESPECIFIC: ADDRESS_CAPABILITY_STRING = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACS_LINEDEVICESPECIFIC: ADDRESS_CAPABILITY_STRING = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACS_PROVIDERSPECIFIC: ADDRESS_CAPABILITY_STRING = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACS_SWITCHSPECIFIC: ADDRESS_CAPABILITY_STRING = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACS_PERMANENTDEVICEGUID: ADDRESS_CAPABILITY_STRING = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type ADDRESS_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_STATE: ADDRESS_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_CAPSCHANGE: ADDRESS_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_RINGING: ADDRESS_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_CONFIGCHANGE: ADDRESS_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_FORWARD: ADDRESS_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_NEWTERMINAL: ADDRESS_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_REMOVETERMINAL: ADDRESS_EVENT = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_MSGWAITON: ADDRESS_EVENT = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_MSGWAITOFF: ADDRESS_EVENT = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_LASTITEM: ADDRESS_EVENT = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type ADDRESS_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AS_INSERVICE: ADDRESS_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AS_OUTOFSERVICE: ADDRESS_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type AGENTHANDLER_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AHE_NEW_AGENTHANDLER: AGENTHANDLER_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AHE_AGENTHANDLER_REMOVED: AGENTHANDLER_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type AGENT_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_NOT_READY: AGENT_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_READY: AGENT_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_BUSY_ACD: AGENT_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_BUSY_INCOMING: AGENT_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_BUSY_OUTGOING: AGENT_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_UNKNOWN: AGENT_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type AGENT_SESSION_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASE_NEW_SESSION: AGENT_SESSION_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASE_NOT_READY: AGENT_SESSION_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASE_READY: AGENT_SESSION_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASE_BUSY: AGENT_SESSION_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASE_WRAPUP: AGENT_SESSION_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASE_END: AGENT_SESSION_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type AGENT_SESSION_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASST_NOT_READY: AGENT_SESSION_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASST_READY: AGENT_SESSION_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASST_BUSY_ON_CALL: AGENT_SESSION_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASST_BUSY_WRAPUP: AGENT_SESSION_STATE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASST_SESSION_ENDED: AGENT_SESSION_STATE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type AGENT_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AS_NOT_READY: AGENT_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AS_READY: AGENT_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AS_BUSY_ACD: AGENT_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AS_BUSY_INCOMING: AGENT_STATE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AS_BUSY_OUTGOING: AGENT_STATE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AS_UNKNOWN: AGENT_STATE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type ASYNC_COMPLETION = ::core::option::Option<unsafe extern "system" fn(dwrequestid: u32, lresult: i32)>;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALLHUB_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CHE_CALLJOIN: CALLHUB_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CHE_CALLLEAVE: CALLHUB_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CHE_CALLHUBNEW: CALLHUB_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CHE_CALLHUBIDLE: CALLHUB_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CHE_LASTITEM: CALLHUB_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALLHUB_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CHS_ACTIVE: CALLHUB_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CHS_IDLE: CALLHUB_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALLINFOCHANGE_CAUSE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_OTHER: CALLINFOCHANGE_CAUSE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_DEVSPECIFIC: CALLINFOCHANGE_CAUSE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_BEARERMODE: CALLINFOCHANGE_CAUSE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_RATE: CALLINFOCHANGE_CAUSE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_APPSPECIFIC: CALLINFOCHANGE_CAUSE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_CALLID: CALLINFOCHANGE_CAUSE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_RELATEDCALLID: CALLINFOCHANGE_CAUSE = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_ORIGIN: CALLINFOCHANGE_CAUSE = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_REASON: CALLINFOCHANGE_CAUSE = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_COMPLETIONID: CALLINFOCHANGE_CAUSE = 9i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_NUMOWNERINCR: CALLINFOCHANGE_CAUSE = 10i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_NUMOWNERDECR: CALLINFOCHANGE_CAUSE = 11i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_NUMMONITORS: CALLINFOCHANGE_CAUSE = 12i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_TRUNK: CALLINFOCHANGE_CAUSE = 13i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_CALLERID: CALLINFOCHANGE_CAUSE = 14i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_CALLEDID: CALLINFOCHANGE_CAUSE = 15i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_CONNECTEDID: CALLINFOCHANGE_CAUSE = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_REDIRECTIONID: CALLINFOCHANGE_CAUSE = 17i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_REDIRECTINGID: CALLINFOCHANGE_CAUSE = 18i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_USERUSERINFO: CALLINFOCHANGE_CAUSE = 19i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_HIGHLEVELCOMP: CALLINFOCHANGE_CAUSE = 20i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_LOWLEVELCOMP: CALLINFOCHANGE_CAUSE = 21i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_CHARGINGINFO: CALLINFOCHANGE_CAUSE = 22i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_TREATMENT: CALLINFOCHANGE_CAUSE = 23i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_CALLDATA: CALLINFOCHANGE_CAUSE = 24i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_PRIVILEGE: CALLINFOCHANGE_CAUSE = 25i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_MEDIATYPE: CALLINFOCHANGE_CAUSE = 26i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_LASTITEM: CALLINFOCHANGE_CAUSE = 26i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALLINFO_BUFFER = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIB_USERUSERINFO: CALLINFO_BUFFER = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIB_DEVSPECIFICBUFFER: CALLINFO_BUFFER = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIB_CALLDATABUFFER: CALLINFO_BUFFER = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIB_CHARGINGINFOBUFFER: CALLINFO_BUFFER = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIB_HIGHLEVELCOMPATIBILITYBUFFER: CALLINFO_BUFFER = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIB_LOWLEVELCOMPATIBILITYBUFFER: CALLINFO_BUFFER = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALLINFO_LONG = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_MEDIATYPESAVAILABLE: CALLINFO_LONG = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_BEARERMODE: CALLINFO_LONG = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_CALLERIDADDRESSTYPE: CALLINFO_LONG = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_CALLEDIDADDRESSTYPE: CALLINFO_LONG = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_CONNECTEDIDADDRESSTYPE: CALLINFO_LONG = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_REDIRECTIONIDADDRESSTYPE: CALLINFO_LONG = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_REDIRECTINGIDADDRESSTYPE: CALLINFO_LONG = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_ORIGIN: CALLINFO_LONG = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_REASON: CALLINFO_LONG = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_APPSPECIFIC: CALLINFO_LONG = 9i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_CALLPARAMSFLAGS: CALLINFO_LONG = 10i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_CALLTREATMENT: CALLINFO_LONG = 11i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_MINRATE: CALLINFO_LONG = 12i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_MAXRATE: CALLINFO_LONG = 13i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_COUNTRYCODE: CALLINFO_LONG = 14i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_CALLID: CALLINFO_LONG = 15i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_RELATEDCALLID: CALLINFO_LONG = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_COMPLETIONID: CALLINFO_LONG = 17i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_NUMBEROFOWNERS: CALLINFO_LONG = 18i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_NUMBEROFMONITORS: CALLINFO_LONG = 19i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_TRUNK: CALLINFO_LONG = 20i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_RATE: CALLINFO_LONG = 21i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_GENERATEDIGITDURATION: CALLINFO_LONG = 22i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_MONITORDIGITMODES: CALLINFO_LONG = 23i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_MONITORMEDIAMODES: CALLINFO_LONG = 24i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALLINFO_STRING = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_CALLERIDNAME: CALLINFO_STRING = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_CALLERIDNUMBER: CALLINFO_STRING = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_CALLEDIDNAME: CALLINFO_STRING = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_CALLEDIDNUMBER: CALLINFO_STRING = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_CONNECTEDIDNAME: CALLINFO_STRING = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_CONNECTEDIDNUMBER: CALLINFO_STRING = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_REDIRECTIONIDNAME: CALLINFO_STRING = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_REDIRECTIONIDNUMBER: CALLINFO_STRING = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_REDIRECTINGIDNAME: CALLINFO_STRING = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_REDIRECTINGIDNUMBER: CALLINFO_STRING = 9i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_CALLEDPARTYFRIENDLYNAME: CALLINFO_STRING = 10i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_COMMENT: CALLINFO_STRING = 11i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_DISPLAYABLEADDRESS: CALLINFO_STRING = 12i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_CALLINGPARTYID: CALLINFO_STRING = 13i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALL_MEDIA_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CME_NEW_STREAM: CALL_MEDIA_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CME_STREAM_FAIL: CALL_MEDIA_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CME_TERMINAL_FAIL: CALL_MEDIA_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CME_STREAM_NOT_USED: CALL_MEDIA_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CME_STREAM_ACTIVE: CALL_MEDIA_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CME_STREAM_INACTIVE: CALL_MEDIA_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CME_LASTITEM: CALL_MEDIA_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALL_MEDIA_EVENT_CAUSE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CMC_UNKNOWN: CALL_MEDIA_EVENT_CAUSE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CMC_BAD_DEVICE: CALL_MEDIA_EVENT_CAUSE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CMC_CONNECT_FAIL: CALL_MEDIA_EVENT_CAUSE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CMC_LOCAL_REQUEST: CALL_MEDIA_EVENT_CAUSE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CMC_REMOTE_REQUEST: CALL_MEDIA_EVENT_CAUSE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CMC_MEDIA_TIMEOUT: CALL_MEDIA_EVENT_CAUSE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CMC_MEDIA_RECOVERED: CALL_MEDIA_EVENT_CAUSE = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CMC_QUALITY_OF_SERVICE: CALL_MEDIA_EVENT_CAUSE = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALL_NOTIFICATION_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CNE_OWNER: CALL_NOTIFICATION_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CNE_MONITOR: CALL_NOTIFICATION_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CNE_LASTITEM: CALL_NOTIFICATION_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALL_PRIVILEGE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CP_OWNER: CALL_PRIVILEGE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CP_MONITOR: CALL_PRIVILEGE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALL_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CS_IDLE: CALL_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CS_INPROGRESS: CALL_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CS_CONNECTED: CALL_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CS_DISCONNECTED: CALL_STATE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CS_OFFERING: CALL_STATE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CS_HOLD: CALL_STATE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CS_QUEUED: CALL_STATE = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CS_LASTITEM: CALL_STATE = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALL_STATE_EVENT_CAUSE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CEC_NONE: CALL_STATE_EVENT_CAUSE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CEC_DISCONNECT_NORMAL: CALL_STATE_EVENT_CAUSE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CEC_DISCONNECT_BUSY: CALL_STATE_EVENT_CAUSE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CEC_DISCONNECT_BADADDRESS: CALL_STATE_EVENT_CAUSE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CEC_DISCONNECT_NOANSWER: CALL_STATE_EVENT_CAUSE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CEC_DISCONNECT_CANCELLED: CALL_STATE_EVENT_CAUSE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CEC_DISCONNECT_REJECTED: CALL_STATE_EVENT_CAUSE = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CEC_DISCONNECT_FAILED: CALL_STATE_EVENT_CAUSE = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CEC_DISCONNECT_BLOCKED: CALL_STATE_EVENT_CAUSE = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type DIRECTORY_OBJECT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const OT_CONFERENCE: DIRECTORY_OBJECT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const OT_USER: DIRECTORY_OBJECT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type DIRECTORY_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const DT_NTDS: DIRECTORY_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const DT_ILS: DIRECTORY_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type DISCONNECT_CODE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const DC_NORMAL: DISCONNECT_CODE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const DC_NOANSWER: DISCONNECT_CODE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const DC_REJECTED: DISCONNECT_CODE = 2i32;
 pub const DISPIDMASK: u32 = 65535u32;
 pub const DispatchMapper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3911340694, data2: 51033, data3: 4561, data4: [160, 43, 0, 192, 79, 182, 128, 159] };
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type FINISH_MODE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const FM_ASTRANSFER: FINISH_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const FM_ASCONFERENCE: FINISH_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type FT_STATE_EVENT_CAUSE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const FTEC_NORMAL: FT_STATE_EVENT_CAUSE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const FTEC_END_OF_FILE: FT_STATE_EVENT_CAUSE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const FTEC_READ_ERROR: FT_STATE_EVENT_CAUSE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const FTEC_WRITE_ERROR: FT_STATE_EVENT_CAUSE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type FULLDUPLEX_SUPPORT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const FDS_SUPPORTED: FULLDUPLEX_SUPPORT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const FDS_NOTSUPPORTED: FULLDUPLEX_SUPPORT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const FDS_UNKNOWN: FULLDUPLEX_SUPPORT = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct HDRVCALL__ {
     pub unused: i32,
 }
@@ -637,6 +1148,7 @@ impl ::core::clone::Clone for HDRVCALL__ {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct HDRVDIALOGINSTANCE__ {
     pub unused: i32,
 }
@@ -647,6 +1159,7 @@ impl ::core::clone::Clone for HDRVDIALOGINSTANCE__ {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct HDRVLINE__ {
     pub unused: i32,
 }
@@ -657,6 +1170,7 @@ impl ::core::clone::Clone for HDRVLINE__ {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct HDRVMSPLINE__ {
     pub unused: i32,
 }
@@ -667,6 +1181,7 @@ impl ::core::clone::Clone for HDRVMSPLINE__ {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct HDRVPHONE__ {
     pub unused: i32,
 }
@@ -677,6 +1192,7 @@ impl ::core::clone::Clone for HDRVPHONE__ {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct HPROVIDER__ {
     pub unused: i32,
 }
@@ -687,6 +1203,7 @@ impl ::core::clone::Clone for HPROVIDER__ {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct HTAPICALL__ {
     pub unused: i32,
 }
@@ -697,6 +1214,7 @@ impl ::core::clone::Clone for HTAPICALL__ {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct HTAPILINE__ {
     pub unused: i32,
 }
@@ -707,6 +1225,7 @@ impl ::core::clone::Clone for HTAPILINE__ {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct HTAPIPHONE__ {
     pub unused: i32,
 }
@@ -896,6 +1415,7 @@ pub const LINEADDRCAPFLAGS_SETUPCONFNULL: u32 = 512u32;
 pub const LINEADDRCAPFLAGS_TRANSFERHELD: u32 = 4096u32;
 pub const LINEADDRCAPFLAGS_TRANSFERMAKE: u32 = 8192u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEADDRESSCAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -978,6 +1498,7 @@ pub const LINEADDRESSSTATE_NUMCALLS: u32 = 32u32;
 pub const LINEADDRESSSTATE_OTHER: u32 = 1u32;
 pub const LINEADDRESSSTATE_TERMINALS: u32 = 128u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEADDRESSSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -1022,6 +1543,7 @@ pub const LINEADDRFEATURE_SETUPCONF: u32 = 32u32;
 pub const LINEADDRFEATURE_UNCOMPLETECALL: u32 = 64u32;
 pub const LINEADDRFEATURE_UNPARK: u32 = 128u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTACTIVITYENTRY {
     pub dwID: u32,
     pub dwNameSize: u32,
@@ -1034,6 +1556,7 @@ impl ::core::clone::Clone for LINEAGENTACTIVITYENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTACTIVITYLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -1049,6 +1572,7 @@ impl ::core::clone::Clone for LINEAGENTACTIVITYLIST {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTCAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -1073,6 +1597,7 @@ impl ::core::clone::Clone for LINEAGENTCAPS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTENTRY {
     pub hAgent: u32,
     pub dwNameSize: u32,
@@ -1095,6 +1620,7 @@ pub const LINEAGENTFEATURE_SETAGENTACTIVITY: u32 = 4u32;
 pub const LINEAGENTFEATURE_SETAGENTGROUP: u32 = 1u32;
 pub const LINEAGENTFEATURE_SETAGENTSTATE: u32 = 2u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTGROUPENTRY {
     pub GroupID: LINEAGENTGROUPENTRY_0,
     pub dwNameSize: u32,
@@ -1107,6 +1633,7 @@ impl ::core::clone::Clone for LINEAGENTGROUPENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTGROUPENTRY_0 {
     pub dwGroupID1: u32,
     pub dwGroupID2: u32,
@@ -1120,6 +1647,7 @@ impl ::core::clone::Clone for LINEAGENTGROUPENTRY_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTGROUPLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -1135,6 +1663,7 @@ impl ::core::clone::Clone for LINEAGENTGROUPLIST {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEAGENTINFO {
     pub dwTotalSize: u32,
@@ -1160,6 +1689,7 @@ impl ::core::clone::Clone for LINEAGENTINFO {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -1175,6 +1705,7 @@ impl ::core::clone::Clone for LINEAGENTLIST {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTSESSIONENTRY {
     pub hAgentSession: u32,
     pub hAgent: u32,
@@ -1188,6 +1719,7 @@ impl ::core::clone::Clone for LINEAGENTSESSIONENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEAGENTSESSIONINFO {
     pub dwTotalSize: u32,
@@ -1217,6 +1749,7 @@ impl ::core::clone::Clone for LINEAGENTSESSIONINFO {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTSESSIONLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -1258,6 +1791,7 @@ pub const LINEAGENTSTATE_UNAVAIL: u32 = 512u32;
 pub const LINEAGENTSTATE_UNKNOWN: u32 = 256u32;
 pub const LINEAGENTSTATE_WORKINGAFTERCALL: u32 = 128u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -1296,6 +1830,7 @@ pub const LINEANSWERMODE_DROP: u32 = 2u32;
 pub const LINEANSWERMODE_HOLD: u32 = 4u32;
 pub const LINEANSWERMODE_NONE: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAPPINFO {
     pub dwMachineNameSize: u32,
     pub dwMachineNameOffset: u32,
@@ -1326,6 +1861,7 @@ pub const LINEBUSYMODE_STATION: u32 = 1u32;
 pub const LINEBUSYMODE_TRUNK: u32 = 2u32;
 pub const LINEBUSYMODE_UNAVAIL: u32 = 8u32;
 pub const LINEBUSYMODE_UNKNOWN: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type LINECALLBACK = ::core::option::Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
 pub const LINECALLCOMPLCOND_BUSY: u32 = 1u32;
 pub const LINECALLCOMPLCOND_NOANSWER: u32 = 2u32;
@@ -1379,6 +1915,7 @@ pub const LINECALLHUBTRACKING_ALLCALLS: u32 = 2u32;
 pub const LINECALLHUBTRACKING_NONE: u32 = 0u32;
 pub const LINECALLHUBTRACKING_PROVIDERLEVEL: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINECALLINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -1497,6 +2034,7 @@ pub const LINECALLINFOSTATE_TREATMENT: u32 = 268435456u32;
 pub const LINECALLINFOSTATE_TRUNK: u32 = 16384u32;
 pub const LINECALLINFOSTATE_USERUSERINFO: u32 = 2097152u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINECALLLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -1527,6 +2065,7 @@ pub const LINECALLPARAMFLAGS_ORIGOFFHOOK: u32 = 8u32;
 pub const LINECALLPARAMFLAGS_PREDICTIVEDIAL: u32 = 64u32;
 pub const LINECALLPARAMFLAGS_SECURE: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINECALLPARAMS {
     pub dwTotalSize: u32,
     pub dwBearerMode: u32,
@@ -1624,6 +2163,7 @@ pub const LINECALLSTATE_RINGBACK: u32 = 32u32;
 pub const LINECALLSTATE_SPECIALINFO: u32 = 128u32;
 pub const LINECALLSTATE_UNKNOWN: u32 = 32768u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LINECALLSTATUS {
     pub dwTotalSize: u32,
@@ -1647,6 +2187,7 @@ impl ::core::clone::Clone for LINECALLSTATUS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINECALLTREATMENTENTRY {
     pub dwCallTreatmentID: u32,
     pub dwCallTreatmentNameSize: u32,
@@ -1663,6 +2204,7 @@ pub const LINECALLTREATMENT_MUSIC: u32 = 4u32;
 pub const LINECALLTREATMENT_RINGBACK: u32 = 2u32;
 pub const LINECALLTREATMENT_SILENCE: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINECARDENTRY {
     pub dwPermanentCardID: u32,
     pub dwCardNameSize: u32,
@@ -1690,6 +2232,7 @@ pub const LINECONNECTEDMODE_CONFIRMED: u32 = 16u32;
 pub const LINECONNECTEDMODE_INACTIVE: u32 = 2u32;
 pub const LINECONNECTEDMODE_INACTIVEHELD: u32 = 8u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINECOUNTRYENTRY {
     pub dwCountryID: u32,
     pub dwCountryCode: u32,
@@ -1710,6 +2253,7 @@ impl ::core::clone::Clone for LINECOUNTRYENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINECOUNTRYLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -1739,6 +2283,7 @@ pub const LINEDEVCAPFLAGS_MSP: u32 = 512u32;
 pub const LINEDEVCAPFLAGS_MULTIPLEADDR: u32 = 16u32;
 pub const LINEDEVCAPFLAGS_PRIVATEOBJECTS: u32 = 4096u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEDEVCAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -1828,6 +2373,7 @@ pub const LINEDEVSTATE_SIGNAL: u32 = 65536u32;
 pub const LINEDEVSTATE_TERMINALS: u32 = 8192u32;
 pub const LINEDEVSTATE_TRANSLATECHANGE: u32 = 4194304u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEDEVSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -1863,6 +2409,7 @@ pub const LINEDEVSTATUSFLAGS_INSERVICE: u32 = 4u32;
 pub const LINEDEVSTATUSFLAGS_LOCKED: u32 = 8u32;
 pub const LINEDEVSTATUSFLAGS_MSGWAIT: u32 = 2u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEDIALPARAMS {
     pub dwDialPause: u32,
     pub dwDialSpeed: u32,
@@ -2005,8 +2552,10 @@ pub const LINEERR_TARGETSELF: u32 = 2147483727u32;
 pub const LINEERR_UNINITIALIZED: u32 = 2147483728u32;
 pub const LINEERR_USERCANCELLED: u32 = 2147483741u32;
 pub const LINEERR_USERUSERINFOTOOBIG: u32 = 2147483729u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type LINEEVENT = ::core::option::Option<unsafe extern "system" fn(htline: *mut HTAPILINE__, htcall: *mut HTAPICALL__, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEEXTENSIONID {
     pub dwExtensionID0: u32,
     pub dwExtensionID1: u32,
@@ -2029,6 +2578,7 @@ pub const LINEFEATURE_SETDEVSTATUS: u32 = 64u32;
 pub const LINEFEATURE_SETMEDIACONTROL: u32 = 16u32;
 pub const LINEFEATURE_SETTERMINAL: u32 = 32u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEFORWARD {
     pub dwForwardMode: u32,
     pub dwCallerAddressSize: u32,
@@ -2044,6 +2594,7 @@ impl ::core::clone::Clone for LINEFORWARD {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEFORWARDLIST {
     pub dwTotalSize: u32,
     pub dwNumEntries: u32,
@@ -2081,6 +2632,7 @@ pub const LINEGATHERTERM_TERMDIGIT: u32 = 2u32;
 pub const LINEGENERATETERM_CANCEL: u32 = 2u32;
 pub const LINEGENERATETERM_DONE: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEGENERATETONE {
     pub dwFrequency: u32,
     pub dwCadenceOn: u32,
@@ -2100,6 +2652,7 @@ pub const LINEINITIALIZEEXOPTION_USECOMPLETIONPORT: u32 = 3u32;
 pub const LINEINITIALIZEEXOPTION_USEEVENT: u32 = 2u32;
 pub const LINEINITIALIZEEXOPTION_USEHIDDENWINDOW: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LINEINITIALIZEEXPARAMS {
     pub dwTotalSize: u32,
@@ -2118,6 +2671,7 @@ impl ::core::clone::Clone for LINEINITIALIZEEXPARAMS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union LINEINITIALIZEEXPARAMS_0 {
     pub hEvent: super::super::Foundation::HANDLE,
@@ -2132,6 +2686,7 @@ impl ::core::clone::Clone for LINEINITIALIZEEXPARAMS_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINELOCATIONENTRY {
     pub dwPermanentLocationID: u32,
     pub dwLocationNameSize: u32,
@@ -2160,6 +2715,7 @@ impl ::core::clone::Clone for LINELOCATIONENTRY {
 pub const LINELOCATIONOPTION_PULSEDIAL: u32 = 1u32;
 pub const LINEMAPPER: u32 = 4294967295u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEMEDIACONTROLCALLSTATE {
     pub dwCallStates: u32,
     pub dwMediaControl: u32,
@@ -2171,6 +2727,7 @@ impl ::core::clone::Clone for LINEMEDIACONTROLCALLSTATE {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEMEDIACONTROLDIGIT {
     pub dwDigit: u32,
     pub dwDigitModes: u32,
@@ -2183,6 +2740,7 @@ impl ::core::clone::Clone for LINEMEDIACONTROLDIGIT {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEMEDIACONTROLMEDIA {
     pub dwMediaModes: u32,
     pub dwDuration: u32,
@@ -2195,6 +2753,7 @@ impl ::core::clone::Clone for LINEMEDIACONTROLMEDIA {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEMEDIACONTROLTONE {
     pub dwAppSpecific: u32,
     pub dwDuration: u32,
@@ -2236,6 +2795,7 @@ pub const LINEMEDIAMODE_VIDEO: u32 = 32768u32;
 pub const LINEMEDIAMODE_VIDEOTEX: u32 = 1024u32;
 pub const LINEMEDIAMODE_VOICEVIEW: u32 = 16384u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEMESSAGE {
     pub hDevice: u32,
     pub dwMessageID: u32,
@@ -2251,6 +2811,7 @@ impl ::core::clone::Clone for LINEMESSAGE {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEMONITORTONE {
     pub dwAppSpecific: u32,
     pub dwDuration: u32,
@@ -2271,6 +2832,7 @@ pub const LINEOPENOPTION_SINGLEADDRESS: u32 = 2147483648u32;
 pub const LINEPARKMODE_DIRECTED: u32 = 1u32;
 pub const LINEPARKMODE_NONDIRECTED: u32 = 2u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROVIDERENTRY {
     pub dwPermanentProviderID: u32,
     pub dwProviderFilenameSize: u32,
@@ -2283,6 +2845,7 @@ impl ::core::clone::Clone for LINEPROVIDERENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROVIDERLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2298,6 +2861,7 @@ impl ::core::clone::Clone for LINEPROVIDERLIST {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST {
     pub dwSize: u32,
@@ -2318,6 +2882,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub union LINEPROXYREQUEST_0 {
     pub SetAgentGroup: LINEPROXYREQUEST_0_14,
@@ -2350,6 +2915,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_0 {
     pub dwAddressID: u32,
@@ -2366,6 +2932,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_1 {
     pub hAgentSession: u32,
@@ -2384,6 +2951,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_1 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_2 {
     pub hAgent: u32,
@@ -2401,6 +2969,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_2 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_3 {
     pub dwAddressID: u32,
@@ -2415,6 +2984,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_3 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_4 {
     pub dwAddressID: u32,
@@ -2429,6 +2999,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_4 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_5 {
     pub dwAddressID: u32,
@@ -2443,6 +3014,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_5 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_6 {
     pub hAgent: u32,
@@ -2457,6 +3029,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_6 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_7 {
     pub hAgentSession: u32,
@@ -2471,6 +3044,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_7 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_8 {
     pub hAgent: u32,
@@ -2485,6 +3059,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_8 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_9 {
     pub dwAddressID: u32,
@@ -2499,6 +3074,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_9 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_10 {
     pub GroupList: LINEAGENTGROUPLIST,
@@ -2512,6 +3088,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_10 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_11 {
     pub dwQueueID: u32,
@@ -2526,6 +3103,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_11 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_12 {
     pub GroupID: ::windows_sys::core::GUID,
@@ -2540,6 +3118,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_12 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_13 {
     pub dwAddressID: u32,
@@ -2554,6 +3133,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_13 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_14 {
     pub dwAddressID: u32,
@@ -2568,6 +3148,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_14 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_15 {
     pub hAgent: u32,
@@ -2582,6 +3163,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_15 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_16 {
     pub hAgentSession: u32,
@@ -2597,6 +3179,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_16 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_17 {
     pub hAgent: u32,
@@ -2612,6 +3195,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_17 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_18 {
     pub dwAddressID: u32,
@@ -2627,6 +3211,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_18 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_19 {
     pub dwQueueID: u32,
@@ -2641,6 +3226,7 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_19 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUESTLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2683,6 +3269,7 @@ pub const LINEQOSSERVICELEVEL_BESTEFFORT: u32 = 3u32;
 pub const LINEQOSSERVICELEVEL_IFAVAILABLE: u32 = 2u32;
 pub const LINEQOSSERVICELEVEL_NEEDED: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEQUEUEENTRY {
     pub dwQueueID: u32,
     pub dwNameSize: u32,
@@ -2695,6 +3282,7 @@ impl ::core::clone::Clone for LINEQUEUEENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEQUEUEINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2717,6 +3305,7 @@ impl ::core::clone::Clone for LINEQUEUEINFO {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEQUEUELIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2738,6 +3327,7 @@ pub const LINEREMOVEFROMCONF_ANY: u32 = 3u32;
 pub const LINEREMOVEFROMCONF_LAST: u32 = 2u32;
 pub const LINEREMOVEFROMCONF_NONE: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LINEREQMAKECALL {
     pub szDestAddress: [super::super::Foundation::CHAR; 80],
@@ -2754,6 +3344,7 @@ impl ::core::clone::Clone for LINEREQMAKECALL {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LINEREQMEDIACALL {
     pub hWnd: super::super::Foundation::HWND,
@@ -2789,6 +3380,7 @@ pub const LINESPECIALINFO_REORDER: u32 = 4u32;
 pub const LINESPECIALINFO_UNAVAIL: u32 = 16u32;
 pub const LINESPECIALINFO_UNKNOWN: u32 = 8u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINETERMCAPS {
     pub dwTermDev: u32,
     pub dwTermModes: u32,
@@ -2824,6 +3416,7 @@ pub const LINETONEMODE_RINGBACK: u32 = 2u32;
 pub const LINETRANSFERMODE_CONFERENCE: u32 = 2u32;
 pub const LINETRANSFERMODE_TRANSFER: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINETRANSLATECAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2848,6 +3441,7 @@ pub const LINETRANSLATEOPTION_CARDOVERRIDE: u32 = 1u32;
 pub const LINETRANSLATEOPTION_FORCELD: u32 = 8u32;
 pub const LINETRANSLATEOPTION_FORCELOCAL: u32 = 4u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINETRANSLATEOUTPUT {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -2907,41 +3501,73 @@ pub const LINE_QUEUESTATUS: i32 = 28i32;
 pub const LINE_REMOVE: i32 = 25i32;
 pub const LINE_REPLY: i32 = 12i32;
 pub const LINE_REQUEST: i32 = 13i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub type LPGETTNEFSTREAMCODEPAGE = ::core::option::Option<unsafe extern "system" fn(lpstream: super::super::System::Com::IStream, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_AddressBook', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 pub type LPOPENTNEFSTREAM = ::core::option::Option<unsafe extern "system" fn(lpvsupport: *mut ::core::ffi::c_void, lpstream: super::super::System::Com::IStream, lpszstreamname: *const i8, ulflags: u32, lpmessage: super::super::System::AddressBook::IMessage, wkeyval: u16, lpptnef: *mut ITnef) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_AddressBook', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 pub type LPOPENTNEFSTREAMEX = ::core::option::Option<unsafe extern "system" fn(lpvsupport: *mut ::core::ffi::c_void, lpstream: super::super::System::Com::IStream, lpszstreamname: *const i8, ulflags: u32, lpmessage: super::super::System::AddressBook::IMessage, wkeyval: u16, lpadressbook: super::super::System::AddressBook::IAddrBook, lpptnef: *mut ITnef) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type MSP_ADDRESS_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ADDRESS_TERMINAL_AVAILABLE: MSP_ADDRESS_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ADDRESS_TERMINAL_UNAVAILABLE: MSP_ADDRESS_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type MSP_CALL_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_NEW_STREAM: MSP_CALL_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_STREAM_FAIL: MSP_CALL_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_TERMINAL_FAIL: MSP_CALL_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_STREAM_NOT_USED: MSP_CALL_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_STREAM_ACTIVE: MSP_CALL_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_STREAM_INACTIVE: MSP_CALL_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type MSP_CALL_EVENT_CAUSE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_CAUSE_UNKNOWN: MSP_CALL_EVENT_CAUSE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_CAUSE_BAD_DEVICE: MSP_CALL_EVENT_CAUSE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_CAUSE_CONNECT_FAIL: MSP_CALL_EVENT_CAUSE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_CAUSE_LOCAL_REQUEST: MSP_CALL_EVENT_CAUSE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_CAUSE_REMOTE_REQUEST: MSP_CALL_EVENT_CAUSE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_CAUSE_MEDIA_TIMEOUT: MSP_CALL_EVENT_CAUSE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_CAUSE_MEDIA_RECOVERED: MSP_CALL_EVENT_CAUSE = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_CAUSE_QUALITY_OF_SERVICE: MSP_CALL_EVENT_CAUSE = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type MSP_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ME_ADDRESS_EVENT: MSP_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ME_CALL_EVENT: MSP_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ME_TSP_DATA: MSP_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ME_PRIVATE_EVENT: MSP_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ME_ASR_TERMINAL_EVENT: MSP_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ME_TTS_TERMINAL_EVENT: MSP_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ME_FILE_TERMINAL_EVENT: MSP_EVENT = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ME_TONE_TERMINAL_EVENT: MSP_EVENT = 7i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO {
     pub dwSize: u32,
@@ -2958,6 +3584,7 @@ impl ::core::clone::Clone for MSP_EVENT_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub union MSP_EVENT_INFO_0 {
     pub MSP_ADDRESS_EVENT_INFO: MSP_EVENT_INFO_0_0,
@@ -2978,6 +3605,7 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_0 {
     pub Type: MSP_ADDRESS_EVENT,
@@ -2992,6 +3620,7 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_1 {
     pub pASRTerminal: ITTerminal,
@@ -3006,6 +3635,7 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_2 {
     pub Type: MSP_CALL_EVENT,
@@ -3023,6 +3653,7 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_3 {
     pub pParentFileTerminal: ITTerminal,
@@ -3040,6 +3671,7 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_3 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_4 {
     pub pEvent: super::super::System::Com::IDispatch,
@@ -3054,6 +3686,7 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_4 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_5 {
     pub pToneTerminal: ITTerminal,
@@ -3068,6 +3701,7 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_5 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_6 {
     pub dwBufferSize: u32,
@@ -3082,6 +3716,7 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_6 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_7 {
     pub pTTSTerminal: ITTerminal,
@@ -3097,6 +3732,7 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_7 {
 }
 pub const McastAddressAllocation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3742215922, data2: 41609, data3: 4561, data4: [134, 151, 0, 96, 8, 176, 229, 210] };
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NSID {
     pub dwSize: u32,
@@ -3114,6 +3750,7 @@ impl ::core::clone::Clone for NSID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union NSID_0 {
     pub alias: _ADDR_ALIAS,
@@ -3176,6 +3813,7 @@ pub const PHONEBUTTONFUNCTION_UNKNOWN: u32 = 0u32;
 pub const PHONEBUTTONFUNCTION_VOLUMEDOWN: u32 = 20u32;
 pub const PHONEBUTTONFUNCTION_VOLUMEUP: u32 = 19u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct PHONEBUTTONINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -3204,8 +3842,10 @@ pub const PHONEBUTTONSTATE_DOWN: u32 = 2u32;
 pub const PHONEBUTTONSTATE_UNAVAIL: u32 = 8u32;
 pub const PHONEBUTTONSTATE_UNKNOWN: u32 = 4u32;
 pub const PHONEBUTTONSTATE_UP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONECALLBACK = ::core::option::Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct PHONECAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -3260,21 +3900,37 @@ impl ::core::clone::Clone for PHONECAPS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONECAPS_BUFFER = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCB_DEVSPECIFICBUFFER: PHONECAPS_BUFFER = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONECAPS_LONG = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCL_HOOKSWITCHES: PHONECAPS_LONG = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCL_HANDSETHOOKSWITCHMODES: PHONECAPS_LONG = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCL_HEADSETHOOKSWITCHMODES: PHONECAPS_LONG = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCL_SPEAKERPHONEHOOKSWITCHMODES: PHONECAPS_LONG = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCL_DISPLAYNUMROWS: PHONECAPS_LONG = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCL_DISPLAYNUMCOLUMNS: PHONECAPS_LONG = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCL_NUMRINGMODES: PHONECAPS_LONG = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCL_NUMBUTTONLAMPS: PHONECAPS_LONG = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCL_GENERICPHONE: PHONECAPS_LONG = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONECAPS_STRING = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCS_PHONENAME: PHONECAPS_STRING = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCS_PHONEINFO: PHONECAPS_STRING = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCS_PROVIDERINFO: PHONECAPS_STRING = 2i32;
 pub const PHONEERR_ALLOCATED: u32 = 2415919105u32;
 pub const PHONEERR_BADDEVICEID: u32 = 2415919106u32;
@@ -3312,8 +3968,10 @@ pub const PHONEERR_RESOURCEUNAVAIL: u32 = 2415919135u32;
 pub const PHONEERR_SERVICE_NOT_RUNNING: u32 = 2415919141u32;
 pub const PHONEERR_STRUCTURETOOSMALL: u32 = 2415919137u32;
 pub const PHONEERR_UNINITIALIZED: u32 = 2415919138u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONEEVENT = ::core::option::Option<unsafe extern "system" fn(htphone: *mut HTAPIPHONE__, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct PHONEEXTENSIONID {
     pub dwExtensionID0: u32,
     pub dwExtensionID1: u32,
@@ -3367,6 +4025,7 @@ pub const PHONEINITIALIZEEXOPTION_USECOMPLETIONPORT: u32 = 3u32;
 pub const PHONEINITIALIZEEXOPTION_USEEVENT: u32 = 2u32;
 pub const PHONEINITIALIZEEXOPTION_USEHIDDENWINDOW: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PHONEINITIALIZEEXPARAMS {
     pub dwTotalSize: u32,
@@ -3385,6 +4044,7 @@ impl ::core::clone::Clone for PHONEINITIALIZEEXPARAMS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PHONEINITIALIZEEXPARAMS_0 {
     pub hEvent: super::super::Foundation::HANDLE,
@@ -3407,6 +4067,7 @@ pub const PHONELAMPMODE_STEADY: u32 = 4u32;
 pub const PHONELAMPMODE_UNKNOWN: u32 = 128u32;
 pub const PHONELAMPMODE_WINK: u32 = 8u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct PHONEMESSAGE {
     pub hDevice: u32,
     pub dwMessageID: u32,
@@ -3448,6 +4109,7 @@ pub const PHONESTATE_SPEAKERHOOKSWITCH: u32 = 4096u32;
 pub const PHONESTATE_SPEAKERVOLUME: u32 = 8192u32;
 pub const PHONESTATE_SUSPEND: u32 = 262144u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct PHONESTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -3485,130 +4147,249 @@ impl ::core::clone::Clone for PHONESTATUS {
 pub const PHONESTATUSFLAGS_CONNECTED: u32 = 1u32;
 pub const PHONESTATUSFLAGS_SUSPENDED: u32 = 2u32;
 pub const PHONE_BUTTON: i32 = 14i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONE_BUTTON_FUNCTION = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_UNKNOWN: PHONE_BUTTON_FUNCTION = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_CONFERENCE: PHONE_BUTTON_FUNCTION = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_TRANSFER: PHONE_BUTTON_FUNCTION = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_DROP: PHONE_BUTTON_FUNCTION = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_HOLD: PHONE_BUTTON_FUNCTION = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_RECALL: PHONE_BUTTON_FUNCTION = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_DISCONNECT: PHONE_BUTTON_FUNCTION = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_CONNECT: PHONE_BUTTON_FUNCTION = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_MSGWAITON: PHONE_BUTTON_FUNCTION = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_MSGWAITOFF: PHONE_BUTTON_FUNCTION = 9i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_SELECTRING: PHONE_BUTTON_FUNCTION = 10i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_ABBREVDIAL: PHONE_BUTTON_FUNCTION = 11i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_FORWARD: PHONE_BUTTON_FUNCTION = 12i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_PICKUP: PHONE_BUTTON_FUNCTION = 13i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_RINGAGAIN: PHONE_BUTTON_FUNCTION = 14i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_PARK: PHONE_BUTTON_FUNCTION = 15i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_REJECT: PHONE_BUTTON_FUNCTION = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_REDIRECT: PHONE_BUTTON_FUNCTION = 17i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_MUTE: PHONE_BUTTON_FUNCTION = 18i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_VOLUMEUP: PHONE_BUTTON_FUNCTION = 19i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_VOLUMEDOWN: PHONE_BUTTON_FUNCTION = 20i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_SPEAKERON: PHONE_BUTTON_FUNCTION = 21i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_SPEAKEROFF: PHONE_BUTTON_FUNCTION = 22i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_FLASH: PHONE_BUTTON_FUNCTION = 23i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_DATAON: PHONE_BUTTON_FUNCTION = 24i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_DATAOFF: PHONE_BUTTON_FUNCTION = 25i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_DONOTDISTURB: PHONE_BUTTON_FUNCTION = 26i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_INTERCOM: PHONE_BUTTON_FUNCTION = 27i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_BRIDGEDAPP: PHONE_BUTTON_FUNCTION = 28i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_BUSY: PHONE_BUTTON_FUNCTION = 29i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_CALLAPP: PHONE_BUTTON_FUNCTION = 30i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_DATETIME: PHONE_BUTTON_FUNCTION = 31i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_DIRECTORY: PHONE_BUTTON_FUNCTION = 32i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_COVER: PHONE_BUTTON_FUNCTION = 33i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_CALLID: PHONE_BUTTON_FUNCTION = 34i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_LASTNUM: PHONE_BUTTON_FUNCTION = 35i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_NIGHTSRV: PHONE_BUTTON_FUNCTION = 36i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_SENDCALLS: PHONE_BUTTON_FUNCTION = 37i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_MSGINDICATOR: PHONE_BUTTON_FUNCTION = 38i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_REPDIAL: PHONE_BUTTON_FUNCTION = 39i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_SETREPDIAL: PHONE_BUTTON_FUNCTION = 40i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_SYSTEMSPEED: PHONE_BUTTON_FUNCTION = 41i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_STATIONSPEED: PHONE_BUTTON_FUNCTION = 42i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_CAMPON: PHONE_BUTTON_FUNCTION = 43i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_SAVEREPEAT: PHONE_BUTTON_FUNCTION = 44i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_QUEUECALL: PHONE_BUTTON_FUNCTION = 45i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_NONE: PHONE_BUTTON_FUNCTION = 46i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_SEND: PHONE_BUTTON_FUNCTION = 47i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONE_BUTTON_MODE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBM_DUMMY: PHONE_BUTTON_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBM_CALL: PHONE_BUTTON_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBM_FEATURE: PHONE_BUTTON_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBM_KEYPAD: PHONE_BUTTON_MODE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBM_LOCAL: PHONE_BUTTON_MODE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBM_DISPLAY: PHONE_BUTTON_MODE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONE_BUTTON_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBS_UP: PHONE_BUTTON_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBS_DOWN: PHONE_BUTTON_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBS_UNKNOWN: PHONE_BUTTON_STATE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBS_UNAVAIL: PHONE_BUTTON_STATE = 8i32;
 pub const PHONE_CLOSE: i32 = 15i32;
 pub const PHONE_CREATE: i32 = 20i32;
 pub const PHONE_DEVSPECIFIC: i32 = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONE_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_DISPLAY: PHONE_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_LAMPMODE: PHONE_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_RINGMODE: PHONE_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_RINGVOLUME: PHONE_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_HOOKSWITCH: PHONE_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_CAPSCHANGE: PHONE_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_BUTTON: PHONE_EVENT = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_CLOSE: PHONE_EVENT = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_NUMBERGATHERED: PHONE_EVENT = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_DIALING: PHONE_EVENT = 9i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_ANSWER: PHONE_EVENT = 10i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_DISCONNECT: PHONE_EVENT = 11i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_LASTITEM: PHONE_EVENT = 11i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONE_HOOK_SWITCH_DEVICE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PHSD_HANDSET: PHONE_HOOK_SWITCH_DEVICE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PHSD_SPEAKERPHONE: PHONE_HOOK_SWITCH_DEVICE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PHSD_HEADSET: PHONE_HOOK_SWITCH_DEVICE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONE_HOOK_SWITCH_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PHSS_ONHOOK: PHONE_HOOK_SWITCH_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PHSS_OFFHOOK_MIC_ONLY: PHONE_HOOK_SWITCH_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PHSS_OFFHOOK_SPEAKER_ONLY: PHONE_HOOK_SWITCH_STATE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PHSS_OFFHOOK: PHONE_HOOK_SWITCH_STATE = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONE_LAMP_MODE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const LM_DUMMY: PHONE_LAMP_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const LM_OFF: PHONE_LAMP_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const LM_STEADY: PHONE_LAMP_MODE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const LM_WINK: PHONE_LAMP_MODE = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const LM_FLASH: PHONE_LAMP_MODE = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const LM_FLUTTER: PHONE_LAMP_MODE = 32i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const LM_BROKENFLUTTER: PHONE_LAMP_MODE = 64i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const LM_UNKNOWN: PHONE_LAMP_MODE = 128i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONE_PRIVILEGE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PP_OWNER: PHONE_PRIVILEGE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PP_MONITOR: PHONE_PRIVILEGE = 1i32;
 pub const PHONE_REMOVE: i32 = 26i32;
 pub const PHONE_REPLY: i32 = 17i32;
 pub const PHONE_STATE: i32 = 18i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONE_TONE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADZERO: PHONE_TONE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADONE: PHONE_TONE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADTWO: PHONE_TONE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADTHREE: PHONE_TONE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADFOUR: PHONE_TONE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADFIVE: PHONE_TONE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADSIX: PHONE_TONE = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADSEVEN: PHONE_TONE = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADEIGHT: PHONE_TONE = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADNINE: PHONE_TONE = 9i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADSTAR: PHONE_TONE = 10i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADPOUND: PHONE_TONE = 11i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADA: PHONE_TONE = 12i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADB: PHONE_TONE = 13i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADC: PHONE_TONE = 14i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADD: PHONE_TONE = 15i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_NORMALDIALTONE: PHONE_TONE = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_EXTERNALDIALTONE: PHONE_TONE = 17i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_BUSY: PHONE_TONE = 18i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_RINGBACK: PHONE_TONE = 19i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_ERRORTONE: PHONE_TONE = 20i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_SILENCE: PHONE_TONE = 21i32;
 pub const PRIVATEOBJECT_ADDRESS: u32 = 6u32;
 pub const PRIVATEOBJECT_CALL: u32 = 4u32;
@@ -3616,25 +4397,40 @@ pub const PRIVATEOBJECT_CALLID: u32 = 2u32;
 pub const PRIVATEOBJECT_LINE: u32 = 3u32;
 pub const PRIVATEOBJECT_NONE: u32 = 1u32;
 pub const PRIVATEOBJECT_PHONE: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type QOS_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const QE_NOQOS: QOS_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const QE_ADMISSIONFAILURE: QOS_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const QE_POLICYFAILURE: QOS_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const QE_GENERICERROR: QOS_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const QE_LASTITEM: QOS_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type QOS_SERVICE_LEVEL = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const QSL_NEEDED: QOS_SERVICE_LEVEL = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const QSL_IF_AVAILABLE: QOS_SERVICE_LEVEL = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const QSL_BEST_EFFORT: QOS_SERVICE_LEVEL = 3i32;
 pub const RENDBIND_AUTHENTICATE: u32 = 1u32;
 pub const RENDBIND_DEFAULTCREDENTIALS: u32 = 14u32;
 pub const RENDBIND_DEFAULTDOMAINNAME: u32 = 2u32;
 pub const RENDBIND_DEFAULTPASSWORD: u32 = 8u32;
 pub const RENDBIND_DEFAULTUSERNAME: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type RND_ADVERTISING_SCOPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const RAS_LOCAL: RND_ADVERTISING_SCOPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const RAS_SITE: RND_ADVERTISING_SCOPE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const RAS_REGION: RND_ADVERTISING_SCOPE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const RAS_WORLD: RND_ADVERTISING_SCOPE = 4i32;
 pub const Rendezvous: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4043480667, data2: 52059, data3: 4560, data4: [141, 89, 0, 192, 79, 217, 26, 192] };
 pub const RequestMakeCall: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2890465248, data2: 63684, data3: 4561, data4: [160, 48, 0, 192, 79, 182, 128, 159] };
@@ -3649,6 +4445,7 @@ pub const STRM_RUNNING: u32 = 4u32;
 pub const STRM_STOPPED: u32 = 16u32;
 pub const STRM_TERMINALSELECTED: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct STnefProblem {
     pub ulComponent: u32,
     pub ulAttribute: u32,
@@ -3662,6 +4459,7 @@ impl ::core::clone::Clone for STnefProblem {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct STnefProblemArray {
     pub cProblem: u32,
     pub aProblem: [STnefProblem; 1],
@@ -3708,16 +4506,25 @@ pub const TAPIMEDIATYPE_DATAMODEM: u32 = 16u32;
 pub const TAPIMEDIATYPE_G3FAX: u32 = 32u32;
 pub const TAPIMEDIATYPE_MULTITRACK: u32 = 65536u32;
 pub const TAPIMEDIATYPE_VIDEO: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TAPIOBJECT_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_ADDRESSCREATE: TAPIOBJECT_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_ADDRESSREMOVE: TAPIOBJECT_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_REINIT: TAPIOBJECT_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_TRANSLATECHANGE: TAPIOBJECT_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_ADDRESSCLOSE: TAPIOBJECT_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_PHONECREATE: TAPIOBJECT_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_PHONEREMOVE: TAPIOBJECT_EVENT = 6i32;
 pub const TAPI_CURRENT_VERSION: u32 = 131074u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct TAPI_CUSTOMTONE {
     pub dwFrequency: u32,
     pub dwCadenceOn: u32,
@@ -3731,6 +4538,7 @@ impl ::core::clone::Clone for TAPI_CUSTOMTONE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct TAPI_DETECTTONE {
     pub dwAppSpecific: u32,
     pub dwDuration: u32,
@@ -3744,159 +4552,312 @@ impl ::core::clone::Clone for TAPI_DETECTTONE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TAPI_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_TAPIOBJECT: TAPI_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_ADDRESS: TAPI_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_CALLNOTIFICATION: TAPI_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_CALLSTATE: TAPI_EVENT = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_CALLMEDIA: TAPI_EVENT = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_CALLHUB: TAPI_EVENT = 32i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_CALLINFOCHANGE: TAPI_EVENT = 64i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_PRIVATE: TAPI_EVENT = 128i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_REQUEST: TAPI_EVENT = 256i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_AGENT: TAPI_EVENT = 512i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_AGENTSESSION: TAPI_EVENT = 1024i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_QOSEVENT: TAPI_EVENT = 2048i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_AGENTHANDLER: TAPI_EVENT = 4096i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_ACDGROUP: TAPI_EVENT = 8192i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_QUEUE: TAPI_EVENT = 16384i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_DIGITEVENT: TAPI_EVENT = 32768i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_GENERATEEVENT: TAPI_EVENT = 65536i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_ASRTERMINAL: TAPI_EVENT = 131072i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_TTSTERMINAL: TAPI_EVENT = 262144i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_FILETERMINAL: TAPI_EVENT = 524288i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_TONETERMINAL: TAPI_EVENT = 1048576i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_PHONEEVENT: TAPI_EVENT = 2097152i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_TONEEVENT: TAPI_EVENT = 4194304i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_GATHERDIGITS: TAPI_EVENT = 8388608i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_ADDRESSDEVSPECIFIC: TAPI_EVENT = 16777216i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_PHONEDEVSPECIFIC: TAPI_EVENT = 33554432i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_ADDRESSBLOCKED: ::windows_sys::core::HRESULT = -2147221462i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_ALLOCATED: ::windows_sys::core::HRESULT = -2147221498i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_BILLINGREJECTED: ::windows_sys::core::HRESULT = -2147221461i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLCENTER_GROUP_REMOVED: ::windows_sys::core::HRESULT = -2147221435i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLCENTER_INVALAGENTACTIVITY: ::windows_sys::core::HRESULT = -2147221428i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLCENTER_INVALAGENTGROUP: ::windows_sys::core::HRESULT = -2147221431i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLCENTER_INVALAGENTID: ::windows_sys::core::HRESULT = -2147221432i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLCENTER_INVALAGENTSTATE: ::windows_sys::core::HRESULT = -2147221429i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLCENTER_INVALPASSWORD: ::windows_sys::core::HRESULT = -2147221430i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLCENTER_NO_AGENT_ID: ::windows_sys::core::HRESULT = -2147221433i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLCENTER_QUEUE_REMOVED: ::windows_sys::core::HRESULT = -2147221434i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLNOTSELECTED: ::windows_sys::core::HRESULT = -2147221420i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLUNAVAIL: ::windows_sys::core::HRESULT = -2147221497i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_COMPLETIONOVERRUN: ::windows_sys::core::HRESULT = -2147221496i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CONFERENCEFULL: ::windows_sys::core::HRESULT = -2147221495i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_DESTBUSY: ::windows_sys::core::HRESULT = -2147221452i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_DESTNOANSWER: ::windows_sys::core::HRESULT = -2147221451i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_DESTUNAVAIL: ::windows_sys::core::HRESULT = -2147221450i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_DIALMODIFIERNOTSUPPORTED: ::windows_sys::core::HRESULT = -2147221494i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_DROPPED: ::windows_sys::core::HRESULT = -2147221455i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INUSE: ::windows_sys::core::HRESULT = -2147221493i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALADDRESS: ::windows_sys::core::HRESULT = -2147221492i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALADDRESSSTATE: ::windows_sys::core::HRESULT = -2147221491i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALADDRESSTYPE: ::windows_sys::core::HRESULT = -2147221423i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALBUTTONLAMPID: ::windows_sys::core::HRESULT = -2147221459i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALBUTTONSTATE: ::windows_sys::core::HRESULT = -2147221458i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALCALLPARAMS: ::windows_sys::core::HRESULT = -2147221490i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALCALLPRIVILEGE: ::windows_sys::core::HRESULT = -2147221489i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALCALLSTATE: ::windows_sys::core::HRESULT = -2147221488i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALCARD: ::windows_sys::core::HRESULT = -2147221487i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALCOMPLETIONID: ::windows_sys::core::HRESULT = -2147221486i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALCOUNTRYCODE: ::windows_sys::core::HRESULT = -2147221485i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALDATAID: ::windows_sys::core::HRESULT = -2147221457i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALDEVICECLASS: ::windows_sys::core::HRESULT = -2147221484i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALDIALPARAMS: ::windows_sys::core::HRESULT = -2147221483i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALDIGITS: ::windows_sys::core::HRESULT = -2147221482i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALFEATURE: ::windows_sys::core::HRESULT = -2147221460i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALGROUPID: ::windows_sys::core::HRESULT = -2147221481i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALHOOKSWITCHDEV: ::windows_sys::core::HRESULT = -2147221456i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALIDDIRECTION: ::windows_sys::core::HRESULT = -2147221446i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALIDMEDIATYPE: ::windows_sys::core::HRESULT = -2147221500i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALIDSTREAM: ::windows_sys::core::HRESULT = -2147221437i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALIDSTREAMSTATE: ::windows_sys::core::HRESULT = -2147221417i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALIDTERMINAL: ::windows_sys::core::HRESULT = -2147221445i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALIDTERMINALCLASS: ::windows_sys::core::HRESULT = -2147221444i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALLIST: ::windows_sys::core::HRESULT = -2147221474i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALLOCATION: ::windows_sys::core::HRESULT = -2147221480i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALMESSAGEID: ::windows_sys::core::HRESULT = -2147221479i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALMODE: ::windows_sys::core::HRESULT = -2147221473i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALPARKID: ::windows_sys::core::HRESULT = -2147221478i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALPRIVILEGE: ::windows_sys::core::HRESULT = -2147221447i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALRATE: ::windows_sys::core::HRESULT = -2147221477i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALTIMEOUT: ::windows_sys::core::HRESULT = -2147221476i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALTONE: ::windows_sys::core::HRESULT = -2147221475i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_MAXSTREAMS: ::windows_sys::core::HRESULT = -2147221442i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_MAXTERMINALS: ::windows_sys::core::HRESULT = -2147221438i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOCONFERENCE: ::windows_sys::core::HRESULT = -2147221472i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NODEVICE: ::windows_sys::core::HRESULT = -2147221471i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NODRIVER: ::windows_sys::core::HRESULT = -2147221443i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOEVENT: ::windows_sys::core::HRESULT = -2147221424i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOFORMAT: ::windows_sys::core::HRESULT = -2147221418i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOITEMS: ::windows_sys::core::HRESULT = -2147221502i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOREQUEST: ::windows_sys::core::HRESULT = -2147221470i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOREQUESTRECIPIENT: ::windows_sys::core::HRESULT = -2147221454i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOTENOUGHMEMORY: ::windows_sys::core::HRESULT = -2147221503i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOTERMINALSELECTED: ::windows_sys::core::HRESULT = -2147221441i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOTOWNER: ::windows_sys::core::HRESULT = -2147221469i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOTREGISTERED: ::windows_sys::core::HRESULT = -2147221468i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOTSTOPPED: ::windows_sys::core::HRESULT = -2147221439i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOTSUPPORTED: ::windows_sys::core::HRESULT = -2147221501i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOT_INITIALIZED: ::windows_sys::core::HRESULT = -2147221415i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_OPERATIONFAILED: ::windows_sys::core::HRESULT = -2147221499i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_PEER_NOT_SET: ::windows_sys::core::HRESULT = -2147221425i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_PHONENOTOPEN: ::windows_sys::core::HRESULT = -2147221421i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_REGISTRY_SETTING_CORRUPT: ::windows_sys::core::HRESULT = -2147221427i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_REINIT: ::windows_sys::core::HRESULT = -2147221463i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_REQUESTCANCELLED: ::windows_sys::core::HRESULT = -2147221448i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_REQUESTFAILED: ::windows_sys::core::HRESULT = -2147221449i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_REQUESTOVERRUN: ::windows_sys::core::HRESULT = -2147221467i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_REQUESTQUEUEFULL: ::windows_sys::core::HRESULT = -2147221453i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_RESOURCEUNAVAIL: ::windows_sys::core::HRESULT = -2147221422i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_SERVICE_NOT_RUNNING: ::windows_sys::core::HRESULT = -2147221414i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_TARGETNOTFOUND: ::windows_sys::core::HRESULT = -2147221466i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_TARGETSELF: ::windows_sys::core::HRESULT = -2147221465i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_TERMINALINUSE: ::windows_sys::core::HRESULT = -2147221440i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_TERMINAL_PEER: ::windows_sys::core::HRESULT = -2147221426i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_TIMEOUT: ::windows_sys::core::HRESULT = -2147221436i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_USERUSERINFOTOOBIG: ::windows_sys::core::HRESULT = -2147221464i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_WRONGEVENT: ::windows_sys::core::HRESULT = -2147221419i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_WRONG_STATE: ::windows_sys::core::HRESULT = -2147221416i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TAPI_GATHERTERM = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TGT_BUFFERFULL: TAPI_GATHERTERM = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TGT_TERMDIGIT: TAPI_GATHERTERM = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TGT_FIRSTTIMEOUT: TAPI_GATHERTERM = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TGT_INTERTIMEOUT: TAPI_GATHERTERM = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TGT_CANCEL: TAPI_GATHERTERM = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TAPI_OBJECT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TOT_NONE: TAPI_OBJECT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TOT_TAPI: TAPI_OBJECT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TOT_ADDRESS: TAPI_OBJECT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TOT_TERMINAL: TAPI_OBJECT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TOT_CALL: TAPI_OBJECT_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TOT_CALLHUB: TAPI_OBJECT_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TOT_PHONE: TAPI_OBJECT_TYPE = 6i32;
 pub const TAPI_REPLY: u32 = 1123u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TAPI_TONEMODE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TTM_RINGBACK: TAPI_TONEMODE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TTM_BUSY: TAPI_TONEMODE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TTM_BEEP: TAPI_TONEMODE = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TTM_BILLING: TAPI_TONEMODE = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TERMINAL_DIRECTION = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TD_CAPTURE: TERMINAL_DIRECTION = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TD_RENDER: TERMINAL_DIRECTION = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TD_BIDIRECTIONAL: TERMINAL_DIRECTION = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TD_MULTITRACK_MIXED: TERMINAL_DIRECTION = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TD_NONE: TERMINAL_DIRECTION = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TERMINAL_MEDIA_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TMS_IDLE: TERMINAL_MEDIA_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TMS_ACTIVE: TERMINAL_MEDIA_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TMS_PAUSED: TERMINAL_MEDIA_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TMS_LASTITEM: TERMINAL_MEDIA_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TERMINAL_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TS_INUSE: TERMINAL_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TS_NOTINUSE: TERMINAL_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TERMINAL_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TT_STATIC: TERMINAL_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TT_DYNAMIC: TERMINAL_TYPE = 1i32;
 pub const TSPI_LINEACCEPT: u32 = 500u32;
 pub const TSPI_LINEADDTOCONFERENCE: u32 = 501u32;
@@ -4011,6 +4972,7 @@ pub const TSPI_PROVIDERINSTALL: u32 = 592u32;
 pub const TSPI_PROVIDERREMOVE: u32 = 593u32;
 pub const TSPI_PROVIDERSHUTDOWN: u32 = 594u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TUISPICREATEDIALOGINSTANCEPARAMS {
     pub dwRequestID: u32,
@@ -4028,12 +4990,14 @@ impl ::core::clone::Clone for TUISPICREATEDIALOGINSTANCEPARAMS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TUISPIDLLCALLBACK = ::core::option::Option<unsafe extern "system" fn(dwobjectid: usize, dwobjecttype: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32>;
 pub const TUISPIDLL_OBJECT_DIALOGINSTANCE: i32 = 4i32;
 pub const TUISPIDLL_OBJECT_LINEID: i32 = 1i32;
 pub const TUISPIDLL_OBJECT_PHONEID: i32 = 2i32;
 pub const TUISPIDLL_OBJECT_PROVIDERID: i32 = 3i32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct VARSTRING {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -4049,6 +5013,7 @@ impl ::core::clone::Clone for VARSTRING {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct _ADDR_ALIAS {
     pub rgchName: [super::super::Foundation::CHAR; 41],
@@ -4066,6 +5031,7 @@ impl ::core::clone::Clone for _ADDR_ALIAS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct _dtr {
     pub wYear: u16,
     pub wMonth: u16,
@@ -4082,6 +5048,7 @@ impl ::core::clone::Clone for _dtr {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct _renddata {
     pub atyp: u16,
     pub ulPosition: u32,
@@ -4096,6 +5063,7 @@ impl ::core::clone::Clone for _renddata {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct _trp {
     pub trpid: u16,
     pub cbgrtrp: u16,
@@ -4114,6 +5082,7 @@ pub const atypNull: i32 = 0i32;
 pub const atypOle: i32 = 2i32;
 pub const atypPicture: i32 = 3i32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct linereqmakecallW_tag {
     pub szDestAddress: [u16; 80],
     pub szAppName: [u16; 40],
@@ -4127,6 +5096,7 @@ impl ::core::clone::Clone for linereqmakecallW_tag {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct linereqmediacallW_tag {
     pub hWnd: super::super::Foundation::HWND,

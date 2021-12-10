@@ -22,6 +22,7 @@ impl HolographicApplicationPreview {
 impl ::windows::core::RuntimeName for HolographicApplicationPreview {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Holographic.HolographicApplicationPreview";
 }
+#[doc = "*Required features: 'ApplicationModel_Preview_Holographic', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct HolographicKeyboardPlacementOverridePreview(::windows::core::IUnknown);

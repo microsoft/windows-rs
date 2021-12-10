@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Security_Authentication_Web_Core'*"]
 #[repr(transparent)]
 pub struct FindAllAccountsResult(::windows::core::IUnknown);
 impl FindAllAccountsResult {
@@ -88,6 +89,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Find
 }
 unsafe impl ::core::marker::Send for FindAllAccountsResult {}
 unsafe impl ::core::marker::Sync for FindAllAccountsResult {}
+#[doc = "*Required features: 'Security_Authentication_Web_Core'*"]
 #[repr(transparent)]
 pub struct FindAllWebAccountsStatus(pub i32);
 impl FindAllWebAccountsStatus {
@@ -497,6 +499,7 @@ pub struct IWebTokenResponseFactoryVtbl(
     #[cfg(feature = "Security_Credentials")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, webaccount: ::windows::core::RawPtr, error: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Security_Credentials"))] usize,
 );
+#[doc = "*Required features: 'Security_Authentication_Web_Core'*"]
 #[repr(transparent)]
 pub struct WebAccountEventArgs(::windows::core::IUnknown);
 impl WebAccountEventArgs {
@@ -572,6 +575,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebA
 }
 unsafe impl ::core::marker::Send for WebAccountEventArgs {}
 unsafe impl ::core::marker::Sync for WebAccountEventArgs {}
+#[doc = "*Required features: 'Security_Authentication_Web_Core'*"]
 #[repr(transparent)]
 pub struct WebAccountMonitor(::windows::core::IUnknown);
 impl WebAccountMonitor {
@@ -811,6 +815,7 @@ impl WebAuthenticationCoreManager {
 impl ::windows::core::RuntimeName for WebAuthenticationCoreManager {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAuthenticationCoreManager";
 }
+#[doc = "*Required features: 'Security_Authentication_Web_Core'*"]
 #[repr(transparent)]
 pub struct WebProviderError(::windows::core::IUnknown);
 impl WebProviderError {
@@ -910,6 +915,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebP
 }
 unsafe impl ::core::marker::Send for WebProviderError {}
 unsafe impl ::core::marker::Sync for WebProviderError {}
+#[doc = "*Required features: 'Security_Authentication_Web_Core'*"]
 #[repr(transparent)]
 pub struct WebTokenRequest(::windows::core::IUnknown);
 impl WebTokenRequest {
@@ -1065,6 +1071,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebT
 }
 unsafe impl ::core::marker::Send for WebTokenRequest {}
 unsafe impl ::core::marker::Sync for WebTokenRequest {}
+#[doc = "*Required features: 'Security_Authentication_Web_Core'*"]
 #[repr(transparent)]
 pub struct WebTokenRequestPromptType(pub i32);
 impl WebTokenRequestPromptType {
@@ -1092,6 +1099,7 @@ unsafe impl ::windows::core::RuntimeType for WebTokenRequestPromptType {
 impl ::windows::core::DefaultType for WebTokenRequestPromptType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Web_Core'*"]
 #[repr(transparent)]
 pub struct WebTokenRequestResult(::windows::core::IUnknown);
 impl WebTokenRequestResult {
@@ -1189,6 +1197,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebT
 }
 unsafe impl ::core::marker::Send for WebTokenRequestResult {}
 unsafe impl ::core::marker::Sync for WebTokenRequestResult {}
+#[doc = "*Required features: 'Security_Authentication_Web_Core'*"]
 #[repr(transparent)]
 pub struct WebTokenRequestStatus(pub i32);
 impl WebTokenRequestStatus {
@@ -1220,6 +1229,7 @@ unsafe impl ::windows::core::RuntimeType for WebTokenRequestStatus {
 impl ::windows::core::DefaultType for WebTokenRequestStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Web_Core'*"]
 #[repr(transparent)]
 pub struct WebTokenResponse(::windows::core::IUnknown);
 impl WebTokenResponse {

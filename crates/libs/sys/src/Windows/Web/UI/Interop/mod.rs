@@ -3,6 +3,7 @@
 extern "system" {}
 pub type WebViewControl = *mut ::core::ffi::c_void;
 pub type WebViewControlAcceleratorKeyPressedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Web_UI_Interop'*"]
 #[repr(transparent)]
 pub struct WebViewControlAcceleratorKeyRoutingStage(pub i32);
 impl WebViewControlAcceleratorKeyRoutingStage {
@@ -15,6 +16,7 @@ impl ::core::clone::Clone for WebViewControlAcceleratorKeyRoutingStage {
         *self
     }
 }
+#[doc = "*Required features: 'Web_UI_Interop'*"]
 #[repr(transparent)]
 pub struct WebViewControlMoveFocusReason(pub i32);
 impl WebViewControlMoveFocusReason {
@@ -30,6 +32,7 @@ impl ::core::clone::Clone for WebViewControlMoveFocusReason {
 }
 pub type WebViewControlMoveFocusRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type WebViewControlProcess = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Web_UI_Interop'*"]
 #[repr(transparent)]
 pub struct WebViewControlProcessCapabilityState(pub i32);
 impl WebViewControlProcessCapabilityState {

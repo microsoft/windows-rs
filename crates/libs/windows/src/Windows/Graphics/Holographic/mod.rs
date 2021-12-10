@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 pub struct HolographicAdapterId {
     pub LowPart: u32,
     pub HighPart: i32,
@@ -30,6 +31,7 @@ impl ::core::default::Default for HolographicAdapterId {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicCamera(::windows::core::IUnknown);
 impl HolographicCamera {
@@ -217,6 +219,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
 }
 unsafe impl ::core::marker::Send for HolographicCamera {}
 unsafe impl ::core::marker::Sync for HolographicCamera {}
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicCameraPose(::windows::core::IUnknown);
 impl HolographicCameraPose {
@@ -360,6 +363,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
 }
 unsafe impl ::core::marker::Send for HolographicCameraPose {}
 unsafe impl ::core::marker::Sync for HolographicCameraPose {}
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicCameraRenderingParameters(::windows::core::IUnknown);
 impl HolographicCameraRenderingParameters {
@@ -496,6 +500,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
 }
 unsafe impl ::core::marker::Send for HolographicCameraRenderingParameters {}
 unsafe impl ::core::marker::Sync for HolographicCameraRenderingParameters {}
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicCameraViewportParameters(::windows::core::IUnknown);
 impl HolographicCameraViewportParameters {
@@ -579,6 +584,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
 }
 unsafe impl ::core::marker::Send for HolographicCameraViewportParameters {}
 unsafe impl ::core::marker::Sync for HolographicCameraViewportParameters {}
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicDepthReprojectionMethod(pub i32);
 impl HolographicDepthReprojectionMethod {
@@ -606,6 +612,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicDepthReprojectionMethod 
 impl ::windows::core::DefaultType for HolographicDepthReprojectionMethod {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicDisplay(::windows::core::IUnknown);
 impl HolographicDisplay {
@@ -741,6 +748,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
 }
 unsafe impl ::core::marker::Send for HolographicDisplay {}
 unsafe impl ::core::marker::Sync for HolographicDisplay {}
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicFrame(::windows::core::IUnknown);
 impl HolographicFrame {
@@ -883,6 +891,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
 unsafe impl ::core::marker::Send for HolographicFrame {}
 unsafe impl ::core::marker::Sync for HolographicFrame {}
 #[repr(C)]
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 pub struct HolographicFrameId {
     pub Value: u64,
 }
@@ -912,6 +921,7 @@ impl ::core::default::Default for HolographicFrameId {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicFramePrediction(::windows::core::IUnknown);
 impl HolographicFramePrediction {
@@ -995,6 +1005,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
 }
 unsafe impl ::core::marker::Send for HolographicFramePrediction {}
 unsafe impl ::core::marker::Sync for HolographicFramePrediction {}
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicFramePresentResult(pub i32);
 impl HolographicFramePresentResult {
@@ -1022,6 +1033,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicFramePresentResult {
 impl ::windows::core::DefaultType for HolographicFramePresentResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicFramePresentWaitBehavior(pub i32);
 impl HolographicFramePresentWaitBehavior {
@@ -1049,6 +1061,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicFramePresentWaitBehavior
 impl ::windows::core::DefaultType for HolographicFramePresentWaitBehavior {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Holographic', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct HolographicFramePresentationMonitor(::windows::core::IUnknown);
@@ -1173,6 +1186,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 unsafe impl ::core::marker::Send for HolographicFramePresentationMonitor {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for HolographicFramePresentationMonitor {}
+#[doc = "*Required features: 'Graphics_Holographic', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct HolographicFramePresentationReport(::windows::core::IUnknown);
@@ -1298,6 +1312,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
 unsafe impl ::core::marker::Send for HolographicFramePresentationReport {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for HolographicFramePresentationReport {}
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicFrameRenderingReport(::windows::core::IUnknown);
 impl HolographicFrameRenderingReport {
@@ -1403,6 +1418,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
 }
 unsafe impl ::core::marker::Send for HolographicFrameRenderingReport {}
 unsafe impl ::core::marker::Sync for HolographicFrameRenderingReport {}
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicFrameScanoutMonitor(::windows::core::IUnknown);
 impl HolographicFrameScanoutMonitor {
@@ -1509,6 +1525,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for HolographicFrameScanoutMonitor {}
 unsafe impl ::core::marker::Sync for HolographicFrameScanoutMonitor {}
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicFrameScanoutReport(::windows::core::IUnknown);
 impl HolographicFrameScanoutReport {
@@ -1614,6 +1631,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
 }
 unsafe impl ::core::marker::Send for HolographicFrameScanoutReport {}
 unsafe impl ::core::marker::Sync for HolographicFrameScanoutReport {}
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicQuadLayer(::windows::core::IUnknown);
 impl HolographicQuadLayer {
@@ -1746,6 +1764,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for HolographicQuadLayer {}
 unsafe impl ::core::marker::Sync for HolographicQuadLayer {}
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicQuadLayerUpdateParameters(::windows::core::IUnknown);
 impl HolographicQuadLayerUpdateParameters {
@@ -1860,6 +1879,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
 }
 unsafe impl ::core::marker::Send for HolographicQuadLayerUpdateParameters {}
 unsafe impl ::core::marker::Sync for HolographicQuadLayerUpdateParameters {}
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicReprojectionMode(pub i32);
 impl HolographicReprojectionMode {
@@ -1888,6 +1908,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicReprojectionMode {
 impl ::windows::core::DefaultType for HolographicReprojectionMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicSpace(::windows::core::IUnknown);
 impl HolographicSpace {
@@ -2092,6 +2113,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
 }
 unsafe impl ::core::marker::Send for HolographicSpace {}
 unsafe impl ::core::marker::Sync for HolographicSpace {}
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicSpaceCameraAddedEventArgs(::windows::core::IUnknown);
 impl HolographicSpaceCameraAddedEventArgs {
@@ -2174,6 +2196,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
 }
 unsafe impl ::core::marker::Send for HolographicSpaceCameraAddedEventArgs {}
 unsafe impl ::core::marker::Sync for HolographicSpaceCameraAddedEventArgs {}
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicSpaceCameraRemovedEventArgs(::windows::core::IUnknown);
 impl HolographicSpaceCameraRemovedEventArgs {
@@ -2248,6 +2271,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
 }
 unsafe impl ::core::marker::Send for HolographicSpaceCameraRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for HolographicSpaceCameraRemovedEventArgs {}
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicSpaceUserPresence(pub i32);
 impl HolographicSpaceUserPresence {
@@ -2277,6 +2301,7 @@ impl ::windows::core::DefaultType for HolographicSpaceUserPresence {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Graphics_Holographic', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct HolographicStereoTransform {
     pub Left: super::super::Foundation::Numerics::Matrix4x4,
@@ -2316,6 +2341,7 @@ impl ::core::default::Default for HolographicStereoTransform {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicViewConfiguration(::windows::core::IUnknown);
 impl HolographicViewConfiguration {
@@ -2475,6 +2501,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Holo
 }
 unsafe impl ::core::marker::Send for HolographicViewConfiguration {}
 unsafe impl ::core::marker::Sync for HolographicViewConfiguration {}
+#[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
 pub struct HolographicViewConfigurationKind(pub i32);
 impl HolographicViewConfigurationKind {

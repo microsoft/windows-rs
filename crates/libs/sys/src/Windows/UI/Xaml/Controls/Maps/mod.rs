@@ -6,6 +6,7 @@ pub type HttpMapTileDataSource = *mut ::core::ffi::c_void;
 pub type LocalMapTileDataSource = *mut ::core::ffi::c_void;
 pub type MapActualCameraChangedEventArgs = *mut ::core::ffi::c_void;
 pub type MapActualCameraChangingEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapAnimationKind(pub i32);
 impl MapAnimationKind {
@@ -22,6 +23,7 @@ impl ::core::clone::Clone for MapAnimationKind {
 }
 pub type MapBillboard = *mut ::core::ffi::c_void;
 pub type MapCamera = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapCameraChangeReason(pub i32);
 impl MapCameraChangeReason {
@@ -35,6 +37,7 @@ impl ::core::clone::Clone for MapCameraChangeReason {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapColorScheme(pub i32);
 impl MapColorScheme {
@@ -63,6 +66,7 @@ pub type MapCustomExperienceChangedEventArgs = *mut ::core::ffi::c_void;
 pub type MapElement = *mut ::core::ffi::c_void;
 pub type MapElement3D = *mut ::core::ffi::c_void;
 pub type MapElementClickEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapElementCollisionBehavior(pub i32);
 impl MapElementCollisionBehavior {
@@ -84,6 +88,7 @@ pub type MapElementsLayerPointerEnteredEventArgs = *mut ::core::ffi::c_void;
 pub type MapElementsLayerPointerExitedEventArgs = *mut ::core::ffi::c_void;
 pub type MapIcon = *mut ::core::ffi::c_void;
 pub type MapInputEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapInteractionMode(pub i32);
 impl MapInteractionMode {
@@ -104,6 +109,7 @@ impl ::core::clone::Clone for MapInteractionMode {
 }
 pub type MapItemsControl = *mut ::core::ffi::c_void;
 pub type MapLayer = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapLoadingStatus(pub i32);
 impl MapLoadingStatus {
@@ -119,6 +125,7 @@ impl ::core::clone::Clone for MapLoadingStatus {
     }
 }
 pub type MapModel3D = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapModel3DShadingOption(pub i32);
 impl MapModel3DShadingOption {
@@ -132,6 +139,7 @@ impl ::core::clone::Clone for MapModel3DShadingOption {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapPanInteractionMode(pub i32);
 impl MapPanInteractionMode {
@@ -146,6 +154,7 @@ impl ::core::clone::Clone for MapPanInteractionMode {
 }
 pub type MapPolygon = *mut ::core::ffi::c_void;
 pub type MapPolyline = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapProjection(pub i32);
 impl MapProjection {
@@ -161,6 +170,7 @@ impl ::core::clone::Clone for MapProjection {
 pub type MapRightTappedEventArgs = *mut ::core::ffi::c_void;
 pub type MapRouteView = *mut ::core::ffi::c_void;
 pub type MapScene = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapStyle(pub i32);
 impl MapStyle {
@@ -181,6 +191,7 @@ impl ::core::clone::Clone for MapStyle {
 }
 pub type MapStyleSheet = *mut ::core::ffi::c_void;
 pub type MapTargetCameraChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapTileAnimationState(pub i32);
 impl MapTileAnimationState {
@@ -198,6 +209,7 @@ pub type MapTileBitmapRequest = *mut ::core::ffi::c_void;
 pub type MapTileBitmapRequestDeferral = *mut ::core::ffi::c_void;
 pub type MapTileBitmapRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type MapTileDataSource = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapTileLayer(pub i32);
 impl MapTileLayer {
@@ -217,6 +229,7 @@ pub type MapTileSource = *mut ::core::ffi::c_void;
 pub type MapTileUriRequest = *mut ::core::ffi::c_void;
 pub type MapTileUriRequestDeferral = *mut ::core::ffi::c_void;
 pub type MapTileUriRequestedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapVisibleRegionKind(pub i32);
 impl MapVisibleRegionKind {
@@ -229,6 +242,7 @@ impl ::core::clone::Clone for MapVisibleRegionKind {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
 pub struct MapWatermarkMode(pub i32);
 impl MapWatermarkMode {
@@ -242,6 +256,7 @@ impl ::core::clone::Clone for MapWatermarkMode {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 pub struct MapZoomLevelRange {
     pub Min: f64,
     pub Max: f64,

@@ -21,6 +21,7 @@ pub type BarcodeScannerStartSoftwareTriggerRequest = *mut ::core::ffi::c_void;
 pub type BarcodeScannerStartSoftwareTriggerRequestEventArgs = *mut ::core::ffi::c_void;
 pub type BarcodeScannerStopSoftwareTriggerRequest = *mut ::core::ffi::c_void;
 pub type BarcodeScannerStopSoftwareTriggerRequestEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerTriggerState(pub i32);
 impl BarcodeScannerTriggerState {

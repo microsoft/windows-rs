@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_WinRT_Holographic'*"]
 #[repr(transparent)]
 pub struct IHolographicCameraInterop(::windows::core::IUnknown);
 impl IHolographicCameraInterop {
@@ -100,6 +101,7 @@ pub struct IHolographicCameraInteropVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presourcetounacquire: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_WinRT_Holographic'*"]
 #[repr(transparent)]
 pub struct IHolographicCameraRenderingParametersInterop(::windows::core::IUnknown);
 impl IHolographicCameraRenderingParametersInterop {
@@ -181,6 +183,7 @@ pub struct IHolographicCameraRenderingParametersInteropVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcolorresourcetocommit: ::windows::core::RawPtr, pcolorresourcefence: ::windows::core::RawPtr, colorresourcefencesignalvalue: u64, pdepthresourcetocommit: ::windows::core::RawPtr, pdepthresourcefence: ::windows::core::RawPtr, depthresourcefencesignalvalue: u64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_WinRT_Holographic'*"]
 #[repr(transparent)]
 pub struct IHolographicQuadLayerInterop(::windows::core::IUnknown);
 impl IHolographicQuadLayerInterop {
@@ -282,6 +285,7 @@ pub struct IHolographicQuadLayerInteropVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presourcetounacquire: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_WinRT_Holographic'*"]
 #[repr(transparent)]
 pub struct IHolographicQuadLayerUpdateParametersInterop(::windows::core::IUnknown);
 impl IHolographicQuadLayerUpdateParametersInterop {

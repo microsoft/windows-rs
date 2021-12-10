@@ -7,6 +7,7 @@ pub type MediaClip = *mut ::core::ffi::c_void;
 pub type MediaComposition = *mut ::core::ffi::c_void;
 pub type MediaOverlay = *mut ::core::ffi::c_void;
 pub type MediaOverlayLayer = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Editing'*"]
 #[repr(transparent)]
 pub struct MediaTrimmingPreference(pub i32);
 impl MediaTrimmingPreference {
@@ -19,6 +20,7 @@ impl ::core::clone::Clone for MediaTrimmingPreference {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Editing'*"]
 #[repr(transparent)]
 pub struct VideoFramePrecision(pub i32);
 impl VideoFramePrecision {

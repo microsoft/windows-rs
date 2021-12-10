@@ -7,6 +7,7 @@ pub const CGD_STRING_PROPERTY: u32 = 1u32;
 pub const CGD_UNKNOWN_PROPERTY: u32 = 0u32;
 pub const CLSID_ContactAggregationManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96c8ad95_c199_44de_b34e_ac33c442df39);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 pub struct CONTACT_AGGREGATION_BLOB {
     pub dwCount: u32,
     pub lpb: *mut u8,
@@ -31,15 +32,23 @@ impl ::core::default::Default for CONTACT_AGGREGATION_BLOB {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 pub type CONTACT_AGGREGATION_COLLECTION_OPTIONS = i32;
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 pub const CACO_DEFAULT: CONTACT_AGGREGATION_COLLECTION_OPTIONS = 0i32;
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 pub const CACO_INCLUDE_EXTERNAL: CONTACT_AGGREGATION_COLLECTION_OPTIONS = 1i32;
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 pub const CACO_EXTERNAL_ONLY: CONTACT_AGGREGATION_COLLECTION_OPTIONS = 2i32;
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 pub type CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS = i32;
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 pub const CA_CREATE_LOCAL: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS = 0i32;
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 pub const CA_CREATE_EXTERNAL: CONTACT_AGGREGATION_CREATE_OR_OPEN_OPTIONS = 1i32;
 pub const Contact: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61b68808_8eee_4fd1_acb8_3d804c8db056);
 pub const ContactManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7165c8ab_af88_42bd_86fd_5310b4285a02);
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 #[repr(transparent)]
 pub struct IContact(::windows::core::IUnknown);
 impl IContact {
@@ -102,6 +111,7 @@ pub struct IContactVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcommitflags: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 #[repr(transparent)]
 pub struct IContactAggregationAggregate(::windows::core::IUnknown);
 impl IContactAggregationAggregate {
@@ -197,6 +207,7 @@ pub struct IContactAggregationAggregateVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppitemid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 #[repr(transparent)]
 pub struct IContactAggregationAggregateCollection(::windows::core::IUnknown);
 impl IContactAggregationAggregateCollection {
@@ -265,6 +276,7 @@ pub struct IContactAggregationAggregateCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaggregate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 #[repr(transparent)]
 pub struct IContactAggregationContact(::windows::core::IUnknown);
 impl IContactAggregationContact {
@@ -410,6 +422,7 @@ pub struct IContactAggregationContactVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsyncidentityhash: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 #[repr(transparent)]
 pub struct IContactAggregationContactCollection(::windows::core::IUnknown);
 impl IContactAggregationContactCollection {
@@ -485,6 +498,7 @@ pub struct IContactAggregationContactCollectionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psourcetype: super::super::Foundation::PWSTR, paccountid: super::super::Foundation::PWSTR, premoteobjectid: *const CONTACT_AGGREGATION_BLOB, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 #[repr(transparent)]
 pub struct IContactAggregationGroup(::windows::core::IUnknown);
 impl IContactAggregationGroup {
@@ -585,6 +599,7 @@ pub struct IContactAggregationGroupVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 #[repr(transparent)]
 pub struct IContactAggregationGroupCollection(::windows::core::IUnknown);
 impl IContactAggregationGroupCollection {
@@ -651,6 +666,7 @@ pub struct IContactAggregationGroupCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 #[repr(transparent)]
 pub struct IContactAggregationLink(::windows::core::IUnknown);
 impl IContactAggregationLink {
@@ -795,6 +811,7 @@ pub struct IContactAggregationLinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsyncidentityhash: *mut *mut CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psyncidentityhash: *const CONTACT_AGGREGATION_BLOB) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 #[repr(transparent)]
 pub struct IContactAggregationLinkCollection(::windows::core::IUnknown);
 impl IContactAggregationLinkCollection {
@@ -863,6 +880,7 @@ pub struct IContactAggregationLinkCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppservercontactlink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 #[repr(transparent)]
 pub struct IContactAggregationManager(::windows::core::IUnknown);
 impl IContactAggregationManager {
@@ -993,6 +1011,7 @@ pub struct IContactAggregationManagerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppersonitemid: super::super::Foundation::PWSTR, ppservercontactlinkcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 #[repr(transparent)]
 pub struct IContactAggregationServerPerson(::windows::core::IUnknown);
 impl IContactAggregationServerPerson {
@@ -1168,6 +1187,7 @@ pub struct IContactAggregationServerPersonVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobjectid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 #[repr(transparent)]
 pub struct IContactAggregationServerPersonCollection(::windows::core::IUnknown);
 impl IContactAggregationServerPersonCollection {
@@ -1250,6 +1270,7 @@ pub struct IContactAggregationServerPersonCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppserverperson: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 #[repr(transparent)]
 pub struct IContactCollection(::windows::core::IUnknown);
 impl IContactCollection {
@@ -1309,6 +1330,7 @@ pub struct IContactCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontact: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 #[repr(transparent)]
 pub struct IContactManager(::windows::core::IUnknown);
 impl IContactManager {
@@ -1388,6 +1410,7 @@ pub struct IContactManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmecontact: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontactcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 #[repr(transparent)]
 pub struct IContactProperties(::windows::core::IUnknown);
 impl IContactProperties {
@@ -1512,6 +1535,7 @@ pub struct IContactPropertiesVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppropertycollection: *mut ::windows::core::RawPtr, dwflags: u32, pszmultivaluename: super::super::Foundation::PWSTR, dwlabelcount: u32, ppszlabels: *const super::super::Foundation::PWSTR, fanylabelmatches: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Contacts'*"]
 #[repr(transparent)]
 pub struct IContactPropertyCollection(::windows::core::IUnknown);
 impl IContactPropertyCollection {

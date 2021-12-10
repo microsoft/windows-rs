@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct BufferProtectUnprotectResult(::windows::core::IUnknown);
 impl BufferProtectUnprotectResult {
@@ -81,6 +82,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Buff
 }
 unsafe impl ::core::marker::Send for BufferProtectUnprotectResult {}
 unsafe impl ::core::marker::Sync for BufferProtectUnprotectResult {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct DataProtectionInfo(::windows::core::IUnknown);
 impl DataProtectionInfo {
@@ -214,6 +216,7 @@ impl DataProtectionManager {
 impl ::windows::core::RuntimeName for DataProtectionManager {
     const NAME: &'static str = "Windows.Security.EnterpriseData.DataProtectionManager";
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct DataProtectionStatus(pub i32);
 impl DataProtectionStatus {
@@ -245,6 +248,7 @@ unsafe impl ::windows::core::RuntimeType for DataProtectionStatus {
 impl ::windows::core::DefaultType for DataProtectionStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct EnforcementLevel(pub i32);
 impl EnforcementLevel {
@@ -274,6 +278,7 @@ unsafe impl ::windows::core::RuntimeType for EnforcementLevel {
 impl ::windows::core::DefaultType for EnforcementLevel {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct FileProtectionInfo(::windows::core::IUnknown);
 impl FileProtectionInfo {
@@ -471,6 +476,7 @@ impl FileProtectionManager {
 impl ::windows::core::RuntimeName for FileProtectionManager {
     const NAME: &'static str = "Windows.Security.EnterpriseData.FileProtectionManager";
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct FileProtectionStatus(pub i32);
 impl FileProtectionStatus {
@@ -543,6 +549,7 @@ impl FileRevocationManager {
 impl ::windows::core::RuntimeName for FileRevocationManager {
     const NAME: &'static str = "Windows.Security.EnterpriseData.FileRevocationManager";
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct FileUnprotectOptions(::windows::core::IUnknown);
 impl FileUnprotectOptions {
@@ -1230,6 +1237,7 @@ pub struct IThreadNetworkContextVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectedAccessResumedEventArgs(::windows::core::IUnknown);
 impl ProtectedAccessResumedEventArgs {
@@ -1305,6 +1313,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
 }
 unsafe impl ::core::marker::Send for ProtectedAccessResumedEventArgs {}
 unsafe impl ::core::marker::Sync for ProtectedAccessResumedEventArgs {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectedAccessSuspendingEventArgs(::windows::core::IUnknown);
 impl ProtectedAccessSuspendingEventArgs {
@@ -1396,6 +1405,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
 }
 unsafe impl ::core::marker::Send for ProtectedAccessSuspendingEventArgs {}
 unsafe impl ::core::marker::Sync for ProtectedAccessSuspendingEventArgs {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectedContainerExportResult(::windows::core::IUnknown);
 impl ProtectedContainerExportResult {
@@ -1478,6 +1488,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
 }
 unsafe impl ::core::marker::Send for ProtectedContainerExportResult {}
 unsafe impl ::core::marker::Sync for ProtectedContainerExportResult {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectedContainerImportResult(::windows::core::IUnknown);
 impl ProtectedContainerImportResult {
@@ -1560,6 +1571,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
 }
 unsafe impl ::core::marker::Send for ProtectedContainerImportResult {}
 unsafe impl ::core::marker::Sync for ProtectedContainerImportResult {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectedContentRevokedEventArgs(::windows::core::IUnknown);
 impl ProtectedContentRevokedEventArgs {
@@ -1635,6 +1647,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
 }
 unsafe impl ::core::marker::Send for ProtectedContentRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for ProtectedContentRevokedEventArgs {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectedFileCreateResult(::windows::core::IUnknown);
 impl ProtectedFileCreateResult {
@@ -1725,6 +1738,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
 }
 unsafe impl ::core::marker::Send for ProtectedFileCreateResult {}
 unsafe impl ::core::marker::Sync for ProtectedFileCreateResult {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectedImportExportStatus(pub i32);
 impl ProtectedImportExportStatus {
@@ -1758,6 +1772,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectedImportExportStatus {
 impl ::windows::core::DefaultType for ProtectedImportExportStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectionPolicyAuditAction(pub i32);
 impl ProtectionPolicyAuditAction {
@@ -1787,6 +1802,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectionPolicyAuditAction {
 impl ::windows::core::DefaultType for ProtectionPolicyAuditAction {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectionPolicyAuditInfo(::windows::core::IUnknown);
 impl ProtectionPolicyAuditInfo {
@@ -1914,6 +1930,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
 }
 unsafe impl ::core::marker::Send for ProtectionPolicyAuditInfo {}
 unsafe impl ::core::marker::Sync for ProtectionPolicyAuditInfo {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectionPolicyEvaluationResult(pub i32);
 impl ProtectionPolicyEvaluationResult {
@@ -1942,6 +1959,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectionPolicyEvaluationResult {
 impl ::windows::core::DefaultType for ProtectionPolicyEvaluationResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectionPolicyManager(::windows::core::IUnknown);
 impl ProtectionPolicyManager {
@@ -2290,6 +2308,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
 }
 unsafe impl ::core::marker::Send for ProtectionPolicyManager {}
 unsafe impl ::core::marker::Sync for ProtectionPolicyManager {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectionPolicyRequestAccessBehavior(pub i32);
 impl ProtectionPolicyRequestAccessBehavior {
@@ -2317,6 +2336,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectionPolicyRequestAccessBehavi
 impl ::windows::core::DefaultType for ProtectionPolicyRequestAccessBehavior {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ThreadNetworkContext(::windows::core::IUnknown);
 impl ThreadNetworkContext {

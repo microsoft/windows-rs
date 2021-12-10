@@ -232,6 +232,7 @@ pub struct ILampArrayCustomEffectFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lamparray: ::windows::core::RawPtr, lampIndexes_array_size: u32, lampindexes: *const i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Lights_Effects'*"]
 #[repr(transparent)]
 pub struct ILampArrayEffect(::windows::core::IUnknown);
 impl ILampArrayEffect {
@@ -444,6 +445,7 @@ pub struct ILampArrayUpdateRequestedEventArgsVtbl(
     #[cfg(feature = "UI")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desiredColors_array_size: u32, desiredcolors: *const super::super::super::UI::Color, lampIndexes_array_size: u32, lampindexes: *const i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI"))] usize,
 );
+#[doc = "*Required features: 'Devices_Lights_Effects'*"]
 #[repr(transparent)]
 pub struct LampArrayBitmapEffect(::windows::core::IUnknown);
 impl LampArrayBitmapEffect {
@@ -614,6 +616,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILampArrayEffect> for &LampArrayBitmapEf
 }
 unsafe impl ::core::marker::Send for LampArrayBitmapEffect {}
 unsafe impl ::core::marker::Sync for LampArrayBitmapEffect {}
+#[doc = "*Required features: 'Devices_Lights_Effects'*"]
 #[repr(transparent)]
 pub struct LampArrayBitmapRequestedEventArgs(::windows::core::IUnknown);
 impl LampArrayBitmapRequestedEventArgs {
@@ -694,6 +697,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lamp
 }
 unsafe impl ::core::marker::Send for LampArrayBitmapRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for LampArrayBitmapRequestedEventArgs {}
+#[doc = "*Required features: 'Devices_Lights_Effects'*"]
 #[repr(transparent)]
 pub struct LampArrayBlinkEffect(::windows::core::IUnknown);
 impl LampArrayBlinkEffect {
@@ -904,6 +908,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILampArrayEffect> for &LampArrayBlinkEff
 }
 unsafe impl ::core::marker::Send for LampArrayBlinkEffect {}
 unsafe impl ::core::marker::Sync for LampArrayBlinkEffect {}
+#[doc = "*Required features: 'Devices_Lights_Effects'*"]
 #[repr(transparent)]
 pub struct LampArrayColorRampEffect(::windows::core::IUnknown);
 impl LampArrayColorRampEffect {
@@ -1064,6 +1069,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILampArrayEffect> for &LampArrayColorRam
 }
 unsafe impl ::core::marker::Send for LampArrayColorRampEffect {}
 unsafe impl ::core::marker::Sync for LampArrayColorRampEffect {}
+#[doc = "*Required features: 'Devices_Lights_Effects'*"]
 #[repr(transparent)]
 pub struct LampArrayCustomEffect(::windows::core::IUnknown);
 impl LampArrayCustomEffect {
@@ -1213,6 +1219,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILampArrayEffect> for &LampArrayCustomEf
 }
 unsafe impl ::core::marker::Send for LampArrayCustomEffect {}
 unsafe impl ::core::marker::Sync for LampArrayCustomEffect {}
+#[doc = "*Required features: 'Devices_Lights_Effects'*"]
 #[repr(transparent)]
 pub struct LampArrayEffectCompletionBehavior(pub i32);
 impl LampArrayEffectCompletionBehavior {
@@ -1240,6 +1247,7 @@ unsafe impl ::windows::core::RuntimeType for LampArrayEffectCompletionBehavior {
 impl ::windows::core::DefaultType for LampArrayEffectCompletionBehavior {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Lights_Effects'*"]
 #[repr(transparent)]
 pub struct LampArrayEffectPlaylist(::windows::core::IUnknown);
 impl LampArrayEffectPlaylist {
@@ -1491,6 +1499,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 }
 unsafe impl ::core::marker::Send for LampArrayEffectPlaylist {}
 unsafe impl ::core::marker::Sync for LampArrayEffectPlaylist {}
+#[doc = "*Required features: 'Devices_Lights_Effects'*"]
 #[repr(transparent)]
 pub struct LampArrayEffectStartMode(pub i32);
 impl LampArrayEffectStartMode {
@@ -1518,6 +1527,7 @@ unsafe impl ::windows::core::RuntimeType for LampArrayEffectStartMode {
 impl ::windows::core::DefaultType for LampArrayEffectStartMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Lights_Effects'*"]
 #[repr(transparent)]
 pub struct LampArrayRepetitionMode(pub i32);
 impl LampArrayRepetitionMode {
@@ -1545,6 +1555,7 @@ unsafe impl ::windows::core::RuntimeType for LampArrayRepetitionMode {
 impl ::windows::core::DefaultType for LampArrayRepetitionMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Lights_Effects'*"]
 #[repr(transparent)]
 pub struct LampArraySolidEffect(::windows::core::IUnknown);
 impl LampArraySolidEffect {
@@ -1705,6 +1716,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILampArrayEffect> for &LampArraySolidEff
 }
 unsafe impl ::core::marker::Send for LampArraySolidEffect {}
 unsafe impl ::core::marker::Sync for LampArraySolidEffect {}
+#[doc = "*Required features: 'Devices_Lights_Effects'*"]
 #[repr(transparent)]
 pub struct LampArrayUpdateRequestedEventArgs(::windows::core::IUnknown);
 impl LampArrayUpdateRequestedEventArgs {

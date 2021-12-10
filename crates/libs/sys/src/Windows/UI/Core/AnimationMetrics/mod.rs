@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 pub type AnimationDescription = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Core_AnimationMetrics'*"]
 #[repr(transparent)]
 pub struct AnimationEffect(pub i32);
 impl AnimationEffect {
@@ -48,6 +49,7 @@ impl ::core::clone::Clone for AnimationEffect {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Core_AnimationMetrics'*"]
 #[repr(transparent)]
 pub struct AnimationEffectTarget(pub i32);
 impl AnimationEffectTarget {
@@ -81,6 +83,7 @@ impl ::core::clone::Clone for AnimationEffectTarget {
 pub type IPropertyAnimation = *mut ::core::ffi::c_void;
 pub type OpacityAnimation = *mut ::core::ffi::c_void;
 pub type PropertyAnimation = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Core_AnimationMetrics'*"]
 #[repr(transparent)]
 pub struct PropertyAnimationType(pub i32);
 impl PropertyAnimationType {

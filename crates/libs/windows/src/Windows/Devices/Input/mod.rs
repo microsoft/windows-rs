@@ -421,6 +421,7 @@ pub struct ITouchCapabilitiesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Input'*"]
 #[repr(transparent)]
 pub struct KeyboardCapabilities(::windows::core::IUnknown);
 impl KeyboardCapabilities {
@@ -502,6 +503,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Keyb
 }
 unsafe impl ::core::marker::Send for KeyboardCapabilities {}
 unsafe impl ::core::marker::Sync for KeyboardCapabilities {}
+#[doc = "*Required features: 'Devices_Input'*"]
 #[repr(transparent)]
 pub struct MouseCapabilities(::windows::core::IUnknown);
 impl MouseCapabilities {
@@ -612,6 +614,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mous
 unsafe impl ::core::marker::Send for MouseCapabilities {}
 unsafe impl ::core::marker::Sync for MouseCapabilities {}
 #[repr(C)]
+#[doc = "*Required features: 'Devices_Input'*"]
 pub struct MouseDelta {
     pub X: i32,
     pub Y: i32,
@@ -642,6 +645,7 @@ impl ::core::default::Default for MouseDelta {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Devices_Input'*"]
 #[repr(transparent)]
 pub struct MouseDevice(::windows::core::IUnknown);
 impl MouseDevice {
@@ -730,6 +734,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mous
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Devices_Input'*"]
 #[repr(transparent)]
 pub struct MouseEventArgs(::windows::core::IUnknown);
 impl MouseEventArgs {
@@ -802,6 +807,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mous
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Devices_Input'*"]
 #[repr(transparent)]
 pub struct PenButtonListener(::windows::core::IUnknown);
 impl PenButtonListener {
@@ -938,6 +944,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PenB
 }
 unsafe impl ::core::marker::Send for PenButtonListener {}
 unsafe impl ::core::marker::Sync for PenButtonListener {}
+#[doc = "*Required features: 'Devices_Input'*"]
 #[repr(transparent)]
 pub struct PenDevice(::windows::core::IUnknown);
 impl PenDevice {
@@ -1030,6 +1037,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PenD
 }
 unsafe impl ::core::marker::Send for PenDevice {}
 unsafe impl ::core::marker::Sync for PenDevice {}
+#[doc = "*Required features: 'Devices_Input'*"]
 #[repr(transparent)]
 pub struct PenDockListener(::windows::core::IUnknown);
 impl PenDockListener {
@@ -1153,6 +1161,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PenD
 }
 unsafe impl ::core::marker::Send for PenDockListener {}
 unsafe impl ::core::marker::Sync for PenDockListener {}
+#[doc = "*Required features: 'Devices_Input'*"]
 #[repr(transparent)]
 pub struct PenDockedEventArgs(::windows::core::IUnknown);
 impl PenDockedEventArgs {}
@@ -1219,6 +1228,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PenD
 }
 unsafe impl ::core::marker::Send for PenDockedEventArgs {}
 unsafe impl ::core::marker::Sync for PenDockedEventArgs {}
+#[doc = "*Required features: 'Devices_Input'*"]
 #[repr(transparent)]
 pub struct PenTailButtonClickedEventArgs(::windows::core::IUnknown);
 impl PenTailButtonClickedEventArgs {}
@@ -1285,6 +1295,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PenT
 }
 unsafe impl ::core::marker::Send for PenTailButtonClickedEventArgs {}
 unsafe impl ::core::marker::Sync for PenTailButtonClickedEventArgs {}
+#[doc = "*Required features: 'Devices_Input'*"]
 #[repr(transparent)]
 pub struct PenTailButtonDoubleClickedEventArgs(::windows::core::IUnknown);
 impl PenTailButtonDoubleClickedEventArgs {}
@@ -1351,6 +1362,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PenT
 }
 unsafe impl ::core::marker::Send for PenTailButtonDoubleClickedEventArgs {}
 unsafe impl ::core::marker::Sync for PenTailButtonDoubleClickedEventArgs {}
+#[doc = "*Required features: 'Devices_Input'*"]
 #[repr(transparent)]
 pub struct PenTailButtonLongPressedEventArgs(::windows::core::IUnknown);
 impl PenTailButtonLongPressedEventArgs {}
@@ -1417,6 +1429,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PenT
 }
 unsafe impl ::core::marker::Send for PenTailButtonLongPressedEventArgs {}
 unsafe impl ::core::marker::Sync for PenTailButtonLongPressedEventArgs {}
+#[doc = "*Required features: 'Devices_Input'*"]
 #[repr(transparent)]
 pub struct PenUndockedEventArgs(::windows::core::IUnknown);
 impl PenUndockedEventArgs {}
@@ -1483,6 +1496,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PenU
 }
 unsafe impl ::core::marker::Send for PenUndockedEventArgs {}
 unsafe impl ::core::marker::Sync for PenUndockedEventArgs {}
+#[doc = "*Required features: 'Devices_Input'*"]
 #[repr(transparent)]
 pub struct PointerDevice(::windows::core::IUnknown);
 impl PointerDevice {
@@ -1617,6 +1631,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Poin
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Devices_Input'*"]
 #[repr(transparent)]
 pub struct PointerDeviceType(pub i32);
 impl PointerDeviceType {
@@ -1646,6 +1661,7 @@ impl ::windows::core::DefaultType for PointerDeviceType {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Devices_Input'*"]
 pub struct PointerDeviceUsage {
     pub UsagePage: u32,
     pub Usage: u32,
@@ -1682,6 +1698,7 @@ impl ::core::default::Default for PointerDeviceUsage {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Devices_Input'*"]
 #[repr(transparent)]
 pub struct TouchCapabilities(::windows::core::IUnknown);
 impl TouchCapabilities {

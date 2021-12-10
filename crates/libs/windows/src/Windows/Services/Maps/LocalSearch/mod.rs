@@ -230,6 +230,7 @@ impl LocalCategories {
 impl ::windows::core::RuntimeName for LocalCategories {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalCategories";
 }
+#[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
 #[repr(transparent)]
 pub struct LocalLocation(::windows::core::IUnknown);
 impl LocalLocation {
@@ -386,6 +387,7 @@ impl LocalLocationFinder {
 impl ::windows::core::RuntimeName for LocalLocationFinder {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationFinder";
 }
+#[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
 #[repr(transparent)]
 pub struct LocalLocationFinderResult(::windows::core::IUnknown);
 impl LocalLocationFinderResult {
@@ -468,6 +470,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Loca
 }
 unsafe impl ::core::marker::Send for LocalLocationFinderResult {}
 unsafe impl ::core::marker::Sync for LocalLocationFinderResult {}
+#[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
 #[repr(transparent)]
 pub struct LocalLocationFinderStatus(pub i32);
 impl LocalLocationFinderStatus {
@@ -501,6 +504,7 @@ unsafe impl ::windows::core::RuntimeType for LocalLocationFinderStatus {
 impl ::windows::core::DefaultType for LocalLocationFinderStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
 #[repr(transparent)]
 pub struct LocalLocationHoursOfOperationItem(::windows::core::IUnknown);
 impl LocalLocationHoursOfOperationItem {
@@ -592,6 +596,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Loca
 }
 unsafe impl ::core::marker::Send for LocalLocationHoursOfOperationItem {}
 unsafe impl ::core::marker::Sync for LocalLocationHoursOfOperationItem {}
+#[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
 #[repr(transparent)]
 pub struct LocalLocationRatingInfo(::windows::core::IUnknown);
 impl LocalLocationRatingInfo {

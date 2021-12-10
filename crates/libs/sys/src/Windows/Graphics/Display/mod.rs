@@ -4,6 +4,7 @@ pub mod Core;
 #[link(name = "windows")]
 extern "system" {}
 pub type AdvancedColorInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct AdvancedColorKind(pub i32);
 impl AdvancedColorKind {
@@ -20,6 +21,7 @@ impl ::core::clone::Clone for AdvancedColorKind {
 pub type BrightnessOverride = *mut ::core::ffi::c_void;
 pub type BrightnessOverrideSettings = *mut ::core::ffi::c_void;
 pub type ColorOverrideSettings = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct DisplayBrightnessOverrideOptions(pub u32);
 impl DisplayBrightnessOverrideOptions {
@@ -32,6 +34,7 @@ impl ::core::clone::Clone for DisplayBrightnessOverrideOptions {
         *self
     }
 }
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct DisplayBrightnessOverrideScenario(pub i32);
 impl DisplayBrightnessOverrideScenario {
@@ -45,6 +48,7 @@ impl ::core::clone::Clone for DisplayBrightnessOverrideScenario {
         *self
     }
 }
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct DisplayBrightnessScenario(pub i32);
 impl DisplayBrightnessScenario {
@@ -59,6 +63,7 @@ impl ::core::clone::Clone for DisplayBrightnessScenario {
         *self
     }
 }
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct DisplayColorOverrideScenario(pub i32);
 impl DisplayColorOverrideScenario {
@@ -74,6 +79,7 @@ pub type DisplayEnhancementOverride = *mut ::core::ffi::c_void;
 pub type DisplayEnhancementOverrideCapabilities = *mut ::core::ffi::c_void;
 pub type DisplayEnhancementOverrideCapabilitiesChangedEventArgs = *mut ::core::ffi::c_void;
 pub type DisplayInformation = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct DisplayOrientations(pub u32);
 impl DisplayOrientations {
@@ -91,6 +97,7 @@ impl ::core::clone::Clone for DisplayOrientations {
 }
 pub type DisplayPropertiesEventHandler = *mut ::core::ffi::c_void;
 pub type DisplayServices = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct HdrMetadataFormat(pub i32);
 impl HdrMetadataFormat {
@@ -104,6 +111,7 @@ impl ::core::clone::Clone for HdrMetadataFormat {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Graphics_Display'*"]
 pub struct NitRange {
     pub MinNits: f32,
     pub MaxNits: f32,
@@ -115,6 +123,7 @@ impl ::core::clone::Clone for NitRange {
         *self
     }
 }
+#[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
 pub struct ResolutionScale(pub i32);
 impl ResolutionScale {

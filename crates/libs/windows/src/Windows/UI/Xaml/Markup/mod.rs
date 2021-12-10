@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Xaml_Markup'*"]
 #[repr(transparent)]
 pub struct IComponentConnector(::windows::core::IUnknown);
 impl IComponentConnector {
@@ -76,6 +77,7 @@ pub struct IComponentConnectorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: i32, target: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Markup'*"]
 #[repr(transparent)]
 pub struct IComponentConnector2(::windows::core::IUnknown);
 impl IComponentConnector2 {
@@ -156,6 +158,7 @@ pub struct IComponentConnector2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: i32, target: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Markup'*"]
 #[repr(transparent)]
 pub struct IDataTemplateComponent(::windows::core::IUnknown);
 impl IDataTemplateComponent {
@@ -327,6 +330,7 @@ pub struct IXamlBinaryWriterStaticsVtbl(
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstreams: ::windows::core::RawPtr, outputstreams: ::windows::core::RawPtr, xamlmetadataprovider: ::windows::core::RawPtr, result__: *mut XamlBinaryWriterErrorInformation) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation_Collections", feature = "Storage_Streams")))] usize,
 );
+#[doc = "*Required features: 'UI_Xaml_Markup'*"]
 #[repr(transparent)]
 pub struct IXamlBindScopeDiagnostics(::windows::core::IUnknown);
 impl IXamlBindScopeDiagnostics {
@@ -503,6 +507,7 @@ pub struct IXamlMarkupHelperStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Markup'*"]
 #[repr(transparent)]
 pub struct IXamlMember(::windows::core::IUnknown);
 impl IXamlMember {
@@ -636,6 +641,7 @@ pub struct IXamlMemberVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instance: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instance: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Markup'*"]
 #[repr(transparent)]
 pub struct IXamlMetadataProvider(::windows::core::IUnknown);
 impl IXamlMetadataProvider {
@@ -770,6 +776,7 @@ pub struct IXamlReaderStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xaml: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xaml: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Markup'*"]
 #[repr(transparent)]
 pub struct IXamlType(::windows::core::IUnknown);
 impl IXamlType {
@@ -979,6 +986,7 @@ pub struct IXamlTypeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instance: *mut ::core::ffi::c_void, key: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Markup'*"]
 #[repr(transparent)]
 pub struct IXamlType2(::windows::core::IUnknown);
 impl IXamlType2 {
@@ -1199,6 +1207,7 @@ pub struct IXamlType2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Markup'*"]
 #[repr(transparent)]
 pub struct MarkupExtension(::windows::core::IUnknown);
 impl MarkupExtension {
@@ -1276,6 +1285,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mark
 }
 unsafe impl ::core::marker::Send for MarkupExtension {}
 unsafe impl ::core::marker::Sync for MarkupExtension {}
+#[doc = "*Required features: 'UI_Xaml_Markup'*"]
 #[repr(transparent)]
 pub struct XamlBinaryWriter(::windows::core::IUnknown);
 impl XamlBinaryWriter {
@@ -1355,6 +1365,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
 unsafe impl ::core::marker::Send for XamlBinaryWriter {}
 unsafe impl ::core::marker::Sync for XamlBinaryWriter {}
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Markup'*"]
 pub struct XamlBinaryWriterErrorInformation {
     pub InputStreamIndex: u32,
     pub LineNumber: u32,
@@ -1386,6 +1397,7 @@ impl ::core::default::Default for XamlBinaryWriterErrorInformation {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Markup'*"]
 #[repr(transparent)]
 pub struct XamlBindingHelper(::windows::core::IUnknown);
 impl XamlBindingHelper {
@@ -1542,6 +1554,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
 }
 unsafe impl ::core::marker::Send for XamlBindingHelper {}
 unsafe impl ::core::marker::Sync for XamlBindingHelper {}
+#[doc = "*Required features: 'UI_Xaml_Markup'*"]
 #[repr(transparent)]
 pub struct XamlMarkupHelper(::windows::core::IUnknown);
 impl XamlMarkupHelper {
@@ -1616,6 +1629,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
 }
 unsafe impl ::core::marker::Send for XamlMarkupHelper {}
 unsafe impl ::core::marker::Sync for XamlMarkupHelper {}
+#[doc = "*Required features: 'UI_Xaml_Markup'*"]
 #[repr(transparent)]
 pub struct XamlReader(::windows::core::IUnknown);
 impl XamlReader {
@@ -1700,6 +1714,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
 unsafe impl ::core::marker::Send for XamlReader {}
 unsafe impl ::core::marker::Sync for XamlReader {}
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Markup'*"]
 pub struct XmlnsDefinition {
     pub XmlNamespace: ::windows::core::HSTRING,
     pub Namespace: ::windows::core::HSTRING,

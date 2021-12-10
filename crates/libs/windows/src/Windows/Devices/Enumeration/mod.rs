@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Devices_Enumeration_Pnp")]
 pub mod Pnp;
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DeviceAccessChangedEventArgs(::windows::core::IUnknown);
 impl DeviceAccessChangedEventArgs {
@@ -82,6 +83,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DeviceAccessChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DeviceAccessChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DeviceAccessInformation(::windows::core::IUnknown);
 impl DeviceAccessInformation {
@@ -191,6 +193,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DeviceAccessInformation {}
 unsafe impl ::core::marker::Sync for DeviceAccessInformation {}
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DeviceAccessStatus(pub i32);
 impl DeviceAccessStatus {
@@ -220,6 +223,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceAccessStatus {
 impl ::windows::core::DefaultType for DeviceAccessStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DeviceClass(pub i32);
 impl DeviceClass {
@@ -252,6 +256,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceClass {
 impl ::windows::core::DefaultType for DeviceClass {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DeviceConnectionChangeTriggerDetails(::windows::core::IUnknown);
 impl DeviceConnectionChangeTriggerDetails {
@@ -326,6 +331,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DeviceConnectionChangeTriggerDetails {}
 unsafe impl ::core::marker::Sync for DeviceConnectionChangeTriggerDetails {}
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DeviceDisconnectButtonClickedEventArgs(::windows::core::IUnknown);
 impl DeviceDisconnectButtonClickedEventArgs {
@@ -400,6 +406,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DeviceDisconnectButtonClickedEventArgs {}
 unsafe impl ::core::marker::Sync for DeviceDisconnectButtonClickedEventArgs {}
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DeviceInformation(::windows::core::IUnknown);
 impl DeviceInformation {
@@ -646,6 +653,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DeviceInformation {}
 unsafe impl ::core::marker::Sync for DeviceInformation {}
+#[doc = "*Required features: 'Devices_Enumeration', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct DeviceInformationCollection(::windows::core::IUnknown);
@@ -839,6 +847,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 unsafe impl ::core::marker::Send for DeviceInformationCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for DeviceInformationCollection {}
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DeviceInformationCustomPairing(::windows::core::IUnknown);
 impl DeviceInformationCustomPairing {
@@ -943,6 +952,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DeviceInformationCustomPairing {}
 unsafe impl ::core::marker::Sync for DeviceInformationCustomPairing {}
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DeviceInformationKind(pub i32);
 impl DeviceInformationKind {
@@ -977,6 +987,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceInformationKind {
 impl ::windows::core::DefaultType for DeviceInformationKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DeviceInformationPairing(::windows::core::IUnknown);
 impl DeviceInformationPairing {
@@ -1124,6 +1135,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DeviceInformationPairing {}
 unsafe impl ::core::marker::Sync for DeviceInformationPairing {}
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DeviceInformationUpdate(::windows::core::IUnknown);
 impl DeviceInformationUpdate {
@@ -1213,6 +1225,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DeviceInformationUpdate {}
 unsafe impl ::core::marker::Sync for DeviceInformationUpdate {}
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DevicePairingKinds(pub u32);
 impl DevicePairingKinds {
@@ -1244,6 +1257,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePairingKinds {
 impl ::windows::core::DefaultType for DevicePairingKinds {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DevicePairingProtectionLevel(pub i32);
 impl DevicePairingProtectionLevel {
@@ -1273,6 +1287,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePairingProtectionLevel {
 impl ::windows::core::DefaultType for DevicePairingProtectionLevel {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DevicePairingRequestedEventArgs(::windows::core::IUnknown);
 impl DevicePairingRequestedEventArgs {
@@ -1382,6 +1397,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DevicePairingRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for DevicePairingRequestedEventArgs {}
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DevicePairingResult(::windows::core::IUnknown);
 impl DevicePairingResult {
@@ -1463,6 +1479,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DevicePairingResult {}
 unsafe impl ::core::marker::Sync for DevicePairingResult {}
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DevicePairingResultStatus(pub i32);
 impl DevicePairingResultStatus {
@@ -1508,6 +1525,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePairingResultStatus {
 impl ::windows::core::DefaultType for DevicePairingResultStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DevicePicker(::windows::core::IUnknown);
 impl DevicePicker {
@@ -1677,6 +1695,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DevicePicker {}
 unsafe impl ::core::marker::Sync for DevicePicker {}
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DevicePickerAppearance(::windows::core::IUnknown);
 impl DevicePickerAppearance {
@@ -1833,6 +1852,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DevicePickerAppearance {}
 unsafe impl ::core::marker::Sync for DevicePickerAppearance {}
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DevicePickerDisplayStatusOptions(pub u32);
 impl DevicePickerDisplayStatusOptions {
@@ -1862,6 +1882,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePickerDisplayStatusOptions {
 impl ::windows::core::DefaultType for DevicePickerDisplayStatusOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DevicePickerFilter(::windows::core::IUnknown);
 impl DevicePickerFilter {
@@ -1945,6 +1966,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DevicePickerFilter {}
 unsafe impl ::core::marker::Sync for DevicePickerFilter {}
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DeviceSelectedEventArgs(::windows::core::IUnknown);
 impl DeviceSelectedEventArgs {
@@ -2019,6 +2041,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DeviceSelectedEventArgs {}
 unsafe impl ::core::marker::Sync for DeviceSelectedEventArgs {}
+#[doc = "*Required features: 'Devices_Enumeration', 'Storage_Streams'*"]
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 pub struct DeviceThumbnail(::windows::core::IUnknown);
@@ -2363,6 +2386,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomA
 unsafe impl ::core::marker::Send for DeviceThumbnail {}
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::core::marker::Sync for DeviceThumbnail {}
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DeviceUnpairingResult(::windows::core::IUnknown);
 impl DeviceUnpairingResult {
@@ -2437,6 +2461,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DeviceUnpairingResult {}
 unsafe impl ::core::marker::Sync for DeviceUnpairingResult {}
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DeviceUnpairingResultStatus(pub i32);
 impl DeviceUnpairingResultStatus {
@@ -2467,6 +2492,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceUnpairingResultStatus {
 impl ::windows::core::DefaultType for DeviceUnpairingResultStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DeviceWatcher(::windows::core::IUnknown);
 impl DeviceWatcher {
@@ -2622,6 +2648,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DeviceWatcher {}
 unsafe impl ::core::marker::Sync for DeviceWatcher {}
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DeviceWatcherEvent(::windows::core::IUnknown);
 impl DeviceWatcherEvent {
@@ -2710,6 +2737,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DeviceWatcherEvent {}
 unsafe impl ::core::marker::Sync for DeviceWatcherEvent {}
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DeviceWatcherEventKind(pub i32);
 impl DeviceWatcherEventKind {
@@ -2738,6 +2766,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceWatcherEventKind {
 impl ::windows::core::DefaultType for DeviceWatcherEventKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DeviceWatcherStatus(pub i32);
 impl DeviceWatcherStatus {
@@ -2769,6 +2798,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceWatcherStatus {
 impl ::windows::core::DefaultType for DeviceWatcherStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct DeviceWatcherTriggerDetails(::windows::core::IUnknown);
 impl DeviceWatcherTriggerDetails {
@@ -2844,6 +2874,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
 }
 unsafe impl ::core::marker::Send for DeviceWatcherTriggerDetails {}
 unsafe impl ::core::marker::Sync for DeviceWatcherTriggerDetails {}
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct EnclosureLocation(::windows::core::IUnknown);
 impl EnclosureLocation {
@@ -3368,6 +3399,7 @@ pub struct IDevicePairingResultVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingResultStatus) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DevicePairingProtectionLevel) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct IDevicePairingSettings(::windows::core::IUnknown);
 impl IDevicePairingSettings {}
@@ -3718,6 +3750,7 @@ pub struct IEnclosureLocation2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
 pub struct Panel(pub i32);
 impl Panel {

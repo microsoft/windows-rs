@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "UI_Text_Core")]
 pub mod Core;
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct CaretType(pub i32);
 impl CaretType {
@@ -28,6 +29,7 @@ unsafe impl ::windows::core::RuntimeType for CaretType {
 impl ::windows::core::DefaultType for CaretType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct ContentLinkInfo(::windows::core::IUnknown);
 impl ContentLinkInfo {
@@ -159,6 +161,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContentLinkInfo {}
 unsafe impl ::core::marker::Sync for ContentLinkInfo {}
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct FindOptions(pub u32);
 impl FindOptions {
@@ -187,6 +190,7 @@ unsafe impl ::windows::core::RuntimeType for FindOptions {
 impl ::windows::core::DefaultType for FindOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct FontStretch(pub i32);
 impl FontStretch {
@@ -222,6 +226,7 @@ unsafe impl ::windows::core::RuntimeType for FontStretch {
 impl ::windows::core::DefaultType for FontStretch {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct FontStyle(pub i32);
 impl FontStyle {
@@ -251,6 +256,7 @@ impl ::windows::core::DefaultType for FontStyle {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'UI_Text'*"]
 pub struct FontWeight {
     pub Weight: u16,
 }
@@ -280,6 +286,7 @@ impl ::core::default::Default for FontWeight {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct FontWeights(::windows::core::IUnknown);
 impl FontWeights {
@@ -417,6 +424,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Font
 }
 unsafe impl ::core::marker::Send for FontWeights {}
 unsafe impl ::core::marker::Sync for FontWeights {}
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct FormatEffect(pub i32);
 impl FormatEffect {
@@ -446,6 +454,7 @@ unsafe impl ::windows::core::RuntimeType for FormatEffect {
 impl ::windows::core::DefaultType for FormatEffect {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct HorizontalCharacterAlignment(pub i32);
 impl HorizontalCharacterAlignment {
@@ -567,6 +576,7 @@ pub struct IRichEditTextRangeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct ITextCharacterFormat(::windows::core::IUnknown);
 impl ITextCharacterFormat {
@@ -992,6 +1002,7 @@ pub struct ITextConstantsStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FontStretch) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FontStyle) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct ITextDocument(::windows::core::IUnknown);
 impl ITextDocument {
@@ -1306,6 +1317,7 @@ pub struct ITextDocument4Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: RichEditMathMode) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct ITextParagraphFormat(::windows::core::IUnknown);
 impl ITextParagraphFormat {
@@ -1690,6 +1702,7 @@ pub struct ITextParagraphFormatVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, start: f32, left: f32, right: f32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rule: LineSpacingRule, spacing: f32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct ITextRange(::windows::core::IUnknown);
 impl ITextRange {
@@ -2109,6 +2122,7 @@ pub struct ITextRangeVtbl(
     #[cfg(not(feature = "Storage_Streams"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unit: TextRangeUnit, extend: bool, result__: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct ITextSelection(::windows::core::IUnknown);
 impl ITextSelection {
@@ -2566,6 +2580,7 @@ pub struct ITextSelectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unit: TextRangeUnit, count: i32, extend: bool, result__: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct LetterCase(pub i32);
 impl LetterCase {
@@ -2593,6 +2608,7 @@ unsafe impl ::windows::core::RuntimeType for LetterCase {
 impl ::windows::core::DefaultType for LetterCase {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct LineSpacingRule(pub i32);
 impl LineSpacingRule {
@@ -2626,6 +2642,7 @@ unsafe impl ::windows::core::RuntimeType for LineSpacingRule {
 impl ::windows::core::DefaultType for LineSpacingRule {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct LinkType(pub i32);
 impl LinkType {
@@ -2660,6 +2677,7 @@ unsafe impl ::windows::core::RuntimeType for LinkType {
 impl ::windows::core::DefaultType for LinkType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct MarkerAlignment(pub i32);
 impl MarkerAlignment {
@@ -2689,6 +2707,7 @@ unsafe impl ::windows::core::RuntimeType for MarkerAlignment {
 impl ::windows::core::DefaultType for MarkerAlignment {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct MarkerStyle(pub i32);
 impl MarkerStyle {
@@ -2721,6 +2740,7 @@ unsafe impl ::windows::core::RuntimeType for MarkerStyle {
 impl ::windows::core::DefaultType for MarkerStyle {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct MarkerType(pub i32);
 impl MarkerType {
@@ -2771,6 +2791,7 @@ unsafe impl ::windows::core::RuntimeType for MarkerType {
 impl ::windows::core::DefaultType for MarkerType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct ParagraphAlignment(pub i32);
 impl ParagraphAlignment {
@@ -2801,6 +2822,7 @@ unsafe impl ::windows::core::RuntimeType for ParagraphAlignment {
 impl ::windows::core::DefaultType for ParagraphAlignment {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct ParagraphStyle(pub i32);
 impl ParagraphStyle {
@@ -2838,6 +2860,7 @@ unsafe impl ::windows::core::RuntimeType for ParagraphStyle {
 impl ::windows::core::DefaultType for ParagraphStyle {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct PointOptions(pub u32);
 impl PointOptions {
@@ -2871,6 +2894,7 @@ unsafe impl ::windows::core::RuntimeType for PointOptions {
 impl ::windows::core::DefaultType for PointOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct RangeGravity(pub i32);
 impl RangeGravity {
@@ -2901,6 +2925,7 @@ unsafe impl ::windows::core::RuntimeType for RangeGravity {
 impl ::windows::core::DefaultType for RangeGravity {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct RichEditMathMode(pub i32);
 impl RichEditMathMode {
@@ -2928,6 +2953,7 @@ unsafe impl ::windows::core::RuntimeType for RichEditMathMode {
 impl ::windows::core::DefaultType for RichEditMathMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct RichEditTextDocument(::windows::core::IUnknown);
 impl RichEditTextDocument {
@@ -3208,6 +3234,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITextDocument> for &RichEditTextDocument
 }
 unsafe impl ::core::marker::Send for RichEditTextDocument {}
 unsafe impl ::core::marker::Sync for RichEditTextDocument {}
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct RichEditTextRange(::windows::core::IUnknown);
 impl RichEditTextRange {
@@ -3597,6 +3624,7 @@ impl<'a> ::windows::core::IntoParam<'a, ITextRange> for &RichEditTextRange {
 }
 unsafe impl ::core::marker::Send for RichEditTextRange {}
 unsafe impl ::core::marker::Sync for RichEditTextRange {}
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct SelectionOptions(pub u32);
 impl SelectionOptions {
@@ -3627,6 +3655,7 @@ unsafe impl ::windows::core::RuntimeType for SelectionOptions {
 impl ::windows::core::DefaultType for SelectionOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct SelectionType(pub i32);
 impl SelectionType {
@@ -3657,6 +3686,7 @@ unsafe impl ::windows::core::RuntimeType for SelectionType {
 impl ::windows::core::DefaultType for SelectionType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct TabAlignment(pub i32);
 impl TabAlignment {
@@ -3687,6 +3717,7 @@ unsafe impl ::windows::core::RuntimeType for TabAlignment {
 impl ::windows::core::DefaultType for TabAlignment {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct TabLeader(pub i32);
 impl TabLeader {
@@ -3776,6 +3807,7 @@ impl TextConstants {
 impl ::windows::core::RuntimeName for TextConstants {
     const NAME: &'static str = "Windows.UI.Text.TextConstants";
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct TextDecorations(pub u32);
 impl TextDecorations {
@@ -3804,6 +3836,7 @@ unsafe impl ::windows::core::RuntimeType for TextDecorations {
 impl ::windows::core::DefaultType for TextDecorations {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct TextGetOptions(pub u32);
 impl TextGetOptions {
@@ -3838,6 +3871,7 @@ unsafe impl ::windows::core::RuntimeType for TextGetOptions {
 impl ::windows::core::DefaultType for TextGetOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct TextRangeUnit(pub i32);
 impl TextRangeUnit {
@@ -3896,6 +3930,7 @@ unsafe impl ::windows::core::RuntimeType for TextRangeUnit {
 impl ::windows::core::DefaultType for TextRangeUnit {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct TextScript(pub i32);
 impl TextScript {
@@ -3985,6 +4020,7 @@ unsafe impl ::windows::core::RuntimeType for TextScript {
 impl ::windows::core::DefaultType for TextScript {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct TextSetOptions(pub u32);
 impl TextSetOptions {
@@ -4017,6 +4053,7 @@ unsafe impl ::windows::core::RuntimeType for TextSetOptions {
 impl ::windows::core::DefaultType for TextSetOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct UnderlineType(pub i32);
 impl UnderlineType {
@@ -4062,6 +4099,7 @@ unsafe impl ::windows::core::RuntimeType for UnderlineType {
 impl ::windows::core::DefaultType for UnderlineType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
 pub struct VerticalCharacterAlignment(pub i32);
 impl VerticalCharacterAlignment {

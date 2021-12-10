@@ -145,6 +145,7 @@ pub struct IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfoVtbl(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MicrosoftAccountMultiFactorServiceResponse) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorAuthenticationManager(::windows::core::IUnknown);
 impl MicrosoftAccountMultiFactorAuthenticationManager {
@@ -302,6 +303,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Micr
 }
 unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorAuthenticationManager {}
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorAuthenticationManager {}
+#[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorAuthenticationType(pub i32);
 impl MicrosoftAccountMultiFactorAuthenticationType {
@@ -329,6 +331,7 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorAuthenti
 impl ::windows::core::DefaultType for MicrosoftAccountMultiFactorAuthenticationType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorGetSessionsResult(::windows::core::IUnknown);
 impl MicrosoftAccountMultiFactorGetSessionsResult {
@@ -411,6 +414,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Micr
 }
 unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorGetSessionsResult {}
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorGetSessionsResult {}
+#[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorOneTimeCodedInfo(::windows::core::IUnknown);
 impl MicrosoftAccountMultiFactorOneTimeCodedInfo {
@@ -508,6 +512,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Micr
 }
 unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
+#[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorServiceResponse(pub i32);
 impl MicrosoftAccountMultiFactorServiceResponse {
@@ -555,6 +560,7 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorServiceR
 impl ::windows::core::DefaultType for MicrosoftAccountMultiFactorServiceResponse {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorSessionApprovalStatus(pub i32);
 impl MicrosoftAccountMultiFactorSessionApprovalStatus {
@@ -583,6 +589,7 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorSessionA
 impl ::windows::core::DefaultType for MicrosoftAccountMultiFactorSessionApprovalStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorSessionAuthenticationStatus(pub i32);
 impl MicrosoftAccountMultiFactorSessionAuthenticationStatus {
@@ -610,6 +617,7 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorSessionA
 impl ::windows::core::DefaultType for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorSessionInfo(::windows::core::IUnknown);
 impl MicrosoftAccountMultiFactorSessionInfo {
@@ -728,6 +736,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Micr
 }
 unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorSessionInfo {}
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorSessionInfo {}
+#[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
 #[repr(transparent)]
 pub struct MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo(::windows::core::IUnknown);
 impl MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {

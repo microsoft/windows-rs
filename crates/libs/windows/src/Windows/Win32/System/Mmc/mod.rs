@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const AUTO_WIDTH: i32 = -1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct AppEvents(::windows::core::IUnknown);
 impl AppEvents {
@@ -98,36 +99,66 @@ pub struct AppEventsVtbl(
 );
 pub const AppEventsDHTMLConnector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xade6444b_c91f_4e37_92a4_5bb430a33340);
 pub const Application: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49b2791a_b1ae_4c90_9b8e_e860ba07f889);
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type CCM_COMMANDID_MASK_CONSTANTS = u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_COMMANDID_MASK_RESERVED: CCM_COMMANDID_MASK_CONSTANTS = 4294901760u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type CCM_INSERTIONALLOWED = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_INSERTIONALLOWED_TOP: CCM_INSERTIONALLOWED = 1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_INSERTIONALLOWED_NEW: CCM_INSERTIONALLOWED = 2i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_INSERTIONALLOWED_TASK: CCM_INSERTIONALLOWED = 4i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_INSERTIONALLOWED_VIEW: CCM_INSERTIONALLOWED = 8i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type CCM_INSERTIONPOINTID = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_INSERTIONPOINTID_MASK_SPECIAL: CCM_INSERTIONPOINTID = -65536i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_INSERTIONPOINTID_MASK_SHARED: CCM_INSERTIONPOINTID = -2147483648i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_INSERTIONPOINTID_MASK_CREATE_PRIMARY: CCM_INSERTIONPOINTID = 1073741824i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_INSERTIONPOINTID_MASK_ADD_PRIMARY: CCM_INSERTIONPOINTID = 536870912i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_INSERTIONPOINTID_MASK_ADD_3RDPARTY: CCM_INSERTIONPOINTID = 268435456i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_INSERTIONPOINTID_MASK_RESERVED: CCM_INSERTIONPOINTID = 268369920i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_INSERTIONPOINTID_MASK_FLAGINDEX: CCM_INSERTIONPOINTID = 31i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_INSERTIONPOINTID_PRIMARY_TOP: CCM_INSERTIONPOINTID = -1610612736i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_INSERTIONPOINTID_PRIMARY_NEW: CCM_INSERTIONPOINTID = -1610612735i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_INSERTIONPOINTID_PRIMARY_TASK: CCM_INSERTIONPOINTID = -1610612734i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_INSERTIONPOINTID_PRIMARY_VIEW: CCM_INSERTIONPOINTID = -1610612733i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_INSERTIONPOINTID_PRIMARY_HELP: CCM_INSERTIONPOINTID = -1610612732i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_INSERTIONPOINTID_3RDPARTY_NEW: CCM_INSERTIONPOINTID = -1879048191i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_INSERTIONPOINTID_3RDPARTY_TASK: CCM_INSERTIONPOINTID = -1879048190i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_INSERTIONPOINTID_ROOT_MENU: CCM_INSERTIONPOINTID = -2147483648i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type CCM_SPECIAL = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_SPECIAL_SEPARATOR: CCM_SPECIAL = 1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_SPECIAL_SUBMENU: CCM_SPECIAL = 2i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_SPECIAL_DEFAULT_ITEM: CCM_SPECIAL = 4i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_SPECIAL_INSERTION_POINT: CCM_SPECIAL = 8i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCM_SPECIAL_TESTONLY: CCM_SPECIAL = 16i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONTEXTMENUITEM {
     pub strName: super::super::Foundation::PWSTR,
@@ -164,6 +195,7 @@ impl ::core::default::Default for CONTEXTMENUITEM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONTEXTMENUITEM2 {
     pub strName: super::super::Foundation::PWSTR,
@@ -200,6 +232,7 @@ impl ::core::default::Default for CONTEXTMENUITEM2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct Column(::windows::core::IUnknown);
 impl Column {
@@ -345,6 +378,7 @@ pub struct ColumnVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, issortcolumn: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct Columns(::windows::core::IUnknown);
 impl Columns {
@@ -457,6 +491,7 @@ pub struct ColumnsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 pub const ConsolePower: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0285374_dff1_11d3_b433_00c04f8ecd78);
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct ContextMenu(::windows::core::IUnknown);
 impl ContextMenu {
@@ -570,11 +605,17 @@ pub struct ContextMenuVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type DATA_OBJECT_TYPES = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCT_SCOPE: DATA_OBJECT_TYPES = 32768i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCT_RESULT: DATA_OBJECT_TYPES = 32769i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCT_SNAPIN_MANAGER: DATA_OBJECT_TYPES = 32770i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CCT_UNINITIALIZED: DATA_OBJECT_TYPES = 65535i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct Document(::windows::core::IUnknown);
 impl Document {
@@ -754,6 +795,7 @@ pub struct DocumentVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, properties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, application: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct Extension(::windows::core::IUnknown);
 impl Extension {
@@ -887,6 +929,7 @@ pub struct ExtensionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct Extensions(::windows::core::IUnknown);
 impl Extensions {
@@ -998,6 +1041,7 @@ pub struct ExtensionsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, extension: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct Frame(::windows::core::IUnknown);
 impl Frame {
@@ -1144,6 +1188,7 @@ pub struct FrameVtbl(
 );
 pub const HDI_HIDDEN: u32 = 1u32;
 pub const HIDE_COLUMN: i32 = -4i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IColumnData(::windows::core::IUnknown);
 impl IColumnData {
@@ -1208,6 +1253,7 @@ pub struct IColumnDataVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcolid: *const SColumnSetID, pcolsortdata: *const MMC_SORT_SET_DATA) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcolid: *const SColumnSetID, ppcolsortdata: *mut *mut MMC_SORT_SET_DATA) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IComponent(::windows::core::IUnknown);
 impl IComponent {
@@ -1293,6 +1339,7 @@ pub struct IComponentVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpdataobjecta: ::windows::core::RawPtr, lpdataobjectb: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IComponent2(::windows::core::IUnknown);
 impl IComponent2 {
@@ -1417,6 +1464,7 @@ pub struct IComponent2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: isize, presultviewtype: *const RESULT_VIEW_TYPE_INFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IComponentData(::windows::core::IUnknown);
 impl IComponentData {
@@ -1501,6 +1549,7 @@ pub struct IComponentDataVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpdataobjecta: ::windows::core::RawPtr, lpdataobjectb: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IComponentData2(::windows::core::IUnknown);
 impl IComponentData2 {
@@ -1612,6 +1661,7 @@ pub struct IComponentData2Vtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: isize, r#type: DATA_OBJECT_TYPES, ppdispatch: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IConsole(::windows::core::IUnknown);
 impl IConsole {
@@ -1714,6 +1764,7 @@ pub struct IConsoleVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hscopeitem: isize, loptions: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IConsole2(::windows::core::IUnknown);
 impl IConsole2 {
@@ -1852,6 +1903,7 @@ pub struct IConsole2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszstatustext: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IConsole3(::windows::core::IUnknown);
 impl IConsole3 {
@@ -2014,6 +2066,7 @@ pub struct IConsole3Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hscopeitem: isize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IConsoleNameSpace(::windows::core::IUnknown);
 impl IConsoleNameSpace {
@@ -2094,6 +2147,7 @@ pub struct IConsoleNameSpaceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: isize, pitemnext: *mut isize, pcookie: *mut isize) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: isize, pitemparent: *mut isize, pcookie: *mut isize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IConsoleNameSpace2(::windows::core::IUnknown);
 impl IConsoleNameSpace2 {
@@ -2202,6 +2256,7 @@ pub struct IConsoleNameSpace2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hitem: isize) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hitem: isize, lpclsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IConsolePower(::windows::core::IUnknown);
 impl IConsolePower {
@@ -2256,6 +2311,7 @@ pub struct IConsolePowerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwadd: u32, dwremove: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IConsolePowerSink(::windows::core::IUnknown);
 impl IConsolePowerSink {
@@ -2309,6 +2365,7 @@ pub struct IConsolePowerSinkVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nevent: u32, lparam: super::super::Foundation::LPARAM, plreturn: *mut super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IConsoleVerb(::windows::core::IUnknown);
 impl IConsoleVerb {
@@ -2377,6 +2434,7 @@ pub struct IConsoleVerbVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ecmdid: MMC_CONSOLE_VERB) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pecmdid: *mut MMC_CONSOLE_VERB) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IContextMenuCallback(::windows::core::IUnknown);
 impl IContextMenuCallback {
@@ -2429,6 +2487,7 @@ pub struct IContextMenuCallbackVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitem: *const CONTEXTMENUITEM) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IContextMenuCallback2(::windows::core::IUnknown);
 impl IContextMenuCallback2 {
@@ -2481,6 +2540,7 @@ pub struct IContextMenuCallback2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pitem: *const CONTEXTMENUITEM2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IContextMenuProvider(::windows::core::IUnknown);
 impl IContextMenuProvider {
@@ -2576,6 +2636,7 @@ pub struct IContextMenuProviderVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, xpos: i32, ypos: i32, plselected: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IControlbar(::windows::core::IUnknown);
 impl IControlbar {
@@ -2635,6 +2696,7 @@ pub struct IControlbarVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ntype: MMC_CONTROL_TYPE, lpunknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpunknown: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IDisplayHelp(::windows::core::IUnknown);
 impl IDisplayHelp {
@@ -2687,6 +2749,7 @@ pub struct IDisplayHelpVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszhelptopic: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IEnumTASK(::windows::core::IUnknown);
 impl IEnumTASK {
@@ -2752,6 +2815,7 @@ pub struct IEnumTASKVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IExtendContextMenu(::windows::core::IUnknown);
 impl IExtendContextMenu {
@@ -2810,6 +2874,7 @@ pub struct IExtendContextMenuVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcommandid: i32, pidataobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IExtendControlbar(::windows::core::IUnknown);
 impl IExtendControlbar {
@@ -2866,6 +2931,7 @@ pub struct IExtendControlbarVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, event: MMC_NOTIFY_TYPE, arg: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IExtendPropertySheet(::windows::core::IUnknown);
 impl IExtendPropertySheet {
@@ -2924,6 +2990,7 @@ pub struct IExtendPropertySheetVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpdataobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IExtendPropertySheet2(::windows::core::IUnknown);
 impl IExtendPropertySheet2 {
@@ -3008,6 +3075,7 @@ pub struct IExtendPropertySheet2Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpidataobject: ::windows::core::RawPtr, lphwatermark: *mut super::super::Graphics::Gdi::HBITMAP, lphheader: *mut super::super::Graphics::Gdi::HBITMAP, lphpalette: *mut super::super::Graphics::Gdi::HPALETTE, bstretch: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IExtendTaskPad(::windows::core::IUnknown);
 impl IExtendTaskPad {
@@ -3095,6 +3163,7 @@ pub struct IExtendTaskPadVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszgroup: super::super::Foundation::PWSTR, lplistpadinfo: *mut MMC_LISTPAD_INFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IExtendView(::windows::core::IUnknown);
 impl IExtendView {
@@ -3147,6 +3216,7 @@ pub struct IExtendViewVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobject: ::windows::core::RawPtr, pviewextensioncallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IHeaderCtrl(::windows::core::IUnknown);
 impl IHeaderCtrl {
@@ -3225,6 +3295,7 @@ pub struct IHeaderCtrlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncol: i32, nwidth: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncol: i32, pwidth: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IHeaderCtrl2(::windows::core::IUnknown);
 impl IHeaderCtrl2 {
@@ -3339,6 +3410,7 @@ pub struct IHeaderCtrl2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncolumn: u32, pdwtype: *mut u32, pfilterdata: *mut MMC_FILTERDATA) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IImageList(::windows::core::IUnknown);
 impl IImageList {
@@ -3395,6 +3467,7 @@ pub struct IImageListVtbl(
 );
 pub const ILSIF_LEAVE_LARGE_ICON: u32 = 1073741824u32;
 pub const ILSIF_LEAVE_SMALL_ICON: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IMMCVersionInfo(::windows::core::IUnknown);
 impl IMMCVersionInfo {
@@ -3440,6 +3513,7 @@ unsafe impl ::windows::core::Interface for IMMCVersionInfo {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMMCVersionInfoVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pversionmajor: *mut i32, pversionminor: *mut i32) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IMenuButton(::windows::core::IUnknown);
 impl IMenuButton {
@@ -3504,6 +3578,7 @@ pub struct IMenuButtonVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IMessageView(::windows::core::IUnknown);
 impl IMessageView {
@@ -3570,6 +3645,7 @@ pub struct IMessageViewVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: IconIdentifier) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct INodeProperties(::windows::core::IUnknown);
 impl INodeProperties {
@@ -3623,6 +3699,7 @@ pub struct INodePropertiesVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataobject: ::windows::core::RawPtr, szpropertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrproperty: *mut *mut u16) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IPropertySheetCallback(::windows::core::IUnknown);
 impl IPropertySheetCallback {
@@ -3681,6 +3758,7 @@ pub struct IPropertySheetCallbackVtbl(
     #[cfg(feature = "Win32_UI_Controls")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hpage: super::super::UI::Controls::HPROPSHEETPAGE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Controls"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IPropertySheetProvider(::windows::core::IUnknown);
 impl IPropertySheetProvider {
@@ -3753,6 +3831,7 @@ pub struct IPropertySheetProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: isize, page: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IRequiredExtensions(::windows::core::IUnknown);
 impl IRequiredExtensions {
@@ -3813,6 +3892,7 @@ pub struct IRequiredExtensionsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IResultData(::windows::core::IUnknown);
 impl IResultData {
@@ -3935,6 +4015,7 @@ pub struct IResultDataVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nitemcount: i32, dwoptions: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IResultData2(::windows::core::IUnknown);
 impl IResultData2 {
@@ -4081,6 +4162,7 @@ pub struct IResultData2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nitemcount: i32, dwoptions: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itemid: isize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IResultDataCompare(::windows::core::IUnknown);
 impl IResultDataCompare {
@@ -4133,6 +4215,7 @@ pub struct IResultDataCompareVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, luserparam: super::super::Foundation::LPARAM, cookiea: isize, cookieb: isize, pnresult: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IResultDataCompareEx(::windows::core::IUnknown);
 impl IResultDataCompareEx {
@@ -4186,6 +4269,7 @@ pub struct IResultDataCompareExVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prdc: *const RDCOMPARE, pnresult: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IResultOwnerData(::windows::core::IUnknown);
 impl IResultOwnerData {
@@ -4249,6 +4333,7 @@ pub struct IResultOwnerDataVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncolumn: i32, dwsortoptions: u32, luserparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct ISnapinAbout(::windows::core::IUnknown);
 impl ISnapinAbout {
@@ -4329,6 +4414,7 @@ pub struct ISnapinAboutVtbl(
     #[cfg(feature = "Win32_Graphics_Gdi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsmallimage: *mut super::super::Graphics::Gdi::HBITMAP, hsmallimageopen: *mut super::super::Graphics::Gdi::HBITMAP, hlargeimage: *mut super::super::Graphics::Gdi::HBITMAP, cmask: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct ISnapinHelp(::windows::core::IUnknown);
 impl ISnapinHelp {
@@ -4382,6 +4468,7 @@ pub struct ISnapinHelpVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpcompiledhelpfile: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct ISnapinHelp2(::windows::core::IUnknown);
 impl ISnapinHelp2 {
@@ -4462,6 +4549,7 @@ pub struct ISnapinHelp2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpcompiledhelpfiles: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct ISnapinProperties(::windows::core::IUnknown);
 impl ISnapinProperties {
@@ -4522,6 +4610,7 @@ pub struct ISnapinPropertiesVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cproperties: i32, pproperties: *const MMC_SNAPIN_PROPERTY) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct ISnapinPropertiesCallback(::windows::core::IUnknown);
 impl ISnapinPropertiesCallback {
@@ -4574,6 +4663,7 @@ pub struct ISnapinPropertiesCallbackVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpropname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IStringTable(::windows::core::IUnknown);
 impl IStringTable {
@@ -4660,6 +4750,7 @@ pub struct IStringTableVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IToolbar(::windows::core::IUnknown);
 impl IToolbar {
@@ -4741,6 +4832,7 @@ pub struct IToolbarVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idcommand: i32, nstate: MMC_BUTTON_STATE, bstate: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct IViewExtensionCallback(::windows::core::IUnknown);
 impl IViewExtensionCallback {
@@ -4793,15 +4885,24 @@ pub struct IViewExtensionCallbackVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextviewdata: *const MMC_EXT_VIEW_DATA) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type IconIdentifier = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const Icon_None: IconIdentifier = 0i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const Icon_Error: IconIdentifier = 32513i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const Icon_Question: IconIdentifier = 32514i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const Icon_Warning: IconIdentifier = 32515i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const Icon_Information: IconIdentifier = 32516i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const Icon_First: IconIdentifier = 32513i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const Icon_Last: IconIdentifier = 32516i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub struct MENUBUTTONDATA {
     pub idCommand: i32,
     pub x: i32,
@@ -4828,6 +4929,7 @@ impl ::core::default::Default for MENUBUTTONDATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MMCBUTTON {
     pub nBitmap: i32,
@@ -4875,18 +4977,30 @@ pub const MMCLV_VIEWSTYLE_LIST: u32 = 3u32;
 pub const MMCLV_VIEWSTYLE_REPORT: u32 = 1u32;
 pub const MMCLV_VIEWSTYLE_SMALLICON: u32 = 2u32;
 pub const MMCVersionInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6fedb1d_cf21_4bd9_af3b_c5468e9c6684);
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type MMC_ACTION_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_ACTION_UNINITIALIZED: MMC_ACTION_TYPE = -1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_ACTION_ID: MMC_ACTION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_ACTION_LINK: MMC_ACTION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_ACTION_SCRIPT: MMC_ACTION_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type MMC_BUTTON_STATE = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const ENABLED: MMC_BUTTON_STATE = 1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const CHECKED: MMC_BUTTON_STATE = 2i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const HIDDEN: MMC_BUTTON_STATE = 4i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const INDETERMINATE: MMC_BUTTON_STATE = 8i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const BUTTONPRESSED: MMC_BUTTON_STATE = 16i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub struct MMC_COLUMN_DATA {
     pub nColIndex: i32,
     pub dwFlags: u32,
@@ -4914,6 +5028,7 @@ impl ::core::default::Default for MMC_COLUMN_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub struct MMC_COLUMN_SET_DATA {
     pub cbSize: i32,
     pub nNumCols: i32,
@@ -4939,26 +5054,45 @@ impl ::core::default::Default for MMC_COLUMN_SET_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type MMC_CONSOLE_VERB = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VERB_NONE: MMC_CONSOLE_VERB = 0i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VERB_OPEN: MMC_CONSOLE_VERB = 32768i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VERB_COPY: MMC_CONSOLE_VERB = 32769i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VERB_PASTE: MMC_CONSOLE_VERB = 32770i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VERB_DELETE: MMC_CONSOLE_VERB = 32771i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VERB_PROPERTIES: MMC_CONSOLE_VERB = 32772i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VERB_RENAME: MMC_CONSOLE_VERB = 32773i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VERB_REFRESH: MMC_CONSOLE_VERB = 32774i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VERB_PRINT: MMC_CONSOLE_VERB = 32775i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VERB_CUT: MMC_CONSOLE_VERB = 32776i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VERB_MAX: MMC_CONSOLE_VERB = 32777i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VERB_FIRST: MMC_CONSOLE_VERB = 32768i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VERB_LAST: MMC_CONSOLE_VERB = 32776i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type MMC_CONTROL_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const TOOLBAR: MMC_CONTROL_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MENUBUTTON: MMC_CONTROL_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const COMBOBOXBAR: MMC_CONTROL_TYPE = 2i32;
 pub const MMC_DEFAULT_OPERATION_COPY: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MMC_EXPANDSYNC_STRUCT {
     pub bHandled: super::super::Foundation::BOOL,
@@ -4992,6 +5126,7 @@ impl ::core::default::Default for MMC_EXPANDSYNC_STRUCT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MMC_EXT_VIEW_DATA {
     pub viewID: ::windows::core::GUID,
@@ -5027,6 +5162,7 @@ impl ::core::default::Default for MMC_EXT_VIEW_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MMC_FILTERDATA {
     pub pszText: super::super::Foundation::PWSTR,
@@ -5059,19 +5195,28 @@ impl ::core::default::Default for MMC_FILTERDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type MMC_FILTER_CHANGE_CODE = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MFCC_DISABLE: MMC_FILTER_CHANGE_CODE = 0i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MFCC_ENABLE: MMC_FILTER_CHANGE_CODE = 1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MFCC_VALUE_CHANGE: MMC_FILTER_CHANGE_CODE = 2i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type MMC_FILTER_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_STRING_FILTER: MMC_FILTER_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_INT_FILTER: MMC_FILTER_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_FILTER_NOVALUE: MMC_FILTER_TYPE = 32768i32;
 pub const MMC_IMAGECALLBACK: i32 = -1i32;
 pub const MMC_ITEM_OVERLAY_STATE_MASK: u32 = 3840u32;
 pub const MMC_ITEM_OVERLAY_STATE_SHIFT: u32 = 8u32;
 pub const MMC_ITEM_STATE_MASK: u32 = 255u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MMC_LISTPAD_INFO {
     pub szTitle: super::super::Foundation::PWSTR,
@@ -5104,45 +5249,83 @@ impl ::core::default::Default for MMC_LISTPAD_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type MMC_MENU_COMMAND_IDS = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCC_STANDARD_VIEW_SELECT: MMC_MENU_COMMAND_IDS = -1i32;
 pub const MMC_MULTI_SELECT_COOKIE: i32 = -2i32;
 pub const MMC_NODEID_SLOW_RETRIEVAL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type MMC_NOTIFY_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_ACTIVATE: MMC_NOTIFY_TYPE = 32769i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_ADD_IMAGES: MMC_NOTIFY_TYPE = 32770i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_BTN_CLICK: MMC_NOTIFY_TYPE = 32771i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_CLICK: MMC_NOTIFY_TYPE = 32772i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_COLUMN_CLICK: MMC_NOTIFY_TYPE = 32773i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_CONTEXTMENU: MMC_NOTIFY_TYPE = 32774i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_CUTORMOVE: MMC_NOTIFY_TYPE = 32775i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_DBLCLICK: MMC_NOTIFY_TYPE = 32776i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_DELETE: MMC_NOTIFY_TYPE = 32777i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_DESELECT_ALL: MMC_NOTIFY_TYPE = 32778i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_EXPAND: MMC_NOTIFY_TYPE = 32779i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_HELP: MMC_NOTIFY_TYPE = 32780i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_MENU_BTNCLICK: MMC_NOTIFY_TYPE = 32781i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_MINIMIZED: MMC_NOTIFY_TYPE = 32782i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_PASTE: MMC_NOTIFY_TYPE = 32783i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_PROPERTY_CHANGE: MMC_NOTIFY_TYPE = 32784i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_QUERY_PASTE: MMC_NOTIFY_TYPE = 32785i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_REFRESH: MMC_NOTIFY_TYPE = 32786i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_REMOVE_CHILDREN: MMC_NOTIFY_TYPE = 32787i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_RENAME: MMC_NOTIFY_TYPE = 32788i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_SELECT: MMC_NOTIFY_TYPE = 32789i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_SHOW: MMC_NOTIFY_TYPE = 32790i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_VIEW_CHANGE: MMC_NOTIFY_TYPE = 32791i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_SNAPINHELP: MMC_NOTIFY_TYPE = 32792i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_CONTEXTHELP: MMC_NOTIFY_TYPE = 32793i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_INITOCX: MMC_NOTIFY_TYPE = 32794i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_FILTER_CHANGE: MMC_NOTIFY_TYPE = 32795i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_FILTERBTN_CLICK: MMC_NOTIFY_TYPE = 32796i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_RESTORE_VIEW: MMC_NOTIFY_TYPE = 32797i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_PRINT: MMC_NOTIFY_TYPE = 32798i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_PRELOAD: MMC_NOTIFY_TYPE = 32799i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_LISTPAD: MMC_NOTIFY_TYPE = 32800i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_EXPANDSYNC: MMC_NOTIFY_TYPE = 32801i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_COLUMNS_CHANGED: MMC_NOTIFY_TYPE = 32802i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_CANPASTE_OUTOFPROC: MMC_NOTIFY_TYPE = 32803i32;
 pub const MMC_NW_OPTION_CUSTOMTITLE: u32 = 8u32;
 pub const MMC_NW_OPTION_NOACTIONPANE: u32 = 32u32;
@@ -5151,9 +5334,13 @@ pub const MMC_NW_OPTION_NOPERSIST: u32 = 16u32;
 pub const MMC_NW_OPTION_NOSCOPEPANE: u32 = 1u32;
 pub const MMC_NW_OPTION_NOTOOLBARS: u32 = 2u32;
 pub const MMC_NW_OPTION_SHORTTITLE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type MMC_PROPERTY_ACTION = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_PROPACT_DELETING: MMC_PROPERTY_ACTION = 1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_PROPACT_CHANGING: MMC_PROPERTY_ACTION = 2i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_PROPACT_INITIALIZED: MMC_PROPERTY_ACTION = 3i32;
 pub const MMC_PROP_CHANGEAFFECTSUI: u32 = 1u32;
 pub const MMC_PROP_MODIFIABLE: u32 = 2u32;
@@ -5164,6 +5351,7 @@ pub const MMC_PSO_NEWWIZARDTYPE: u32 = 4u32;
 pub const MMC_PSO_NOAPPLYNOW: u32 = 1u32;
 pub const MMC_PSO_NO_PROPTITLE: u32 = 8u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MMC_RESTORE_VIEW {
     pub dwSize: u32,
@@ -5197,16 +5385,26 @@ impl ::core::default::Default for MMC_RESTORE_VIEW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type MMC_RESULT_VIEW_STYLE = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_SINGLESEL: MMC_RESULT_VIEW_STYLE = 1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_SHOWSELALWAYS: MMC_RESULT_VIEW_STYLE = 2i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_NOSORTHEADER: MMC_RESULT_VIEW_STYLE = 4i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_ENSUREFOCUSVISIBLE: MMC_RESULT_VIEW_STYLE = 8i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type MMC_SCOPE_ITEM_STATE = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_SCOPE_ITEM_STATE_NORMAL: MMC_SCOPE_ITEM_STATE = 1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_SCOPE_ITEM_STATE_BOLD: MMC_SCOPE_ITEM_STATE = 2i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_SCOPE_ITEM_STATE_EXPANDEDONCE: MMC_SCOPE_ITEM_STATE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct MMC_SNAPIN_PROPERTY {
     pub pszPropName: super::super::Foundation::PWSTR,
@@ -5238,6 +5436,7 @@ impl ::core::default::Default for MMC_SNAPIN_PROPERTY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub struct MMC_SORT_DATA {
     pub nColIndex: i32,
     pub dwSortOptions: u32,
@@ -5264,6 +5463,7 @@ impl ::core::default::Default for MMC_SORT_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub struct MMC_SORT_SET_DATA {
     pub cbSize: i32,
     pub nNumItems: i32,
@@ -5290,6 +5490,7 @@ impl ::core::default::Default for MMC_SORT_SET_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MMC_TASK {
     pub sDisplayObject: MMC_TASK_DISPLAY_OBJECT,
@@ -5325,6 +5526,7 @@ impl ::core::default::Default for MMC_TASK {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union MMC_TASK_0 {
     pub nCommandID: isize,
@@ -5358,6 +5560,7 @@ impl ::core::default::Default for MMC_TASK_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MMC_TASK_DISPLAY_BITMAP {
     pub szMouseOverBitmap: super::super::Foundation::PWSTR,
@@ -5390,6 +5593,7 @@ impl ::core::default::Default for MMC_TASK_DISPLAY_BITMAP {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MMC_TASK_DISPLAY_OBJECT {
     pub eDisplayType: MMC_TASK_DISPLAY_TYPE,
@@ -5422,6 +5626,7 @@ impl ::core::default::Default for MMC_TASK_DISPLAY_OBJECT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union MMC_TASK_DISPLAY_OBJECT_0 {
     pub uBitmap: MMC_TASK_DISPLAY_BITMAP,
@@ -5454,6 +5659,7 @@ impl ::core::default::Default for MMC_TASK_DISPLAY_OBJECT_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MMC_TASK_DISPLAY_SYMBOL {
     pub szFontFamilyName: super::super::Foundation::PWSTR,
@@ -5486,11 +5692,17 @@ impl ::core::default::Default for MMC_TASK_DISPLAY_SYMBOL {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type MMC_TASK_DISPLAY_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_TASK_DISPLAY_UNINITIALIZED: MMC_TASK_DISPLAY_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_TASK_DISPLAY_TYPE_SYMBOL: MMC_TASK_DISPLAY_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_TASK_DISPLAY_TYPE_VANILLA_GIF: MMC_TASK_DISPLAY_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_TASK_DISPLAY_TYPE_CHOCOLATE_GIF: MMC_TASK_DISPLAY_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_TASK_DISPLAY_TYPE_BITMAP: MMC_TASK_DISPLAY_TYPE = 4i32;
 pub const MMC_VER: u32 = 512u32;
 pub const MMC_VIEW_OPTIONS_CREATENEW: u32 = 16u32;
@@ -5502,11 +5714,16 @@ pub const MMC_VIEW_OPTIONS_NOLISTVIEWS: u32 = 1u32;
 pub const MMC_VIEW_OPTIONS_NONE: u32 = 0u32;
 pub const MMC_VIEW_OPTIONS_OWNERDATALIST: u32 = 4u32;
 pub const MMC_VIEW_OPTIONS_USEFONTLINKING: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type MMC_VIEW_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VIEW_TYPE_LIST: MMC_VIEW_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VIEW_TYPE_HTML: MMC_VIEW_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VIEW_TYPE_OCX: MMC_VIEW_TYPE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub struct MMC_VISIBLE_COLUMNS {
     pub nVisibleColumns: i32,
     pub rgVisibleCols: [i32; 1],
@@ -5532,6 +5749,7 @@ impl ::core::default::Default for MMC_VISIBLE_COLUMNS {
     }
 }
 pub const MMC_WINDOW_COOKIE: i32 = -3i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct MenuItem(::windows::core::IUnknown);
 impl MenuItem {
@@ -5659,6 +5877,7 @@ pub struct MenuItemVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct Node(::windows::core::IUnknown);
 impl Node {
@@ -5784,6 +6003,7 @@ pub struct NodeVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodetype: *mut *mut u16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct Nodes(::windows::core::IUnknown);
 impl Nodes {
@@ -5895,6 +6115,7 @@ pub struct NodesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, node: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct Properties(::windows::core::IUnknown);
 impl Properties {
@@ -6014,6 +6235,7 @@ pub struct PropertiesVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct Property(::windows::core::IUnknown);
 impl Property {
@@ -6130,6 +6352,7 @@ pub struct PropertyVtbl(
 );
 pub const RDCI_ScopeItem: u32 = 2147483648u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RDCOMPARE {
     pub cbSize: u32,
@@ -6166,6 +6389,7 @@ impl ::core::default::Default for RDCOMPARE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RDITEMHDR {
     pub dwFlags: u32,
@@ -6205,6 +6429,7 @@ pub const RDI_PARAM: u32 = 16u32;
 pub const RDI_STATE: u32 = 8u32;
 pub const RDI_STR: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RESULTDATAITEM {
     pub mask: u32,
@@ -6245,6 +6470,7 @@ impl ::core::default::Default for RESULTDATAITEM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RESULTFINDINFO {
     pub psz: super::super::Foundation::PWSTR,
@@ -6278,6 +6504,7 @@ impl ::core::default::Default for RESULTFINDINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RESULT_VIEW_TYPE_INFO {
     pub pstrPersistableViewDescription: super::super::Foundation::PWSTR,
@@ -6315,6 +6542,7 @@ impl ::core::default::Default for RESULT_VIEW_TYPE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union RESULT_VIEW_TYPE_INFO_0 {
     pub dwListOptions: u32,
@@ -6346,6 +6574,7 @@ impl ::core::default::Default for RESULT_VIEW_TYPE_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RESULT_VIEW_TYPE_INFO_0_0 {
     pub dwHTMLOptions: u32,
@@ -6378,6 +6607,7 @@ impl ::core::default::Default for RESULT_VIEW_TYPE_INFO_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RESULT_VIEW_TYPE_INFO_0_1 {
     pub dwOCXOptions: u32,
@@ -6426,6 +6656,7 @@ pub const RVTI_OCX_OPTIONS_CACHE_OCX: u32 = 2u32;
 pub const RVTI_OCX_OPTIONS_NOLISTVIEW: u32 = 1u32;
 pub const RVTI_OCX_OPTIONS_NONE: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SCOPEDATAITEM {
     pub mask: u32,
@@ -6465,6 +6696,7 @@ impl ::core::default::Default for SCOPEDATAITEM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub struct SColumnSetID {
     pub dwFlags: u32,
     pub cBytes: u32,
@@ -6501,6 +6733,7 @@ pub const SDI_PREVIOUS: u32 = 268435456u32;
 pub const SDI_STATE: u32 = 16u32;
 pub const SDI_STR: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct SMMCDataObjects {
     pub count: u32,
@@ -6531,6 +6764,7 @@ impl ::core::default::Default for SMMCDataObjects {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub struct SMMCObjectTypes {
     pub count: u32,
     pub guid: [::windows::core::GUID; 1],
@@ -6556,6 +6790,7 @@ impl ::core::default::Default for SMMCObjectTypes {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub struct SNodeID {
     pub cBytes: u32,
     pub id: [u8; 1],
@@ -6581,6 +6816,7 @@ impl ::core::default::Default for SNodeID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub struct SNodeID2 {
     pub dwFlags: u32,
     pub cBytes: u32,
@@ -6610,6 +6846,7 @@ pub const SPECIAL_COOKIE_MAX: i32 = -1i32;
 pub const SPECIAL_COOKIE_MIN: i32 = -10i32;
 pub const SPECIAL_DOBJ_MAX: u32 = 0u32;
 pub const SPECIAL_DOBJ_MIN: i32 = -10i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct ScopeNamespace(::windows::core::IUnknown);
 impl ScopeNamespace {
@@ -6730,6 +6967,7 @@ pub struct ScopeNamespaceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, root: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, node: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct SnapIn(::windows::core::IUnknown);
 impl SnapIn {
@@ -6862,6 +7100,7 @@ pub struct SnapInVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct SnapIns(::windows::core::IUnknown);
 impl SnapIns {
@@ -6984,6 +7223,7 @@ pub struct SnapInsVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, snapin: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct View(::windows::core::IUnknown);
 impl View {
@@ -7303,6 +7543,7 @@ pub struct ViewVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, control: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct Views(::windows::core::IUnknown);
 impl Views {
@@ -7418,6 +7659,7 @@ pub struct ViewsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, node: ::windows::core::RawPtr, viewoptions: _ViewOptions) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct _AppEvents(::windows::core::IUnknown);
 impl _AppEvents {
@@ -7564,6 +7806,7 @@ pub struct _AppEventsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, view: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct _Application(::windows::core::IUnknown);
 impl _Application {
@@ -7722,14 +7965,23 @@ pub struct _ApplicationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, versionmajor: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, versionminor: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type _ColumnSortOrder = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const SortOrder_Ascending: _ColumnSortOrder = 0i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const SortOrder_Descending: _ColumnSortOrder = 1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type _DocumentMode = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const DocumentMode_Author: _DocumentMode = 0i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const DocumentMode_User: _DocumentMode = 1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const DocumentMode_User_MDI: _DocumentMode = 2i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const DocumentMode_User_SDI: _DocumentMode = 3i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
 pub struct _EventConnector(::windows::core::IUnknown);
 impl _EventConnector {
@@ -7834,20 +8086,37 @@ pub struct _EventConnectorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, application: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type _ExportListOptions = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const ExportListOptions_Default: _ExportListOptions = 0i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const ExportListOptions_Unicode: _ExportListOptions = 1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const ExportListOptions_TabDelimited: _ExportListOptions = 2i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const ExportListOptions_SelectedItemsOnly: _ExportListOptions = 4i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type _ListViewMode = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const ListMode_Small_Icons: _ListViewMode = 0i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const ListMode_Large_Icons: _ListViewMode = 1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const ListMode_List: _ListViewMode = 2i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const ListMode_Detail: _ListViewMode = 3i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const ListMode_Filtered: _ListViewMode = 4i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type _ViewOptions = i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const ViewOption_Default: _ViewOptions = 0i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const ViewOption_ScopeTreeHidden: _ViewOptions = 1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const ViewOption_NoToolBars: _ViewOptions = 2i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const ViewOption_NotPersistable: _ViewOptions = 4i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const ViewOption_ActionPaneHidden: _ViewOptions = 8i32;

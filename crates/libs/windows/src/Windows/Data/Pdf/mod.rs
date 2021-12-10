@@ -133,6 +133,7 @@ pub struct IPdfPageRenderOptionsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Data_Pdf'*"]
 #[repr(transparent)]
 pub struct PdfDocument(::windows::core::IUnknown);
 impl PdfDocument {
@@ -253,6 +254,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PdfD
 }
 unsafe impl ::core::marker::Send for PdfDocument {}
 unsafe impl ::core::marker::Sync for PdfDocument {}
+#[doc = "*Required features: 'Data_Pdf'*"]
 #[repr(transparent)]
 pub struct PdfPage(::windows::core::IUnknown);
 impl PdfPage {
@@ -411,6 +413,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for PdfPage {}
 unsafe impl ::core::marker::Sync for PdfPage {}
+#[doc = "*Required features: 'Data_Pdf'*"]
 #[repr(transparent)]
 pub struct PdfPageDimensions(::windows::core::IUnknown);
 impl PdfPageDimensions {
@@ -518,6 +521,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PdfP
 }
 unsafe impl ::core::marker::Send for PdfPageDimensions {}
 unsafe impl ::core::marker::Sync for PdfPageDimensions {}
+#[doc = "*Required features: 'Data_Pdf'*"]
 #[repr(transparent)]
 pub struct PdfPageRenderOptions(::windows::core::IUnknown);
 impl PdfPageRenderOptions {
@@ -662,6 +666,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PdfP
 }
 unsafe impl ::core::marker::Send for PdfPageRenderOptions {}
 unsafe impl ::core::marker::Sync for PdfPageRenderOptions {}
+#[doc = "*Required features: 'Data_Pdf'*"]
 #[repr(transparent)]
 pub struct PdfPageRotation(pub i32);
 impl PdfPageRotation {

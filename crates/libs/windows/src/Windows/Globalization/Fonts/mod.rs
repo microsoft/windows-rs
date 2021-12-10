@@ -70,6 +70,7 @@ pub struct ILanguageFontGroupFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Globalization_Fonts'*"]
 #[repr(transparent)]
 pub struct LanguageFont(::windows::core::IUnknown);
 impl LanguageFont {
@@ -175,6 +176,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lang
 }
 unsafe impl ::core::marker::Send for LanguageFont {}
 unsafe impl ::core::marker::Sync for LanguageFont {}
+#[doc = "*Required features: 'Globalization_Fonts'*"]
 #[repr(transparent)]
 pub struct LanguageFontGroup(::windows::core::IUnknown);
 impl LanguageFontGroup {

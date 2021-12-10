@@ -681,6 +681,7 @@ pub struct IPaymentTokenFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paymentmethodid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paymentmethodid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, jsondetails: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentAddress(::windows::core::IUnknown);
 impl PaymentAddress {
@@ -886,6 +887,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentAddress {}
 unsafe impl ::core::marker::Sync for PaymentAddress {}
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentCanMakePaymentResult(::windows::core::IUnknown);
 impl PaymentCanMakePaymentResult {
@@ -970,6 +972,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentCanMakePaymentResult {}
 unsafe impl ::core::marker::Sync for PaymentCanMakePaymentResult {}
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentCanMakePaymentResultStatus(pub i32);
 impl PaymentCanMakePaymentResultStatus {
@@ -1002,6 +1005,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentCanMakePaymentResultStatus {
 impl ::windows::core::DefaultType for PaymentCanMakePaymentResultStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentCurrencyAmount(::windows::core::IUnknown);
 impl PaymentCurrencyAmount {
@@ -1118,6 +1122,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentCurrencyAmount {}
 unsafe impl ::core::marker::Sync for PaymentCurrencyAmount {}
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentDetails(::windows::core::IUnknown);
 impl PaymentDetails {
@@ -1259,6 +1264,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentDetails {}
 unsafe impl ::core::marker::Sync for PaymentDetails {}
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentDetailsModifier(::windows::core::IUnknown);
 impl PaymentDetailsModifier {
@@ -1381,6 +1387,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentDetailsModifier {}
 unsafe impl ::core::marker::Sync for PaymentDetailsModifier {}
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentItem(::windows::core::IUnknown);
 impl PaymentItem {
@@ -1491,6 +1498,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentItem {}
 unsafe impl ::core::marker::Sync for PaymentItem {}
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentMediator(::windows::core::IUnknown);
 impl PaymentMediator {
@@ -1597,6 +1605,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentMediator {}
 unsafe impl ::core::marker::Sync for PaymentMediator {}
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentMerchantInfo(::windows::core::IUnknown);
 impl PaymentMerchantInfo {
@@ -1697,6 +1706,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentMerchantInfo {}
 unsafe impl ::core::marker::Sync for PaymentMerchantInfo {}
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentMethodData(::windows::core::IUnknown);
 impl PaymentMethodData {
@@ -1797,6 +1807,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentMethodData {}
 unsafe impl ::core::marker::Sync for PaymentMethodData {}
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentOptionPresence(pub i32);
 impl PaymentOptionPresence {
@@ -1825,6 +1836,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentOptionPresence {
 impl ::windows::core::DefaultType for PaymentOptionPresence {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentOptions(::windows::core::IUnknown);
 impl PaymentOptions {
@@ -1954,6 +1966,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentOptions {}
 unsafe impl ::core::marker::Sync for PaymentOptions {}
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentRequest(::windows::core::IUnknown);
 impl PaymentRequest {
@@ -2093,6 +2106,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentRequest {}
 unsafe impl ::core::marker::Sync for PaymentRequest {}
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentRequestChangeKind(pub i32);
 impl PaymentRequestChangeKind {
@@ -2120,6 +2134,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentRequestChangeKind {
 impl ::windows::core::DefaultType for PaymentRequestChangeKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentRequestChangedArgs(::windows::core::IUnknown);
 impl PaymentRequestChangedArgs {
@@ -2212,6 +2227,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentRequestChangedArgs {}
 unsafe impl ::core::marker::Sync for PaymentRequestChangedArgs {}
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentRequestChangedHandler(pub ::windows::core::IUnknown);
 impl PaymentRequestChangedHandler {
@@ -2280,6 +2296,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentRequestChangedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct PaymentRequestChangedHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paymentrequest: ::windows::core::RawPtr, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentRequestChangedResult(::windows::core::IUnknown);
 impl PaymentRequestChangedResult {
@@ -2396,6 +2413,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentRequestChangedResult {}
 unsafe impl ::core::marker::Sync for PaymentRequestChangedResult {}
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentRequestCompletionStatus(pub i32);
 impl PaymentRequestCompletionStatus {
@@ -2424,6 +2442,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentRequestCompletionStatus {
 impl ::windows::core::DefaultType for PaymentRequestCompletionStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentRequestStatus(pub i32);
 impl PaymentRequestStatus {
@@ -2452,6 +2471,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentRequestStatus {
 impl ::windows::core::DefaultType for PaymentRequestStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentRequestSubmitResult(::windows::core::IUnknown);
 impl PaymentRequestSubmitResult {
@@ -2533,6 +2553,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentRequestSubmitResult {}
 unsafe impl ::core::marker::Sync for PaymentRequestSubmitResult {}
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentResponse(::windows::core::IUnknown);
 impl PaymentResponse {
@@ -2650,6 +2671,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentResponse {}
 unsafe impl ::core::marker::Sync for PaymentResponse {}
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentShippingOption(::windows::core::IUnknown);
 impl PaymentShippingOption {
@@ -2783,6 +2805,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Paym
 }
 unsafe impl ::core::marker::Send for PaymentShippingOption {}
 unsafe impl ::core::marker::Sync for PaymentShippingOption {}
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentShippingType(pub i32);
 impl PaymentShippingType {
@@ -2811,6 +2834,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentShippingType {
 impl ::windows::core::DefaultType for PaymentShippingType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
 pub struct PaymentToken(::windows::core::IUnknown);
 impl PaymentToken {

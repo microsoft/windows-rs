@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 pub type ConditionForceEffect = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
 pub struct ConditionForceEffectKind(pub i32);
 impl ConditionForceEffectKind {
@@ -17,6 +18,7 @@ impl ::core::clone::Clone for ConditionForceEffectKind {
     }
 }
 pub type ConstantForceEffect = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
 pub struct ForceFeedbackEffectAxes(pub u32);
 impl ForceFeedbackEffectAxes {
@@ -31,6 +33,7 @@ impl ::core::clone::Clone for ForceFeedbackEffectAxes {
         *self
     }
 }
+#[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
 pub struct ForceFeedbackEffectState(pub i32);
 impl ForceFeedbackEffectState {
@@ -45,6 +48,7 @@ impl ::core::clone::Clone for ForceFeedbackEffectState {
         *self
     }
 }
+#[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
 pub struct ForceFeedbackLoadEffectResult(pub i32);
 impl ForceFeedbackLoadEffectResult {
@@ -61,6 +65,7 @@ impl ::core::clone::Clone for ForceFeedbackLoadEffectResult {
 pub type ForceFeedbackMotor = *mut ::core::ffi::c_void;
 pub type IForceFeedbackEffect = *mut ::core::ffi::c_void;
 pub type PeriodicForceEffect = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
 pub struct PeriodicForceEffectKind(pub i32);
 impl PeriodicForceEffectKind {

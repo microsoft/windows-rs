@@ -4,6 +4,7 @@ extern "system" {}
 pub type II2cControllerProvider = *mut ::core::ffi::c_void;
 pub type II2cDeviceProvider = *mut ::core::ffi::c_void;
 pub type II2cProvider = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_I2c_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderI2cBusSpeed(pub i32);
 impl ProviderI2cBusSpeed {
@@ -17,6 +18,7 @@ impl ::core::clone::Clone for ProviderI2cBusSpeed {
     }
 }
 pub type ProviderI2cConnectionSettings = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_I2c_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderI2cSharingMode(pub i32);
 impl ProviderI2cSharingMode {
@@ -30,6 +32,7 @@ impl ::core::clone::Clone for ProviderI2cSharingMode {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Devices_I2c_Provider'*"]
 pub struct ProviderI2cTransferResult {
     pub Status: ProviderI2cTransferStatus,
     pub BytesTransferred: u32,
@@ -40,6 +43,7 @@ impl ::core::clone::Clone for ProviderI2cTransferResult {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_I2c_Provider'*"]
 #[repr(transparent)]
 pub struct ProviderI2cTransferStatus(pub i32);
 impl ProviderI2cTransferStatus {

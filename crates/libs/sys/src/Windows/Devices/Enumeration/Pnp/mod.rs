@@ -3,6 +3,7 @@
 extern "system" {}
 pub type PnpObject = *mut ::core::ffi::c_void;
 pub type PnpObjectCollection = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Enumeration_Pnp'*"]
 #[repr(transparent)]
 pub struct PnpObjectType(pub i32);
 impl PnpObjectType {

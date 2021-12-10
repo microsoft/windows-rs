@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpCacheDirectiveHeaderValueCollection(::windows::core::IUnknown);
 impl HttpCacheDirectiveHeaderValueCollection {
@@ -314,6 +315,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 }
 unsafe impl ::core::marker::Send for HttpCacheDirectiveHeaderValueCollection {}
 unsafe impl ::core::marker::Sync for HttpCacheDirectiveHeaderValueCollection {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpChallengeHeaderValue(::windows::core::IUnknown);
 impl HttpChallengeHeaderValue {
@@ -469,6 +471,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpChallengeHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpChallengeHeaderValue {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpChallengeHeaderValueCollection(::windows::core::IUnknown);
 impl HttpChallengeHeaderValueCollection {
@@ -732,6 +735,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 }
 unsafe impl ::core::marker::Send for HttpChallengeHeaderValueCollection {}
 unsafe impl ::core::marker::Sync for HttpChallengeHeaderValueCollection {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpConnectionOptionHeaderValue(::windows::core::IUnknown);
 impl HttpConnectionOptionHeaderValue {
@@ -866,6 +870,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpConnectionOptionHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpConnectionOptionHeaderValue {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpConnectionOptionHeaderValueCollection(::windows::core::IUnknown);
 impl HttpConnectionOptionHeaderValueCollection {
@@ -1129,6 +1134,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 }
 unsafe impl ::core::marker::Send for HttpConnectionOptionHeaderValueCollection {}
 unsafe impl ::core::marker::Sync for HttpConnectionOptionHeaderValueCollection {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpContentCodingHeaderValue(::windows::core::IUnknown);
 impl HttpContentCodingHeaderValue {
@@ -1263,6 +1269,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpContentCodingHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpContentCodingHeaderValue {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpContentCodingHeaderValueCollection(::windows::core::IUnknown);
 impl HttpContentCodingHeaderValueCollection {
@@ -1526,6 +1533,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 }
 unsafe impl ::core::marker::Send for HttpContentCodingHeaderValueCollection {}
 unsafe impl ::core::marker::Sync for HttpContentCodingHeaderValueCollection {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpContentCodingWithQualityHeaderValue(::windows::core::IUnknown);
 impl HttpContentCodingWithQualityHeaderValue {
@@ -1674,6 +1682,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpContentCodingWithQualityHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpContentCodingWithQualityHeaderValue {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpContentCodingWithQualityHeaderValueCollection(::windows::core::IUnknown);
 impl HttpContentCodingWithQualityHeaderValueCollection {
@@ -1937,6 +1946,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 }
 unsafe impl ::core::marker::Send for HttpContentCodingWithQualityHeaderValueCollection {}
 unsafe impl ::core::marker::Sync for HttpContentCodingWithQualityHeaderValueCollection {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpContentDispositionHeaderValue(::windows::core::IUnknown);
 impl HttpContentDispositionHeaderValue {
@@ -2129,6 +2139,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpContentDispositionHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpContentDispositionHeaderValue {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpContentHeaderCollection(::windows::core::IUnknown);
 impl HttpContentHeaderCollection {
@@ -2486,6 +2497,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpContentHeaderCollection {}
 unsafe impl ::core::marker::Sync for HttpContentHeaderCollection {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpContentRangeHeaderValue(::windows::core::IUnknown);
 impl HttpContentRangeHeaderValue {
@@ -2660,6 +2672,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpContentRangeHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpContentRangeHeaderValue {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpCookiePairHeaderValue(::windows::core::IUnknown);
 impl HttpCookiePairHeaderValue {
@@ -2811,6 +2824,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpCookiePairHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpCookiePairHeaderValue {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpCookiePairHeaderValueCollection(::windows::core::IUnknown);
 impl HttpCookiePairHeaderValueCollection {
@@ -3074,6 +3088,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 }
 unsafe impl ::core::marker::Send for HttpCookiePairHeaderValueCollection {}
 unsafe impl ::core::marker::Sync for HttpCookiePairHeaderValueCollection {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpCredentialsHeaderValue(::windows::core::IUnknown);
 impl HttpCredentialsHeaderValue {
@@ -3229,6 +3244,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpCredentialsHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpCredentialsHeaderValue {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpDateOrDeltaHeaderValue(::windows::core::IUnknown);
 impl HttpDateOrDeltaHeaderValue {
@@ -3362,6 +3378,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpDateOrDeltaHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpDateOrDeltaHeaderValue {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpExpectationHeaderValue(::windows::core::IUnknown);
 impl HttpExpectationHeaderValue {
@@ -3521,6 +3538,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpExpectationHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpExpectationHeaderValue {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpExpectationHeaderValueCollection(::windows::core::IUnknown);
 impl HttpExpectationHeaderValueCollection {
@@ -3784,6 +3802,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 }
 unsafe impl ::core::marker::Send for HttpExpectationHeaderValueCollection {}
 unsafe impl ::core::marker::Sync for HttpExpectationHeaderValueCollection {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpLanguageHeaderValueCollection(::windows::core::IUnknown);
 impl HttpLanguageHeaderValueCollection {
@@ -4047,6 +4066,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 }
 unsafe impl ::core::marker::Send for HttpLanguageHeaderValueCollection {}
 unsafe impl ::core::marker::Sync for HttpLanguageHeaderValueCollection {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpLanguageRangeWithQualityHeaderValue(::windows::core::IUnknown);
 impl HttpLanguageRangeWithQualityHeaderValue {
@@ -4195,6 +4215,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpLanguageRangeWithQualityHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpLanguageRangeWithQualityHeaderValue {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpLanguageRangeWithQualityHeaderValueCollection(::windows::core::IUnknown);
 impl HttpLanguageRangeWithQualityHeaderValueCollection {
@@ -4458,6 +4479,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 }
 unsafe impl ::core::marker::Send for HttpLanguageRangeWithQualityHeaderValueCollection {}
 unsafe impl ::core::marker::Sync for HttpLanguageRangeWithQualityHeaderValueCollection {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpMediaTypeHeaderValue(::windows::core::IUnknown);
 impl HttpMediaTypeHeaderValue {
@@ -4615,6 +4637,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpMediaTypeHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpMediaTypeHeaderValue {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpMediaTypeWithQualityHeaderValue(::windows::core::IUnknown);
 impl HttpMediaTypeWithQualityHeaderValue {
@@ -4791,6 +4814,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpMediaTypeWithQualityHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpMediaTypeWithQualityHeaderValue {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpMediaTypeWithQualityHeaderValueCollection(::windows::core::IUnknown);
 impl HttpMediaTypeWithQualityHeaderValueCollection {
@@ -5054,6 +5078,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 }
 unsafe impl ::core::marker::Send for HttpMediaTypeWithQualityHeaderValueCollection {}
 unsafe impl ::core::marker::Sync for HttpMediaTypeWithQualityHeaderValueCollection {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpMethodHeaderValueCollection(::windows::core::IUnknown);
 impl HttpMethodHeaderValueCollection {
@@ -5317,6 +5342,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 }
 unsafe impl ::core::marker::Send for HttpMethodHeaderValueCollection {}
 unsafe impl ::core::marker::Sync for HttpMethodHeaderValueCollection {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpNameValueHeaderValue(::windows::core::IUnknown);
 impl HttpNameValueHeaderValue {
@@ -5468,6 +5494,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpNameValueHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpNameValueHeaderValue {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpProductHeaderValue(::windows::core::IUnknown);
 impl HttpProductHeaderValue {
@@ -5615,6 +5642,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpProductHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpProductHeaderValue {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpProductInfoHeaderValue(::windows::core::IUnknown);
 impl HttpProductInfoHeaderValue {
@@ -5762,6 +5790,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpProductInfoHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpProductInfoHeaderValue {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpProductInfoHeaderValueCollection(::windows::core::IUnknown);
 impl HttpProductInfoHeaderValueCollection {
@@ -6025,6 +6054,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 }
 unsafe impl ::core::marker::Send for HttpProductInfoHeaderValueCollection {}
 unsafe impl ::core::marker::Sync for HttpProductInfoHeaderValueCollection {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpRequestHeaderCollection(::windows::core::IUnknown);
 impl HttpRequestHeaderCollection {
@@ -6437,6 +6467,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpRequestHeaderCollection {}
 unsafe impl ::core::marker::Sync for HttpRequestHeaderCollection {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpResponseHeaderCollection(::windows::core::IUnknown);
 impl HttpResponseHeaderCollection {
@@ -6767,6 +6798,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpResponseHeaderCollection {}
 unsafe impl ::core::marker::Sync for HttpResponseHeaderCollection {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpTransferCodingHeaderValue(::windows::core::IUnknown);
 impl HttpTransferCodingHeaderValue {
@@ -6909,6 +6941,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IString
 }
 unsafe impl ::core::marker::Send for HttpTransferCodingHeaderValue {}
 unsafe impl ::core::marker::Sync for HttpTransferCodingHeaderValue {}
+#[doc = "*Required features: 'Web_Http_Headers'*"]
 #[repr(transparent)]
 pub struct HttpTransferCodingHeaderValueCollection(::windows::core::IUnknown);
 impl HttpTransferCodingHeaderValueCollection {

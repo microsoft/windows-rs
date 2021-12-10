@@ -5,6 +5,7 @@ pub mod DevicePortal;
 pub mod Telemetry;
 #[cfg(feature = "System_Diagnostics_TraceReporting")]
 pub mod TraceReporting;
+#[doc = "*Required features: 'System_Diagnostics'*"]
 #[repr(transparent)]
 pub struct DiagnosticActionResult(::windows::core::IUnknown);
 impl DiagnosticActionResult {
@@ -87,6 +88,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Diag
 }
 unsafe impl ::core::marker::Send for DiagnosticActionResult {}
 unsafe impl ::core::marker::Sync for DiagnosticActionResult {}
+#[doc = "*Required features: 'System_Diagnostics'*"]
 #[repr(transparent)]
 pub struct DiagnosticActionState(pub i32);
 impl DiagnosticActionState {
@@ -119,6 +121,7 @@ unsafe impl ::windows::core::RuntimeType for DiagnosticActionState {
 impl ::windows::core::DefaultType for DiagnosticActionState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_Diagnostics'*"]
 #[repr(transparent)]
 pub struct DiagnosticInvoker(::windows::core::IUnknown);
 impl DiagnosticInvoker {
@@ -647,6 +650,7 @@ pub struct ISystemMemoryUsageReportVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'System_Diagnostics'*"]
 #[repr(transparent)]
 pub struct ProcessCpuUsage(::windows::core::IUnknown);
 impl ProcessCpuUsage {
@@ -721,6 +725,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
 }
 unsafe impl ::core::marker::Send for ProcessCpuUsage {}
 unsafe impl ::core::marker::Sync for ProcessCpuUsage {}
+#[doc = "*Required features: 'System_Diagnostics'*"]
 #[repr(transparent)]
 pub struct ProcessCpuUsageReport(::windows::core::IUnknown);
 impl ProcessCpuUsageReport {
@@ -804,6 +809,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
 }
 unsafe impl ::core::marker::Send for ProcessCpuUsageReport {}
 unsafe impl ::core::marker::Sync for ProcessCpuUsageReport {}
+#[doc = "*Required features: 'System_Diagnostics'*"]
 #[repr(transparent)]
 pub struct ProcessDiagnosticInfo(::windows::core::IUnknown);
 impl ProcessDiagnosticInfo {
@@ -963,6 +969,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
 }
 unsafe impl ::core::marker::Send for ProcessDiagnosticInfo {}
 unsafe impl ::core::marker::Sync for ProcessDiagnosticInfo {}
+#[doc = "*Required features: 'System_Diagnostics'*"]
 #[repr(transparent)]
 pub struct ProcessDiskUsage(::windows::core::IUnknown);
 impl ProcessDiskUsage {
@@ -1037,6 +1044,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
 }
 unsafe impl ::core::marker::Send for ProcessDiskUsage {}
 unsafe impl ::core::marker::Sync for ProcessDiskUsage {}
+#[doc = "*Required features: 'System_Diagnostics'*"]
 #[repr(transparent)]
 pub struct ProcessDiskUsageReport(::windows::core::IUnknown);
 impl ProcessDiskUsageReport {
@@ -1146,6 +1154,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
 }
 unsafe impl ::core::marker::Send for ProcessDiskUsageReport {}
 unsafe impl ::core::marker::Sync for ProcessDiskUsageReport {}
+#[doc = "*Required features: 'System_Diagnostics'*"]
 #[repr(transparent)]
 pub struct ProcessMemoryUsage(::windows::core::IUnknown);
 impl ProcessMemoryUsage {
@@ -1220,6 +1229,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
 }
 unsafe impl ::core::marker::Send for ProcessMemoryUsage {}
 unsafe impl ::core::marker::Sync for ProcessMemoryUsage {}
+#[doc = "*Required features: 'System_Diagnostics'*"]
 #[repr(transparent)]
 pub struct ProcessMemoryUsageReport(::windows::core::IUnknown);
 impl ProcessMemoryUsageReport {
@@ -1371,6 +1381,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
 }
 unsafe impl ::core::marker::Send for ProcessMemoryUsageReport {}
 unsafe impl ::core::marker::Sync for ProcessMemoryUsageReport {}
+#[doc = "*Required features: 'System_Diagnostics'*"]
 #[repr(transparent)]
 pub struct SystemCpuUsage(::windows::core::IUnknown);
 impl SystemCpuUsage {
@@ -1445,6 +1456,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemCpuUsage {}
 unsafe impl ::core::marker::Sync for SystemCpuUsage {}
+#[doc = "*Required features: 'System_Diagnostics'*"]
 #[repr(transparent)]
 pub struct SystemCpuUsageReport(::windows::core::IUnknown);
 impl SystemCpuUsageReport {
@@ -1536,6 +1548,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemCpuUsageReport {}
 unsafe impl ::core::marker::Sync for SystemCpuUsageReport {}
+#[doc = "*Required features: 'System_Diagnostics'*"]
 #[repr(transparent)]
 pub struct SystemDiagnosticInfo(::windows::core::IUnknown);
 impl SystemDiagnosticInfo {
@@ -1643,6 +1656,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemDiagnosticInfo {}
 unsafe impl ::core::marker::Sync for SystemDiagnosticInfo {}
+#[doc = "*Required features: 'System_Diagnostics'*"]
 #[repr(transparent)]
 pub struct SystemMemoryUsage(::windows::core::IUnknown);
 impl SystemMemoryUsage {
@@ -1717,6 +1731,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemMemoryUsage {}
 unsafe impl ::core::marker::Sync for SystemMemoryUsage {}
+#[doc = "*Required features: 'System_Diagnostics'*"]
 #[repr(transparent)]
 pub struct SystemMemoryUsageReport(::windows::core::IUnknown);
 impl SystemMemoryUsageReport {

@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
 pub struct EasClientDeviceInformation(::windows::core::IUnknown);
 impl EasClientDeviceInformation {
@@ -127,6 +128,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &EasC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
 pub struct EasClientSecurityPolicy(::windows::core::IUnknown);
 impl EasClientSecurityPolicy {
@@ -306,6 +308,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &EasC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
 pub struct EasComplianceResults(::windows::core::IUnknown);
 impl EasComplianceResults {
@@ -441,6 +444,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &EasC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
 pub struct EasDisallowConvenienceLogonResult(pub i32);
 impl EasDisallowConvenienceLogonResult {
@@ -470,6 +474,7 @@ unsafe impl ::windows::core::RuntimeType for EasDisallowConvenienceLogonResult {
 impl ::windows::core::DefaultType for EasDisallowConvenienceLogonResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
 pub struct EasEncryptionProviderType(pub i32);
 impl EasEncryptionProviderType {
@@ -498,6 +503,7 @@ unsafe impl ::windows::core::RuntimeType for EasEncryptionProviderType {
 impl ::windows::core::DefaultType for EasEncryptionProviderType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
 pub struct EasMaxInactivityTimeLockResult(pub i32);
 impl EasMaxInactivityTimeLockResult {
@@ -528,6 +534,7 @@ unsafe impl ::windows::core::RuntimeType for EasMaxInactivityTimeLockResult {
 impl ::windows::core::DefaultType for EasMaxInactivityTimeLockResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
 pub struct EasMaxPasswordFailedAttemptsResult(pub i32);
 impl EasMaxPasswordFailedAttemptsResult {
@@ -558,6 +565,7 @@ unsafe impl ::windows::core::RuntimeType for EasMaxPasswordFailedAttemptsResult 
 impl ::windows::core::DefaultType for EasMaxPasswordFailedAttemptsResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
 pub struct EasMinPasswordComplexCharactersResult(pub i32);
 impl EasMinPasswordComplexCharactersResult {
@@ -598,6 +606,7 @@ unsafe impl ::windows::core::RuntimeType for EasMinPasswordComplexCharactersResu
 impl ::windows::core::DefaultType for EasMinPasswordComplexCharactersResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
 pub struct EasMinPasswordLengthResult(pub i32);
 impl EasMinPasswordLengthResult {
@@ -638,6 +647,7 @@ unsafe impl ::windows::core::RuntimeType for EasMinPasswordLengthResult {
 impl ::windows::core::DefaultType for EasMinPasswordLengthResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
 pub struct EasPasswordExpirationResult(pub i32);
 impl EasPasswordExpirationResult {
@@ -672,6 +682,7 @@ unsafe impl ::windows::core::RuntimeType for EasPasswordExpirationResult {
 impl ::windows::core::DefaultType for EasPasswordExpirationResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
 pub struct EasPasswordHistoryResult(pub i32);
 impl EasPasswordHistoryResult {
@@ -702,6 +713,7 @@ unsafe impl ::windows::core::RuntimeType for EasPasswordHistoryResult {
 impl ::windows::core::DefaultType for EasPasswordHistoryResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
 pub struct EasRequireEncryptionResult(pub i32);
 impl EasRequireEncryptionResult {

@@ -280,6 +280,7 @@ pub struct ISecondaryAuthenticationFactorRegistrationStaticsVtbl(
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, deviceconfigurationdata: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated")))] usize,
 );
+#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthentication(::windows::core::IUnknown);
@@ -449,6 +450,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Seco
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthentication {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthentication {}
+#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationMessage(pub i32);
 impl SecondaryAuthenticationFactorAuthenticationMessage {
@@ -503,6 +505,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthen
 impl ::windows::core::DefaultType for SecondaryAuthenticationFactorAuthenticationMessage {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationResult(::windows::core::IUnknown);
@@ -604,6 +607,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Seco
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthenticationResult {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthenticationResult {}
+#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationScenario(pub i32);
 impl SecondaryAuthenticationFactorAuthenticationScenario {
@@ -631,6 +635,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthen
 impl ::windows::core::DefaultType for SecondaryAuthenticationFactorAuthenticationScenario {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationStage(pub i32);
 impl SecondaryAuthenticationFactorAuthenticationStage {
@@ -665,6 +670,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthen
 impl ::windows::core::DefaultType for SecondaryAuthenticationFactorAuthenticationStage {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs(::windows::core::IUnknown);
@@ -758,6 +764,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Seco
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {}
+#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationStageInfo(::windows::core::IUnknown);
@@ -867,6 +874,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Seco
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorAuthenticationStageInfo {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthenticationStageInfo {}
+#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationStatus(pub i32);
 impl SecondaryAuthenticationFactorAuthenticationStatus {
@@ -897,6 +905,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthen
 impl ::windows::core::DefaultType for SecondaryAuthenticationFactorAuthenticationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDeviceCapabilities(pub u32);
 impl SecondaryAuthenticationFactorDeviceCapabilities {
@@ -930,6 +939,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevice
 impl ::windows::core::DefaultType for SecondaryAuthenticationFactorDeviceCapabilities {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDeviceFindScope(pub i32);
 impl SecondaryAuthenticationFactorDeviceFindScope {
@@ -957,6 +967,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevice
 impl ::windows::core::DefaultType for SecondaryAuthenticationFactorDeviceFindScope {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDevicePresence(pub i32);
 impl SecondaryAuthenticationFactorDevicePresence {
@@ -984,6 +995,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevice
 impl ::windows::core::DefaultType for SecondaryAuthenticationFactorDevicePresence {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDevicePresenceMonitoringMode(pub i32);
 impl SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
@@ -1012,6 +1024,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevice
 impl ::windows::core::DefaultType for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus(pub i32);
 impl SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
@@ -1040,6 +1053,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorDevice
 impl ::windows::core::DefaultType for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorFinishAuthenticationStatus(pub i32);
 impl SecondaryAuthenticationFactorFinishAuthenticationStatus {
@@ -1068,6 +1082,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorFinish
 impl ::windows::core::DefaultType for SecondaryAuthenticationFactorFinishAuthenticationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorInfo(::windows::core::IUnknown);
@@ -1209,6 +1224,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Seco
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorInfo {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorInfo {}
+#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorRegistration(::windows::core::IUnknown);
@@ -1374,6 +1390,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Seco
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorRegistration {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorRegistration {}
+#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorRegistrationResult(::windows::core::IUnknown);
@@ -1475,6 +1492,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Seco
 unsafe impl ::core::marker::Send for SecondaryAuthenticationFactorRegistrationResult {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorRegistrationResult {}
+#[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorRegistrationStatus(pub i32);
 impl SecondaryAuthenticationFactorRegistrationStatus {

@@ -66,6 +66,7 @@ pub const CLSID_D2D1UnPremultiply: ::windows::core::GUID = ::windows::core::GUID
 pub const CLSID_D2D1Vignette: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc00c40be_5e67_4ca3_95b4_f4b02c115135);
 pub const CLSID_D2D1WhiteLevelAdjustment: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44a1cadb_6cdd_4818_8ff4_26c1cfe95bdb);
 pub const CLSID_D2D1YCbCr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99503cc1_66c7_45c9_a875_8ad8a7914401);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
 #[inline]
 pub unsafe fn D2D1ComputeMaximumScaleFactor(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> f32 {
@@ -80,6 +81,7 @@ pub unsafe fn D2D1ComputeMaximumScaleFactor(matrix: *const super::super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[inline]
 pub unsafe fn D2D1ConvertColorSpace(sourcecolorspace: D2D1_COLOR_SPACE, destinationcolorspace: D2D1_COLOR_SPACE, color: *const Common::D2D1_COLOR_F) -> Common::D2D1_COLOR_F {
@@ -94,6 +96,7 @@ pub unsafe fn D2D1ConvertColorSpace(sourcecolorspace: D2D1_COLOR_SPACE, destinat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn D2D1CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(dxgidevice: Param0, creationproperties: *const D2D1_CREATION_PROPERTIES) -> ::windows::core::Result<ID2D1Device> {
@@ -109,6 +112,7 @@ pub unsafe fn D2D1CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn D2D1CreateDeviceContext<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGISurface>>(dxgisurface: Param0, creationproperties: *const D2D1_CREATION_PROPERTIES) -> ::windows::core::Result<ID2D1DeviceContext> {
@@ -124,6 +128,7 @@ pub unsafe fn D2D1CreateDeviceContext<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[inline]
 pub unsafe fn D2D1CreateFactory(factorytype: D2D1_FACTORY_TYPE, riid: *const ::windows::core::GUID, pfactoryoptions: *const D2D1_FACTORY_OPTIONS, ppifactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -137,6 +142,7 @@ pub unsafe fn D2D1CreateFactory(factorytype: D2D1_FACTORY_TYPE, riid: *const ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[inline]
 pub unsafe fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0: *const Common::D2D_POINT_2F, ppoint1: *const Common::D2D_POINT_2F, ppoint2: *const Common::D2D_POINT_2F, ppoint3: *const Common::D2D_POINT_2F, ppoint4: *const Common::D2D_POINT_2F, ppoint5: *const Common::D2D_POINT_2F, ppoint6: *const Common::D2D_POINT_2F, ppoint7: *const Common::D2D_POINT_2F, ppoint8: *const Common::D2D_POINT_2F, ppoint9: *const Common::D2D_POINT_2F, ppoint10: *const Common::D2D_POINT_2F, ppoint11: *const Common::D2D_POINT_2F, ptensorpoint11: *mut Common::D2D_POINT_2F, ptensorpoint12: *mut Common::D2D_POINT_2F, ptensorpoint21: *mut Common::D2D_POINT_2F, ptensorpoint22: *mut Common::D2D_POINT_2F) {
@@ -168,6 +174,7 @@ pub unsafe fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0: *const Co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Foundation'*"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL {
@@ -182,6 +189,7 @@ pub unsafe fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Num
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Foundation'*"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL {
@@ -196,6 +204,7 @@ pub unsafe fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 #[inline]
 pub unsafe fn D2D1MakeRotateMatrix<'a, Param1: ::windows::core::IntoParam<'a, Common::D2D_POINT_2F>>(angle: f32, center: Param1, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
@@ -210,6 +219,7 @@ pub unsafe fn D2D1MakeRotateMatrix<'a, Param1: ::windows::core::IntoParam<'a, Co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 #[inline]
 pub unsafe fn D2D1MakeSkewMatrix<'a, Param2: ::windows::core::IntoParam<'a, Common::D2D_POINT_2F>>(anglex: f32, angley: f32, center: Param2, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
@@ -224,6 +234,7 @@ pub unsafe fn D2D1MakeSkewMatrix<'a, Param2: ::windows::core::IntoParam<'a, Comm
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[inline]
 pub unsafe fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32) {
     #[cfg(windows)]
@@ -237,6 +248,7 @@ pub unsafe fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[inline]
 pub unsafe fn D2D1Tan(angle: f32) -> f32 {
     #[cfg(windows)]
@@ -250,6 +262,7 @@ pub unsafe fn D2D1Tan(angle: f32) -> f32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[inline]
 pub unsafe fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32 {
     #[cfg(windows)]
@@ -263,47 +276,87 @@ pub unsafe fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_2DAFFINETRANSFORM_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_2DAFFINETRANSFORM_PROP_INTERPOLATION_MODE: D2D1_2DAFFINETRANSFORM_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_2DAFFINETRANSFORM_PROP_BORDER_MODE: D2D1_2DAFFINETRANSFORM_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_2DAFFINETRANSFORM_PROP_TRANSFORM_MATRIX: D2D1_2DAFFINETRANSFORM_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_2DAFFINETRANSFORM_PROP_SHARPNESS: D2D1_2DAFFINETRANSFORM_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_2DAFFINETRANSFORM_PROP_FORCE_DWORD: D2D1_2DAFFINETRANSFORM_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_LINEAR: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_CUBIC: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_ANISOTROPIC: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_FORCE_DWORD: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_3DPERSPECTIVETRANSFORM_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_INTERPOLATION_MODE: D2D1_3DPERSPECTIVETRANSFORM_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_BORDER_MODE: D2D1_3DPERSPECTIVETRANSFORM_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_DEPTH: D2D1_3DPERSPECTIVETRANSFORM_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_PERSPECTIVE_ORIGIN: D2D1_3DPERSPECTIVETRANSFORM_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_LOCAL_OFFSET: D2D1_3DPERSPECTIVETRANSFORM_PROP = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_GLOBAL_OFFSET: D2D1_3DPERSPECTIVETRANSFORM_PROP = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_ROTATION_ORIGIN: D2D1_3DPERSPECTIVETRANSFORM_PROP = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_ROTATION: D2D1_3DPERSPECTIVETRANSFORM_PROP = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_FORCE_DWORD: D2D1_3DPERSPECTIVETRANSFORM_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_3DTRANSFORM_INTERPOLATION_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DTRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_3DTRANSFORM_INTERPOLATION_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DTRANSFORM_INTERPOLATION_MODE_LINEAR: D2D1_3DTRANSFORM_INTERPOLATION_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DTRANSFORM_INTERPOLATION_MODE_CUBIC: D2D1_3DTRANSFORM_INTERPOLATION_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DTRANSFORM_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_3DTRANSFORM_INTERPOLATION_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DTRANSFORM_INTERPOLATION_MODE_ANISOTROPIC: D2D1_3DTRANSFORM_INTERPOLATION_MODE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DTRANSFORM_INTERPOLATION_MODE_FORCE_DWORD: D2D1_3DTRANSFORM_INTERPOLATION_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_3DTRANSFORM_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DTRANSFORM_PROP_INTERPOLATION_MODE: D2D1_3DTRANSFORM_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DTRANSFORM_PROP_BORDER_MODE: D2D1_3DTRANSFORM_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DTRANSFORM_PROP_TRANSFORM_MATRIX: D2D1_3DTRANSFORM_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_3DTRANSFORM_PROP_FORCE_DWORD: D2D1_3DTRANSFORM_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_ANTIALIAS_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ANTIALIAS_MODE_PER_PRIMITIVE: D2D1_ANTIALIAS_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ANTIALIAS_MODE_ALIASED: D2D1_ANTIALIAS_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ANTIALIAS_MODE_FORCE_DWORD: D2D1_ANTIALIAS_MODE = 4294967295u32;
 pub const D2D1_APPEND_ALIGNED_ELEMENT: u32 = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct D2D1_ARC_SEGMENT {
     pub point: Common::D2D_POINT_2F,
@@ -338,48 +391,90 @@ impl ::core::default::Default for D2D1_ARC_SEGMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_ARC_SIZE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ARC_SIZE_SMALL: D2D1_ARC_SIZE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ARC_SIZE_LARGE: D2D1_ARC_SIZE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ARC_SIZE_FORCE_DWORD: D2D1_ARC_SIZE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_ARITHMETICCOMPOSITE_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ARITHMETICCOMPOSITE_PROP_COEFFICIENTS: D2D1_ARITHMETICCOMPOSITE_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ARITHMETICCOMPOSITE_PROP_CLAMP_OUTPUT: D2D1_ARITHMETICCOMPOSITE_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ARITHMETICCOMPOSITE_PROP_FORCE_DWORD: D2D1_ARITHMETICCOMPOSITE_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_ATLAS_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ATLAS_PROP_INPUT_RECT: D2D1_ATLAS_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ATLAS_PROP_INPUT_PADDING_RECT: D2D1_ATLAS_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ATLAS_PROP_FORCE_DWORD: D2D1_ATLAS_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_BITMAPSOURCE_ALPHA_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_ALPHA_MODE_PREMULTIPLIED: D2D1_BITMAPSOURCE_ALPHA_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_ALPHA_MODE_STRAIGHT: D2D1_BITMAPSOURCE_ALPHA_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_ALPHA_MODE_FORCE_DWORD: D2D1_BITMAPSOURCE_ALPHA_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_BITMAPSOURCE_INTERPOLATION_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_BITMAPSOURCE_INTERPOLATION_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_INTERPOLATION_MODE_LINEAR: D2D1_BITMAPSOURCE_INTERPOLATION_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_INTERPOLATION_MODE_CUBIC: D2D1_BITMAPSOURCE_INTERPOLATION_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_INTERPOLATION_MODE_FANT: D2D1_BITMAPSOURCE_INTERPOLATION_MODE = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_INTERPOLATION_MODE_MIPMAP_LINEAR: D2D1_BITMAPSOURCE_INTERPOLATION_MODE = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_INTERPOLATION_MODE_FORCE_DWORD: D2D1_BITMAPSOURCE_INTERPOLATION_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_BITMAPSOURCE_ORIENTATION = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_ORIENTATION_DEFAULT: D2D1_BITMAPSOURCE_ORIENTATION = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_ORIENTATION_FLIP_HORIZONTAL: D2D1_BITMAPSOURCE_ORIENTATION = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE180: D2D1_BITMAPSOURCE_ORIENTATION = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE180_FLIP_HORIZONTAL: D2D1_BITMAPSOURCE_ORIENTATION = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE270_FLIP_HORIZONTAL: D2D1_BITMAPSOURCE_ORIENTATION = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE90: D2D1_BITMAPSOURCE_ORIENTATION = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE90_FLIP_HORIZONTAL: D2D1_BITMAPSOURCE_ORIENTATION = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE270: D2D1_BITMAPSOURCE_ORIENTATION = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_ORIENTATION_FORCE_DWORD: D2D1_BITMAPSOURCE_ORIENTATION = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_BITMAPSOURCE_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_PROP_WIC_BITMAP_SOURCE: D2D1_BITMAPSOURCE_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_PROP_SCALE: D2D1_BITMAPSOURCE_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_PROP_INTERPOLATION_MODE: D2D1_BITMAPSOURCE_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_PROP_ENABLE_DPI_CORRECTION: D2D1_BITMAPSOURCE_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_PROP_ALPHA_MODE: D2D1_BITMAPSOURCE_PROP = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_PROP_ORIENTATION: D2D1_BITMAPSOURCE_PROP = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAPSOURCE_PROP_FORCE_DWORD: D2D1_BITMAPSOURCE_PROP = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_BITMAP_BRUSH_PROPERTIES {
     pub extendModeX: D2D1_EXTEND_MODE,
     pub extendModeY: D2D1_EXTEND_MODE,
@@ -406,6 +501,7 @@ impl ::core::default::Default for D2D1_BITMAP_BRUSH_PROPERTIES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_BITMAP_BRUSH_PROPERTIES1 {
     pub extendModeX: D2D1_EXTEND_MODE,
     pub extendModeY: D2D1_EXTEND_MODE,
@@ -431,18 +527,30 @@ impl ::core::default::Default for D2D1_BITMAP_BRUSH_PROPERTIES1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_BITMAP_INTERPOLATION_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_BITMAP_INTERPOLATION_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAP_INTERPOLATION_MODE_LINEAR: D2D1_BITMAP_INTERPOLATION_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAP_INTERPOLATION_MODE_FORCE_DWORD: D2D1_BITMAP_INTERPOLATION_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_BITMAP_OPTIONS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAP_OPTIONS_NONE: D2D1_BITMAP_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAP_OPTIONS_TARGET: D2D1_BITMAP_OPTIONS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAP_OPTIONS_CANNOT_DRAW: D2D1_BITMAP_OPTIONS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAP_OPTIONS_CPU_READ: D2D1_BITMAP_OPTIONS = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAP_OPTIONS_GDI_COMPATIBLE: D2D1_BITMAP_OPTIONS = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BITMAP_OPTIONS_FORCE_DWORD: D2D1_BITMAP_OPTIONS = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D2D1_BITMAP_PROPERTIES {
     pub pixelFormat: Common::D2D1_PIXEL_FORMAT,
@@ -476,6 +584,7 @@ impl ::core::default::Default for D2D1_BITMAP_PROPERTIES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D2D1_BITMAP_PROPERTIES1 {
     pub pixelFormat: Common::D2D1_PIXEL_FORMAT,
@@ -508,22 +617,38 @@ impl ::core::default::Default for D2D1_BITMAP_PROPERTIES1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_BLEND = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_ZERO: D2D1_BLEND = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_ONE: D2D1_BLEND = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_SRC_COLOR: D2D1_BLEND = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_INV_SRC_COLOR: D2D1_BLEND = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_SRC_ALPHA: D2D1_BLEND = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_INV_SRC_ALPHA: D2D1_BLEND = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_DEST_ALPHA: D2D1_BLEND = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_INV_DEST_ALPHA: D2D1_BLEND = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_DEST_COLOR: D2D1_BLEND = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_INV_DEST_COLOR: D2D1_BLEND = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_SRC_ALPHA_SAT: D2D1_BLEND = 11u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_BLEND_FACTOR: D2D1_BLEND = 14u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_INV_BLEND_FACTOR: D2D1_BLEND = 15u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_FORCE_DWORD: D2D1_BLEND = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_BLEND_DESCRIPTION {
     pub sourceBlend: D2D1_BLEND,
     pub destinationBlend: D2D1_BLEND,
@@ -553,30 +678,54 @@ impl ::core::default::Default for D2D1_BLEND_DESCRIPTION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_BLEND_OPERATION = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_OPERATION_ADD: D2D1_BLEND_OPERATION = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_OPERATION_SUBTRACT: D2D1_BLEND_OPERATION = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_OPERATION_REV_SUBTRACT: D2D1_BLEND_OPERATION = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_OPERATION_MIN: D2D1_BLEND_OPERATION = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_OPERATION_MAX: D2D1_BLEND_OPERATION = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_OPERATION_FORCE_DWORD: D2D1_BLEND_OPERATION = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_BLEND_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_PROP_MODE: D2D1_BLEND_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BLEND_PROP_FORCE_DWORD: D2D1_BLEND_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_BORDER_EDGE_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BORDER_EDGE_MODE_CLAMP: D2D1_BORDER_EDGE_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BORDER_EDGE_MODE_WRAP: D2D1_BORDER_EDGE_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BORDER_EDGE_MODE_MIRROR: D2D1_BORDER_EDGE_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BORDER_EDGE_MODE_FORCE_DWORD: D2D1_BORDER_EDGE_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_BORDER_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BORDER_PROP_EDGE_MODE_X: D2D1_BORDER_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BORDER_PROP_EDGE_MODE_Y: D2D1_BORDER_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BORDER_PROP_FORCE_DWORD: D2D1_BORDER_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_BRIGHTNESS_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BRIGHTNESS_PROP_WHITE_POINT: D2D1_BRIGHTNESS_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BRIGHTNESS_PROP_BLACK_POINT: D2D1_BRIGHTNESS_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BRIGHTNESS_PROP_FORCE_DWORD: D2D1_BRIGHTNESS_PROP = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct D2D1_BRUSH_PROPERTIES {
     pub opacity: f32,
@@ -608,128 +757,250 @@ impl ::core::default::Default for D2D1_BRUSH_PROPERTIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_BUFFER_PRECISION = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BUFFER_PRECISION_UNKNOWN: D2D1_BUFFER_PRECISION = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BUFFER_PRECISION_8BPC_UNORM: D2D1_BUFFER_PRECISION = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BUFFER_PRECISION_8BPC_UNORM_SRGB: D2D1_BUFFER_PRECISION = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BUFFER_PRECISION_16BPC_UNORM: D2D1_BUFFER_PRECISION = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BUFFER_PRECISION_16BPC_FLOAT: D2D1_BUFFER_PRECISION = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BUFFER_PRECISION_32BPC_FLOAT: D2D1_BUFFER_PRECISION = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_BUFFER_PRECISION_FORCE_DWORD: D2D1_BUFFER_PRECISION = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_CAP_STYLE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CAP_STYLE_FLAT: D2D1_CAP_STYLE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CAP_STYLE_SQUARE: D2D1_CAP_STYLE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CAP_STYLE_ROUND: D2D1_CAP_STYLE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CAP_STYLE_TRIANGLE: D2D1_CAP_STYLE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CAP_STYLE_FORCE_DWORD: D2D1_CAP_STYLE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_CHANGE_TYPE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CHANGE_TYPE_NONE: D2D1_CHANGE_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CHANGE_TYPE_PROPERTIES: D2D1_CHANGE_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CHANGE_TYPE_CONTEXT: D2D1_CHANGE_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CHANGE_TYPE_GRAPH: D2D1_CHANGE_TYPE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CHANGE_TYPE_FORCE_DWORD: D2D1_CHANGE_TYPE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_CHANNEL_DEPTH = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CHANNEL_DEPTH_DEFAULT: D2D1_CHANNEL_DEPTH = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CHANNEL_DEPTH_1: D2D1_CHANNEL_DEPTH = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CHANNEL_DEPTH_4: D2D1_CHANNEL_DEPTH = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CHANNEL_DEPTH_FORCE_DWORD: D2D1_CHANNEL_DEPTH = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_CHANNEL_SELECTOR = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CHANNEL_SELECTOR_R: D2D1_CHANNEL_SELECTOR = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CHANNEL_SELECTOR_G: D2D1_CHANNEL_SELECTOR = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CHANNEL_SELECTOR_B: D2D1_CHANNEL_SELECTOR = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CHANNEL_SELECTOR_A: D2D1_CHANNEL_SELECTOR = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CHANNEL_SELECTOR_FORCE_DWORD: D2D1_CHANNEL_SELECTOR = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_CHROMAKEY_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CHROMAKEY_PROP_COLOR: D2D1_CHROMAKEY_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CHROMAKEY_PROP_TOLERANCE: D2D1_CHROMAKEY_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CHROMAKEY_PROP_INVERT_ALPHA: D2D1_CHROMAKEY_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CHROMAKEY_PROP_FEATHER: D2D1_CHROMAKEY_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CHROMAKEY_PROP_FORCE_DWORD: D2D1_CHROMAKEY_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_COLORMANAGEMENT_ALPHA_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMANAGEMENT_ALPHA_MODE_PREMULTIPLIED: D2D1_COLORMANAGEMENT_ALPHA_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMANAGEMENT_ALPHA_MODE_STRAIGHT: D2D1_COLORMANAGEMENT_ALPHA_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMANAGEMENT_ALPHA_MODE_FORCE_DWORD: D2D1_COLORMANAGEMENT_ALPHA_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_COLORMANAGEMENT_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMANAGEMENT_PROP_SOURCE_COLOR_CONTEXT: D2D1_COLORMANAGEMENT_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMANAGEMENT_PROP_SOURCE_RENDERING_INTENT: D2D1_COLORMANAGEMENT_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMANAGEMENT_PROP_DESTINATION_COLOR_CONTEXT: D2D1_COLORMANAGEMENT_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMANAGEMENT_PROP_DESTINATION_RENDERING_INTENT: D2D1_COLORMANAGEMENT_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMANAGEMENT_PROP_ALPHA_MODE: D2D1_COLORMANAGEMENT_PROP = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMANAGEMENT_PROP_QUALITY: D2D1_COLORMANAGEMENT_PROP = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMANAGEMENT_PROP_FORCE_DWORD: D2D1_COLORMANAGEMENT_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_COLORMANAGEMENT_QUALITY = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMANAGEMENT_QUALITY_PROOF: D2D1_COLORMANAGEMENT_QUALITY = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMANAGEMENT_QUALITY_NORMAL: D2D1_COLORMANAGEMENT_QUALITY = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMANAGEMENT_QUALITY_BEST: D2D1_COLORMANAGEMENT_QUALITY = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMANAGEMENT_QUALITY_FORCE_DWORD: D2D1_COLORMANAGEMENT_QUALITY = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_COLORMANAGEMENT_RENDERING_INTENT = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMANAGEMENT_RENDERING_INTENT_PERCEPTUAL: D2D1_COLORMANAGEMENT_RENDERING_INTENT = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMANAGEMENT_RENDERING_INTENT_RELATIVE_COLORIMETRIC: D2D1_COLORMANAGEMENT_RENDERING_INTENT = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMANAGEMENT_RENDERING_INTENT_SATURATION: D2D1_COLORMANAGEMENT_RENDERING_INTENT = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMANAGEMENT_RENDERING_INTENT_ABSOLUTE_COLORIMETRIC: D2D1_COLORMANAGEMENT_RENDERING_INTENT = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMANAGEMENT_RENDERING_INTENT_FORCE_DWORD: D2D1_COLORMANAGEMENT_RENDERING_INTENT = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_COLORMATRIX_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMATRIX_PROP_COLOR_MATRIX: D2D1_COLORMATRIX_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMATRIX_PROP_ALPHA_MODE: D2D1_COLORMATRIX_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMATRIX_PROP_CLAMP_OUTPUT: D2D1_COLORMATRIX_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLORMATRIX_PROP_FORCE_DWORD: D2D1_COLORMATRIX_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_DEFAULT: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_DISABLE: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_FORCE_DWORD: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_COLOR_CONTEXT_TYPE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLOR_CONTEXT_TYPE_ICC: D2D1_COLOR_CONTEXT_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLOR_CONTEXT_TYPE_SIMPLE: D2D1_COLOR_CONTEXT_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLOR_CONTEXT_TYPE_DXGI: D2D1_COLOR_CONTEXT_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLOR_CONTEXT_TYPE_FORCE_DWORD: D2D1_COLOR_CONTEXT_TYPE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_COLOR_INTERPOLATION_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLOR_INTERPOLATION_MODE_STRAIGHT: D2D1_COLOR_INTERPOLATION_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLOR_INTERPOLATION_MODE_PREMULTIPLIED: D2D1_COLOR_INTERPOLATION_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLOR_INTERPOLATION_MODE_FORCE_DWORD: D2D1_COLOR_INTERPOLATION_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_COLOR_SPACE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLOR_SPACE_CUSTOM: D2D1_COLOR_SPACE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLOR_SPACE_SRGB: D2D1_COLOR_SPACE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLOR_SPACE_SCRGB: D2D1_COLOR_SPACE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COLOR_SPACE_FORCE_DWORD: D2D1_COLOR_SPACE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_COMBINE_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COMBINE_MODE_UNION: D2D1_COMBINE_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COMBINE_MODE_INTERSECT: D2D1_COMBINE_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COMBINE_MODE_XOR: D2D1_COMBINE_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COMBINE_MODE_EXCLUDE: D2D1_COMBINE_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COMBINE_MODE_FORCE_DWORD: D2D1_COMBINE_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS_NONE: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS_GDI_COMPATIBLE: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS_FORCE_DWORD: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_COMPOSITE_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COMPOSITE_PROP_MODE: D2D1_COMPOSITE_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_COMPOSITE_PROP_FORCE_DWORD: D2D1_COMPOSITE_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_CONTRAST_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONTRAST_PROP_CONTRAST: D2D1_CONTRAST_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONTRAST_PROP_CLAMP_INPUT: D2D1_CONTRAST_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONTRAST_PROP_FORCE_DWORD: D2D1_CONTRAST_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_CONVOLVEMATRIX_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONVOLVEMATRIX_PROP_KERNEL_UNIT_LENGTH: D2D1_CONVOLVEMATRIX_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONVOLVEMATRIX_PROP_SCALE_MODE: D2D1_CONVOLVEMATRIX_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONVOLVEMATRIX_PROP_KERNEL_SIZE_X: D2D1_CONVOLVEMATRIX_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONVOLVEMATRIX_PROP_KERNEL_SIZE_Y: D2D1_CONVOLVEMATRIX_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONVOLVEMATRIX_PROP_KERNEL_MATRIX: D2D1_CONVOLVEMATRIX_PROP = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONVOLVEMATRIX_PROP_DIVISOR: D2D1_CONVOLVEMATRIX_PROP = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONVOLVEMATRIX_PROP_BIAS: D2D1_CONVOLVEMATRIX_PROP = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONVOLVEMATRIX_PROP_KERNEL_OFFSET: D2D1_CONVOLVEMATRIX_PROP = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONVOLVEMATRIX_PROP_PRESERVE_ALPHA: D2D1_CONVOLVEMATRIX_PROP = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONVOLVEMATRIX_PROP_BORDER_MODE: D2D1_CONVOLVEMATRIX_PROP = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONVOLVEMATRIX_PROP_CLAMP_OUTPUT: D2D1_CONVOLVEMATRIX_PROP = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONVOLVEMATRIX_PROP_FORCE_DWORD: D2D1_CONVOLVEMATRIX_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_CONVOLVEMATRIX_SCALE_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_CONVOLVEMATRIX_SCALE_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_LINEAR: D2D1_CONVOLVEMATRIX_SCALE_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_CUBIC: D2D1_CONVOLVEMATRIX_SCALE_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_CONVOLVEMATRIX_SCALE_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_ANISOTROPIC: D2D1_CONVOLVEMATRIX_SCALE_MODE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_CONVOLVEMATRIX_SCALE_MODE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_FORCE_DWORD: D2D1_CONVOLVEMATRIX_SCALE_MODE = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_CREATION_PROPERTIES {
     pub threadingMode: D2D1_THREADING_MODE,
     pub debugLevel: D2D1_DEBUG_LEVEL,
@@ -755,14 +1026,22 @@ impl ::core::default::Default for D2D1_CREATION_PROPERTIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_CROP_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CROP_PROP_RECT: D2D1_CROP_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CROP_PROP_BORDER_MODE: D2D1_CROP_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CROP_PROP_FORCE_DWORD: D2D1_CROP_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_CROSSFADE_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CROSSFADE_PROP_WEIGHT: D2D1_CROSSFADE_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_CROSSFADE_PROP_FORCE_DWORD: D2D1_CROSSFADE_PROP = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
     pub shaderBufferWithInputSignature: *mut u8,
@@ -797,105 +1076,203 @@ impl ::core::default::Default for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_DASH_STYLE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DASH_STYLE_SOLID: D2D1_DASH_STYLE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DASH_STYLE_DASH: D2D1_DASH_STYLE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DASH_STYLE_DOT: D2D1_DASH_STYLE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DASH_STYLE_DASH_DOT: D2D1_DASH_STYLE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DASH_STYLE_DASH_DOT_DOT: D2D1_DASH_STYLE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DASH_STYLE_CUSTOM: D2D1_DASH_STYLE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DASH_STYLE_FORCE_DWORD: D2D1_DASH_STYLE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_DC_INITIALIZE_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DC_INITIALIZE_MODE_COPY: D2D1_DC_INITIALIZE_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DC_INITIALIZE_MODE_CLEAR: D2D1_DC_INITIALIZE_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DC_INITIALIZE_MODE_FORCE_DWORD: D2D1_DC_INITIALIZE_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_DEBUG_LEVEL = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DEBUG_LEVEL_NONE: D2D1_DEBUG_LEVEL = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DEBUG_LEVEL_ERROR: D2D1_DEBUG_LEVEL = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DEBUG_LEVEL_WARNING: D2D1_DEBUG_LEVEL = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DEBUG_LEVEL_INFORMATION: D2D1_DEBUG_LEVEL = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DEBUG_LEVEL_FORCE_DWORD: D2D1_DEBUG_LEVEL = 4294967295u32;
 pub const D2D1_DEFAULT_FLATTENING_TOLERANCE: f32 = 0.25f32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_DEVICE_CONTEXT_OPTIONS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DEVICE_CONTEXT_OPTIONS_NONE: D2D1_DEVICE_CONTEXT_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DEVICE_CONTEXT_OPTIONS_ENABLE_MULTITHREADED_OPTIMIZATIONS: D2D1_DEVICE_CONTEXT_OPTIONS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DEVICE_CONTEXT_OPTIONS_FORCE_DWORD: D2D1_DEVICE_CONTEXT_OPTIONS = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_DIRECTIONALBLUR_OPTIMIZATION = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DIRECTIONALBLUR_OPTIMIZATION_SPEED: D2D1_DIRECTIONALBLUR_OPTIMIZATION = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DIRECTIONALBLUR_OPTIMIZATION_BALANCED: D2D1_DIRECTIONALBLUR_OPTIMIZATION = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DIRECTIONALBLUR_OPTIMIZATION_QUALITY: D2D1_DIRECTIONALBLUR_OPTIMIZATION = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DIRECTIONALBLUR_OPTIMIZATION_FORCE_DWORD: D2D1_DIRECTIONALBLUR_OPTIMIZATION = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_DIRECTIONALBLUR_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DIRECTIONALBLUR_PROP_STANDARD_DEVIATION: D2D1_DIRECTIONALBLUR_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DIRECTIONALBLUR_PROP_ANGLE: D2D1_DIRECTIONALBLUR_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DIRECTIONALBLUR_PROP_OPTIMIZATION: D2D1_DIRECTIONALBLUR_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DIRECTIONALBLUR_PROP_BORDER_MODE: D2D1_DIRECTIONALBLUR_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DIRECTIONALBLUR_PROP_FORCE_DWORD: D2D1_DIRECTIONALBLUR_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_DISCRETETRANSFER_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISCRETETRANSFER_PROP_RED_TABLE: D2D1_DISCRETETRANSFER_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISCRETETRANSFER_PROP_RED_DISABLE: D2D1_DISCRETETRANSFER_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISCRETETRANSFER_PROP_GREEN_TABLE: D2D1_DISCRETETRANSFER_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISCRETETRANSFER_PROP_GREEN_DISABLE: D2D1_DISCRETETRANSFER_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISCRETETRANSFER_PROP_BLUE_TABLE: D2D1_DISCRETETRANSFER_PROP = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISCRETETRANSFER_PROP_BLUE_DISABLE: D2D1_DISCRETETRANSFER_PROP = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISCRETETRANSFER_PROP_ALPHA_TABLE: D2D1_DISCRETETRANSFER_PROP = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISCRETETRANSFER_PROP_ALPHA_DISABLE: D2D1_DISCRETETRANSFER_PROP = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISCRETETRANSFER_PROP_CLAMP_OUTPUT: D2D1_DISCRETETRANSFER_PROP = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISCRETETRANSFER_PROP_FORCE_DWORD: D2D1_DISCRETETRANSFER_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_DISPLACEMENTMAP_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISPLACEMENTMAP_PROP_SCALE: D2D1_DISPLACEMENTMAP_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISPLACEMENTMAP_PROP_X_CHANNEL_SELECT: D2D1_DISPLACEMENTMAP_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISPLACEMENTMAP_PROP_Y_CHANNEL_SELECT: D2D1_DISPLACEMENTMAP_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISPLACEMENTMAP_PROP_FORCE_DWORD: D2D1_DISPLACEMENTMAP_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_DISTANTDIFFUSE_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTDIFFUSE_PROP_AZIMUTH: D2D1_DISTANTDIFFUSE_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTDIFFUSE_PROP_ELEVATION: D2D1_DISTANTDIFFUSE_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTDIFFUSE_PROP_DIFFUSE_CONSTANT: D2D1_DISTANTDIFFUSE_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTDIFFUSE_PROP_SURFACE_SCALE: D2D1_DISTANTDIFFUSE_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTDIFFUSE_PROP_COLOR: D2D1_DISTANTDIFFUSE_PROP = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTDIFFUSE_PROP_KERNEL_UNIT_LENGTH: D2D1_DISTANTDIFFUSE_PROP = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTDIFFUSE_PROP_SCALE_MODE: D2D1_DISTANTDIFFUSE_PROP = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTDIFFUSE_PROP_FORCE_DWORD: D2D1_DISTANTDIFFUSE_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_DISTANTDIFFUSE_SCALE_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_DISTANTDIFFUSE_SCALE_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_LINEAR: D2D1_DISTANTDIFFUSE_SCALE_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_CUBIC: D2D1_DISTANTDIFFUSE_SCALE_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_DISTANTDIFFUSE_SCALE_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_ANISOTROPIC: D2D1_DISTANTDIFFUSE_SCALE_MODE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_DISTANTDIFFUSE_SCALE_MODE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_FORCE_DWORD: D2D1_DISTANTDIFFUSE_SCALE_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_DISTANTSPECULAR_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTSPECULAR_PROP_AZIMUTH: D2D1_DISTANTSPECULAR_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTSPECULAR_PROP_ELEVATION: D2D1_DISTANTSPECULAR_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTSPECULAR_PROP_SPECULAR_EXPONENT: D2D1_DISTANTSPECULAR_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTSPECULAR_PROP_SPECULAR_CONSTANT: D2D1_DISTANTSPECULAR_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTSPECULAR_PROP_SURFACE_SCALE: D2D1_DISTANTSPECULAR_PROP = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTSPECULAR_PROP_COLOR: D2D1_DISTANTSPECULAR_PROP = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTSPECULAR_PROP_KERNEL_UNIT_LENGTH: D2D1_DISTANTSPECULAR_PROP = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTSPECULAR_PROP_SCALE_MODE: D2D1_DISTANTSPECULAR_PROP = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTSPECULAR_PROP_FORCE_DWORD: D2D1_DISTANTSPECULAR_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_DISTANTSPECULAR_SCALE_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_DISTANTSPECULAR_SCALE_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTSPECULAR_SCALE_MODE_LINEAR: D2D1_DISTANTSPECULAR_SCALE_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTSPECULAR_SCALE_MODE_CUBIC: D2D1_DISTANTSPECULAR_SCALE_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTSPECULAR_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_DISTANTSPECULAR_SCALE_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTSPECULAR_SCALE_MODE_ANISOTROPIC: D2D1_DISTANTSPECULAR_SCALE_MODE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_DISTANTSPECULAR_SCALE_MODE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DISTANTSPECULAR_SCALE_MODE_FORCE_DWORD: D2D1_DISTANTSPECULAR_SCALE_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_DPICOMPENSATION_INTERPOLATION_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_LINEAR: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_CUBIC: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_ANISOTROPIC: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_FORCE_DWORD: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_DPICOMPENSATION_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DPICOMPENSATION_PROP_INTERPOLATION_MODE: D2D1_DPICOMPENSATION_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DPICOMPENSATION_PROP_BORDER_MODE: D2D1_DPICOMPENSATION_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DPICOMPENSATION_PROP_INPUT_DPI: D2D1_DPICOMPENSATION_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DPICOMPENSATION_PROP_FORCE_DWORD: D2D1_DPICOMPENSATION_PROP = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct D2D1_DRAWING_STATE_DESCRIPTION {
     pub antialiasMode: D2D1_ANTIALIAS_MODE,
@@ -931,6 +1308,7 @@ impl ::core::default::Default for D2D1_DRAWING_STATE_DESCRIPTION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct D2D1_DRAWING_STATE_DESCRIPTION1 {
     pub antialiasMode: D2D1_ANTIALIAS_MODE,
@@ -967,25 +1345,44 @@ impl ::core::default::Default for D2D1_DRAWING_STATE_DESCRIPTION1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_DRAW_TEXT_OPTIONS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DRAW_TEXT_OPTIONS_NO_SNAP: D2D1_DRAW_TEXT_OPTIONS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DRAW_TEXT_OPTIONS_CLIP: D2D1_DRAW_TEXT_OPTIONS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DRAW_TEXT_OPTIONS_ENABLE_COLOR_FONT: D2D1_DRAW_TEXT_OPTIONS = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DRAW_TEXT_OPTIONS_DISABLE_COLOR_BITMAP_SNAPPING: D2D1_DRAW_TEXT_OPTIONS = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DRAW_TEXT_OPTIONS_NONE: D2D1_DRAW_TEXT_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DRAW_TEXT_OPTIONS_FORCE_DWORD: D2D1_DRAW_TEXT_OPTIONS = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_EDGEDETECTION_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_EDGEDETECTION_MODE_SOBEL: D2D1_EDGEDETECTION_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_EDGEDETECTION_MODE_PREWITT: D2D1_EDGEDETECTION_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_EDGEDETECTION_MODE_FORCE_DWORD: D2D1_EDGEDETECTION_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_EDGEDETECTION_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_EDGEDETECTION_PROP_STRENGTH: D2D1_EDGEDETECTION_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_EDGEDETECTION_PROP_BLUR_RADIUS: D2D1_EDGEDETECTION_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_EDGEDETECTION_PROP_MODE: D2D1_EDGEDETECTION_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_EDGEDETECTION_PROP_OVERLAY_EDGES: D2D1_EDGEDETECTION_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_EDGEDETECTION_PROP_ALPHA_MODE: D2D1_EDGEDETECTION_PROP = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_EDGEDETECTION_PROP_FORCE_DWORD: D2D1_EDGEDETECTION_PROP = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct D2D1_EFFECT_INPUT_DESCRIPTION {
     pub effect: ::core::option::Option<ID2D1Effect>,
@@ -1017,6 +1414,7 @@ impl ::core::default::Default for D2D1_EFFECT_INPUT_DESCRIPTION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct D2D1_ELLIPSE {
     pub point: Common::D2D_POINT_2F,
@@ -1049,19 +1447,32 @@ impl ::core::default::Default for D2D1_ELLIPSE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_EMBOSS_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_EMBOSS_PROP_HEIGHT: D2D1_EMBOSS_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_EMBOSS_PROP_DIRECTION: D2D1_EMBOSS_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_EMBOSS_PROP_FORCE_DWORD: D2D1_EMBOSS_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_EXPOSURE_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_EXPOSURE_PROP_EXPOSURE_VALUE: D2D1_EXPOSURE_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_EXPOSURE_PROP_FORCE_DWORD: D2D1_EXPOSURE_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_EXTEND_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_EXTEND_MODE_CLAMP: D2D1_EXTEND_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_EXTEND_MODE_WRAP: D2D1_EXTEND_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_EXTEND_MODE_MIRROR: D2D1_EXTEND_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_EXTEND_MODE_FORCE_DWORD: D2D1_EXTEND_MODE = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_FACTORY_OPTIONS {
     pub debugLevel: D2D1_DEBUG_LEVEL,
 }
@@ -1085,15 +1496,24 @@ impl ::core::default::Default for D2D1_FACTORY_OPTIONS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_FACTORY_TYPE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FACTORY_TYPE_SINGLE_THREADED: D2D1_FACTORY_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FACTORY_TYPE_MULTI_THREADED: D2D1_FACTORY_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FACTORY_TYPE_FORCE_DWORD: D2D1_FACTORY_TYPE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_FEATURE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FEATURE_DOUBLES: D2D1_FEATURE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FEATURE_D3D10_X_HARDWARE_OPTIONS: D2D1_FEATURE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FEATURE_FORCE_DWORD: D2D1_FEATURE = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
     pub computeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x: super::super::Foundation::BOOL,
@@ -1125,6 +1545,7 @@ impl ::core::default::Default for D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D2D1_FEATURE_DATA_DOUBLES {
     pub doublePrecisionFloatShaderOps: super::super::Foundation::BOOL,
@@ -1155,75 +1576,144 @@ impl ::core::default::Default for D2D1_FEATURE_DATA_DOUBLES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_FEATURE_LEVEL = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FEATURE_LEVEL_DEFAULT: D2D1_FEATURE_LEVEL = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FEATURE_LEVEL_9: D2D1_FEATURE_LEVEL = 37120u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FEATURE_LEVEL_10: D2D1_FEATURE_LEVEL = 40960u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FEATURE_LEVEL_FORCE_DWORD: D2D1_FEATURE_LEVEL = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_FILTER = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FILTER_MIN_MAG_MIP_POINT: D2D1_FILTER = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FILTER_MIN_MAG_POINT_MIP_LINEAR: D2D1_FILTER = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FILTER_MIN_POINT_MAG_LINEAR_MIP_POINT: D2D1_FILTER = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FILTER_MIN_POINT_MAG_MIP_LINEAR: D2D1_FILTER = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FILTER_MIN_LINEAR_MAG_MIP_POINT: D2D1_FILTER = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FILTER_MIN_LINEAR_MAG_POINT_MIP_LINEAR: D2D1_FILTER = 17u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FILTER_MIN_MAG_LINEAR_MIP_POINT: D2D1_FILTER = 20u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FILTER_MIN_MAG_MIP_LINEAR: D2D1_FILTER = 21u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FILTER_ANISOTROPIC: D2D1_FILTER = 85u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FILTER_FORCE_DWORD: D2D1_FILTER = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_FLOOD_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FLOOD_PROP_COLOR: D2D1_FLOOD_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_FLOOD_PROP_FORCE_DWORD: D2D1_FLOOD_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_GAMMA = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMA_2_2: D2D1_GAMMA = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMA_1_0: D2D1_GAMMA = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMA_FORCE_DWORD: D2D1_GAMMA = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_GAMMA1 = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMA1_G22: D2D1_GAMMA1 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMA1_G10: D2D1_GAMMA1 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMA1_G2084: D2D1_GAMMA1 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMA1_FORCE_DWORD: D2D1_GAMMA1 = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_GAMMATRANSFER_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMATRANSFER_PROP_RED_AMPLITUDE: D2D1_GAMMATRANSFER_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMATRANSFER_PROP_RED_EXPONENT: D2D1_GAMMATRANSFER_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMATRANSFER_PROP_RED_OFFSET: D2D1_GAMMATRANSFER_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMATRANSFER_PROP_RED_DISABLE: D2D1_GAMMATRANSFER_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMATRANSFER_PROP_GREEN_AMPLITUDE: D2D1_GAMMATRANSFER_PROP = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMATRANSFER_PROP_GREEN_EXPONENT: D2D1_GAMMATRANSFER_PROP = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMATRANSFER_PROP_GREEN_OFFSET: D2D1_GAMMATRANSFER_PROP = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMATRANSFER_PROP_GREEN_DISABLE: D2D1_GAMMATRANSFER_PROP = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMATRANSFER_PROP_BLUE_AMPLITUDE: D2D1_GAMMATRANSFER_PROP = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMATRANSFER_PROP_BLUE_EXPONENT: D2D1_GAMMATRANSFER_PROP = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMATRANSFER_PROP_BLUE_OFFSET: D2D1_GAMMATRANSFER_PROP = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMATRANSFER_PROP_BLUE_DISABLE: D2D1_GAMMATRANSFER_PROP = 11u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMATRANSFER_PROP_ALPHA_AMPLITUDE: D2D1_GAMMATRANSFER_PROP = 12u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMATRANSFER_PROP_ALPHA_EXPONENT: D2D1_GAMMATRANSFER_PROP = 13u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMATRANSFER_PROP_ALPHA_OFFSET: D2D1_GAMMATRANSFER_PROP = 14u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMATRANSFER_PROP_ALPHA_DISABLE: D2D1_GAMMATRANSFER_PROP = 15u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMATRANSFER_PROP_CLAMP_OUTPUT: D2D1_GAMMATRANSFER_PROP = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAMMATRANSFER_PROP_FORCE_DWORD: D2D1_GAMMATRANSFER_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_GAUSSIANBLUR_OPTIMIZATION = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAUSSIANBLUR_OPTIMIZATION_SPEED: D2D1_GAUSSIANBLUR_OPTIMIZATION = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAUSSIANBLUR_OPTIMIZATION_BALANCED: D2D1_GAUSSIANBLUR_OPTIMIZATION = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAUSSIANBLUR_OPTIMIZATION_QUALITY: D2D1_GAUSSIANBLUR_OPTIMIZATION = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAUSSIANBLUR_OPTIMIZATION_FORCE_DWORD: D2D1_GAUSSIANBLUR_OPTIMIZATION = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_GAUSSIANBLUR_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAUSSIANBLUR_PROP_STANDARD_DEVIATION: D2D1_GAUSSIANBLUR_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAUSSIANBLUR_PROP_OPTIMIZATION: D2D1_GAUSSIANBLUR_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAUSSIANBLUR_PROP_BORDER_MODE: D2D1_GAUSSIANBLUR_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GAUSSIANBLUR_PROP_FORCE_DWORD: D2D1_GAUSSIANBLUR_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_GEOMETRY_RELATION = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GEOMETRY_RELATION_UNKNOWN: D2D1_GEOMETRY_RELATION = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GEOMETRY_RELATION_DISJOINT: D2D1_GEOMETRY_RELATION = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GEOMETRY_RELATION_IS_CONTAINED: D2D1_GEOMETRY_RELATION = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GEOMETRY_RELATION_CONTAINS: D2D1_GEOMETRY_RELATION = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GEOMETRY_RELATION_OVERLAP: D2D1_GEOMETRY_RELATION = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GEOMETRY_RELATION_FORCE_DWORD: D2D1_GEOMETRY_RELATION = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_GEOMETRY_SIMPLIFICATION_OPTION = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GEOMETRY_SIMPLIFICATION_OPTION_CUBICS_AND_LINES: D2D1_GEOMETRY_SIMPLIFICATION_OPTION = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GEOMETRY_SIMPLIFICATION_OPTION_LINES: D2D1_GEOMETRY_SIMPLIFICATION_OPTION = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_GEOMETRY_SIMPLIFICATION_OPTION_FORCE_DWORD: D2D1_GEOMETRY_SIMPLIFICATION_OPTION = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct D2D1_GRADIENT_MESH_PATCH {
     pub point00: Common::D2D_POINT_2F,
@@ -1278,6 +1768,7 @@ impl ::core::default::Default for D2D1_GRADIENT_MESH_PATCH {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct D2D1_GRADIENT_STOP {
     pub position: f32,
@@ -1309,42 +1800,78 @@ impl ::core::default::Default for D2D1_GRADIENT_STOP {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_HDRTONEMAP_DISPLAY_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HDRTONEMAP_DISPLAY_MODE_SDR: D2D1_HDRTONEMAP_DISPLAY_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HDRTONEMAP_DISPLAY_MODE_HDR: D2D1_HDRTONEMAP_DISPLAY_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HDRTONEMAP_DISPLAY_MODE_FORCE_DWORD: D2D1_HDRTONEMAP_DISPLAY_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_HDRTONEMAP_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HDRTONEMAP_PROP_INPUT_MAX_LUMINANCE: D2D1_HDRTONEMAP_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HDRTONEMAP_PROP_OUTPUT_MAX_LUMINANCE: D2D1_HDRTONEMAP_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HDRTONEMAP_PROP_DISPLAY_MODE: D2D1_HDRTONEMAP_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HDRTONEMAP_PROP_FORCE_DWORD: D2D1_HDRTONEMAP_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA_LINEAR: D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA_SRGB: D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA_FORCE_DWORD: D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_HIGHLIGHTSANDSHADOWS_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HIGHLIGHTSANDSHADOWS_PROP_HIGHLIGHTS: D2D1_HIGHLIGHTSANDSHADOWS_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HIGHLIGHTSANDSHADOWS_PROP_SHADOWS: D2D1_HIGHLIGHTSANDSHADOWS_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HIGHLIGHTSANDSHADOWS_PROP_CLARITY: D2D1_HIGHLIGHTSANDSHADOWS_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HIGHLIGHTSANDSHADOWS_PROP_INPUT_GAMMA: D2D1_HIGHLIGHTSANDSHADOWS_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HIGHLIGHTSANDSHADOWS_PROP_MASK_BLUR_RADIUS: D2D1_HIGHLIGHTSANDSHADOWS_PROP = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HIGHLIGHTSANDSHADOWS_PROP_FORCE_DWORD: D2D1_HIGHLIGHTSANDSHADOWS_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_HISTOGRAM_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HISTOGRAM_PROP_NUM_BINS: D2D1_HISTOGRAM_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HISTOGRAM_PROP_CHANNEL_SELECT: D2D1_HISTOGRAM_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HISTOGRAM_PROP_HISTOGRAM_OUTPUT: D2D1_HISTOGRAM_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HISTOGRAM_PROP_FORCE_DWORD: D2D1_HISTOGRAM_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_HUEROTATION_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HUEROTATION_PROP_ANGLE: D2D1_HUEROTATION_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HUEROTATION_PROP_FORCE_DWORD: D2D1_HUEROTATION_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_HUETORGB_INPUT_COLOR_SPACE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HUETORGB_INPUT_COLOR_SPACE_HUE_SATURATION_VALUE: D2D1_HUETORGB_INPUT_COLOR_SPACE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HUETORGB_INPUT_COLOR_SPACE_HUE_SATURATION_LIGHTNESS: D2D1_HUETORGB_INPUT_COLOR_SPACE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HUETORGB_INPUT_COLOR_SPACE_FORCE_DWORD: D2D1_HUETORGB_INPUT_COLOR_SPACE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_HUETORGB_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HUETORGB_PROP_INPUT_COLOR_SPACE: D2D1_HUETORGB_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_HUETORGB_PROP_FORCE_DWORD: D2D1_HUETORGB_PROP = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
 pub struct D2D1_HWND_RENDER_TARGET_PROPERTIES {
     pub hwnd: super::super::Foundation::HWND,
@@ -1378,6 +1905,7 @@ impl ::core::default::Default for D2D1_HWND_RENDER_TARGET_PROPERTIES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct D2D1_IMAGE_BRUSH_PROPERTIES {
     pub sourceRectangle: Common::D2D_RECT_F,
@@ -1411,16 +1939,26 @@ impl ::core::default::Default for D2D1_IMAGE_BRUSH_PROPERTIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_NONE: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_LOW_QUALITY_PRIMARY_CONVERSION: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_FORCE_DWORD: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_IMAGE_SOURCE_LOADING_OPTIONS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_IMAGE_SOURCE_LOADING_OPTIONS_NONE: D2D1_IMAGE_SOURCE_LOADING_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_IMAGE_SOURCE_LOADING_OPTIONS_RELEASE_SOURCE: D2D1_IMAGE_SOURCE_LOADING_OPTIONS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_IMAGE_SOURCE_LOADING_OPTIONS_CACHE_ON_DEMAND: D2D1_IMAGE_SOURCE_LOADING_OPTIONS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_IMAGE_SOURCE_LOADING_OPTIONS_FORCE_DWORD: D2D1_IMAGE_SOURCE_LOADING_OPTIONS = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_INK_BEZIER_SEGMENT {
     pub point1: D2D1_INK_POINT,
     pub point2: D2D1_INK_POINT,
@@ -1446,11 +1984,16 @@ impl ::core::default::Default for D2D1_INK_BEZIER_SEGMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_INK_NIB_SHAPE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_INK_NIB_SHAPE_ROUND: D2D1_INK_NIB_SHAPE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_INK_NIB_SHAPE_SQUARE: D2D1_INK_NIB_SHAPE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_INK_NIB_SHAPE_FORCE_DWORD: D2D1_INK_NIB_SHAPE = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_INK_POINT {
     pub x: f32,
     pub y: f32,
@@ -1477,6 +2020,7 @@ impl ::core::default::Default for D2D1_INK_POINT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct D2D1_INK_STYLE_PROPERTIES {
     pub nibShape: D2D1_INK_NIB_SHAPE,
@@ -1509,6 +2053,7 @@ impl ::core::default::Default for D2D1_INK_STYLE_PROPERTIES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_INPUT_DESCRIPTION {
     pub filter: D2D1_FILTER,
     pub levelOfDetailCount: u32,
@@ -1534,6 +2079,7 @@ impl ::core::default::Default for D2D1_INPUT_DESCRIPTION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D2D1_INPUT_ELEMENT_DESC {
     pub semanticName: super::super::Foundation::PSTR,
@@ -1568,33 +2114,60 @@ impl ::core::default::Default for D2D1_INPUT_ELEMENT_DESC {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_INTERPOLATION_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_INTERPOLATION_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_INTERPOLATION_MODE_LINEAR: D2D1_INTERPOLATION_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_INTERPOLATION_MODE_CUBIC: D2D1_INTERPOLATION_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_INTERPOLATION_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_INTERPOLATION_MODE_ANISOTROPIC: D2D1_INTERPOLATION_MODE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC: D2D1_INTERPOLATION_MODE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_INTERPOLATION_MODE_FORCE_DWORD: D2D1_INTERPOLATION_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_INTERPOLATION_MODE_DEFINITION = i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_INTERPOLATION_MODE_DEFINITION_NEAREST_NEIGHBOR: D2D1_INTERPOLATION_MODE_DEFINITION = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_INTERPOLATION_MODE_DEFINITION_LINEAR: D2D1_INTERPOLATION_MODE_DEFINITION = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_INTERPOLATION_MODE_DEFINITION_CUBIC: D2D1_INTERPOLATION_MODE_DEFINITION = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_INTERPOLATION_MODE_DEFINITION_MULTI_SAMPLE_LINEAR: D2D1_INTERPOLATION_MODE_DEFINITION = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_INTERPOLATION_MODE_DEFINITION_ANISOTROPIC: D2D1_INTERPOLATION_MODE_DEFINITION = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_INTERPOLATION_MODE_DEFINITION_HIGH_QUALITY_CUBIC: D2D1_INTERPOLATION_MODE_DEFINITION = 5i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_INTERPOLATION_MODE_DEFINITION_FANT: D2D1_INTERPOLATION_MODE_DEFINITION = 6i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_INTERPOLATION_MODE_DEFINITION_MIPMAP_LINEAR: D2D1_INTERPOLATION_MODE_DEFINITION = 7i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_LAYER_OPTIONS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LAYER_OPTIONS_NONE: D2D1_LAYER_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LAYER_OPTIONS_INITIALIZE_FOR_CLEARTYPE: D2D1_LAYER_OPTIONS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LAYER_OPTIONS_FORCE_DWORD: D2D1_LAYER_OPTIONS = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_LAYER_OPTIONS1 = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LAYER_OPTIONS1_NONE: D2D1_LAYER_OPTIONS1 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LAYER_OPTIONS1_INITIALIZE_FROM_BACKGROUND: D2D1_LAYER_OPTIONS1 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LAYER_OPTIONS1_IGNORE_ALPHA: D2D1_LAYER_OPTIONS1 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LAYER_OPTIONS1_FORCE_DWORD: D2D1_LAYER_OPTIONS1 = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 pub struct D2D1_LAYER_PARAMETERS {
     pub contentBounds: Common::D2D_RECT_F,
@@ -1638,6 +2211,7 @@ impl ::core::default::Default for D2D1_LAYER_PARAMETERS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 pub struct D2D1_LAYER_PARAMETERS1 {
     pub contentBounds: Common::D2D_RECT_F,
@@ -1680,22 +2254,38 @@ impl ::core::default::Default for D2D1_LAYER_PARAMETERS1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_LINEARTRANSFER_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LINEARTRANSFER_PROP_RED_Y_INTERCEPT: D2D1_LINEARTRANSFER_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LINEARTRANSFER_PROP_RED_SLOPE: D2D1_LINEARTRANSFER_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LINEARTRANSFER_PROP_RED_DISABLE: D2D1_LINEARTRANSFER_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LINEARTRANSFER_PROP_GREEN_Y_INTERCEPT: D2D1_LINEARTRANSFER_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LINEARTRANSFER_PROP_GREEN_SLOPE: D2D1_LINEARTRANSFER_PROP = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LINEARTRANSFER_PROP_GREEN_DISABLE: D2D1_LINEARTRANSFER_PROP = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LINEARTRANSFER_PROP_BLUE_Y_INTERCEPT: D2D1_LINEARTRANSFER_PROP = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LINEARTRANSFER_PROP_BLUE_SLOPE: D2D1_LINEARTRANSFER_PROP = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LINEARTRANSFER_PROP_BLUE_DISABLE: D2D1_LINEARTRANSFER_PROP = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LINEARTRANSFER_PROP_ALPHA_Y_INTERCEPT: D2D1_LINEARTRANSFER_PROP = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LINEARTRANSFER_PROP_ALPHA_SLOPE: D2D1_LINEARTRANSFER_PROP = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LINEARTRANSFER_PROP_ALPHA_DISABLE: D2D1_LINEARTRANSFER_PROP = 11u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LINEARTRANSFER_PROP_CLAMP_OUTPUT: D2D1_LINEARTRANSFER_PROP = 12u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LINEARTRANSFER_PROP_FORCE_DWORD: D2D1_LINEARTRANSFER_PROP = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
     pub startPoint: Common::D2D_POINT_2F,
@@ -1727,17 +2317,28 @@ impl ::core::default::Default for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_LINE_JOIN = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LINE_JOIN_MITER: D2D1_LINE_JOIN = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LINE_JOIN_BEVEL: D2D1_LINE_JOIN = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LINE_JOIN_ROUND: D2D1_LINE_JOIN = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LINE_JOIN_MITER_OR_BEVEL: D2D1_LINE_JOIN = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LINE_JOIN_FORCE_DWORD: D2D1_LINE_JOIN = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_LOOKUPTABLE3D_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LOOKUPTABLE3D_PROP_LUT: D2D1_LOOKUPTABLE3D_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LOOKUPTABLE3D_PROP_ALPHA_MODE: D2D1_LOOKUPTABLE3D_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_LOOKUPTABLE3D_PROP_FORCE_DWORD: D2D1_LOOKUPTABLE3D_PROP = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_MAPPED_RECT {
     pub pitch: u32,
     pub bits: *mut u8,
@@ -1762,85 +2363,164 @@ impl ::core::default::Default for D2D1_MAPPED_RECT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_MAP_OPTIONS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_MAP_OPTIONS_NONE: D2D1_MAP_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_MAP_OPTIONS_READ: D2D1_MAP_OPTIONS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_MAP_OPTIONS_WRITE: D2D1_MAP_OPTIONS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_MAP_OPTIONS_DISCARD: D2D1_MAP_OPTIONS = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_MAP_OPTIONS_FORCE_DWORD: D2D1_MAP_OPTIONS = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_MORPHOLOGY_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_MORPHOLOGY_MODE_ERODE: D2D1_MORPHOLOGY_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_MORPHOLOGY_MODE_DILATE: D2D1_MORPHOLOGY_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_MORPHOLOGY_MODE_FORCE_DWORD: D2D1_MORPHOLOGY_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_MORPHOLOGY_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_MORPHOLOGY_PROP_MODE: D2D1_MORPHOLOGY_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_MORPHOLOGY_PROP_WIDTH: D2D1_MORPHOLOGY_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_MORPHOLOGY_PROP_HEIGHT: D2D1_MORPHOLOGY_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_MORPHOLOGY_PROP_FORCE_DWORD: D2D1_MORPHOLOGY_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_OPACITYMETADATA_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_OPACITYMETADATA_PROP_INPUT_OPAQUE_RECT: D2D1_OPACITYMETADATA_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_OPACITYMETADATA_PROP_FORCE_DWORD: D2D1_OPACITYMETADATA_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_OPACITY_MASK_CONTENT = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_OPACITY_MASK_CONTENT_GRAPHICS: D2D1_OPACITY_MASK_CONTENT = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_OPACITY_MASK_CONTENT_TEXT_NATURAL: D2D1_OPACITY_MASK_CONTENT = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_OPACITY_MASK_CONTENT_TEXT_GDI_COMPATIBLE: D2D1_OPACITY_MASK_CONTENT = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_OPACITY_MASK_CONTENT_FORCE_DWORD: D2D1_OPACITY_MASK_CONTENT = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_OPACITY_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_OPACITY_PROP_OPACITY: D2D1_OPACITY_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_OPACITY_PROP_FORCE_DWORD: D2D1_OPACITY_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_ORIENTATION = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ORIENTATION_DEFAULT: D2D1_ORIENTATION = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ORIENTATION_FLIP_HORIZONTAL: D2D1_ORIENTATION = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ORIENTATION_ROTATE_CLOCKWISE180: D2D1_ORIENTATION = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ORIENTATION_ROTATE_CLOCKWISE180_FLIP_HORIZONTAL: D2D1_ORIENTATION = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ORIENTATION_ROTATE_CLOCKWISE90_FLIP_HORIZONTAL: D2D1_ORIENTATION = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ORIENTATION_ROTATE_CLOCKWISE270: D2D1_ORIENTATION = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ORIENTATION_ROTATE_CLOCKWISE270_FLIP_HORIZONTAL: D2D1_ORIENTATION = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ORIENTATION_ROTATE_CLOCKWISE90: D2D1_ORIENTATION = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_ORIENTATION_FORCE_DWORD: D2D1_ORIENTATION = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_PATCH_EDGE_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PATCH_EDGE_MODE_ALIASED: D2D1_PATCH_EDGE_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PATCH_EDGE_MODE_ANTIALIASED: D2D1_PATCH_EDGE_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PATCH_EDGE_MODE_ALIASED_INFLATED: D2D1_PATCH_EDGE_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PATCH_EDGE_MODE_FORCE_DWORD: D2D1_PATCH_EDGE_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_PIXEL_OPTIONS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PIXEL_OPTIONS_NONE: D2D1_PIXEL_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PIXEL_OPTIONS_TRIVIAL_SAMPLING: D2D1_PIXEL_OPTIONS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PIXEL_OPTIONS_FORCE_DWORD: D2D1_PIXEL_OPTIONS = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_POINTDIFFUSE_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTDIFFUSE_PROP_LIGHT_POSITION: D2D1_POINTDIFFUSE_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTDIFFUSE_PROP_DIFFUSE_CONSTANT: D2D1_POINTDIFFUSE_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTDIFFUSE_PROP_SURFACE_SCALE: D2D1_POINTDIFFUSE_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTDIFFUSE_PROP_COLOR: D2D1_POINTDIFFUSE_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTDIFFUSE_PROP_KERNEL_UNIT_LENGTH: D2D1_POINTDIFFUSE_PROP = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTDIFFUSE_PROP_SCALE_MODE: D2D1_POINTDIFFUSE_PROP = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTDIFFUSE_PROP_FORCE_DWORD: D2D1_POINTDIFFUSE_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_POINTDIFFUSE_SCALE_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_POINTDIFFUSE_SCALE_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTDIFFUSE_SCALE_MODE_LINEAR: D2D1_POINTDIFFUSE_SCALE_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTDIFFUSE_SCALE_MODE_CUBIC: D2D1_POINTDIFFUSE_SCALE_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTDIFFUSE_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_POINTDIFFUSE_SCALE_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTDIFFUSE_SCALE_MODE_ANISOTROPIC: D2D1_POINTDIFFUSE_SCALE_MODE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTDIFFUSE_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_POINTDIFFUSE_SCALE_MODE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTDIFFUSE_SCALE_MODE_FORCE_DWORD: D2D1_POINTDIFFUSE_SCALE_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_POINTSPECULAR_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTSPECULAR_PROP_LIGHT_POSITION: D2D1_POINTSPECULAR_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTSPECULAR_PROP_SPECULAR_EXPONENT: D2D1_POINTSPECULAR_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTSPECULAR_PROP_SPECULAR_CONSTANT: D2D1_POINTSPECULAR_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTSPECULAR_PROP_SURFACE_SCALE: D2D1_POINTSPECULAR_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTSPECULAR_PROP_COLOR: D2D1_POINTSPECULAR_PROP = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTSPECULAR_PROP_KERNEL_UNIT_LENGTH: D2D1_POINTSPECULAR_PROP = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTSPECULAR_PROP_SCALE_MODE: D2D1_POINTSPECULAR_PROP = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTSPECULAR_PROP_FORCE_DWORD: D2D1_POINTSPECULAR_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_POINTSPECULAR_SCALE_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_POINTSPECULAR_SCALE_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTSPECULAR_SCALE_MODE_LINEAR: D2D1_POINTSPECULAR_SCALE_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTSPECULAR_SCALE_MODE_CUBIC: D2D1_POINTSPECULAR_SCALE_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTSPECULAR_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_POINTSPECULAR_SCALE_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTSPECULAR_SCALE_MODE_ANISOTROPIC: D2D1_POINTSPECULAR_SCALE_MODE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_POINTSPECULAR_SCALE_MODE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POINTSPECULAR_SCALE_MODE_FORCE_DWORD: D2D1_POINTSPECULAR_SCALE_MODE = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct D2D1_POINT_DESCRIPTION {
     pub point: Common::D2D_POINT_2F,
@@ -1875,24 +2555,42 @@ impl ::core::default::Default for D2D1_POINT_DESCRIPTION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_POSTERIZE_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POSTERIZE_PROP_RED_VALUE_COUNT: D2D1_POSTERIZE_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POSTERIZE_PROP_GREEN_VALUE_COUNT: D2D1_POSTERIZE_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POSTERIZE_PROP_BLUE_VALUE_COUNT: D2D1_POSTERIZE_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_POSTERIZE_PROP_FORCE_DWORD: D2D1_POSTERIZE_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_PRESENT_OPTIONS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PRESENT_OPTIONS_NONE: D2D1_PRESENT_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PRESENT_OPTIONS_RETAIN_CONTENTS: D2D1_PRESENT_OPTIONS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PRESENT_OPTIONS_IMMEDIATELY: D2D1_PRESENT_OPTIONS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PRESENT_OPTIONS_FORCE_DWORD: D2D1_PRESENT_OPTIONS = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_PRIMITIVE_BLEND = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PRIMITIVE_BLEND_SOURCE_OVER: D2D1_PRIMITIVE_BLEND = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PRIMITIVE_BLEND_COPY: D2D1_PRIMITIVE_BLEND = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PRIMITIVE_BLEND_MIN: D2D1_PRIMITIVE_BLEND = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PRIMITIVE_BLEND_ADD: D2D1_PRIMITIVE_BLEND = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PRIMITIVE_BLEND_MAX: D2D1_PRIMITIVE_BLEND = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PRIMITIVE_BLEND_FORCE_DWORD: D2D1_PRIMITIVE_BLEND = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_PRINT_CONTROL_PROPERTIES {
     pub fontSubset: D2D1_PRINT_FONT_SUBSET_MODE,
     pub rasterDPI: f32,
@@ -1918,24 +2616,42 @@ impl ::core::default::Default for D2D1_PRINT_CONTROL_PROPERTIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_PRINT_FONT_SUBSET_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PRINT_FONT_SUBSET_MODE_DEFAULT: D2D1_PRINT_FONT_SUBSET_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PRINT_FONT_SUBSET_MODE_EACHPAGE: D2D1_PRINT_FONT_SUBSET_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PRINT_FONT_SUBSET_MODE_NONE: D2D1_PRINT_FONT_SUBSET_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PRINT_FONT_SUBSET_MODE_FORCE_DWORD: D2D1_PRINT_FONT_SUBSET_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_PROPERTY = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_CLSID: D2D1_PROPERTY = 2147483648u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_DISPLAYNAME: D2D1_PROPERTY = 2147483649u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_AUTHOR: D2D1_PROPERTY = 2147483650u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_CATEGORY: D2D1_PROPERTY = 2147483651u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_DESCRIPTION: D2D1_PROPERTY = 2147483652u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_INPUTS: D2D1_PROPERTY = 2147483653u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_CACHED: D2D1_PROPERTY = 2147483654u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_PRECISION: D2D1_PROPERTY = 2147483655u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_MIN_INPUTS: D2D1_PROPERTY = 2147483656u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_MAX_INPUTS: D2D1_PROPERTY = 2147483657u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_FORCE_DWORD: D2D1_PROPERTY = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D2D1_PROPERTY_BINDING {
     pub propertyName: super::super::Foundation::PWSTR,
@@ -1968,28 +2684,50 @@ impl ::core::default::Default for D2D1_PROPERTY_BINDING {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_PROPERTY_TYPE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_UNKNOWN: D2D1_PROPERTY_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_STRING: D2D1_PROPERTY_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_BOOL: D2D1_PROPERTY_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_UINT32: D2D1_PROPERTY_TYPE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_INT32: D2D1_PROPERTY_TYPE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_FLOAT: D2D1_PROPERTY_TYPE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_VECTOR2: D2D1_PROPERTY_TYPE = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_VECTOR3: D2D1_PROPERTY_TYPE = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_VECTOR4: D2D1_PROPERTY_TYPE = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_BLOB: D2D1_PROPERTY_TYPE = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_IUNKNOWN: D2D1_PROPERTY_TYPE = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_ENUM: D2D1_PROPERTY_TYPE = 11u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_ARRAY: D2D1_PROPERTY_TYPE = 12u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_CLSID: D2D1_PROPERTY_TYPE = 13u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_MATRIX_3X2: D2D1_PROPERTY_TYPE = 14u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_MATRIX_4X3: D2D1_PROPERTY_TYPE = 15u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_MATRIX_4X4: D2D1_PROPERTY_TYPE = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_MATRIX_5X4: D2D1_PROPERTY_TYPE = 17u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_COLOR_CONTEXT: D2D1_PROPERTY_TYPE = 18u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_PROPERTY_TYPE_FORCE_DWORD: D2D1_PROPERTY_TYPE = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct D2D1_QUADRATIC_BEZIER_SEGMENT {
     pub point1: Common::D2D_POINT_2F,
@@ -2022,6 +2760,7 @@ impl ::core::default::Default for D2D1_QUADRATIC_BEZIER_SEGMENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
     pub center: Common::D2D_POINT_2F,
@@ -2056,6 +2795,7 @@ impl ::core::default::Default for D2D1_RADIAL_GRADIENT_BRUSH_PROPERTIES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct D2D1_RENDERING_CONTROLS {
     pub bufferPrecision: D2D1_BUFFER_PRECISION,
@@ -2087,11 +2827,16 @@ impl ::core::default::Default for D2D1_RENDERING_CONTROLS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_RENDERING_PRIORITY = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_RENDERING_PRIORITY_NORMAL: D2D1_RENDERING_PRIORITY = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_RENDERING_PRIORITY_LOW: D2D1_RENDERING_PRIORITY = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_RENDERING_PRIORITY_FORCE_DWORD: D2D1_RENDERING_PRIORITY = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct D2D1_RENDER_TARGET_PROPERTIES {
     pub r#type: D2D1_RENDER_TARGET_TYPE,
@@ -2127,17 +2872,28 @@ impl ::core::default::Default for D2D1_RENDER_TARGET_PROPERTIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_RENDER_TARGET_TYPE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_RENDER_TARGET_TYPE_DEFAULT: D2D1_RENDER_TARGET_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_RENDER_TARGET_TYPE_SOFTWARE: D2D1_RENDER_TARGET_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_RENDER_TARGET_TYPE_HARDWARE: D2D1_RENDER_TARGET_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_RENDER_TARGET_TYPE_FORCE_DWORD: D2D1_RENDER_TARGET_TYPE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_RENDER_TARGET_USAGE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_RENDER_TARGET_USAGE_NONE: D2D1_RENDER_TARGET_USAGE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_RENDER_TARGET_USAGE_FORCE_BITMAP_REMOTING: D2D1_RENDER_TARGET_USAGE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_RENDER_TARGET_USAGE_GDI_COMPATIBLE: D2D1_RENDER_TARGET_USAGE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_RENDER_TARGET_USAGE_FORCE_DWORD: D2D1_RENDER_TARGET_USAGE = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_RESOURCE_TEXTURE_PROPERTIES {
     pub extents: *mut u32,
     pub dimensions: u32,
@@ -2166,14 +2922,22 @@ impl ::core::default::Default for D2D1_RESOURCE_TEXTURE_PROPERTIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE_HUE_SATURATION_VALUE: D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE_HUE_SATURATION_LIGHTNESS: D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE_FORCE_DWORD: D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_RGBTOHUE_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_RGBTOHUE_PROP_OUTPUT_COLOR_SPACE: D2D1_RGBTOHUE_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_RGBTOHUE_PROP_FORCE_DWORD: D2D1_RGBTOHUE_PROP = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct D2D1_ROUNDED_RECT {
     pub rect: Common::D2D_RECT_F,
@@ -2206,44 +2970,81 @@ impl ::core::default::Default for D2D1_ROUNDED_RECT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SATURATION_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SATURATION_PROP_SATURATION: D2D1_SATURATION_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SATURATION_PROP_FORCE_DWORD: D2D1_SATURATION_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SCALE_INTERPOLATION_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SCALE_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_SCALE_INTERPOLATION_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SCALE_INTERPOLATION_MODE_LINEAR: D2D1_SCALE_INTERPOLATION_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SCALE_INTERPOLATION_MODE_CUBIC: D2D1_SCALE_INTERPOLATION_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SCALE_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_SCALE_INTERPOLATION_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SCALE_INTERPOLATION_MODE_ANISOTROPIC: D2D1_SCALE_INTERPOLATION_MODE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SCALE_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC: D2D1_SCALE_INTERPOLATION_MODE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SCALE_INTERPOLATION_MODE_FORCE_DWORD: D2D1_SCALE_INTERPOLATION_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SCALE_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SCALE_PROP_SCALE: D2D1_SCALE_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SCALE_PROP_CENTER_POINT: D2D1_SCALE_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SCALE_PROP_INTERPOLATION_MODE: D2D1_SCALE_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SCALE_PROP_BORDER_MODE: D2D1_SCALE_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SCALE_PROP_SHARPNESS: D2D1_SCALE_PROP = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SCALE_PROP_FORCE_DWORD: D2D1_SCALE_PROP = 4294967295u32;
 pub const D2D1_SCENE_REFERRED_SDR_WHITE_LEVEL: f32 = 80f32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SEPIA_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SEPIA_PROP_INTENSITY: D2D1_SEPIA_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SEPIA_PROP_ALPHA_MODE: D2D1_SEPIA_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SEPIA_PROP_FORCE_DWORD: D2D1_SEPIA_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SHADOW_OPTIMIZATION = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SHADOW_OPTIMIZATION_SPEED: D2D1_SHADOW_OPTIMIZATION = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SHADOW_OPTIMIZATION_BALANCED: D2D1_SHADOW_OPTIMIZATION = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SHADOW_OPTIMIZATION_QUALITY: D2D1_SHADOW_OPTIMIZATION = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SHADOW_OPTIMIZATION_FORCE_DWORD: D2D1_SHADOW_OPTIMIZATION = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SHADOW_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SHADOW_PROP_BLUR_STANDARD_DEVIATION: D2D1_SHADOW_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SHADOW_PROP_COLOR: D2D1_SHADOW_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SHADOW_PROP_OPTIMIZATION: D2D1_SHADOW_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SHADOW_PROP_FORCE_DWORD: D2D1_SHADOW_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SHARPEN_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SHARPEN_PROP_SHARPNESS: D2D1_SHARPEN_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SHARPEN_PROP_THRESHOLD: D2D1_SHARPEN_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SHARPEN_PROP_FORCE_DWORD: D2D1_SHARPEN_PROP = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct D2D1_SIMPLE_COLOR_PROFILE {
     pub redPrimary: Common::D2D_POINT_2F,
@@ -2278,62 +3079,118 @@ impl ::core::default::Default for D2D1_SIMPLE_COLOR_PROFILE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SPOTDIFFUSE_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTDIFFUSE_PROP_LIGHT_POSITION: D2D1_SPOTDIFFUSE_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTDIFFUSE_PROP_POINTS_AT: D2D1_SPOTDIFFUSE_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTDIFFUSE_PROP_FOCUS: D2D1_SPOTDIFFUSE_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTDIFFUSE_PROP_LIMITING_CONE_ANGLE: D2D1_SPOTDIFFUSE_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTDIFFUSE_PROP_DIFFUSE_CONSTANT: D2D1_SPOTDIFFUSE_PROP = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTDIFFUSE_PROP_SURFACE_SCALE: D2D1_SPOTDIFFUSE_PROP = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTDIFFUSE_PROP_COLOR: D2D1_SPOTDIFFUSE_PROP = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTDIFFUSE_PROP_KERNEL_UNIT_LENGTH: D2D1_SPOTDIFFUSE_PROP = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTDIFFUSE_PROP_SCALE_MODE: D2D1_SPOTDIFFUSE_PROP = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTDIFFUSE_PROP_FORCE_DWORD: D2D1_SPOTDIFFUSE_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SPOTDIFFUSE_SCALE_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_SPOTDIFFUSE_SCALE_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTDIFFUSE_SCALE_MODE_LINEAR: D2D1_SPOTDIFFUSE_SCALE_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTDIFFUSE_SCALE_MODE_CUBIC: D2D1_SPOTDIFFUSE_SCALE_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTDIFFUSE_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_SPOTDIFFUSE_SCALE_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTDIFFUSE_SCALE_MODE_ANISOTROPIC: D2D1_SPOTDIFFUSE_SCALE_MODE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTDIFFUSE_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_SPOTDIFFUSE_SCALE_MODE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTDIFFUSE_SCALE_MODE_FORCE_DWORD: D2D1_SPOTDIFFUSE_SCALE_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SPOTSPECULAR_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTSPECULAR_PROP_LIGHT_POSITION: D2D1_SPOTSPECULAR_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTSPECULAR_PROP_POINTS_AT: D2D1_SPOTSPECULAR_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTSPECULAR_PROP_FOCUS: D2D1_SPOTSPECULAR_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTSPECULAR_PROP_LIMITING_CONE_ANGLE: D2D1_SPOTSPECULAR_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTSPECULAR_PROP_SPECULAR_EXPONENT: D2D1_SPOTSPECULAR_PROP = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTSPECULAR_PROP_SPECULAR_CONSTANT: D2D1_SPOTSPECULAR_PROP = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTSPECULAR_PROP_SURFACE_SCALE: D2D1_SPOTSPECULAR_PROP = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTSPECULAR_PROP_COLOR: D2D1_SPOTSPECULAR_PROP = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTSPECULAR_PROP_KERNEL_UNIT_LENGTH: D2D1_SPOTSPECULAR_PROP = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTSPECULAR_PROP_SCALE_MODE: D2D1_SPOTSPECULAR_PROP = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTSPECULAR_PROP_FORCE_DWORD: D2D1_SPOTSPECULAR_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SPOTSPECULAR_SCALE_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_SPOTSPECULAR_SCALE_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTSPECULAR_SCALE_MODE_LINEAR: D2D1_SPOTSPECULAR_SCALE_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTSPECULAR_SCALE_MODE_CUBIC: D2D1_SPOTSPECULAR_SCALE_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTSPECULAR_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_SPOTSPECULAR_SCALE_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTSPECULAR_SCALE_MODE_ANISOTROPIC: D2D1_SPOTSPECULAR_SCALE_MODE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_SPOTSPECULAR_SCALE_MODE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPOTSPECULAR_SCALE_MODE_FORCE_DWORD: D2D1_SPOTSPECULAR_SCALE_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SPRITE_OPTIONS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPRITE_OPTIONS_NONE: D2D1_SPRITE_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPRITE_OPTIONS_CLAMP_TO_SOURCE_RECTANGLE: D2D1_SPRITE_OPTIONS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SPRITE_OPTIONS_FORCE_DWORD: D2D1_SPRITE_OPTIONS = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_STRAIGHTEN_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_STRAIGHTEN_PROP_ANGLE: D2D1_STRAIGHTEN_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_STRAIGHTEN_PROP_MAINTAIN_SIZE: D2D1_STRAIGHTEN_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_STRAIGHTEN_PROP_SCALE_MODE: D2D1_STRAIGHTEN_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_STRAIGHTEN_PROP_FORCE_DWORD: D2D1_STRAIGHTEN_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_STRAIGHTEN_SCALE_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_STRAIGHTEN_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_STRAIGHTEN_SCALE_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_STRAIGHTEN_SCALE_MODE_LINEAR: D2D1_STRAIGHTEN_SCALE_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_STRAIGHTEN_SCALE_MODE_CUBIC: D2D1_STRAIGHTEN_SCALE_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_STRAIGHTEN_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_STRAIGHTEN_SCALE_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_STRAIGHTEN_SCALE_MODE_ANISOTROPIC: D2D1_STRAIGHTEN_SCALE_MODE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_STRAIGHTEN_SCALE_MODE_FORCE_DWORD: D2D1_STRAIGHTEN_SCALE_MODE = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_STROKE_STYLE_PROPERTIES {
     pub startCap: D2D1_CAP_STYLE,
     pub endCap: D2D1_CAP_STYLE,
@@ -2364,6 +3221,7 @@ impl ::core::default::Default for D2D1_STROKE_STYLE_PROPERTIES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_STROKE_STYLE_PROPERTIES1 {
     pub startCap: D2D1_CAP_STYLE,
     pub endCap: D2D1_CAP_STYLE,
@@ -2394,61 +3252,116 @@ impl ::core::default::Default for D2D1_STROKE_STYLE_PROPERTIES1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_STROKE_TRANSFORM_TYPE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_STROKE_TRANSFORM_TYPE_NORMAL: D2D1_STROKE_TRANSFORM_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_STROKE_TRANSFORM_TYPE_FIXED: D2D1_STROKE_TRANSFORM_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_STROKE_TRANSFORM_TYPE_HAIRLINE: D2D1_STROKE_TRANSFORM_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_STROKE_TRANSFORM_TYPE_FORCE_DWORD: D2D1_STROKE_TRANSFORM_TYPE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SUBPROPERTY = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SUBPROPERTY_DISPLAYNAME: D2D1_SUBPROPERTY = 2147483648u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SUBPROPERTY_ISREADONLY: D2D1_SUBPROPERTY = 2147483649u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SUBPROPERTY_MIN: D2D1_SUBPROPERTY = 2147483650u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SUBPROPERTY_MAX: D2D1_SUBPROPERTY = 2147483651u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SUBPROPERTY_DEFAULT: D2D1_SUBPROPERTY = 2147483652u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SUBPROPERTY_FIELDS: D2D1_SUBPROPERTY = 2147483653u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SUBPROPERTY_INDEX: D2D1_SUBPROPERTY = 2147483654u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SUBPROPERTY_FORCE_DWORD: D2D1_SUBPROPERTY = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SVG_ASPECT_ALIGN = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ASPECT_ALIGN_NONE: D2D1_SVG_ASPECT_ALIGN = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ASPECT_ALIGN_X_MIN_Y_MIN: D2D1_SVG_ASPECT_ALIGN = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ASPECT_ALIGN_X_MID_Y_MIN: D2D1_SVG_ASPECT_ALIGN = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ASPECT_ALIGN_X_MAX_Y_MIN: D2D1_SVG_ASPECT_ALIGN = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ASPECT_ALIGN_X_MIN_Y_MID: D2D1_SVG_ASPECT_ALIGN = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ASPECT_ALIGN_X_MID_Y_MID: D2D1_SVG_ASPECT_ALIGN = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ASPECT_ALIGN_X_MAX_Y_MID: D2D1_SVG_ASPECT_ALIGN = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ASPECT_ALIGN_X_MIN_Y_MAX: D2D1_SVG_ASPECT_ALIGN = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ASPECT_ALIGN_X_MID_Y_MAX: D2D1_SVG_ASPECT_ALIGN = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ASPECT_ALIGN_X_MAX_Y_MAX: D2D1_SVG_ASPECT_ALIGN = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ASPECT_ALIGN_FORCE_DWORD: D2D1_SVG_ASPECT_ALIGN = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SVG_ASPECT_SCALING = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ASPECT_SCALING_MEET: D2D1_SVG_ASPECT_SCALING = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ASPECT_SCALING_SLICE: D2D1_SVG_ASPECT_SCALING = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ASPECT_SCALING_FORCE_DWORD: D2D1_SVG_ASPECT_SCALING = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SVG_ATTRIBUTE_POD_TYPE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_FLOAT: D2D1_SVG_ATTRIBUTE_POD_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_COLOR: D2D1_SVG_ATTRIBUTE_POD_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_FILL_MODE: D2D1_SVG_ATTRIBUTE_POD_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_DISPLAY: D2D1_SVG_ATTRIBUTE_POD_TYPE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_OVERFLOW: D2D1_SVG_ATTRIBUTE_POD_TYPE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_LINE_CAP: D2D1_SVG_ATTRIBUTE_POD_TYPE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_LINE_JOIN: D2D1_SVG_ATTRIBUTE_POD_TYPE = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_VISIBILITY: D2D1_SVG_ATTRIBUTE_POD_TYPE = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_MATRIX: D2D1_SVG_ATTRIBUTE_POD_TYPE = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_UNIT_TYPE: D2D1_SVG_ATTRIBUTE_POD_TYPE = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_EXTEND_MODE: D2D1_SVG_ATTRIBUTE_POD_TYPE = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_PRESERVE_ASPECT_RATIO: D2D1_SVG_ATTRIBUTE_POD_TYPE = 11u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_VIEWBOX: D2D1_SVG_ATTRIBUTE_POD_TYPE = 12u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_LENGTH: D2D1_SVG_ATTRIBUTE_POD_TYPE = 13u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_FORCE_DWORD: D2D1_SVG_ATTRIBUTE_POD_TYPE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SVG_ATTRIBUTE_STRING_TYPE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ATTRIBUTE_STRING_TYPE_SVG: D2D1_SVG_ATTRIBUTE_STRING_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ATTRIBUTE_STRING_TYPE_ID: D2D1_SVG_ATTRIBUTE_STRING_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_ATTRIBUTE_STRING_TYPE_FORCE_DWORD: D2D1_SVG_ATTRIBUTE_STRING_TYPE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SVG_DISPLAY = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_DISPLAY_INLINE: D2D1_SVG_DISPLAY = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_DISPLAY_NONE: D2D1_SVG_DISPLAY = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_DISPLAY_FORCE_DWORD: D2D1_SVG_DISPLAY = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_SVG_LENGTH {
     pub value: f32,
     pub units: D2D1_SVG_LENGTH_UNITS,
@@ -2473,55 +3386,104 @@ impl ::core::default::Default for D2D1_SVG_LENGTH {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SVG_LENGTH_UNITS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_LENGTH_UNITS_NUMBER: D2D1_SVG_LENGTH_UNITS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_LENGTH_UNITS_PERCENTAGE: D2D1_SVG_LENGTH_UNITS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_LENGTH_UNITS_FORCE_DWORD: D2D1_SVG_LENGTH_UNITS = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SVG_LINE_CAP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_LINE_CAP_BUTT: D2D1_SVG_LINE_CAP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_LINE_CAP_SQUARE: D2D1_SVG_LINE_CAP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_LINE_CAP_ROUND: D2D1_SVG_LINE_CAP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_LINE_CAP_FORCE_DWORD: D2D1_SVG_LINE_CAP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SVG_LINE_JOIN = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_LINE_JOIN_BEVEL: D2D1_SVG_LINE_JOIN = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_LINE_JOIN_MITER: D2D1_SVG_LINE_JOIN = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_LINE_JOIN_ROUND: D2D1_SVG_LINE_JOIN = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_LINE_JOIN_FORCE_DWORD: D2D1_SVG_LINE_JOIN = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SVG_OVERFLOW = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_OVERFLOW_VISIBLE: D2D1_SVG_OVERFLOW = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_OVERFLOW_HIDDEN: D2D1_SVG_OVERFLOW = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_OVERFLOW_FORCE_DWORD: D2D1_SVG_OVERFLOW = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SVG_PAINT_TYPE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PAINT_TYPE_NONE: D2D1_SVG_PAINT_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PAINT_TYPE_COLOR: D2D1_SVG_PAINT_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PAINT_TYPE_CURRENT_COLOR: D2D1_SVG_PAINT_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PAINT_TYPE_URI: D2D1_SVG_PAINT_TYPE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PAINT_TYPE_URI_NONE: D2D1_SVG_PAINT_TYPE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PAINT_TYPE_URI_COLOR: D2D1_SVG_PAINT_TYPE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PAINT_TYPE_URI_CURRENT_COLOR: D2D1_SVG_PAINT_TYPE = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PAINT_TYPE_FORCE_DWORD: D2D1_SVG_PAINT_TYPE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SVG_PATH_COMMAND = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_CLOSE_PATH: D2D1_SVG_PATH_COMMAND = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_MOVE_ABSOLUTE: D2D1_SVG_PATH_COMMAND = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_MOVE_RELATIVE: D2D1_SVG_PATH_COMMAND = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_LINE_ABSOLUTE: D2D1_SVG_PATH_COMMAND = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_LINE_RELATIVE: D2D1_SVG_PATH_COMMAND = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_CUBIC_ABSOLUTE: D2D1_SVG_PATH_COMMAND = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_CUBIC_RELATIVE: D2D1_SVG_PATH_COMMAND = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_QUADRADIC_ABSOLUTE: D2D1_SVG_PATH_COMMAND = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_QUADRADIC_RELATIVE: D2D1_SVG_PATH_COMMAND = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_ARC_ABSOLUTE: D2D1_SVG_PATH_COMMAND = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_ARC_RELATIVE: D2D1_SVG_PATH_COMMAND = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_HORIZONTAL_ABSOLUTE: D2D1_SVG_PATH_COMMAND = 11u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_HORIZONTAL_RELATIVE: D2D1_SVG_PATH_COMMAND = 12u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_VERTICAL_ABSOLUTE: D2D1_SVG_PATH_COMMAND = 13u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_VERTICAL_RELATIVE: D2D1_SVG_PATH_COMMAND = 14u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_CUBIC_SMOOTH_ABSOLUTE: D2D1_SVG_PATH_COMMAND = 15u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_CUBIC_SMOOTH_RELATIVE: D2D1_SVG_PATH_COMMAND = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_QUADRADIC_SMOOTH_ABSOLUTE: D2D1_SVG_PATH_COMMAND = 17u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_QUADRADIC_SMOOTH_RELATIVE: D2D1_SVG_PATH_COMMAND = 18u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_PATH_COMMAND_FORCE_DWORD: D2D1_SVG_PATH_COMMAND = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct D2D1_SVG_PRESERVE_ASPECT_RATIO {
     pub defer: super::super::Foundation::BOOL,
@@ -2554,11 +3516,16 @@ impl ::core::default::Default for D2D1_SVG_PRESERVE_ASPECT_RATIO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SVG_UNIT_TYPE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_UNIT_TYPE_USER_SPACE_ON_USE: D2D1_SVG_UNIT_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_UNIT_TYPE_OBJECT_BOUNDING_BOX: D2D1_SVG_UNIT_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_UNIT_TYPE_FORCE_DWORD: D2D1_SVG_UNIT_TYPE = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_SVG_VIEWBOX {
     pub x: f32,
     pub y: f32,
@@ -2585,51 +3552,96 @@ impl ::core::default::Default for D2D1_SVG_VIEWBOX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SVG_VISIBILITY = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_VISIBILITY_VISIBLE: D2D1_SVG_VISIBILITY = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_VISIBILITY_HIDDEN: D2D1_SVG_VISIBILITY = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SVG_VISIBILITY_FORCE_DWORD: D2D1_SVG_VISIBILITY = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_SWEEP_DIRECTION = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SWEEP_DIRECTION_COUNTER_CLOCKWISE: D2D1_SWEEP_DIRECTION = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SWEEP_DIRECTION_CLOCKWISE: D2D1_SWEEP_DIRECTION = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SWEEP_DIRECTION_FORCE_DWORD: D2D1_SWEEP_DIRECTION = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_TABLETRANSFER_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TABLETRANSFER_PROP_RED_TABLE: D2D1_TABLETRANSFER_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TABLETRANSFER_PROP_RED_DISABLE: D2D1_TABLETRANSFER_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TABLETRANSFER_PROP_GREEN_TABLE: D2D1_TABLETRANSFER_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TABLETRANSFER_PROP_GREEN_DISABLE: D2D1_TABLETRANSFER_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TABLETRANSFER_PROP_BLUE_TABLE: D2D1_TABLETRANSFER_PROP = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TABLETRANSFER_PROP_BLUE_DISABLE: D2D1_TABLETRANSFER_PROP = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TABLETRANSFER_PROP_ALPHA_TABLE: D2D1_TABLETRANSFER_PROP = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TABLETRANSFER_PROP_ALPHA_DISABLE: D2D1_TABLETRANSFER_PROP = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TABLETRANSFER_PROP_CLAMP_OUTPUT: D2D1_TABLETRANSFER_PROP = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TABLETRANSFER_PROP_FORCE_DWORD: D2D1_TABLETRANSFER_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_TEMPERATUREANDTINT_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TEMPERATUREANDTINT_PROP_TEMPERATURE: D2D1_TEMPERATUREANDTINT_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TEMPERATUREANDTINT_PROP_TINT: D2D1_TEMPERATUREANDTINT_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TEMPERATUREANDTINT_PROP_FORCE_DWORD: D2D1_TEMPERATUREANDTINT_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_TEXT_ANTIALIAS_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TEXT_ANTIALIAS_MODE_DEFAULT: D2D1_TEXT_ANTIALIAS_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TEXT_ANTIALIAS_MODE_CLEARTYPE: D2D1_TEXT_ANTIALIAS_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TEXT_ANTIALIAS_MODE_GRAYSCALE: D2D1_TEXT_ANTIALIAS_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TEXT_ANTIALIAS_MODE_ALIASED: D2D1_TEXT_ANTIALIAS_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TEXT_ANTIALIAS_MODE_FORCE_DWORD: D2D1_TEXT_ANTIALIAS_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_THREADING_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_THREADING_MODE_SINGLE_THREADED: D2D1_THREADING_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_THREADING_MODE_MULTI_THREADED: D2D1_THREADING_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_THREADING_MODE_FORCE_DWORD: D2D1_THREADING_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_TILE_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TILE_PROP_RECT: D2D1_TILE_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TILE_PROP_FORCE_DWORD: D2D1_TILE_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_TINT_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TINT_PROP_COLOR: D2D1_TINT_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TINT_PROP_CLAMP_OUTPUT: D2D1_TINT_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TINT_PROP_FORCE_DWORD: D2D1_TINT_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_NONE: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_DISABLE_DPI_SCALE: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_FORCE_DWORD: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
     pub orientation: D2D1_ORIENTATION,
     pub scaleX: f32,
@@ -2658,6 +3670,7 @@ impl ::core::default::Default for D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct D2D1_TRIANGLE {
     pub point1: Common::D2D_POINT_2F,
@@ -2690,20 +3703,34 @@ impl ::core::default::Default for D2D1_TRIANGLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_TURBULENCE_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TURBULENCE_PROP_OFFSET: D2D1_TURBULENCE_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TURBULENCE_PROP_SIZE: D2D1_TURBULENCE_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TURBULENCE_PROP_BASE_FREQUENCY: D2D1_TURBULENCE_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TURBULENCE_PROP_NUM_OCTAVES: D2D1_TURBULENCE_PROP = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TURBULENCE_PROP_SEED: D2D1_TURBULENCE_PROP = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TURBULENCE_PROP_NOISE: D2D1_TURBULENCE_PROP = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TURBULENCE_PROP_STITCHABLE: D2D1_TURBULENCE_PROP = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_TURBULENCE_PROP_FORCE_DWORD: D2D1_TURBULENCE_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_UNIT_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_UNIT_MODE_DIPS: D2D1_UNIT_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_UNIT_MODE_PIXELS: D2D1_UNIT_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_UNIT_MODE_FORCE_DWORD: D2D1_UNIT_MODE = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_VERTEX_BUFFER_PROPERTIES {
     pub inputCount: u32,
     pub usage: D2D1_VERTEX_USAGE,
@@ -2730,13 +3757,20 @@ impl ::core::default::Default for D2D1_VERTEX_BUFFER_PROPERTIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_VERTEX_OPTIONS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_VERTEX_OPTIONS_NONE: D2D1_VERTEX_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_VERTEX_OPTIONS_DO_NOT_CLEAR: D2D1_VERTEX_OPTIONS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_VERTEX_OPTIONS_USE_DEPTH_BUFFER: D2D1_VERTEX_OPTIONS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_VERTEX_OPTIONS_ASSUME_NO_OVERLAP: D2D1_VERTEX_OPTIONS = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_VERTEX_OPTIONS_FORCE_DWORD: D2D1_VERTEX_OPTIONS = 4294967295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_VERTEX_RANGE {
     pub startVertex: u32,
     pub vertexCount: u32,
@@ -2761,44 +3795,82 @@ impl ::core::default::Default for D2D1_VERTEX_RANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_VERTEX_USAGE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_VERTEX_USAGE_STATIC: D2D1_VERTEX_USAGE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_VERTEX_USAGE_DYNAMIC: D2D1_VERTEX_USAGE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_VERTEX_USAGE_FORCE_DWORD: D2D1_VERTEX_USAGE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_VIGNETTE_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_VIGNETTE_PROP_COLOR: D2D1_VIGNETTE_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_VIGNETTE_PROP_TRANSITION_SIZE: D2D1_VIGNETTE_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_VIGNETTE_PROP_STRENGTH: D2D1_VIGNETTE_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_VIGNETTE_PROP_FORCE_DWORD: D2D1_VIGNETTE_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_WHITELEVELADJUSTMENT_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_WHITELEVELADJUSTMENT_PROP_INPUT_WHITE_LEVEL: D2D1_WHITELEVELADJUSTMENT_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_WHITELEVELADJUSTMENT_PROP_OUTPUT_WHITE_LEVEL: D2D1_WHITELEVELADJUSTMENT_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_WHITELEVELADJUSTMENT_PROP_FORCE_DWORD: D2D1_WHITELEVELADJUSTMENT_PROP = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_WINDOW_STATE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_WINDOW_STATE_NONE: D2D1_WINDOW_STATE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_WINDOW_STATE_OCCLUDED: D2D1_WINDOW_STATE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_WINDOW_STATE_FORCE_DWORD: D2D1_WINDOW_STATE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_YCBCR_CHROMA_SUBSAMPLING = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_YCBCR_CHROMA_SUBSAMPLING_AUTO: D2D1_YCBCR_CHROMA_SUBSAMPLING = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_YCBCR_CHROMA_SUBSAMPLING_420: D2D1_YCBCR_CHROMA_SUBSAMPLING = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_YCBCR_CHROMA_SUBSAMPLING_422: D2D1_YCBCR_CHROMA_SUBSAMPLING = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_YCBCR_CHROMA_SUBSAMPLING_444: D2D1_YCBCR_CHROMA_SUBSAMPLING = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_YCBCR_CHROMA_SUBSAMPLING_440: D2D1_YCBCR_CHROMA_SUBSAMPLING = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_YCBCR_CHROMA_SUBSAMPLING_FORCE_DWORD: D2D1_YCBCR_CHROMA_SUBSAMPLING = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_YCBCR_INTERPOLATION_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_YCBCR_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_YCBCR_INTERPOLATION_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_YCBCR_INTERPOLATION_MODE_LINEAR: D2D1_YCBCR_INTERPOLATION_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_YCBCR_INTERPOLATION_MODE_CUBIC: D2D1_YCBCR_INTERPOLATION_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_YCBCR_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_YCBCR_INTERPOLATION_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_YCBCR_INTERPOLATION_MODE_ANISOTROPIC: D2D1_YCBCR_INTERPOLATION_MODE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_YCBCR_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC: D2D1_YCBCR_INTERPOLATION_MODE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_YCBCR_INTERPOLATION_MODE_FORCE_DWORD: D2D1_YCBCR_INTERPOLATION_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type D2D1_YCBCR_PROP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_YCBCR_PROP_CHROMA_SUBSAMPLING: D2D1_YCBCR_PROP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_YCBCR_PROP_TRANSFORM_MATRIX: D2D1_YCBCR_PROP = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_YCBCR_PROP_INTERPOLATION_MODE: D2D1_YCBCR_PROP = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_YCBCR_PROP_FORCE_DWORD: D2D1_YCBCR_PROP = 4294967295u32;
 pub const FACILITY_D2D: u32 = 2201u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1AnalysisTransform(::windows::core::IUnknown);
 impl ID2D1AnalysisTransform {
@@ -2844,6 +3916,7 @@ unsafe impl ::windows::core::Interface for ID2D1AnalysisTransform {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1AnalysisTransformVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, analysisdata: *const u8, analysisdatacount: u32) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Bitmap(::windows::core::IUnknown);
 impl ID2D1Bitmap {
@@ -2980,6 +4053,7 @@ pub struct ID2D1BitmapVtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dstrect: *const Common::D2D_RECT_U, srcdata: *const ::core::ffi::c_void, pitch: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Bitmap1(::windows::core::IUnknown);
 impl ID2D1Bitmap1 {
@@ -3160,6 +4234,7 @@ pub struct ID2D1Bitmap1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: D2D1_MAP_OPTIONS, mappedrect: *mut D2D1_MAPPED_RECT) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1BitmapBrush(::windows::core::IUnknown);
 impl ID2D1BitmapBrush {
@@ -3302,6 +4377,7 @@ pub struct ID2D1BitmapBrushVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D2D1_BITMAP_INTERPOLATION_MODE,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmap: *mut ::windows::core::RawPtr),
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1BitmapBrush1(::windows::core::IUnknown);
 impl ID2D1BitmapBrush1 {
@@ -3472,6 +4548,7 @@ pub struct ID2D1BitmapBrush1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interpolationmode: D2D1_INTERPOLATION_MODE),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D2D1_INTERPOLATION_MODE,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1BitmapRenderTarget(::windows::core::IUnknown);
 impl ID2D1BitmapRenderTarget {
@@ -3861,6 +4938,7 @@ pub struct ID2D1BitmapRenderTargetVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1BlendTransform(::windows::core::IUnknown);
 impl ID2D1BlendTransform {
@@ -3969,6 +5047,7 @@ pub struct ID2D1BlendTransformVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *const D2D1_BLEND_DESCRIPTION),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, description: *mut D2D1_BLEND_DESCRIPTION),
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1BorderTransform(::windows::core::IUnknown);
 impl ID2D1BorderTransform {
@@ -4085,6 +5164,7 @@ pub struct ID2D1BorderTransformVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D2D1_EXTEND_MODE,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D2D1_EXTEND_MODE,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1BoundsAdjustmentTransform(::windows::core::IUnknown);
 impl ID2D1BoundsAdjustmentTransform {
@@ -4167,6 +5247,7 @@ pub struct ID2D1BoundsAdjustmentTransformVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputbounds: *mut super::super::Foundation::RECT),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Brush(::windows::core::IUnknown);
 impl ID2D1Brush {
@@ -4257,6 +5338,7 @@ pub struct ID2D1BrushVtbl(
     #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1ColorContext(::windows::core::IUnknown);
 impl ID2D1ColorContext {
@@ -4339,6 +5421,7 @@ pub struct ID2D1ColorContextVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profile: *mut u8, profilesize: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1ColorContext1(::windows::core::IUnknown);
 impl ID2D1ColorContext1 {
@@ -4458,6 +5541,7 @@ pub struct ID2D1ColorContext1Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, simpleprofile: *mut D2D1_SIMPLE_COLOR_PROFILE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1CommandList(::windows::core::IUnknown);
 impl ID2D1CommandList {
@@ -4556,6 +5640,7 @@ pub struct ID2D1CommandListVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1CommandSink(::windows::core::IUnknown);
 impl ID2D1CommandSink {
@@ -4728,6 +5813,7 @@ pub struct ID2D1CommandSinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1CommandSink1(::windows::core::IUnknown);
 impl ID2D1CommandSink1 {
@@ -4924,6 +6010,7 @@ pub struct ID2D1CommandSink1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, primitiveblend: D2D1_PRIMITIVE_BLEND) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1CommandSink2(::windows::core::IUnknown);
 impl ID2D1CommandSink2 {
@@ -5154,6 +6241,7 @@ pub struct ID2D1CommandSink2Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gdimetafile: ::windows::core::RawPtr, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1CommandSink3(::windows::core::IUnknown);
 impl ID2D1CommandSink3 {
@@ -5408,6 +6496,7 @@ pub struct ID2D1CommandSink3Vtbl(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, spritebatch: ::windows::core::RawPtr, startindex: u32, spritecount: u32, bitmap: ::windows::core::RawPtr, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE, spriteoptions: D2D1_SPRITE_OPTIONS) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1CommandSink4(::windows::core::IUnknown);
 impl ID2D1CommandSink4 {
@@ -5686,6 +6775,7 @@ pub struct ID2D1CommandSink4Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, spritebatch: ::windows::core::RawPtr, startindex: u32, spritecount: u32, bitmap: ::windows::core::RawPtr, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE, spriteoptions: D2D1_SPRITE_OPTIONS) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, primitiveblend: D2D1_PRIMITIVE_BLEND) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1CommandSink5(::windows::core::IUnknown);
 impl ID2D1CommandSink5 {
@@ -5990,6 +7080,7 @@ pub struct ID2D1CommandSink5Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, image: ::windows::core::RawPtr, blendmode: Common::D2D1_BLEND_MODE, targetoffset: *const Common::D2D_POINT_2F, imagerectangle: *const Common::D2D_RECT_F, interpolationmode: D2D1_INTERPOLATION_MODE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1ComputeInfo(::windows::core::IUnknown);
 impl ID2D1ComputeInfo {
@@ -6086,6 +7177,7 @@ pub struct ID2D1ComputeInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shaderid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textureindex: u32, resourcetexture: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1ComputeTransform(::windows::core::IUnknown);
 impl ID2D1ComputeTransform {
@@ -6205,6 +7297,7 @@ pub struct ID2D1ComputeTransformVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputrect: *const super::super::Foundation::RECT, dimensionx: *mut u32, dimensiony: *mut u32, dimensionz: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1ConcreteTransform(::windows::core::IUnknown);
 impl ID2D1ConcreteTransform {
@@ -6285,6 +7378,7 @@ pub struct ID2D1ConcreteTransformVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iscached: super::super::Foundation::BOOL),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1DCRenderTarget(::windows::core::IUnknown);
 impl ID2D1DCRenderTarget {
@@ -6675,6 +7769,7 @@ pub struct ID2D1DCRenderTargetVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: super::Gdi::HDC, psubrect: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Device(::windows::core::IUnknown);
 impl ID2D1Device {
@@ -6769,6 +7864,7 @@ pub struct ID2D1DeviceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, millisecondssinceuse: u32),
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Device1(::windows::core::IUnknown);
 impl ID2D1Device1 {
@@ -6896,6 +7992,7 @@ pub struct ID2D1Device1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, renderingpriority: D2D1_RENDERING_PRIORITY),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext1: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Device2(::windows::core::IUnknown);
 impl ID2D1Device2 {
@@ -7059,6 +8156,7 @@ pub struct ID2D1Device2Vtbl(
     #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Device3(::windows::core::IUnknown);
 impl ID2D1Device3 {
@@ -7247,6 +8345,7 @@ pub struct ID2D1Device3Vtbl(
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext3: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Device4(::windows::core::IUnknown);
 impl ID2D1Device4 {
@@ -7468,6 +8567,7 @@ pub struct ID2D1Device4Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maximuminbytes: u64),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Device5(::windows::core::IUnknown);
 impl ID2D1Device5 {
@@ -7714,6 +8814,7 @@ pub struct ID2D1Device5Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext5: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Device6(::windows::core::IUnknown);
 impl ID2D1Device6 {
@@ -7985,6 +9086,7 @@ pub struct ID2D1Device6Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext5: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext6: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1DeviceContext(::windows::core::IUnknown);
 impl ID2D1DeviceContext {
@@ -8572,6 +9674,7 @@ pub struct ID2D1DeviceContextVtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, opacitymask: ::windows::core::RawPtr, brush: ::windows::core::RawPtr, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1DeviceContext1(::windows::core::IUnknown);
 impl ID2D1DeviceContext1 {
@@ -9193,6 +10296,7 @@ pub struct ID2D1DeviceContext1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geometry: ::windows::core::RawPtr, flatteningtolerance: f32, strokewidth: f32, strokestyle: ::windows::core::RawPtr, geometryrealization: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geometryrealization: ::windows::core::RawPtr, brush: ::windows::core::RawPtr),
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1DeviceContext2(::windows::core::IUnknown);
 impl ID2D1DeviceContext2 {
@@ -9898,6 +11002,7 @@ pub struct ID2D1DeviceContext2Vtbl(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagesource: ::windows::core::RawPtr, properties: *const D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES, transformedimagesource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1DeviceContext3(::windows::core::IUnknown);
 impl ID2D1DeviceContext3 {
@@ -10632,6 +11737,7 @@ pub struct ID2D1DeviceContext3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, spritebatch: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, spritebatch: ::windows::core::RawPtr, startindex: u32, spritecount: u32, bitmap: ::windows::core::RawPtr, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE, spriteoptions: D2D1_SPRITE_OPTIONS),
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1DeviceContext4(::windows::core::IUnknown);
 impl ID2D1DeviceContext4 {
@@ -11427,6 +12533,7 @@ pub struct ID2D1DeviceContext4Vtbl(
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, glyphorigin: Common::D2D_POINT_2F, fontface: ::windows::core::RawPtr, fontemsize: f32, glyphindex: u16, issideways: super::super::Foundation::BOOL, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, defaultfillbrush: ::windows::core::RawPtr, svgglyphstyle: ::windows::core::RawPtr, colorpaletteindex: u32, glyphtransform: *mut super::super::super::Foundation::Numerics::Matrix3x2, glyphimage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation_Numerics", feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1DeviceContext5(::windows::core::IUnknown);
 impl ID2D1DeviceContext5 {
@@ -12267,6 +13374,7 @@ pub struct ID2D1DeviceContext5Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, simpleprofile: *const D2D1_SIMPLE_COLOR_PROFILE, colorcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1DeviceContext6(::windows::core::IUnknown);
 impl ID2D1DeviceContext6 {
@@ -13133,6 +14241,7 @@ pub struct ID2D1DeviceContext6Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, image: ::windows::core::RawPtr, blendmode: Common::D2D1_BLEND_MODE, targetoffset: *const Common::D2D_POINT_2F, imagerectangle: *const Common::D2D_RECT_F, interpolationmode: D2D1_INTERPOLATION_MODE),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1DrawInfo(::windows::core::IUnknown);
 impl ID2D1DrawInfo {
@@ -13237,6 +14346,7 @@ pub struct ID2D1DrawInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, shaderid: *const ::windows::core::GUID, pixeloptions: D2D1_PIXEL_OPTIONS) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vertexbuffer: ::windows::core::RawPtr, vertexoptions: D2D1_VERTEX_OPTIONS, blenddescription: *const D2D1_BLEND_DESCRIPTION, vertexrange: *const D2D1_VERTEX_RANGE, vertexshader: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1DrawTransform(::windows::core::IUnknown);
 impl ID2D1DrawTransform {
@@ -13350,6 +14460,7 @@ pub struct ID2D1DrawTransformVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, drawinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1DrawingStateBlock(::windows::core::IUnknown);
 impl ID2D1DrawingStateBlock {
@@ -13444,6 +14555,7 @@ pub struct ID2D1DrawingStateBlockVtbl(
     #[cfg(feature = "Win32_Graphics_DirectWrite")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, textrenderingparams: *mut ::windows::core::RawPtr),
     #[cfg(not(feature = "Win32_Graphics_DirectWrite"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1DrawingStateBlock1(::windows::core::IUnknown);
 impl ID2D1DrawingStateBlock1 {
@@ -13570,6 +14682,7 @@ pub struct ID2D1DrawingStateBlock1Vtbl(
     #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1),
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Effect(::windows::core::IUnknown);
 impl ID2D1Effect {
@@ -13711,6 +14824,7 @@ pub struct ID2D1EffectVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputimage: *mut ::windows::core::RawPtr),
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1EffectContext(::windows::core::IUnknown);
 impl ID2D1EffectContext {
@@ -13871,6 +14985,7 @@ pub struct ID2D1EffectContextVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bufferprecision: D2D1_BUFFER_PRECISION) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1EffectContext1(::windows::core::IUnknown);
 impl ID2D1EffectContext1 {
@@ -14056,6 +15171,7 @@ pub struct ID2D1EffectContext1Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precision: D2D1_BUFFER_PRECISION, extents: *const u32, data: *const u8, datacount: u32, strides: *const u32, lookuptable: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1EffectContext2(::windows::core::IUnknown);
 impl ID2D1EffectContext2 {
@@ -14275,6 +15391,7 @@ pub struct ID2D1EffectContext2Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, simpleprofile: *const D2D1_SIMPLE_COLOR_PROFILE, colorcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1EffectImpl(::windows::core::IUnknown);
 impl ID2D1EffectImpl {
@@ -14333,6 +15450,7 @@ pub struct ID2D1EffectImplVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changetype: D2D1_CHANGE_TYPE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transformgraph: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1EllipseGeometry(::windows::core::IUnknown);
 impl ID2D1EllipseGeometry {
@@ -14514,6 +15632,7 @@ pub struct ID2D1EllipseGeometryVtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ellipse: *mut D2D1_ELLIPSE),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Factory(::windows::core::IUnknown);
 impl ID2D1Factory {
@@ -14648,6 +15767,7 @@ pub struct ID2D1FactoryVtbl(
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES, dcrendertarget: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Factory1(::windows::core::IUnknown);
 impl ID2D1Factory1 {
@@ -14858,6 +15978,7 @@ pub struct ID2D1Factory1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effects: *mut ::windows::core::GUID, effectscount: u32, effectsreturned: *mut u32, effectsregistered: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effectid: *const ::windows::core::GUID, properties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Factory2(::windows::core::IUnknown);
 impl ID2D1Factory2 {
@@ -15095,6 +16216,7 @@ pub struct ID2D1Factory2Vtbl(
     #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: ::windows::core::RawPtr, d2ddevice1: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Factory3(::windows::core::IUnknown);
 impl ID2D1Factory3 {
@@ -15359,6 +16481,7 @@ pub struct ID2D1Factory3Vtbl(
     #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: ::windows::core::RawPtr, d2ddevice2: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Factory4(::windows::core::IUnknown);
 impl ID2D1Factory4 {
@@ -15650,6 +16773,7 @@ pub struct ID2D1Factory4Vtbl(
     #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: ::windows::core::RawPtr, d2ddevice3: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Factory5(::windows::core::IUnknown);
 impl ID2D1Factory5 {
@@ -15968,6 +17092,7 @@ pub struct ID2D1Factory5Vtbl(
     #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: ::windows::core::RawPtr, d2ddevice4: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Factory6(::windows::core::IUnknown);
 impl ID2D1Factory6 {
@@ -16313,6 +17438,7 @@ pub struct ID2D1Factory6Vtbl(
     #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: ::windows::core::RawPtr, d2ddevice5: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Factory7(::windows::core::IUnknown);
 impl ID2D1Factory7 {
@@ -16685,6 +17811,7 @@ pub struct ID2D1Factory7Vtbl(
     #[cfg(feature = "Win32_Graphics_Dxgi")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: ::windows::core::RawPtr, d2ddevice6: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1GdiInteropRenderTarget(::windows::core::IUnknown);
 impl ID2D1GdiInteropRenderTarget {
@@ -16744,6 +17871,7 @@ pub struct ID2D1GdiInteropRenderTargetVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, update: *const super::super::Foundation::RECT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1GdiMetafile(::windows::core::IUnknown);
 impl ID2D1GdiMetafile {
@@ -16825,6 +17953,7 @@ pub struct ID2D1GdiMetafileVtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bounds: *mut Common::D2D_RECT_F) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1GdiMetafile1(::windows::core::IUnknown);
 impl ID2D1GdiMetafile1 {
@@ -16937,6 +18066,7 @@ pub struct ID2D1GdiMetafile1Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bounds: *mut Common::D2D_RECT_F) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1GdiMetafileSink(::windows::core::IUnknown);
 impl ID2D1GdiMetafileSink {
@@ -16982,6 +18112,7 @@ unsafe impl ::windows::core::Interface for ID2D1GdiMetafileSink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1GdiMetafileSinkVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recordtype: u32, recorddata: *const ::core::ffi::c_void, recorddatasize: u32) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1GdiMetafileSink1(::windows::core::IUnknown);
 impl ID2D1GdiMetafileSink1 {
@@ -17056,6 +18187,7 @@ pub struct ID2D1GdiMetafileSink1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recordtype: u32, recorddata: *const ::core::ffi::c_void, recorddatasize: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recordtype: u32, recorddata: *const ::core::ffi::c_void, recorddatasize: u32, flags: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Geometry(::windows::core::IUnknown);
 impl ID2D1Geometry {
@@ -17211,6 +18343,7 @@ pub struct ID2D1GeometryVtbl(
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokewidth: f32, strokestyle: ::windows::core::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, geometrysink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1GeometryGroup(::windows::core::IUnknown);
 impl ID2D1GeometryGroup {
@@ -17400,6 +18533,7 @@ pub struct ID2D1GeometryGroupVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geometries: *mut ::windows::core::RawPtr, geometriescount: u32),
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1GeometryRealization(::windows::core::IUnknown);
 impl ID2D1GeometryRealization {
@@ -17465,6 +18599,7 @@ unsafe impl ::windows::core::Interface for ID2D1GeometryRealization {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1GeometryRealizationVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factory: *mut ::windows::core::RawPtr));
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1GeometrySink(::windows::core::IUnknown);
 impl ID2D1GeometrySink {
@@ -17607,6 +18742,7 @@ pub struct ID2D1GeometrySinkVtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, arc: *const D2D1_ARC_SEGMENT),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1GradientMesh(::windows::core::IUnknown);
 impl ID2D1GradientMesh {
@@ -17687,6 +18823,7 @@ pub struct ID2D1GradientMeshVtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, patches: *mut D2D1_GRADIENT_MESH_PATCH, patchescount: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1GradientStopCollection(::windows::core::IUnknown);
 impl ID2D1GradientStopCollection {
@@ -17775,6 +18912,7 @@ pub struct ID2D1GradientStopCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D2D1_GAMMA,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D2D1_EXTEND_MODE,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1GradientStopCollection1(::windows::core::IUnknown);
 impl ID2D1GradientStopCollection1 {
@@ -17905,6 +19043,7 @@ pub struct ID2D1GradientStopCollection1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D2D1_BUFFER_PRECISION,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D2D1_COLOR_INTERPOLATION_MODE,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1HwndRenderTarget(::windows::core::IUnknown);
 impl ID2D1HwndRenderTarget {
@@ -18305,6 +19444,7 @@ pub struct ID2D1HwndRenderTargetVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::HWND,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Image(::windows::core::IUnknown);
 impl ID2D1Image {
@@ -18370,6 +19510,7 @@ unsafe impl ::windows::core::Interface for ID2D1Image {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1ImageVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factory: *mut ::windows::core::RawPtr));
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1ImageBrush(::windows::core::IUnknown);
 impl ID2D1ImageBrush {
@@ -18524,6 +19665,7 @@ pub struct ID2D1ImageBrushVtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcerectangle: *mut Common::D2D_RECT_F),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1ImageSource(::windows::core::IUnknown);
 impl ID2D1ImageSource {
@@ -18625,6 +19767,7 @@ pub struct ID2D1ImageSourceVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourcesdiscarded: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1ImageSourceFromWic(::windows::core::IUnknown);
 impl ID2D1ImageSourceFromWic {
@@ -18764,6 +19907,7 @@ pub struct ID2D1ImageSourceFromWicVtbl(
     #[cfg(feature = "Win32_Graphics_Imaging")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wicbitmapsource: *mut ::windows::core::RawPtr),
     #[cfg(not(feature = "Win32_Graphics_Imaging"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Ink(::windows::core::IUnknown);
 impl ID2D1Ink {
@@ -18881,6 +20025,7 @@ pub struct ID2D1InkVtbl(
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inkstyle: ::windows::core::RawPtr, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, bounds: *mut Common::D2D_RECT_F) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1InkStyle(::windows::core::IUnknown);
 impl ID2D1InkStyle {
@@ -18971,6 +20116,7 @@ pub struct ID2D1InkStyleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nibshape: D2D1_INK_NIB_SHAPE),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D2D1_INK_NIB_SHAPE,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Layer(::windows::core::IUnknown);
 impl ID2D1Layer {
@@ -19049,6 +20195,7 @@ pub struct ID2D1LayerVtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Common::D2D_SIZE_F),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1LinearGradientBrush(::windows::core::IUnknown);
 impl ID2D1LinearGradientBrush {
@@ -19191,6 +20338,7 @@ pub struct ID2D1LinearGradientBrushVtbl(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gradientstopcollection: *mut ::windows::core::RawPtr),
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1LookupTable3D(::windows::core::IUnknown);
 impl ID2D1LookupTable3D {
@@ -19256,6 +20404,7 @@ unsafe impl ::windows::core::Interface for ID2D1LookupTable3D {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1LookupTable3DVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factory: *mut ::windows::core::RawPtr));
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Mesh(::windows::core::IUnknown);
 impl ID2D1Mesh {
@@ -19331,6 +20480,7 @@ pub struct ID2D1MeshVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factory: *mut ::windows::core::RawPtr),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tessellationsink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Multithread(::windows::core::IUnknown);
 impl ID2D1Multithread {
@@ -19391,6 +20541,7 @@ pub struct ID2D1MultithreadVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1OffsetTransform(::windows::core::IUnknown);
 impl ID2D1OffsetTransform {
@@ -19475,6 +20626,7 @@ pub struct ID2D1OffsetTransformVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::POINT),
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1PathGeometry(::windows::core::IUnknown);
 impl ID2D1PathGeometry {
@@ -19669,6 +20821,7 @@ pub struct ID2D1PathGeometryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1PathGeometry1(::windows::core::IUnknown);
 impl ID2D1PathGeometry1 {
@@ -19890,6 +21043,7 @@ pub struct ID2D1PathGeometry1Vtbl(
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, length: f32, startsegment: u32, worldtransform: *const super::super::super::Foundation::Numerics::Matrix3x2, flatteningtolerance: f32, pointdescription: *mut D2D1_POINT_DESCRIPTION) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1PrintControl(::windows::core::IUnknown);
 impl ID2D1PrintControl {
@@ -19946,6 +21100,7 @@ pub struct ID2D1PrintControlVtbl(
     #[cfg(not(any(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Properties(::windows::core::IUnknown);
 impl ID2D1Properties {
@@ -20045,6 +21200,7 @@ pub struct ID2D1PropertiesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, subproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1RadialGradientBrush(::windows::core::IUnknown);
 impl ID2D1RadialGradientBrush {
@@ -20203,6 +21359,7 @@ pub struct ID2D1RadialGradientBrushVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> f32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gradientstopcollection: *mut ::windows::core::RawPtr),
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1RectangleGeometry(::windows::core::IUnknown);
 impl ID2D1RectangleGeometry {
@@ -20384,6 +21541,7 @@ pub struct ID2D1RectangleGeometryVtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rect: *mut Common::D2D_RECT_F),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1RenderInfo(::windows::core::IUnknown);
 impl ID2D1RenderInfo {
@@ -20448,6 +21606,7 @@ pub struct ID2D1RenderInfoVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instructioncount: u32),
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1RenderTarget(::windows::core::IUnknown);
 impl ID2D1RenderTarget {
@@ -20812,6 +21971,7 @@ pub struct ID2D1RenderTargetVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rendertargetproperties: *const D2D1_RENDER_TARGET_PROPERTIES) -> super::super::Foundation::BOOL,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Resource(::windows::core::IUnknown);
 impl ID2D1Resource {
@@ -20857,6 +22017,7 @@ unsafe impl ::windows::core::Interface for ID2D1Resource {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1ResourceVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factory: *mut ::windows::core::RawPtr));
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1ResourceTexture(::windows::core::IUnknown);
 impl ID2D1ResourceTexture {
@@ -20907,6 +22068,7 @@ pub struct ID2D1ResourceTextureVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minimumextents: *const u32, maximimumextents: *const u32, strides: *const u32, dimensions: u32, data: *const u8, datacount: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1RoundedRectangleGeometry(::windows::core::IUnknown);
 impl ID2D1RoundedRectangleGeometry {
@@ -21088,6 +22250,7 @@ pub struct ID2D1RoundedRectangleGeometryVtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, roundedrect: *mut D2D1_ROUNDED_RECT),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1SolidColorBrush(::windows::core::IUnknown);
 impl ID2D1SolidColorBrush {
@@ -21212,6 +22375,7 @@ pub struct ID2D1SolidColorBrushVtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Common::D2D1_COLOR_F),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1SourceTransform(::windows::core::IUnknown);
 impl ID2D1SourceTransform {
@@ -21331,6 +22495,7 @@ pub struct ID2D1SourceTransformVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: ::windows::core::RawPtr, drawrect: *const super::super::Foundation::RECT, targetorigin: Common::D2D_POINT_2U) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common")))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1SpriteBatch(::windows::core::IUnknown);
 impl ID2D1SpriteBatch {
@@ -21427,6 +22592,7 @@ pub struct ID2D1SpriteBatchVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1StrokeStyle(::windows::core::IUnknown);
 impl ID2D1StrokeStyle {
@@ -21533,6 +22699,7 @@ pub struct ID2D1StrokeStyleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dashes: *mut f32, dashescount: u32),
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1StrokeStyle1(::windows::core::IUnknown);
 impl ID2D1StrokeStyle1 {
@@ -21663,6 +22830,7 @@ pub struct ID2D1StrokeStyle1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dashes: *mut f32, dashescount: u32),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D2D1_STROKE_TRANSFORM_TYPE,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1SvgAttribute(::windows::core::IUnknown);
 impl ID2D1SvgAttribute {
@@ -21742,6 +22910,7 @@ pub struct ID2D1SvgAttributeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: *mut ::windows::core::RawPtr),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attribute: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1SvgDocument(::windows::core::IUnknown);
 impl ID2D1SvgDocument {
@@ -21878,6 +23047,7 @@ pub struct ID2D1SvgDocumentVtbl(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, segmentdata: *const f32, segmentdatacount: u32, commands: *const D2D1_SVG_PATH_COMMAND, commandscount: u32, pathdata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1SvgElement(::windows::core::IUnknown);
 impl ID2D1SvgElement {
@@ -22106,6 +23276,7 @@ pub struct ID2D1SvgElementVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE, valuelength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1SvgGlyphStyle(::windows::core::IUnknown);
 impl ID2D1SvgGlyphStyle {
@@ -22196,6 +23367,7 @@ pub struct ID2D1SvgGlyphStyleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brush: *mut ::windows::core::RawPtr, strokewidth: *mut f32, dashes: *mut f32, dashescount: u32, dashoffset: *mut f32),
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1SvgPaint(::windows::core::IUnknown);
 impl ID2D1SvgPaint {
@@ -22331,6 +23503,7 @@ pub struct ID2D1SvgPaintVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1SvgPathData(::windows::core::IUnknown);
 impl ID2D1SvgPathData {
@@ -22469,6 +23642,7 @@ pub struct ID2D1SvgPathDataVtbl(
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fillmode: Common::D2D1_FILL_MODE, pathgeometry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1SvgPointCollection(::windows::core::IUnknown);
 impl ID2D1SvgPointCollection {
@@ -22588,6 +23762,7 @@ pub struct ID2D1SvgPointCollectionVtbl(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1SvgStrokeDashArray(::windows::core::IUnknown);
 impl ID2D1SvgStrokeDashArray {
@@ -22711,6 +23886,7 @@ pub struct ID2D1SvgStrokeDashArrayVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dashes: *mut f32, dashescount: u32, startindex: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1TessellationSink(::windows::core::IUnknown);
 impl ID2D1TessellationSink {
@@ -22767,6 +23943,7 @@ pub struct ID2D1TessellationSinkVtbl(
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1Transform(::windows::core::IUnknown);
 impl ID2D1Transform {
@@ -22856,6 +24033,7 @@ pub struct ID2D1TransformVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputindex: u32, invalidinputrect: super::super::Foundation::RECT, invalidoutputrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1TransformGraph(::windows::core::IUnknown);
 impl ID2D1TransformGraph {
@@ -22938,6 +24116,7 @@ pub struct ID2D1TransformGraphVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effectinputindex: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1TransformNode(::windows::core::IUnknown);
 impl ID2D1TransformNode {
@@ -22983,6 +24162,7 @@ unsafe impl ::windows::core::Interface for ID2D1TransformNode {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ID2D1TransformNodeVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1TransformedGeometry(::windows::core::IUnknown);
 impl ID2D1TransformedGeometry {
@@ -23168,6 +24348,7 @@ pub struct ID2D1TransformedGeometryVtbl(
     #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transform: *mut super::super::super::Foundation::Numerics::Matrix3x2),
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1TransformedImageSource(::windows::core::IUnknown);
 impl ID2D1TransformedImageSource {
@@ -23266,6 +24447,7 @@ pub struct ID2D1TransformedImageSourceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagesource: *mut ::windows::core::RawPtr),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, properties: *mut D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES),
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
 pub struct ID2D1VertexBuffer(::windows::core::IUnknown);
 impl ID2D1VertexBuffer {
@@ -23321,6 +24503,7 @@ pub struct ID2D1VertexBufferVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct Matrix4x3F {
     pub __AnonymousBase_d2d1_1helper_L45_C31: Common::D2D_MATRIX_4X3_F,
@@ -23352,6 +24535,7 @@ impl ::core::default::Default for Matrix4x3F {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct Matrix4x4F {
     pub __AnonymousBase_d2d1_1helper_L97_C31: Common::D2D_MATRIX_4X4_F,
@@ -23383,6 +24567,7 @@ impl ::core::default::Default for Matrix4x4F {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct Matrix5x4F {
     pub __AnonymousBase_d2d1_1helper_L472_C31: Common::D2D_MATRIX_5X4_F,
@@ -23413,6 +24598,9 @@ impl ::core::default::Default for Matrix5x4F {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type PD2D1_EFFECT_FACTORY = ::core::option::Option<unsafe extern "system" fn(effectimpl: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type PD2D1_PROPERTY_GET_FUNCTION = ::core::option::Option<unsafe extern "system" fn(effect: ::core::option::Option<::windows::core::IUnknown>, data: *mut u8, datasize: u32, actualsize: *mut u32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub type PD2D1_PROPERTY_SET_FUNCTION = ::core::option::Option<unsafe extern "system" fn(effect: ::core::option::Option<::windows::core::IUnknown>, data: *const u8, datasize: u32) -> ::windows::core::HRESULT>;

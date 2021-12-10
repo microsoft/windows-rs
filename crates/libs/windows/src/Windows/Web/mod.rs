@@ -7,6 +7,7 @@ pub mod Http;
 pub mod Syndication;
 #[cfg(feature = "Web_UI")]
 pub mod UI;
+#[doc = "*Required features: 'Web'*"]
 #[repr(transparent)]
 pub struct IUriToStreamResolver(::windows::core::IUnknown);
 impl IUriToStreamResolver {
@@ -123,6 +124,7 @@ impl WebError {
 impl ::windows::core::RuntimeName for WebError {
     const NAME: &'static str = "Windows.Web.WebError";
 }
+#[doc = "*Required features: 'Web'*"]
 #[repr(transparent)]
 pub struct WebErrorStatus(pub i32);
 impl WebErrorStatus {

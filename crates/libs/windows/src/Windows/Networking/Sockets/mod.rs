@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
+#[doc = "*Required features: 'Networking_Sockets'*"]
 pub struct BandwidthStatistics {
     pub OutboundBitsPerSecond: u64,
     pub InboundBitsPerSecond: u64,
@@ -34,6 +35,7 @@ impl ::core::default::Default for BandwidthStatistics {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct ControlChannelTrigger(::windows::core::IUnknown);
 impl ControlChannelTrigger {
@@ -222,6 +224,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for ControlChannelTrigger {}
 unsafe impl ::core::marker::Sync for ControlChannelTrigger {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct ControlChannelTriggerResetReason(pub i32);
 impl ControlChannelTriggerResetReason {
@@ -251,6 +254,7 @@ unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerResetReason {
 impl ::windows::core::DefaultType for ControlChannelTriggerResetReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct ControlChannelTriggerResourceType(pub i32);
 impl ControlChannelTriggerResourceType {
@@ -278,6 +282,7 @@ unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerResourceType {
 impl ::windows::core::DefaultType for ControlChannelTriggerResourceType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct ControlChannelTriggerStatus(pub i32);
 impl ControlChannelTriggerStatus {
@@ -310,6 +315,7 @@ unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerStatus {
 impl ::windows::core::DefaultType for ControlChannelTriggerStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct DatagramSocket(::windows::core::IUnknown);
 impl DatagramSocket {
@@ -557,6 +563,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for DatagramSocket {}
 unsafe impl ::core::marker::Sync for DatagramSocket {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct DatagramSocketControl(::windows::core::IUnknown);
 impl DatagramSocketControl {
@@ -679,6 +686,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
 }
 unsafe impl ::core::marker::Send for DatagramSocketControl {}
 unsafe impl ::core::marker::Sync for DatagramSocketControl {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct DatagramSocketInformation(::windows::core::IUnknown);
 impl DatagramSocketInformation {
@@ -774,6 +782,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
 }
 unsafe impl ::core::marker::Send for DatagramSocketInformation {}
 unsafe impl ::core::marker::Sync for DatagramSocketInformation {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct DatagramSocketMessageReceivedEventArgs(::windows::core::IUnknown);
 impl DatagramSocketMessageReceivedEventArgs {
@@ -926,6 +935,7 @@ pub struct IControlChannelTrigger2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct IControlChannelTriggerEventDetails(::windows::core::IUnknown);
 impl IControlChannelTriggerEventDetails {
@@ -1025,6 +1035,7 @@ pub struct IControlChannelTriggerFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, serverkeepaliveintervalinminutes: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channelid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, serverkeepaliveintervalinminutes: u32, resourcerequesttype: ControlChannelTriggerResourceType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct IControlChannelTriggerResetEventDetails(::windows::core::IUnknown);
 impl IControlChannelTriggerResetEventDetails {
@@ -2196,6 +2207,7 @@ pub struct IStreamWebSocketControl2Vtbl(
     #[cfg(feature = "Security_Cryptography_Certificates")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Security_Cryptography_Certificates"))] usize,
 );
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct IWebSocket(::windows::core::IUnknown);
 impl IWebSocket {
@@ -2365,6 +2377,7 @@ pub struct IWebSocketClosedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct IWebSocketControl(::windows::core::IUnknown);
 impl IWebSocketControl {
@@ -2494,6 +2507,7 @@ pub struct IWebSocketControlVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct IWebSocketControl2(::windows::core::IUnknown);
 impl IWebSocketControl2 {
@@ -2662,6 +2676,7 @@ pub struct IWebSocketErrorStaticsVtbl(
     #[cfg(feature = "Web")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut super::super::Web::WebErrorStatus) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Web"))] usize,
 );
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct IWebSocketInformation(::windows::core::IUnknown);
 impl IWebSocketInformation {
@@ -2758,6 +2773,7 @@ pub struct IWebSocketInformationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BandwidthStatistics) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct IWebSocketInformation2(::windows::core::IUnknown);
 impl IWebSocketInformation2 {
@@ -2938,6 +2954,7 @@ pub struct IWebSocketServerCustomValidationRequestedEventArgsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct MessageWebSocket(::windows::core::IUnknown);
 impl MessageWebSocket {
@@ -3158,6 +3175,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWebSocket> for &MessageWebSocket {
 }
 unsafe impl ::core::marker::Send for MessageWebSocket {}
 unsafe impl ::core::marker::Sync for MessageWebSocket {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct MessageWebSocketControl(::windows::core::IUnknown);
 impl MessageWebSocketControl {
@@ -3389,6 +3407,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWebSocketControl2> for &MessageWebSocke
 }
 unsafe impl ::core::marker::Send for MessageWebSocketControl {}
 unsafe impl ::core::marker::Sync for MessageWebSocketControl {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct MessageWebSocketInformation(::windows::core::IUnknown);
 impl MessageWebSocketInformation {
@@ -3552,6 +3571,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWebSocketInformation2> for &MessageWebS
 }
 unsafe impl ::core::marker::Send for MessageWebSocketInformation {}
 unsafe impl ::core::marker::Sync for MessageWebSocketInformation {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct MessageWebSocketMessageReceivedEventArgs(::windows::core::IUnknown);
 impl MessageWebSocketMessageReceivedEventArgs {
@@ -3649,6 +3669,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mess
 }
 unsafe impl ::core::marker::Send for MessageWebSocketMessageReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MessageWebSocketMessageReceivedEventArgs {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct MessageWebSocketReceiveMode(pub i32);
 impl MessageWebSocketReceiveMode {
@@ -3677,6 +3698,7 @@ impl ::windows::core::DefaultType for MessageWebSocketReceiveMode {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Networking_Sockets'*"]
 pub struct RoundTripTimeStatistics {
     pub Variance: u32,
     pub Max: u32,
@@ -3709,6 +3731,7 @@ impl ::core::default::Default for RoundTripTimeStatistics {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct ServerMessageWebSocket(::windows::core::IUnknown);
 impl ServerMessageWebSocket {
@@ -3859,6 +3882,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for ServerMessageWebSocket {}
 unsafe impl ::core::marker::Sync for ServerMessageWebSocket {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct ServerMessageWebSocketControl(::windows::core::IUnknown);
 impl ServerMessageWebSocketControl {
@@ -3937,6 +3961,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Serv
 }
 unsafe impl ::core::marker::Send for ServerMessageWebSocketControl {}
 unsafe impl ::core::marker::Sync for ServerMessageWebSocketControl {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct ServerMessageWebSocketInformation(::windows::core::IUnknown);
 impl ServerMessageWebSocketInformation {
@@ -4025,6 +4050,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Serv
 }
 unsafe impl ::core::marker::Send for ServerMessageWebSocketInformation {}
 unsafe impl ::core::marker::Sync for ServerMessageWebSocketInformation {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct ServerStreamWebSocket(::windows::core::IUnknown);
 impl ServerStreamWebSocket {
@@ -4163,6 +4189,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for ServerStreamWebSocket {}
 unsafe impl ::core::marker::Sync for ServerStreamWebSocket {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct ServerStreamWebSocketInformation(::windows::core::IUnknown);
 impl ServerStreamWebSocketInformation {
@@ -4251,6 +4278,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Serv
 }
 unsafe impl ::core::marker::Send for ServerStreamWebSocketInformation {}
 unsafe impl ::core::marker::Sync for ServerStreamWebSocketInformation {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct SocketActivityConnectedStandbyAction(pub i32);
 impl SocketActivityConnectedStandbyAction {
@@ -4278,6 +4306,7 @@ unsafe impl ::windows::core::RuntimeType for SocketActivityConnectedStandbyActio
 impl ::windows::core::DefaultType for SocketActivityConnectedStandbyAction {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct SocketActivityContext(::windows::core::IUnknown);
 impl SocketActivityContext {
@@ -4364,6 +4393,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sock
 }
 unsafe impl ::core::marker::Send for SocketActivityContext {}
 unsafe impl ::core::marker::Sync for SocketActivityContext {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct SocketActivityInformation(::windows::core::IUnknown);
 impl SocketActivityInformation {
@@ -4491,6 +4521,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sock
 }
 unsafe impl ::core::marker::Send for SocketActivityInformation {}
 unsafe impl ::core::marker::Sync for SocketActivityInformation {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct SocketActivityKind(pub i32);
 impl SocketActivityKind {
@@ -4520,6 +4551,7 @@ unsafe impl ::windows::core::RuntimeType for SocketActivityKind {
 impl ::windows::core::DefaultType for SocketActivityKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct SocketActivityTriggerDetails(::windows::core::IUnknown);
 impl SocketActivityTriggerDetails {
@@ -4601,6 +4633,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sock
 }
 unsafe impl ::core::marker::Send for SocketActivityTriggerDetails {}
 unsafe impl ::core::marker::Sync for SocketActivityTriggerDetails {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct SocketActivityTriggerReason(pub i32);
 impl SocketActivityTriggerReason {
@@ -4647,6 +4680,7 @@ impl SocketError {
 impl ::windows::core::RuntimeName for SocketError {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketError";
 }
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct SocketErrorStatus(pub i32);
 impl SocketErrorStatus {
@@ -4703,6 +4737,7 @@ unsafe impl ::windows::core::RuntimeType for SocketErrorStatus {
 impl ::windows::core::DefaultType for SocketErrorStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct SocketMessageType(pub i32);
 impl SocketMessageType {
@@ -4730,6 +4765,7 @@ unsafe impl ::windows::core::RuntimeType for SocketMessageType {
 impl ::windows::core::DefaultType for SocketMessageType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct SocketProtectionLevel(pub i32);
 impl SocketProtectionLevel {
@@ -4765,6 +4801,7 @@ unsafe impl ::windows::core::RuntimeType for SocketProtectionLevel {
 impl ::windows::core::DefaultType for SocketProtectionLevel {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct SocketQualityOfService(pub i32);
 impl SocketQualityOfService {
@@ -4792,6 +4829,7 @@ unsafe impl ::windows::core::RuntimeType for SocketQualityOfService {
 impl ::windows::core::DefaultType for SocketQualityOfService {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct SocketSslErrorSeverity(pub i32);
 impl SocketSslErrorSeverity {
@@ -4820,6 +4858,7 @@ unsafe impl ::windows::core::RuntimeType for SocketSslErrorSeverity {
 impl ::windows::core::DefaultType for SocketSslErrorSeverity {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct StreamSocket(::windows::core::IUnknown);
 impl StreamSocket {
@@ -5050,6 +5089,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for StreamSocket {}
 unsafe impl ::core::marker::Sync for StreamSocket {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct StreamSocketControl(::windows::core::IUnknown);
 impl StreamSocketControl {
@@ -5215,6 +5255,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stre
 }
 unsafe impl ::core::marker::Send for StreamSocketControl {}
 unsafe impl ::core::marker::Sync for StreamSocketControl {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct StreamSocketInformation(::windows::core::IUnknown);
 impl StreamSocketInformation {
@@ -5384,6 +5425,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stre
 }
 unsafe impl ::core::marker::Send for StreamSocketInformation {}
 unsafe impl ::core::marker::Sync for StreamSocketInformation {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct StreamSocketListener(::windows::core::IUnknown);
 impl StreamSocketListener {
@@ -5572,6 +5614,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for StreamSocketListener {}
 unsafe impl ::core::marker::Sync for StreamSocketListener {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct StreamSocketListenerConnectionReceivedEventArgs(::windows::core::IUnknown);
 impl StreamSocketListenerConnectionReceivedEventArgs {
@@ -5646,6 +5689,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stre
 }
 unsafe impl ::core::marker::Send for StreamSocketListenerConnectionReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for StreamSocketListenerConnectionReceivedEventArgs {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct StreamSocketListenerControl(::windows::core::IUnknown);
 impl StreamSocketListenerControl {
@@ -5768,6 +5812,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stre
 }
 unsafe impl ::core::marker::Send for StreamSocketListenerControl {}
 unsafe impl ::core::marker::Sync for StreamSocketListenerControl {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct StreamSocketListenerInformation(::windows::core::IUnknown);
 impl StreamSocketListenerInformation {
@@ -5842,6 +5887,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stre
 }
 unsafe impl ::core::marker::Send for StreamSocketListenerInformation {}
 unsafe impl ::core::marker::Sync for StreamSocketListenerInformation {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct StreamWebSocket(::windows::core::IUnknown);
 impl StreamWebSocket {
@@ -6041,6 +6087,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWebSocket> for &StreamWebSocket {
 }
 unsafe impl ::core::marker::Send for StreamWebSocket {}
 unsafe impl ::core::marker::Sync for StreamWebSocket {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct StreamWebSocketControl(::windows::core::IUnknown);
 impl StreamWebSocketControl {
@@ -6250,6 +6297,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWebSocketControl2> for &StreamWebSocket
 }
 unsafe impl ::core::marker::Send for StreamWebSocketControl {}
 unsafe impl ::core::marker::Sync for StreamWebSocketControl {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct StreamWebSocketInformation(::windows::core::IUnknown);
 impl StreamWebSocketInformation {
@@ -6413,6 +6461,7 @@ impl<'a> ::windows::core::IntoParam<'a, IWebSocketInformation2> for &StreamWebSo
 }
 unsafe impl ::core::marker::Send for StreamWebSocketInformation {}
 unsafe impl ::core::marker::Sync for StreamWebSocketInformation {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct WebSocketClosedEventArgs(::windows::core::IUnknown);
 impl WebSocketClosedEventArgs {
@@ -6511,6 +6560,7 @@ impl WebSocketError {
 impl ::windows::core::RuntimeName for WebSocketError {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketError";
 }
+#[doc = "*Required features: 'Networking_Sockets', 'ApplicationModel_Background'*"]
 #[cfg(feature = "ApplicationModel_Background")]
 #[repr(transparent)]
 pub struct WebSocketKeepAlive(::windows::core::IUnknown);
@@ -6634,6 +6684,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Backgrou
 unsafe impl ::core::marker::Send for WebSocketKeepAlive {}
 #[cfg(feature = "ApplicationModel_Background")]
 unsafe impl ::core::marker::Sync for WebSocketKeepAlive {}
+#[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
 pub struct WebSocketServerCustomValidationRequestedEventArgs(::windows::core::IUnknown);
 impl WebSocketServerCustomValidationRequestedEventArgs {

@@ -1,398 +1,792 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const DEFAULT_WEIGHT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPIDSPRG = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGId: DISPIDSPRG = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGRecoContext: DISPIDSPRG = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGState: DISPIDSPRG = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGRules: DISPIDSPRG = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGReset: DISPIDSPRG = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGCommit: DISPIDSPRG = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGCmdLoadFromFile: DISPIDSPRG = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGCmdLoadFromObject: DISPIDSPRG = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGCmdLoadFromResource: DISPIDSPRG = 9i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGCmdLoadFromMemory: DISPIDSPRG = 10i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGCmdLoadFromProprietaryGrammar: DISPIDSPRG = 11i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGCmdSetRuleState: DISPIDSPRG = 12i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGCmdSetRuleIdState: DISPIDSPRG = 13i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGDictationLoad: DISPIDSPRG = 14i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGDictationUnload: DISPIDSPRG = 15i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGDictationSetState: DISPIDSPRG = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGSetWordSequenceData: DISPIDSPRG = 17i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGSetTextSelection: DISPIDSPRG = 18i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGIsPronounceable: DISPIDSPRG = 19i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPIDSPTSI = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPIDSPTSI_ActiveOffset: DISPIDSPTSI = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPIDSPTSI_ActiveLength: DISPIDSPTSI = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPIDSPTSI_SelectionOffset: DISPIDSPTSI = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPIDSPTSI_SelectionLength: DISPIDSPTSI = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechAudio = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SAStatus: DISPID_SpeechAudio = 200i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SABufferInfo: DISPID_SpeechAudio = 201i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SADefaultFormat: DISPID_SpeechAudio = 202i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SAVolume: DISPID_SpeechAudio = 203i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SABufferNotifySize: DISPID_SpeechAudio = 204i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SAEventHandle: DISPID_SpeechAudio = 205i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SASetState: DISPID_SpeechAudio = 206i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechAudioBufferInfo = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SABIMinNotification: DISPID_SpeechAudioBufferInfo = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SABIBufferSize: DISPID_SpeechAudioBufferInfo = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SABIEventBias: DISPID_SpeechAudioBufferInfo = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechAudioFormat = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SAFType: DISPID_SpeechAudioFormat = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SAFGuid: DISPID_SpeechAudioFormat = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SAFGetWaveFormatEx: DISPID_SpeechAudioFormat = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SAFSetWaveFormatEx: DISPID_SpeechAudioFormat = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechAudioStatus = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SASFreeBufferSpace: DISPID_SpeechAudioStatus = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SASNonBlockingIO: DISPID_SpeechAudioStatus = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SASState: DISPID_SpeechAudioStatus = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SASCurrentSeekPosition: DISPID_SpeechAudioStatus = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SASCurrentDevicePosition: DISPID_SpeechAudioStatus = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechBaseStream = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SBSFormat: DISPID_SpeechBaseStream = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SBSRead: DISPID_SpeechBaseStream = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SBSWrite: DISPID_SpeechBaseStream = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SBSSeek: DISPID_SpeechBaseStream = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechCustomStream = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SCSBaseStream: DISPID_SpeechCustomStream = 100i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechDataKey = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SDKSetBinaryValue: DISPID_SpeechDataKey = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SDKGetBinaryValue: DISPID_SpeechDataKey = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SDKSetStringValue: DISPID_SpeechDataKey = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SDKGetStringValue: DISPID_SpeechDataKey = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SDKSetLongValue: DISPID_SpeechDataKey = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SDKGetlongValue: DISPID_SpeechDataKey = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SDKOpenKey: DISPID_SpeechDataKey = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SDKCreateKey: DISPID_SpeechDataKey = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SDKDeleteKey: DISPID_SpeechDataKey = 9i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SDKDeleteValue: DISPID_SpeechDataKey = 10i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SDKEnumKeys: DISPID_SpeechDataKey = 11i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SDKEnumValues: DISPID_SpeechDataKey = 12i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechFileStream = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SFSOpen: DISPID_SpeechFileStream = 100i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SFSClose: DISPID_SpeechFileStream = 101i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechGrammarRule = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRAttributes: DISPID_SpeechGrammarRule = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRInitialState: DISPID_SpeechGrammarRule = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRName: DISPID_SpeechGrammarRule = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRId: DISPID_SpeechGrammarRule = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRClear: DISPID_SpeechGrammarRule = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRAddResource: DISPID_SpeechGrammarRule = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRAddState: DISPID_SpeechGrammarRule = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechGrammarRuleState = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRSRule: DISPID_SpeechGrammarRuleState = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRSTransitions: DISPID_SpeechGrammarRuleState = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRSAddWordTransition: DISPID_SpeechGrammarRuleState = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRSAddRuleTransition: DISPID_SpeechGrammarRuleState = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRSAddSpecialTransition: DISPID_SpeechGrammarRuleState = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechGrammarRuleStateTransition = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRSTType: DISPID_SpeechGrammarRuleStateTransition = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRSTText: DISPID_SpeechGrammarRuleStateTransition = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRSTRule: DISPID_SpeechGrammarRuleStateTransition = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRSTWeight: DISPID_SpeechGrammarRuleStateTransition = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRSTPropertyName: DISPID_SpeechGrammarRuleStateTransition = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRSTPropertyId: DISPID_SpeechGrammarRuleStateTransition = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRSTPropertyValue: DISPID_SpeechGrammarRuleStateTransition = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRSTNextState: DISPID_SpeechGrammarRuleStateTransition = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechGrammarRuleStateTransitions = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRSTsCount: DISPID_SpeechGrammarRuleStateTransitions = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRSTsItem: DISPID_SpeechGrammarRuleStateTransitions = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRSTs_NewEnum: DISPID_SpeechGrammarRuleStateTransitions = -4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechGrammarRules = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRsCount: DISPID_SpeechGrammarRules = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRsDynamic: DISPID_SpeechGrammarRules = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRsAdd: DISPID_SpeechGrammarRules = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRsCommit: DISPID_SpeechGrammarRules = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRsCommitAndSave: DISPID_SpeechGrammarRules = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRsFindRule: DISPID_SpeechGrammarRules = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRsItem: DISPID_SpeechGrammarRules = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SGRs_NewEnum: DISPID_SpeechGrammarRules = -4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechLexicon = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLGenerationId: DISPID_SpeechLexicon = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLGetWords: DISPID_SpeechLexicon = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLAddPronunciation: DISPID_SpeechLexicon = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLAddPronunciationByPhoneIds: DISPID_SpeechLexicon = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLRemovePronunciation: DISPID_SpeechLexicon = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLRemovePronunciationByPhoneIds: DISPID_SpeechLexicon = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLGetPronunciations: DISPID_SpeechLexicon = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLGetGenerationChange: DISPID_SpeechLexicon = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechLexiconProns = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLPsCount: DISPID_SpeechLexiconProns = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLPsItem: DISPID_SpeechLexiconProns = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLPs_NewEnum: DISPID_SpeechLexiconProns = -4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechLexiconPronunciation = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLPType: DISPID_SpeechLexiconPronunciation = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLPLangId: DISPID_SpeechLexiconPronunciation = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLPPartOfSpeech: DISPID_SpeechLexiconPronunciation = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLPPhoneIds: DISPID_SpeechLexiconPronunciation = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLPSymbolic: DISPID_SpeechLexiconPronunciation = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechLexiconWord = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLWLangId: DISPID_SpeechLexiconWord = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLWType: DISPID_SpeechLexiconWord = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLWWord: DISPID_SpeechLexiconWord = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLWPronunciations: DISPID_SpeechLexiconWord = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechLexiconWords = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLWsCount: DISPID_SpeechLexiconWords = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLWsItem: DISPID_SpeechLexiconWords = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SLWs_NewEnum: DISPID_SpeechLexiconWords = -4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechMMSysAudio = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SMSADeviceId: DISPID_SpeechMMSysAudio = 300i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SMSALineId: DISPID_SpeechMMSysAudio = 301i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SMSAMMHandle: DISPID_SpeechMMSysAudio = 302i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechMemoryStream = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SMSSetData: DISPID_SpeechMemoryStream = 100i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SMSGetData: DISPID_SpeechMemoryStream = 101i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechObjectToken = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTId: DISPID_SpeechObjectToken = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTDataKey: DISPID_SpeechObjectToken = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTCategory: DISPID_SpeechObjectToken = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTGetDescription: DISPID_SpeechObjectToken = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTSetId: DISPID_SpeechObjectToken = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTGetAttribute: DISPID_SpeechObjectToken = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTCreateInstance: DISPID_SpeechObjectToken = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTRemove: DISPID_SpeechObjectToken = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTGetStorageFileName: DISPID_SpeechObjectToken = 9i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTRemoveStorageFileName: DISPID_SpeechObjectToken = 10i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTIsUISupported: DISPID_SpeechObjectToken = 11i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTDisplayUI: DISPID_SpeechObjectToken = 12i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTMatchesAttributes: DISPID_SpeechObjectToken = 13i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechObjectTokenCategory = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTCId: DISPID_SpeechObjectTokenCategory = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTCDefault: DISPID_SpeechObjectTokenCategory = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTCSetId: DISPID_SpeechObjectTokenCategory = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTCGetDataKey: DISPID_SpeechObjectTokenCategory = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTCEnumerateTokens: DISPID_SpeechObjectTokenCategory = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechObjectTokens = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTsCount: DISPID_SpeechObjectTokens = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTsItem: DISPID_SpeechObjectTokens = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SOTs_NewEnum: DISPID_SpeechObjectTokens = -4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechPhoneConverter = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPCLangId: DISPID_SpeechPhoneConverter = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPCPhoneToId: DISPID_SpeechPhoneConverter = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPCIdToPhone: DISPID_SpeechPhoneConverter = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechPhraseAlternate = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPARecoResult: DISPID_SpeechPhraseAlternate = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPAStartElementInResult: DISPID_SpeechPhraseAlternate = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPANumberOfElementsInResult: DISPID_SpeechPhraseAlternate = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPAPhraseInfo: DISPID_SpeechPhraseAlternate = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPACommit: DISPID_SpeechPhraseAlternate = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechPhraseAlternates = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPAsCount: DISPID_SpeechPhraseAlternates = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPAsItem: DISPID_SpeechPhraseAlternates = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPAs_NewEnum: DISPID_SpeechPhraseAlternates = -4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechPhraseBuilder = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPPBRestorePhraseFromMemory: DISPID_SpeechPhraseBuilder = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechPhraseElement = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPEAudioTimeOffset: DISPID_SpeechPhraseElement = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPEAudioSizeTime: DISPID_SpeechPhraseElement = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPEAudioStreamOffset: DISPID_SpeechPhraseElement = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPEAudioSizeBytes: DISPID_SpeechPhraseElement = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPERetainedStreamOffset: DISPID_SpeechPhraseElement = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPERetainedSizeBytes: DISPID_SpeechPhraseElement = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPEDisplayText: DISPID_SpeechPhraseElement = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPELexicalForm: DISPID_SpeechPhraseElement = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPEPronunciation: DISPID_SpeechPhraseElement = 9i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPEDisplayAttributes: DISPID_SpeechPhraseElement = 10i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPERequiredConfidence: DISPID_SpeechPhraseElement = 11i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPEActualConfidence: DISPID_SpeechPhraseElement = 12i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPEEngineConfidence: DISPID_SpeechPhraseElement = 13i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechPhraseElements = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPEsCount: DISPID_SpeechPhraseElements = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPEsItem: DISPID_SpeechPhraseElements = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPEs_NewEnum: DISPID_SpeechPhraseElements = -4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechPhraseInfo = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPILanguageId: DISPID_SpeechPhraseInfo = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPIGrammarId: DISPID_SpeechPhraseInfo = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPIStartTime: DISPID_SpeechPhraseInfo = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPIAudioStreamPosition: DISPID_SpeechPhraseInfo = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPIAudioSizeBytes: DISPID_SpeechPhraseInfo = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPIRetainedSizeBytes: DISPID_SpeechPhraseInfo = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPIAudioSizeTime: DISPID_SpeechPhraseInfo = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPIRule: DISPID_SpeechPhraseInfo = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPIProperties: DISPID_SpeechPhraseInfo = 9i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPIElements: DISPID_SpeechPhraseInfo = 10i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPIReplacements: DISPID_SpeechPhraseInfo = 11i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPIEngineId: DISPID_SpeechPhraseInfo = 12i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPIEnginePrivateData: DISPID_SpeechPhraseInfo = 13i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPISaveToMemory: DISPID_SpeechPhraseInfo = 14i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPIGetText: DISPID_SpeechPhraseInfo = 15i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPIGetDisplayAttributes: DISPID_SpeechPhraseInfo = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechPhraseProperties = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPPsCount: DISPID_SpeechPhraseProperties = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPPsItem: DISPID_SpeechPhraseProperties = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPPs_NewEnum: DISPID_SpeechPhraseProperties = -4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechPhraseProperty = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPPName: DISPID_SpeechPhraseProperty = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPPId: DISPID_SpeechPhraseProperty = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPPValue: DISPID_SpeechPhraseProperty = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPPFirstElement: DISPID_SpeechPhraseProperty = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPPNumberOfElements: DISPID_SpeechPhraseProperty = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPPEngineConfidence: DISPID_SpeechPhraseProperty = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPPConfidence: DISPID_SpeechPhraseProperty = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPPParent: DISPID_SpeechPhraseProperty = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPPChildren: DISPID_SpeechPhraseProperty = 9i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechPhraseReplacement = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPRDisplayAttributes: DISPID_SpeechPhraseReplacement = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPRText: DISPID_SpeechPhraseReplacement = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPRFirstElement: DISPID_SpeechPhraseReplacement = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPRNumberOfElements: DISPID_SpeechPhraseReplacement = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechPhraseReplacements = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPRsCount: DISPID_SpeechPhraseReplacements = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPRsItem: DISPID_SpeechPhraseReplacements = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPRs_NewEnum: DISPID_SpeechPhraseReplacements = -4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechPhraseRule = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPRuleName: DISPID_SpeechPhraseRule = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPRuleId: DISPID_SpeechPhraseRule = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPRuleFirstElement: DISPID_SpeechPhraseRule = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPRuleNumberOfElements: DISPID_SpeechPhraseRule = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPRuleParent: DISPID_SpeechPhraseRule = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPRuleChildren: DISPID_SpeechPhraseRule = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPRuleConfidence: DISPID_SpeechPhraseRule = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPRuleEngineConfidence: DISPID_SpeechPhraseRule = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechPhraseRules = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPRulesCount: DISPID_SpeechPhraseRules = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPRulesItem: DISPID_SpeechPhraseRules = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SPRules_NewEnum: DISPID_SpeechPhraseRules = -4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechRecoContext = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCRecognizer: DISPID_SpeechRecoContext = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCAudioInInterferenceStatus: DISPID_SpeechRecoContext = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCRequestedUIType: DISPID_SpeechRecoContext = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCVoice: DISPID_SpeechRecoContext = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRAllowVoiceFormatMatchingOnNextSet: DISPID_SpeechRecoContext = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCVoicePurgeEvent: DISPID_SpeechRecoContext = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCEventInterests: DISPID_SpeechRecoContext = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCCmdMaxAlternates: DISPID_SpeechRecoContext = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCState: DISPID_SpeechRecoContext = 9i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCRetainedAudio: DISPID_SpeechRecoContext = 10i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCRetainedAudioFormat: DISPID_SpeechRecoContext = 11i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCPause: DISPID_SpeechRecoContext = 12i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCResume: DISPID_SpeechRecoContext = 13i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCCreateGrammar: DISPID_SpeechRecoContext = 14i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCCreateResultFromMemory: DISPID_SpeechRecoContext = 15i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCBookmark: DISPID_SpeechRecoContext = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCSetAdaptationData: DISPID_SpeechRecoContext = 17i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechRecoContextEvents = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCEStartStream: DISPID_SpeechRecoContextEvents = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCEEndStream: DISPID_SpeechRecoContextEvents = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCEBookmark: DISPID_SpeechRecoContextEvents = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCESoundStart: DISPID_SpeechRecoContextEvents = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCESoundEnd: DISPID_SpeechRecoContextEvents = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCEPhraseStart: DISPID_SpeechRecoContextEvents = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCERecognition: DISPID_SpeechRecoContextEvents = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCEHypothesis: DISPID_SpeechRecoContextEvents = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCEPropertyNumberChange: DISPID_SpeechRecoContextEvents = 9i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCEPropertyStringChange: DISPID_SpeechRecoContextEvents = 10i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCEFalseRecognition: DISPID_SpeechRecoContextEvents = 11i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCEInterference: DISPID_SpeechRecoContextEvents = 12i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCERequestUI: DISPID_SpeechRecoContextEvents = 13i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCERecognizerStateChange: DISPID_SpeechRecoContextEvents = 14i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCEAdaptation: DISPID_SpeechRecoContextEvents = 15i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCERecognitionForOtherContext: DISPID_SpeechRecoContextEvents = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCEAudioLevel: DISPID_SpeechRecoContextEvents = 17i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCEEnginePrivate: DISPID_SpeechRecoContextEvents = 18i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechRecoResult = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRRRecoContext: DISPID_SpeechRecoResult = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRRTimes: DISPID_SpeechRecoResult = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRRAudioFormat: DISPID_SpeechRecoResult = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRRPhraseInfo: DISPID_SpeechRecoResult = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRRAlternates: DISPID_SpeechRecoResult = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRRAudio: DISPID_SpeechRecoResult = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRRSpeakAudio: DISPID_SpeechRecoResult = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRRSaveToMemory: DISPID_SpeechRecoResult = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRRDiscardResultInfo: DISPID_SpeechRecoResult = 9i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechRecoResult2 = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRRSetTextFeedback: DISPID_SpeechRecoResult2 = 12i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechRecoResultTimes = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRRTStreamTime: DISPID_SpeechRecoResultTimes = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRRTLength: DISPID_SpeechRecoResultTimes = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRRTTickCount: DISPID_SpeechRecoResultTimes = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRRTOffsetFromStart: DISPID_SpeechRecoResultTimes = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechRecognizer = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRRecognizer: DISPID_SpeechRecognizer = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRAllowAudioInputFormatChangesOnNextSet: DISPID_SpeechRecognizer = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRAudioInput: DISPID_SpeechRecognizer = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRAudioInputStream: DISPID_SpeechRecognizer = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRIsShared: DISPID_SpeechRecognizer = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRState: DISPID_SpeechRecognizer = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRStatus: DISPID_SpeechRecognizer = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRProfile: DISPID_SpeechRecognizer = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SREmulateRecognition: DISPID_SpeechRecognizer = 9i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRCreateRecoContext: DISPID_SpeechRecognizer = 10i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGetFormat: DISPID_SpeechRecognizer = 11i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRSetPropertyNumber: DISPID_SpeechRecognizer = 12i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGetPropertyNumber: DISPID_SpeechRecognizer = 13i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRSetPropertyString: DISPID_SpeechRecognizer = 14i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGetPropertyString: DISPID_SpeechRecognizer = 15i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRIsUISupported: DISPID_SpeechRecognizer = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRDisplayUI: DISPID_SpeechRecognizer = 17i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRGetRecognizers: DISPID_SpeechRecognizer = 18i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVGetAudioInputs: DISPID_SpeechRecognizer = 19i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVGetProfiles: DISPID_SpeechRecognizer = 20i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechRecognizerStatus = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRSAudioStatus: DISPID_SpeechRecognizerStatus = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRSCurrentStreamPosition: DISPID_SpeechRecognizerStatus = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRSCurrentStreamNumber: DISPID_SpeechRecognizerStatus = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRSNumberOfActiveRules: DISPID_SpeechRecognizerStatus = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRSClsidEngine: DISPID_SpeechRecognizerStatus = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRSSupportedLanguages: DISPID_SpeechRecognizerStatus = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechVoice = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVStatus: DISPID_SpeechVoice = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVVoice: DISPID_SpeechVoice = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVAudioOutput: DISPID_SpeechVoice = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVAudioOutputStream: DISPID_SpeechVoice = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVRate: DISPID_SpeechVoice = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVVolume: DISPID_SpeechVoice = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVAllowAudioOuputFormatChangesOnNextSet: DISPID_SpeechVoice = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVEventInterests: DISPID_SpeechVoice = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVPriority: DISPID_SpeechVoice = 9i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVAlertBoundary: DISPID_SpeechVoice = 10i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVSyncronousSpeakTimeout: DISPID_SpeechVoice = 11i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVSpeak: DISPID_SpeechVoice = 12i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVSpeakStream: DISPID_SpeechVoice = 13i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVPause: DISPID_SpeechVoice = 14i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVResume: DISPID_SpeechVoice = 15i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVSkip: DISPID_SpeechVoice = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVGetVoices: DISPID_SpeechVoice = 17i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVGetAudioOutputs: DISPID_SpeechVoice = 18i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVWaitUntilDone: DISPID_SpeechVoice = 19i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVSpeakCompleteEvent: DISPID_SpeechVoice = 20i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVIsUISupported: DISPID_SpeechVoice = 21i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVDisplayUI: DISPID_SpeechVoice = 22i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechVoiceEvent = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVEStreamStart: DISPID_SpeechVoiceEvent = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVEStreamEnd: DISPID_SpeechVoiceEvent = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVEVoiceChange: DISPID_SpeechVoiceEvent = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVEBookmark: DISPID_SpeechVoiceEvent = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVEWord: DISPID_SpeechVoiceEvent = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVEPhoneme: DISPID_SpeechVoiceEvent = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVESentenceBoundary: DISPID_SpeechVoiceEvent = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVEViseme: DISPID_SpeechVoiceEvent = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVEAudioLevel: DISPID_SpeechVoiceEvent = 9i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVEEnginePrivate: DISPID_SpeechVoiceEvent = 10i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechVoiceStatus = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVSCurrentStreamNumber: DISPID_SpeechVoiceStatus = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVSLastStreamNumberQueued: DISPID_SpeechVoiceStatus = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVSLastResult: DISPID_SpeechVoiceStatus = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVSRunningState: DISPID_SpeechVoiceStatus = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVSInputWordPosition: DISPID_SpeechVoiceStatus = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVSInputWordLength: DISPID_SpeechVoiceStatus = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVSInputSentencePosition: DISPID_SpeechVoiceStatus = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVSInputSentenceLength: DISPID_SpeechVoiceStatus = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVSLastBookmark: DISPID_SpeechVoiceStatus = 9i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVSLastBookmarkId: DISPID_SpeechVoiceStatus = 10i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVSPhonemeId: DISPID_SpeechVoiceStatus = 11i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SVSVisemeId: DISPID_SpeechVoiceStatus = 12i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechWaveFormatEx = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SWFEFormatTag: DISPID_SpeechWaveFormatEx = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SWFEChannels: DISPID_SpeechWaveFormatEx = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SWFESamplesPerSec: DISPID_SpeechWaveFormatEx = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SWFEAvgBytesPerSec: DISPID_SpeechWaveFormatEx = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SWFEBlockAlign: DISPID_SpeechWaveFormatEx = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SWFEBitsPerSample: DISPID_SpeechWaveFormatEx = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SWFEExtraData: DISPID_SpeechWaveFormatEx = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type DISPID_SpeechXMLRecoResult = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRRGetXMLResult: DISPID_SpeechXMLRecoResult = 10i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const DISPID_SRRGetXMLErrorInfo: DISPID_SpeechXMLRecoResult = 11i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct IEnumSpObjectTokens(::windows::core::IUnknown);
 impl IEnumSpObjectTokens {
@@ -465,6 +859,7 @@ pub struct IEnumSpObjectTokensVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pptoken: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpAudio(::windows::core::IUnknown);
 impl ISpAudio {
@@ -705,6 +1100,7 @@ pub struct ISpAudioVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbsize: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpContainerLexicon(::windows::core::IUnknown);
 impl ISpContainerLexicon {
@@ -809,6 +1205,7 @@ pub struct ISpContainerLexiconVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paddlexicon: ::windows::core::RawPtr, dwflags: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpDataKey(::windows::core::IUnknown);
 impl ISpDataKey {
@@ -932,6 +1329,7 @@ pub struct ISpDataKeyVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, ppszvaluename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpDisplayAlternates(::windows::core::IUnknown);
 impl ISpDisplayAlternates {
@@ -988,6 +1386,7 @@ pub struct ISpDisplayAlternatesVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ultrailspace: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpEnginePronunciation(::windows::core::IUnknown);
 impl ISpEnginePronunciation {
@@ -1046,6 +1445,7 @@ pub struct ISpEnginePronunciationVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszword: super::super::Foundation::PWSTR, pszleftcontext: super::super::Foundation::PWSTR, pszrightcontext: super::super::Foundation::PWSTR, langid: u16, penginepronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpEventSink(::windows::core::IUnknown);
 impl ISpEventSink {
@@ -1102,6 +1502,7 @@ pub struct ISpEventSinkVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulleventinterest: *mut u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpEventSource(::windows::core::IUnknown);
 impl ISpEventSource {
@@ -1218,6 +1619,7 @@ pub struct ISpEventSourceVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *mut SPEVENTSOURCEINFO) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpEventSource2(::windows::core::IUnknown);
 impl ISpEventSource2 {
@@ -1360,6 +1762,7 @@ pub struct ISpEventSource2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32, peventarray: *mut SPEVENTEX, pulfetched: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpGrammarBuilder(::windows::core::IUnknown);
 impl ISpGrammarBuilder {
@@ -1446,6 +1849,7 @@ pub struct ISpGrammarBuilderVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpGrammarBuilder2(::windows::core::IUnknown);
 impl ISpGrammarBuilder2 {
@@ -1502,6 +1906,7 @@ pub struct ISpGrammarBuilder2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phoneticalphabet: PHONETICALPHABET) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpLexicon(::windows::core::IUnknown);
 impl ISpLexicon {
@@ -1582,6 +1987,7 @@ pub struct ISpLexiconVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pdwgeneration: *mut u32, pdwcookie: *mut u32, pwordlist: *mut SPWORDLIST) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpMMSysAudio(::windows::core::IUnknown);
 impl ISpMMSysAudio {
@@ -1862,6 +2268,7 @@ pub struct ISpMMSysAudioVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulineid: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulineid: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpNotifyCallback(::windows::core::IUnknown);
 impl ISpNotifyCallback {
@@ -1888,6 +2295,7 @@ unsafe impl ::windows::core::Interface for ISpNotifyCallback {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpNotifyCallbackVtbl(#[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT, #[cfg(not(feature = "Win32_Foundation"))] usize);
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpNotifySink(::windows::core::IUnknown);
 impl ISpNotifySink {
@@ -1933,6 +2341,7 @@ unsafe impl ::windows::core::Interface for ISpNotifySink {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpNotifySinkVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpNotifySource(::windows::core::IUnknown);
 impl ISpNotifySource {
@@ -2015,6 +2424,7 @@ pub struct ISpNotifySourceVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpNotifyTranslator(::windows::core::IUnknown);
 impl ISpNotifyTranslator {
@@ -2119,6 +2529,7 @@ pub struct ISpNotifyTranslatorVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpObjectToken(::windows::core::IUnknown);
 impl ISpObjectToken {
@@ -2319,6 +2730,7 @@ pub struct ISpObjectTokenVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszattributes: super::super::Foundation::PWSTR, pfmatches: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpObjectTokenCategory(::windows::core::IUnknown);
 impl ISpObjectTokenCategory {
@@ -2500,6 +2912,7 @@ pub struct ISpObjectTokenCategoryVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszcomemtokenid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpObjectTokenInit(::windows::core::IUnknown);
 impl ISpObjectTokenInit {
@@ -2726,6 +3139,7 @@ pub struct ISpObjectTokenInitVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcategoryid: super::super::Foundation::PWSTR, psztokenid: super::super::Foundation::PWSTR, pdatakey: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpObjectWithToken(::windows::core::IUnknown);
 impl ISpObjectWithToken {
@@ -2781,6 +3195,7 @@ pub struct ISpObjectWithTokenVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptoken: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptoken: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpPhoneConverter(::windows::core::IUnknown);
 impl ISpPhoneConverter {
@@ -2869,6 +3284,7 @@ pub struct ISpPhoneConverterVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: *const u16, pszphone: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpPhoneticAlphabetConverter(::windows::core::IUnknown);
 impl ISpPhoneticAlphabetConverter {
@@ -2939,6 +3355,7 @@ pub struct ISpPhoneticAlphabetConverterVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, csrclength: u32, bsapi2ups: super::super::Foundation::BOOL, pcmaxdestlength: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpPhoneticAlphabetSelection(::windows::core::IUnknown);
 impl ISpPhoneticAlphabetSelection {
@@ -2998,6 +3415,7 @@ pub struct ISpPhoneticAlphabetSelectionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fforceups: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpPhrase(::windows::core::IUnknown);
 impl ISpPhrase {
@@ -3066,6 +3484,7 @@ pub struct ISpPhraseVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwvaluetypes: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpPhrase2(::windows::core::IUnknown);
 impl ISpPhrase2 {
@@ -3171,6 +3590,7 @@ pub struct ISpPhrase2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulstartelement: u32, celements: u32, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpPhraseAlt(::windows::core::IUnknown);
 impl ISpPhraseAlt {
@@ -3267,6 +3687,7 @@ pub struct ISpPhraseAltVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppparent: *mut ::windows::core::RawPtr, pulstartelementinparent: *mut u32, pcelementsinparent: *mut u32, pcelementsinalt: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpProperties(::windows::core::IUnknown);
 impl ISpProperties {
@@ -3338,6 +3759,7 @@ pub struct ISpPropertiesVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR, ppcomemvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpRecoContext(::windows::core::IUnknown);
 impl ISpRecoContext {
@@ -3560,6 +3982,7 @@ pub struct ISpRecoContextVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, econtextstate: SPCONTEXTSTATE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pecontextstate: *mut SPCONTEXTSTATE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpRecoContext2(::windows::core::IUnknown);
 impl ISpRecoContext2 {
@@ -3620,6 +4043,7 @@ pub struct ISpRecoContext2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padaptationdata: super::super::Foundation::PWSTR, cch: u32, ptopicname: super::super::Foundation::PWSTR, eadaptationsettings: u32, erelevance: SPADAPTATIONRELEVANCE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpRecoGrammar(::windows::core::IUnknown);
 impl ISpRecoGrammar {
@@ -3818,6 +4242,7 @@ pub struct ISpRecoGrammarVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pegrammarstate: *mut SPGRAMMARSTATE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpRecoGrammar2(::windows::core::IUnknown);
 impl ISpRecoGrammar2 {
@@ -3908,6 +4333,7 @@ pub struct ISpRecoGrammar2Vtbl(
     #[cfg(feature = "Win32_System_Com_Urlmon")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psmlsecuritymanager: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com_Urlmon"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpRecoResult(::windows::core::IUnknown);
 impl ISpRecoResult {
@@ -4030,6 +4456,7 @@ pub struct ISpRecoResultVtbl(
     #[cfg(not(feature = "Win32_Media_Audio"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprecocontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpRecoResult2(::windows::core::IUnknown);
 impl ISpRecoResult2 {
@@ -4189,6 +4616,7 @@ pub struct ISpRecoResult2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfeedback: super::super::Foundation::PWSTR, fsuccessful: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpRecognizer(::windows::core::IUnknown);
 impl ISpRecognizer {
@@ -4357,6 +4785,7 @@ pub struct ISpRecognizerVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pphrase: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpRecognizer2(::windows::core::IUnknown);
 impl ISpRecognizer2 {
@@ -4417,6 +4846,7 @@ pub struct ISpRecognizer2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpRegDataKey(::windows::core::IUnknown);
 impl ISpRegDataKey {
@@ -4566,6 +4996,7 @@ pub struct ISpRegDataKeyVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hkey: super::super::System::Registry::HKEY, freadonly: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Registry")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpResourceManager(::windows::core::IUnknown);
 impl ISpResourceManager {
@@ -4652,6 +5083,7 @@ pub struct ISpResourceManagerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidserviceid: *const ::windows::core::GUID, objectclsid: *const ::windows::core::GUID, objectiid: *const ::windows::core::GUID, freleasewhenlastexternalrefreleased: super::super::Foundation::BOOL, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpSerializeState(::windows::core::IUnknown);
 impl ISpSerializeState {
@@ -4706,6 +5138,7 @@ pub struct ISpSerializeStateVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppbdata: *mut *mut u8, pulsize: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdata: *const u8, ulsize: u32, dwreserved: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpShortcut(::windows::core::IUnknown);
 impl ISpShortcut {
@@ -4799,6 +5232,7 @@ pub struct ISpShortcutVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwgeneration: *mut u32, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpStream(::windows::core::IUnknown);
 impl ISpStream {
@@ -5012,6 +5446,7 @@ pub struct ISpStreamVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Media_Audio")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpStreamFormat(::windows::core::IUnknown);
 impl ISpStreamFormat {
@@ -5182,6 +5617,7 @@ pub struct ISpStreamFormatVtbl(
     #[cfg(feature = "Win32_Media_Audio")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidformatid: *const ::windows::core::GUID, ppcomemwaveformatex: *mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Media_Audio"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpStreamFormatConverter(::windows::core::IUnknown);
 impl ISpStreamFormatConverter {
@@ -5403,6 +5839,7 @@ pub struct ISpStreamFormatConverterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulloffsetconvertedstream: u64, pulloffsetbasestream: *mut u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulloffsetbasestream: u64, pulloffsetconvertedstream: *mut u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpTranscript(::windows::core::IUnknown);
 impl ISpTranscript {
@@ -5462,6 +5899,7 @@ pub struct ISpTranscriptVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psztranscript: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpVoice(::windows::core::IUnknown);
 impl ISpVoice {
@@ -5719,6 +6157,7 @@ pub struct ISpVoiceVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, psztitle: super::super::Foundation::PWSTR, psztypeofui: super::super::Foundation::PWSTR, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpXMLRecoResult(::windows::core::IUnknown);
 impl ISpXMLRecoResult {
@@ -5873,6 +6312,7 @@ pub struct ISpXMLRecoResultVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psemanticerrorinfo: *mut SPSEMANTICERRORINFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechAudio(::windows::core::IUnknown);
 impl ISpeechAudio {
@@ -6060,6 +6500,7 @@ pub struct ISpeechAudioVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventhandle: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: SpeechAudioState) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechAudioBufferInfo(::windows::core::IUnknown);
 impl ISpeechAudioBufferInfo {
@@ -6183,6 +6624,7 @@ pub struct ISpeechAudioBufferInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventbias: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventbias: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechAudioFormat(::windows::core::IUnknown);
 impl ISpeechAudioFormat {
@@ -6310,6 +6752,7 @@ pub struct ISpeechAudioFormatVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, speechwaveformatex: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, speechwaveformatex: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechAudioStatus(::windows::core::IUnknown);
 impl ISpeechAudioStatus {
@@ -6435,6 +6878,7 @@ pub struct ISpeechAudioStatusVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentdeviceposition: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechBaseStream(::windows::core::IUnknown);
 impl ISpeechBaseStream {
@@ -6560,6 +7004,7 @@ pub struct ISpeechBaseStreamVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, origin: SpeechStreamSeekPositionType, newposition: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechCustomStream(::windows::core::IUnknown);
 impl ISpeechCustomStream {
@@ -6714,6 +7159,7 @@ pub struct ISpeechCustomStreamVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppunkstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkstream: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechDataKey(::windows::core::IUnknown);
 impl ISpeechDataKey {
@@ -6889,6 +7335,7 @@ pub struct ISpeechDataKeyVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, valuename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechFileStream(::windows::core::IUnknown);
 impl ISpeechFileStream {
@@ -7044,6 +7491,7 @@ pub struct ISpeechFileStreamVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechGrammarRule(::windows::core::IUnknown);
 impl ISpeechGrammarRule {
@@ -7177,6 +7625,7 @@ pub struct ISpeechGrammarRuleVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechGrammarRuleState(::windows::core::IUnknown);
 impl ISpeechGrammarRuleState {
@@ -7301,6 +7750,7 @@ pub struct ISpeechGrammarRuleStateVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destinationstate: ::windows::core::RawPtr, r#type: SpeechSpecialTransitionType, propertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechGrammarRuleStateTransition(::windows::core::IUnknown);
 impl ISpeechGrammarRuleStateTransition {
@@ -7445,6 +7895,7 @@ pub struct ISpeechGrammarRuleStateTransitionVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nextstate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechGrammarRuleStateTransitions(::windows::core::IUnknown);
 impl ISpeechGrammarRuleStateTransitions {
@@ -7556,6 +8007,7 @@ pub struct ISpeechGrammarRuleStateTransitionsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechGrammarRules(::windows::core::IUnknown);
 impl ISpeechGrammarRules {
@@ -7696,6 +8148,7 @@ pub struct ISpeechGrammarRulesVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errortext: *mut super::super::Foundation::BSTR, savestream: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechLexicon(::windows::core::IUnknown);
 impl ISpeechLexicon {
@@ -7836,6 +8289,7 @@ pub struct ISpeechLexiconVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, generationid: *mut i32, ppwords: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechLexiconPronunciation(::windows::core::IUnknown);
 impl ISpeechLexiconPronunciation {
@@ -7961,6 +8415,7 @@ pub struct ISpeechLexiconPronunciationVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, symbolic: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechLexiconPronunciations(::windows::core::IUnknown);
 impl ISpeechLexiconPronunciations {
@@ -8072,6 +8527,7 @@ pub struct ISpeechLexiconPronunciationsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pronunciation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechLexiconWord(::windows::core::IUnknown);
 impl ISpeechLexiconWord {
@@ -8190,6 +8646,7 @@ pub struct ISpeechLexiconWordVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pronunciations: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechLexiconWords(::windows::core::IUnknown);
 impl ISpeechLexiconWords {
@@ -8301,6 +8758,7 @@ pub struct ISpeechLexiconWordsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, word: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechMMSysAudio(::windows::core::IUnknown);
 impl ISpeechMMSysAudio {
@@ -8531,6 +8989,7 @@ pub struct ISpeechMMSysAudioVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lineid: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechMemoryStream(::windows::core::IUnknown);
 impl ISpeechMemoryStream {
@@ -8689,6 +9148,7 @@ pub struct ISpeechMemoryStreamVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdata: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechObjectToken(::windows::core::IUnknown);
 impl ISpeechObjectToken {
@@ -8866,6 +9326,7 @@ pub struct ISpeechObjectTokenVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attributes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, matches: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechObjectTokenCategory(::windows::core::IUnknown);
 impl ISpeechObjectTokenCategory {
@@ -9000,6 +9461,7 @@ pub struct ISpeechObjectTokenCategoryVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requiredattributes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, optionalattributes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, tokens: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechObjectTokens(::windows::core::IUnknown);
 impl ISpeechObjectTokens {
@@ -9111,6 +9573,7 @@ pub struct ISpeechObjectTokensVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, token: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechPhoneConverter(::windows::core::IUnknown);
 impl ISpeechPhoneConverter {
@@ -9230,6 +9693,7 @@ pub struct ISpeechPhoneConverterVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idarray: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, phonemes: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechPhraseAlternate(::windows::core::IUnknown);
 impl ISpeechPhraseAlternate {
@@ -9350,6 +9814,7 @@ pub struct ISpeechPhraseAlternateVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phraseinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechPhraseAlternates(::windows::core::IUnknown);
 impl ISpeechPhraseAlternates {
@@ -9461,6 +9926,7 @@ pub struct ISpeechPhraseAlternatesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, phrasealternate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechPhraseElement(::windows::core::IUnknown);
 impl ISpeechPhraseElement {
@@ -9628,6 +10094,7 @@ pub struct ISpeechPhraseElementVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, actualconfidence: *mut SpeechEngineConfidence) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, engineconfidence: *mut f32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechPhraseElements(::windows::core::IUnknown);
 impl ISpeechPhraseElements {
@@ -9739,6 +10206,7 @@ pub struct ISpeechPhraseElementsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechPhraseInfo(::windows::core::IUnknown);
 impl ISpeechPhraseInfo {
@@ -9929,6 +10397,7 @@ pub struct ISpeechPhraseInfoVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startelement: i32, elements: i32, usereplacements: i16, displayattributes: *mut SpeechDisplayAttributes) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechPhraseInfoBuilder(::windows::core::IUnknown);
 impl ISpeechPhraseInfoBuilder {
@@ -10032,6 +10501,7 @@ pub struct ISpeechPhraseInfoBuilderVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phraseinmemory: *const super::super::System::Com::VARIANT, phraseinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechPhraseProperties(::windows::core::IUnknown);
 impl ISpeechPhraseProperties {
@@ -10143,6 +10613,7 @@ pub struct ISpeechPhrasePropertiesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, property: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechPhraseProperty(::windows::core::IUnknown);
 impl ISpeechPhraseProperty {
@@ -10288,6 +10759,7 @@ pub struct ISpeechPhrasePropertyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parentproperty: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, children: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechPhraseReplacement(::windows::core::IUnknown);
 impl ISpeechPhraseReplacement {
@@ -10406,6 +10878,7 @@ pub struct ISpeechPhraseReplacementVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, firstelement: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numberofelements: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechPhraseReplacements(::windows::core::IUnknown);
 impl ISpeechPhraseReplacements {
@@ -10517,6 +10990,7 @@ pub struct ISpeechPhraseReplacementsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, reps: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechPhraseRule(::windows::core::IUnknown);
 impl ISpeechPhraseRule {
@@ -10655,6 +11129,7 @@ pub struct ISpeechPhraseRuleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, actualconfidence: *mut SpeechEngineConfidence) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, engineconfidence: *mut f32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechPhraseRules(::windows::core::IUnknown);
 impl ISpeechPhraseRules {
@@ -10766,6 +11241,7 @@ pub struct ISpeechPhraseRulesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, rule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechRecoContext(::windows::core::IUnknown);
 impl ISpeechRecoContext {
@@ -10985,6 +11461,7 @@ pub struct ISpeechRecoContextVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, adaptationstring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechRecoGrammar(::windows::core::IUnknown);
 impl ISpeechRecoGrammar {
@@ -11182,6 +11659,7 @@ pub struct ISpeechRecoGrammarVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, word: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, wordpronounceable: *mut SpeechWordPronounceable) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechRecoResult(::windows::core::IUnknown);
 impl ISpeechRecoResult {
@@ -11328,6 +11806,7 @@ pub struct ISpeechRecoResultVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, valuetypes: SpeechDiscardType) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechRecoResult2(::windows::core::IUnknown);
 impl ISpeechRecoResult2 {
@@ -11500,6 +11979,7 @@ pub struct ISpeechRecoResult2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feedback: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, wassuccessful: i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechRecoResultDispatch(::windows::core::IUnknown);
 impl ISpeechRecoResultDispatch {
@@ -11665,6 +12145,7 @@ pub struct ISpeechRecoResultDispatchVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, feedback: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, wassuccessful: i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechRecoResultTimes(::windows::core::IUnknown);
 impl ISpeechRecoResultTimes {
@@ -11787,6 +12268,7 @@ pub struct ISpeechRecoResultTimesVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetfromstart: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechRecognizer(::windows::core::IUnknown);
 impl ISpeechRecognizer {
@@ -12023,6 +12505,7 @@ pub struct ISpeechRecognizerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requiredattributes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, optionalattributes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, objecttokens: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechRecognizerStatus(::windows::core::IUnknown);
 impl ISpeechRecognizerStatus {
@@ -12155,6 +12638,7 @@ pub struct ISpeechRecognizerStatusVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, supportedlanguages: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechResourceLoader(::windows::core::IUnknown);
 impl ISpeechResourceLoader {
@@ -12269,6 +12753,7 @@ pub struct ISpeechResourceLoaderVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrlocalpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechTextSelectionInformation(::windows::core::IUnknown);
 impl ISpeechTextSelectionInformation {
@@ -12401,6 +12886,7 @@ pub struct ISpeechTextSelectionInformationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selectionlength: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selectionlength: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechVoice(::windows::core::IUnknown);
 impl ISpeechVoice {
@@ -12656,6 +13142,7 @@ pub struct ISpeechVoiceVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: i32, title: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, typeofui: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechVoiceStatus(::windows::core::IUnknown);
 impl ISpeechVoiceStatus {
@@ -12814,6 +13301,7 @@ pub struct ISpeechVoiceStatusVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phoneid: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visemeid: *mut i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechWaveFormatEx(::windows::core::IUnknown);
 impl ISpeechWaveFormatEx {
@@ -12977,6 +13465,7 @@ pub struct ISpeechWaveFormatExVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, extradata: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct ISpeechXMLRecoResult(::windows::core::IUnknown);
 impl ISpeechXMLRecoResult {
@@ -13156,24 +13645,41 @@ pub struct ISpeechXMLRecoResultVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linenumber: *mut i32, scriptline: *mut super::super::Foundation::BSTR, source: *mut super::super::Foundation::BSTR, description: *mut super::super::Foundation::BSTR, resultcode: *mut i32, iserror: *mut i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type PHONETICALPHABET = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const PA_Ipa: PHONETICALPHABET = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const PA_Ups: PHONETICALPHABET = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const PA_Sapi: PHONETICALPHABET = 2i32;
 pub const SAPI_ERROR_BASE: u32 = 20480u32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPADAPTATIONRELEVANCE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPAR_Unknown: SPADAPTATIONRELEVANCE = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPAR_Low: SPADAPTATIONRELEVANCE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPAR_Medium: SPADAPTATIONRELEVANCE = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPAR_High: SPADAPTATIONRELEVANCE = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPADAPTATIONSETTINGS = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPADS_Default: SPADAPTATIONSETTINGS = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPADS_CurrentRecognizer: SPADAPTATIONSETTINGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPADS_RecoProfile: SPADAPTATIONSETTINGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPADS_Immediate: SPADAPTATIONSETTINGS = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPADS_Reset: SPADAPTATIONSETTINGS = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPADS_HighVolumeDataSource: SPADAPTATIONSETTINGS = 16i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPAUDIOBUFFERINFO {
     pub ulMsMinNotification: u32,
     pub ulMsBufferSize: u32,
@@ -13199,15 +13705,24 @@ impl ::core::default::Default for SPAUDIOBUFFERINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPAUDIOOPTIONS = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPAO_NONE: SPAUDIOOPTIONS = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPAO_RETAIN_AUDIO: SPAUDIOOPTIONS = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPAUDIOSTATE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPAS_CLOSED: SPAUDIOSTATE = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPAS_STOP: SPAUDIOSTATE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPAS_PAUSE: SPAUDIOSTATE = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPAS_RUN: SPAUDIOSTATE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPAUDIOSTATUS {
     pub cbFreeBuffSpace: i32,
     pub cbNonBlockingIO: u32,
@@ -13238,6 +13753,7 @@ impl ::core::default::Default for SPAUDIOSTATUS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPBINARYGRAMMAR {
     pub ulTotalSerializedSize: u32,
 }
@@ -13261,34 +13777,62 @@ impl ::core::default::Default for SPBINARYGRAMMAR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPBOOKMARKOPTIONS = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPBO_NONE: SPBOOKMARKOPTIONS = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPBO_PAUSE: SPBOOKMARKOPTIONS = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPBO_AHEAD: SPBOOKMARKOPTIONS = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPBO_TIME_UNITS: SPBOOKMARKOPTIONS = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPCFGRULEATTRIBUTES = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRAF_TopLevel: SPCFGRULEATTRIBUTES = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRAF_Active: SPCFGRULEATTRIBUTES = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRAF_Export: SPCFGRULEATTRIBUTES = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRAF_Import: SPCFGRULEATTRIBUTES = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRAF_Interpreter: SPCFGRULEATTRIBUTES = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRAF_Dynamic: SPCFGRULEATTRIBUTES = 32i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRAF_Root: SPCFGRULEATTRIBUTES = 64i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRAF_AutoPause: SPCFGRULEATTRIBUTES = 65536i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRAF_UserDelimited: SPCFGRULEATTRIBUTES = 131072i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPCOMMITFLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPCF_NONE: SPCOMMITFLAGS = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPCF_ADD_TO_USER_LEXICON: SPCOMMITFLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPCF_DEFINITE_CORRECTION: SPCOMMITFLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPCONTEXTSTATE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPCS_DISABLED: SPCONTEXTSTATE = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPCS_ENABLED: SPCONTEXTSTATE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPDATAKEYLOCATION = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPDKL_DefaultLocation: SPDATAKEYLOCATION = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPDKL_CurrentUser: SPDATAKEYLOCATION = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPDKL_LocalMachine: SPDATAKEYLOCATION = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPDKL_CurrentConfig: SPDATAKEYLOCATION = 5i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPDISPLAYPHRASE {
     pub ulNumTokens: u32,
@@ -13321,6 +13865,7 @@ impl ::core::default::Default for SPDISPLAYPHRASE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPDISPLAYTOKEN {
     pub pszLexical: super::super::Foundation::PWSTR,
@@ -13353,34 +13898,62 @@ impl ::core::default::Default for SPDISPLAYTOKEN {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPDISPLYATTRIBUTES = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPAF_ONE_TRAILING_SPACE: SPDISPLYATTRIBUTES = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPAF_TWO_TRAILING_SPACES: SPDISPLYATTRIBUTES = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPAF_CONSUME_LEADING_SPACES: SPDISPLYATTRIBUTES = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPAF_BUFFER_POSITION: SPDISPLYATTRIBUTES = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPAF_ALL: SPDISPLYATTRIBUTES = 31i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPAF_USER_SPECIFIED: SPDISPLYATTRIBUTES = 128i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPEAKFLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPF_DEFAULT: SPEAKFLAGS = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPF_ASYNC: SPEAKFLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPF_PURGEBEFORESPEAK: SPEAKFLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPF_IS_FILENAME: SPEAKFLAGS = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPF_IS_XML: SPEAKFLAGS = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPF_IS_NOT_XML: SPEAKFLAGS = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPF_PERSIST_XML: SPEAKFLAGS = 32i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPF_NLP_SPEAK_PUNC: SPEAKFLAGS = 64i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPF_PARSE_SAPI: SPEAKFLAGS = 128i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPF_PARSE_SSML: SPEAKFLAGS = 256i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPF_PARSE_AUTODETECT: SPEAKFLAGS = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPF_NLP_MASK: SPEAKFLAGS = 64i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPF_PARSE_MASK: SPEAKFLAGS = 384i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPF_VOICE_MASK: SPEAKFLAGS = 511i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPF_UNUSED_FLAGS: SPEAKFLAGS = -512i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPENDSRSTREAMFLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPESF_NONE: SPENDSRSTREAMFLAGS = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPESF_STREAM_RELEASED: SPENDSRSTREAMFLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPESF_EMULATED: SPENDSRSTREAMFLAGS = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPEVENT {
     pub _bitfield: i32,
@@ -13415,48 +13988,90 @@ impl ::core::default::Default for SPEVENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPEVENTENUM = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_UNDEFINED: SPEVENTENUM = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_START_INPUT_STREAM: SPEVENTENUM = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_END_INPUT_STREAM: SPEVENTENUM = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_VOICE_CHANGE: SPEVENTENUM = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_TTS_BOOKMARK: SPEVENTENUM = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_WORD_BOUNDARY: SPEVENTENUM = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_PHONEME: SPEVENTENUM = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_SENTENCE_BOUNDARY: SPEVENTENUM = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_VISEME: SPEVENTENUM = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_TTS_AUDIO_LEVEL: SPEVENTENUM = 9i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_TTS_PRIVATE: SPEVENTENUM = 15i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_MIN_TTS: SPEVENTENUM = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_MAX_TTS: SPEVENTENUM = 15i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_END_SR_STREAM: SPEVENTENUM = 34i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_SOUND_START: SPEVENTENUM = 35i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_SOUND_END: SPEVENTENUM = 36i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_PHRASE_START: SPEVENTENUM = 37i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_RECOGNITION: SPEVENTENUM = 38i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_HYPOTHESIS: SPEVENTENUM = 39i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_SR_BOOKMARK: SPEVENTENUM = 40i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_PROPERTY_NUM_CHANGE: SPEVENTENUM = 41i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_PROPERTY_STRING_CHANGE: SPEVENTENUM = 42i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_FALSE_RECOGNITION: SPEVENTENUM = 43i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_INTERFERENCE: SPEVENTENUM = 44i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_REQUEST_UI: SPEVENTENUM = 45i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_RECO_STATE_CHANGE: SPEVENTENUM = 46i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_ADAPTATION: SPEVENTENUM = 47i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_START_SR_STREAM: SPEVENTENUM = 48i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_RECO_OTHER_CONTEXT: SPEVENTENUM = 49i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_SR_AUDIO_LEVEL: SPEVENTENUM = 50i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_SR_RETAINEDAUDIO: SPEVENTENUM = 51i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_SR_PRIVATE: SPEVENTENUM = 52i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_RESERVED4: SPEVENTENUM = 53i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_RESERVED5: SPEVENTENUM = 54i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_RESERVED6: SPEVENTENUM = 55i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_MIN_SR: SPEVENTENUM = 34i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_MAX_SR: SPEVENTENUM = 55i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_RESERVED1: SPEVENTENUM = 30i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_RESERVED2: SPEVENTENUM = 33i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPEI_RESERVED3: SPEVENTENUM = 63i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPEVENTEX {
     pub _bitfield: i32,
@@ -13492,13 +14107,20 @@ impl ::core::default::Default for SPEVENTEX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPEVENTLPARAMTYPE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPET_LPARAM_IS_UNDEFINED: SPEVENTLPARAMTYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPET_LPARAM_IS_TOKEN: SPEVENTLPARAMTYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPET_LPARAM_IS_OBJECT: SPEVENTLPARAMTYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPET_LPARAM_IS_POINTER: SPEVENTLPARAMTYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPET_LPARAM_IS_STRING: SPEVENTLPARAMTYPE = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPEVENTSOURCEINFO {
     pub ullEventInterest: u64,
     pub ullQueuedInterest: u64,
@@ -13524,89 +14146,172 @@ impl ::core::default::Default for SPEVENTSOURCEINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPFILEMODE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPFM_OPEN_READONLY: SPFILEMODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPFM_OPEN_READWRITE: SPFILEMODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPFM_CREATE: SPFILEMODE = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPFM_CREATE_ALWAYS: SPFILEMODE = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPFM_NUM_MODES: SPFILEMODE = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPGRAMMAROPTIONS = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPGO_SAPI: SPGRAMMAROPTIONS = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPGO_SRGS: SPGRAMMAROPTIONS = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPGO_UPS: SPGRAMMAROPTIONS = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPGO_SRGS_MS_SCRIPT: SPGRAMMAROPTIONS = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPGO_SRGS_W3C_SCRIPT: SPGRAMMAROPTIONS = 256i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPGO_SRGS_STG_SCRIPT: SPGRAMMAROPTIONS = 512i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPGO_SRGS_SCRIPT: SPGRAMMAROPTIONS = 778i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPGO_FILE: SPGRAMMAROPTIONS = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPGO_HTTP: SPGRAMMAROPTIONS = 32i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPGO_RES: SPGRAMMAROPTIONS = 64i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPGO_OBJECT: SPGRAMMAROPTIONS = 128i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPGO_DEFAULT: SPGRAMMAROPTIONS = 1019i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPGO_ALL: SPGRAMMAROPTIONS = 1023i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPGRAMMARSTATE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPGS_DISABLED: SPGRAMMARSTATE = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPGS_ENABLED: SPGRAMMARSTATE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPGS_EXCLUSIVE: SPGRAMMARSTATE = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPGRAMMARWORDTYPE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPWT_DISPLAY: SPGRAMMARWORDTYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPWT_LEXICAL: SPGRAMMARWORDTYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPWT_PRONUNCIATION: SPGRAMMARWORDTYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPWT_LEXICAL_NO_SPECIAL_CHARS: SPGRAMMARWORDTYPE = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPINTERFERENCE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPINTERFERENCE_NONE: SPINTERFERENCE = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPINTERFERENCE_NOISE: SPINTERFERENCE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPINTERFERENCE_NOSIGNAL: SPINTERFERENCE = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPINTERFERENCE_TOOLOUD: SPINTERFERENCE = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPINTERFERENCE_TOOQUIET: SPINTERFERENCE = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPINTERFERENCE_TOOFAST: SPINTERFERENCE = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPINTERFERENCE_TOOSLOW: SPINTERFERENCE = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPINTERFERENCE_LATENCY_WARNING: SPINTERFERENCE = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPINTERFERENCE_LATENCY_TRUNCATE_BEGIN: SPINTERFERENCE = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPINTERFERENCE_LATENCY_TRUNCATE_END: SPINTERFERENCE = 9i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPLEXICONTYPE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_USER: SPLEXICONTYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_APP: SPLEXICONTYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_VENDORLEXICON: SPLEXICONTYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_LETTERTOSOUND: SPLEXICONTYPE = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_MORPHOLOGY: SPLEXICONTYPE = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_RESERVED4: SPLEXICONTYPE = 32i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_USER_SHORTCUT: SPLEXICONTYPE = 64i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_RESERVED6: SPLEXICONTYPE = 128i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_RESERVED7: SPLEXICONTYPE = 256i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_RESERVED8: SPLEXICONTYPE = 512i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_RESERVED9: SPLEXICONTYPE = 1024i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_RESERVED10: SPLEXICONTYPE = 2048i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE1: SPLEXICONTYPE = 4096i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE2: SPLEXICONTYPE = 8192i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE3: SPLEXICONTYPE = 16384i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE4: SPLEXICONTYPE = 32768i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE5: SPLEXICONTYPE = 65536i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE6: SPLEXICONTYPE = 131072i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE7: SPLEXICONTYPE = 262144i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE8: SPLEXICONTYPE = 524288i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE9: SPLEXICONTYPE = 1048576i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE10: SPLEXICONTYPE = 2097152i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE11: SPLEXICONTYPE = 4194304i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE12: SPLEXICONTYPE = 8388608i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE13: SPLEXICONTYPE = 16777216i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE14: SPLEXICONTYPE = 33554432i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE15: SPLEXICONTYPE = 67108864i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE16: SPLEXICONTYPE = 134217728i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE17: SPLEXICONTYPE = 268435456i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE18: SPLEXICONTYPE = 536870912i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE19: SPLEXICONTYPE = 1073741824i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eLEXTYPE_PRIVATE20: SPLEXICONTYPE = -2147483648i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPLOADOPTIONS = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPLO_STATIC: SPLOADOPTIONS = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPLO_DYNAMIC: SPLOADOPTIONS = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPMATCHINGMODE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const AllWords: SPMATCHINGMODE = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const Subsequence: SPMATCHINGMODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const OrderedSubset: SPMATCHINGMODE = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SubsequenceContentRequired: SPMATCHINGMODE = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const OrderedSubsetContentRequired: SPMATCHINGMODE = 7i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPNORMALIZATIONLIST {
     pub ulSize: u32,
     pub ppszzNormalizedList: *mut *mut u16,
@@ -13631,20 +14336,33 @@ impl ::core::default::Default for SPNORMALIZATIONLIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SPNOTIFYCALLBACK = ::core::option::Option<unsafe extern "system" fn(wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM)>;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPPARTOFSPEECH = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPPS_NotOverriden: SPPARTOFSPEECH = -1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPPS_Unknown: SPPARTOFSPEECH = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPPS_Noun: SPPARTOFSPEECH = 4096i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPPS_Verb: SPPARTOFSPEECH = 8192i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPPS_Modifier: SPPARTOFSPEECH = 12288i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPPS_Function: SPPARTOFSPEECH = 16384i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPPS_Interjection: SPPARTOFSPEECH = 20480i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPPS_Noncontent: SPPARTOFSPEECH = 24576i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPPS_LMA: SPPARTOFSPEECH = 28672i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPPS_SuppressWord: SPPARTOFSPEECH = 61440i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPHRASE {
     pub __AnonymousBase_sapi53_L5821_C34: SPPHRASE_50,
@@ -13678,6 +14396,7 @@ impl ::core::default::Default for SPPHRASE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPPHRASEELEMENT {
     pub ulAudioTimeOffset: u32,
@@ -13722,6 +14441,7 @@ impl ::core::default::Default for SPPHRASEELEMENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPHRASEPROPERTY {
     pub pszName: super::super::Foundation::PWSTR,
@@ -13771,6 +14491,7 @@ impl ::core::default::Default for SPPHRASEPROPERTY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub union SPPHRASEPROPERTY_0 {
     pub ulId: u32,
@@ -13803,6 +14524,7 @@ impl ::core::default::Default for SPPHRASEPROPERTY_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPHRASEPROPERTY_0_0 {
     pub bType: u8,
@@ -13835,10 +14557,14 @@ impl ::core::default::Default for SPPHRASEPROPERTY_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPPHRASEPROPERTYUNIONTYPE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPPPUT_UNUSED: SPPHRASEPROPERTYUNIONTYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPPPUT_ARRAY_INDEX: SPPHRASEPROPERTYUNIONTYPE = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPPHRASEREPLACEMENT {
     pub bDisplayAttributes: u8,
@@ -13872,9 +14598,12 @@ impl ::core::default::Default for SPPHRASEREPLACEMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPPHRASERNG = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPPR_ALL_ELEMENTS: SPPHRASERNG = -1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPPHRASERULE {
     pub pszName: super::super::Foundation::PWSTR,
@@ -13913,6 +14642,7 @@ impl ::core::default::Default for SPPHRASERULE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPHRASE_50 {
     pub cbSize: u32,
@@ -13959,9 +14689,12 @@ impl ::core::default::Default for SPPHRASE_50 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPPRONUNCIATIONFLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const ePRONFLAG_USED: SPPRONUNCIATIONFLAGS = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPROPERTYINFO {
     pub pszName: super::super::Foundation::PWSTR,
@@ -13994,6 +14727,7 @@ impl ::core::default::Default for SPPROPERTYINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPRECOCONTEXTSTATUS {
     pub eInterference: SPINTERFERENCE,
     pub szRequestTypeOfUI: [u16; 255],
@@ -14020,15 +14754,24 @@ impl ::core::default::Default for SPRECOCONTEXTSTATUS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPRECOEVENTFLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPREF_AutoPause: SPRECOEVENTFLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPREF_Emulated: SPRECOEVENTFLAGS = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPREF_SMLTimeout: SPRECOEVENTFLAGS = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPREF_ExtendableParse: SPRECOEVENTFLAGS = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPREF_ReSent: SPRECOEVENTFLAGS = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPREF_Hypothesis: SPRECOEVENTFLAGS = 32i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPREF_FalseRecognition: SPRECOEVENTFLAGS = 64i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPRECOGNIZERSTATUS {
     pub AudioStatus: SPAUDIOSTATUS,
     pub ullRecognitionStreamPos: u64,
@@ -14060,6 +14803,7 @@ impl ::core::default::Default for SPRECOGNIZERSTATUS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPRECORESULTTIMES {
     pub ftStreamTime: super::super::Foundation::FILETIME,
@@ -14093,14 +14837,21 @@ impl ::core::default::Default for SPRECORESULTTIMES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPRECOSTATE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRST_INACTIVE: SPRECOSTATE = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRST_ACTIVE: SPRECOSTATE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRST_ACTIVE_ALWAYS: SPRECOSTATE = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRST_INACTIVE_WITH_PURGE: SPRECOSTATE = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRST_NUM_STATES: SPRECOSTATE = 4i32;
 pub const SPRP_NORMAL: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPRULE {
     pub pszRuleName: super::super::Foundation::PWSTR,
@@ -14133,15 +14884,24 @@ impl ::core::default::Default for SPRULE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPRULESTATE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRS_INACTIVE: SPRULESTATE = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRS_ACTIVE: SPRULESTATE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRS_ACTIVE_WITH_AUTO_PAUSE: SPRULESTATE = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRS_ACTIVE_USER_DELIMITED: SPRULESTATE = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPRUNSTATE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRS_DONE: SPRUNSTATE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPRS_IS_SPEAKING: SPRUNSTATE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPSEMANTICERRORINFO {
     pub ulLineNumber: u32,
@@ -14176,13 +14936,20 @@ impl ::core::default::Default for SPSEMANTICERRORINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPSEMANTICFORMAT = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSMF_SAPI_PROPERTIES: SPSEMANTICFORMAT = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSMF_SRGS_SEMANTICINTERPRETATION_MS: SPSEMANTICFORMAT = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSMF_SRGS_SAPIPROPERTIES: SPSEMANTICFORMAT = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSMF_UPS: SPSEMANTICFORMAT = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSMF_SRGS_SEMANTICINTERPRETATION_W3C: SPSEMANTICFORMAT = 8i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPSERIALIZEDEVENT {
     pub _bitfield: i32,
     pub ulStreamNum: u32,
@@ -14211,6 +14978,7 @@ impl ::core::default::Default for SPSERIALIZEDEVENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPSERIALIZEDEVENT64 {
     pub _bitfield: i32,
     pub ulStreamNum: u32,
@@ -14239,6 +15007,7 @@ impl ::core::default::Default for SPSERIALIZEDEVENT64 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPSERIALIZEDPHRASE {
     pub ulSerializedSize: u32,
 }
@@ -14263,6 +15032,7 @@ impl ::core::default::Default for SPSERIALIZEDPHRASE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPSERIALIZEDRESULT {
     pub ulSerializedSize: u32,
 }
@@ -14287,6 +15057,7 @@ impl ::core::default::Default for SPSERIALIZEDRESULT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPSHORTCUTPAIR {
     pub pNextSHORTCUTPAIR: *mut SPSHORTCUTPAIR,
@@ -14322,6 +15093,7 @@ impl ::core::default::Default for SPSHORTCUTPAIR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPSHORTCUTPAIRLIST {
     pub ulSize: u32,
@@ -14354,16 +15126,26 @@ impl ::core::default::Default for SPSHORTCUTPAIRLIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPSHORTCUTTYPE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSHT_NotOverriden: SPSHORTCUTTYPE = -1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSHT_Unknown: SPSHORTCUTTYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSHT_EMAIL: SPSHORTCUTTYPE = 4096i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSHT_OTHER: SPSHORTCUTTYPE = 8192i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPPS_RESERVED1: SPSHORTCUTTYPE = 12288i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPPS_RESERVED2: SPSHORTCUTTYPE = 16384i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPPS_RESERVED3: SPSHORTCUTTYPE = 20480i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPPS_RESERVED4: SPSHORTCUTTYPE = 61440i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPSTATEHANDLE__ {
     pub unused: i32,
 }
@@ -14387,79 +15169,152 @@ impl ::core::default::Default for SPSTATEHANDLE__ {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPSTREAMFORMAT = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_Default: SPSTREAMFORMAT = -1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_NoAssignedFormat: SPSTREAMFORMAT = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_Text: SPSTREAMFORMAT = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_NonStandardFormat: SPSTREAMFORMAT = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_ExtendedAudioFormat: SPSTREAMFORMAT = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_8kHz8BitMono: SPSTREAMFORMAT = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_8kHz8BitStereo: SPSTREAMFORMAT = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_8kHz16BitMono: SPSTREAMFORMAT = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_8kHz16BitStereo: SPSTREAMFORMAT = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_11kHz8BitMono: SPSTREAMFORMAT = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_11kHz8BitStereo: SPSTREAMFORMAT = 9i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_11kHz16BitMono: SPSTREAMFORMAT = 10i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_11kHz16BitStereo: SPSTREAMFORMAT = 11i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_12kHz8BitMono: SPSTREAMFORMAT = 12i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_12kHz8BitStereo: SPSTREAMFORMAT = 13i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_12kHz16BitMono: SPSTREAMFORMAT = 14i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_12kHz16BitStereo: SPSTREAMFORMAT = 15i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_16kHz8BitMono: SPSTREAMFORMAT = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_16kHz8BitStereo: SPSTREAMFORMAT = 17i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_16kHz16BitMono: SPSTREAMFORMAT = 18i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_16kHz16BitStereo: SPSTREAMFORMAT = 19i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_22kHz8BitMono: SPSTREAMFORMAT = 20i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_22kHz8BitStereo: SPSTREAMFORMAT = 21i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_22kHz16BitMono: SPSTREAMFORMAT = 22i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_22kHz16BitStereo: SPSTREAMFORMAT = 23i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_24kHz8BitMono: SPSTREAMFORMAT = 24i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_24kHz8BitStereo: SPSTREAMFORMAT = 25i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_24kHz16BitMono: SPSTREAMFORMAT = 26i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_24kHz16BitStereo: SPSTREAMFORMAT = 27i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_32kHz8BitMono: SPSTREAMFORMAT = 28i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_32kHz8BitStereo: SPSTREAMFORMAT = 29i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_32kHz16BitMono: SPSTREAMFORMAT = 30i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_32kHz16BitStereo: SPSTREAMFORMAT = 31i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_44kHz8BitMono: SPSTREAMFORMAT = 32i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_44kHz8BitStereo: SPSTREAMFORMAT = 33i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_44kHz16BitMono: SPSTREAMFORMAT = 34i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_44kHz16BitStereo: SPSTREAMFORMAT = 35i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_48kHz8BitMono: SPSTREAMFORMAT = 36i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_48kHz8BitStereo: SPSTREAMFORMAT = 37i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_48kHz16BitMono: SPSTREAMFORMAT = 38i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_48kHz16BitStereo: SPSTREAMFORMAT = 39i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_TrueSpeech_8kHz1BitMono: SPSTREAMFORMAT = 40i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_CCITT_ALaw_8kHzMono: SPSTREAMFORMAT = 41i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_CCITT_ALaw_8kHzStereo: SPSTREAMFORMAT = 42i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_CCITT_ALaw_11kHzMono: SPSTREAMFORMAT = 43i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_CCITT_ALaw_11kHzStereo: SPSTREAMFORMAT = 44i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_CCITT_ALaw_22kHzMono: SPSTREAMFORMAT = 45i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_CCITT_ALaw_22kHzStereo: SPSTREAMFORMAT = 46i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_CCITT_ALaw_44kHzMono: SPSTREAMFORMAT = 47i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_CCITT_ALaw_44kHzStereo: SPSTREAMFORMAT = 48i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_CCITT_uLaw_8kHzMono: SPSTREAMFORMAT = 49i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_CCITT_uLaw_8kHzStereo: SPSTREAMFORMAT = 50i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_CCITT_uLaw_11kHzMono: SPSTREAMFORMAT = 51i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_CCITT_uLaw_11kHzStereo: SPSTREAMFORMAT = 52i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_CCITT_uLaw_22kHzMono: SPSTREAMFORMAT = 53i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_CCITT_uLaw_22kHzStereo: SPSTREAMFORMAT = 54i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_CCITT_uLaw_44kHzMono: SPSTREAMFORMAT = 55i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_CCITT_uLaw_44kHzStereo: SPSTREAMFORMAT = 56i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_ADPCM_8kHzMono: SPSTREAMFORMAT = 57i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_ADPCM_8kHzStereo: SPSTREAMFORMAT = 58i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_ADPCM_11kHzMono: SPSTREAMFORMAT = 59i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_ADPCM_11kHzStereo: SPSTREAMFORMAT = 60i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_ADPCM_22kHzMono: SPSTREAMFORMAT = 61i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_ADPCM_22kHzStereo: SPSTREAMFORMAT = 62i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_ADPCM_44kHzMono: SPSTREAMFORMAT = 63i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_ADPCM_44kHzStereo: SPSTREAMFORMAT = 64i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_GSM610_8kHzMono: SPSTREAMFORMAT = 65i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_GSM610_11kHzMono: SPSTREAMFORMAT = 66i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_GSM610_22kHzMono: SPSTREAMFORMAT = 67i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_GSM610_44kHzMono: SPSTREAMFORMAT = 68i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSF_NUM_FORMATS: SPSTREAMFORMAT = 69i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPTEXTSELECTIONINFO {
     pub ulStartActiveOffset: u32,
     pub cchActiveChars: u32,
@@ -14486,25 +15341,44 @@ impl ::core::default::Default for SPTEXTSELECTIONINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPVACTIONS = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPVA_Speak: SPVACTIONS = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPVA_Silence: SPVACTIONS = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPVA_Pronounce: SPVACTIONS = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPVA_Bookmark: SPVACTIONS = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPVA_SpellOut: SPVACTIONS = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPVA_Section: SPVACTIONS = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPVA_ParseUnknownTag: SPVACTIONS = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPVALUETYPE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPDF_PROPERTY: SPVALUETYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPDF_REPLACEMENT: SPVALUETYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPDF_RULE: SPVALUETYPE = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPDF_DISPLAYTEXT: SPVALUETYPE = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPDF_LEXICALFORM: SPVALUETYPE = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPDF_PRONUNCIATION: SPVALUETYPE = 32i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPDF_AUDIO: SPVALUETYPE = 64i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPDF_ALTERNATES: SPVALUETYPE = 128i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPDF_ALL: SPVALUETYPE = 255i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPVCONTEXT {
     pub pCategory: super::super::Foundation::PWSTR,
@@ -14537,38 +15411,70 @@ impl ::core::default::Default for SPVCONTEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPVFEATURE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPVFEATURE_STRESSED: SPVFEATURE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPVFEATURE_EMPHASIS: SPVFEATURE = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPVISEMES = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_0: SPVISEMES = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_1: SPVISEMES = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_2: SPVISEMES = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_3: SPVISEMES = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_4: SPVISEMES = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_5: SPVISEMES = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_6: SPVISEMES = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_7: SPVISEMES = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_8: SPVISEMES = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_9: SPVISEMES = 9i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_10: SPVISEMES = 10i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_11: SPVISEMES = 11i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_12: SPVISEMES = 12i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_13: SPVISEMES = 13i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_14: SPVISEMES = 14i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_15: SPVISEMES = 15i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_16: SPVISEMES = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_17: SPVISEMES = 17i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_18: SPVISEMES = 18i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_19: SPVISEMES = 19i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_20: SPVISEMES = 20i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SP_VISEME_21: SPVISEMES = 21i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPVLIMITS = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPMIN_VOLUME: SPVLIMITS = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPMAX_VOLUME: SPVLIMITS = 100i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPMIN_RATE: SPVLIMITS = -10i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPMAX_RATE: SPVLIMITS = 10i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPVOICESTATUS {
     pub ulCurrentStream: u32,
     pub ulLastStreamQueued: u32,
@@ -14605,6 +15511,7 @@ impl ::core::default::Default for SPVOICESTATUS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPVPITCH {
     pub MiddleAdj: i32,
     pub RangeAdj: i32,
@@ -14629,11 +15536,16 @@ impl ::core::default::Default for SPVPITCH {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPVPRIORITY = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPVPRI_NORMAL: SPVPRIORITY = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPVPRI_ALERT: SPVPRIORITY = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPVPRI_OVER: SPVPRIORITY = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPVSTATE {
     pub eAction: SPVACTIONS,
@@ -14674,10 +15586,14 @@ impl ::core::default::Default for SPVSTATE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPWAVEFORMATTYPE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPWF_INPUT: SPWAVEFORMATTYPE = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPWF_SRENGINE: SPWAVEFORMATTYPE = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPWORD {
     pub pNextWord: *mut SPWORD,
@@ -14714,6 +15630,7 @@ impl ::core::default::Default for SPWORD {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SPWORDLIST {
     pub ulSize: u32,
@@ -14746,11 +15663,16 @@ impl ::core::default::Default for SPWORDLIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPWORDPRONOUNCEABLE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPWP_UNKNOWN_WORD_UNPRONOUNCEABLE: SPWORDPRONOUNCEABLE = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPWP_UNKNOWN_WORD_PRONOUNCEABLE: SPWORDPRONOUNCEABLE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPWP_KNOWN_WORD_PRONOUNCEABLE: SPWORDPRONOUNCEABLE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPWORDPRONUNCIATION {
     pub pNextWordPronunciation: *mut SPWORDPRONUNCIATION,
     pub eLexiconType: SPLEXICONTYPE,
@@ -14780,6 +15702,7 @@ impl ::core::default::Default for SPWORDPRONUNCIATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub struct SPWORDPRONUNCIATIONLIST {
     pub ulSize: u32,
     pub pvBuffer: *mut u8,
@@ -14805,11 +15728,17 @@ impl ::core::default::Default for SPWORDPRONUNCIATIONLIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPWORDTYPE = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eWORDTYPE_ADDED: SPWORDTYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const eWORDTYPE_DELETED: SPWORDTYPE = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SPXMLRESULTOPTIONS = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPXRO_SML: SPXMLRESULTOPTIONS = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPXRO_Alternates_SML: SPXMLRESULTOPTIONS = 1i32;
 pub const SP_EMULATE_RESULT: u32 = 1073741824u32;
 pub const SP_LOW_CONFIDENCE: i32 = -1i32;
@@ -14848,308 +15777,606 @@ pub const SpUnCompressedLexicon: ::windows::core::GUID = ::windows::core::GUID::
 pub const SpVoice: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96749377_3391_11d2_9ee3_00c04f797396);
 pub const SpWaveFormatEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc79a574c_63be_44b9_801f_283f87f898be);
 pub const SpeechAllElements: i32 = -1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechAudioFormatType = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTDefault: SpeechAudioFormatType = -1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTNoAssignedFormat: SpeechAudioFormatType = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTText: SpeechAudioFormatType = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTNonStandardFormat: SpeechAudioFormatType = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTExtendedAudioFormat: SpeechAudioFormatType = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT8kHz8BitMono: SpeechAudioFormatType = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT8kHz8BitStereo: SpeechAudioFormatType = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT8kHz16BitMono: SpeechAudioFormatType = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT8kHz16BitStereo: SpeechAudioFormatType = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT11kHz8BitMono: SpeechAudioFormatType = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT11kHz8BitStereo: SpeechAudioFormatType = 9i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT11kHz16BitMono: SpeechAudioFormatType = 10i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT11kHz16BitStereo: SpeechAudioFormatType = 11i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT12kHz8BitMono: SpeechAudioFormatType = 12i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT12kHz8BitStereo: SpeechAudioFormatType = 13i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT12kHz16BitMono: SpeechAudioFormatType = 14i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT12kHz16BitStereo: SpeechAudioFormatType = 15i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT16kHz8BitMono: SpeechAudioFormatType = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT16kHz8BitStereo: SpeechAudioFormatType = 17i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT16kHz16BitMono: SpeechAudioFormatType = 18i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT16kHz16BitStereo: SpeechAudioFormatType = 19i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT22kHz8BitMono: SpeechAudioFormatType = 20i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT22kHz8BitStereo: SpeechAudioFormatType = 21i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT22kHz16BitMono: SpeechAudioFormatType = 22i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT22kHz16BitStereo: SpeechAudioFormatType = 23i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT24kHz8BitMono: SpeechAudioFormatType = 24i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT24kHz8BitStereo: SpeechAudioFormatType = 25i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT24kHz16BitMono: SpeechAudioFormatType = 26i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT24kHz16BitStereo: SpeechAudioFormatType = 27i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT32kHz8BitMono: SpeechAudioFormatType = 28i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT32kHz8BitStereo: SpeechAudioFormatType = 29i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT32kHz16BitMono: SpeechAudioFormatType = 30i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT32kHz16BitStereo: SpeechAudioFormatType = 31i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT44kHz8BitMono: SpeechAudioFormatType = 32i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT44kHz8BitStereo: SpeechAudioFormatType = 33i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT44kHz16BitMono: SpeechAudioFormatType = 34i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT44kHz16BitStereo: SpeechAudioFormatType = 35i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT48kHz8BitMono: SpeechAudioFormatType = 36i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT48kHz8BitStereo: SpeechAudioFormatType = 37i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT48kHz16BitMono: SpeechAudioFormatType = 38i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFT48kHz16BitStereo: SpeechAudioFormatType = 39i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTTrueSpeech_8kHz1BitMono: SpeechAudioFormatType = 40i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTCCITT_ALaw_8kHzMono: SpeechAudioFormatType = 41i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTCCITT_ALaw_8kHzStereo: SpeechAudioFormatType = 42i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTCCITT_ALaw_11kHzMono: SpeechAudioFormatType = 43i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTCCITT_ALaw_11kHzStereo: SpeechAudioFormatType = 44i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTCCITT_ALaw_22kHzMono: SpeechAudioFormatType = 45i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTCCITT_ALaw_22kHzStereo: SpeechAudioFormatType = 46i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTCCITT_ALaw_44kHzMono: SpeechAudioFormatType = 47i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTCCITT_ALaw_44kHzStereo: SpeechAudioFormatType = 48i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTCCITT_uLaw_8kHzMono: SpeechAudioFormatType = 49i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTCCITT_uLaw_8kHzStereo: SpeechAudioFormatType = 50i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTCCITT_uLaw_11kHzMono: SpeechAudioFormatType = 51i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTCCITT_uLaw_11kHzStereo: SpeechAudioFormatType = 52i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTCCITT_uLaw_22kHzMono: SpeechAudioFormatType = 53i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTCCITT_uLaw_22kHzStereo: SpeechAudioFormatType = 54i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTCCITT_uLaw_44kHzMono: SpeechAudioFormatType = 55i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTCCITT_uLaw_44kHzStereo: SpeechAudioFormatType = 56i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTADPCM_8kHzMono: SpeechAudioFormatType = 57i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTADPCM_8kHzStereo: SpeechAudioFormatType = 58i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTADPCM_11kHzMono: SpeechAudioFormatType = 59i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTADPCM_11kHzStereo: SpeechAudioFormatType = 60i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTADPCM_22kHzMono: SpeechAudioFormatType = 61i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTADPCM_22kHzStereo: SpeechAudioFormatType = 62i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTADPCM_44kHzMono: SpeechAudioFormatType = 63i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTADPCM_44kHzStereo: SpeechAudioFormatType = 64i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTGSM610_8kHzMono: SpeechAudioFormatType = 65i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTGSM610_11kHzMono: SpeechAudioFormatType = 66i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTGSM610_22kHzMono: SpeechAudioFormatType = 67i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SAFTGSM610_44kHzMono: SpeechAudioFormatType = 68i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechAudioState = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SASClosed: SpeechAudioState = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SASStop: SpeechAudioState = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SASPause: SpeechAudioState = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SASRun: SpeechAudioState = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechBookmarkOptions = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SBONone: SpeechBookmarkOptions = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SBOPause: SpeechBookmarkOptions = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechDataKeyLocation = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SDKLDefaultLocation: SpeechDataKeyLocation = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SDKLCurrentUser: SpeechDataKeyLocation = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SDKLLocalMachine: SpeechDataKeyLocation = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SDKLCurrentConfig: SpeechDataKeyLocation = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechDiscardType = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SDTProperty: SpeechDiscardType = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SDTReplacement: SpeechDiscardType = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SDTRule: SpeechDiscardType = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SDTDisplayText: SpeechDiscardType = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SDTLexicalForm: SpeechDiscardType = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SDTPronunciation: SpeechDiscardType = 32i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SDTAudio: SpeechDiscardType = 64i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SDTAlternates: SpeechDiscardType = 128i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SDTAll: SpeechDiscardType = 255i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechDisplayAttributes = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SDA_No_Trailing_Space: SpeechDisplayAttributes = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SDA_One_Trailing_Space: SpeechDisplayAttributes = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SDA_Two_Trailing_Spaces: SpeechDisplayAttributes = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SDA_Consume_Leading_Spaces: SpeechDisplayAttributes = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechEmulationCompareFlags = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SECFIgnoreCase: SpeechEmulationCompareFlags = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SECFIgnoreKanaType: SpeechEmulationCompareFlags = 65536i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SECFIgnoreWidth: SpeechEmulationCompareFlags = 131072i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SECFNoSpecialChars: SpeechEmulationCompareFlags = 536870912i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SECFEmulateResult: SpeechEmulationCompareFlags = 1073741824i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SECFDefault: SpeechEmulationCompareFlags = 196609i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechEngineConfidence = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SECLowConfidence: SpeechEngineConfidence = -1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SECNormalConfidence: SpeechEngineConfidence = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SECHighConfidence: SpeechEngineConfidence = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechFormatType = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SFTInput: SpeechFormatType = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SFTSREngine: SpeechFormatType = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechGrammarRuleStateTransitionType = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SGRSTTEpsilon: SpeechGrammarRuleStateTransitionType = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SGRSTTWord: SpeechGrammarRuleStateTransitionType = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SGRSTTRule: SpeechGrammarRuleStateTransitionType = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SGRSTTDictation: SpeechGrammarRuleStateTransitionType = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SGRSTTWildcard: SpeechGrammarRuleStateTransitionType = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SGRSTTTextBuffer: SpeechGrammarRuleStateTransitionType = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechGrammarState = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SGSEnabled: SpeechGrammarState = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SGSDisabled: SpeechGrammarState = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SGSExclusive: SpeechGrammarState = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechGrammarWordType = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SGDisplay: SpeechGrammarWordType = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SGLexical: SpeechGrammarWordType = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SGPronounciation: SpeechGrammarWordType = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SGLexicalNoSpecialChars: SpeechGrammarWordType = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechInterference = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SINone: SpeechInterference = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SINoise: SpeechInterference = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SINoSignal: SpeechInterference = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SITooLoud: SpeechInterference = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SITooQuiet: SpeechInterference = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SITooFast: SpeechInterference = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SITooSlow: SpeechInterference = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechLexiconType = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SLTUser: SpeechLexiconType = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SLTApp: SpeechLexiconType = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechLoadOption = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SLOStatic: SpeechLoadOption = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SLODynamic: SpeechLoadOption = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechPartOfSpeech = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSNotOverriden: SpeechPartOfSpeech = -1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSUnknown: SpeechPartOfSpeech = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSNoun: SpeechPartOfSpeech = 4096i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSVerb: SpeechPartOfSpeech = 8192i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSModifier: SpeechPartOfSpeech = 12288i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSFunction: SpeechPartOfSpeech = 16384i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSInterjection: SpeechPartOfSpeech = 20480i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSLMA: SpeechPartOfSpeech = 28672i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SPSSuppressWord: SpeechPartOfSpeech = 61440i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechRecoContextState = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRCS_Disabled: SpeechRecoContextState = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRCS_Enabled: SpeechRecoContextState = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechRecoEvents = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SREStreamEnd: SpeechRecoEvents = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRESoundStart: SpeechRecoEvents = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRESoundEnd: SpeechRecoEvents = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SREPhraseStart: SpeechRecoEvents = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRERecognition: SpeechRecoEvents = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SREHypothesis: SpeechRecoEvents = 32i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SREBookmark: SpeechRecoEvents = 64i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SREPropertyNumChange: SpeechRecoEvents = 128i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SREPropertyStringChange: SpeechRecoEvents = 256i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SREFalseRecognition: SpeechRecoEvents = 512i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SREInterference: SpeechRecoEvents = 1024i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRERequestUI: SpeechRecoEvents = 2048i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SREStateChange: SpeechRecoEvents = 4096i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SREAdaptation: SpeechRecoEvents = 8192i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SREStreamStart: SpeechRecoEvents = 16384i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRERecoOtherContext: SpeechRecoEvents = 32768i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SREAudioLevel: SpeechRecoEvents = 65536i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SREPrivate: SpeechRecoEvents = 262144i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SREAllEvents: SpeechRecoEvents = 393215i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechRecognitionType = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRTStandard: SpeechRecognitionType = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRTAutopause: SpeechRecognitionType = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRTEmulated: SpeechRecognitionType = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRTSMLTimeout: SpeechRecognitionType = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRTExtendableParse: SpeechRecognitionType = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRTReSent: SpeechRecognitionType = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechRecognizerState = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRSInactive: SpeechRecognizerState = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRSActive: SpeechRecognizerState = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRSActiveAlways: SpeechRecognizerState = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRSInactiveWithPurge: SpeechRecognizerState = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechRetainedAudioOptions = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRAONone: SpeechRetainedAudioOptions = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRAORetainAudio: SpeechRetainedAudioOptions = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechRuleAttributes = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRATopLevel: SpeechRuleAttributes = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRADefaultToActive: SpeechRuleAttributes = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRAExport: SpeechRuleAttributes = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRAImport: SpeechRuleAttributes = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRAInterpreter: SpeechRuleAttributes = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRADynamic: SpeechRuleAttributes = 32i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRARoot: SpeechRuleAttributes = 64i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechRuleState = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SGDSInactive: SpeechRuleState = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SGDSActive: SpeechRuleState = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SGDSActiveWithAutoPause: SpeechRuleState = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SGDSActiveUserDelimited: SpeechRuleState = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechRunState = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRSEDone: SpeechRunState = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SRSEIsSpeaking: SpeechRunState = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechSpecialTransitionType = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SSTTWildcard: SpeechSpecialTransitionType = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SSTTDictation: SpeechSpecialTransitionType = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SSTTTextBuffer: SpeechSpecialTransitionType = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechStreamFileMode = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SSFMOpenForRead: SpeechStreamFileMode = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SSFMOpenReadWrite: SpeechStreamFileMode = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SSFMCreate: SpeechStreamFileMode = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SSFMCreateForWrite: SpeechStreamFileMode = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechStreamSeekPositionType = u32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SSSPTRelativeToStart: SpeechStreamSeekPositionType = 0u32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SSSPTRelativeToCurrentPosition: SpeechStreamSeekPositionType = 1u32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SSSPTRelativeToEnd: SpeechStreamSeekPositionType = 2u32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechTokenContext = u32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const STCInprocServer: SpeechTokenContext = 1u32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const STCInprocHandler: SpeechTokenContext = 2u32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const STCLocalServer: SpeechTokenContext = 4u32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const STCRemoteServer: SpeechTokenContext = 16u32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const STCAll: SpeechTokenContext = 23u32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechTokenShellFolder = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const STSF_AppData: SpeechTokenShellFolder = 26i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const STSF_LocalAppData: SpeechTokenShellFolder = 28i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const STSF_CommonAppData: SpeechTokenShellFolder = 35i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const STSF_FlagCreate: SpeechTokenShellFolder = 32768i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechVisemeFeature = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVF_None: SpeechVisemeFeature = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVF_Stressed: SpeechVisemeFeature = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVF_Emphasis: SpeechVisemeFeature = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechVisemeType = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_0: SpeechVisemeType = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_1: SpeechVisemeType = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_2: SpeechVisemeType = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_3: SpeechVisemeType = 3i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_4: SpeechVisemeType = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_5: SpeechVisemeType = 5i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_6: SpeechVisemeType = 6i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_7: SpeechVisemeType = 7i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_8: SpeechVisemeType = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_9: SpeechVisemeType = 9i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_10: SpeechVisemeType = 10i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_11: SpeechVisemeType = 11i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_12: SpeechVisemeType = 12i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_13: SpeechVisemeType = 13i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_14: SpeechVisemeType = 14i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_15: SpeechVisemeType = 15i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_16: SpeechVisemeType = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_17: SpeechVisemeType = 17i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_18: SpeechVisemeType = 18i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_19: SpeechVisemeType = 19i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_20: SpeechVisemeType = 20i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVP_21: SpeechVisemeType = 21i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechVoiceEvents = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVEStartInputStream: SpeechVoiceEvents = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVEEndInputStream: SpeechVoiceEvents = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVEVoiceChange: SpeechVoiceEvents = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVEBookmark: SpeechVoiceEvents = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVEWordBoundary: SpeechVoiceEvents = 32i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVEPhoneme: SpeechVoiceEvents = 64i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVESentenceBoundary: SpeechVoiceEvents = 128i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVEViseme: SpeechVoiceEvents = 256i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVEAudioLevel: SpeechVoiceEvents = 512i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVEPrivate: SpeechVoiceEvents = 32768i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVEAllEvents: SpeechVoiceEvents = 33790i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechVoicePriority = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVPNormal: SpeechVoicePriority = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVPAlert: SpeechVoicePriority = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVPOver: SpeechVoicePriority = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechVoiceSpeakFlags = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVSFDefault: SpeechVoiceSpeakFlags = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVSFlagsAsync: SpeechVoiceSpeakFlags = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVSFPurgeBeforeSpeak: SpeechVoiceSpeakFlags = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVSFIsFilename: SpeechVoiceSpeakFlags = 4i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVSFIsXML: SpeechVoiceSpeakFlags = 8i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVSFIsNotXML: SpeechVoiceSpeakFlags = 16i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVSFPersistXML: SpeechVoiceSpeakFlags = 32i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVSFNLPSpeakPunc: SpeechVoiceSpeakFlags = 64i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVSFParseSapi: SpeechVoiceSpeakFlags = 128i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVSFParseSsml: SpeechVoiceSpeakFlags = 256i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVSFParseAutodetect: SpeechVoiceSpeakFlags = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVSFNLPMask: SpeechVoiceSpeakFlags = 64i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVSFParseMask: SpeechVoiceSpeakFlags = 384i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVSFVoiceMask: SpeechVoiceSpeakFlags = 511i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SVSFUnusedFlags: SpeechVoiceSpeakFlags = -512i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechWordPronounceable = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SWPUnknownWordUnpronounceable: SpeechWordPronounceable = 0i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SWPUnknownWordPronounceable: SpeechWordPronounceable = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SWPKnownWordPronounceable: SpeechWordPronounceable = 2i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub type SpeechWordType = i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SWTAdded: SpeechWordType = 1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 pub const SWTDeleted: SpeechWordType = 2i32;
 pub const Speech_Default_Weight: f32 = 1f32;
 pub const Speech_Max_Pron_Length: i32 = 384i32;
 pub const Speech_Max_Word_Length: i32 = 128i32;
 pub const Speech_StreamPos_Asap: i32 = 0i32;
 pub const Speech_StreamPos_RealTime: i32 = -1i32;
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct _ISpeechRecoContextEvents(::windows::core::IUnknown);
 impl _ISpeechRecoContextEvents {
@@ -15246,6 +16473,7 @@ pub struct _ISpeechRecoContextEventsVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Media_Speech'*"]
 #[repr(transparent)]
 pub struct _ISpeechVoiceEvents(::windows::core::IUnknown);
 impl _ISpeechVoiceEvents {

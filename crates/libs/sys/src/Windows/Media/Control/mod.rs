@@ -7,6 +7,7 @@ pub type GlobalSystemMediaTransportControlsSessionManager = *mut ::core::ffi::c_
 pub type GlobalSystemMediaTransportControlsSessionMediaProperties = *mut ::core::ffi::c_void;
 pub type GlobalSystemMediaTransportControlsSessionPlaybackControls = *mut ::core::ffi::c_void;
 pub type GlobalSystemMediaTransportControlsSessionPlaybackInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Control'*"]
 #[repr(transparent)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackStatus(pub i32);
 impl GlobalSystemMediaTransportControlsSessionPlaybackStatus {

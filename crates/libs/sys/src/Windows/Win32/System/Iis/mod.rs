@@ -1,12 +1,16 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32;
+    #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u32, pvnotification: *mut ::core::ffi::c_void) -> u32;
 }
@@ -29,6 +33,7 @@ pub type AsyncIFtpPreprocessProvider = *mut ::core::ffi::c_void;
 pub type AsyncIFtpRoleProvider = *mut ::core::ffi::c_void;
 pub type AsyncIMSAdminBaseSinkW = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub struct CERT_CONTEXT_EX {
     pub CertContext: super::super::Security::Cryptography::CERT_CONTEXT,
@@ -53,6 +58,7 @@ pub const CLSID_Server: ::windows_sys::core::GUID = ::windows_sys::core::GUID { 
 pub const CLSID_Session: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1352634144, data2: 9694, data3: 4560, data4: [165, 95, 0, 160, 201, 12, 32, 145] };
 pub const CLSID_WamAdmin: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1634960964, data2: 61846, data3: 4560, data4: [153, 83, 0, 192, 79, 217, 25, 193] };
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONFIGURATION_ENTRY {
     pub bstrKey: super::super::Foundation::BSTR,
@@ -91,6 +97,7 @@ pub const DWN_FORCEDITHER: u32 = 128u32;
 pub const DWN_MIRRORIMAGE: u32 = 512u32;
 pub const DWN_RAWIMAGE: u32 = 256u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXTENSION_CONTROL_BLOCK {
     pub cbSize: u32,
@@ -121,15 +128,25 @@ impl ::core::clone::Clone for EXTENSION_CONTROL_BLOCK {
 }
 pub const FP_MD_ID_BEGIN_RESERVED: u32 = 32768u32;
 pub const FP_MD_ID_END_RESERVED: u32 = 36863u32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub type FTP_ACCESS = i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const FTP_ACCESS_NONE: FTP_ACCESS = 0i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const FTP_ACCESS_READ: FTP_ACCESS = 1i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const FTP_ACCESS_WRITE: FTP_ACCESS = 2i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const FTP_ACCESS_READ_WRITE: FTP_ACCESS = 3i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub type FTP_PROCESS_STATUS = i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const FTP_PROCESS_CONTINUE: FTP_PROCESS_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const FTP_PROCESS_CLOSE_SESSION: FTP_PROCESS_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const FTP_PROCESS_TERMINATE_SESSION: FTP_PROCESS_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const FTP_PROCESS_REJECT_COMMAND: FTP_PROCESS_STATUS = 3i32;
 pub const FtpProvider: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1891485287, data2: 13234, data3: 17904, data4: [172, 82, 195, 202, 70, 247, 166, 86] };
 pub const GUID_IIS_ALL_TRACE_PROVIDERS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
@@ -144,6 +161,7 @@ pub const HSE_APP_FLAG_IN_PROCESS: u32 = 0u32;
 pub const HSE_APP_FLAG_ISOLATED_OOP: u32 = 1u32;
 pub const HSE_APP_FLAG_POOLED_OOP: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_CUSTOM_ERROR_INFO {
     pub pszStatus: super::super::Foundation::PSTR,
@@ -159,6 +177,7 @@ impl ::core::clone::Clone for HSE_CUSTOM_ERROR_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_EXEC_UNICODE_URL_INFO {
     pub pszUrl: super::super::Foundation::PWSTR,
@@ -177,6 +196,7 @@ impl ::core::clone::Clone for HSE_EXEC_UNICODE_URL_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_EXEC_UNICODE_URL_USER_INFO {
     pub hImpersonationToken: super::super::Foundation::HANDLE,
@@ -193,6 +213,7 @@ impl ::core::clone::Clone for HSE_EXEC_UNICODE_URL_USER_INFO {
 }
 pub const HSE_EXEC_URL_DISABLE_CUSTOM_ERROR: u32 = 32u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub struct HSE_EXEC_URL_ENTITY_INFO {
     pub cbAvailable: u32,
     pub lpbData: *mut ::core::ffi::c_void,
@@ -207,6 +228,7 @@ pub const HSE_EXEC_URL_HTTP_CACHE_ELIGIBLE: u32 = 128u32;
 pub const HSE_EXEC_URL_IGNORE_CURRENT_INTERCEPTOR: u32 = 4u32;
 pub const HSE_EXEC_URL_IGNORE_VALIDATION_AND_RANGE: u32 = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_EXEC_URL_INFO {
     pub pszUrl: super::super::Foundation::PSTR,
@@ -227,6 +249,7 @@ impl ::core::clone::Clone for HSE_EXEC_URL_INFO {
 pub const HSE_EXEC_URL_NO_HEADERS: u32 = 2u32;
 pub const HSE_EXEC_URL_SSI_CMD: u32 = 64u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub struct HSE_EXEC_URL_STATUS {
     pub uHttpStatusCode: u16,
     pub uHttpSubStatus: u16,
@@ -239,6 +262,7 @@ impl ::core::clone::Clone for HSE_EXEC_URL_STATUS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_EXEC_URL_USER_INFO {
     pub hImpersonationToken: super::super::Foundation::HANDLE,
@@ -298,6 +322,7 @@ pub const HSE_REQ_SET_FLUSH_FLAG: u32 = 1043u32;
 pub const HSE_REQ_TRANSMIT_FILE: u32 = 1006u32;
 pub const HSE_REQ_VECTOR_SEND: u32 = 1037u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_RESPONSE_VECTOR {
     pub dwFlags: u32,
@@ -315,6 +340,7 @@ impl ::core::clone::Clone for HSE_RESPONSE_VECTOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_SEND_HEADER_EX_INFO {
     pub pszStatus: super::super::Foundation::PSTR,
@@ -338,6 +364,7 @@ pub const HSE_STATUS_SUCCESS_AND_KEEP_CONN: u32 = 2u32;
 pub const HSE_TERM_ADVISORY_UNLOAD: u32 = 1u32;
 pub const HSE_TERM_MUST_UNLOAD: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_TF_INFO {
     pub pfnHseIO: PFN_HSE_IO_COMPLETION,
@@ -361,6 +388,7 @@ impl ::core::clone::Clone for HSE_TF_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_TRACE_INFO {
     pub fTraceRequest: super::super::Foundation::BOOL,
@@ -377,6 +405,7 @@ impl ::core::clone::Clone for HSE_TRACE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub struct HSE_UNICODE_URL_MAPEX_INFO {
     pub lpszPath: [u16; 260],
     pub dwFlags: u32,
@@ -401,6 +430,7 @@ pub const HSE_URL_FLAGS_SSL: u32 = 8u32;
 pub const HSE_URL_FLAGS_SSL128: u32 = 256u32;
 pub const HSE_URL_FLAGS_WRITE: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_URL_MAPEX_INFO {
     pub lpszPath: [super::super::Foundation::CHAR; 260],
@@ -419,6 +449,7 @@ impl ::core::clone::Clone for HSE_URL_MAPEX_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub struct HSE_VECTOR_ELEMENT {
     pub ElementType: u32,
     pub pvContext: *mut ::core::ffi::c_void,
@@ -434,6 +465,7 @@ impl ::core::clone::Clone for HSE_VECTOR_ELEMENT {
 pub const HSE_VECTOR_ELEMENT_TYPE_FILE_HANDLE: u32 = 1u32;
 pub const HSE_VECTOR_ELEMENT_TYPE_MEMORY_BUFFER: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HSE_VERSION_INFO {
     pub dwExtensionVersion: u32,
@@ -450,6 +482,7 @@ impl ::core::clone::Clone for HSE_VERSION_INFO {
 pub const HSE_VERSION_MAJOR: u32 = 8u32;
 pub const HSE_VERSION_MINOR: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_FILTER_ACCESS_DENIED {
     pub pszURL: super::super::Foundation::PSTR,
@@ -465,6 +498,7 @@ impl ::core::clone::Clone for HTTP_FILTER_ACCESS_DENIED {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_FILTER_AUTHENT {
     pub pszUser: super::super::Foundation::PSTR,
@@ -481,6 +515,7 @@ impl ::core::clone::Clone for HTTP_FILTER_AUTHENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
     pub GetHeader: isize,
@@ -500,6 +535,7 @@ impl ::core::clone::Clone for HTTP_FILTER_AUTH_COMPLETE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_FILTER_CONTEXT {
     pub cbSize: u32,
@@ -523,6 +559,7 @@ impl ::core::clone::Clone for HTTP_FILTER_CONTEXT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_FILTER_LOG {
     pub pszClientHostName: super::super::Foundation::PSTR,
@@ -546,6 +583,7 @@ impl ::core::clone::Clone for HTTP_FILTER_LOG {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub struct HTTP_FILTER_PREPROC_HEADERS {
     pub GetHeader: isize,
     pub SetHeader: isize,
@@ -560,6 +598,7 @@ impl ::core::clone::Clone for HTTP_FILTER_PREPROC_HEADERS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub struct HTTP_FILTER_RAW_DATA {
     pub pvInData: *mut ::core::ffi::c_void,
     pub cbInData: u32,
@@ -573,6 +612,7 @@ impl ::core::clone::Clone for HTTP_FILTER_RAW_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_FILTER_URL_MAP {
     pub pszURL: super::super::Foundation::PSTR,
@@ -588,6 +628,7 @@ impl ::core::clone::Clone for HTTP_FILTER_URL_MAP {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_FILTER_URL_MAP_EX {
     pub pszURL: super::super::Foundation::PSTR,
@@ -607,6 +648,7 @@ impl ::core::clone::Clone for HTTP_FILTER_URL_MAP_EX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_FILTER_VERSION {
     pub dwServerFilterVersion: u32,
@@ -623,6 +665,7 @@ impl ::core::clone::Clone for HTTP_FILTER_VERSION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_TRACE_CONFIGURATION {
     pub pProviderGuid: *mut ::windows_sys::core::GUID,
@@ -639,6 +682,7 @@ impl ::core::clone::Clone for HTTP_TRACE_CONFIGURATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_TRACE_EVENT {
     pub pProviderGuid: *mut ::windows_sys::core::GUID,
@@ -665,6 +709,7 @@ impl ::core::clone::Clone for HTTP_TRACE_EVENT {
 }
 pub const HTTP_TRACE_EVENT_FLAG_STATIC_DESCRIPTIVE_FIELDS: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_TRACE_EVENT_ITEM {
     pub pszName: super::super::Foundation::PWSTR,
@@ -683,18 +728,31 @@ impl ::core::clone::Clone for HTTP_TRACE_EVENT_ITEM {
 }
 pub const HTTP_TRACE_LEVEL_END: u32 = 7u32;
 pub const HTTP_TRACE_LEVEL_START: u32 = 6u32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub type HTTP_TRACE_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const HTTP_TRACE_TYPE_BYTE: HTTP_TRACE_TYPE = 17i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const HTTP_TRACE_TYPE_USHORT: HTTP_TRACE_TYPE = 18i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const HTTP_TRACE_TYPE_ULONG: HTTP_TRACE_TYPE = 19i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const HTTP_TRACE_TYPE_ULONGLONG: HTTP_TRACE_TYPE = 21i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const HTTP_TRACE_TYPE_CHAR: HTTP_TRACE_TYPE = 16i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const HTTP_TRACE_TYPE_SHORT: HTTP_TRACE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const HTTP_TRACE_TYPE_LONG: HTTP_TRACE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const HTTP_TRACE_TYPE_LONGLONG: HTTP_TRACE_TYPE = 20i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const HTTP_TRACE_TYPE_LPCWSTR: HTTP_TRACE_TYPE = 31i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const HTTP_TRACE_TYPE_LPCSTR: HTTP_TRACE_TYPE = 30i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const HTTP_TRACE_TYPE_LPCGUID: HTTP_TRACE_TYPE = 72i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const HTTP_TRACE_TYPE_BOOL: HTTP_TRACE_TYPE = 11i32;
 pub type IADMEXT = *mut ::core::ffi::c_void;
 pub type IFtpAuthenticationProvider = *mut ::core::ffi::c_void;
@@ -755,6 +813,7 @@ pub const LIBID_ASPTypeLibrary: ::windows_sys::core::GUID = ::windows_sys::core:
 pub const LIBID_IISRSTALib: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3908797972, data2: 22671, data3: 4562, data4: [157, 97, 0, 192, 79, 121, 197, 254] };
 pub const LIBID_WAMREGLib: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 696396456, data2: 62210, data3: 4560, data4: [153, 83, 0, 192, 79, 217, 25, 193] };
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOGGING_PARAMETERS {
     pub pszSessionId: super::super::Foundation::PWSTR,
@@ -990,6 +1049,7 @@ pub const MD_CERT_NO_REVOC_CHECK: u32 = 1u32;
 pub const MD_CERT_NO_USAGE_CHECK: u32 = 65536u32;
 pub const MD_CGI_RESTRICTION_LIST: u32 = 2164u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MD_CHANGE_OBJECT_W {
     pub pszMDPath: super::super::Foundation::PWSTR,
@@ -1434,16 +1494,25 @@ pub const MD_WARNING_SAVE_FAILED: i32 = 837641i32;
 pub const MD_WEBDAV_MAX_ATTRIBUTES_PER_ELEMENT: u32 = 8501u32;
 pub const MD_WEB_SVC_EXT_RESTRICTION_LIST: u32 = 2168u32;
 pub const MD_WIN32_ERROR: u32 = 1099u32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub type METADATATYPES = i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const ALL_METADATA: METADATATYPES = 0i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const DWORD_METADATA: METADATATYPES = 1i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const STRING_METADATA: METADATATYPES = 2i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const BINARY_METADATA: METADATATYPES = 3i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const EXPANDSZ_METADATA: METADATATYPES = 4i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const MULTISZ_METADATA: METADATATYPES = 5i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const INVALID_END_METADATA: METADATATYPES = 6i32;
 pub const METADATA_DONT_EXPAND: u32 = 512u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub struct METADATA_GETALL_INTERNAL_RECORD {
     pub dwMDIdentifier: u32,
     pub dwMDAttributes: u32,
@@ -1460,6 +1529,7 @@ impl ::core::clone::Clone for METADATA_GETALL_INTERNAL_RECORD {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub union METADATA_GETALL_INTERNAL_RECORD_0 {
     pub dwMDDataOffset: usize,
     pub pbMDData: *mut u8,
@@ -1471,6 +1541,7 @@ impl ::core::clone::Clone for METADATA_GETALL_INTERNAL_RECORD_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub struct METADATA_GETALL_RECORD {
     pub dwMDIdentifier: u32,
     pub dwMDAttributes: u32,
@@ -1487,6 +1558,7 @@ impl ::core::clone::Clone for METADATA_GETALL_RECORD {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub struct METADATA_HANDLE_INFO {
     pub dwMDPermissions: u32,
     pub dwMDSystemChangeNumber: u32,
@@ -1509,6 +1581,7 @@ pub const METADATA_PARTIAL_PATH: u32 = 2u32;
 pub const METADATA_PERMISSION_READ: u32 = 1u32;
 pub const METADATA_PERMISSION_WRITE: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub struct METADATA_RECORD {
     pub dwMDIdentifier: u32,
     pub dwMDAttributes: u32,
@@ -1531,26 +1604,36 @@ pub const MSCS_MD_ID_BEGIN_RESERVED: u32 = 53248u32;
 pub const MSCS_MD_ID_END_RESERVED: u32 = 57343u32;
 pub const NNTP_MD_ID_BEGIN_RESERVED: u32 = 45056u32;
 pub const NNTP_MD_ID_END_RESERVED: u32 = 49151u32;
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_GETEXTENSIONVERSION = ::core::option::Option<unsafe extern "system" fn(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HSE_CACHE_INVALIDATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pszurl: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HSE_GET_PROTOCOL_MANAGER_CUSTOM_INTERFACE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pszprotocolmanagerdll: super::super::Foundation::PWSTR, pszprotocolmanagerdllinitfunction: super::super::Foundation::PWSTR, dwcustominterfaceid: u32, ppcustominterface: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HSE_IO_COMPLETION = ::core::option::Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK, pcontext: *mut ::core::ffi::c_void, cbio: u32, dwerror: u32)>;
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HTTPEXTENSIONPROC = ::core::option::Option<unsafe extern "system" fn(pecb: *mut EXTENSION_CONTROL_BLOCK) -> u32>;
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_TERMINATEEXTENSION = ::core::option::Option<unsafe extern "system" fn(dwflags: u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WEB_CORE_ACTIVATE = ::core::option::Option<unsafe extern "system" fn(pszapphostconfigfile: super::super::Foundation::PWSTR, pszrootwebconfigfile: super::super::Foundation::PWSTR, pszinstancename: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_WEB_CORE_SET_METADATA_DLL_ENTRY = ::core::option::Option<unsafe extern "system" fn(pszmetadatatype: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub type PFN_WEB_CORE_SHUTDOWN = ::core::option::Option<unsafe extern "system" fn(fimmediate: u32) -> ::windows_sys::core::HRESULT>;
 pub const POP3_MD_ID_BEGIN_RESERVED: u32 = 40960u32;
 pub const POP3_MD_ID_END_RESERVED: u32 = 45055u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct POST_PROCESS_PARAMETERS {
     pub pszSessionId: super::super::Foundation::PWSTR,
@@ -1583,6 +1666,7 @@ impl ::core::clone::Clone for POST_PROCESS_PARAMETERS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRE_PROCESS_PARAMETERS {
     pub pszSessionId: super::super::Foundation::PWSTR,
@@ -1633,25 +1717,45 @@ pub const SF_NOTIFY_SECURE_PORT: u32 = 1u32;
 pub const SF_NOTIFY_SEND_RAW_DATA: u32 = 1024u32;
 pub const SF_NOTIFY_SEND_RESPONSE: u32 = 64u32;
 pub const SF_NOTIFY_URL_MAP: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub type SF_PROPERTY_IIS = i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const SF_PROPERTY_SSL_CTXT: SF_PROPERTY_IIS = 0i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const SF_PROPERTY_INSTANCE_NUM_ID: SF_PROPERTY_IIS = 1i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub type SF_REQ_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const SF_REQ_SEND_RESPONSE_HEADER: SF_REQ_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const SF_REQ_ADD_HEADERS_ON_DENIAL: SF_REQ_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const SF_REQ_SET_NEXT_READ_SIZE: SF_REQ_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const SF_REQ_SET_PROXY_INFO: SF_REQ_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const SF_REQ_GET_CONNID: SF_REQ_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const SF_REQ_SET_CERTIFICATE_INFO: SF_REQ_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const SF_REQ_GET_PROPERTY: SF_REQ_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const SF_REQ_NORMALIZE_URL: SF_REQ_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const SF_REQ_DISABLE_NOTIFICATIONS: SF_REQ_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub type SF_STATUS_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const SF_STATUS_REQ_FINISHED: SF_STATUS_TYPE = 134217728i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const SF_STATUS_REQ_FINISHED_KEEP_CONN: SF_STATUS_TYPE = 134217729i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const SF_STATUS_REQ_NEXT_NOTIFICATION: SF_STATUS_TYPE = 134217730i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const SF_STATUS_REQ_HANDLED_NOTIFICATION: SF_STATUS_TYPE = 134217731i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const SF_STATUS_REQ_ERROR: SF_STATUS_TYPE = 134217732i32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const SF_STATUS_REQ_READ_NEXT: SF_STATUS_TYPE = 134217733i32;
 pub const SMTP_MD_ID_BEGIN_RESERVED: u32 = 36864u32;
 pub const SMTP_MD_ID_END_RESERVED: u32 = 40959u32;

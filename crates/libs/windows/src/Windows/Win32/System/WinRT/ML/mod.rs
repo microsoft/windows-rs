@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_WinRT_ML'*"]
 #[repr(transparent)]
 pub struct ILearningModelDeviceFactoryNative(::windows::core::IUnknown);
 impl ILearningModelDeviceFactoryNative {
@@ -52,6 +53,7 @@ pub struct ILearningModelDeviceFactoryNativeVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr, result: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_WinRT_ML'*"]
 #[repr(transparent)]
 pub struct ILearningModelOperatorProviderNative(::windows::core::IUnknown);
 impl ILearningModelOperatorProviderNative {
@@ -105,6 +107,7 @@ pub struct ILearningModelOperatorProviderNativeVtbl(
     #[cfg(feature = "Win32_AI_MachineLearning_WinML")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppoperatorregistry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_AI_MachineLearning_WinML"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_WinRT_ML'*"]
 #[repr(transparent)]
 pub struct ILearningModelSessionOptionsNative(::windows::core::IUnknown);
 impl ILearningModelSessionOptionsNative {
@@ -150,6 +153,7 @@ unsafe impl ::windows::core::Interface for ILearningModelSessionOptionsNative {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILearningModelSessionOptionsNativeVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intraopnumthreads: u32) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_System_WinRT_ML'*"]
 #[repr(transparent)]
 pub struct ITensorNative(::windows::core::IUnknown);
 impl ITensorNative {
@@ -207,6 +211,7 @@ pub struct ITensorNativeVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_WinRT_ML'*"]
 #[repr(transparent)]
 pub struct ITensorStaticsNative(::windows::core::IUnknown);
 impl ITensorStaticsNative {

@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 pub type Buffer = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct ByteOrder(pub i32);
 impl ByteOrder {
@@ -19,6 +20,7 @@ pub type DataReaderLoadOperation = *mut ::core::ffi::c_void;
 pub type DataWriter = *mut ::core::ffi::c_void;
 pub type DataWriterStoreOperation = *mut ::core::ffi::c_void;
 pub type FileInputStream = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct FileOpenDisposition(pub i32);
 impl FileOpenDisposition {
@@ -48,6 +50,7 @@ pub type IRandomAccessStream = *mut ::core::ffi::c_void;
 pub type IRandomAccessStreamReference = *mut ::core::ffi::c_void;
 pub type IRandomAccessStreamWithContentType = *mut ::core::ffi::c_void;
 pub type InMemoryRandomAccessStream = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct InputStreamOptions(pub u32);
 impl InputStreamOptions {
@@ -65,6 +68,7 @@ pub type InputStreamOverStream = *mut ::core::ffi::c_void;
 pub type OutputStreamOverStream = *mut ::core::ffi::c_void;
 pub type RandomAccessStreamOverStream = *mut ::core::ffi::c_void;
 pub type RandomAccessStreamReference = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
 pub struct UnicodeEncoding(pub i32);
 impl UnicodeEncoding {

@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Security_Authorization_AppCapabilityAccess'*"]
 #[repr(transparent)]
 pub struct AppCapability(::windows::core::IUnknown);
 impl AppCapability {
@@ -140,6 +141,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
 }
 unsafe impl ::core::marker::Send for AppCapability {}
 unsafe impl ::core::marker::Sync for AppCapability {}
+#[doc = "*Required features: 'Security_Authorization_AppCapabilityAccess'*"]
 #[repr(transparent)]
 pub struct AppCapabilityAccessChangedEventArgs(::windows::core::IUnknown);
 impl AppCapabilityAccessChangedEventArgs {}
@@ -206,6 +208,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
 }
 unsafe impl ::core::marker::Send for AppCapabilityAccessChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCapabilityAccessChangedEventArgs {}
+#[doc = "*Required features: 'Security_Authorization_AppCapabilityAccess'*"]
 #[repr(transparent)]
 pub struct AppCapabilityAccessStatus(pub i32);
 impl AppCapabilityAccessStatus {

@@ -222,6 +222,7 @@ pub struct IUserActivityChannelStatics3Vtbl(
     #[cfg(feature = "System")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "System"))] usize,
 );
+#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
 #[repr(transparent)]
 pub struct IUserActivityContentInfo(::windows::core::IUnknown);
 impl IUserActivityContentInfo {
@@ -527,6 +528,7 @@ pub struct IUserActivityVisualElements2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
 #[repr(transparent)]
 pub struct UserActivity(::windows::core::IUnknown);
 impl UserActivity {
@@ -743,6 +745,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserActivity {}
 unsafe impl ::core::marker::Sync for UserActivity {}
+#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
 #[repr(transparent)]
 pub struct UserActivityAttribution(::windows::core::IUnknown);
 impl UserActivityAttribution {
@@ -863,6 +866,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserActivityAttribution {}
 unsafe impl ::core::marker::Sync for UserActivityAttribution {}
+#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
 #[repr(transparent)]
 pub struct UserActivityChannel(::windows::core::IUnknown);
 impl UserActivityChannel {
@@ -1005,6 +1009,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserActivityChannel {}
 unsafe impl ::core::marker::Sync for UserActivityChannel {}
+#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
 #[repr(transparent)]
 pub struct UserActivityContentInfo(::windows::core::IUnknown);
 impl UserActivityContentInfo {
@@ -1111,6 +1116,7 @@ impl<'a> ::windows::core::IntoParam<'a, IUserActivityContentInfo> for &UserActiv
 }
 unsafe impl ::core::marker::Send for UserActivityContentInfo {}
 unsafe impl ::core::marker::Sync for UserActivityContentInfo {}
+#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
 #[repr(transparent)]
 pub struct UserActivityRequest(::windows::core::IUnknown);
 impl UserActivityRequest {
@@ -1182,6 +1188,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserActivityRequest {}
 unsafe impl ::core::marker::Sync for UserActivityRequest {}
+#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
 #[repr(transparent)]
 pub struct UserActivityRequestManager(::windows::core::IUnknown);
 impl UserActivityRequestManager {
@@ -1270,6 +1277,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
 #[repr(transparent)]
 pub struct UserActivityRequestedEventArgs(::windows::core::IUnknown);
 impl UserActivityRequestedEventArgs {
@@ -1352,6 +1360,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserActivityRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for UserActivityRequestedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
 #[repr(transparent)]
 pub struct UserActivitySession(::windows::core::IUnknown);
 impl UserActivitySession {
@@ -1457,6 +1466,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for UserActivitySession {}
 unsafe impl ::core::marker::Sync for UserActivitySession {}
+#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
 #[repr(transparent)]
 pub struct UserActivitySessionHistoryItem(::windows::core::IUnknown);
 impl UserActivitySessionHistoryItem {
@@ -1547,6 +1557,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserActivitySessionHistoryItem {}
 unsafe impl ::core::marker::Sync for UserActivitySessionHistoryItem {}
+#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
 #[repr(transparent)]
 pub struct UserActivityState(pub i32);
 impl UserActivityState {
@@ -1574,6 +1585,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivityState {
 impl ::windows::core::DefaultType for UserActivityState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
 #[repr(transparent)]
 pub struct UserActivityVisualElements(::windows::core::IUnknown);
 impl UserActivityVisualElements {

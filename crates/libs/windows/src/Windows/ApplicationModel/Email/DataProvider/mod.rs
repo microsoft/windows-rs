@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailDataProviderConnection(::windows::core::IUnknown);
 impl EmailDataProviderConnection {
@@ -265,6 +266,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailDataProviderConnection {}
 unsafe impl ::core::marker::Sync for EmailDataProviderConnection {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailDataProviderTriggerDetails(::windows::core::IUnknown);
 impl EmailDataProviderTriggerDetails {
@@ -339,6 +341,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailDataProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for EmailDataProviderTriggerDetails {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxCreateFolderRequest(::windows::core::IUnknown);
 impl EmailMailboxCreateFolderRequest {
@@ -443,6 +446,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxCreateFolderRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxCreateFolderRequest {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxCreateFolderRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxCreateFolderRequestEventArgs {
@@ -525,6 +529,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxCreateFolderRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxCreateFolderRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxDeleteFolderRequest(::windows::core::IUnknown);
 impl EmailMailboxDeleteFolderRequest {
@@ -622,6 +627,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxDeleteFolderRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxDeleteFolderRequest {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxDeleteFolderRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxDeleteFolderRequestEventArgs {
@@ -704,6 +710,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxDeleteFolderRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxDeleteFolderRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxDownloadAttachmentRequest(::windows::core::IUnknown);
 impl EmailMailboxDownloadAttachmentRequest {
@@ -808,6 +815,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxDownloadAttachmentRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxDownloadAttachmentRequest {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxDownloadAttachmentRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxDownloadAttachmentRequestEventArgs {
@@ -890,6 +898,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxDownloadAttachmentRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxDownloadAttachmentRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxDownloadMessageRequest(::windows::core::IUnknown);
 impl EmailMailboxDownloadMessageRequest {
@@ -987,6 +996,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxDownloadMessageRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxDownloadMessageRequest {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxDownloadMessageRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxDownloadMessageRequestEventArgs {
@@ -1069,6 +1079,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxDownloadMessageRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxDownloadMessageRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxEmptyFolderRequest(::windows::core::IUnknown);
 impl EmailMailboxEmptyFolderRequest {
@@ -1166,6 +1177,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxEmptyFolderRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxEmptyFolderRequest {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxEmptyFolderRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxEmptyFolderRequestEventArgs {
@@ -1248,6 +1260,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxEmptyFolderRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxEmptyFolderRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxForwardMeetingRequest(::windows::core::IUnknown);
 impl EmailMailboxForwardMeetingRequest {
@@ -1381,6 +1394,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxForwardMeetingRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxForwardMeetingRequest {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxForwardMeetingRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxForwardMeetingRequestEventArgs {
@@ -1463,6 +1477,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxForwardMeetingRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxForwardMeetingRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxGetAutoReplySettingsRequest(::windows::core::IUnknown);
 impl EmailMailboxGetAutoReplySettingsRequest {
@@ -1560,6 +1575,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxGetAutoReplySettingsRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxGetAutoReplySettingsRequest {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxGetAutoReplySettingsRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxGetAutoReplySettingsRequestEventArgs {
@@ -1642,6 +1658,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxGetAutoReplySettingsRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxGetAutoReplySettingsRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxMoveFolderRequest(::windows::core::IUnknown);
 impl EmailMailboxMoveFolderRequest {
@@ -1753,6 +1770,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxMoveFolderRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxMoveFolderRequest {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxMoveFolderRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxMoveFolderRequestEventArgs {
@@ -1835,6 +1853,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxMoveFolderRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxMoveFolderRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxProposeNewTimeForMeetingRequest(::windows::core::IUnknown);
 impl EmailMailboxProposeNewTimeForMeetingRequest {
@@ -1962,6 +1981,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxProposeNewTimeForMeetingRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxProposeNewTimeForMeetingRequest {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxProposeNewTimeForMeetingRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
@@ -2044,6 +2064,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxResolveRecipientsRequest(::windows::core::IUnknown);
 impl EmailMailboxResolveRecipientsRequest {
@@ -2142,6 +2163,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxResolveRecipientsRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxResolveRecipientsRequest {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxResolveRecipientsRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxResolveRecipientsRequestEventArgs {
@@ -2224,6 +2246,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxResolveRecipientsRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxResolveRecipientsRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxServerSearchReadBatchRequest(::windows::core::IUnknown);
 impl EmailMailboxServerSearchReadBatchRequest {
@@ -2350,6 +2373,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxServerSearchReadBatchRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxServerSearchReadBatchRequest {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxServerSearchReadBatchRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxServerSearchReadBatchRequestEventArgs {
@@ -2432,6 +2456,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxServerSearchReadBatchRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxServerSearchReadBatchRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxSetAutoReplySettingsRequest(::windows::core::IUnknown);
 impl EmailMailboxSetAutoReplySettingsRequest {
@@ -2529,6 +2554,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxSetAutoReplySettingsRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxSetAutoReplySettingsRequest {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxSetAutoReplySettingsRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxSetAutoReplySettingsRequestEventArgs {
@@ -2611,6 +2637,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxSetAutoReplySettingsRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxSetAutoReplySettingsRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxSyncManagerSyncRequest(::windows::core::IUnknown);
 impl EmailMailboxSyncManagerSyncRequest {
@@ -2701,6 +2728,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxSyncManagerSyncRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxSyncManagerSyncRequest {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxSyncManagerSyncRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxSyncManagerSyncRequestEventArgs {
@@ -2783,6 +2811,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxSyncManagerSyncRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxSyncManagerSyncRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxUpdateMeetingResponseRequest(::windows::core::IUnknown);
 impl EmailMailboxUpdateMeetingResponseRequest {
@@ -2908,6 +2937,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxUpdateMeetingResponseRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxUpdateMeetingResponseRequest {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxUpdateMeetingResponseRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxUpdateMeetingResponseRequestEventArgs {
@@ -2990,6 +3020,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxUpdateMeetingResponseRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxUpdateMeetingResponseRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxValidateCertificatesRequest(::windows::core::IUnknown);
 impl EmailMailboxValidateCertificatesRequest {
@@ -3088,6 +3119,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Emai
 }
 unsafe impl ::core::marker::Send for EmailMailboxValidateCertificatesRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxValidateCertificatesRequest {}
+#[doc = "*Required features: 'ApplicationModel_Email_DataProvider'*"]
 #[repr(transparent)]
 pub struct EmailMailboxValidateCertificatesRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxValidateCertificatesRequestEventArgs {

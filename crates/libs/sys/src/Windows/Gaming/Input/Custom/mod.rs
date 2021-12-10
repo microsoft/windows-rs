@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 #[repr(C)]
+#[doc = "*Required features: 'Gaming_Input_Custom'*"]
 pub struct GameControllerVersionInfo {
     pub Major: u16,
     pub Minor: u16,
@@ -15,6 +16,7 @@ impl ::core::clone::Clone for GameControllerVersionInfo {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Gaming_Input_Custom'*"]
 pub struct GipFirmwareUpdateProgress {
     pub PercentCompleted: f64,
     pub CurrentComponentId: u32,
@@ -26,6 +28,7 @@ impl ::core::clone::Clone for GipFirmwareUpdateProgress {
     }
 }
 pub type GipFirmwareUpdateResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Gaming_Input_Custom'*"]
 #[repr(transparent)]
 pub struct GipFirmwareUpdateStatus(pub i32);
 impl GipFirmwareUpdateStatus {
@@ -40,6 +43,7 @@ impl ::core::clone::Clone for GipFirmwareUpdateStatus {
     }
 }
 pub type GipGameControllerProvider = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Gaming_Input_Custom'*"]
 #[repr(transparent)]
 pub struct GipMessageClass(pub i32);
 impl GipMessageClass {
@@ -60,6 +64,7 @@ pub type IGameControllerProvider = *mut ::core::ffi::c_void;
 pub type IGipGameControllerInputSink = *mut ::core::ffi::c_void;
 pub type IHidGameControllerInputSink = *mut ::core::ffi::c_void;
 pub type IXusbGameControllerInputSink = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Gaming_Input_Custom'*"]
 #[repr(transparent)]
 pub struct XusbDeviceSubtype(pub i32);
 impl XusbDeviceSubtype {
@@ -81,6 +86,7 @@ impl ::core::clone::Clone for XusbDeviceSubtype {
         *self
     }
 }
+#[doc = "*Required features: 'Gaming_Input_Custom'*"]
 #[repr(transparent)]
 pub struct XusbDeviceType(pub i32);
 impl XusbDeviceType {

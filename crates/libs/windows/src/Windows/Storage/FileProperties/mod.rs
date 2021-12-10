@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct BasicProperties(::windows::core::IUnknown);
 impl BasicProperties {
@@ -133,6 +134,7 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageItemExtraProperties> for &BasicP
         ::core::convert::TryInto::<IStorageItemExtraProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct DocumentProperties(::windows::core::IUnknown);
 impl DocumentProperties {
@@ -496,6 +498,7 @@ pub struct IStorageItemContentPropertiesVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct IStorageItemExtraProperties(::windows::core::IUnknown);
 impl IStorageItemExtraProperties {
@@ -664,6 +667,7 @@ pub struct IVideoPropertiesVtbl(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut VideoOrientation) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct ImageProperties(::windows::core::IUnknown);
 impl ImageProperties {
@@ -885,6 +889,7 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageItemExtraProperties> for &ImageP
         ::core::convert::TryInto::<IStorageItemExtraProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct MusicProperties(::windows::core::IUnknown);
 impl MusicProperties {
@@ -1150,6 +1155,7 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageItemExtraProperties> for &MusicP
         ::core::convert::TryInto::<IStorageItemExtraProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct PhotoOrientation(pub i32);
 impl PhotoOrientation {
@@ -1184,6 +1190,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoOrientation {
 impl ::windows::core::DefaultType for PhotoOrientation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct PropertyPrefetchOptions(pub u32);
 impl PropertyPrefetchOptions {
@@ -1215,6 +1222,7 @@ unsafe impl ::windows::core::RuntimeType for PropertyPrefetchOptions {
 impl ::windows::core::DefaultType for PropertyPrefetchOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct StorageItemContentProperties(::windows::core::IUnknown);
 impl StorageItemContentProperties {
@@ -1358,6 +1366,7 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageItemExtraProperties> for &Storag
         ::core::convert::TryInto::<IStorageItemExtraProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage_FileProperties', 'Storage_Streams'*"]
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 pub struct StorageItemThumbnail(::windows::core::IUnknown);
@@ -1726,6 +1735,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Streams::IRandomAccessStreamWithC
         ::core::convert::TryInto::<super::Streams::IRandomAccessStreamWithContentType>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct ThumbnailMode(pub i32);
 impl ThumbnailMode {
@@ -1757,6 +1767,7 @@ unsafe impl ::windows::core::RuntimeType for ThumbnailMode {
 impl ::windows::core::DefaultType for ThumbnailMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct ThumbnailOptions(pub u32);
 impl ThumbnailOptions {
@@ -1786,6 +1797,7 @@ unsafe impl ::windows::core::RuntimeType for ThumbnailOptions {
 impl ::windows::core::DefaultType for ThumbnailOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct ThumbnailType(pub i32);
 impl ThumbnailType {
@@ -1813,6 +1825,7 @@ unsafe impl ::windows::core::RuntimeType for ThumbnailType {
 impl ::windows::core::DefaultType for ThumbnailType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct VideoOrientation(pub i32);
 impl VideoOrientation {
@@ -1842,6 +1855,7 @@ unsafe impl ::windows::core::RuntimeType for VideoOrientation {
 impl ::windows::core::DefaultType for VideoOrientation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct VideoProperties(::windows::core::IUnknown);
 impl VideoProperties {

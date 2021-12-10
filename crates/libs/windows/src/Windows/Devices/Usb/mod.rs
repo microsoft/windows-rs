@@ -643,6 +643,7 @@ pub struct IUsbSetupPacketFactoryVtbl(
     #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eightbytebuffer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbBulkInEndpointDescriptor(::windows::core::IUnknown);
 impl UsbBulkInEndpointDescriptor {
@@ -731,6 +732,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbB
 }
 unsafe impl ::core::marker::Send for UsbBulkInEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbBulkInEndpointDescriptor {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbBulkInPipe(::windows::core::IUnknown);
 impl UsbBulkInPipe {
@@ -843,6 +845,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbB
 }
 unsafe impl ::core::marker::Send for UsbBulkInPipe {}
 unsafe impl ::core::marker::Sync for UsbBulkInPipe {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbBulkOutEndpointDescriptor(::windows::core::IUnknown);
 impl UsbBulkOutEndpointDescriptor {
@@ -931,6 +934,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbB
 }
 unsafe impl ::core::marker::Send for UsbBulkOutEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbBulkOutEndpointDescriptor {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbBulkOutPipe(::windows::core::IUnknown);
 impl UsbBulkOutPipe {
@@ -1032,6 +1036,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbB
 }
 unsafe impl ::core::marker::Send for UsbBulkOutPipe {}
 unsafe impl ::core::marker::Sync for UsbBulkOutPipe {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbConfiguration(::windows::core::IUnknown);
 impl UsbConfiguration {
@@ -1122,6 +1127,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbC
 }
 unsafe impl ::core::marker::Send for UsbConfiguration {}
 unsafe impl ::core::marker::Sync for UsbConfiguration {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbConfigurationDescriptor(::windows::core::IUnknown);
 impl UsbConfigurationDescriptor {
@@ -1233,6 +1239,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbC
 }
 unsafe impl ::core::marker::Send for UsbConfigurationDescriptor {}
 unsafe impl ::core::marker::Sync for UsbConfigurationDescriptor {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbControlRecipient(pub i32);
 impl UsbControlRecipient {
@@ -1263,6 +1270,7 @@ unsafe impl ::windows::core::RuntimeType for UsbControlRecipient {
 impl ::windows::core::DefaultType for UsbControlRecipient {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbControlRequestType(::windows::core::IUnknown);
 impl UsbControlRequestType {
@@ -1381,6 +1389,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbC
 }
 unsafe impl ::core::marker::Send for UsbControlRequestType {}
 unsafe impl ::core::marker::Sync for UsbControlRequestType {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbControlTransferType(pub i32);
 impl UsbControlTransferType {
@@ -1409,6 +1418,7 @@ unsafe impl ::windows::core::RuntimeType for UsbControlTransferType {
 impl ::windows::core::DefaultType for UsbControlTransferType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbDescriptor(::windows::core::IUnknown);
 impl UsbDescriptor {
@@ -1495,6 +1505,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbD
 }
 unsafe impl ::core::marker::Send for UsbDescriptor {}
 unsafe impl ::core::marker::Sync for UsbDescriptor {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbDevice(::windows::core::IUnknown);
 impl UsbDevice {
@@ -1681,6 +1692,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for UsbDevice {}
 unsafe impl ::core::marker::Sync for UsbDevice {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbDeviceClass(::windows::core::IUnknown);
 impl UsbDeviceClass {
@@ -1792,6 +1804,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbD
 }
 unsafe impl ::core::marker::Send for UsbDeviceClass {}
 unsafe impl ::core::marker::Sync for UsbDeviceClass {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbDeviceClasses(::windows::core::IUnknown);
 impl UsbDeviceClasses {
@@ -1917,6 +1930,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbD
 }
 unsafe impl ::core::marker::Send for UsbDeviceClasses {}
 unsafe impl ::core::marker::Sync for UsbDeviceClasses {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbDeviceDescriptor(::windows::core::IUnknown);
 impl UsbDeviceDescriptor {
@@ -2026,6 +2040,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbD
 }
 unsafe impl ::core::marker::Send for UsbDeviceDescriptor {}
 unsafe impl ::core::marker::Sync for UsbDeviceDescriptor {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbEndpointDescriptor(::windows::core::IUnknown);
 impl UsbEndpointDescriptor {
@@ -2158,6 +2173,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbE
 }
 unsafe impl ::core::marker::Send for UsbEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbEndpointDescriptor {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbEndpointType(pub i32);
 impl UsbEndpointType {
@@ -2187,6 +2203,7 @@ unsafe impl ::windows::core::RuntimeType for UsbEndpointType {
 impl ::windows::core::DefaultType for UsbEndpointType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbInterface(::windows::core::IUnknown);
 impl UsbInterface {
@@ -2309,6 +2326,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbI
 }
 unsafe impl ::core::marker::Send for UsbInterface {}
 unsafe impl ::core::marker::Sync for UsbInterface {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbInterfaceDescriptor(::windows::core::IUnknown);
 impl UsbInterfaceDescriptor {
@@ -2427,6 +2445,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbI
 }
 unsafe impl ::core::marker::Send for UsbInterfaceDescriptor {}
 unsafe impl ::core::marker::Sync for UsbInterfaceDescriptor {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbInterfaceSetting(::windows::core::IUnknown);
 impl UsbInterfaceSetting {
@@ -2556,6 +2575,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbI
 }
 unsafe impl ::core::marker::Send for UsbInterfaceSetting {}
 unsafe impl ::core::marker::Sync for UsbInterfaceSetting {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbInterruptInEndpointDescriptor(::windows::core::IUnknown);
 impl UsbInterruptInEndpointDescriptor {
@@ -2652,6 +2672,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbI
 }
 unsafe impl ::core::marker::Send for UsbInterruptInEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbInterruptInEndpointDescriptor {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbInterruptInEventArgs(::windows::core::IUnknown);
 impl UsbInterruptInEventArgs {
@@ -2727,6 +2748,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbI
 }
 unsafe impl ::core::marker::Send for UsbInterruptInEventArgs {}
 unsafe impl ::core::marker::Sync for UsbInterruptInEventArgs {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbInterruptInPipe(::windows::core::IUnknown);
 impl UsbInterruptInPipe {
@@ -2822,6 +2844,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbI
 }
 unsafe impl ::core::marker::Send for UsbInterruptInPipe {}
 unsafe impl ::core::marker::Sync for UsbInterruptInPipe {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbInterruptOutEndpointDescriptor(::windows::core::IUnknown);
 impl UsbInterruptOutEndpointDescriptor {
@@ -2918,6 +2941,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbI
 }
 unsafe impl ::core::marker::Send for UsbInterruptOutEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbInterruptOutEndpointDescriptor {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbInterruptOutPipe(::windows::core::IUnknown);
 impl UsbInterruptOutPipe {
@@ -3019,6 +3043,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbI
 }
 unsafe impl ::core::marker::Send for UsbInterruptOutPipe {}
 unsafe impl ::core::marker::Sync for UsbInterruptOutPipe {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbReadOptions(pub u32);
 impl UsbReadOptions {
@@ -3049,6 +3074,7 @@ unsafe impl ::windows::core::RuntimeType for UsbReadOptions {
 impl ::windows::core::DefaultType for UsbReadOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbSetupPacket(::windows::core::IUnknown);
 impl UsbSetupPacket {
@@ -3189,6 +3215,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UsbS
 }
 unsafe impl ::core::marker::Send for UsbSetupPacket {}
 unsafe impl ::core::marker::Sync for UsbSetupPacket {}
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbTransferDirection(pub i32);
 impl UsbTransferDirection {
@@ -3216,6 +3243,7 @@ unsafe impl ::windows::core::RuntimeType for UsbTransferDirection {
 impl ::windows::core::DefaultType for UsbTransferDirection {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
 pub struct UsbWriteOptions(pub u32);
 impl UsbWriteOptions {

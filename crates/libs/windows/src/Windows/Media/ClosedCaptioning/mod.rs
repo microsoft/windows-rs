@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Media_ClosedCaptioning'*"]
 #[repr(transparent)]
 pub struct ClosedCaptionColor(pub i32);
 impl ClosedCaptionColor {
@@ -33,6 +34,7 @@ unsafe impl ::windows::core::RuntimeType for ClosedCaptionColor {
 impl ::windows::core::DefaultType for ClosedCaptionColor {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_ClosedCaptioning'*"]
 #[repr(transparent)]
 pub struct ClosedCaptionEdgeEffect(pub i32);
 impl ClosedCaptionEdgeEffect {
@@ -64,6 +66,7 @@ unsafe impl ::windows::core::RuntimeType for ClosedCaptionEdgeEffect {
 impl ::windows::core::DefaultType for ClosedCaptionEdgeEffect {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_ClosedCaptioning'*"]
 #[repr(transparent)]
 pub struct ClosedCaptionOpacity(pub i32);
 impl ClosedCaptionOpacity {
@@ -179,6 +182,7 @@ impl ClosedCaptionProperties {
 impl ::windows::core::RuntimeName for ClosedCaptionProperties {
     const NAME: &'static str = "Windows.Media.ClosedCaptioning.ClosedCaptionProperties";
 }
+#[doc = "*Required features: 'Media_ClosedCaptioning'*"]
 #[repr(transparent)]
 pub struct ClosedCaptionSize(pub i32);
 impl ClosedCaptionSize {
@@ -209,6 +213,7 @@ unsafe impl ::windows::core::RuntimeType for ClosedCaptionSize {
 impl ::windows::core::DefaultType for ClosedCaptionSize {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_ClosedCaptioning'*"]
 #[repr(transparent)]
 pub struct ClosedCaptionStyle(pub i32);
 impl ClosedCaptionStyle {

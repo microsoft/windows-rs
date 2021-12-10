@@ -3,6 +3,7 @@
 pub mod Diagnostics;
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'System_Power'*"]
 #[repr(transparent)]
 pub struct BatteryStatus(pub i32);
 impl BatteryStatus {
@@ -17,6 +18,7 @@ impl ::core::clone::Clone for BatteryStatus {
         *self
     }
 }
+#[doc = "*Required features: 'System_Power'*"]
 #[repr(transparent)]
 pub struct EnergySaverStatus(pub i32);
 impl EnergySaverStatus {
@@ -30,6 +32,7 @@ impl ::core::clone::Clone for EnergySaverStatus {
         *self
     }
 }
+#[doc = "*Required features: 'System_Power'*"]
 #[repr(transparent)]
 pub struct PowerSupplyStatus(pub i32);
 impl PowerSupplyStatus {

@@ -61,6 +61,7 @@ pub mod Usb;
 pub mod WiFi;
 #[cfg(feature = "Devices_WiFiDirect")]
 pub mod WiFiDirect;
+#[doc = "*Required features: 'Devices'*"]
 #[repr(transparent)]
 pub struct ILowLevelDevicesAggregateProvider(::windows::core::IUnknown);
 impl ILowLevelDevicesAggregateProvider {
@@ -238,6 +239,7 @@ pub struct ILowLevelDevicesControllerStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices'*"]
 #[repr(transparent)]
 pub struct LowLevelDevicesAggregateProvider(::windows::core::IUnknown);
 impl LowLevelDevicesAggregateProvider {
@@ -378,6 +380,7 @@ impl<'a> ::windows::core::IntoParam<'a, ILowLevelDevicesAggregateProvider> for &
 }
 unsafe impl ::core::marker::Send for LowLevelDevicesAggregateProvider {}
 unsafe impl ::core::marker::Sync for LowLevelDevicesAggregateProvider {}
+#[doc = "*Required features: 'Devices'*"]
 #[repr(transparent)]
 pub struct LowLevelDevicesController(::windows::core::IUnknown);
 impl LowLevelDevicesController {

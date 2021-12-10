@@ -9,6 +9,7 @@ pub type IWebAccountProviderTokenObjects2 = *mut ::core::ffi::c_void;
 pub type IWebAccountProviderTokenOperation = *mut ::core::ffi::c_void;
 pub type IWebAccountProviderUIReportOperation = *mut ::core::ffi::c_void;
 pub type WebAccountClientView = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct WebAccountClientViewType(pub i32);
 impl WebAccountClientViewType {
@@ -25,6 +26,7 @@ pub type WebAccountProviderAddAccountOperation = *mut ::core::ffi::c_void;
 pub type WebAccountProviderDeleteAccountOperation = *mut ::core::ffi::c_void;
 pub type WebAccountProviderGetTokenSilentOperation = *mut ::core::ffi::c_void;
 pub type WebAccountProviderManageAccountOperation = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct WebAccountProviderOperationKind(pub i32);
 impl WebAccountProviderOperationKind {
@@ -46,6 +48,7 @@ pub type WebAccountProviderRequestTokenOperation = *mut ::core::ffi::c_void;
 pub type WebAccountProviderRetrieveCookiesOperation = *mut ::core::ffi::c_void;
 pub type WebAccountProviderSignOutAccountOperation = *mut ::core::ffi::c_void;
 pub type WebAccountProviderTriggerDetails = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct WebAccountScope(pub i32);
 impl WebAccountScope {
@@ -58,6 +61,7 @@ impl ::core::clone::Clone for WebAccountScope {
         *self
     }
 }
+#[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
 pub struct WebAccountSelectionOptions(pub u32);
 impl WebAccountSelectionOptions {

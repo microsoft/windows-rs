@@ -3,6 +3,7 @@
 extern "system" {}
 pub type Direct3D11CaptureFrame = *mut ::core::ffi::c_void;
 pub type Direct3D11CaptureFramePool = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Graphics_Capture'*"]
 #[repr(transparent)]
 pub struct GraphicsCaptureAccessKind(pub i32);
 impl GraphicsCaptureAccessKind {

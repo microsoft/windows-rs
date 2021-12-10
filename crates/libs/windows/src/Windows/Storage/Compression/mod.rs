@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Storage_Compression'*"]
 #[repr(transparent)]
 pub struct CompressAlgorithm(pub i32);
 impl CompressAlgorithm {
@@ -30,6 +31,7 @@ unsafe impl ::windows::core::RuntimeType for CompressAlgorithm {
 impl ::windows::core::DefaultType for CompressAlgorithm {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Compression'*"]
 #[repr(transparent)]
 pub struct Compressor(::windows::core::IUnknown);
 impl Compressor {
@@ -204,6 +206,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Streams::IOutputStream> for &Comp
 }
 unsafe impl ::core::marker::Send for Compressor {}
 unsafe impl ::core::marker::Sync for Compressor {}
+#[doc = "*Required features: 'Storage_Compression'*"]
 #[repr(transparent)]
 pub struct Decompressor(::windows::core::IUnknown);
 impl Decompressor {

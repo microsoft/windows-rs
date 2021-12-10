@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'ApplicationModel_Contacts_Provider'*"]
 #[repr(transparent)]
 pub struct AddContactResult(pub i32);
 impl AddContactResult {
@@ -27,6 +28,7 @@ unsafe impl ::windows::core::RuntimeType for AddContactResult {
 impl ::windows::core::DefaultType for AddContactResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts_Provider'*"]
 #[repr(transparent)]
 pub struct ContactPickerUI(::windows::core::IUnknown);
 impl ContactPickerUI {
@@ -154,6 +156,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts_Provider'*"]
 #[repr(transparent)]
 pub struct ContactRemovedEventArgs(::windows::core::IUnknown);
 impl ContactRemovedEventArgs {

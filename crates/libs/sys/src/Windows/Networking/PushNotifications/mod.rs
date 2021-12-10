@@ -5,6 +5,7 @@ pub type PushNotificationChannel = *mut ::core::ffi::c_void;
 pub type PushNotificationChannelManagerForUser = *mut ::core::ffi::c_void;
 pub type PushNotificationChannelsRevokedEventArgs = *mut ::core::ffi::c_void;
 pub type PushNotificationReceivedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_PushNotifications'*"]
 #[repr(transparent)]
 pub struct PushNotificationType(pub i32);
 impl PushNotificationType {

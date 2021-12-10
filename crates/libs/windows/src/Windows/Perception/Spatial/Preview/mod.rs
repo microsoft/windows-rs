@@ -65,6 +65,7 @@ pub struct ISpatialGraphInteropPreviewStatics2Vtbl(
     #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, relativeposition: super::super::super::Foundation::Numerics::Vector3, relativeorientation: super::super::super::Foundation::Numerics::Quaternion, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
+#[doc = "*Required features: 'Perception_Spatial_Preview'*"]
 #[repr(transparent)]
 pub struct SpatialGraphInteropFrameOfReferencePreview(::windows::core::IUnknown);
 impl SpatialGraphInteropFrameOfReferencePreview {

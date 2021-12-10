@@ -2,6 +2,7 @@
 #[link(name = "windows")]
 extern "system" {}
 pub type SceneLightingEffect = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition_Effects'*"]
 #[repr(transparent)]
 pub struct SceneLightingEffectReflectanceModel(pub i32);
 impl SceneLightingEffectReflectanceModel {

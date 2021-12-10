@@ -49,6 +49,7 @@ pub struct IRadioStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Devices_Radios'*"]
 #[repr(transparent)]
 pub struct Radio(::windows::core::IUnknown);
 impl Radio {
@@ -189,6 +190,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
 }
 unsafe impl ::core::marker::Send for Radio {}
 unsafe impl ::core::marker::Sync for Radio {}
+#[doc = "*Required features: 'Devices_Radios'*"]
 #[repr(transparent)]
 pub struct RadioAccessStatus(pub i32);
 impl RadioAccessStatus {
@@ -218,6 +220,7 @@ unsafe impl ::windows::core::RuntimeType for RadioAccessStatus {
 impl ::windows::core::DefaultType for RadioAccessStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Radios'*"]
 #[repr(transparent)]
 pub struct RadioKind(pub i32);
 impl RadioKind {
@@ -248,6 +251,7 @@ unsafe impl ::windows::core::RuntimeType for RadioKind {
 impl ::windows::core::DefaultType for RadioKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Radios'*"]
 #[repr(transparent)]
 pub struct RadioState(pub i32);
 impl RadioState {

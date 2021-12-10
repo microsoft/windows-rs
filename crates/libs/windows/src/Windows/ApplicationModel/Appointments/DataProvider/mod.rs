@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendarCancelMeetingRequest(::windows::core::IUnknown);
 impl AppointmentCalendarCancelMeetingRequest {
@@ -125,6 +126,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentCalendarCancelMeetingRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarCancelMeetingRequest {}
+#[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendarCancelMeetingRequestEventArgs(::windows::core::IUnknown);
 impl AppointmentCalendarCancelMeetingRequestEventArgs {
@@ -207,6 +209,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentCalendarCancelMeetingRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarCancelMeetingRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendarCreateOrUpdateAppointmentRequest(::windows::core::IUnknown);
 impl AppointmentCalendarCreateOrUpdateAppointmentRequest {
@@ -319,6 +322,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentCalendarCreateOrUpdateAppointmentRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarCreateOrUpdateAppointmentRequest {}
+#[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs(::windows::core::IUnknown);
 impl AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
@@ -401,6 +405,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendarForwardMeetingRequest(::windows::core::IUnknown);
 impl AppointmentCalendarForwardMeetingRequest {
@@ -535,6 +540,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentCalendarForwardMeetingRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarForwardMeetingRequest {}
+#[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendarForwardMeetingRequestEventArgs(::windows::core::IUnknown);
 impl AppointmentCalendarForwardMeetingRequestEventArgs {
@@ -617,6 +623,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentCalendarForwardMeetingRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarForwardMeetingRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendarProposeNewTimeForMeetingRequest(::windows::core::IUnknown);
 impl AppointmentCalendarProposeNewTimeForMeetingRequest {
@@ -752,6 +759,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentCalendarProposeNewTimeForMeetingRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarProposeNewTimeForMeetingRequest {}
+#[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs(::windows::core::IUnknown);
 impl AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
@@ -834,6 +842,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendarSyncManagerSyncRequest(::windows::core::IUnknown);
 impl AppointmentCalendarSyncManagerSyncRequest {
@@ -924,6 +933,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentCalendarSyncManagerSyncRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarSyncManagerSyncRequest {}
+#[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendarSyncManagerSyncRequestEventArgs(::windows::core::IUnknown);
 impl AppointmentCalendarSyncManagerSyncRequestEventArgs {
@@ -1006,6 +1016,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentCalendarSyncManagerSyncRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarSyncManagerSyncRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendarUpdateMeetingResponseRequest(::windows::core::IUnknown);
 impl AppointmentCalendarUpdateMeetingResponseRequest {
@@ -1139,6 +1150,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentCalendarUpdateMeetingResponseRequest {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarUpdateMeetingResponseRequest {}
+#[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
 #[repr(transparent)]
 pub struct AppointmentCalendarUpdateMeetingResponseRequestEventArgs(::windows::core::IUnknown);
 impl AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
@@ -1221,6 +1233,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarUpdateMeetingResponseRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
 #[repr(transparent)]
 pub struct AppointmentDataProviderConnection(::windows::core::IUnknown);
 impl AppointmentDataProviderConnection {
@@ -1370,6 +1383,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appo
 }
 unsafe impl ::core::marker::Send for AppointmentDataProviderConnection {}
 unsafe impl ::core::marker::Sync for AppointmentDataProviderConnection {}
+#[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
 #[repr(transparent)]
 pub struct AppointmentDataProviderTriggerDetails(::windows::core::IUnknown);
 impl AppointmentDataProviderTriggerDetails {

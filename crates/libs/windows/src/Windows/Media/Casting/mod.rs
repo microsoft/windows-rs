@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Media_Casting'*"]
 #[repr(transparent)]
 pub struct CastingConnection(::windows::core::IUnknown);
 impl CastingConnection {
@@ -164,6 +165,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for CastingConnection {}
 unsafe impl ::core::marker::Sync for CastingConnection {}
+#[doc = "*Required features: 'Media_Casting'*"]
 #[repr(transparent)]
 pub struct CastingConnectionErrorOccurredEventArgs(::windows::core::IUnknown);
 impl CastingConnectionErrorOccurredEventArgs {
@@ -245,6 +247,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cast
 }
 unsafe impl ::core::marker::Send for CastingConnectionErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for CastingConnectionErrorOccurredEventArgs {}
+#[doc = "*Required features: 'Media_Casting'*"]
 #[repr(transparent)]
 pub struct CastingConnectionErrorStatus(pub i32);
 impl CastingConnectionErrorStatus {
@@ -277,6 +280,7 @@ unsafe impl ::windows::core::RuntimeType for CastingConnectionErrorStatus {
 impl ::windows::core::DefaultType for CastingConnectionErrorStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Casting'*"]
 #[repr(transparent)]
 pub struct CastingConnectionState(pub i32);
 impl CastingConnectionState {
@@ -307,6 +311,7 @@ unsafe impl ::windows::core::RuntimeType for CastingConnectionState {
 impl ::windows::core::DefaultType for CastingConnectionState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Casting'*"]
 #[repr(transparent)]
 pub struct CastingDevice(::windows::core::IUnknown);
 impl CastingDevice {
@@ -442,6 +447,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cast
 }
 unsafe impl ::core::marker::Send for CastingDevice {}
 unsafe impl ::core::marker::Sync for CastingDevice {}
+#[doc = "*Required features: 'Media_Casting'*"]
 #[repr(transparent)]
 pub struct CastingDevicePicker(::windows::core::IUnknown);
 impl CastingDevicePicker {
@@ -571,6 +577,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cast
 }
 unsafe impl ::core::marker::Send for CastingDevicePicker {}
 unsafe impl ::core::marker::Sync for CastingDevicePicker {}
+#[doc = "*Required features: 'Media_Casting'*"]
 #[repr(transparent)]
 pub struct CastingDevicePickerFilter(::windows::core::IUnknown);
 impl CastingDevicePickerFilter {
@@ -679,6 +686,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cast
 }
 unsafe impl ::core::marker::Send for CastingDevicePickerFilter {}
 unsafe impl ::core::marker::Sync for CastingDevicePickerFilter {}
+#[doc = "*Required features: 'Media_Casting'*"]
 #[repr(transparent)]
 pub struct CastingDeviceSelectedEventArgs(::windows::core::IUnknown);
 impl CastingDeviceSelectedEventArgs {
@@ -753,6 +761,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cast
 }
 unsafe impl ::core::marker::Send for CastingDeviceSelectedEventArgs {}
 unsafe impl ::core::marker::Sync for CastingDeviceSelectedEventArgs {}
+#[doc = "*Required features: 'Media_Casting'*"]
 #[repr(transparent)]
 pub struct CastingPlaybackTypes(pub u32);
 impl CastingPlaybackTypes {
@@ -782,6 +791,7 @@ unsafe impl ::windows::core::RuntimeType for CastingPlaybackTypes {
 impl ::windows::core::DefaultType for CastingPlaybackTypes {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Casting'*"]
 #[repr(transparent)]
 pub struct CastingSource(::windows::core::IUnknown);
 impl CastingSource {

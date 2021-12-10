@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Data_Text'*"]
 #[repr(transparent)]
 pub struct AlternateNormalizationFormat(pub i32);
 impl AlternateNormalizationFormat {
@@ -29,6 +30,7 @@ unsafe impl ::windows::core::RuntimeType for AlternateNormalizationFormat {
 impl ::windows::core::DefaultType for AlternateNormalizationFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Data_Text'*"]
 #[repr(transparent)]
 pub struct AlternateWordForm(::windows::core::IUnknown);
 impl AlternateWordForm {
@@ -517,6 +519,7 @@ pub struct IWordsSegmenterFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, language: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Data_Text'*"]
 #[repr(transparent)]
 pub struct SelectableWordSegment(::windows::core::IUnknown);
 impl SelectableWordSegment {
@@ -598,6 +601,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sele
 }
 unsafe impl ::core::marker::Send for SelectableWordSegment {}
 unsafe impl ::core::marker::Sync for SelectableWordSegment {}
+#[doc = "*Required features: 'Data_Text', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct SelectableWordSegmentsTokenizingHandler(pub ::windows::core::IUnknown);
@@ -687,6 +691,7 @@ pub struct SelectableWordSegmentsTokenizingHandlerVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precedingwords: ::windows::core::RawPtr, words: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Data_Text'*"]
 #[repr(transparent)]
 pub struct SelectableWordsSegmenter(::windows::core::IUnknown);
 impl SelectableWordsSegmenter {
@@ -791,6 +796,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sele
 }
 unsafe impl ::core::marker::Send for SelectableWordsSegmenter {}
 unsafe impl ::core::marker::Sync for SelectableWordsSegmenter {}
+#[doc = "*Required features: 'Data_Text'*"]
 #[repr(transparent)]
 pub struct SemanticTextQuery(::windows::core::IUnknown);
 impl SemanticTextQuery {
@@ -890,6 +896,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sema
 }
 unsafe impl ::core::marker::Send for SemanticTextQuery {}
 unsafe impl ::core::marker::Sync for SemanticTextQuery {}
+#[doc = "*Required features: 'Data_Text'*"]
 #[repr(transparent)]
 pub struct TextConversionGenerator(::windows::core::IUnknown);
 impl TextConversionGenerator {
@@ -997,6 +1004,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Text
 }
 unsafe impl ::core::marker::Send for TextConversionGenerator {}
 unsafe impl ::core::marker::Sync for TextConversionGenerator {}
+#[doc = "*Required features: 'Data_Text'*"]
 #[repr(transparent)]
 pub struct TextPhoneme(::windows::core::IUnknown);
 impl TextPhoneme {
@@ -1078,6 +1086,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Text
 }
 unsafe impl ::core::marker::Send for TextPhoneme {}
 unsafe impl ::core::marker::Sync for TextPhoneme {}
+#[doc = "*Required features: 'Data_Text'*"]
 #[repr(transparent)]
 pub struct TextPredictionGenerator(::windows::core::IUnknown);
 impl TextPredictionGenerator {
@@ -1214,6 +1223,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Text
 }
 unsafe impl ::core::marker::Send for TextPredictionGenerator {}
 unsafe impl ::core::marker::Sync for TextPredictionGenerator {}
+#[doc = "*Required features: 'Data_Text'*"]
 #[repr(transparent)]
 pub struct TextPredictionOptions(pub u32);
 impl TextPredictionOptions {
@@ -1242,6 +1252,7 @@ unsafe impl ::windows::core::RuntimeType for TextPredictionOptions {
 impl ::windows::core::DefaultType for TextPredictionOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Data_Text'*"]
 #[repr(transparent)]
 pub struct TextReverseConversionGenerator(::windows::core::IUnknown);
 impl TextReverseConversionGenerator {
@@ -1350,6 +1361,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Text
 unsafe impl ::core::marker::Send for TextReverseConversionGenerator {}
 unsafe impl ::core::marker::Sync for TextReverseConversionGenerator {}
 #[repr(C)]
+#[doc = "*Required features: 'Data_Text'*"]
 pub struct TextSegment {
     pub StartPosition: u32,
     pub Length: u32,
@@ -1489,6 +1501,7 @@ impl UnicodeCharacters {
 impl ::windows::core::RuntimeName for UnicodeCharacters {
     const NAME: &'static str = "Windows.Data.Text.UnicodeCharacters";
 }
+#[doc = "*Required features: 'Data_Text'*"]
 #[repr(transparent)]
 pub struct UnicodeGeneralCategory(pub i32);
 impl UnicodeGeneralCategory {
@@ -1544,6 +1557,7 @@ unsafe impl ::windows::core::RuntimeType for UnicodeGeneralCategory {
 impl ::windows::core::DefaultType for UnicodeGeneralCategory {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Data_Text'*"]
 #[repr(transparent)]
 pub struct UnicodeNumericType(pub i32);
 impl UnicodeNumericType {
@@ -1573,6 +1587,7 @@ unsafe impl ::windows::core::RuntimeType for UnicodeNumericType {
 impl ::windows::core::DefaultType for UnicodeNumericType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Data_Text'*"]
 #[repr(transparent)]
 pub struct WordSegment(::windows::core::IUnknown);
 impl WordSegment {
@@ -1662,6 +1677,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Word
 }
 unsafe impl ::core::marker::Send for WordSegment {}
 unsafe impl ::core::marker::Sync for WordSegment {}
+#[doc = "*Required features: 'Data_Text', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct WordSegmentsTokenizingHandler(pub ::windows::core::IUnknown);
@@ -1747,6 +1763,7 @@ pub struct WordSegmentsTokenizingHandlerVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precedingwords: ::windows::core::RawPtr, words: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Data_Text'*"]
 #[repr(transparent)]
 pub struct WordsSegmenter(::windows::core::IUnknown);
 impl WordsSegmenter {

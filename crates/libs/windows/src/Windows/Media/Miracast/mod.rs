@@ -451,6 +451,7 @@ pub struct IMiracastTransmitterVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiver(::windows::core::IUnknown);
 impl MiracastReceiver {
@@ -614,6 +615,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
 }
 unsafe impl ::core::marker::Send for MiracastReceiver {}
 unsafe impl ::core::marker::Sync for MiracastReceiver {}
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverApplySettingsResult(::windows::core::IUnknown);
 impl MiracastReceiverApplySettingsResult {
@@ -695,6 +697,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
 }
 unsafe impl ::core::marker::Send for MiracastReceiverApplySettingsResult {}
 unsafe impl ::core::marker::Sync for MiracastReceiverApplySettingsResult {}
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverApplySettingsStatus(pub i32);
 impl MiracastReceiverApplySettingsStatus {
@@ -728,6 +731,7 @@ unsafe impl ::windows::core::RuntimeType for MiracastReceiverApplySettingsStatus
 impl ::windows::core::DefaultType for MiracastReceiverApplySettingsStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverAuthorizationMethod(pub i32);
 impl MiracastReceiverAuthorizationMethod {
@@ -757,6 +761,7 @@ unsafe impl ::windows::core::RuntimeType for MiracastReceiverAuthorizationMethod
 impl ::windows::core::DefaultType for MiracastReceiverAuthorizationMethod {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverConnection(::windows::core::IUnknown);
 impl MiracastReceiverConnection {
@@ -915,6 +920,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for MiracastReceiverConnection {}
 unsafe impl ::core::marker::Sync for MiracastReceiverConnection {}
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverConnectionCreatedEventArgs(::windows::core::IUnknown);
 impl MiracastReceiverConnectionCreatedEventArgs {
@@ -1004,6 +1010,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
 }
 unsafe impl ::core::marker::Send for MiracastReceiverConnectionCreatedEventArgs {}
 unsafe impl ::core::marker::Sync for MiracastReceiverConnectionCreatedEventArgs {}
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverCursorImageChannel(::windows::core::IUnknown);
 impl MiracastReceiverCursorImageChannel {
@@ -1128,6 +1135,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
 }
 unsafe impl ::core::marker::Send for MiracastReceiverCursorImageChannel {}
 unsafe impl ::core::marker::Sync for MiracastReceiverCursorImageChannel {}
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverCursorImageChannelSettings(::windows::core::IUnknown);
 impl MiracastReceiverCursorImageChannelSettings {
@@ -1219,6 +1227,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
 }
 unsafe impl ::core::marker::Send for MiracastReceiverCursorImageChannelSettings {}
 unsafe impl ::core::marker::Sync for MiracastReceiverCursorImageChannelSettings {}
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverDisconnectReason(pub i32);
 impl MiracastReceiverDisconnectReason {
@@ -1252,6 +1261,7 @@ unsafe impl ::windows::core::RuntimeType for MiracastReceiverDisconnectReason {
 impl ::windows::core::DefaultType for MiracastReceiverDisconnectReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverDisconnectedEventArgs(::windows::core::IUnknown);
 impl MiracastReceiverDisconnectedEventArgs {
@@ -1326,6 +1336,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
 }
 unsafe impl ::core::marker::Send for MiracastReceiverDisconnectedEventArgs {}
 unsafe impl ::core::marker::Sync for MiracastReceiverDisconnectedEventArgs {}
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverGameControllerDevice(::windows::core::IUnknown);
 impl MiracastReceiverGameControllerDevice {
@@ -1442,6 +1453,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
 }
 unsafe impl ::core::marker::Send for MiracastReceiverGameControllerDevice {}
 unsafe impl ::core::marker::Sync for MiracastReceiverGameControllerDevice {}
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverGameControllerDeviceUsageMode(pub i32);
 impl MiracastReceiverGameControllerDeviceUsageMode {
@@ -1469,6 +1481,7 @@ unsafe impl ::windows::core::RuntimeType for MiracastReceiverGameControllerDevic
 impl ::windows::core::DefaultType for MiracastReceiverGameControllerDeviceUsageMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverInputDevices(::windows::core::IUnknown);
 impl MiracastReceiverInputDevices {
@@ -1550,6 +1563,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
 }
 unsafe impl ::core::marker::Send for MiracastReceiverInputDevices {}
 unsafe impl ::core::marker::Sync for MiracastReceiverInputDevices {}
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverKeyboardDevice(::windows::core::IUnknown);
 impl MiracastReceiverKeyboardDevice {
@@ -1655,6 +1669,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
 }
 unsafe impl ::core::marker::Send for MiracastReceiverKeyboardDevice {}
 unsafe impl ::core::marker::Sync for MiracastReceiverKeyboardDevice {}
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverListeningStatus(pub i32);
 impl MiracastReceiverListeningStatus {
@@ -1686,6 +1701,7 @@ unsafe impl ::windows::core::RuntimeType for MiracastReceiverListeningStatus {
 impl ::windows::core::DefaultType for MiracastReceiverListeningStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverMediaSourceCreatedEventArgs(::windows::core::IUnknown);
 impl MiracastReceiverMediaSourceCreatedEventArgs {
@@ -1783,6 +1799,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
 }
 unsafe impl ::core::marker::Send for MiracastReceiverMediaSourceCreatedEventArgs {}
 unsafe impl ::core::marker::Sync for MiracastReceiverMediaSourceCreatedEventArgs {}
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverSession(::windows::core::IUnknown);
 impl MiracastReceiverSession {
@@ -1957,6 +1974,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for MiracastReceiverSession {}
 unsafe impl ::core::marker::Sync for MiracastReceiverSession {}
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverSessionStartResult(::windows::core::IUnknown);
 impl MiracastReceiverSessionStartResult {
@@ -2038,6 +2056,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
 }
 unsafe impl ::core::marker::Send for MiracastReceiverSessionStartResult {}
 unsafe impl ::core::marker::Sync for MiracastReceiverSessionStartResult {}
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverSessionStartStatus(pub i32);
 impl MiracastReceiverSessionStartStatus {
@@ -2067,6 +2086,7 @@ unsafe impl ::windows::core::RuntimeType for MiracastReceiverSessionStartStatus 
 impl ::windows::core::DefaultType for MiracastReceiverSessionStartStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverSettings(::windows::core::IUnknown);
 impl MiracastReceiverSettings {
@@ -2189,6 +2209,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
 }
 unsafe impl ::core::marker::Send for MiracastReceiverSettings {}
 unsafe impl ::core::marker::Sync for MiracastReceiverSettings {}
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverStatus(::windows::core::IUnknown);
 impl MiracastReceiverStatus {
@@ -2292,6 +2313,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
 }
 unsafe impl ::core::marker::Send for MiracastReceiverStatus {}
 unsafe impl ::core::marker::Sync for MiracastReceiverStatus {}
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverStreamControl(::windows::core::IUnknown);
 impl MiracastReceiverStreamControl {
@@ -2397,6 +2419,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
 }
 unsafe impl ::core::marker::Send for MiracastReceiverStreamControl {}
 unsafe impl ::core::marker::Sync for MiracastReceiverStreamControl {}
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverVideoStreamSettings(::windows::core::IUnknown);
 impl MiracastReceiverVideoStreamSettings {
@@ -2488,6 +2511,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
 }
 unsafe impl ::core::marker::Send for MiracastReceiverVideoStreamSettings {}
 unsafe impl ::core::marker::Sync for MiracastReceiverVideoStreamSettings {}
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastReceiverWiFiStatus(pub i32);
 impl MiracastReceiverWiFiStatus {
@@ -2517,6 +2541,7 @@ unsafe impl ::windows::core::RuntimeType for MiracastReceiverWiFiStatus {
 impl ::windows::core::DefaultType for MiracastReceiverWiFiStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastTransmitter(::windows::core::IUnknown);
 impl MiracastTransmitter {
@@ -2629,6 +2654,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mira
 }
 unsafe impl ::core::marker::Send for MiracastTransmitter {}
 unsafe impl ::core::marker::Sync for MiracastTransmitter {}
+#[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
 pub struct MiracastTransmitterAuthorizationStatus(pub i32);
 impl MiracastTransmitterAuthorizationStatus {

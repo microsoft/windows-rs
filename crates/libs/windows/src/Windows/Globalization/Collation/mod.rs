@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Globalization_Collation'*"]
 #[repr(transparent)]
 pub struct CharacterGrouping(::windows::core::IUnknown);
 impl CharacterGrouping {
@@ -80,6 +81,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Char
 }
 unsafe impl ::core::marker::Send for CharacterGrouping {}
 unsafe impl ::core::marker::Sync for CharacterGrouping {}
+#[doc = "*Required features: 'Globalization_Collation'*"]
 #[repr(transparent)]
 pub struct CharacterGroupings(::windows::core::IUnknown);
 impl CharacterGroupings {

@@ -22,6 +22,7 @@ pub const CERT_FILTER_OP_NOT_EXISTS: u32 = 2u32;
 pub const CERT_FILTER_VALID_SIGNATURE: u32 = 4u32;
 pub const CERT_FILTER_VALID_TIME_RANGE: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CERT_SELECTUI_INPUT {
     pub hStore: *mut ::core::ffi::c_void,
@@ -55,6 +56,7 @@ impl ::core::default::Default for CERT_SELECTUI_INPUT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CERT_SELECT_STRUCT_A {
     pub dwSize: u32,
@@ -101,14 +103,22 @@ impl ::core::default::Default for CERT_SELECT_STRUCT_A {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub type CERT_SELECT_STRUCT_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CSS_HIDE_PROPERTIES: CERT_SELECT_STRUCT_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CSS_ENABLEHOOK: CERT_SELECT_STRUCT_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CSS_ALLOWMULTISELECT: CERT_SELECT_STRUCT_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CSS_SHOW_HELP: CERT_SELECT_STRUCT_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CSS_ENABLETEMPLATE: CERT_SELECT_STRUCT_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CSS_ENABLETEMPLATEHANDLE: CERT_SELECT_STRUCT_FLAGS = 64u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CERT_SELECT_STRUCT_W {
     pub dwSize: u32,
@@ -180,6 +190,7 @@ pub const CERT_VALIDITY_PERIOD_NESTING_FAILURE: u32 = 1024u32;
 pub const CERT_VALIDITY_SIGNATURE_FAILS: u32 = 4u32;
 pub const CERT_VALIDITY_UNKNOWN_CRITICAL_EXTENSION: u32 = 128u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CERT_VERIFY_CERTIFICATE_TRUST {
     pub cbSize: u32,
@@ -229,6 +240,7 @@ impl ::core::default::Default for CERT_VERIFY_CERTIFICATE_TRUST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_Controls', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct CERT_VIEWPROPERTIES_STRUCT_A {
     pub dwSize: u32,
@@ -280,18 +292,30 @@ impl ::core::default::Default for CERT_VIEWPROPERTIES_STRUCT_A {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub type CERT_VIEWPROPERTIES_STRUCT_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CM_ENABLEHOOK: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CM_SHOW_HELP: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CM_SHOW_HELPICON: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CM_ENABLETEMPLATE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CM_HIDE_ADVANCEPAGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CM_HIDE_TRUSTPAGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CM_NO_NAMECHANGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CM_NO_EDITTRUST: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CM_HIDE_DETAILPAGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CM_ADD_CERT_STORES: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 512u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_Controls', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct CERT_VIEWPROPERTIES_STRUCT_W {
     pub dwSize: u32,
@@ -344,6 +368,7 @@ impl ::core::default::Default for CERT_VIEWPROPERTIES_STRUCT_W {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CMFLTR {
     pub dwSize: u32,
@@ -378,6 +403,7 @@ impl ::core::default::Default for CMFLTR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CMOID {
     pub szExtensionOID: super::super::super::Foundation::PSTR,
@@ -423,6 +449,7 @@ pub const CRYPTDLG_REVOCATION_ONLINE: u32 = 2147483648u32;
 pub const CRYPTUI_CERT_MGR_PUBLISHER_TAB: u32 = 4u32;
 pub const CRYPTUI_CERT_MGR_SINGLE_TAB_FLAG: u32 = 32768u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_CERT_MGR_STRUCT {
     pub dwSize: u32,
@@ -459,6 +486,7 @@ impl ::core::default::Default for CRYPTUI_CERT_MGR_STRUCT {
 }
 pub const CRYPTUI_CERT_MGR_TAB_MASK: u32 = 15u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_INITDIALOG_STRUCT {
     pub lParam: super::super::super::Foundation::LPARAM,
@@ -496,28 +524,50 @@ pub const CRYPTUI_SELECT_INTENDEDUSE_COLUMN: u64 = 4u64;
 pub const CRYPTUI_SELECT_ISSUEDBY_COLUMN: u64 = 2u64;
 pub const CRYPTUI_SELECT_ISSUEDTO_COLUMN: u64 = 1u64;
 pub const CRYPTUI_SELECT_LOCATION_COLUMN: u64 = 16u64;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub type CRYPTUI_VIEWCERTIFICATE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_HIDE_HIERARCHYPAGE: CRYPTUI_VIEWCERTIFICATE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_HIDE_DETAILPAGE: CRYPTUI_VIEWCERTIFICATE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_DISABLE_EDITPROPERTIES: CRYPTUI_VIEWCERTIFICATE_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_ENABLE_EDITPROPERTIES: CRYPTUI_VIEWCERTIFICATE_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_DISABLE_ADDTOSTORE: CRYPTUI_VIEWCERTIFICATE_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_ENABLE_ADDTOSTORE: CRYPTUI_VIEWCERTIFICATE_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_ACCEPT_DECLINE_STYLE: CRYPTUI_VIEWCERTIFICATE_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_IGNORE_UNTRUSTED_ROOT: CRYPTUI_VIEWCERTIFICATE_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_DONT_OPEN_STORES: CRYPTUI_VIEWCERTIFICATE_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_ONLY_OPEN_ROOT_STORE: CRYPTUI_VIEWCERTIFICATE_FLAGS = 512u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WARN_UNTRUSTED_ROOT: CRYPTUI_VIEWCERTIFICATE_FLAGS = 1024u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_ENABLE_REVOCATION_CHECKING: CRYPTUI_VIEWCERTIFICATE_FLAGS = 2048u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WARN_REMOTE_TRUST: CRYPTUI_VIEWCERTIFICATE_FLAGS = 4096u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_DISABLE_EXPORT: CRYPTUI_VIEWCERTIFICATE_FLAGS = 8192u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_ENABLE_REVOCATION_CHECK_END_CERT: CRYPTUI_VIEWCERTIFICATE_FLAGS = 16384u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_ENABLE_REVOCATION_CHECK_CHAIN: CRYPTUI_VIEWCERTIFICATE_FLAGS = 32768u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_ENABLE_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: CRYPTUI_VIEWCERTIFICATE_FLAGS = 2048u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_DISABLE_HTMLLINK: CRYPTUI_VIEWCERTIFICATE_FLAGS = 65536u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_DISABLE_ISSUERSTATEMENT: CRYPTUI_VIEWCERTIFICATE_FLAGS = 131072u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_CACHE_ONLY_URL_RETRIEVAL: CRYPTUI_VIEWCERTIFICATE_FLAGS = 262144u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip', 'Win32_Security_WinTrust', 'Win32_UI_Controls', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct CRYPTUI_VIEWCERTIFICATE_STRUCTA {
     pub dwSize: u32,
@@ -566,6 +616,7 @@ impl ::core::default::Default for CRYPTUI_VIEWCERTIFICATE_STRUCTA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip', 'Win32_Security_WinTrust', 'Win32_UI_Controls', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union CRYPTUI_VIEWCERTIFICATE_STRUCTA_0 {
     pub pCryptProviderData: *mut super::super::WinTrust::CRYPT_PROVIDER_DATA,
@@ -598,6 +649,7 @@ impl ::core::default::Default for CRYPTUI_VIEWCERTIFICATE_STRUCTA_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip', 'Win32_Security_WinTrust', 'Win32_UI_Controls', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct CRYPTUI_VIEWCERTIFICATE_STRUCTW {
     pub dwSize: u32,
@@ -646,6 +698,7 @@ impl ::core::default::Default for CRYPTUI_VIEWCERTIFICATE_STRUCTW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip', 'Win32_Security_WinTrust', 'Win32_UI_Controls', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {
     pub pCryptProviderData: *mut super::super::WinTrust::CRYPT_PROVIDER_DATA,
@@ -677,16 +730,26 @@ impl ::core::default::Default for CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub type CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE = u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN: CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN_NO_ROOT: CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE = 2u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_NONE: CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE = 0u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub type CRYPTUI_WIZ_DIGITAL_SIGN = u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_CERT: CRYPTUI_WIZ_DIGITAL_SIGN = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_STORE: CRYPTUI_WIZ_DIGITAL_SIGN = 2u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK: CRYPTUI_WIZ_DIGITAL_SIGN = 3u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_NONE: CRYPTUI_WIZ_DIGITAL_SIGN = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
     pub dwSize: u32,
@@ -722,6 +785,7 @@ impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
     pub dwSize: u32,
@@ -756,6 +820,7 @@ impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
     pub pPvkFileInfo: *mut CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO,
@@ -788,6 +853,7 @@ impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
     pub dwSize: u32,
     pub cbBlob: u32,
@@ -815,6 +881,7 @@ impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
 }
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_EXCLUDE_PAGE_HASHES: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
     pub dwSize: u32,
@@ -855,6 +922,7 @@ impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
 }
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_INCLUDE_PAGE_HASHES: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
     pub dwSize: u32,
@@ -893,6 +961,7 @@ impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0 {
     pub pwszFileName: super::super::super::Foundation::PWSTR,
@@ -925,6 +994,7 @@ impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1 {
     pub pSigningCertContext: *mut super::CERT_CONTEXT,
@@ -958,6 +1028,7 @@ impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
     pub dwSize: u32,
@@ -991,13 +1062,20 @@ impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub type CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION = u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE: CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_PROV: CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION = 2u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub type CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE = u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_COMMERCIAL: CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_INDIVIDUAL: CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
     pub dwSize: u32,
@@ -1032,11 +1110,16 @@ impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub type CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT = u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_BLOB: CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT = 2u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_FILE: CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_NONE: CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
     pub dwSize: u32,
@@ -1072,15 +1155,23 @@ impl ::core::default::Default for CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub type CRYPTUI_WIZ_EXPORT_FORMAT = u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_EXPORT_FORMAT_DER: CRYPTUI_WIZ_EXPORT_FORMAT = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_EXPORT_FORMAT_PFX: CRYPTUI_WIZ_EXPORT_FORMAT = 2u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_EXPORT_FORMAT_PKCS7: CRYPTUI_WIZ_EXPORT_FORMAT = 3u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_EXPORT_FORMAT_BASE64: CRYPTUI_WIZ_EXPORT_FORMAT = 4u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_EXPORT_FORMAT_CRL: CRYPTUI_WIZ_EXPORT_FORMAT = 6u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_EXPORT_FORMAT_CTL: CRYPTUI_WIZ_EXPORT_FORMAT = 7u32;
 pub const CRYPTUI_WIZ_EXPORT_FORMAT_SERIALIZED_CERT_STORE: u32 = 5u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_EXPORT_INFO {
     pub dwSize: u32,
@@ -1117,6 +1208,7 @@ impl ::core::default::Default for CRYPTUI_WIZ_EXPORT_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union CRYPTUI_WIZ_EXPORT_INFO_0 {
     pub pCertContext: *mut super::CERT_CONTEXT,
@@ -1150,26 +1242,46 @@ impl ::core::default::Default for CRYPTUI_WIZ_EXPORT_INFO_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub type CRYPTUI_WIZ_EXPORT_SUBJECT = u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_EXPORT_CERT_CONTEXT: CRYPTUI_WIZ_EXPORT_SUBJECT = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_EXPORT_CTL_CONTEXT: CRYPTUI_WIZ_EXPORT_SUBJECT = 2u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_EXPORT_CRL_CONTEXT: CRYPTUI_WIZ_EXPORT_SUBJECT = 3u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_EXPORT_CERT_STORE: CRYPTUI_WIZ_EXPORT_SUBJECT = 4u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_EXPORT_CERT_STORE_CERTIFICATES_ONLY: CRYPTUI_WIZ_EXPORT_SUBJECT = 5u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub type CRYPTUI_WIZ_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_NO_UI: CRYPTUI_WIZ_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_IGNORE_NO_UI_FLAG_FOR_CSPS: CRYPTUI_WIZ_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_NO_UI_EXCEPT_CSP: CRYPTUI_WIZ_FLAGS = 3u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_IMPORT_ALLOW_CERT: CRYPTUI_WIZ_FLAGS = 131072u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_IMPORT_ALLOW_CRL: CRYPTUI_WIZ_FLAGS = 262144u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_IMPORT_ALLOW_CTL: CRYPTUI_WIZ_FLAGS = 524288u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_IMPORT_NO_CHANGE_DEST_STORE: CRYPTUI_WIZ_FLAGS = 65536u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_IMPORT_TO_LOCALMACHINE: CRYPTUI_WIZ_FLAGS = 1048576u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_IMPORT_TO_CURRENTUSER: CRYPTUI_WIZ_FLAGS = 2097152u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_IMPORT_REMOTE_DEST_STORE: CRYPTUI_WIZ_FLAGS = 4194304u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_EXPORT_PRIVATE_KEY: CRYPTUI_WIZ_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_EXPORT_NO_DELETE_PRIVATE_KEY: CRYPTUI_WIZ_FLAGS = 512u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CRYPTUI_WIZ_IMPORT_SRC_INFO {
     pub dwSize: u32,
@@ -1205,6 +1317,7 @@ impl ::core::default::Default for CRYPTUI_WIZ_IMPORT_SRC_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {
     pub pwszFileName: super::super::super::Foundation::PWSTR,
@@ -1239,15 +1352,22 @@ impl ::core::default::Default for CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub type CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_IMPORT_SUBJECT_FILE: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CERT_CONTEXT: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = 2u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CTL_CONTEXT: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = 3u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CRL_CONTEXT: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = 4u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CERT_STORE: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = 5u32;
 pub const CRYTPDLG_FLAGS_MASK: u32 = 4278190080u32;
 pub const CSS_SELECTCERT_MASK: u32 = 16777215u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CTL_MODIFY_REQUEST {
     pub pccert: *mut super::CERT_CONTEXT,
@@ -1280,10 +1400,15 @@ impl ::core::default::Default for CTL_MODIFY_REQUEST {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub type CTL_MODIFY_REQUEST_OPERATION = u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CTL_MODIFY_REQUEST_ADD_TRUSTED: CTL_MODIFY_REQUEST_OPERATION = 3u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CTL_MODIFY_REQUEST_ADD_NOT_TRUSTED: CTL_MODIFY_REQUEST_OPERATION = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CTL_MODIFY_REQUEST_REMOVE: CTL_MODIFY_REQUEST_OPERATION = 2u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CertSelectionGetSerializedBlob(pcsi: *const CERT_SELECTUI_INPUT, ppoutbuffer: *mut *mut ::core::ffi::c_void, puloutbuffersize: *mut u32) -> ::windows::core::Result<()> {
@@ -1298,6 +1423,7 @@ pub unsafe fn CertSelectionGetSerializedBlob(pcsi: *const CERT_SELECTUI_INPUT, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CryptUIDlgCertMgr(pcryptuicertmgr: *const CRYPTUI_CERT_MGR_STRUCT) -> super::super::super::Foundation::BOOL {
@@ -1312,6 +1438,7 @@ pub unsafe fn CryptUIDlgCertMgr(pcryptuicertmgr: *const CRYPTUI_CERT_MGR_STRUCT)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CryptUIDlgSelectCertificateFromStore<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hcertstore: *const ::core::ffi::c_void, hwnd: Param1, pwsztitle: Param2, pwszdisplaystring: Param3, dwdontusecolumn: u32, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> *mut super::CERT_CONTEXT {
@@ -1326,6 +1453,7 @@ pub unsafe fn CryptUIDlgSelectCertificateFromStore<'a, Param1: ::windows::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip', 'Win32_Security_WinTrust', 'Win32_UI_Controls', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn CryptUIDlgViewCertificateA(pcertviewinfo: *const CRYPTUI_VIEWCERTIFICATE_STRUCTA, pfpropertieschanged: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL {
@@ -1340,6 +1468,7 @@ pub unsafe fn CryptUIDlgViewCertificateA(pcertviewinfo: *const CRYPTUI_VIEWCERTI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip', 'Win32_Security_WinTrust', 'Win32_UI_Controls', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn CryptUIDlgViewCertificateW(pcertviewinfo: *const CRYPTUI_VIEWCERTIFICATE_STRUCTW, pfpropertieschanged: *mut super::super::super::Foundation::BOOL) -> super::super::super::Foundation::BOOL {
@@ -1354,6 +1483,7 @@ pub unsafe fn CryptUIDlgViewCertificateW(pcertviewinfo: *const CRYPTUI_VIEWCERTI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CryptUIDlgViewContext<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(dwcontexttype: u32, pvcontext: *const ::core::ffi::c_void, hwnd: Param2, pwsztitle: Param3, dwflags: u32, pvreserved: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -1368,6 +1498,7 @@ pub unsafe fn CryptUIDlgViewContext<'a, Param2: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CryptUIWizDigitalSign<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(dwflags: u32, hwndparent: Param1, pwszwizardtitle: Param2, pdigitalsigninfo: *const CRYPTUI_WIZ_DIGITAL_SIGN_INFO, ppsigncontext: *mut *mut CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> super::super::super::Foundation::BOOL {
@@ -1382,6 +1513,7 @@ pub unsafe fn CryptUIWizDigitalSign<'a, Param1: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CryptUIWizExport<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: Param1, pwszwizardtitle: Param2, pexportinfo: *const CRYPTUI_WIZ_EXPORT_INFO, pvoid: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -1396,6 +1528,7 @@ pub unsafe fn CryptUIWizExport<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CryptUIWizFreeDigitalSignContext(psigncontext: *const CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT) -> super::super::super::Foundation::BOOL {
@@ -1410,6 +1543,7 @@ pub unsafe fn CryptUIWizFreeDigitalSignContext(psigncontext: *const CRYPTUI_WIZ_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CryptUIWizImport<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: Param1, pwszwizardtitle: Param2, pimportsrc: *const CRYPTUI_WIZ_IMPORT_SRC_INFO, hdestcertstore: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -1424,12 +1558,16 @@ pub unsafe fn CryptUIWizImport<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNCFILTERPROC = ::core::option::Option<unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, pfinitialselectedcert: *mut super::super::super::Foundation::BOOL, pvcallbackdata: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNCMFILTERPROC = ::core::option::Option<unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, param1: super::super::super::Foundation::LPARAM, param2: u32, param3: u32) -> super::super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNCMHOOKPROC = ::core::option::Option<unsafe extern "system" fn(hwnddialog: super::super::super::Foundation::HWND, message: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM) -> u32>;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNTRUSTHELPER = ::core::option::Option<unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, lcustdata: super::super::super::Foundation::LPARAM, fleafcertificate: super::super::super::Foundation::BOOL, pbtrustblob: *mut u8) -> ::windows::core::HRESULT>;
 pub const POLICY_IGNORE_NON_CRITICAL_BC: u32 = 1u32;

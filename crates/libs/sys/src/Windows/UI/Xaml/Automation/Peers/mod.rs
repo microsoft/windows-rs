@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
 pub struct AccessibilityView(pub i32);
 impl AccessibilityView {
@@ -18,6 +19,7 @@ pub type AppBarAutomationPeer = *mut ::core::ffi::c_void;
 pub type AppBarButtonAutomationPeer = *mut ::core::ffi::c_void;
 pub type AppBarToggleButtonAutomationPeer = *mut ::core::ffi::c_void;
 pub type AutoSuggestBoxAutomationPeer = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
 pub struct AutomationControlType(pub i32);
 impl AutomationControlType {
@@ -69,6 +71,7 @@ impl ::core::clone::Clone for AutomationControlType {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
 pub struct AutomationEvents(pub i32);
 impl AutomationEvents {
@@ -109,6 +112,7 @@ impl ::core::clone::Clone for AutomationEvents {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
 pub struct AutomationHeadingLevel(pub i32);
 impl AutomationHeadingLevel {
@@ -129,6 +133,7 @@ impl ::core::clone::Clone for AutomationHeadingLevel {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
 pub struct AutomationLandmarkType(pub i32);
 impl AutomationLandmarkType {
@@ -145,6 +150,7 @@ impl ::core::clone::Clone for AutomationLandmarkType {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
 pub struct AutomationLiveSetting(pub i32);
 impl AutomationLiveSetting {
@@ -158,6 +164,7 @@ impl ::core::clone::Clone for AutomationLiveSetting {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
 pub struct AutomationNavigationDirection(pub i32);
 impl AutomationNavigationDirection {
@@ -173,6 +180,7 @@ impl ::core::clone::Clone for AutomationNavigationDirection {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
 pub struct AutomationNotificationKind(pub i32);
 impl AutomationNotificationKind {
@@ -188,6 +196,7 @@ impl ::core::clone::Clone for AutomationNotificationKind {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
 pub struct AutomationNotificationProcessing(pub i32);
 impl AutomationNotificationProcessing {
@@ -203,6 +212,7 @@ impl ::core::clone::Clone for AutomationNotificationProcessing {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
 pub struct AutomationOrientation(pub i32);
 impl AutomationOrientation {
@@ -218,6 +228,7 @@ impl ::core::clone::Clone for AutomationOrientation {
 }
 pub type AutomationPeer = *mut ::core::ffi::c_void;
 pub type AutomationPeerAnnotation = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
 pub struct AutomationStructureChangeType(pub i32);
 impl AutomationStructureChangeType {
@@ -286,6 +297,7 @@ pub type MenuFlyoutItemAutomationPeer = *mut ::core::ffi::c_void;
 pub type MenuFlyoutPresenterAutomationPeer = *mut ::core::ffi::c_void;
 pub type NavigationViewItemAutomationPeer = *mut ::core::ffi::c_void;
 pub type PasswordBoxAutomationPeer = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
 pub struct PatternInterface(pub i32);
 impl PatternInterface {
@@ -341,6 +353,7 @@ pub type RadioButtonAutomationPeer = *mut ::core::ffi::c_void;
 pub type RangeBaseAutomationPeer = *mut ::core::ffi::c_void;
 pub type RatingControlAutomationPeer = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 pub struct RawElementProviderRuntimeId {
     pub Part1: u32,
     pub Part2: u32,

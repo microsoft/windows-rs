@@ -1,7 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type ICS_TARGETTYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const ICSTT_NAME: ICS_TARGETTYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const ICSTT_IPADDRESS: ICS_TARGETTYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct IDynamicPortMapping(::windows::core::IUnknown);
 impl IDynamicPortMapping {
@@ -178,6 +182,7 @@ pub struct IDynamicPortMappingVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linternalport: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct IDynamicPortMappingCollection(::windows::core::IUnknown);
 impl IDynamicPortMappingCollection {
@@ -304,6 +309,7 @@ pub struct IDynamicPortMappingCollectionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrremotehost: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lexternalport: i32, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, linternalport: i32, bstrinternalclient: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, benabled: i16, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lleaseduration: i32, ppdpm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct IEnumNetConnection(::windows::core::IUnknown);
 impl IEnumNetConnection {
@@ -367,6 +373,7 @@ pub struct IEnumNetConnectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct IEnumNetSharingEveryConnection(::windows::core::IUnknown);
 impl IEnumNetSharingEveryConnection {
@@ -432,6 +439,7 @@ pub struct IEnumNetSharingEveryConnectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct IEnumNetSharingPortMapping(::windows::core::IUnknown);
 impl IEnumNetSharingPortMapping {
@@ -497,6 +505,7 @@ pub struct IEnumNetSharingPortMappingVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct IEnumNetSharingPrivateConnection(::windows::core::IUnknown);
 impl IEnumNetSharingPrivateConnection {
@@ -562,6 +571,7 @@ pub struct IEnumNetSharingPrivateConnectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct IEnumNetSharingPublicConnection(::windows::core::IUnknown);
 impl IEnumNetSharingPublicConnection {
@@ -627,6 +637,7 @@ pub struct IEnumNetSharingPublicConnectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INATEventManager(::windows::core::IUnknown);
 impl INATEventManager {
@@ -731,6 +742,7 @@ pub struct INATEventManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INATExternalIPAddressCallback(::windows::core::IUnknown);
 impl INATExternalIPAddressCallback {
@@ -783,6 +795,7 @@ pub struct INATExternalIPAddressCallbackVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrnewexternalipaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INATNumberOfEntriesCallback(::windows::core::IUnknown);
 impl INATNumberOfEntriesCallback {
@@ -829,6 +842,7 @@ unsafe impl ::windows::core::Interface for INATNumberOfEntriesCallback {
 #[doc(hidden)]
 pub struct INATNumberOfEntriesCallbackVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnewnumberofentries: i32) -> ::windows::core::HRESULT);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct INET_FIREWALL_AC_BINARIES {
     pub count: u32,
@@ -861,6 +875,7 @@ impl ::core::default::Default for INET_FIREWALL_AC_BINARIES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct INET_FIREWALL_AC_CAPABILITIES {
     pub count: u32,
@@ -893,6 +908,7 @@ impl ::core::default::Default for INET_FIREWALL_AC_CAPABILITIES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct INET_FIREWALL_AC_CHANGE {
     pub changeType: INET_FIREWALL_AC_CHANGE_TYPE,
@@ -929,6 +945,7 @@ impl ::core::default::Default for INET_FIREWALL_AC_CHANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union INET_FIREWALL_AC_CHANGE_0 {
     pub capabilities: INET_FIREWALL_AC_CAPABILITIES,
@@ -960,17 +977,28 @@ impl ::core::default::Default for INET_FIREWALL_AC_CHANGE_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type INET_FIREWALL_AC_CHANGE_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const INET_FIREWALL_AC_CHANGE_INVALID: INET_FIREWALL_AC_CHANGE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const INET_FIREWALL_AC_CHANGE_CREATE: INET_FIREWALL_AC_CHANGE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const INET_FIREWALL_AC_CHANGE_DELETE: INET_FIREWALL_AC_CHANGE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const INET_FIREWALL_AC_CHANGE_MAX: INET_FIREWALL_AC_CHANGE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type INET_FIREWALL_AC_CREATION_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const INET_FIREWALL_AC_NONE: INET_FIREWALL_AC_CREATION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const INET_FIREWALL_AC_PACKAGE_ID_ONLY: INET_FIREWALL_AC_CREATION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const INET_FIREWALL_AC_BINARY: INET_FIREWALL_AC_CREATION_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const INET_FIREWALL_AC_MAX: INET_FIREWALL_AC_CREATION_TYPE = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct INET_FIREWALL_APP_CONTAINER {
     pub appContainerSid: *mut super::super::Security::SID,
@@ -1009,6 +1037,7 @@ impl ::core::default::Default for INET_FIREWALL_APP_CONTAINER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetConnection(::windows::core::IUnknown);
 impl INetConnection {
@@ -1092,6 +1121,7 @@ pub struct INetConnectionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszwnewname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetConnectionConnectUi(::windows::core::IUnknown);
 impl INetConnectionConnectUi {
@@ -1154,6 +1184,7 @@ pub struct INetConnectionConnectUiVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetConnectionManager(::windows::core::IUnknown);
 impl INetConnectionManager {
@@ -1200,6 +1231,7 @@ unsafe impl ::windows::core::Interface for INetConnectionManager {
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetConnectionManagerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: NETCONMGR_ENUM_FLAGS, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetConnectionProps(::windows::core::IUnknown);
 impl INetConnectionProps {
@@ -1332,6 +1364,7 @@ pub struct INetConnectionPropsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmediatype: *mut NETCON_MEDIATYPE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetFwAuthorizedApplication(::windows::core::IUnknown);
 impl INetFwAuthorizedApplication {
@@ -1494,6 +1527,7 @@ pub struct INetFwAuthorizedApplicationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetFwAuthorizedApplications(::windows::core::IUnknown);
 impl INetFwAuthorizedApplications {
@@ -1617,6 +1651,7 @@ pub struct INetFwAuthorizedApplicationsVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetFwIcmpSettings(::windows::core::IUnknown);
 impl INetFwIcmpSettings {
@@ -1803,6 +1838,7 @@ pub struct INetFwIcmpSettingsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, allow: i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetFwMgr(::windows::core::IUnknown);
 impl INetFwMgr {
@@ -1925,6 +1961,7 @@ pub struct INetFwMgrVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ipversion: NET_FW_IP_VERSION, localaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, r#type: u8, allowed: *mut super::super::System::Com::VARIANT, restricted: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetFwOpenPort(::windows::core::IUnknown);
 impl INetFwOpenPort {
@@ -2097,6 +2134,7 @@ pub struct INetFwOpenPortVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, builtin: *mut i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetFwOpenPorts(::windows::core::IUnknown);
 impl INetFwOpenPorts {
@@ -2216,6 +2254,7 @@ pub struct INetFwOpenPortsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL, openport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetFwPolicy(::windows::core::IUnknown);
 impl INetFwPolicy {
@@ -2322,6 +2361,7 @@ pub struct INetFwPolicyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profiletype: NET_FW_PROFILE_TYPE, profile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetFwPolicy2(::windows::core::IUnknown);
 impl INetFwPolicy2 {
@@ -2529,6 +2569,7 @@ pub struct INetFwPolicy2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modifystate: *mut NET_FW_MODIFY_STATE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetFwProduct(::windows::core::IUnknown);
 impl INetFwProduct {
@@ -2658,6 +2699,7 @@ pub struct INetFwProductVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetFwProducts(::windows::core::IUnknown);
 impl INetFwProducts {
@@ -2774,6 +2816,7 @@ pub struct INetFwProductsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, product: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetFwProfile(::windows::core::IUnknown);
 impl INetFwProfile {
@@ -2936,6 +2979,7 @@ pub struct INetFwProfileVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, services: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, apps: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetFwRemoteAdminSettings(::windows::core::IUnknown);
 impl INetFwRemoteAdminSettings {
@@ -3072,6 +3116,7 @@ pub struct INetFwRemoteAdminSettingsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetFwRule(::windows::core::IUnknown);
 impl INetFwRule {
@@ -3378,6 +3423,7 @@ pub struct INetFwRuleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, action: *mut NET_FW_ACTION) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, action: NET_FW_ACTION) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetFwRule2(::windows::core::IUnknown);
 impl INetFwRule2 {
@@ -3713,6 +3759,7 @@ pub struct INetFwRule2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loptions: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loptions: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetFwRule3(::windows::core::IUnknown);
 impl INetFwRule3 {
@@ -4142,6 +4189,7 @@ pub struct INetFwRule3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loptions: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, loptions: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetFwRules(::windows::core::IUnknown);
 impl INetFwRules {
@@ -4265,6 +4313,7 @@ pub struct INetFwRulesVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetFwService(::windows::core::IUnknown);
 impl INetFwService {
@@ -4423,6 +4472,7 @@ pub struct INetFwServiceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, openports: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetFwServiceRestriction(::windows::core::IUnknown);
 impl INetFwServiceRestriction {
@@ -4537,6 +4587,7 @@ pub struct INetFwServiceRestrictionVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rules: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetFwServices(::windows::core::IUnknown);
 impl INetFwServices {
@@ -4648,6 +4699,7 @@ pub struct INetFwServicesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, svctype: NET_FW_SERVICE_TYPE, service: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetSharingConfiguration(::windows::core::IUnknown);
 impl INetSharingConfiguration {
@@ -4791,6 +4843,7 @@ pub struct INetSharingConfigurationVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmapping: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetSharingEveryConnectionCollection(::windows::core::IUnknown);
 impl INetSharingEveryConnectionCollection {
@@ -4897,6 +4950,7 @@ pub struct INetSharingEveryConnectionCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetSharingManager(::windows::core::IUnknown);
 impl INetSharingManager {
@@ -5023,6 +5077,7 @@ pub struct INetSharingManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcoll: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnetconnection: ::windows::core::RawPtr, ppprops: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetSharingPortMapping(::windows::core::IUnknown);
 impl INetSharingPortMapping {
@@ -5136,6 +5191,7 @@ pub struct INetSharingPortMappingVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnspmp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetSharingPortMappingCollection(::windows::core::IUnknown);
 impl INetSharingPortMappingCollection {
@@ -5242,6 +5298,7 @@ pub struct INetSharingPortMappingCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetSharingPortMappingProps(::windows::core::IUnknown);
 impl INetSharingPortMappingProps {
@@ -5384,6 +5441,7 @@ pub struct INetSharingPortMappingPropsVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbool: *mut i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetSharingPrivateConnectionCollection(::windows::core::IUnknown);
 impl INetSharingPrivateConnectionCollection {
@@ -5490,6 +5548,7 @@ pub struct INetSharingPrivateConnectionCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct INetSharingPublicConnectionCollection(::windows::core::IUnknown);
 impl INetSharingPublicConnectionCollection {
@@ -5596,6 +5655,7 @@ pub struct INetSharingPublicConnectionCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct IStaticPortMapping(::windows::core::IUnknown);
 impl IStaticPortMapping {
@@ -5755,6 +5815,7 @@ pub struct IStaticPortMappingVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, linternalport: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct IStaticPortMappingCollection(::windows::core::IUnknown);
 impl IStaticPortMappingCollection {
@@ -5881,6 +5942,7 @@ pub struct IStaticPortMappingCollectionVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lexternalport: i32, bstrprotocol: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, linternalport: i32, bstrinternalclient: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, benabled: i16, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppspm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 #[repr(transparent)]
 pub struct IUPnPNAT(::windows::core::IUnknown);
 impl IUPnPNAT {
@@ -5992,48 +6054,89 @@ pub struct IUPnPNATVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdpms: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NETCONMGR_ENUM_FLAGS = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCME_DEFAULT: NETCONMGR_ENUM_FLAGS = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCME_HIDDEN: NETCONMGR_ENUM_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NETCONUI_CONNECT_FLAGS = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCUC_DEFAULT: NETCONUI_CONNECT_FLAGS = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCUC_NO_UI: NETCONUI_CONNECT_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCUC_ENABLE_DISABLE: NETCONUI_CONNECT_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NETCON_CHARACTERISTIC_FLAGS = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_NONE: NETCON_CHARACTERISTIC_FLAGS = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_ALL_USERS: NETCON_CHARACTERISTIC_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_ALLOW_DUPLICATION: NETCON_CHARACTERISTIC_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_ALLOW_REMOVAL: NETCON_CHARACTERISTIC_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_ALLOW_RENAME: NETCON_CHARACTERISTIC_FLAGS = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_INCOMING_ONLY: NETCON_CHARACTERISTIC_FLAGS = 32i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_OUTGOING_ONLY: NETCON_CHARACTERISTIC_FLAGS = 64i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_BRANDED: NETCON_CHARACTERISTIC_FLAGS = 128i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_SHARED: NETCON_CHARACTERISTIC_FLAGS = 256i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_BRIDGED: NETCON_CHARACTERISTIC_FLAGS = 512i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_FIREWALLED: NETCON_CHARACTERISTIC_FLAGS = 1024i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_DEFAULT: NETCON_CHARACTERISTIC_FLAGS = 2048i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_HOMENET_CAPABLE: NETCON_CHARACTERISTIC_FLAGS = 4096i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_SHARED_PRIVATE: NETCON_CHARACTERISTIC_FLAGS = 8192i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_QUARANTINED: NETCON_CHARACTERISTIC_FLAGS = 16384i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_RESERVED: NETCON_CHARACTERISTIC_FLAGS = 32768i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_HOSTED_NETWORK: NETCON_CHARACTERISTIC_FLAGS = 65536i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_VIRTUAL_STATION: NETCON_CHARACTERISTIC_FLAGS = 131072i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_WIFI_DIRECT: NETCON_CHARACTERISTIC_FLAGS = 262144i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_BLUETOOTH_MASK: NETCON_CHARACTERISTIC_FLAGS = 983040i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCCF_LAN_MASK: NETCON_CHARACTERISTIC_FLAGS = 15728640i32;
 pub const NETCON_MAX_NAME_LEN: u32 = 256u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NETCON_MEDIATYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCM_NONE: NETCON_MEDIATYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCM_DIRECT: NETCON_MEDIATYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCM_ISDN: NETCON_MEDIATYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCM_LAN: NETCON_MEDIATYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCM_PHONE: NETCON_MEDIATYPE = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCM_TUNNEL: NETCON_MEDIATYPE = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCM_PPPOE: NETCON_MEDIATYPE = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCM_BRIDGE: NETCON_MEDIATYPE = 7i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCM_SHAREDACCESSHOST_LAN: NETCON_MEDIATYPE = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCM_SHAREDACCESSHOST_RAS: NETCON_MEDIATYPE = 9i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NETCON_PROPERTIES {
     pub guidId: ::windows::core::GUID,
@@ -6071,105 +6174,203 @@ impl ::core::default::Default for NETCON_PROPERTIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NETCON_STATUS = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCS_DISCONNECTED: NETCON_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCS_CONNECTING: NETCON_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCS_CONNECTED: NETCON_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCS_DISCONNECTING: NETCON_STATUS = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCS_HARDWARE_NOT_PRESENT: NETCON_STATUS = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCS_HARDWARE_DISABLED: NETCON_STATUS = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCS_HARDWARE_MALFUNCTION: NETCON_STATUS = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCS_MEDIA_DISCONNECTED: NETCON_STATUS = 7i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCS_AUTHENTICATING: NETCON_STATUS = 8i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCS_AUTHENTICATION_SUCCEEDED: NETCON_STATUS = 9i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCS_AUTHENTICATION_FAILED: NETCON_STATUS = 10i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCS_INVALID_ADDRESS: NETCON_STATUS = 11i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCS_CREDENTIALS_REQUIRED: NETCON_STATUS = 12i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCS_ACTION_REQUIRED: NETCON_STATUS = 13i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCS_ACTION_REQUIRED_RETRY: NETCON_STATUS = 14i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCS_CONNECT_FAILED: NETCON_STATUS = 15i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NETCON_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCT_DIRECT_CONNECT: NETCON_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCT_INBOUND: NETCON_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCT_INTERNET: NETCON_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCT_LAN: NETCON_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCT_PHONE: NETCON_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCT_TUNNEL: NETCON_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NCT_BRIDGE: NETCON_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NETISO_ERROR_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NETISO_ERROR_TYPE_NONE: NETISO_ERROR_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NETISO_ERROR_TYPE_PRIVATE_NETWORK: NETISO_ERROR_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NETISO_ERROR_TYPE_INTERNET_CLIENT: NETISO_ERROR_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NETISO_ERROR_TYPE_INTERNET_CLIENT_SERVER: NETISO_ERROR_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NETISO_ERROR_TYPE_MAX: NETISO_ERROR_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NETISO_FLAG = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NETISO_FLAG_FORCE_COMPUTE_BINARIES: NETISO_FLAG = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NETISO_FLAG_MAX: NETISO_FLAG = 2i32;
 pub const NETISO_GEID_FOR_NEUTRAL_AWARE: u32 = 2u32;
 pub const NETISO_GEID_FOR_WDAG: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NET_FW_ACTION = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_ACTION_BLOCK: NET_FW_ACTION = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_ACTION_ALLOW: NET_FW_ACTION = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_ACTION_MAX: NET_FW_ACTION = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NET_FW_AUTHENTICATE_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_AUTHENTICATE_NONE: NET_FW_AUTHENTICATE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_AUTHENTICATE_NO_ENCAPSULATION: NET_FW_AUTHENTICATE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_AUTHENTICATE_WITH_INTEGRITY: NET_FW_AUTHENTICATE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_AUTHENTICATE_AND_NEGOTIATE_ENCRYPTION: NET_FW_AUTHENTICATE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_AUTHENTICATE_AND_ENCRYPT: NET_FW_AUTHENTICATE_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NET_FW_EDGE_TRAVERSAL_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_EDGE_TRAVERSAL_TYPE_DENY: NET_FW_EDGE_TRAVERSAL_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_EDGE_TRAVERSAL_TYPE_ALLOW: NET_FW_EDGE_TRAVERSAL_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_EDGE_TRAVERSAL_TYPE_DEFER_TO_APP: NET_FW_EDGE_TRAVERSAL_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_EDGE_TRAVERSAL_TYPE_DEFER_TO_USER: NET_FW_EDGE_TRAVERSAL_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NET_FW_IP_PROTOCOL = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_IP_PROTOCOL_TCP: NET_FW_IP_PROTOCOL = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_IP_PROTOCOL_UDP: NET_FW_IP_PROTOCOL = 17i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_IP_PROTOCOL_ANY: NET_FW_IP_PROTOCOL = 256i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NET_FW_IP_VERSION = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_IP_VERSION_V4: NET_FW_IP_VERSION = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_IP_VERSION_V6: NET_FW_IP_VERSION = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_IP_VERSION_ANY: NET_FW_IP_VERSION = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_IP_VERSION_MAX: NET_FW_IP_VERSION = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NET_FW_MODIFY_STATE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_MODIFY_STATE_OK: NET_FW_MODIFY_STATE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_MODIFY_STATE_GP_OVERRIDE: NET_FW_MODIFY_STATE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_MODIFY_STATE_INBOUND_BLOCKED: NET_FW_MODIFY_STATE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NET_FW_POLICY_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_POLICY_GROUP: NET_FW_POLICY_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_POLICY_LOCAL: NET_FW_POLICY_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_POLICY_EFFECTIVE: NET_FW_POLICY_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_POLICY_TYPE_MAX: NET_FW_POLICY_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NET_FW_PROFILE_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_PROFILE_DOMAIN: NET_FW_PROFILE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_PROFILE_STANDARD: NET_FW_PROFILE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_PROFILE_CURRENT: NET_FW_PROFILE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_PROFILE_TYPE_MAX: NET_FW_PROFILE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NET_FW_PROFILE_TYPE2 = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_PROFILE2_DOMAIN: NET_FW_PROFILE_TYPE2 = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_PROFILE2_PRIVATE: NET_FW_PROFILE_TYPE2 = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_PROFILE2_PUBLIC: NET_FW_PROFILE_TYPE2 = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_PROFILE2_ALL: NET_FW_PROFILE_TYPE2 = 2147483647i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NET_FW_RULE_CATEGORY = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_RULE_CATEGORY_BOOT: NET_FW_RULE_CATEGORY = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_RULE_CATEGORY_STEALTH: NET_FW_RULE_CATEGORY = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_RULE_CATEGORY_FIREWALL: NET_FW_RULE_CATEGORY = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_RULE_CATEGORY_CONSEC: NET_FW_RULE_CATEGORY = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_RULE_CATEGORY_MAX: NET_FW_RULE_CATEGORY = 4i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NET_FW_RULE_DIRECTION = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_RULE_DIR_IN: NET_FW_RULE_DIRECTION = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_RULE_DIR_OUT: NET_FW_RULE_DIRECTION = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_RULE_DIR_MAX: NET_FW_RULE_DIRECTION = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NET_FW_SCOPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_SCOPE_ALL: NET_FW_SCOPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_SCOPE_LOCAL_SUBNET: NET_FW_SCOPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_SCOPE_CUSTOM: NET_FW_SCOPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_SCOPE_MAX: NET_FW_SCOPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type NET_FW_SERVICE_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_SERVICE_FILE_AND_PRINT: NET_FW_SERVICE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_SERVICE_UPNP: NET_FW_SERVICE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_SERVICE_REMOTE_DESKTOP: NET_FW_SERVICE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_SERVICE_NONE: NET_FW_SERVICE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NET_FW_SERVICE_TYPE_MAX: NET_FW_SERVICE_TYPE = 4i32;
 pub const NetFwAuthorizedApplication: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec9846b3_2762_4a6b_a214_6acb603462d2);
 pub const NetFwMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x304ce942_6e39_40d8_943a_b913c40c9cd4);
@@ -6179,6 +6380,7 @@ pub const NetFwProduct: ::windows::core::GUID = ::windows::core::GUID::from_u128
 pub const NetFwProducts: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc19079b_8272_4d73_bb70_cdb533527b61);
 pub const NetFwRule: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c5bc43e_3369_4c33_ab0c_be9469677af4);
 pub const NetSharingManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c63c1ad_3956_4ff8_8486_40034758315b);
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(wszservername: Param0, netisoerror: *mut NETISO_ERROR_TYPE) -> u32 {
@@ -6193,6 +6395,7 @@ pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<'a, Param0: ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: *mut u32, pppublicappcs: *mut *mut INET_FIREWALL_APP_CONTAINER) -> u32 {
@@ -6207,6 +6410,7 @@ pub unsafe fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationFreeAppContainers(ppublicappcs: *const INET_FIREWALL_APP_CONTAINER) -> u32 {
@@ -6221,6 +6425,7 @@ pub unsafe fn NetworkIsolationFreeAppContainers(ppublicappcs: *const INET_FIREWA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32, appcontainersids: *mut *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32 {
@@ -6235,6 +6440,7 @@ pub unsafe fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: PAC_CHANGES_CALLBACK_FN, context: *const ::core::ffi::c_void, registrationobject: *mut super::super::Foundation::HANDLE) -> u32 {
@@ -6249,6 +6455,7 @@ pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callbac
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs: u32, appcontainersids: *const super::super::Security::SID_AND_ATTRIBUTES) -> u32 {
@@ -6263,6 +6470,7 @@ pub unsafe fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs: u32, appco
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetworkIsolationSetupAppContainerBinaries<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(applicationcontainersid: Param0, packagefullname: Param1, packagefolder: Param2, displayname: Param3, bbinariesfullycomputed: Param4, binaries: *const super::super::Foundation::PWSTR, binariescount: u32) -> ::windows::core::Result<()> {
@@ -6277,6 +6485,7 @@ pub unsafe fn NetworkIsolationSetupAppContainerBinaries<'a, Param0: ::windows::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetworkIsolationUnregisterForAppContainerChanges<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(registrationobject: Param0) -> u32 {
@@ -6291,30 +6500,46 @@ pub unsafe fn NetworkIsolationUnregisterForAppContainerChanges<'a, Param0: ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type PAC_CHANGES_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, pchange: *const INET_FIREWALL_AC_CHANGE)>;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_FWADDDYNAMICKEYWORDADDRESS0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddress: *const _tag_FW_DYNAMIC_KEYWORD_ADDRESS0) -> u32>;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type PFN_FWDELETEDYNAMICKEYWORDADDRESS0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddressid: ::windows::core::GUID) -> u32>;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddressid: ::windows::core::GUID, dynamickeywordaddressdata: *mut *mut _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0 = ::core::option::Option<unsafe extern "system" fn(flags: u32, dynamickeywordaddressdata: *mut *mut _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddressdata: *const _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_FWUPDATEDYNAMICKEYWORDADDRESS0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddressid: ::windows::core::GUID, updatedaddresses: super::super::Foundation::PWSTR, append: super::super::Foundation::BOOL) -> u32>;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PNETISO_EDP_ID_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, wszenterpriseid: super::super::Foundation::PWSTR, dwerr: u32)>;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type SHARINGCONNECTIONTYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const ICSSHARINGTYPE_PUBLIC: SHARINGCONNECTIONTYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const ICSSHARINGTYPE_PRIVATE: SHARINGCONNECTIONTYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type SHARINGCONNECTION_ENUM_FLAGS = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const ICSSC_DEFAULT: SHARINGCONNECTION_ENUM_FLAGS = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const ICSSC_ENABLED: SHARINGCONNECTION_ENUM_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const S_OBJECT_NO_LONGER_VALID: ::windows::core::HRESULT = ::windows::core::HRESULT(2i32);
 pub const UPnPNAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae1e00aa_3fd5_403c_8a27_2bbdc30cd0e1);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
     pub id: ::windows::core::GUID,
@@ -6349,6 +6574,7 @@ impl ::core::default::Default for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
     pub dynamicKeywordAddress: _tag_FW_DYNAMIC_KEYWORD_ADDRESS0,
@@ -6382,13 +6608,23 @@ impl ::core::default::Default for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_AUTO_RESOLVE: _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_NON_AUTO_RESOLVE: _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_ALL: _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = 3i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS_AUTO_RESOLVE: _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub type _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const FW_DYNAMIC_KEYWORD_ORIGIN_INVALID: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const FW_DYNAMIC_KEYWORD_ORIGIN_LOCAL: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const FW_DYNAMIC_KEYWORD_ORIGIN_MDM: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = 2i32;

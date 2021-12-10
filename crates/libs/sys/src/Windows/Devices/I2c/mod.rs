@@ -3,6 +3,7 @@
 pub mod Provider;
 #[link(name = "windows")]
 extern "system" {}
+#[doc = "*Required features: 'Devices_I2c'*"]
 #[repr(transparent)]
 pub struct I2cBusSpeed(pub i32);
 impl I2cBusSpeed {
@@ -18,6 +19,7 @@ impl ::core::clone::Clone for I2cBusSpeed {
 pub type I2cConnectionSettings = *mut ::core::ffi::c_void;
 pub type I2cController = *mut ::core::ffi::c_void;
 pub type I2cDevice = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_I2c'*"]
 #[repr(transparent)]
 pub struct I2cSharingMode(pub i32);
 impl I2cSharingMode {
@@ -31,6 +33,7 @@ impl ::core::clone::Clone for I2cSharingMode {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Devices_I2c'*"]
 pub struct I2cTransferResult {
     pub Status: I2cTransferStatus,
     pub BytesTransferred: u32,
@@ -41,6 +44,7 @@ impl ::core::clone::Clone for I2cTransferResult {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_I2c'*"]
 #[repr(transparent)]
 pub struct I2cTransferStatus(pub i32);
 impl I2cTransferStatus {

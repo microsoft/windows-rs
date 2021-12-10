@@ -3,6 +3,7 @@
 pub mod Core;
 #[cfg(feature = "Media_Capture_Frames")]
 pub mod Frames;
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AdvancedCapturedPhoto(::windows::core::IUnknown);
 impl AdvancedCapturedPhoto {
@@ -100,6 +101,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adva
 }
 unsafe impl ::core::marker::Send for AdvancedCapturedPhoto {}
 unsafe impl ::core::marker::Sync for AdvancedCapturedPhoto {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AdvancedPhotoCapture(::windows::core::IUnknown);
 impl AdvancedPhotoCapture {
@@ -217,6 +219,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Adva
 }
 unsafe impl ::core::marker::Send for AdvancedPhotoCapture {}
 unsafe impl ::core::marker::Sync for AdvancedPhotoCapture {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastBackgroundService(::windows::core::IUnknown);
 impl AppBroadcastBackgroundService {
@@ -429,6 +432,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastBackgroundServiceSignInInfo(::windows::core::IUnknown);
 impl AppBroadcastBackgroundServiceSignInInfo {
@@ -572,6 +576,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastBackgroundServiceStreamInfo(::windows::core::IUnknown);
 impl AppBroadcastBackgroundServiceStreamInfo {
@@ -727,6 +732,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastCameraCaptureState(pub i32);
 impl AppBroadcastCameraCaptureState {
@@ -755,6 +761,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastCameraCaptureState {
 impl ::windows::core::DefaultType for AppBroadcastCameraCaptureState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastCameraCaptureStateChangedEventArgs(::windows::core::IUnknown);
 impl AppBroadcastCameraCaptureStateChangedEventArgs {
@@ -836,6 +843,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 unsafe impl ::core::marker::Send for AppBroadcastCameraCaptureStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppBroadcastCameraCaptureStateChangedEventArgs {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastCameraOverlayLocation(pub i32);
 impl AppBroadcastCameraOverlayLocation {
@@ -870,6 +878,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastCameraOverlayLocation {
 impl ::windows::core::DefaultType for AppBroadcastCameraOverlayLocation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastCameraOverlaySize(pub i32);
 impl AppBroadcastCameraOverlaySize {
@@ -898,6 +907,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastCameraOverlaySize {
 impl ::windows::core::DefaultType for AppBroadcastCameraOverlaySize {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastCaptureTargetType(pub i32);
 impl AppBroadcastCaptureTargetType {
@@ -925,6 +935,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastCaptureTargetType {
 impl ::windows::core::DefaultType for AppBroadcastCaptureTargetType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastExitBroadcastModeReason(pub i32);
 impl AppBroadcastExitBroadcastModeReason {
@@ -954,6 +965,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastExitBroadcastModeReason
 impl ::windows::core::DefaultType for AppBroadcastExitBroadcastModeReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastGlobalSettings(::windows::core::IUnknown);
 impl AppBroadcastGlobalSettings {
@@ -1157,6 +1169,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastHeartbeatRequestedEventArgs(::windows::core::IUnknown);
 impl AppBroadcastHeartbeatRequestedEventArgs {
@@ -1261,6 +1274,7 @@ impl AppBroadcastManager {
 impl ::windows::core::RuntimeName for AppBroadcastManager {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastManager";
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastMicrophoneCaptureState(pub i32);
 impl AppBroadcastMicrophoneCaptureState {
@@ -1289,6 +1303,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastMicrophoneCaptureState 
 impl ::windows::core::DefaultType for AppBroadcastMicrophoneCaptureState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastMicrophoneCaptureStateChangedEventArgs(::windows::core::IUnknown);
 impl AppBroadcastMicrophoneCaptureStateChangedEventArgs {
@@ -1370,6 +1385,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 unsafe impl ::core::marker::Send for AppBroadcastMicrophoneCaptureStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppBroadcastMicrophoneCaptureStateChangedEventArgs {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastPlugIn(::windows::core::IUnknown);
 impl AppBroadcastPlugIn {
@@ -1466,6 +1482,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 unsafe impl ::core::marker::Send for AppBroadcastPlugIn {}
 unsafe impl ::core::marker::Sync for AppBroadcastPlugIn {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastPlugInManager(::windows::core::IUnknown);
 impl AppBroadcastPlugInManager {
@@ -1576,6 +1593,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 unsafe impl ::core::marker::Send for AppBroadcastPlugInManager {}
 unsafe impl ::core::marker::Sync for AppBroadcastPlugInManager {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastPlugInState(pub i32);
 impl AppBroadcastPlugInState {
@@ -1608,6 +1626,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastPlugInState {
 impl ::windows::core::DefaultType for AppBroadcastPlugInState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastPlugInStateChangedEventArgs(::windows::core::IUnknown);
 impl AppBroadcastPlugInStateChangedEventArgs {
@@ -1682,6 +1701,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 unsafe impl ::core::marker::Send for AppBroadcastPlugInStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppBroadcastPlugInStateChangedEventArgs {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastPreview(::windows::core::IUnknown);
 impl AppBroadcastPreview {
@@ -1788,6 +1808,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 unsafe impl ::core::marker::Send for AppBroadcastPreview {}
 unsafe impl ::core::marker::Sync for AppBroadcastPreview {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastPreviewState(pub i32);
 impl AppBroadcastPreviewState {
@@ -1816,6 +1837,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastPreviewState {
 impl ::windows::core::DefaultType for AppBroadcastPreviewState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastPreviewStateChangedEventArgs(::windows::core::IUnknown);
 impl AppBroadcastPreviewStateChangedEventArgs {
@@ -1897,6 +1919,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 unsafe impl ::core::marker::Send for AppBroadcastPreviewStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppBroadcastPreviewStateChangedEventArgs {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastPreviewStreamReader(::windows::core::IUnknown);
 impl AppBroadcastPreviewStreamReader {
@@ -2021,6 +2044,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 unsafe impl ::core::marker::Send for AppBroadcastPreviewStreamReader {}
 unsafe impl ::core::marker::Sync for AppBroadcastPreviewStreamReader {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastPreviewStreamVideoFrame(::windows::core::IUnknown);
 impl AppBroadcastPreviewStreamVideoFrame {
@@ -2103,6 +2127,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 unsafe impl ::core::marker::Send for AppBroadcastPreviewStreamVideoFrame {}
 unsafe impl ::core::marker::Sync for AppBroadcastPreviewStreamVideoFrame {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastPreviewStreamVideoHeader(::windows::core::IUnknown);
 impl AppBroadcastPreviewStreamVideoHeader {
@@ -2201,6 +2226,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 unsafe impl ::core::marker::Send for AppBroadcastPreviewStreamVideoHeader {}
 unsafe impl ::core::marker::Sync for AppBroadcastPreviewStreamVideoHeader {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastProviderSettings(::windows::core::IUnknown);
 impl AppBroadcastProviderSettings {
@@ -2343,6 +2369,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastServices(::windows::core::IUnknown);
 impl AppBroadcastServices {
@@ -2496,6 +2523,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 unsafe impl ::core::marker::Send for AppBroadcastServices {}
 unsafe impl ::core::marker::Sync for AppBroadcastServices {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastSignInResult(pub i32);
 impl AppBroadcastSignInResult {
@@ -2526,6 +2554,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastSignInResult {
 impl ::windows::core::DefaultType for AppBroadcastSignInResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastSignInState(pub i32);
 impl AppBroadcastSignInState {
@@ -2556,6 +2585,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastSignInState {
 impl ::windows::core::DefaultType for AppBroadcastSignInState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastSignInStateChangedEventArgs(::windows::core::IUnknown);
 impl AppBroadcastSignInStateChangedEventArgs {
@@ -2635,6 +2665,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastState(::windows::core::IUnknown);
 impl AppBroadcastState {
@@ -2928,6 +2959,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 unsafe impl ::core::marker::Send for AppBroadcastState {}
 unsafe impl ::core::marker::Sync for AppBroadcastState {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastStreamAudioFrame(::windows::core::IUnknown);
 impl AppBroadcastStreamAudioFrame {
@@ -3008,6 +3040,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastStreamAudioHeader(::windows::core::IUnknown);
 impl AppBroadcastStreamAudioHeader {
@@ -3111,6 +3144,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastStreamReader(::windows::core::IUnknown);
 impl AppBroadcastStreamReader {
@@ -3266,6 +3300,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastStreamState(pub i32);
 impl AppBroadcastStreamState {
@@ -3296,6 +3331,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastStreamState {
 impl ::windows::core::DefaultType for AppBroadcastStreamState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastStreamStateChangedEventArgs(::windows::core::IUnknown);
 impl AppBroadcastStreamStateChangedEventArgs {
@@ -3368,6 +3404,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastStreamVideoFrame(::windows::core::IUnknown);
 impl AppBroadcastStreamVideoFrame {
@@ -3448,6 +3485,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastStreamVideoHeader(::windows::core::IUnknown);
 impl AppBroadcastStreamVideoHeader {
@@ -3558,6 +3596,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastTerminationReason(pub i32);
 impl AppBroadcastTerminationReason {
@@ -3593,6 +3632,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastTerminationReason {
 impl ::windows::core::DefaultType for AppBroadcastTerminationReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastTriggerDetails(::windows::core::IUnknown);
 impl AppBroadcastTriggerDetails {
@@ -3665,6 +3705,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastVideoEncodingBitrateMode(pub i32);
 impl AppBroadcastVideoEncodingBitrateMode {
@@ -3692,6 +3733,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastVideoEncodingBitrateMod
 impl ::windows::core::DefaultType for AppBroadcastVideoEncodingBitrateMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastVideoEncodingResolutionMode(pub i32);
 impl AppBroadcastVideoEncodingResolutionMode {
@@ -3719,6 +3761,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastVideoEncodingResolution
 impl ::windows::core::DefaultType for AppBroadcastVideoEncodingResolutionMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppBroadcastViewerCountChangedEventArgs(::windows::core::IUnknown);
 impl AppBroadcastViewerCountChangedEventArgs {
@@ -3793,6 +3836,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 unsafe impl ::core::marker::Send for AppBroadcastViewerCountChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppBroadcastViewerCountChangedEventArgs {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppCapture(::windows::core::IUnknown);
 impl AppCapture {
@@ -3906,6 +3950,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppCaptureAlternateShortcutKeys(::windows::core::IUnknown);
 impl AppCaptureAlternateShortcutKeys {
@@ -4179,6 +4224,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppCaptureDurationGeneratedEventArgs(::windows::core::IUnknown);
 impl AppCaptureDurationGeneratedEventArgs {
@@ -4254,6 +4300,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
 }
 unsafe impl ::core::marker::Send for AppCaptureDurationGeneratedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCaptureDurationGeneratedEventArgs {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppCaptureFileGeneratedEventArgs(::windows::core::IUnknown);
 impl AppCaptureFileGeneratedEventArgs {
@@ -4329,6 +4376,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
 }
 unsafe impl ::core::marker::Send for AppCaptureFileGeneratedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCaptureFileGeneratedEventArgs {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppCaptureHistoricalBufferLengthUnit(pub i32);
 impl AppCaptureHistoricalBufferLengthUnit {
@@ -4375,6 +4423,7 @@ impl AppCaptureManager {
 impl ::windows::core::RuntimeName for AppCaptureManager {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureManager";
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppCaptureMetadataPriority(pub i32);
 impl AppCaptureMetadataPriority {
@@ -4402,6 +4451,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureMetadataPriority {
 impl ::windows::core::DefaultType for AppCaptureMetadataPriority {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppCaptureMetadataWriter(::windows::core::IUnknown);
 impl AppCaptureMetadataWriter {
@@ -4559,6 +4609,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for AppCaptureMetadataWriter {}
 unsafe impl ::core::marker::Sync for AppCaptureMetadataWriter {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppCaptureMicrophoneCaptureState(pub i32);
 impl AppCaptureMicrophoneCaptureState {
@@ -4587,6 +4638,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureMicrophoneCaptureState {
 impl ::windows::core::DefaultType for AppCaptureMicrophoneCaptureState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppCaptureMicrophoneCaptureStateChangedEventArgs(::windows::core::IUnknown);
 impl AppCaptureMicrophoneCaptureStateChangedEventArgs {
@@ -4668,6 +4720,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
 }
 unsafe impl ::core::marker::Send for AppCaptureMicrophoneCaptureStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCaptureMicrophoneCaptureStateChangedEventArgs {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppCaptureRecordOperation(::windows::core::IUnknown);
 impl AppCaptureRecordOperation {
@@ -4817,6 +4870,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
 }
 unsafe impl ::core::marker::Send for AppCaptureRecordOperation {}
 unsafe impl ::core::marker::Sync for AppCaptureRecordOperation {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppCaptureRecordingState(pub i32);
 impl AppCaptureRecordingState {
@@ -4845,6 +4899,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureRecordingState {
 impl ::windows::core::DefaultType for AppCaptureRecordingState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppCaptureRecordingStateChangedEventArgs(::windows::core::IUnknown);
 impl AppCaptureRecordingStateChangedEventArgs {
@@ -4926,6 +4981,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
 }
 unsafe impl ::core::marker::Send for AppCaptureRecordingStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCaptureRecordingStateChangedEventArgs {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppCaptureServices(::windows::core::IUnknown);
 impl AppCaptureServices {
@@ -5022,6 +5078,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
 }
 unsafe impl ::core::marker::Send for AppCaptureServices {}
 unsafe impl ::core::marker::Sync for AppCaptureServices {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppCaptureSettings(::windows::core::IUnknown);
 impl AppCaptureSettings {
@@ -5388,6 +5445,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppCaptureState(::windows::core::IUnknown);
 impl AppCaptureState {
@@ -5524,6 +5582,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppC
 }
 unsafe impl ::core::marker::Send for AppCaptureState {}
 unsafe impl ::core::marker::Sync for AppCaptureState {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppCaptureVideoEncodingBitrateMode(pub i32);
 impl AppCaptureVideoEncodingBitrateMode {
@@ -5552,6 +5611,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureVideoEncodingBitrateMode 
 impl ::windows::core::DefaultType for AppCaptureVideoEncodingBitrateMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppCaptureVideoEncodingFrameRateMode(pub i32);
 impl AppCaptureVideoEncodingFrameRateMode {
@@ -5579,6 +5639,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureVideoEncodingFrameRateMod
 impl ::windows::core::DefaultType for AppCaptureVideoEncodingFrameRateMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct AppCaptureVideoEncodingResolutionMode(pub i32);
 impl AppCaptureVideoEncodingResolutionMode {
@@ -5607,6 +5668,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureVideoEncodingResolutionMo
 impl ::windows::core::DefaultType for AppCaptureVideoEncodingResolutionMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct CameraCaptureUI(::windows::core::IUnknown);
 impl CameraCaptureUI {
@@ -5701,6 +5763,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Came
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct CameraCaptureUIMaxPhotoResolution(pub i32);
 impl CameraCaptureUIMaxPhotoResolution {
@@ -5732,6 +5795,7 @@ unsafe impl ::windows::core::RuntimeType for CameraCaptureUIMaxPhotoResolution {
 impl ::windows::core::DefaultType for CameraCaptureUIMaxPhotoResolution {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct CameraCaptureUIMaxVideoResolution(pub i32);
 impl CameraCaptureUIMaxVideoResolution {
@@ -5761,6 +5825,7 @@ unsafe impl ::windows::core::RuntimeType for CameraCaptureUIMaxVideoResolution {
 impl ::windows::core::DefaultType for CameraCaptureUIMaxVideoResolution {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct CameraCaptureUIMode(pub i32);
 impl CameraCaptureUIMode {
@@ -5789,6 +5854,7 @@ unsafe impl ::windows::core::RuntimeType for CameraCaptureUIMode {
 impl ::windows::core::DefaultType for CameraCaptureUIMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct CameraCaptureUIPhotoCaptureSettings(::windows::core::IUnknown);
 impl CameraCaptureUIPhotoCaptureSettings {
@@ -5915,6 +5981,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Came
 }
 unsafe impl ::core::marker::Send for CameraCaptureUIPhotoCaptureSettings {}
 unsafe impl ::core::marker::Sync for CameraCaptureUIPhotoCaptureSettings {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct CameraCaptureUIPhotoFormat(pub i32);
 impl CameraCaptureUIPhotoFormat {
@@ -5943,6 +6010,7 @@ unsafe impl ::windows::core::RuntimeType for CameraCaptureUIPhotoFormat {
 impl ::windows::core::DefaultType for CameraCaptureUIPhotoFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct CameraCaptureUIVideoCaptureSettings(::windows::core::IUnknown);
 impl CameraCaptureUIVideoCaptureSettings {
@@ -6054,6 +6122,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Came
 }
 unsafe impl ::core::marker::Send for CameraCaptureUIVideoCaptureSettings {}
 unsafe impl ::core::marker::Sync for CameraCaptureUIVideoCaptureSettings {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct CameraCaptureUIVideoFormat(pub i32);
 impl CameraCaptureUIVideoFormat {
@@ -6094,6 +6163,7 @@ impl CameraOptionsUI {
 impl ::windows::core::RuntimeName for CameraOptionsUI {
     const NAME: &'static str = "Windows.Media.Capture.CameraOptionsUI";
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct CapturedFrame(::windows::core::IUnknown);
 impl CapturedFrame {
@@ -6457,6 +6527,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomA
 }
 unsafe impl ::core::marker::Send for CapturedFrame {}
 unsafe impl ::core::marker::Sync for CapturedFrame {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct CapturedFrameControlValues(::windows::core::IUnknown);
 impl CapturedFrameControlValues {
@@ -6636,6 +6707,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Capt
 }
 unsafe impl ::core::marker::Send for CapturedFrameControlValues {}
 unsafe impl ::core::marker::Sync for CapturedFrameControlValues {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct CapturedPhoto(::windows::core::IUnknown);
 impl CapturedPhoto {
@@ -6717,6 +6789,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Capt
 }
 unsafe impl ::core::marker::Send for CapturedPhoto {}
 unsafe impl ::core::marker::Sync for CapturedPhoto {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct ForegroundActivationArgument(pub i32);
 impl ForegroundActivationArgument {
@@ -6744,6 +6817,7 @@ unsafe impl ::windows::core::RuntimeType for ForegroundActivationArgument {
 impl ::windows::core::DefaultType for ForegroundActivationArgument {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct GameBarCommand(pub i32);
 impl GameBarCommand {
@@ -6783,6 +6857,7 @@ unsafe impl ::windows::core::RuntimeType for GameBarCommand {
 impl ::windows::core::DefaultType for GameBarCommand {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct GameBarCommandOrigin(pub i32);
 impl GameBarCommandOrigin {
@@ -6811,6 +6886,7 @@ unsafe impl ::windows::core::RuntimeType for GameBarCommandOrigin {
 impl ::windows::core::DefaultType for GameBarCommandOrigin {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct GameBarServices(::windows::core::IUnknown);
 impl GameBarServices {
@@ -6934,6 +7010,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameBarServices {}
 unsafe impl ::core::marker::Sync for GameBarServices {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct GameBarServicesCommandEventArgs(::windows::core::IUnknown);
 impl GameBarServicesCommandEventArgs {
@@ -7015,6 +7092,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameBarServicesCommandEventArgs {}
 unsafe impl ::core::marker::Sync for GameBarServicesCommandEventArgs {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct GameBarServicesDisplayMode(pub i32);
 impl GameBarServicesDisplayMode {
@@ -7042,6 +7120,7 @@ unsafe impl ::windows::core::RuntimeType for GameBarServicesDisplayMode {
 impl ::windows::core::DefaultType for GameBarServicesDisplayMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct GameBarServicesManager(::windows::core::IUnknown);
 impl GameBarServicesManager {
@@ -7132,6 +7211,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameBarServicesManager {}
 unsafe impl ::core::marker::Sync for GameBarServicesManager {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct GameBarServicesManagerGameBarServicesCreatedEventArgs(::windows::core::IUnknown);
 impl GameBarServicesManagerGameBarServicesCreatedEventArgs {
@@ -7206,6 +7286,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameBarServicesManagerGameBarServicesCreatedEventArgs {}
 unsafe impl ::core::marker::Sync for GameBarServicesManagerGameBarServicesCreatedEventArgs {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct GameBarServicesTargetInfo(::windows::core::IUnknown);
 impl GameBarServicesTargetInfo {
@@ -7301,6 +7382,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameBarServicesTargetInfo {}
 unsafe impl ::core::marker::Sync for GameBarServicesTargetInfo {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct GameBarTargetCapturePolicy(pub i32);
 impl GameBarTargetCapturePolicy {
@@ -10114,6 +10196,7 @@ pub struct IVideoStreamConfigurationVtbl(
     #[cfg(feature = "Media_MediaProperties")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))] usize,
 );
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct KnownVideoProfile(pub i32);
 impl KnownVideoProfile {
@@ -10150,6 +10233,7 @@ unsafe impl ::windows::core::RuntimeType for KnownVideoProfile {
 impl ::windows::core::DefaultType for KnownVideoProfile {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct LowLagMediaRecording(::windows::core::IUnknown);
 impl LowLagMediaRecording {
@@ -10271,6 +10355,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LowL
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct LowLagPhotoCapture(::windows::core::IUnknown);
 impl LowLagPhotoCapture {
@@ -10352,6 +10437,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LowL
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct LowLagPhotoSequenceCapture(::windows::core::IUnknown);
 impl LowLagPhotoSequenceCapture {
@@ -10454,6 +10540,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &LowL
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct MediaCapture(::windows::core::IUnknown);
 impl MediaCapture {
@@ -11073,6 +11160,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct MediaCaptureDeviceExclusiveControlStatus(pub i32);
 impl MediaCaptureDeviceExclusiveControlStatus {
@@ -11100,6 +11188,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureDeviceExclusiveControlS
 impl ::windows::core::DefaultType for MediaCaptureDeviceExclusiveControlStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct MediaCaptureDeviceExclusiveControlStatusChangedEventArgs(::windows::core::IUnknown);
 impl MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
@@ -11181,6 +11270,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct MediaCaptureFailedEventArgs(::windows::core::IUnknown);
 impl MediaCaptureFailedEventArgs {
@@ -11260,6 +11350,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct MediaCaptureFailedEventHandler(pub ::windows::core::IUnknown);
 impl MediaCaptureFailedEventHandler {
@@ -11328,6 +11419,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureFailedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct MediaCaptureFailedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, erroreventargs: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct MediaCaptureFocusChangedEventArgs(::windows::core::IUnknown);
 impl MediaCaptureFocusChangedEventArgs {
@@ -11403,6 +11495,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaCaptureFocusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaCaptureFocusChangedEventArgs {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct MediaCaptureInitializationSettings(::windows::core::IUnknown);
 impl MediaCaptureInitializationSettings {
@@ -11685,6 +11778,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaCaptureInitializationSettings {}
 unsafe impl ::core::marker::Sync for MediaCaptureInitializationSettings {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct MediaCaptureMemoryPreference(pub i32);
 impl MediaCaptureMemoryPreference {
@@ -11712,6 +11806,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureMemoryPreference {
 impl ::windows::core::DefaultType for MediaCaptureMemoryPreference {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct MediaCapturePauseResult(::windows::core::IUnknown);
 impl MediaCapturePauseResult {
@@ -11823,6 +11918,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct MediaCaptureRelativePanelWatcher(::windows::core::IUnknown);
 impl MediaCaptureRelativePanelWatcher {
@@ -11950,6 +12046,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for MediaCaptureRelativePanelWatcher {}
 unsafe impl ::core::marker::Sync for MediaCaptureRelativePanelWatcher {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct MediaCaptureSettings(::windows::core::IUnknown);
 impl MediaCaptureSettings {
@@ -12117,6 +12214,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct MediaCaptureSharingMode(pub i32);
 impl MediaCaptureSharingMode {
@@ -12144,6 +12242,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureSharingMode {
 impl ::windows::core::DefaultType for MediaCaptureSharingMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct MediaCaptureStopResult(::windows::core::IUnknown);
 impl MediaCaptureStopResult {
@@ -12255,6 +12354,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct MediaCaptureThermalStatus(pub i32);
 impl MediaCaptureThermalStatus {
@@ -12282,6 +12382,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureThermalStatus {
 impl ::windows::core::DefaultType for MediaCaptureThermalStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct MediaCaptureVideoProfile(::windows::core::IUnknown);
 impl MediaCaptureVideoProfile {
@@ -12411,6 +12512,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaCaptureVideoProfile {}
 unsafe impl ::core::marker::Sync for MediaCaptureVideoProfile {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct MediaCaptureVideoProfileMediaDescription(::windows::core::IUnknown);
 impl MediaCaptureVideoProfileMediaDescription {
@@ -12530,6 +12632,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 unsafe impl ::core::marker::Send for MediaCaptureVideoProfileMediaDescription {}
 unsafe impl ::core::marker::Sync for MediaCaptureVideoProfileMediaDescription {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct MediaCategory(pub i32);
 impl MediaCategory {
@@ -12563,6 +12666,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCategory {
 impl ::windows::core::DefaultType for MediaCategory {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct MediaStreamType(pub i32);
 impl MediaStreamType {
@@ -12593,6 +12697,7 @@ unsafe impl ::windows::core::RuntimeType for MediaStreamType {
 impl ::windows::core::DefaultType for MediaStreamType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct OptionalReferencePhotoCapturedEventArgs(::windows::core::IUnknown);
 impl OptionalReferencePhotoCapturedEventArgs {
@@ -12674,6 +12779,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Opti
 }
 unsafe impl ::core::marker::Send for OptionalReferencePhotoCapturedEventArgs {}
 unsafe impl ::core::marker::Sync for OptionalReferencePhotoCapturedEventArgs {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct PhotoCaptureSource(pub i32);
 impl PhotoCaptureSource {
@@ -12702,6 +12808,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoCaptureSource {
 impl ::windows::core::DefaultType for PhotoCaptureSource {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct PhotoCapturedEventArgs(::windows::core::IUnknown);
 impl PhotoCapturedEventArgs {
@@ -12791,6 +12898,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
 }
 unsafe impl ::core::marker::Send for PhotoCapturedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoCapturedEventArgs {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct PhotoConfirmationCapturedEventArgs(::windows::core::IUnknown);
 impl PhotoConfirmationCapturedEventArgs {
@@ -12873,6 +12981,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phot
 }
 unsafe impl ::core::marker::Send for PhotoConfirmationCapturedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoConfirmationCapturedEventArgs {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct PowerlineFrequency(pub i32);
 impl PowerlineFrequency {
@@ -12902,6 +13011,7 @@ unsafe impl ::windows::core::RuntimeType for PowerlineFrequency {
 impl ::windows::core::DefaultType for PowerlineFrequency {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct RecordLimitationExceededEventHandler(pub ::windows::core::IUnknown);
 impl RecordLimitationExceededEventHandler {
@@ -12970,6 +13080,7 @@ unsafe impl ::windows::core::RuntimeType for RecordLimitationExceededEventHandle
 #[repr(C)]
 #[doc(hidden)]
 pub struct RecordLimitationExceededEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct ScreenCapture(::windows::core::IUnknown);
 impl ScreenCapture {
@@ -13090,6 +13201,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Scre
 }
 unsafe impl ::core::marker::Send for ScreenCapture {}
 unsafe impl ::core::marker::Sync for ScreenCapture {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct SourceSuspensionChangedEventArgs(::windows::core::IUnknown);
 impl SourceSuspensionChangedEventArgs {
@@ -13171,6 +13283,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sour
 }
 unsafe impl ::core::marker::Send for SourceSuspensionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SourceSuspensionChangedEventArgs {}
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct StreamingCaptureMode(pub i32);
 impl StreamingCaptureMode {
@@ -13199,6 +13312,7 @@ unsafe impl ::windows::core::RuntimeType for StreamingCaptureMode {
 impl ::windows::core::DefaultType for StreamingCaptureMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct VideoDeviceCharacteristic(pub i32);
 impl VideoDeviceCharacteristic {
@@ -13229,6 +13343,7 @@ unsafe impl ::windows::core::RuntimeType for VideoDeviceCharacteristic {
 impl ::windows::core::DefaultType for VideoDeviceCharacteristic {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct VideoRotation(pub i32);
 impl VideoRotation {
@@ -13258,6 +13373,7 @@ unsafe impl ::windows::core::RuntimeType for VideoRotation {
 impl ::windows::core::DefaultType for VideoRotation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
 pub struct VideoStreamConfiguration(::windows::core::IUnknown);
 impl VideoStreamConfiguration {
@@ -13342,6 +13458,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vide
 unsafe impl ::core::marker::Send for VideoStreamConfiguration {}
 unsafe impl ::core::marker::Sync for VideoStreamConfiguration {}
 #[repr(C)]
+#[doc = "*Required features: 'Media_Capture'*"]
 pub struct WhiteBalanceGain {
     pub R: f64,
     pub G: f64,

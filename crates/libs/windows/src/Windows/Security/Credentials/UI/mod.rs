@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Security_Credentials_UI'*"]
 #[repr(transparent)]
 pub struct AuthenticationProtocol(pub i32);
 impl AuthenticationProtocol {
@@ -62,6 +63,7 @@ impl CredentialPicker {
 impl ::windows::core::RuntimeName for CredentialPicker {
     const NAME: &'static str = "Windows.Security.Credentials.UI.CredentialPicker";
 }
+#[doc = "*Required features: 'Security_Credentials_UI'*"]
 #[repr(transparent)]
 pub struct CredentialPickerOptions(::windows::core::IUnknown);
 impl CredentialPickerOptions {
@@ -246,6 +248,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cred
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Security_Credentials_UI'*"]
 #[repr(transparent)]
 pub struct CredentialPickerResults(::windows::core::IUnknown);
 impl CredentialPickerResults {
@@ -361,6 +364,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cred
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Security_Credentials_UI'*"]
 #[repr(transparent)]
 pub struct CredentialSaveOption(pub i32);
 impl CredentialSaveOption {
@@ -497,6 +501,7 @@ pub struct IUserConsentVerifierStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Security_Credentials_UI'*"]
 #[repr(transparent)]
 pub struct UserConsentVerificationResult(pub i32);
 impl UserConsentVerificationResult {
@@ -553,6 +558,7 @@ impl UserConsentVerifier {
 impl ::windows::core::RuntimeName for UserConsentVerifier {
     const NAME: &'static str = "Windows.Security.Credentials.UI.UserConsentVerifier";
 }
+#[doc = "*Required features: 'Security_Credentials_UI'*"]
 #[repr(transparent)]
 pub struct UserConsentVerifierAvailability(pub i32);
 impl UserConsentVerifierAvailability {

@@ -13,6 +13,7 @@ pub const CD_LBSELCHANGE: u32 = 0u32;
 pub const CD_LBSELNOITEMS: i32 = -1i32;
 pub const CD_LBSELSUB: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHOOSECOLORA {
@@ -59,6 +60,7 @@ impl ::core::default::Default for CHOOSECOLORA {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHOOSECOLORA {
@@ -105,6 +107,7 @@ impl ::core::default::Default for CHOOSECOLORA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHOOSECOLORW {
@@ -151,6 +154,7 @@ impl ::core::default::Default for CHOOSECOLORW {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHOOSECOLORW {
@@ -197,6 +201,7 @@ impl ::core::default::Default for CHOOSECOLORW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHOOSEFONTA {
@@ -250,6 +255,7 @@ impl ::core::default::Default for CHOOSEFONTA {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHOOSEFONTA {
@@ -303,6 +309,7 @@ impl ::core::default::Default for CHOOSEFONTA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHOOSEFONTW {
@@ -356,6 +363,7 @@ impl ::core::default::Default for CHOOSEFONTW {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHOOSEFONTW {
@@ -408,42 +416,79 @@ impl ::core::default::Default for CHOOSEFONTW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub type CHOOSEFONT_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_APPLY: CHOOSEFONT_FLAGS = 512u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_ANSIONLY: CHOOSEFONT_FLAGS = 1024u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_BOTH: CHOOSEFONT_FLAGS = 3u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_EFFECTS: CHOOSEFONT_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_ENABLEHOOK: CHOOSEFONT_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_ENABLETEMPLATE: CHOOSEFONT_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_ENABLETEMPLATEHANDLE: CHOOSEFONT_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_FIXEDPITCHONLY: CHOOSEFONT_FLAGS = 16384u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_FORCEFONTEXIST: CHOOSEFONT_FLAGS = 65536u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_INACTIVEFONTS: CHOOSEFONT_FLAGS = 33554432u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_INITTOLOGFONTSTRUCT: CHOOSEFONT_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_LIMITSIZE: CHOOSEFONT_FLAGS = 8192u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_NOOEMFONTS: CHOOSEFONT_FLAGS = 2048u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_NOFACESEL: CHOOSEFONT_FLAGS = 524288u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_NOSCRIPTSEL: CHOOSEFONT_FLAGS = 8388608u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_NOSIMULATIONS: CHOOSEFONT_FLAGS = 4096u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_NOSIZESEL: CHOOSEFONT_FLAGS = 2097152u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_NOSTYLESEL: CHOOSEFONT_FLAGS = 1048576u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_NOVECTORFONTS: CHOOSEFONT_FLAGS = 2048u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_NOVERTFONTS: CHOOSEFONT_FLAGS = 16777216u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_PRINTERFONTS: CHOOSEFONT_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_SCALABLEONLY: CHOOSEFONT_FLAGS = 131072u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_SCREENFONTS: CHOOSEFONT_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_SCRIPTSONLY: CHOOSEFONT_FLAGS = 1024u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_SELECTSCRIPT: CHOOSEFONT_FLAGS = 4194304u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_SHOWHELP: CHOOSEFONT_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_TTONLY: CHOOSEFONT_FLAGS = 262144u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_USESTYLE: CHOOSEFONT_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CF_WYSIWYG: CHOOSEFONT_FLAGS = 32768u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub type CHOOSEFONT_FONT_TYPE = u16;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const BOLD_FONTTYPE: CHOOSEFONT_FONT_TYPE = 256u16;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const ITALIC_FONTTYPE: CHOOSEFONT_FONT_TYPE = 512u16;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PRINTER_FONTTYPE: CHOOSEFONT_FONT_TYPE = 16384u16;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const REGULAR_FONTTYPE: CHOOSEFONT_FONT_TYPE = 1024u16;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const SCREEN_FONTTYPE: CHOOSEFONT_FONT_TYPE = 8192u16;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const SIMULATED_FONTTYPE: CHOOSEFONT_FONT_TYPE = 32768u16;
 pub const COLOR_ADD: u32 = 712u32;
 pub const COLOR_BLUE: u32 = 708u32;
@@ -475,44 +520,83 @@ pub const COLOR_SOLID: u32 = 713u32;
 pub const COLOR_SOLID_LEFT: u32 = 730u32;
 pub const COLOR_SOLID_RIGHT: u32 = 731u32;
 pub const COLOR_TUNE: u32 = 714u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub type COMMON_DLG_ERRORS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDERR_DIALOGFAILURE: COMMON_DLG_ERRORS = 65535u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDERR_GENERALCODES: COMMON_DLG_ERRORS = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDERR_STRUCTSIZE: COMMON_DLG_ERRORS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDERR_INITIALIZATION: COMMON_DLG_ERRORS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDERR_NOTEMPLATE: COMMON_DLG_ERRORS = 3u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDERR_NOHINSTANCE: COMMON_DLG_ERRORS = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDERR_LOADSTRFAILURE: COMMON_DLG_ERRORS = 5u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDERR_FINDRESFAILURE: COMMON_DLG_ERRORS = 6u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDERR_LOADRESFAILURE: COMMON_DLG_ERRORS = 7u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDERR_LOCKRESFAILURE: COMMON_DLG_ERRORS = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDERR_MEMALLOCFAILURE: COMMON_DLG_ERRORS = 9u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDERR_MEMLOCKFAILURE: COMMON_DLG_ERRORS = 10u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDERR_NOHOOK: COMMON_DLG_ERRORS = 11u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDERR_REGISTERMSGFAIL: COMMON_DLG_ERRORS = 12u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PDERR_PRINTERCODES: COMMON_DLG_ERRORS = 4096u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PDERR_SETUPFAILURE: COMMON_DLG_ERRORS = 4097u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PDERR_PARSEFAILURE: COMMON_DLG_ERRORS = 4098u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PDERR_RETDEFFAILURE: COMMON_DLG_ERRORS = 4099u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PDERR_LOADDRVFAILURE: COMMON_DLG_ERRORS = 4100u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PDERR_GETDEVMODEFAIL: COMMON_DLG_ERRORS = 4101u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PDERR_INITFAILURE: COMMON_DLG_ERRORS = 4102u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PDERR_NODEVICES: COMMON_DLG_ERRORS = 4103u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PDERR_NODEFAULTPRN: COMMON_DLG_ERRORS = 4104u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PDERR_DNDMMISMATCH: COMMON_DLG_ERRORS = 4105u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PDERR_CREATEICFAILURE: COMMON_DLG_ERRORS = 4106u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PDERR_PRINTERNOTFOUND: COMMON_DLG_ERRORS = 4107u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PDERR_DEFAULTDIFFERENT: COMMON_DLG_ERRORS = 4108u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CFERR_CHOOSEFONTCODES: COMMON_DLG_ERRORS = 8192u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CFERR_NOFONTS: COMMON_DLG_ERRORS = 8193u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CFERR_MAXLESSTHANMIN: COMMON_DLG_ERRORS = 8194u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FNERR_FILENAMECODES: COMMON_DLG_ERRORS = 12288u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FNERR_SUBCLASSFAILURE: COMMON_DLG_ERRORS = 12289u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FNERR_INVALIDFILENAME: COMMON_DLG_ERRORS = 12290u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FNERR_BUFFERTOOSMALL: COMMON_DLG_ERRORS = 12291u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FRERR_FINDREPLACECODES: COMMON_DLG_ERRORS = 16384u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FRERR_BUFFERLENGTHZERO: COMMON_DLG_ERRORS = 16385u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CCERR_CHOOSECOLORCODES: COMMON_DLG_ERRORS = 20480u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChooseColorA(param0: *mut CHOOSECOLORA) -> super::super::super::Foundation::BOOL {
@@ -527,6 +611,7 @@ pub unsafe fn ChooseColorA(param0: *mut CHOOSECOLORA) -> super::super::super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChooseColorW(param0: *mut CHOOSECOLORW) -> super::super::super::Foundation::BOOL {
@@ -541,6 +626,7 @@ pub unsafe fn ChooseColorW(param0: *mut CHOOSECOLORW) -> super::super::super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ChooseFontA(param0: *mut CHOOSEFONTA) -> super::super::super::Foundation::BOOL {
@@ -555,6 +641,7 @@ pub unsafe fn ChooseFontA(param0: *mut CHOOSEFONTA) -> super::super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ChooseFontW(param0: *mut CHOOSEFONTW) -> super::super::super::Foundation::BOOL {
@@ -569,6 +656,7 @@ pub unsafe fn ChooseFontW(param0: *mut CHOOSEFONTW) -> super::super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 #[inline]
 pub unsafe fn CommDlgExtendedError() -> COMMON_DLG_ERRORS {
     #[cfg(windows)]
@@ -583,6 +671,7 @@ pub unsafe fn CommDlgExtendedError() -> COMMON_DLG_ERRORS {
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DEVNAMES {
     pub wDriverOffset: u16,
@@ -617,6 +706,7 @@ impl ::core::default::Default for DEVNAMES {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 #[cfg(target_arch = "x86")]
 pub struct DEVNAMES {
     pub wDriverOffset: u16,
@@ -653,6 +743,7 @@ impl ::core::default::Default for DEVNAMES {
 pub const DLG_COLOR: u32 = 10u32;
 pub const DN_DEFAULTPRN: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FINDREPLACEA {
@@ -701,6 +792,7 @@ impl ::core::default::Default for FINDREPLACEA {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FINDREPLACEA {
@@ -749,6 +841,7 @@ impl ::core::default::Default for FINDREPLACEA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FINDREPLACEW {
@@ -797,6 +890,7 @@ impl ::core::default::Default for FINDREPLACEW {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FINDREPLACEW {
@@ -844,23 +938,41 @@ impl ::core::default::Default for FINDREPLACEW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub type FINDREPLACE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_DIALOGTERM: FINDREPLACE_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_DOWN: FINDREPLACE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_ENABLEHOOK: FINDREPLACE_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_ENABLETEMPLATE: FINDREPLACE_FLAGS = 512u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_ENABLETEMPLATEHANDLE: FINDREPLACE_FLAGS = 8192u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_FINDNEXT: FINDREPLACE_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_HIDEUPDOWN: FINDREPLACE_FLAGS = 16384u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_HIDEMATCHCASE: FINDREPLACE_FLAGS = 32768u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_HIDEWHOLEWORD: FINDREPLACE_FLAGS = 65536u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_MATCHCASE: FINDREPLACE_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_NOMATCHCASE: FINDREPLACE_FLAGS = 2048u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_NOUPDOWN: FINDREPLACE_FLAGS = 1024u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_NOWHOLEWORD: FINDREPLACE_FLAGS = 4096u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_REPLACE: FINDREPLACE_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_REPLACEALL: FINDREPLACE_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_SHOWHELP: FINDREPLACE_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_WHOLEWORD: FINDREPLACE_FLAGS = 2u32;
 pub const FRM_FIRST: u32 = 1124u32;
 pub const FRM_LAST: u32 = 1224u32;
@@ -870,6 +982,7 @@ pub const FR_NOWRAPAROUND: u32 = 524288u32;
 pub const FR_RAW: u32 = 131072u32;
 pub const FR_SHOWWRAPAROUND: u32 = 262144u32;
 pub const FR_WRAPAROUND: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND {
@@ -884,6 +997,7 @@ pub unsafe fn FindTextA(param0: *mut FINDREPLACEA) -> super::super::super::Found
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND {
@@ -898,6 +1012,7 @@ pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Found
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileTitleA<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, buf: super::super::super::Foundation::PSTR, cchsize: u16) -> i16 {
@@ -912,6 +1027,7 @@ pub unsafe fn GetFileTitleA<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileTitleW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, buf: super::super::super::Foundation::PWSTR, cchsize: u16) -> i16 {
@@ -926,6 +1042,7 @@ pub unsafe fn GetFileTitleW<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL {
@@ -940,6 +1057,7 @@ pub unsafe fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> super::super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL {
@@ -954,6 +1072,7 @@ pub unsafe fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> super::super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL {
@@ -968,6 +1087,7 @@ pub unsafe fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> super::super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL {
@@ -982,6 +1102,7 @@ pub unsafe fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> super::super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 #[repr(transparent)]
 pub struct IPrintDialogCallback(::windows::core::IUnknown);
 impl IPrintDialogCallback {
@@ -1042,6 +1163,7 @@ pub struct IPrintDialogCallbackVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 #[repr(transparent)]
 pub struct IPrintDialogServices(::windows::core::IUnknown);
 impl IPrintDialogServices {
@@ -1106,25 +1228,34 @@ pub struct IPrintDialogServicesVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pportname: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPCCHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPCFHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFRHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPOFNHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPPAGEPAINTHOOK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPPAGESETUPHOOK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPPRINTHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPSETUPHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
 pub const NUM_BASIC_COLORS: u32 = 48u32;
 pub const NUM_CUSTOM_COLORS: u32 = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYA {
@@ -1165,6 +1296,7 @@ impl ::core::default::Default for OFNOTIFYA {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYA {
@@ -1205,6 +1337,7 @@ impl ::core::default::Default for OFNOTIFYA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYEXA {
@@ -1246,6 +1379,7 @@ impl ::core::default::Default for OFNOTIFYEXA {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYEXA {
@@ -1287,6 +1421,7 @@ impl ::core::default::Default for OFNOTIFYEXA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYEXW {
@@ -1328,6 +1463,7 @@ impl ::core::default::Default for OFNOTIFYEXW {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYEXW {
@@ -1369,6 +1505,7 @@ impl ::core::default::Default for OFNOTIFYEXW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYW {
@@ -1409,6 +1546,7 @@ impl ::core::default::Default for OFNOTIFYW {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYW {
@@ -1452,6 +1590,7 @@ pub const OFN_SHAREFALLTHROUGH: u32 = 2u32;
 pub const OFN_SHARENOWARN: u32 = 1u32;
 pub const OFN_SHAREWARN: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAMEA {
@@ -1512,6 +1651,7 @@ impl ::core::default::Default for OPENFILENAMEA {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAMEA {
@@ -1572,6 +1712,7 @@ impl ::core::default::Default for OPENFILENAMEA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAMEW {
@@ -1632,6 +1773,7 @@ impl ::core::default::Default for OPENFILENAMEW {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAMEW {
@@ -1692,6 +1834,7 @@ impl ::core::default::Default for OPENFILENAMEW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAME_NT4A {
@@ -1749,6 +1892,7 @@ impl ::core::default::Default for OPENFILENAME_NT4A {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAME_NT4A {
@@ -1806,6 +1950,7 @@ impl ::core::default::Default for OPENFILENAME_NT4A {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAME_NT4W {
@@ -1863,6 +2008,7 @@ impl ::core::default::Default for OPENFILENAME_NT4W {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAME_NT4W {
@@ -1919,37 +2065,68 @@ impl ::core::default::Default for OPENFILENAME_NT4W {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub type OPEN_FILENAME_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_READONLY: OPEN_FILENAME_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_OVERWRITEPROMPT: OPEN_FILENAME_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_HIDEREADONLY: OPEN_FILENAME_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_NOCHANGEDIR: OPEN_FILENAME_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_SHOWHELP: OPEN_FILENAME_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_ENABLEHOOK: OPEN_FILENAME_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_ENABLETEMPLATE: OPEN_FILENAME_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_ENABLETEMPLATEHANDLE: OPEN_FILENAME_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_NOVALIDATE: OPEN_FILENAME_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_ALLOWMULTISELECT: OPEN_FILENAME_FLAGS = 512u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_EXTENSIONDIFFERENT: OPEN_FILENAME_FLAGS = 1024u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_PATHMUSTEXIST: OPEN_FILENAME_FLAGS = 2048u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_FILEMUSTEXIST: OPEN_FILENAME_FLAGS = 4096u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_CREATEPROMPT: OPEN_FILENAME_FLAGS = 8192u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_SHAREAWARE: OPEN_FILENAME_FLAGS = 16384u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_NOREADONLYRETURN: OPEN_FILENAME_FLAGS = 32768u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_NOTESTFILECREATE: OPEN_FILENAME_FLAGS = 65536u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_NONETWORKBUTTON: OPEN_FILENAME_FLAGS = 131072u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_NOLONGNAMES: OPEN_FILENAME_FLAGS = 262144u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_EXPLORER: OPEN_FILENAME_FLAGS = 524288u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_NODEREFERENCELINKS: OPEN_FILENAME_FLAGS = 1048576u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_LONGNAMES: OPEN_FILENAME_FLAGS = 2097152u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_ENABLEINCLUDENOTIFY: OPEN_FILENAME_FLAGS = 4194304u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_ENABLESIZING: OPEN_FILENAME_FLAGS = 8388608u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_DONTADDTORECENT: OPEN_FILENAME_FLAGS = 33554432u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_FORCESHOWHIDDEN: OPEN_FILENAME_FLAGS = 268435456u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub type OPEN_FILENAME_FLAGS_EX = u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_EX_NONE: OPEN_FILENAME_FLAGS_EX = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_EX_NOPLACESBAR: OPEN_FILENAME_FLAGS_EX = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PAGESETUPDLGA {
@@ -2001,6 +2178,7 @@ impl ::core::default::Default for PAGESETUPDLGA {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PAGESETUPDLGA {
@@ -2052,6 +2230,7 @@ impl ::core::default::Default for PAGESETUPDLGA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PAGESETUPDLGW {
@@ -2103,6 +2282,7 @@ impl ::core::default::Default for PAGESETUPDLGW {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PAGESETUPDLGW {
@@ -2153,30 +2333,51 @@ impl ::core::default::Default for PAGESETUPDLGW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub type PAGESETUPDLG_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_DEFAULTMINMARGINS: PAGESETUPDLG_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_DISABLEMARGINS: PAGESETUPDLG_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_DISABLEORIENTATION: PAGESETUPDLG_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_DISABLEPAGEPAINTING: PAGESETUPDLG_FLAGS = 524288u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_DISABLEPAPER: PAGESETUPDLG_FLAGS = 512u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_DISABLEPRINTER: PAGESETUPDLG_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_ENABLEPAGEPAINTHOOK: PAGESETUPDLG_FLAGS = 262144u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_ENABLEPAGESETUPHOOK: PAGESETUPDLG_FLAGS = 8192u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_ENABLEPAGESETUPTEMPLATE: PAGESETUPDLG_FLAGS = 32768u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_ENABLEPAGESETUPTEMPLATEHANDLE: PAGESETUPDLG_FLAGS = 131072u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_INHUNDREDTHSOFMILLIMETERS: PAGESETUPDLG_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_INTHOUSANDTHSOFINCHES: PAGESETUPDLG_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_INWININIINTLMEASURE: PAGESETUPDLG_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_MARGINS: PAGESETUPDLG_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_MINMARGINS: PAGESETUPDLG_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_NONETWORKBUTTON: PAGESETUPDLG_FLAGS = 2097152u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_NOWARNING: PAGESETUPDLG_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_RETURNDEFAULT: PAGESETUPDLG_FLAGS = 1024u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_SHOWHELP: PAGESETUPDLG_FLAGS = 2048u32;
 pub const PD_RESULT_APPLY: u32 = 2u32;
 pub const PD_RESULT_CANCEL: u32 = 0u32;
 pub const PD_RESULT_PRINT: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGA {
@@ -2233,6 +2434,7 @@ impl ::core::default::Default for PRINTDLGA {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGA {
@@ -2289,6 +2491,7 @@ impl ::core::default::Default for PRINTDLGA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGEXA {
@@ -2386,6 +2589,7 @@ impl ::core::default::Default for PRINTDLGEXA {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGEXA {
@@ -2434,6 +2638,7 @@ impl ::core::default::Default for PRINTDLGEXA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGEXW {
@@ -2531,6 +2736,7 @@ impl ::core::default::Default for PRINTDLGEXW {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGEXW {
@@ -2578,36 +2784,66 @@ impl ::core::default::Default for PRINTDLGEXW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub type PRINTDLGEX_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_ALLPAGES: PRINTDLGEX_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_COLLATE: PRINTDLGEX_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_CURRENTPAGE: PRINTDLGEX_FLAGS = 4194304u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_DISABLEPRINTTOFILE: PRINTDLGEX_FLAGS = 524288u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_ENABLEPRINTTEMPLATE: PRINTDLGEX_FLAGS = 16384u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_ENABLEPRINTTEMPLATEHANDLE: PRINTDLGEX_FLAGS = 65536u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_EXCLUSIONFLAGS: PRINTDLGEX_FLAGS = 16777216u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_HIDEPRINTTOFILE: PRINTDLGEX_FLAGS = 1048576u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_NOCURRENTPAGE: PRINTDLGEX_FLAGS = 8388608u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_NOPAGENUMS: PRINTDLGEX_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_NOSELECTION: PRINTDLGEX_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_NOWARNING: PRINTDLGEX_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_PAGENUMS: PRINTDLGEX_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_PRINTTOFILE: PRINTDLGEX_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_RETURNDC: PRINTDLGEX_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_RETURNDEFAULT: PRINTDLGEX_FLAGS = 1024u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_RETURNIC: PRINTDLGEX_FLAGS = 512u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_SELECTION: PRINTDLGEX_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_USEDEVMODECOPIES: PRINTDLGEX_FLAGS = 262144u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_USEDEVMODECOPIESANDCOLLATE: PRINTDLGEX_FLAGS = 262144u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_USELARGETEMPLATE: PRINTDLGEX_FLAGS = 268435456u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_ENABLEPRINTHOOK: PRINTDLGEX_FLAGS = 4096u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_ENABLESETUPHOOK: PRINTDLGEX_FLAGS = 8192u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_ENABLESETUPTEMPLATE: PRINTDLGEX_FLAGS = 32768u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_ENABLESETUPTEMPLATEHANDLE: PRINTDLGEX_FLAGS = 131072u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_NONETWORKBUTTON: PRINTDLGEX_FLAGS = 2097152u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_PRINTSETUP: PRINTDLGEX_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_SHOWHELP: PRINTDLGEX_FLAGS = 2048u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGW {
@@ -2664,6 +2900,7 @@ impl ::core::default::Default for PRINTDLGW {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGW {
@@ -2720,6 +2957,7 @@ impl ::core::default::Default for PRINTDLGW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct PRINTPAGERANGE {
     pub nFromPage: u32,
@@ -2752,6 +2990,7 @@ impl ::core::default::Default for PRINTPAGERANGE {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 #[cfg(target_arch = "x86")]
 pub struct PRINTPAGERANGE {
     pub nFromPage: u32,
@@ -2784,6 +3023,7 @@ impl ::core::default::Default for PRINTPAGERANGE {
     }
 }
 pub const PS_OPENTYPE_FONTTYPE: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> super::super::super::Foundation::BOOL {
@@ -2798,6 +3038,7 @@ pub unsafe fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> super::super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> super::super::super::Foundation::BOOL {
@@ -2812,6 +3053,7 @@ pub unsafe fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> super::super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation::BOOL {
@@ -2826,6 +3068,7 @@ pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::core::Result<()> {
@@ -2840,6 +3083,7 @@ pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::core::Result<()> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::core::Result<()> {
@@ -2854,6 +3098,7 @@ pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::core::Result<()> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PrintDlgW(ppd: *mut PRINTDLGW) -> super::super::super::Foundation::BOOL {
@@ -2868,6 +3113,7 @@ pub unsafe fn PrintDlgW(ppd: *mut PRINTDLGW) -> super::super::super::Foundation:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReplaceTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND {
@@ -2882,6 +3128,7 @@ pub unsafe fn ReplaceTextA(param0: *mut FINDREPLACEA) -> super::super::super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND {

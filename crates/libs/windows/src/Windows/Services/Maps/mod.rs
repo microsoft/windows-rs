@@ -5,6 +5,7 @@ pub mod Guidance;
 pub mod LocalSearch;
 #[cfg(feature = "Services_Maps_OfflineMaps")]
 pub mod OfflineMaps;
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct EnhancedWaypoint(::windows::core::IUnknown);
 impl EnhancedWaypoint {
@@ -831,6 +832,7 @@ pub struct IPlaceInfoStatics2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayaddress: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayaddress: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, displayname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct ManeuverWarning(::windows::core::IUnknown);
 impl ManeuverWarning {
@@ -912,6 +914,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mane
 }
 unsafe impl ::core::marker::Send for ManeuverWarning {}
 unsafe impl ::core::marker::Sync for ManeuverWarning {}
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct ManeuverWarningKind(pub i32);
 impl ManeuverWarningKind {
@@ -973,6 +976,7 @@ unsafe impl ::windows::core::RuntimeType for ManeuverWarningKind {
 impl ::windows::core::DefaultType for ManeuverWarningKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct ManeuverWarningSeverity(pub i32);
 impl ManeuverWarningSeverity {
@@ -1003,6 +1007,7 @@ unsafe impl ::windows::core::RuntimeType for ManeuverWarningSeverity {
 impl ::windows::core::DefaultType for ManeuverWarningSeverity {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapAddress(::windows::core::IUnknown);
 impl MapAddress {
@@ -1182,6 +1187,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapA
 }
 unsafe impl ::core::marker::Send for MapAddress {}
 unsafe impl ::core::marker::Sync for MapAddress {}
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapLocation(::windows::core::IUnknown);
 impl MapLocation {
@@ -1278,6 +1284,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapL
 }
 unsafe impl ::core::marker::Send for MapLocation {}
 unsafe impl ::core::marker::Sync for MapLocation {}
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapLocationDesiredAccuracy(pub i32);
 impl MapLocationDesiredAccuracy {
@@ -1347,6 +1354,7 @@ impl MapLocationFinder {
 impl ::windows::core::RuntimeName for MapLocationFinder {
     const NAME: &'static str = "Windows.Services.Maps.MapLocationFinder";
 }
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapLocationFinderResult(::windows::core::IUnknown);
 impl MapLocationFinderResult {
@@ -1429,6 +1437,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapL
 }
 unsafe impl ::core::marker::Send for MapLocationFinderResult {}
 unsafe impl ::core::marker::Sync for MapLocationFinderResult {}
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapLocationFinderStatus(pub i32);
 impl MapLocationFinderStatus {
@@ -1477,6 +1486,7 @@ impl MapManager {
 impl ::windows::core::RuntimeName for MapManager {
     const NAME: &'static str = "Windows.Services.Maps.MapManager";
 }
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapManeuverNotices(pub u32);
 impl MapManeuverNotices {
@@ -1505,6 +1515,7 @@ unsafe impl ::windows::core::RuntimeType for MapManeuverNotices {
 impl ::windows::core::DefaultType for MapManeuverNotices {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapRoute(::windows::core::IUnknown);
 impl MapRoute {
@@ -1654,6 +1665,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapR
 }
 unsafe impl ::core::marker::Send for MapRoute {}
 unsafe impl ::core::marker::Sync for MapRoute {}
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapRouteDrivingOptions(::windows::core::IUnknown);
 impl MapRouteDrivingOptions {
@@ -1896,6 +1908,7 @@ impl MapRouteFinder {
 impl ::windows::core::RuntimeName for MapRouteFinder {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteFinder";
 }
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapRouteFinderResult(::windows::core::IUnknown);
 impl MapRouteFinderResult {
@@ -1985,6 +1998,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapR
 }
 unsafe impl ::core::marker::Send for MapRouteFinderResult {}
 unsafe impl ::core::marker::Sync for MapRouteFinderResult {}
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapRouteFinderStatus(pub i32);
 impl MapRouteFinderStatus {
@@ -2020,6 +2034,7 @@ unsafe impl ::windows::core::RuntimeType for MapRouteFinderStatus {
 impl ::windows::core::DefaultType for MapRouteFinderStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapRouteLeg(::windows::core::IUnknown);
 impl MapRouteLeg {
@@ -2141,6 +2156,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapR
 }
 unsafe impl ::core::marker::Send for MapRouteLeg {}
 unsafe impl ::core::marker::Sync for MapRouteLeg {}
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapRouteManeuver(::windows::core::IUnknown);
 impl MapRouteManeuver {
@@ -2280,6 +2296,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MapR
 }
 unsafe impl ::core::marker::Send for MapRouteManeuver {}
 unsafe impl ::core::marker::Sync for MapRouteManeuver {}
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapRouteManeuverKind(pub i32);
 impl MapRouteManeuverKind {
@@ -2330,6 +2347,7 @@ unsafe impl ::windows::core::RuntimeType for MapRouteManeuverKind {
 impl ::windows::core::DefaultType for MapRouteManeuverKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapRouteOptimization(pub i32);
 impl MapRouteOptimization {
@@ -2359,6 +2377,7 @@ unsafe impl ::windows::core::RuntimeType for MapRouteOptimization {
 impl ::windows::core::DefaultType for MapRouteOptimization {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapRouteRestrictions(pub u32);
 impl MapRouteRestrictions {
@@ -2443,6 +2462,7 @@ impl MapService {
 impl ::windows::core::RuntimeName for MapService {
     const NAME: &'static str = "Windows.Services.Maps.MapService";
 }
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapServiceDataUsagePreference(pub i32);
 impl MapServiceDataUsagePreference {
@@ -2470,6 +2490,7 @@ unsafe impl ::windows::core::RuntimeType for MapServiceDataUsagePreference {
 impl ::windows::core::DefaultType for MapServiceDataUsagePreference {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct PlaceInfo(::windows::core::IUnknown);
 impl PlaceInfo {
@@ -2635,6 +2656,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Plac
 }
 unsafe impl ::core::marker::Send for PlaceInfo {}
 unsafe impl ::core::marker::Sync for PlaceInfo {}
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct PlaceInfoCreateOptions(::windows::core::IUnknown);
 impl PlaceInfoCreateOptions {
@@ -2731,6 +2753,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Plac
 }
 unsafe impl ::core::marker::Send for PlaceInfoCreateOptions {}
 unsafe impl ::core::marker::Sync for PlaceInfoCreateOptions {}
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct TrafficCongestion(pub i32);
 impl TrafficCongestion {
@@ -2761,6 +2784,7 @@ unsafe impl ::windows::core::RuntimeType for TrafficCongestion {
 impl ::windows::core::DefaultType for TrafficCongestion {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct WaypointKind(pub i32);
 impl WaypointKind {

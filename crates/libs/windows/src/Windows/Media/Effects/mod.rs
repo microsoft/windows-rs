@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct AudioCaptureEffectsManager(::windows::core::IUnknown);
 impl AudioCaptureEffectsManager {
@@ -87,6 +88,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioCaptureEffectsManager {}
 unsafe impl ::core::marker::Sync for AudioCaptureEffectsManager {}
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct AudioEffect(::windows::core::IUnknown);
 impl AudioEffect {
@@ -161,6 +163,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioEffect {}
 unsafe impl ::core::marker::Sync for AudioEffect {}
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct AudioEffectDefinition(::windows::core::IUnknown);
 impl AudioEffectDefinition {
@@ -282,6 +285,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAudioEffectDefinition> for &AudioEffect
 }
 unsafe impl ::core::marker::Send for AudioEffectDefinition {}
 unsafe impl ::core::marker::Sync for AudioEffectDefinition {}
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct AudioEffectType(pub i32);
 impl AudioEffectType {
@@ -365,6 +369,7 @@ impl AudioEffectsManager {
 impl ::windows::core::RuntimeName for AudioEffectsManager {
     const NAME: &'static str = "Windows.Media.Effects.AudioEffectsManager";
 }
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct AudioRenderEffectsManager(::windows::core::IUnknown);
 impl AudioRenderEffectsManager {
@@ -474,6 +479,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
 }
 unsafe impl ::core::marker::Send for AudioRenderEffectsManager {}
 unsafe impl ::core::marker::Sync for AudioRenderEffectsManager {}
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct CompositeVideoFrameContext(::windows::core::IUnknown);
 impl CompositeVideoFrameContext {
@@ -612,6 +618,7 @@ pub struct IAudioEffectVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AudioEffectType) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct IAudioEffectDefinition(::windows::core::IUnknown);
 impl IAudioEffectDefinition {
@@ -795,6 +802,7 @@ pub struct IAudioRenderEffectsManager2Vtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct IBasicAudioEffect(::windows::core::IUnknown);
 impl IBasicAudioEffect {
@@ -934,6 +942,7 @@ pub struct IBasicAudioEffectVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: MediaEffectClosedReason) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct IBasicVideoEffect(::windows::core::IUnknown);
 impl IBasicVideoEffect {
@@ -1169,6 +1178,7 @@ pub struct ISlowMotionEffectDefinitionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct IVideoCompositor(::windows::core::IUnknown);
 impl IVideoCompositor {
@@ -1298,6 +1308,7 @@ pub struct IVideoCompositorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reason: MediaEffectClosedReason) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct IVideoCompositorDefinition(::windows::core::IUnknown);
 impl IVideoCompositorDefinition {
@@ -1408,6 +1419,7 @@ pub struct IVideoCompositorDefinitionFactoryVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activatableclassid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, props: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct IVideoEffectDefinition(::windows::core::IUnknown);
 impl IVideoEffectDefinition {
@@ -1610,6 +1622,7 @@ pub struct IVideoTransformSphericalProjectionVtbl(
     #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct MediaEffectClosedReason(pub i32);
 impl MediaEffectClosedReason {
@@ -1639,6 +1652,7 @@ unsafe impl ::windows::core::RuntimeType for MediaEffectClosedReason {
 impl ::windows::core::DefaultType for MediaEffectClosedReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct MediaMemoryTypes(pub i32);
 impl MediaMemoryTypes {
@@ -1667,6 +1681,7 @@ unsafe impl ::windows::core::RuntimeType for MediaMemoryTypes {
 impl ::windows::core::DefaultType for MediaMemoryTypes {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct ProcessAudioFrameContext(::windows::core::IUnknown);
 impl ProcessAudioFrameContext {
@@ -1748,6 +1763,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
 }
 unsafe impl ::core::marker::Send for ProcessAudioFrameContext {}
 unsafe impl ::core::marker::Sync for ProcessAudioFrameContext {}
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct ProcessVideoFrameContext(::windows::core::IUnknown);
 impl ProcessVideoFrameContext {
@@ -1829,6 +1845,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Proc
 }
 unsafe impl ::core::marker::Send for ProcessVideoFrameContext {}
 unsafe impl ::core::marker::Sync for ProcessVideoFrameContext {}
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct SlowMotionEffectDefinition(::windows::core::IUnknown);
 impl SlowMotionEffectDefinition {
@@ -1951,6 +1968,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVideoEffectDefinition> for &SlowMotionE
 }
 unsafe impl ::core::marker::Send for SlowMotionEffectDefinition {}
 unsafe impl ::core::marker::Sync for SlowMotionEffectDefinition {}
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct VideoCompositorDefinition(::windows::core::IUnknown);
 impl VideoCompositorDefinition {
@@ -2072,6 +2090,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVideoCompositorDefinition> for &VideoCo
 }
 unsafe impl ::core::marker::Send for VideoCompositorDefinition {}
 unsafe impl ::core::marker::Sync for VideoCompositorDefinition {}
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct VideoEffectDefinition(::windows::core::IUnknown);
 impl VideoEffectDefinition {
@@ -2193,6 +2212,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVideoEffectDefinition> for &VideoEffect
 }
 unsafe impl ::core::marker::Send for VideoEffectDefinition {}
 unsafe impl ::core::marker::Sync for VideoEffectDefinition {}
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct VideoTransformEffectDefinition(::windows::core::IUnknown);
 impl VideoTransformEffectDefinition {
@@ -2389,6 +2409,7 @@ impl<'a> ::windows::core::IntoParam<'a, IVideoEffectDefinition> for &VideoTransf
 }
 unsafe impl ::core::marker::Send for VideoTransformEffectDefinition {}
 unsafe impl ::core::marker::Sync for VideoTransformEffectDefinition {}
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct VideoTransformSphericalProjection(::windows::core::IUnknown);
 impl VideoTransformSphericalProjection {

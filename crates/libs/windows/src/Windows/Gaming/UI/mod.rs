@@ -43,6 +43,7 @@ impl GameBar {
 impl ::windows::core::RuntimeName for GameBar {
     const NAME: &'static str = "Windows.Gaming.UI.GameBar";
 }
+#[doc = "*Required features: 'Gaming_UI'*"]
 #[repr(transparent)]
 pub struct GameChatMessageOrigin(pub i32);
 impl GameChatMessageOrigin {
@@ -70,6 +71,7 @@ unsafe impl ::windows::core::RuntimeType for GameChatMessageOrigin {
 impl ::windows::core::DefaultType for GameChatMessageOrigin {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Gaming_UI'*"]
 #[repr(transparent)]
 pub struct GameChatMessageReceivedEventArgs(::windows::core::IUnknown);
 impl GameChatMessageReceivedEventArgs {
@@ -172,6 +174,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameChatMessageReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for GameChatMessageReceivedEventArgs {}
+#[doc = "*Required features: 'Gaming_UI'*"]
 #[repr(transparent)]
 pub struct GameChatOverlay(::windows::core::IUnknown);
 impl GameChatOverlay {
@@ -264,6 +267,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameChatOverlay {}
 unsafe impl ::core::marker::Sync for GameChatOverlay {}
+#[doc = "*Required features: 'Gaming_UI'*"]
 #[repr(transparent)]
 pub struct GameChatOverlayMessageSource(::windows::core::IUnknown);
 impl GameChatOverlayMessageSource {
@@ -356,6 +360,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Game
 }
 unsafe impl ::core::marker::Send for GameChatOverlayMessageSource {}
 unsafe impl ::core::marker::Sync for GameChatOverlayMessageSource {}
+#[doc = "*Required features: 'Gaming_UI'*"]
 #[repr(transparent)]
 pub struct GameChatOverlayPosition(pub i32);
 impl GameChatOverlayPosition {
@@ -389,6 +394,7 @@ unsafe impl ::windows::core::RuntimeType for GameChatOverlayPosition {
 impl ::windows::core::DefaultType for GameChatOverlayPosition {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Gaming_UI'*"]
 #[repr(transparent)]
 pub struct GameUIProviderActivatedEventArgs(::windows::core::IUnknown);
 impl GameUIProviderActivatedEventArgs {

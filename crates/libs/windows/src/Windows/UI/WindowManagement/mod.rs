@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "UI_WindowManagement_Preview")]
 pub mod Preview;
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindow(::windows::core::IUnknown);
 impl AppWindow {
@@ -266,6 +267,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindow {}
 unsafe impl ::core::marker::Sync for AppWindow {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowChangedEventArgs(::windows::core::IUnknown);
 impl AppWindowChangedEventArgs {
@@ -389,6 +391,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindowChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowChangedEventArgs {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowCloseRequestedEventArgs(::windows::core::IUnknown);
 impl AppWindowCloseRequestedEventArgs {
@@ -475,6 +478,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindowCloseRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowCloseRequestedEventArgs {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowClosedEventArgs(::windows::core::IUnknown);
 impl AppWindowClosedEventArgs {
@@ -549,6 +553,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindowClosedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowClosedEventArgs {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowClosedReason(pub i32);
 impl AppWindowClosedReason {
@@ -577,6 +582,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowClosedReason {
 impl ::windows::core::DefaultType for AppWindowClosedReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowFrame(::windows::core::IUnknown);
 impl AppWindowFrame {
@@ -663,6 +669,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindowFrame {}
 unsafe impl ::core::marker::Sync for AppWindowFrame {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowFrameStyle(pub i32);
 impl AppWindowFrameStyle {
@@ -690,6 +697,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowFrameStyle {
 impl ::windows::core::DefaultType for AppWindowFrameStyle {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowPlacement(::windows::core::IUnknown);
 impl AppWindowPlacement {
@@ -780,6 +788,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindowPlacement {}
 unsafe impl ::core::marker::Sync for AppWindowPlacement {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowPresentationConfiguration(::windows::core::IUnknown);
 impl AppWindowPresentationConfiguration {
@@ -854,6 +863,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindowPresentationConfiguration {}
 unsafe impl ::core::marker::Sync for AppWindowPresentationConfiguration {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowPresentationKind(pub i32);
 impl AppWindowPresentationKind {
@@ -882,6 +892,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowPresentationKind {
 impl ::windows::core::DefaultType for AppWindowPresentationKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowPresenter(::windows::core::IUnknown);
 impl AppWindowPresenter {
@@ -977,6 +988,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindowPresenter {}
 unsafe impl ::core::marker::Sync for AppWindowPresenter {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowTitleBar(::windows::core::IUnknown);
 impl AppWindowTitleBar {
@@ -1237,6 +1249,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindowTitleBar {}
 unsafe impl ::core::marker::Sync for AppWindowTitleBar {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowTitleBarOcclusion(::windows::core::IUnknown);
 impl AppWindowTitleBarOcclusion {
@@ -1312,6 +1325,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindowTitleBarOcclusion {}
 unsafe impl ::core::marker::Sync for AppWindowTitleBarOcclusion {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowTitleBarVisibility(pub i32);
 impl AppWindowTitleBarVisibility {
@@ -1339,6 +1353,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowTitleBarVisibility {
 impl ::windows::core::DefaultType for AppWindowTitleBarVisibility {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct CompactOverlayPresentationConfiguration(::windows::core::IUnknown);
 impl CompactOverlayPresentationConfiguration {
@@ -1440,6 +1455,7 @@ impl<'a> ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration> for 
 }
 unsafe impl ::core::marker::Send for CompactOverlayPresentationConfiguration {}
 unsafe impl ::core::marker::Sync for CompactOverlayPresentationConfiguration {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct DefaultPresentationConfiguration(::windows::core::IUnknown);
 impl DefaultPresentationConfiguration {
@@ -1541,6 +1557,7 @@ impl<'a> ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration> for 
 }
 unsafe impl ::core::marker::Send for DefaultPresentationConfiguration {}
 unsafe impl ::core::marker::Sync for DefaultPresentationConfiguration {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct DisplayRegion(::windows::core::IUnknown);
 impl DisplayRegion {
@@ -1658,6 +1675,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayRegion {}
 unsafe impl ::core::marker::Sync for DisplayRegion {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct FullScreenPresentationConfiguration(::windows::core::IUnknown);
 impl FullScreenPresentationConfiguration {
@@ -2355,6 +2373,7 @@ impl WindowServices {
 impl ::windows::core::RuntimeName for WindowServices {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowServices";
 }
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct WindowingEnvironment(::windows::core::IUnknown);
 impl WindowingEnvironment {
@@ -2475,6 +2494,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wind
 }
 unsafe impl ::core::marker::Send for WindowingEnvironment {}
 unsafe impl ::core::marker::Sync for WindowingEnvironment {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct WindowingEnvironmentAddedEventArgs(::windows::core::IUnknown);
 impl WindowingEnvironmentAddedEventArgs {
@@ -2549,6 +2569,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wind
 }
 unsafe impl ::core::marker::Send for WindowingEnvironmentAddedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowingEnvironmentAddedEventArgs {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct WindowingEnvironmentChangedEventArgs(::windows::core::IUnknown);
 impl WindowingEnvironmentChangedEventArgs {}
@@ -2615,6 +2636,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wind
 }
 unsafe impl ::core::marker::Send for WindowingEnvironmentChangedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowingEnvironmentChangedEventArgs {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct WindowingEnvironmentKind(pub i32);
 impl WindowingEnvironmentKind {
@@ -2643,6 +2665,7 @@ unsafe impl ::windows::core::RuntimeType for WindowingEnvironmentKind {
 impl ::windows::core::DefaultType for WindowingEnvironmentKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct WindowingEnvironmentRemovedEventArgs(::windows::core::IUnknown);
 impl WindowingEnvironmentRemovedEventArgs {

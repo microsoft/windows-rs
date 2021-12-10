@@ -100,6 +100,7 @@ pub struct ISystemSupportInfoStatics2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'System_Profile_SystemManufacturers'*"]
 #[repr(transparent)]
 pub struct OemSupportInfo(::windows::core::IUnknown);
 impl OemSupportInfo {
@@ -206,6 +207,7 @@ impl SmbiosInformation {
 impl ::windows::core::RuntimeName for SmbiosInformation {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.SmbiosInformation";
 }
+#[doc = "*Required features: 'System_Profile_SystemManufacturers'*"]
 #[repr(transparent)]
 pub struct SystemSupportDeviceInfo(::windows::core::IUnknown);
 impl SystemSupportDeviceInfo {

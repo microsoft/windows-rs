@@ -7,6 +7,7 @@ pub mod PrintSupport;
 pub mod PrintTicket;
 #[cfg(feature = "Graphics_Printing_Workflow")]
 pub mod Workflow;
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintDocumentSource(::windows::core::IUnknown);
 impl IPrintDocumentSource {}
@@ -342,6 +343,7 @@ pub struct IPrintTaskOptions2Vtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintTaskOptionsCore(::windows::core::IUnknown);
 impl IPrintTaskOptionsCore {
@@ -424,6 +426,7 @@ pub struct IPrintTaskOptionsCoreVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, jobpagenumber: u32, result__: *mut PrintPageDescription) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintTaskOptionsCoreProperties(::windows::core::IUnknown);
 impl IPrintTaskOptionsCoreProperties {
@@ -655,6 +658,7 @@ pub struct IPrintTaskOptionsCorePropertiesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintTaskOptionsCoreUIConfiguration(::windows::core::IUnknown);
 impl IPrintTaskOptionsCoreUIConfiguration {
@@ -938,6 +942,7 @@ pub struct IStandardPrintTaskOptionsStatic3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintBinding(pub i32);
 impl PrintBinding {
@@ -980,6 +985,7 @@ unsafe impl ::windows::core::RuntimeType for PrintBinding {
 impl ::windows::core::DefaultType for PrintBinding {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintBordering(pub i32);
 impl PrintBordering {
@@ -1010,6 +1016,7 @@ unsafe impl ::windows::core::RuntimeType for PrintBordering {
 impl ::windows::core::DefaultType for PrintBordering {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintCollation(pub i32);
 impl PrintCollation {
@@ -1040,6 +1047,7 @@ unsafe impl ::windows::core::RuntimeType for PrintCollation {
 impl ::windows::core::DefaultType for PrintCollation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintColorMode(pub i32);
 impl PrintColorMode {
@@ -1071,6 +1079,7 @@ unsafe impl ::windows::core::RuntimeType for PrintColorMode {
 impl ::windows::core::DefaultType for PrintColorMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintDuplex(pub i32);
 impl PrintDuplex {
@@ -1102,6 +1111,7 @@ unsafe impl ::windows::core::RuntimeType for PrintDuplex {
 impl ::windows::core::DefaultType for PrintDuplex {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintHolePunch(pub i32);
 impl PrintHolePunch {
@@ -1135,6 +1145,7 @@ unsafe impl ::windows::core::RuntimeType for PrintHolePunch {
 impl ::windows::core::DefaultType for PrintHolePunch {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintManager(::windows::core::IUnknown);
 impl PrintManager {
@@ -1242,6 +1253,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintManager {}
 unsafe impl ::core::marker::Sync for PrintManager {}
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintMediaSize(pub i32);
 impl PrintMediaSize {
@@ -1440,6 +1452,7 @@ unsafe impl ::windows::core::RuntimeType for PrintMediaSize {
 impl ::windows::core::DefaultType for PrintMediaSize {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintMediaType(pub i32);
 impl PrintMediaType {
@@ -1497,6 +1510,7 @@ unsafe impl ::windows::core::RuntimeType for PrintMediaType {
 impl ::windows::core::DefaultType for PrintMediaType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintOrientation(pub i32);
 impl PrintOrientation {
@@ -1530,6 +1544,7 @@ impl ::windows::core::DefaultType for PrintOrientation {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Graphics_Printing', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct PrintPageDescription {
     pub PageSize: super::super::Foundation::Size,
@@ -1571,6 +1586,7 @@ impl ::core::default::Default for PrintPageDescription {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintPageInfo(::windows::core::IUnknown);
 impl PrintPageInfo {
@@ -1702,6 +1718,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintPageInfo {}
 unsafe impl ::core::marker::Sync for PrintPageInfo {}
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintPageRange(::windows::core::IUnknown);
 impl PrintPageRange {
@@ -1799,6 +1816,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintPageRange {}
 unsafe impl ::core::marker::Sync for PrintPageRange {}
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintPageRangeOptions(::windows::core::IUnknown);
 impl PrintPageRangeOptions {
@@ -1899,6 +1917,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintPageRangeOptions {}
 unsafe impl ::core::marker::Sync for PrintPageRangeOptions {}
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintQuality(pub i32);
 impl PrintQuality {
@@ -1934,6 +1953,7 @@ unsafe impl ::windows::core::RuntimeType for PrintQuality {
 impl ::windows::core::DefaultType for PrintQuality {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintStaple(pub i32);
 impl PrintStaple {
@@ -1972,6 +1992,7 @@ unsafe impl ::windows::core::RuntimeType for PrintStaple {
 impl ::windows::core::DefaultType for PrintStaple {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintTask(::windows::core::IUnknown);
 impl PrintTask {
@@ -2146,6 +2167,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintTask {}
 unsafe impl ::core::marker::Sync for PrintTask {}
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintTaskCompletedEventArgs(::windows::core::IUnknown);
 impl PrintTaskCompletedEventArgs {
@@ -2220,6 +2242,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintTaskCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskCompletedEventArgs {}
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintTaskCompletion(pub i32);
 impl PrintTaskCompletion {
@@ -2249,6 +2272,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskCompletion {
 impl ::windows::core::DefaultType for PrintTaskCompletion {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintTaskOptions(::windows::core::IUnknown);
 impl PrintTaskOptions {
@@ -2567,6 +2591,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPrintTaskOptionsCoreUIConfiguration> fo
 }
 unsafe impl ::core::marker::Send for PrintTaskOptions {}
 unsafe impl ::core::marker::Sync for PrintTaskOptions {}
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintTaskProgressingEventArgs(::windows::core::IUnknown);
 impl PrintTaskProgressingEventArgs {
@@ -2641,6 +2666,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintTaskProgressingEventArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskProgressingEventArgs {}
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintTaskRequest(::windows::core::IUnknown);
 impl PrintTaskRequest {
@@ -2730,6 +2756,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintTaskRequest {}
 unsafe impl ::core::marker::Sync for PrintTaskRequest {}
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintTaskRequestedDeferral(::windows::core::IUnknown);
 impl PrintTaskRequestedDeferral {
@@ -2801,6 +2828,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintTaskRequestedDeferral {}
 unsafe impl ::core::marker::Sync for PrintTaskRequestedDeferral {}
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintTaskRequestedEventArgs(::windows::core::IUnknown);
 impl PrintTaskRequestedEventArgs {
@@ -2875,6 +2903,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintTaskRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskRequestedEventArgs {}
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintTaskSourceRequestedArgs(::windows::core::IUnknown);
 impl PrintTaskSourceRequestedArgs {
@@ -2961,6 +2990,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintTaskSourceRequestedArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskSourceRequestedArgs {}
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintTaskSourceRequestedDeferral(::windows::core::IUnknown);
 impl PrintTaskSourceRequestedDeferral {
@@ -3032,6 +3062,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prin
 }
 unsafe impl ::core::marker::Send for PrintTaskSourceRequestedDeferral {}
 unsafe impl ::core::marker::Sync for PrintTaskSourceRequestedDeferral {}
+#[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
 pub struct PrintTaskSourceRequestedHandler(pub ::windows::core::IUnknown);
 impl PrintTaskSourceRequestedHandler {

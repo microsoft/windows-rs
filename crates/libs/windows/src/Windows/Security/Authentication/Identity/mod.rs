@@ -3,6 +3,7 @@
 pub mod Core;
 #[cfg(feature = "Security_Authentication_Identity_Provider")]
 pub mod Provider;
+#[doc = "*Required features: 'Security_Authentication_Identity'*"]
 #[repr(transparent)]
 pub struct EnterpriseKeyCredentialRegistrationInfo(::windows::core::IUnknown);
 impl EnterpriseKeyCredentialRegistrationInfo {
@@ -105,6 +106,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ente
 }
 unsafe impl ::core::marker::Send for EnterpriseKeyCredentialRegistrationInfo {}
 unsafe impl ::core::marker::Sync for EnterpriseKeyCredentialRegistrationInfo {}
+#[doc = "*Required features: 'Security_Authentication_Identity'*"]
 #[repr(transparent)]
 pub struct EnterpriseKeyCredentialRegistrationManager(::windows::core::IUnknown);
 impl EnterpriseKeyCredentialRegistrationManager {

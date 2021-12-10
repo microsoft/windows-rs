@@ -94,6 +94,7 @@ pub struct ISocialInfoProviderManagerStaticsVtbl(
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
 );
+#[doc = "*Required features: 'ApplicationModel_SocialInfo_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SocialDashboardItemUpdater(::windows::core::IUnknown);
@@ -242,6 +243,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Soci
 unsafe impl ::core::marker::Send for SocialDashboardItemUpdater {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SocialDashboardItemUpdater {}
+#[doc = "*Required features: 'ApplicationModel_SocialInfo_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SocialFeedUpdater(::windows::core::IUnknown);

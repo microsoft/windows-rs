@@ -5,6 +5,7 @@ pub const CLSID_MILBitmapEffectDropShadow: ::windows::core::GUID = ::windows::co
 pub const CLSID_MILBitmapEffectEmboss: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd299846_824f_47ec_a007_12aa767f2816);
 pub const CLSID_MILBitmapEffectGroup: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac9c1a9a_7e18_4f64_ac7e_47cf7f051e95);
 pub const CLSID_MILBitmapEffectOuterGlow: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2161bdd_7eb6_4725_9c0b_8a2a1b4f0667);
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffect(::windows::core::IUnknown);
 impl IMILBitmapEffect {
@@ -69,6 +70,7 @@ pub struct IMILBitmapEffectVtbl(
     #[cfg(feature = "Win32_Graphics_Imaging")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, pbitmapsource: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Imaging"))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectConnections(::windows::core::IUnknown);
 impl IMILBitmapEffectConnections {
@@ -125,6 +127,7 @@ pub struct IMILBitmapEffectConnectionsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectConnectionsInfo(::windows::core::IUnknown);
 impl IMILBitmapEffectConnectionsInfo {
@@ -191,6 +194,7 @@ pub struct IMILBitmapEffectConnectionsInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnectorinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnectorinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectConnector(::windows::core::IUnknown);
 impl IMILBitmapEffectConnector {
@@ -287,6 +291,7 @@ pub struct IMILBitmapEffectConnectorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfconnected: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectConnectorInfo(::windows::core::IUnknown);
 impl IMILBitmapEffectConnectorInfo {
@@ -353,6 +358,7 @@ pub struct IMILBitmapEffectConnectorInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulnumberformats: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulindex: u32, pformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectEvents(::windows::core::IUnknown);
 impl IMILBitmapEffectEvents {
@@ -409,6 +415,7 @@ pub struct IMILBitmapEffectEventsVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peffect: ::windows::core::RawPtr, prect: *const MilRectD) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectFactory(::windows::core::IUnknown);
 impl IMILBitmapEffectFactory {
@@ -470,6 +477,7 @@ pub struct IMILBitmapEffectFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppeffect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectGroup(::windows::core::IUnknown);
 impl IMILBitmapEffectGroup {
@@ -530,6 +538,7 @@ pub struct IMILBitmapEffectGroupVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peffect: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectGroupImpl(::windows::core::IUnknown);
 impl IMILBitmapEffectGroupImpl {
@@ -590,6 +599,7 @@ pub struct IMILBitmapEffectGroupImplVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puinumberchildren: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchildren: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectImpl(::windows::core::IUnknown);
 impl IMILBitmapEffectImpl {
@@ -673,6 +683,7 @@ pub struct IMILBitmapEffectImplVtbl(
     #[cfg(not(feature = "Win32_Graphics_Imaging"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinner: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectInputConnector(::windows::core::IUnknown);
 impl IMILBitmapEffectInputConnector {
@@ -798,6 +809,7 @@ pub struct IMILBitmapEffectInputConnectorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconnector: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectInteriorInputConnector(::windows::core::IUnknown);
 impl IMILBitmapEffectInteriorInputConnector {
@@ -844,6 +856,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectInteriorInputConnecto
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectInteriorInputConnectorVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinputconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectInteriorOutputConnector(::windows::core::IUnknown);
 impl IMILBitmapEffectInteriorOutputConnector {
@@ -890,6 +903,7 @@ unsafe impl ::windows::core::Interface for IMILBitmapEffectInteriorOutputConnect
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMILBitmapEffectInteriorOutputConnectorVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poutputconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectOutputConnector(::windows::core::IUnknown);
 impl IMILBitmapEffectOutputConnector {
@@ -1016,6 +1030,7 @@ pub struct IMILBitmapEffectOutputConnectorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puinumberconnections: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, ppconnection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectOutputConnectorImpl(::windows::core::IUnknown);
 impl IMILBitmapEffectOutputConnectorImpl {
@@ -1070,6 +1085,7 @@ pub struct IMILBitmapEffectOutputConnectorImplVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconnection: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pconnection: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectPrimitive(::windows::core::IUnknown);
 impl IMILBitmapEffectPrimitive {
@@ -1146,6 +1162,7 @@ pub struct IMILBitmapEffectPrimitiveVtbl(
     #[cfg(feature = "Win32_Graphics_Dwm")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uiindex: u32, pmatrix: *mut super::super::Graphics::Dwm::MilMatrix3x2D) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dwm"))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectPrimitiveImpl(::windows::core::IUnknown);
 impl IMILBitmapEffectPrimitiveImpl {
@@ -1202,6 +1219,7 @@ pub struct IMILBitmapEffectPrimitiveImplVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uioutputindex: u32, pfdirty: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uioutputindex: u32, pfvolatile: *mut i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectRenderContext(::windows::core::IUnknown);
 impl IMILBitmapEffectRenderContext {
@@ -1282,6 +1300,7 @@ pub struct IMILBitmapEffectRenderContextVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdbldpix: *mut f64, pdbldpiy: *mut f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prect: *const MilRectD) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffectRenderContextImpl(::windows::core::IUnknown);
 impl IMILBitmapEffectRenderContextImpl {
@@ -1349,6 +1368,7 @@ pub struct IMILBitmapEffectRenderContextImplVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prect: *mut MilRectD) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prect: *const MilRectD) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 #[repr(transparent)]
 pub struct IMILBitmapEffects(::windows::core::IUnknown);
 impl IMILBitmapEffects {
@@ -1417,6 +1437,7 @@ pub struct IMILBitmapEffectsVtbl(
 );
 pub const MILBITMAPEFFECT_SDK_VERSION: u32 = 16777216u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 pub struct MILMatrixF {
     pub _11: f64,
     pub _12: f64,
@@ -1456,6 +1477,7 @@ impl ::core::default::Default for MILMatrixF {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 pub struct MilPoint2D {
     pub X: f64,
     pub Y: f64,
@@ -1481,6 +1503,7 @@ impl ::core::default::Default for MilPoint2D {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 pub struct MilRectD {
     pub left: f64,
     pub top: f64,

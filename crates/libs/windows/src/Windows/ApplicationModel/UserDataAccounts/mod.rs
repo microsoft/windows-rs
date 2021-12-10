@@ -260,6 +260,7 @@ pub struct IUserDataAccountStoreChangedEventArgsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts'*"]
 #[repr(transparent)]
 pub struct UserDataAccount(::windows::core::IUnknown);
 impl UserDataAccount {
@@ -511,6 +512,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataAccount {}
 unsafe impl ::core::marker::Sync for UserDataAccount {}
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts'*"]
 #[repr(transparent)]
 pub struct UserDataAccountContentKinds(pub u32);
 impl UserDataAccountContentKinds {
@@ -588,6 +590,7 @@ impl UserDataAccountManager {
 impl ::windows::core::RuntimeName for UserDataAccountManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.UserDataAccountManager";
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts'*"]
 #[repr(transparent)]
 pub struct UserDataAccountManagerForUser(::windows::core::IUnknown);
 impl UserDataAccountManagerForUser {
@@ -671,6 +674,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataAccountManagerForUser {}
 unsafe impl ::core::marker::Sync for UserDataAccountManagerForUser {}
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts'*"]
 #[repr(transparent)]
 pub struct UserDataAccountOtherAppReadAccess(pub i32);
 impl UserDataAccountOtherAppReadAccess {
@@ -699,6 +703,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountOtherAppReadAccess {
 impl ::windows::core::DefaultType for UserDataAccountOtherAppReadAccess {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts'*"]
 #[repr(transparent)]
 pub struct UserDataAccountStore(::windows::core::IUnknown);
 impl UserDataAccountStore {
@@ -819,6 +824,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
 }
 unsafe impl ::core::marker::Send for UserDataAccountStore {}
 unsafe impl ::core::marker::Sync for UserDataAccountStore {}
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts'*"]
 #[repr(transparent)]
 pub struct UserDataAccountStoreAccessType(pub i32);
 impl UserDataAccountStoreAccessType {
@@ -846,6 +852,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountStoreAccessType {
 impl ::windows::core::DefaultType for UserDataAccountStoreAccessType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts'*"]
 #[repr(transparent)]
 pub struct UserDataAccountStoreChangedEventArgs(::windows::core::IUnknown);
 impl UserDataAccountStoreChangedEventArgs {

@@ -6,6 +6,7 @@ pub mod Preview;
 #[link(name = "windows")]
 extern "system" {}
 pub type AcceleratorKeyEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct AppViewBackButtonVisibility(pub i32);
 impl AppViewBackButtonVisibility {
@@ -23,6 +24,7 @@ pub type AutomationProviderRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type BackRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type CharacterReceivedEventArgs = *mut ::core::ffi::c_void;
 pub type ClosestInteractiveBoundsRequestedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreAcceleratorKeyEventType(pub i32);
 impl CoreAcceleratorKeyEventType {
@@ -45,6 +47,7 @@ impl ::core::clone::Clone for CoreAcceleratorKeyEventType {
 pub type CoreAcceleratorKeys = *mut ::core::ffi::c_void;
 pub type CoreComponentInputSource = *mut ::core::ffi::c_void;
 pub type CoreCursor = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreCursorType(pub i32);
 impl CoreCursorType {
@@ -72,6 +75,7 @@ impl ::core::clone::Clone for CoreCursorType {
     }
 }
 pub type CoreDispatcher = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreDispatcherPriority(pub i32);
 impl CoreDispatcherPriority {
@@ -86,6 +90,7 @@ impl ::core::clone::Clone for CoreDispatcherPriority {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreIndependentInputFilters(pub u32);
 impl CoreIndependentInputFilters {
@@ -104,6 +109,7 @@ impl ::core::clone::Clone for CoreIndependentInputFilters {
 }
 pub type CoreIndependentInputSource = *mut ::core::ffi::c_void;
 pub type CoreIndependentInputSourceController = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreInputDeviceTypes(pub u32);
 impl CoreInputDeviceTypes {
@@ -119,6 +125,7 @@ impl ::core::clone::Clone for CoreInputDeviceTypes {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'UI_Core'*"]
 pub struct CorePhysicalKeyStatus {
     pub RepeatCount: u32,
     pub ScanCode: u32,
@@ -133,6 +140,7 @@ impl ::core::clone::Clone for CorePhysicalKeyStatus {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreProcessEventsOption(pub i32);
 impl CoreProcessEventsOption {
@@ -148,6 +156,7 @@ impl ::core::clone::Clone for CoreProcessEventsOption {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'UI_Core', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct CoreProximityEvaluation {
     pub Score: i32,
@@ -161,6 +170,7 @@ impl ::core::clone::Clone for CoreProximityEvaluation {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreProximityEvaluationScore(pub i32);
 impl CoreProximityEvaluationScore {
@@ -173,6 +183,7 @@ impl ::core::clone::Clone for CoreProximityEvaluationScore {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreVirtualKeyStates(pub u32);
 impl CoreVirtualKeyStates {
@@ -187,6 +198,7 @@ impl ::core::clone::Clone for CoreVirtualKeyStates {
     }
 }
 pub type CoreWindow = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreWindowActivationMode(pub i32);
 impl CoreWindowActivationMode {
@@ -201,6 +213,7 @@ impl ::core::clone::Clone for CoreWindowActivationMode {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreWindowActivationState(pub i32);
 impl CoreWindowActivationState {
@@ -216,6 +229,7 @@ impl ::core::clone::Clone for CoreWindowActivationState {
 }
 pub type CoreWindowDialog = *mut ::core::ffi::c_void;
 pub type CoreWindowEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
 pub struct CoreWindowFlowDirection(pub i32);
 impl CoreWindowFlowDirection {

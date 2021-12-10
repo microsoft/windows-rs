@@ -306,6 +306,7 @@ pub struct IResourceQualifierVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Resources_Core'*"]
 #[repr(transparent)]
 pub struct NamedResource(::windows::core::IUnknown);
 impl NamedResource {
@@ -419,6 +420,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Name
 }
 unsafe impl ::core::marker::Send for NamedResource {}
 unsafe impl ::core::marker::Sync for NamedResource {}
+#[doc = "*Required features: 'ApplicationModel_Resources_Core'*"]
 #[repr(transparent)]
 pub struct ResourceCandidate(::windows::core::IUnknown);
 impl ResourceCandidate {
@@ -552,6 +554,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Reso
 }
 unsafe impl ::core::marker::Send for ResourceCandidate {}
 unsafe impl ::core::marker::Sync for ResourceCandidate {}
+#[doc = "*Required features: 'ApplicationModel_Resources_Core'*"]
 #[repr(transparent)]
 pub struct ResourceCandidateKind(pub i32);
 impl ResourceCandidateKind {
@@ -580,6 +583,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceCandidateKind {
 impl ::windows::core::DefaultType for ResourceCandidateKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Resources_Core', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ResourceCandidateVectorView(::windows::core::IUnknown);
@@ -773,6 +777,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for ResourceCandidateVectorView {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for ResourceCandidateVectorView {}
+#[doc = "*Required features: 'ApplicationModel_Resources_Core'*"]
 #[repr(transparent)]
 pub struct ResourceContext(::windows::core::IUnknown);
 impl ResourceContext {
@@ -944,6 +949,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Reso
 }
 unsafe impl ::core::marker::Send for ResourceContext {}
 unsafe impl ::core::marker::Sync for ResourceContext {}
+#[doc = "*Required features: 'ApplicationModel_Resources_Core', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ResourceContextLanguagesVectorView(::windows::core::IUnknown);
@@ -1138,6 +1144,7 @@ unsafe impl ::core::marker::Send for ResourceContextLanguagesVectorView {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for ResourceContextLanguagesVectorView {}
 #[repr(C)]
+#[doc = "*Required features: 'ApplicationModel_Resources_Core'*"]
 pub struct ResourceLayoutInfo {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
@@ -1171,6 +1178,7 @@ impl ::core::default::Default for ResourceLayoutInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Resources_Core'*"]
 #[repr(transparent)]
 pub struct ResourceManager(::windows::core::IUnknown);
 impl ResourceManager {
@@ -1302,6 +1310,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Reso
 }
 unsafe impl ::core::marker::Send for ResourceManager {}
 unsafe impl ::core::marker::Sync for ResourceManager {}
+#[doc = "*Required features: 'ApplicationModel_Resources_Core'*"]
 #[repr(transparent)]
 pub struct ResourceMap(::windows::core::IUnknown);
 impl ResourceMap {
@@ -1503,6 +1512,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 }
 unsafe impl ::core::marker::Send for ResourceMap {}
 unsafe impl ::core::marker::Sync for ResourceMap {}
+#[doc = "*Required features: 'ApplicationModel_Resources_Core', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ResourceMapIterator(::windows::core::IUnknown);
@@ -1646,6 +1656,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for ResourceMapIterator {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for ResourceMapIterator {}
+#[doc = "*Required features: 'ApplicationModel_Resources_Core', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ResourceMapMapView(::windows::core::IUnknown);
@@ -1836,6 +1847,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for ResourceMapMapView {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for ResourceMapMapView {}
+#[doc = "*Required features: 'ApplicationModel_Resources_Core', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ResourceMapMapViewIterator(::windows::core::IUnknown);
@@ -1979,6 +1991,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for ResourceMapMapViewIterator {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for ResourceMapMapViewIterator {}
+#[doc = "*Required features: 'ApplicationModel_Resources_Core'*"]
 #[repr(transparent)]
 pub struct ResourceQualifier(::windows::core::IUnknown);
 impl ResourceQualifier {
@@ -2081,6 +2094,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Reso
 }
 unsafe impl ::core::marker::Send for ResourceQualifier {}
 unsafe impl ::core::marker::Sync for ResourceQualifier {}
+#[doc = "*Required features: 'ApplicationModel_Resources_Core', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ResourceQualifierMapView(::windows::core::IUnknown);
@@ -2271,6 +2285,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for ResourceQualifierMapView {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for ResourceQualifierMapView {}
+#[doc = "*Required features: 'ApplicationModel_Resources_Core', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ResourceQualifierObservableMap(::windows::core::IUnknown);
@@ -2521,6 +2536,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
 unsafe impl ::core::marker::Send for ResourceQualifierObservableMap {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for ResourceQualifierObservableMap {}
+#[doc = "*Required features: 'ApplicationModel_Resources_Core'*"]
 #[repr(transparent)]
 pub struct ResourceQualifierPersistence(pub i32);
 impl ResourceQualifierPersistence {
@@ -2548,6 +2564,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceQualifierPersistence {
 impl ::windows::core::DefaultType for ResourceQualifierPersistence {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Resources_Core', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ResourceQualifierVectorView(::windows::core::IUnknown);

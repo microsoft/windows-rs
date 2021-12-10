@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
 pub struct DialApp(::windows::core::IUnknown);
 impl DialApp {
@@ -97,6 +98,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dial
 }
 unsafe impl ::core::marker::Send for DialApp {}
 unsafe impl ::core::marker::Sync for DialApp {}
+#[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
 pub struct DialAppLaunchResult(pub i32);
 impl DialAppLaunchResult {
@@ -126,6 +128,7 @@ unsafe impl ::windows::core::RuntimeType for DialAppLaunchResult {
 impl ::windows::core::DefaultType for DialAppLaunchResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
 pub struct DialAppState(pub i32);
 impl DialAppState {
@@ -155,6 +158,7 @@ unsafe impl ::windows::core::RuntimeType for DialAppState {
 impl ::windows::core::DefaultType for DialAppState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
 pub struct DialAppStateDetails(::windows::core::IUnknown);
 impl DialAppStateDetails {
@@ -236,6 +240,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dial
 }
 unsafe impl ::core::marker::Send for DialAppStateDetails {}
 unsafe impl ::core::marker::Sync for DialAppStateDetails {}
+#[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
 pub struct DialAppStopResult(pub i32);
 impl DialAppStopResult {
@@ -265,6 +270,7 @@ unsafe impl ::windows::core::RuntimeType for DialAppStopResult {
 impl ::windows::core::DefaultType for DialAppStopResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
 pub struct DialDevice(::windows::core::IUnknown);
 impl DialDevice {
@@ -385,6 +391,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dial
 }
 unsafe impl ::core::marker::Send for DialDevice {}
 unsafe impl ::core::marker::Sync for DialDevice {}
+#[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
 pub struct DialDeviceDisplayStatus(pub i32);
 impl DialDeviceDisplayStatus {
@@ -416,6 +423,7 @@ unsafe impl ::windows::core::RuntimeType for DialDeviceDisplayStatus {
 impl ::windows::core::DefaultType for DialDeviceDisplayStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
 pub struct DialDevicePicker(::windows::core::IUnknown);
 impl DialDevicePicker {
@@ -578,6 +586,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dial
 }
 unsafe impl ::core::marker::Send for DialDevicePicker {}
 unsafe impl ::core::marker::Sync for DialDevicePicker {}
+#[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
 pub struct DialDevicePickerFilter(::windows::core::IUnknown);
 impl DialDevicePickerFilter {
@@ -653,6 +662,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dial
 }
 unsafe impl ::core::marker::Send for DialDevicePickerFilter {}
 unsafe impl ::core::marker::Sync for DialDevicePickerFilter {}
+#[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
 pub struct DialDeviceSelectedEventArgs(::windows::core::IUnknown);
 impl DialDeviceSelectedEventArgs {
@@ -727,6 +737,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dial
 }
 unsafe impl ::core::marker::Send for DialDeviceSelectedEventArgs {}
 unsafe impl ::core::marker::Sync for DialDeviceSelectedEventArgs {}
+#[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
 pub struct DialDisconnectButtonClickedEventArgs(::windows::core::IUnknown);
 impl DialDisconnectButtonClickedEventArgs {
@@ -801,6 +812,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dial
 }
 unsafe impl ::core::marker::Send for DialDisconnectButtonClickedEventArgs {}
 unsafe impl ::core::marker::Sync for DialDisconnectButtonClickedEventArgs {}
+#[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
 pub struct DialReceiverApp(::windows::core::IUnknown);
 impl DialReceiverApp {

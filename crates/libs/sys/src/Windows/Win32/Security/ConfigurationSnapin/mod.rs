@@ -3,14 +3,20 @@
 extern "system" {}
 pub type ISceSvcAttachmentData = *mut ::core::ffi::c_void;
 pub type ISceSvcAttachmentPersistInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
 pub type PFSCE_FREE_INFO = ::core::option::Option<unsafe extern "system" fn(pvserviceinfo: *mut ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
 pub type PFSCE_LOG_INFO = ::core::option::Option<unsafe extern "system" fn(errlevel: SCE_LOG_ERR_LEVEL, win32rc: u32, perrfmt: *mut i8) -> u32>;
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFSCE_QUERY_INFO = ::core::option::Option<unsafe extern "system" fn(scehandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, lpprefix: *mut i8, bexact: super::super::Foundation::BOOL, ppvinfo: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> u32>;
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFSCE_SET_INFO = ::core::option::Option<unsafe extern "system" fn(scehandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, lpprefix: *mut i8, bexact: super::super::Foundation::BOOL, pvinfo: *mut ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_ConfigAnalyzeService = ::core::option::Option<unsafe extern "system" fn(pscecbinfo: *mut SCESVC_CALLBACK_INFO) -> u32>;
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_UpdateService = ::core::option::Option<unsafe extern "system" fn(pscecbinfo: *mut SCESVC_CALLBACK_INFO, serviceinfo: *mut SCESVC_CONFIGURATION_INFO) -> u32>;
 pub const SCESTATUS_ACCESS_DENIED: i32 = 9i32;
@@ -34,6 +40,7 @@ pub const SCESTATUS_SERVICE_NOT_SUPPORT: i32 = 14i32;
 pub const SCESTATUS_SUCCESS: i32 = 0i32;
 pub const SCESTATUS_TRUST_FAIL: i32 = 19i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
 pub struct SCESVC_ANALYSIS_INFO {
     pub Count: u32,
     pub Lines: *mut SCESVC_ANALYSIS_LINE,
@@ -45,6 +52,7 @@ impl ::core::clone::Clone for SCESVC_ANALYSIS_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
 pub struct SCESVC_ANALYSIS_LINE {
     pub Key: *mut i8,
     pub Value: *mut u8,
@@ -57,6 +65,7 @@ impl ::core::clone::Clone for SCESVC_ANALYSIS_LINE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SCESVC_CALLBACK_INFO {
     pub sceHandle: *mut ::core::ffi::c_void,
@@ -74,6 +83,7 @@ impl ::core::clone::Clone for SCESVC_CALLBACK_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
 pub struct SCESVC_CONFIGURATION_INFO {
     pub Count: u32,
     pub Lines: *mut SCESVC_CONFIGURATION_LINE,
@@ -85,6 +95,7 @@ impl ::core::clone::Clone for SCESVC_CONFIGURATION_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
 pub struct SCESVC_CONFIGURATION_LINE {
     pub Key: *mut i8,
     pub Value: *mut i8,
@@ -97,15 +108,25 @@ impl ::core::clone::Clone for SCESVC_CONFIGURATION_LINE {
     }
 }
 pub const SCESVC_ENUMERATION_MAX: i32 = 100i32;
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
 pub type SCESVC_INFO_TYPE = i32;
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
 pub const SceSvcConfigurationInfo: SCESVC_INFO_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
 pub const SceSvcMergedPolicyInfo: SCESVC_INFO_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
 pub const SceSvcAnalysisInfo: SCESVC_INFO_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
 pub const SceSvcInternalUse: SCESVC_INFO_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
 pub type SCE_LOG_ERR_LEVEL = u32;
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
 pub const SCE_LOG_LEVEL_ALWAYS: SCE_LOG_ERR_LEVEL = 0u32;
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
 pub const SCE_LOG_LEVEL_ERROR: SCE_LOG_ERR_LEVEL = 1u32;
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
 pub const SCE_LOG_LEVEL_DETAIL: SCE_LOG_ERR_LEVEL = 2u32;
+#[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
 pub const SCE_LOG_LEVEL_DEBUG: SCE_LOG_ERR_LEVEL = 3u32;
 pub const cNodetypeSceAnalysisServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1736462535, data2: 8184, data3: 4561, data4: [175, 251, 0, 192, 79, 185, 132, 249] };
 pub const cNodetypeSceEventLog: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 752903832, data2: 19443, data3: 4561, data4: [140, 48, 0, 192, 79, 185, 132, 249] };

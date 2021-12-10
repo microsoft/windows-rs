@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Xaml_Printing'*"]
 #[repr(transparent)]
 pub struct AddPagesEventArgs(::windows::core::IUnknown);
 impl AddPagesEventArgs {
@@ -81,6 +82,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AddP
 }
 unsafe impl ::core::marker::Send for AddPagesEventArgs {}
 unsafe impl ::core::marker::Sync for AddPagesEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Printing'*"]
 #[repr(transparent)]
 pub struct AddPagesEventHandler(pub ::windows::core::IUnknown);
 impl AddPagesEventHandler {
@@ -149,6 +151,7 @@ unsafe impl ::windows::core::RuntimeType for AddPagesEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct AddPagesEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Printing'*"]
 #[repr(transparent)]
 pub struct GetPreviewPageEventArgs(::windows::core::IUnknown);
 impl GetPreviewPageEventArgs {
@@ -230,6 +233,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GetP
 }
 unsafe impl ::core::marker::Send for GetPreviewPageEventArgs {}
 unsafe impl ::core::marker::Sync for GetPreviewPageEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Printing'*"]
 #[repr(transparent)]
 pub struct GetPreviewPageEventHandler(pub ::windows::core::IUnknown);
 impl GetPreviewPageEventHandler {
@@ -427,6 +431,7 @@ pub struct IPrintDocumentStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Printing'*"]
 #[repr(transparent)]
 pub struct PaginateEventArgs(::windows::core::IUnknown);
 impl PaginateEventArgs {
@@ -516,6 +521,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pagi
 }
 unsafe impl ::core::marker::Send for PaginateEventArgs {}
 unsafe impl ::core::marker::Sync for PaginateEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Printing'*"]
 #[repr(transparent)]
 pub struct PaginateEventHandler(pub ::windows::core::IUnknown);
 impl PaginateEventHandler {
@@ -584,6 +590,7 @@ unsafe impl ::windows::core::RuntimeType for PaginateEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct PaginateEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Printing'*"]
 #[repr(transparent)]
 pub struct PreviewPageCountType(pub i32);
 impl PreviewPageCountType {
@@ -611,6 +618,7 @@ unsafe impl ::windows::core::RuntimeType for PreviewPageCountType {
 impl ::windows::core::DefaultType for PreviewPageCountType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Printing'*"]
 #[repr(transparent)]
 pub struct PrintDocument(::windows::core::IUnknown);
 impl PrintDocument {

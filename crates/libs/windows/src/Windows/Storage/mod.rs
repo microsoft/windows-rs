@@ -15,6 +15,7 @@ pub mod Provider;
 pub mod Search;
 #[cfg(feature = "Storage_Streams")]
 pub mod Streams;
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct AppDataPaths(::windows::core::IUnknown);
 impl AppDataPaths {
@@ -162,6 +163,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppD
 }
 unsafe impl ::core::marker::Send for AppDataPaths {}
 unsafe impl ::core::marker::Sync for AppDataPaths {}
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct ApplicationData(::windows::core::IUnknown);
 impl ApplicationData {
@@ -400,6 +402,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IClosable> for &Appli
 }
 unsafe impl ::core::marker::Send for ApplicationData {}
 unsafe impl ::core::marker::Sync for ApplicationData {}
+#[doc = "*Required features: 'Storage', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ApplicationDataCompositeValue(::windows::core::IUnknown);
@@ -683,6 +686,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Foundation::Collections::IPropert
 unsafe impl ::core::marker::Send for ApplicationDataCompositeValue {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for ApplicationDataCompositeValue {}
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct ApplicationDataContainer(::windows::core::IUnknown);
 impl ApplicationDataContainer {
@@ -822,6 +826,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IClosable> for &Appli
 }
 unsafe impl ::core::marker::Send for ApplicationDataContainer {}
 unsafe impl ::core::marker::Sync for ApplicationDataContainer {}
+#[doc = "*Required features: 'Storage', 'Foundation_Collections'*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct ApplicationDataContainerSettings(::windows::core::IUnknown);
@@ -1098,6 +1103,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Foundation::Collections::IPropert
 unsafe impl ::core::marker::Send for ApplicationDataContainerSettings {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for ApplicationDataContainerSettings {}
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct ApplicationDataCreateDisposition(pub i32);
 impl ApplicationDataCreateDisposition {
@@ -1125,6 +1131,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationDataCreateDisposition {
 impl ::windows::core::DefaultType for ApplicationDataCreateDisposition {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct ApplicationDataLocality(pub i32);
 impl ApplicationDataLocality {
@@ -1155,6 +1162,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationDataLocality {
 impl ::windows::core::DefaultType for ApplicationDataLocality {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct ApplicationDataSetVersionHandler(pub ::windows::core::IUnknown);
 impl ApplicationDataSetVersionHandler {
@@ -1243,6 +1251,7 @@ impl CachedFileManager {
 impl ::windows::core::RuntimeName for CachedFileManager {
     const NAME: &'static str = "Windows.Storage.CachedFileManager";
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct CreationCollisionOption(pub i32);
 impl CreationCollisionOption {
@@ -1342,6 +1351,7 @@ impl DownloadsFolder {
 impl ::windows::core::RuntimeName for DownloadsFolder {
     const NAME: &'static str = "Windows.Storage.DownloadsFolder";
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct FileAccessMode(pub i32);
 impl FileAccessMode {
@@ -1369,6 +1379,7 @@ unsafe impl ::windows::core::RuntimeType for FileAccessMode {
 impl ::windows::core::DefaultType for FileAccessMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct FileAttributes(pub u32);
 impl FileAttributes {
@@ -2039,6 +2050,7 @@ pub struct ISetVersionRequestVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct IStorageFile(::windows::core::IUnknown);
 impl IStorageFile {
@@ -2393,6 +2405,7 @@ pub struct IStorageFileVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filetoreplace: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct IStorageFile2(::windows::core::IUnknown);
 impl IStorageFile2 {
@@ -2485,6 +2498,7 @@ pub struct IStorageFile2Vtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: StorageOpenOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct IStorageFilePropertiesWithAvailability(::windows::core::IUnknown);
 impl IStorageFilePropertiesWithAvailability {
@@ -2613,6 +2627,7 @@ pub struct IStorageFileStatics2Vtbl(
     #[cfg(all(feature = "Foundation", feature = "System"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "System")))] usize,
 );
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct IStorageFolder(::windows::core::IUnknown);
 impl IStorageFolder {
@@ -2883,6 +2898,7 @@ pub struct IStorageFolderVtbl(
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct IStorageFolder2(::windows::core::IUnknown);
 impl IStorageFolder2 {
@@ -3021,6 +3037,7 @@ pub struct IStorageFolderStatics2Vtbl(
     #[cfg(all(feature = "Foundation", feature = "System"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "System")))] usize,
 );
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct IStorageItem(::windows::core::IUnknown);
 impl IStorageItem {
@@ -3185,6 +3202,7 @@ pub struct IStorageItemVtbl(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: StorageItemTypes, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct IStorageItem2(::windows::core::IUnknown);
 impl IStorageItem2 {
@@ -3373,6 +3391,7 @@ pub struct IStorageItem2Vtbl(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, item: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct IStorageItemProperties(::windows::core::IUnknown);
 impl IStorageItemProperties {
@@ -3509,6 +3528,7 @@ pub struct IStorageItemPropertiesVtbl(
     #[cfg(feature = "Storage_FileProperties")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_FileProperties"))] usize,
 );
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct IStorageItemProperties2(::windows::core::IUnknown);
 impl IStorageItemProperties2 {
@@ -3686,6 +3706,7 @@ pub struct IStorageItemProperties2Vtbl(
     #[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: FileProperties::ThumbnailMode, requestedsize: u32, options: FileProperties::ThumbnailOptions, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams")))] usize,
 );
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct IStorageItemPropertiesWithProvider(::windows::core::IUnknown);
 impl IStorageItemPropertiesWithProvider {
@@ -4158,6 +4179,7 @@ pub struct IStorageStreamTransactionVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct IStreamedFileDataRequest(::windows::core::IUnknown);
 impl IStreamedFileDataRequest {
@@ -4520,6 +4542,7 @@ pub struct IUserDataPathsStaticsVtbl(
     #[cfg(not(feature = "System"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct KnownFolderId(pub i32);
 impl KnownFolderId {
@@ -4702,6 +4725,7 @@ impl KnownFolders {
 impl ::windows::core::RuntimeName for KnownFolders {
     const NAME: &'static str = "Windows.Storage.KnownFolders";
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct KnownFoldersAccessStatus(pub i32);
 impl KnownFoldersAccessStatus {
@@ -4733,6 +4757,7 @@ unsafe impl ::windows::core::RuntimeType for KnownFoldersAccessStatus {
 impl ::windows::core::DefaultType for KnownFoldersAccessStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct KnownLibraryId(pub i32);
 impl KnownLibraryId {
@@ -4762,6 +4787,7 @@ unsafe impl ::windows::core::RuntimeType for KnownLibraryId {
 impl ::windows::core::DefaultType for KnownLibraryId {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct NameCollisionOption(pub i32);
 impl NameCollisionOption {
@@ -4905,6 +4931,7 @@ impl PathIO {
 impl ::windows::core::RuntimeName for PathIO {
     const NAME: &'static str = "Windows.Storage.PathIO";
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct SetVersionDeferral(::windows::core::IUnknown);
 impl SetVersionDeferral {
@@ -4976,6 +5003,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SetV
 }
 unsafe impl ::core::marker::Send for SetVersionDeferral {}
 unsafe impl ::core::marker::Sync for SetVersionDeferral {}
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct SetVersionRequest(::windows::core::IUnknown);
 impl SetVersionRequest {
@@ -5064,6 +5092,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SetV
 }
 unsafe impl ::core::marker::Send for SetVersionRequest {}
 unsafe impl ::core::marker::Sync for SetVersionRequest {}
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StorageDeleteOption(pub i32);
 impl StorageDeleteOption {
@@ -5091,6 +5120,7 @@ unsafe impl ::windows::core::RuntimeType for StorageDeleteOption {
 impl ::windows::core::DefaultType for StorageDeleteOption {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StorageFile(::windows::core::IUnknown);
 impl StorageFile {
@@ -5749,6 +5779,7 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageItemPropertiesWithProvider> for 
         ::core::convert::TryInto::<IStorageItemPropertiesWithProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StorageFolder(::windows::core::IUnknown);
 impl StorageFolder {
@@ -6422,6 +6453,7 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageItemPropertiesWithProvider> for 
         ::core::convert::TryInto::<IStorageItemPropertiesWithProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StorageItemTypes(pub u32);
 impl StorageItemTypes {
@@ -6450,6 +6482,7 @@ unsafe impl ::windows::core::RuntimeType for StorageItemTypes {
 impl ::windows::core::DefaultType for StorageItemTypes {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StorageLibrary(::windows::core::IUnknown);
 impl StorageLibrary {
@@ -6596,6 +6629,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StorageLibraryChange(::windows::core::IUnknown);
 impl StorageLibraryChange {
@@ -6699,6 +6733,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageLibraryChange {}
 unsafe impl ::core::marker::Sync for StorageLibraryChange {}
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StorageLibraryChangeReader(::windows::core::IUnknown);
 impl StorageLibraryChangeReader {
@@ -6789,6 +6824,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageLibraryChangeReader {}
 unsafe impl ::core::marker::Sync for StorageLibraryChangeReader {}
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StorageLibraryChangeTracker(::windows::core::IUnknown);
 impl StorageLibraryChangeTracker {
@@ -6879,6 +6915,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageLibraryChangeTracker {}
 unsafe impl ::core::marker::Sync for StorageLibraryChangeTracker {}
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StorageLibraryChangeTrackerOptions(::windows::core::IUnknown);
 impl StorageLibraryChangeTrackerOptions {
@@ -6964,6 +7001,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageLibraryChangeTrackerOptions {}
 unsafe impl ::core::marker::Sync for StorageLibraryChangeTrackerOptions {}
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StorageLibraryChangeType(pub i32);
 impl StorageLibraryChangeType {
@@ -6999,6 +7037,7 @@ unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeType {
 impl ::windows::core::DefaultType for StorageLibraryChangeType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StorageLibraryLastChangeId(::windows::core::IUnknown);
 impl StorageLibraryLastChangeId {
@@ -7076,6 +7115,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageLibraryLastChangeId {}
 unsafe impl ::core::marker::Sync for StorageLibraryLastChangeId {}
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StorageOpenOptions(pub u32);
 impl StorageOpenOptions {
@@ -7104,6 +7144,7 @@ unsafe impl ::windows::core::RuntimeType for StorageOpenOptions {
 impl ::windows::core::DefaultType for StorageOpenOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StorageProvider(::windows::core::IUnknown);
 impl StorageProvider {
@@ -7191,6 +7232,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StorageStreamTransaction(::windows::core::IUnknown);
 impl StorageStreamTransaction {
@@ -7303,6 +7345,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IClosable> for &Stora
         ::core::convert::TryInto::<super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage', 'Storage_Streams'*"]
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 pub struct StreamedFileDataRequest(::windows::core::IUnknown);
@@ -7487,6 +7530,7 @@ impl<'a> ::windows::core::IntoParam<'a, IStreamedFileDataRequest> for &StreamedF
         ::core::convert::TryInto::<IStreamedFileDataRequest>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage', 'Storage_Streams'*"]
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 pub struct StreamedFileDataRequestedHandler(pub ::windows::core::IUnknown);
@@ -7572,6 +7616,7 @@ pub struct StreamedFileDataRequestedHandlerVtbl(
     #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
 );
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct StreamedFileFailureMode(pub i32);
 impl StreamedFileFailureMode {
@@ -7600,6 +7645,7 @@ unsafe impl ::windows::core::RuntimeType for StreamedFileFailureMode {
 impl ::windows::core::DefaultType for StreamedFileFailureMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct SystemAudioProperties(::windows::core::IUnknown);
 impl SystemAudioProperties {
@@ -7674,6 +7720,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemAudioProperties {}
 unsafe impl ::core::marker::Sync for SystemAudioProperties {}
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct SystemDataPaths(::windows::core::IUnknown);
 impl SystemDataPaths {
@@ -7863,6 +7910,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemDataPaths {}
 unsafe impl ::core::marker::Sync for SystemDataPaths {}
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct SystemGPSProperties(::windows::core::IUnknown);
 impl SystemGPSProperties {
@@ -7944,6 +7992,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemGPSProperties {}
 unsafe impl ::core::marker::Sync for SystemGPSProperties {}
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct SystemImageProperties(::windows::core::IUnknown);
 impl SystemImageProperties {
@@ -8025,6 +8074,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemImageProperties {}
 unsafe impl ::core::marker::Sync for SystemImageProperties {}
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct SystemMediaProperties(::windows::core::IUnknown);
 impl SystemMediaProperties {
@@ -8134,6 +8184,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemMediaProperties {}
 unsafe impl ::core::marker::Sync for SystemMediaProperties {}
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct SystemMusicProperties(::windows::core::IUnknown);
 impl SystemMusicProperties {
@@ -8257,6 +8308,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemMusicProperties {}
 unsafe impl ::core::marker::Sync for SystemMusicProperties {}
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct SystemPhotoProperties(::windows::core::IUnknown);
 impl SystemPhotoProperties {
@@ -8447,6 +8499,7 @@ impl SystemProperties {
 impl ::windows::core::RuntimeName for SystemProperties {
     const NAME: &'static str = "Windows.Storage.SystemProperties";
 }
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct SystemVideoProperties(::windows::core::IUnknown);
 impl SystemVideoProperties {
@@ -8549,6 +8602,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemVideoProperties {}
 unsafe impl ::core::marker::Sync for SystemVideoProperties {}
+#[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
 pub struct UserDataPaths(::windows::core::IUnknown);
 impl UserDataPaths {

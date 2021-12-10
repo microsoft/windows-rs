@@ -16,6 +16,7 @@ impl AppServiceCatalog {
 impl ::windows::core::RuntimeName for AppServiceCatalog {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceCatalog";
 }
+#[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
 pub struct AppServiceClosedEventArgs(::windows::core::IUnknown);
 impl AppServiceClosedEventArgs {
@@ -90,6 +91,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppS
 }
 unsafe impl ::core::marker::Send for AppServiceClosedEventArgs {}
 unsafe impl ::core::marker::Sync for AppServiceClosedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
 pub struct AppServiceClosedStatus(pub i32);
 impl AppServiceClosedStatus {
@@ -119,6 +121,7 @@ unsafe impl ::windows::core::RuntimeType for AppServiceClosedStatus {
 impl ::windows::core::DefaultType for AppServiceClosedStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
 pub struct AppServiceConnection(::windows::core::IUnknown);
 impl AppServiceConnection {
@@ -320,6 +323,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for AppServiceConnection {}
 unsafe impl ::core::marker::Sync for AppServiceConnection {}
+#[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
 pub struct AppServiceConnectionStatus(pub i32);
 impl AppServiceConnectionStatus {
@@ -357,6 +361,7 @@ unsafe impl ::windows::core::RuntimeType for AppServiceConnectionStatus {
 impl ::windows::core::DefaultType for AppServiceConnectionStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
 pub struct AppServiceDeferral(::windows::core::IUnknown);
 impl AppServiceDeferral {
@@ -428,6 +433,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppS
 }
 unsafe impl ::core::marker::Send for AppServiceDeferral {}
 unsafe impl ::core::marker::Sync for AppServiceDeferral {}
+#[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
 pub struct AppServiceRequest(::windows::core::IUnknown);
 impl AppServiceRequest {
@@ -511,6 +517,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppS
 }
 unsafe impl ::core::marker::Send for AppServiceRequest {}
 unsafe impl ::core::marker::Sync for AppServiceRequest {}
+#[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
 pub struct AppServiceRequestReceivedEventArgs(::windows::core::IUnknown);
 impl AppServiceRequestReceivedEventArgs {
@@ -592,6 +599,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppS
 }
 unsafe impl ::core::marker::Send for AppServiceRequestReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for AppServiceRequestReceivedEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
 pub struct AppServiceResponse(::windows::core::IUnknown);
 impl AppServiceResponse {
@@ -674,6 +682,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppS
 }
 unsafe impl ::core::marker::Send for AppServiceResponse {}
 unsafe impl ::core::marker::Sync for AppServiceResponse {}
+#[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
 pub struct AppServiceResponseStatus(pub i32);
 impl AppServiceResponseStatus {
@@ -710,6 +719,7 @@ unsafe impl ::windows::core::RuntimeType for AppServiceResponseStatus {
 impl ::windows::core::DefaultType for AppServiceResponseStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
 pub struct AppServiceTriggerDetails(::windows::core::IUnknown);
 impl AppServiceTriggerDetails {
@@ -1105,6 +1115,7 @@ pub struct IStatelessAppServiceResponseVtbl(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StatelessAppServiceResponseStatus) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
 pub struct StatelessAppServiceResponse(::windows::core::IUnknown);
 impl StatelessAppServiceResponse {
@@ -1187,6 +1198,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stat
 }
 unsafe impl ::core::marker::Send for StatelessAppServiceResponse {}
 unsafe impl ::core::marker::Sync for StatelessAppServiceResponse {}
+#[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
 pub struct StatelessAppServiceResponseStatus(pub i32);
 impl StatelessAppServiceResponseStatus {

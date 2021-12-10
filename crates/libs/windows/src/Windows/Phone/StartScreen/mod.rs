@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Phone_StartScreen'*"]
 #[repr(transparent)]
 pub struct DualSimTile(::windows::core::IUnknown);
 impl DualSimTile {
@@ -230,6 +231,7 @@ pub struct IDualSimTileStaticsVtbl(
     #[cfg(feature = "UI_Notifications")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Notifications"))] usize,
 );
+#[doc = "*Required features: 'Phone_StartScreen'*"]
 #[repr(transparent)]
 pub struct IToastNotificationManagerStatics3(::windows::core::IUnknown);
 impl IToastNotificationManagerStatics3 {

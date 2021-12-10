@@ -138,6 +138,7 @@ pub struct INotesWindowManagerPreviewStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Preview_Notes'*"]
 #[repr(transparent)]
 pub struct NotePlacementChangedPreviewEventArgs(::windows::core::IUnknown);
 impl NotePlacementChangedPreviewEventArgs {
@@ -212,6 +213,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Note
 }
 unsafe impl ::core::marker::Send for NotePlacementChangedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for NotePlacementChangedPreviewEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Preview_Notes'*"]
 #[repr(transparent)]
 pub struct NoteVisibilityChangedPreviewEventArgs(::windows::core::IUnknown);
 impl NoteVisibilityChangedPreviewEventArgs {
@@ -293,6 +295,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Note
 }
 unsafe impl ::core::marker::Send for NoteVisibilityChangedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for NoteVisibilityChangedPreviewEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Preview_Notes'*"]
 #[repr(transparent)]
 pub struct NotesWindowManagerPreview(::windows::core::IUnknown);
 impl NotesWindowManagerPreview {
@@ -482,6 +485,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Note
 }
 unsafe impl ::core::marker::Send for NotesWindowManagerPreview {}
 unsafe impl ::core::marker::Sync for NotesWindowManagerPreview {}
+#[doc = "*Required features: 'ApplicationModel_Preview_Notes'*"]
 #[repr(transparent)]
 pub struct NotesWindowManagerPreviewShowNoteOptions(::windows::core::IUnknown);
 impl NotesWindowManagerPreviewShowNoteOptions {

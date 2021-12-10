@@ -1,264 +1,523 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type ACDGROUP_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACDGE_NEW_GROUP: ACDGROUP_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACDGE_GROUP_REMOVED: ACDGROUP_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type ACDQUEUE_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACDQE_NEW_QUEUE: ACDQUEUE_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACDQE_QUEUE_REMOVED: ACDQUEUE_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type ADDRESS_CAPABILITY = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_ADDRESSTYPES: ADDRESS_CAPABILITY = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_BEARERMODES: ADDRESS_CAPABILITY = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXACTIVECALLS: ADDRESS_CAPABILITY = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXONHOLDCALLS: ADDRESS_CAPABILITY = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXONHOLDPENDINGCALLS: ADDRESS_CAPABILITY = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXNUMCONFERENCE: ADDRESS_CAPABILITY = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXNUMTRANSCONF: ADDRESS_CAPABILITY = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MONITORDIGITSUPPORT: ADDRESS_CAPABILITY = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_GENERATEDIGITSUPPORT: ADDRESS_CAPABILITY = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_GENERATETONEMODES: ADDRESS_CAPABILITY = 9i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_GENERATETONEMAXNUMFREQ: ADDRESS_CAPABILITY = 10i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MONITORTONEMAXNUMFREQ: ADDRESS_CAPABILITY = 11i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MONITORTONEMAXNUMENTRIES: ADDRESS_CAPABILITY = 12i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_DEVCAPFLAGS: ADDRESS_CAPABILITY = 13i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_ANSWERMODES: ADDRESS_CAPABILITY = 14i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_LINEFEATURES: ADDRESS_CAPABILITY = 15i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_SETTABLEDEVSTATUS: ADDRESS_CAPABILITY = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_PARKSUPPORT: ADDRESS_CAPABILITY = 17i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_CALLERIDSUPPORT: ADDRESS_CAPABILITY = 18i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_CALLEDIDSUPPORT: ADDRESS_CAPABILITY = 19i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_CONNECTEDIDSUPPORT: ADDRESS_CAPABILITY = 20i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_REDIRECTIONIDSUPPORT: ADDRESS_CAPABILITY = 21i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_REDIRECTINGIDSUPPORT: ADDRESS_CAPABILITY = 22i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_ADDRESSCAPFLAGS: ADDRESS_CAPABILITY = 23i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_CALLFEATURES1: ADDRESS_CAPABILITY = 24i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_CALLFEATURES2: ADDRESS_CAPABILITY = 25i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_REMOVEFROMCONFCAPS: ADDRESS_CAPABILITY = 26i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_REMOVEFROMCONFSTATE: ADDRESS_CAPABILITY = 27i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_TRANSFERMODES: ADDRESS_CAPABILITY = 28i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_ADDRESSFEATURES: ADDRESS_CAPABILITY = 29i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_PREDICTIVEAUTOTRANSFERSTATES: ADDRESS_CAPABILITY = 30i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXCALLDATASIZE: ADDRESS_CAPABILITY = 31i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_LINEID: ADDRESS_CAPABILITY = 32i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_ADDRESSID: ADDRESS_CAPABILITY = 33i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_FORWARDMODES: ADDRESS_CAPABILITY = 34i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXFORWARDENTRIES: ADDRESS_CAPABILITY = 35i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXSPECIFICENTRIES: ADDRESS_CAPABILITY = 36i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MINFWDNUMRINGS: ADDRESS_CAPABILITY = 37i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXFWDNUMRINGS: ADDRESS_CAPABILITY = 38i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_MAXCALLCOMPLETIONS: ADDRESS_CAPABILITY = 39i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_CALLCOMPLETIONCONDITIONS: ADDRESS_CAPABILITY = 40i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_CALLCOMPLETIONMODES: ADDRESS_CAPABILITY = 41i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_PERMANENTDEVICEID: ADDRESS_CAPABILITY = 42i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_GATHERDIGITSMINTIMEOUT: ADDRESS_CAPABILITY = 43i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_GATHERDIGITSMAXTIMEOUT: ADDRESS_CAPABILITY = 44i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_GENERATEDIGITMINDURATION: ADDRESS_CAPABILITY = 45i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_GENERATEDIGITMAXDURATION: ADDRESS_CAPABILITY = 46i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AC_GENERATEDIGITDEFAULTDURATION: ADDRESS_CAPABILITY = 47i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type ADDRESS_CAPABILITY_STRING = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACS_PROTOCOL: ADDRESS_CAPABILITY_STRING = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACS_ADDRESSDEVICESPECIFIC: ADDRESS_CAPABILITY_STRING = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACS_LINEDEVICESPECIFIC: ADDRESS_CAPABILITY_STRING = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACS_PROVIDERSPECIFIC: ADDRESS_CAPABILITY_STRING = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACS_SWITCHSPECIFIC: ADDRESS_CAPABILITY_STRING = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ACS_PERMANENTDEVICEGUID: ADDRESS_CAPABILITY_STRING = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type ADDRESS_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_STATE: ADDRESS_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_CAPSCHANGE: ADDRESS_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_RINGING: ADDRESS_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_CONFIGCHANGE: ADDRESS_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_FORWARD: ADDRESS_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_NEWTERMINAL: ADDRESS_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_REMOVETERMINAL: ADDRESS_EVENT = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_MSGWAITON: ADDRESS_EVENT = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_MSGWAITOFF: ADDRESS_EVENT = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_LASTITEM: ADDRESS_EVENT = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type ADDRESS_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AS_INSERVICE: ADDRESS_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AS_OUTOFSERVICE: ADDRESS_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type AGENTHANDLER_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AHE_NEW_AGENTHANDLER: AGENTHANDLER_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AHE_AGENTHANDLER_REMOVED: AGENTHANDLER_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type AGENT_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_NOT_READY: AGENT_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_READY: AGENT_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_BUSY_ACD: AGENT_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_BUSY_INCOMING: AGENT_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_BUSY_OUTGOING: AGENT_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AE_UNKNOWN: AGENT_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type AGENT_SESSION_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASE_NEW_SESSION: AGENT_SESSION_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASE_NOT_READY: AGENT_SESSION_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASE_READY: AGENT_SESSION_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASE_BUSY: AGENT_SESSION_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASE_WRAPUP: AGENT_SESSION_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASE_END: AGENT_SESSION_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type AGENT_SESSION_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASST_NOT_READY: AGENT_SESSION_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASST_READY: AGENT_SESSION_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASST_BUSY_ON_CALL: AGENT_SESSION_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASST_BUSY_WRAPUP: AGENT_SESSION_STATE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ASST_SESSION_ENDED: AGENT_SESSION_STATE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type AGENT_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AS_NOT_READY: AGENT_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AS_READY: AGENT_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AS_BUSY_ACD: AGENT_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AS_BUSY_INCOMING: AGENT_STATE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AS_BUSY_OUTGOING: AGENT_STATE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const AS_UNKNOWN: AGENT_STATE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type ASYNC_COMPLETION = ::core::option::Option<unsafe extern "system" fn(dwrequestid: u32, lresult: i32)>;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALLHUB_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CHE_CALLJOIN: CALLHUB_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CHE_CALLLEAVE: CALLHUB_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CHE_CALLHUBNEW: CALLHUB_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CHE_CALLHUBIDLE: CALLHUB_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CHE_LASTITEM: CALLHUB_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALLHUB_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CHS_ACTIVE: CALLHUB_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CHS_IDLE: CALLHUB_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALLINFOCHANGE_CAUSE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_OTHER: CALLINFOCHANGE_CAUSE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_DEVSPECIFIC: CALLINFOCHANGE_CAUSE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_BEARERMODE: CALLINFOCHANGE_CAUSE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_RATE: CALLINFOCHANGE_CAUSE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_APPSPECIFIC: CALLINFOCHANGE_CAUSE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_CALLID: CALLINFOCHANGE_CAUSE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_RELATEDCALLID: CALLINFOCHANGE_CAUSE = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_ORIGIN: CALLINFOCHANGE_CAUSE = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_REASON: CALLINFOCHANGE_CAUSE = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_COMPLETIONID: CALLINFOCHANGE_CAUSE = 9i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_NUMOWNERINCR: CALLINFOCHANGE_CAUSE = 10i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_NUMOWNERDECR: CALLINFOCHANGE_CAUSE = 11i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_NUMMONITORS: CALLINFOCHANGE_CAUSE = 12i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_TRUNK: CALLINFOCHANGE_CAUSE = 13i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_CALLERID: CALLINFOCHANGE_CAUSE = 14i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_CALLEDID: CALLINFOCHANGE_CAUSE = 15i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_CONNECTEDID: CALLINFOCHANGE_CAUSE = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_REDIRECTIONID: CALLINFOCHANGE_CAUSE = 17i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_REDIRECTINGID: CALLINFOCHANGE_CAUSE = 18i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_USERUSERINFO: CALLINFOCHANGE_CAUSE = 19i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_HIGHLEVELCOMP: CALLINFOCHANGE_CAUSE = 20i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_LOWLEVELCOMP: CALLINFOCHANGE_CAUSE = 21i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_CHARGINGINFO: CALLINFOCHANGE_CAUSE = 22i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_TREATMENT: CALLINFOCHANGE_CAUSE = 23i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_CALLDATA: CALLINFOCHANGE_CAUSE = 24i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_PRIVILEGE: CALLINFOCHANGE_CAUSE = 25i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_MEDIATYPE: CALLINFOCHANGE_CAUSE = 26i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIC_LASTITEM: CALLINFOCHANGE_CAUSE = 26i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALLINFO_BUFFER = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIB_USERUSERINFO: CALLINFO_BUFFER = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIB_DEVSPECIFICBUFFER: CALLINFO_BUFFER = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIB_CALLDATABUFFER: CALLINFO_BUFFER = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIB_CHARGINGINFOBUFFER: CALLINFO_BUFFER = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIB_HIGHLEVELCOMPATIBILITYBUFFER: CALLINFO_BUFFER = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIB_LOWLEVELCOMPATIBILITYBUFFER: CALLINFO_BUFFER = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALLINFO_LONG = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_MEDIATYPESAVAILABLE: CALLINFO_LONG = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_BEARERMODE: CALLINFO_LONG = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_CALLERIDADDRESSTYPE: CALLINFO_LONG = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_CALLEDIDADDRESSTYPE: CALLINFO_LONG = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_CONNECTEDIDADDRESSTYPE: CALLINFO_LONG = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_REDIRECTIONIDADDRESSTYPE: CALLINFO_LONG = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_REDIRECTINGIDADDRESSTYPE: CALLINFO_LONG = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_ORIGIN: CALLINFO_LONG = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_REASON: CALLINFO_LONG = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_APPSPECIFIC: CALLINFO_LONG = 9i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_CALLPARAMSFLAGS: CALLINFO_LONG = 10i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_CALLTREATMENT: CALLINFO_LONG = 11i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_MINRATE: CALLINFO_LONG = 12i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_MAXRATE: CALLINFO_LONG = 13i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_COUNTRYCODE: CALLINFO_LONG = 14i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_CALLID: CALLINFO_LONG = 15i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_RELATEDCALLID: CALLINFO_LONG = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_COMPLETIONID: CALLINFO_LONG = 17i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_NUMBEROFOWNERS: CALLINFO_LONG = 18i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_NUMBEROFMONITORS: CALLINFO_LONG = 19i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_TRUNK: CALLINFO_LONG = 20i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_RATE: CALLINFO_LONG = 21i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_GENERATEDIGITDURATION: CALLINFO_LONG = 22i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_MONITORDIGITMODES: CALLINFO_LONG = 23i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIL_MONITORMEDIAMODES: CALLINFO_LONG = 24i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALLINFO_STRING = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_CALLERIDNAME: CALLINFO_STRING = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_CALLERIDNUMBER: CALLINFO_STRING = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_CALLEDIDNAME: CALLINFO_STRING = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_CALLEDIDNUMBER: CALLINFO_STRING = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_CONNECTEDIDNAME: CALLINFO_STRING = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_CONNECTEDIDNUMBER: CALLINFO_STRING = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_REDIRECTIONIDNAME: CALLINFO_STRING = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_REDIRECTIONIDNUMBER: CALLINFO_STRING = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_REDIRECTINGIDNAME: CALLINFO_STRING = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_REDIRECTINGIDNUMBER: CALLINFO_STRING = 9i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_CALLEDPARTYFRIENDLYNAME: CALLINFO_STRING = 10i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_COMMENT: CALLINFO_STRING = 11i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_DISPLAYABLEADDRESS: CALLINFO_STRING = 12i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CIS_CALLINGPARTYID: CALLINFO_STRING = 13i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALL_MEDIA_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CME_NEW_STREAM: CALL_MEDIA_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CME_STREAM_FAIL: CALL_MEDIA_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CME_TERMINAL_FAIL: CALL_MEDIA_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CME_STREAM_NOT_USED: CALL_MEDIA_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CME_STREAM_ACTIVE: CALL_MEDIA_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CME_STREAM_INACTIVE: CALL_MEDIA_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CME_LASTITEM: CALL_MEDIA_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALL_MEDIA_EVENT_CAUSE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CMC_UNKNOWN: CALL_MEDIA_EVENT_CAUSE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CMC_BAD_DEVICE: CALL_MEDIA_EVENT_CAUSE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CMC_CONNECT_FAIL: CALL_MEDIA_EVENT_CAUSE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CMC_LOCAL_REQUEST: CALL_MEDIA_EVENT_CAUSE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CMC_REMOTE_REQUEST: CALL_MEDIA_EVENT_CAUSE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CMC_MEDIA_TIMEOUT: CALL_MEDIA_EVENT_CAUSE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CMC_MEDIA_RECOVERED: CALL_MEDIA_EVENT_CAUSE = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CMC_QUALITY_OF_SERVICE: CALL_MEDIA_EVENT_CAUSE = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALL_NOTIFICATION_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CNE_OWNER: CALL_NOTIFICATION_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CNE_MONITOR: CALL_NOTIFICATION_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CNE_LASTITEM: CALL_NOTIFICATION_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALL_PRIVILEGE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CP_OWNER: CALL_PRIVILEGE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CP_MONITOR: CALL_PRIVILEGE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALL_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CS_IDLE: CALL_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CS_INPROGRESS: CALL_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CS_CONNECTED: CALL_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CS_DISCONNECTED: CALL_STATE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CS_OFFERING: CALL_STATE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CS_HOLD: CALL_STATE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CS_QUEUED: CALL_STATE = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CS_LASTITEM: CALL_STATE = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type CALL_STATE_EVENT_CAUSE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CEC_NONE: CALL_STATE_EVENT_CAUSE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CEC_DISCONNECT_NORMAL: CALL_STATE_EVENT_CAUSE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CEC_DISCONNECT_BUSY: CALL_STATE_EVENT_CAUSE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CEC_DISCONNECT_BADADDRESS: CALL_STATE_EVENT_CAUSE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CEC_DISCONNECT_NOANSWER: CALL_STATE_EVENT_CAUSE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CEC_DISCONNECT_CANCELLED: CALL_STATE_EVENT_CAUSE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CEC_DISCONNECT_REJECTED: CALL_STATE_EVENT_CAUSE = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CEC_DISCONNECT_FAILED: CALL_STATE_EVENT_CAUSE = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CEC_DISCONNECT_BLOCKED: CALL_STATE_EVENT_CAUSE = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type DIRECTORY_OBJECT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const OT_CONFERENCE: DIRECTORY_OBJECT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const OT_USER: DIRECTORY_OBJECT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type DIRECTORY_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const DT_NTDS: DIRECTORY_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const DT_ILS: DIRECTORY_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type DISCONNECT_CODE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const DC_NORMAL: DISCONNECT_CODE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const DC_NOANSWER: DISCONNECT_CODE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const DC_REJECTED: DISCONNECT_CODE = 2i32;
 pub const DISPIDMASK: u32 = 65535u32;
 pub const DispatchMapper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9225296_c759_11d1_a02b_00c04fb6809f);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type FINISH_MODE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const FM_ASTRANSFER: FINISH_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const FM_ASCONFERENCE: FINISH_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type FT_STATE_EVENT_CAUSE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const FTEC_NORMAL: FT_STATE_EVENT_CAUSE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const FTEC_END_OF_FILE: FT_STATE_EVENT_CAUSE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const FTEC_READ_ERROR: FT_STATE_EVENT_CAUSE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const FTEC_WRITE_ERROR: FT_STATE_EVENT_CAUSE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type FULLDUPLEX_SUPPORT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const FDS_SUPPORTED: FULLDUPLEX_SUPPORT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const FDS_NOTSUPPORTED: FULLDUPLEX_SUPPORT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const FDS_UNKNOWN: FULLDUPLEX_SUPPORT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn GetTnefStreamCodepage<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(lpstream: Param0, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows::core::Result<()> {
@@ -274,6 +533,7 @@ pub unsafe fn GetTnefStreamCodepage<'a, Param0: ::windows::core::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct HDRVCALL__ {
     pub unused: i32,
 }
@@ -298,6 +558,7 @@ impl ::core::default::Default for HDRVCALL__ {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct HDRVDIALOGINSTANCE__ {
     pub unused: i32,
 }
@@ -322,6 +583,7 @@ impl ::core::default::Default for HDRVDIALOGINSTANCE__ {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct HDRVLINE__ {
     pub unused: i32,
 }
@@ -346,6 +608,7 @@ impl ::core::default::Default for HDRVLINE__ {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct HDRVMSPLINE__ {
     pub unused: i32,
 }
@@ -370,6 +633,7 @@ impl ::core::default::Default for HDRVMSPLINE__ {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct HDRVPHONE__ {
     pub unused: i32,
 }
@@ -394,6 +658,7 @@ impl ::core::default::Default for HDRVPHONE__ {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct HPROVIDER__ {
     pub unused: i32,
 }
@@ -418,6 +683,7 @@ impl ::core::default::Default for HPROVIDER__ {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct HTAPICALL__ {
     pub unused: i32,
 }
@@ -442,6 +708,7 @@ impl ::core::default::Default for HTAPICALL__ {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct HTAPILINE__ {
     pub unused: i32,
 }
@@ -466,6 +733,7 @@ impl ::core::default::Default for HTAPILINE__ {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct HTAPIPHONE__ {
     pub unused: i32,
 }
@@ -513,6 +781,7 @@ pub const IDISPMULTITRACK: u32 = 65536u32;
 pub const IDISPPHONE: u32 = 65536u32;
 pub const IDISPTAPI: u32 = 65536u32;
 pub const IDISPTAPICALLCENTER: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumACDGroup(::windows::core::IUnknown);
 impl IEnumACDGroup {
@@ -576,6 +845,7 @@ pub struct IEnumACDGroupVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumAddress(::windows::core::IUnknown);
 impl IEnumAddress {
@@ -639,6 +909,7 @@ pub struct IEnumAddressVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumAgent(::windows::core::IUnknown);
 impl IEnumAgent {
@@ -702,6 +973,7 @@ pub struct IEnumAgentVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumAgentHandler(::windows::core::IUnknown);
 impl IEnumAgentHandler {
@@ -765,6 +1037,7 @@ pub struct IEnumAgentHandlerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumAgentSession(::windows::core::IUnknown);
 impl IEnumAgentSession {
@@ -828,6 +1101,7 @@ pub struct IEnumAgentSessionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumBstr(::windows::core::IUnknown);
 impl IEnumBstr {
@@ -893,6 +1167,7 @@ pub struct IEnumBstrVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumCall(::windows::core::IUnknown);
 impl IEnumCall {
@@ -956,6 +1231,7 @@ pub struct IEnumCallVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumCallHub(::windows::core::IUnknown);
 impl IEnumCallHub {
@@ -1019,6 +1295,7 @@ pub struct IEnumCallHubVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumCallingCard(::windows::core::IUnknown);
 impl IEnumCallingCard {
@@ -1082,6 +1359,7 @@ pub struct IEnumCallingCardVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumDialableAddrs(::windows::core::IUnknown);
 impl IEnumDialableAddrs {
@@ -1147,6 +1425,7 @@ pub struct IEnumDialableAddrsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumDirectory(::windows::core::IUnknown);
 impl IEnumDirectory {
@@ -1210,6 +1489,7 @@ pub struct IEnumDirectoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumDirectoryObject(::windows::core::IUnknown);
 impl IEnumDirectoryObject {
@@ -1273,6 +1553,7 @@ pub struct IEnumDirectoryObjectVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumLocation(::windows::core::IUnknown);
 impl IEnumLocation {
@@ -1336,6 +1617,7 @@ pub struct IEnumLocationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumMcastScope(::windows::core::IUnknown);
 impl IEnumMcastScope {
@@ -1399,6 +1681,7 @@ pub struct IEnumMcastScopeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumPhone(::windows::core::IUnknown);
 impl IEnumPhone {
@@ -1462,6 +1745,7 @@ pub struct IEnumPhoneVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumPluggableSuperclassInfo(::windows::core::IUnknown);
 impl IEnumPluggableSuperclassInfo {
@@ -1525,6 +1809,7 @@ pub struct IEnumPluggableSuperclassInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumPluggableTerminalClassInfo(::windows::core::IUnknown);
 impl IEnumPluggableTerminalClassInfo {
@@ -1588,6 +1873,7 @@ pub struct IEnumPluggableTerminalClassInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumQueue(::windows::core::IUnknown);
 impl IEnumQueue {
@@ -1651,6 +1937,7 @@ pub struct IEnumQueueVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumStream(::windows::core::IUnknown);
 impl IEnumStream {
@@ -1714,6 +2001,7 @@ pub struct IEnumStreamVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumSubStream(::windows::core::IUnknown);
 impl IEnumSubStream {
@@ -1777,6 +2065,7 @@ pub struct IEnumSubStreamVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumTerminal(::windows::core::IUnknown);
 impl IEnumTerminal {
@@ -1840,6 +2129,7 @@ pub struct IEnumTerminalVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IEnumTerminalClass(::windows::core::IUnknown);
 impl IEnumTerminalClass {
@@ -1903,6 +2193,7 @@ pub struct IEnumTerminalClassVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IMcastAddressAllocation(::windows::core::IUnknown);
 impl IMcastAddressAllocation {
@@ -2039,6 +2330,7 @@ pub struct IMcastAddressAllocationVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, leasestarttime: f64, leasestoptime: f64, vaddresses: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, prequestid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pserveraddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppreleaserequest: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IMcastLeaseInfo(::windows::core::IUnknown);
 impl IMcastLeaseInfo {
@@ -2189,6 +2481,7 @@ pub struct IMcastLeaseInfoVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumaddresses: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct IMcastScope(::windows::core::IUnknown);
 impl IMcastScope {
@@ -2314,6 +2607,7 @@ pub struct IMcastScopeVtbl(
 );
 pub const INITIALIZE_NEGOTIATION: u32 = 4294967295u32;
 pub const INTERFACEMASK: u32 = 16711680u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITACDGroup(::windows::core::IUnknown);
 impl ITACDGroup {
@@ -2429,6 +2723,7 @@ pub struct ITACDGroupVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITACDGroupEvent(::windows::core::IUnknown);
 impl ITACDGroupEvent {
@@ -2535,6 +2830,7 @@ pub struct ITACDGroupEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: *mut ACDGROUP_EVENT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITAMMediaFormat(::windows::core::IUnknown);
 impl ITAMMediaFormat {
@@ -2594,6 +2890,7 @@ pub struct ITAMMediaFormatVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmt: *const super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow")))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITASRTerminalEvent(::windows::core::IUnknown);
 impl ITASRTerminalEvent {
@@ -2705,6 +3002,7 @@ pub struct ITASRTerminalEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcall: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrerrorcode: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITAddress(::windows::core::IUnknown);
 impl ITAddress {
@@ -2883,6 +3181,7 @@ pub struct ITAddressVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fdonotdisturb: i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfdonotdisturb: *mut i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITAddress2(::windows::core::IUnknown);
 impl ITAddress2 {
@@ -3134,6 +3433,7 @@ pub struct ITAddress2Vtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, llowversion: i32, lhighversion: i32, plextversion: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITAddressCapabilities(::windows::core::IUnknown);
 impl ITAddressCapabilities {
@@ -3278,6 +3578,7 @@ pub struct ITAddressCapabilitiesVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumdeviceclass: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITAddressDeviceSpecificEvent(::windows::core::IUnknown);
 impl ITAddressDeviceSpecificEvent {
@@ -3399,6 +3700,7 @@ pub struct ITAddressDeviceSpecificEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparam2: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparam3: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITAddressEvent(::windows::core::IUnknown);
 impl ITAddressEvent {
@@ -3510,6 +3812,7 @@ pub struct ITAddressEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: *mut ADDRESS_EVENT) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITAddressTranslation(::windows::core::IUnknown);
 impl ITAddressTranslation {
@@ -3643,6 +3946,7 @@ pub struct ITAddressTranslationVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITAddressTranslationInfo(::windows::core::IUnknown);
 impl ITAddressTranslationInfo {
@@ -3768,6 +4072,7 @@ pub struct ITAddressTranslationInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, countrycode: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plresults: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITAgent(::windows::core::IUnknown);
 impl ITAgent {
@@ -3957,6 +4262,7 @@ pub struct ITAgentVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITAgentEvent(::windows::core::IUnknown);
 impl ITAgentEvent {
@@ -4063,6 +4369,7 @@ pub struct ITAgentEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppagent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: *mut AGENT_EVENT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITAgentHandler(::windows::core::IUnknown);
 impl ITAgentHandler {
@@ -4202,6 +4509,7 @@ pub struct ITAgentHandlerVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITAgentHandlerEvent(::windows::core::IUnknown);
 impl ITAgentHandlerEvent {
@@ -4308,6 +4616,7 @@ pub struct ITAgentHandlerEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppagenthandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: *mut AGENTHANDLER_EVENT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITAgentSession(::windows::core::IUnknown);
 impl ITAgentSession {
@@ -4490,6 +4799,7 @@ pub struct ITAgentSessionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, planswertime: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, planswertime: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITAgentSessionEvent(::windows::core::IUnknown);
 impl ITAgentSessionEvent {
@@ -4596,6 +4906,7 @@ pub struct ITAgentSessionEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: *mut AGENT_SESSION_EVENT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITAllocatorProperties(::windows::core::IUnknown);
 impl ITAllocatorProperties {
@@ -4677,6 +4988,7 @@ pub struct ITAllocatorPropertiesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffersize: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITAutomatedPhoneControl(::windows::core::IUnknown);
 impl ITAutomatedPhoneControl {
@@ -4918,6 +5230,7 @@ pub struct ITAutomatedPhoneControlVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITBasicAudioTerminal(::windows::core::IUnknown);
 impl ITBasicAudioTerminal {
@@ -5032,6 +5345,7 @@ pub struct ITBasicAudioTerminalVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lbalance: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plbalance: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITBasicCallControl(::windows::core::IUnknown);
 impl ITBasicCallControl {
@@ -5213,6 +5527,7 @@ pub struct ITBasicCallControlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, finishmode: FINISH_MODE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITBasicCallControl2(::windows::core::IUnknown);
 impl ITBasicCallControl2 {
@@ -5429,6 +5744,7 @@ pub struct ITBasicCallControl2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pterminal: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pterminal: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITCallHub(::windows::core::IUnknown);
 impl ITCallHub {
@@ -5551,6 +5867,7 @@ pub struct ITCallHubVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcalls: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut CALLHUB_STATE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITCallHubEvent(::windows::core::IUnknown);
 impl ITCallHubEvent {
@@ -5662,6 +5979,7 @@ pub struct ITCallHubEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcallhub: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcall: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITCallInfo(::windows::core::IUnknown);
 impl ITCallInfo {
@@ -5825,6 +6143,7 @@ pub struct ITCallInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, dwsize: u32, pcallinfobuffer: *const u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITCallInfo2(::windows::core::IUnknown);
 impl ITCallInfo2 {
@@ -6017,6 +6336,7 @@ pub struct ITCallInfo2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, penable: *mut i16) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITCallInfoChangeEvent(::windows::core::IUnknown);
 impl ITCallInfoChangeEvent {
@@ -6128,6 +6448,7 @@ pub struct ITCallInfoChangeEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcic: *mut CALLINFOCHANGE_CAUSE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcallbackinstance: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITCallMediaEvent(::windows::core::IUnknown);
 impl ITCallMediaEvent {
@@ -6254,6 +6575,7 @@ pub struct ITCallMediaEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcause: *mut CALL_MEDIA_EVENT_CAUSE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITCallNotificationEvent(::windows::core::IUnknown);
 impl ITCallNotificationEvent {
@@ -6365,6 +6687,7 @@ pub struct ITCallNotificationEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallnotificationevent: *mut CALL_NOTIFICATION_EVENT) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcallbackinstance: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITCallStateEvent(::windows::core::IUnknown);
 impl ITCallStateEvent {
@@ -6481,6 +6804,7 @@ pub struct ITCallStateEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcec: *mut CALL_STATE_EVENT_CAUSE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcallbackinstance: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITCallingCard(::windows::core::IUnknown);
 impl ITCallingCard {
@@ -6620,6 +6944,7 @@ pub struct ITCallingCardVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprule: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITCollection(::windows::core::IUnknown);
 impl ITCollection {
@@ -6733,6 +7058,7 @@ pub struct ITCollectionVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppnewenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITCollection2(::windows::core::IUnknown);
 impl ITCollection2 {
@@ -6876,6 +7202,7 @@ pub struct ITCollection2Vtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITCustomTone(::windows::core::IUnknown);
 impl ITCustomTone {
@@ -7008,6 +7335,7 @@ pub struct ITCustomToneVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plvolume: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lvolume: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITDetectTone(::windows::core::IUnknown);
 impl ITDetectTone {
@@ -7131,6 +7459,7 @@ pub struct ITDetectToneVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, plfrequency: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, lfrequency: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITDigitDetectionEvent(::windows::core::IUnknown);
 impl ITDigitDetectionEvent {
@@ -7252,6 +7581,7 @@ pub struct ITDigitDetectionEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pltickcount: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcallbackinstance: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITDigitGenerationEvent(::windows::core::IUnknown);
 impl ITDigitGenerationEvent {
@@ -7368,6 +7698,7 @@ pub struct ITDigitGenerationEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pltickcount: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcallbackinstance: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITDigitsGatheredEvent(::windows::core::IUnknown);
 impl ITDigitsGatheredEvent {
@@ -7491,6 +7822,7 @@ pub struct ITDigitsGatheredEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pltickcount: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcallbackinstance: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITDirectory(::windows::core::IUnknown);
 impl ITDirectory {
@@ -7657,6 +7989,7 @@ pub struct ITDirectoryVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppenumobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITDirectoryObject(::windows::core::IUnknown);
 impl ITDirectoryObject {
@@ -7796,6 +8129,7 @@ pub struct ITDirectoryObjectVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psecdes: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITDirectoryObjectConference(::windows::core::IUnknown);
 impl ITDirectoryObjectConference {
@@ -7974,6 +8308,7 @@ pub struct ITDirectoryObjectConferenceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdate: *mut f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, date: f64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITDirectoryObjectUser(::windows::core::IUnknown);
 impl ITDirectoryObjectUser {
@@ -8083,6 +8418,7 @@ pub struct ITDirectoryObjectUserVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITDispatchMapper(::windows::core::IUnknown);
 impl ITDispatchMapper {
@@ -8186,6 +8522,7 @@ pub struct ITDispatchMapperVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pinterfacetomap: ::windows::core::RawPtr, ppreturnedinterface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITFileTerminalEvent(::windows::core::IUnknown);
 impl ITFileTerminalEvent {
@@ -8312,6 +8649,7 @@ pub struct ITFileTerminalEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcause: *mut FT_STATE_EVENT_CAUSE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrerrorcode: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITFileTrack(::windows::core::IUnknown);
 impl ITFileTrack {
@@ -8440,6 +8778,7 @@ pub struct ITFileTrackVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paudioformat: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaudioformat: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITForwardInformation(::windows::core::IUnknown);
 impl ITForwardInformation {
@@ -8575,6 +8914,7 @@ pub struct ITForwardInformationVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITForwardInformation2(::windows::core::IUnknown);
 impl ITForwardInformation2 {
@@ -8752,6 +9092,7 @@ pub struct ITForwardInformation2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, forwardtype: i32, pdestaddresstype: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, forwardtype: i32, pcalleraddresstype: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITILSConfig(::windows::core::IUnknown);
 impl ITILSConfig {
@@ -8857,6 +9198,7 @@ pub struct ITILSConfigVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pport: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, port: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITLegacyAddressMediaControl(::windows::core::IUnknown);
 impl ITLegacyAddressMediaControl {
@@ -8921,6 +9263,7 @@ pub struct ITLegacyAddressMediaControlVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdeviceclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, dwsize: u32, pdeviceconfig: *const u8) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITLegacyAddressMediaControl2(::windows::core::IUnknown);
 impl ITLegacyAddressMediaControl2 {
@@ -9017,6 +9360,7 @@ pub struct ITLegacyAddressMediaControl2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwndowner: super::super::Foundation::HWND, pdeviceclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, dwsizein: u32, pdeviceconfigin: *const u8, pdwsizeout: *mut u32, ppdeviceconfigout: *mut *mut u8) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITLegacyCallMediaControl(::windows::core::IUnknown);
 impl ITLegacyCallMediaControl {
@@ -9137,6 +9481,7 @@ pub struct ITLegacyCallMediaControlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmediatype: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmediatype: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITLegacyCallMediaControl2(::windows::core::IUnknown);
 impl ITLegacyCallMediaControl2 {
@@ -9326,6 +9671,7 @@ pub struct ITLegacyCallMediaControl2Vtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrdeviceclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvardeviceid: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITLegacyWaveSupport(::windows::core::IUnknown);
 impl ITLegacyWaveSupport {
@@ -9427,6 +9773,7 @@ pub struct ITLegacyWaveSupportVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psupport: *mut FULLDUPLEX_SUPPORT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITLocationInfo(::windows::core::IUnknown);
 impl ITLocationInfo {
@@ -9590,6 +9937,7 @@ pub struct ITLocationInfoVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcode: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITMSPAddress(::windows::core::IUnknown);
 impl ITMSPAddress {
@@ -9661,6 +10009,7 @@ pub struct ITMSPAddressVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmspcall: *mut ::core::ffi::c_void, pbuffer: *const u8, dwsize: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsize: *mut u32, peventbuffer: *mut u8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITMediaControl(::windows::core::IUnknown);
 impl ITMediaControl {
@@ -9774,6 +10123,7 @@ pub struct ITMediaControlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pterminalmediastate: *mut TERMINAL_MEDIA_STATE) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITMediaPlayback(::windows::core::IUnknown);
 impl ITMediaPlayback {
@@ -9883,6 +10233,7 @@ pub struct ITMediaPlaybackVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pplaylistvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITMediaRecord(::windows::core::IUnknown);
 impl ITMediaRecord {
@@ -9992,6 +10343,7 @@ pub struct ITMediaRecordVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrfilename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITMediaSupport(::windows::core::IUnknown);
 impl ITMediaSupport {
@@ -10098,6 +10450,7 @@ pub struct ITMediaSupportVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmediatypes: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmediatype: i32, pfsupport: *mut i16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITMultiTrackTerminal(::windows::core::IUnknown);
 impl ITMultiTrackTerminal {
@@ -10225,6 +10578,7 @@ pub struct ITMultiTrackTerminalVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pldirectionsinused: *mut TERMINAL_DIRECTION) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptrackterminaltoremove: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITPhone(::windows::core::IUnknown);
 impl ITPhone {
@@ -10493,6 +10847,7 @@ pub struct ITPhoneVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, llowversion: i32, lhighversion: i32, plextversion: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITPhoneDeviceSpecificEvent(::windows::core::IUnknown);
 impl ITPhoneDeviceSpecificEvent {
@@ -10609,6 +10964,7 @@ pub struct ITPhoneDeviceSpecificEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparam2: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pparam3: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITPhoneEvent(::windows::core::IUnknown);
 impl ITPhoneEvent {
@@ -10752,6 +11108,7 @@ pub struct ITPhoneEventVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcallinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITPluggableTerminalClassInfo(::windows::core::IUnknown);
 impl ITPluggableTerminalClassInfo {
@@ -10893,6 +11250,7 @@ pub struct ITPluggableTerminalClassInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdirection: *mut TERMINAL_DIRECTION) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmediatypes: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITPluggableTerminalEventSink(::windows::core::IUnknown);
 impl ITPluggableTerminalEventSink {
@@ -10945,6 +11303,7 @@ pub struct ITPluggableTerminalEventSinkVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmspeventinfo: *const MSP_EVENT_INFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITPluggableTerminalEventSinkRegistration(::windows::core::IUnknown);
 impl ITPluggableTerminalEventSinkRegistration {
@@ -10999,6 +11358,7 @@ pub struct ITPluggableTerminalEventSinkRegistrationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventsink: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITPluggableTerminalSuperclassInfo(::windows::core::IUnknown);
 impl ITPluggableTerminalSuperclassInfo {
@@ -11109,6 +11469,7 @@ pub struct ITPluggableTerminalSuperclassInfoVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITPrivateEvent(::windows::core::IUnknown);
 impl ITPrivateEvent {
@@ -11232,6 +11593,7 @@ pub struct ITPrivateEventVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventinterface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITQOSEvent(::windows::core::IUnknown);
 impl ITQOSEvent {
@@ -11343,6 +11705,7 @@ pub struct ITQOSEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqosevent: *mut QOS_EVENT) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmediatype: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITQueue(::windows::core::IUnknown);
 impl ITQueue {
@@ -11500,6 +11863,7 @@ pub struct ITQueueVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITQueueEvent(::windows::core::IUnknown);
 impl ITQueueEvent {
@@ -11606,6 +11970,7 @@ pub struct ITQueueEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppqueue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: *mut ACDQUEUE_EVENT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITRendezvous(::windows::core::IUnknown);
 impl ITRendezvous {
@@ -11728,6 +12093,7 @@ pub struct ITRendezvousVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdirectoryobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITRequest(::windows::core::IUnknown);
 impl ITRequest {
@@ -11830,6 +12196,7 @@ pub struct ITRequestVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdestaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pappname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcalledparty: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcomment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITRequestEvent(::windows::core::IUnknown);
 impl ITRequestEvent {
@@ -11964,6 +12331,7 @@ pub struct ITRequestEventVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcomment: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITScriptableAudioFormat(::windows::core::IUnknown);
 impl ITScriptableAudioFormat {
@@ -12114,6 +12482,7 @@ pub struct ITScriptableAudioFormatVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nnewval: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITStaticAudioTerminal(::windows::core::IUnknown);
 impl ITStaticAudioTerminal {
@@ -12215,6 +12584,7 @@ pub struct ITStaticAudioTerminalVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plwaveid: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITStream(::windows::core::IUnknown);
 impl ITStream {
@@ -12360,6 +12730,7 @@ pub struct ITStreamVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pterminals: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITStreamControl(::windows::core::IUnknown);
 impl ITStreamControl {
@@ -12477,6 +12848,7 @@ pub struct ITStreamControlVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITSubStream(::windows::core::IUnknown);
 impl ITSubStream {
@@ -12610,6 +12982,7 @@ pub struct ITSubStreamVtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppitstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITSubStreamControl(::windows::core::IUnknown);
 impl ITSubStreamControl {
@@ -12727,6 +13100,7 @@ pub struct ITSubStreamControlVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITTAPI(::windows::core::IUnknown);
 impl ITTAPI {
@@ -12909,6 +13283,7 @@ pub struct ITTAPIVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lfiltermask: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plfiltermask: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITTAPI2(::windows::core::IUnknown);
 impl ITTAPI2 {
@@ -13128,6 +13503,7 @@ pub struct ITTAPI2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumphone: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITTAPICallCenter(::windows::core::IUnknown);
 impl ITTAPICallCenter {
@@ -13236,6 +13612,7 @@ pub struct ITTAPICallCenterVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITTAPIDispatchEventNotification(::windows::core::IUnknown);
 impl ITTAPIDispatchEventNotification {
@@ -13332,6 +13709,7 @@ pub struct ITTAPIDispatchEventNotificationVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITTAPIEventNotification(::windows::core::IUnknown);
 impl ITTAPIEventNotification {
@@ -13384,6 +13762,7 @@ pub struct ITTAPIEventNotificationVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITTAPIObjectEvent(::windows::core::IUnknown);
 impl ITTAPIObjectEvent {
@@ -13500,6 +13879,7 @@ pub struct ITTAPIObjectEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaddress: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcallbackinstance: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITTAPIObjectEvent2(::windows::core::IUnknown);
 impl ITTAPIObjectEvent2 {
@@ -13641,6 +14021,7 @@ pub struct ITTAPIObjectEvent2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcallbackinstance: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppphone: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITTTSTerminalEvent(::windows::core::IUnknown);
 impl ITTTSTerminalEvent {
@@ -13752,6 +14133,7 @@ pub struct ITTTSTerminalEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcall: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrerrorcode: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITTerminal(::windows::core::IUnknown);
 impl ITTerminal {
@@ -13882,6 +14264,7 @@ pub struct ITTerminalVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmediatype: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdirection: *mut TERMINAL_DIRECTION) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITTerminalSupport(::windows::core::IUnknown);
 impl ITTerminalSupport {
@@ -14014,6 +14397,7 @@ pub struct ITTerminalSupportVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lmediatype: i32, direction: TERMINAL_DIRECTION, ppterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITTerminalSupport2(::windows::core::IUnknown);
 impl ITTerminalSupport2 {
@@ -14190,6 +14574,7 @@ pub struct ITTerminalSupport2Vtbl(
     #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iidterminalsuperclass: ::windows::core::GUID, lmediatype: i32, ppclassenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITToneDetectionEvent(::windows::core::IUnknown);
 impl ITToneDetectionEvent {
@@ -14306,6 +14691,7 @@ pub struct ITToneDetectionEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pltickcount: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcallbackinstance: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITToneTerminalEvent(::windows::core::IUnknown);
 impl ITToneTerminalEvent {
@@ -14417,6 +14803,7 @@ pub struct ITToneTerminalEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcall: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrerrorcode: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[repr(transparent)]
 pub struct ITnef(::windows::core::IUnknown);
 impl ITnef {
@@ -14539,6 +14926,7 @@ pub const LINEADDRCAPFLAGS_SETUPCONFNULL: u32 = 512u32;
 pub const LINEADDRCAPFLAGS_TRANSFERHELD: u32 = 4096u32;
 pub const LINEADDRCAPFLAGS_TRANSFERMAKE: u32 = 8192u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEADDRESSCAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -14635,6 +15023,7 @@ pub const LINEADDRESSSTATE_NUMCALLS: u32 = 32u32;
 pub const LINEADDRESSSTATE_OTHER: u32 = 1u32;
 pub const LINEADDRESSSTATE_TERMINALS: u32 = 128u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEADDRESSSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -14693,6 +15082,7 @@ pub const LINEADDRFEATURE_SETUPCONF: u32 = 32u32;
 pub const LINEADDRFEATURE_UNCOMPLETECALL: u32 = 64u32;
 pub const LINEADDRFEATURE_UNPARK: u32 = 128u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTACTIVITYENTRY {
     pub dwID: u32,
     pub dwNameSize: u32,
@@ -14719,6 +15109,7 @@ impl ::core::default::Default for LINEAGENTACTIVITYENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTACTIVITYLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -14748,6 +15139,7 @@ impl ::core::default::Default for LINEAGENTACTIVITYLIST {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTCAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -14786,6 +15178,7 @@ impl ::core::default::Default for LINEAGENTCAPS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTENTRY {
     pub hAgent: u32,
     pub dwNameSize: u32,
@@ -14822,6 +15215,7 @@ pub const LINEAGENTFEATURE_SETAGENTACTIVITY: u32 = 4u32;
 pub const LINEAGENTFEATURE_SETAGENTGROUP: u32 = 1u32;
 pub const LINEAGENTFEATURE_SETAGENTSTATE: u32 = 2u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTGROUPENTRY {
     pub GroupID: LINEAGENTGROUPENTRY_0,
     pub dwNameSize: u32,
@@ -14848,6 +15242,7 @@ impl ::core::default::Default for LINEAGENTGROUPENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTGROUPENTRY_0 {
     pub dwGroupID1: u32,
     pub dwGroupID2: u32,
@@ -14875,6 +15270,7 @@ impl ::core::default::Default for LINEAGENTGROUPENTRY_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTGROUPLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -14904,6 +15300,7 @@ impl ::core::default::Default for LINEAGENTGROUPLIST {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEAGENTINFO {
     pub dwTotalSize: u32,
@@ -14947,6 +15344,7 @@ impl ::core::default::Default for LINEAGENTINFO {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -14976,6 +15374,7 @@ impl ::core::default::Default for LINEAGENTLIST {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTSESSIONENTRY {
     pub hAgentSession: u32,
     pub hAgent: u32,
@@ -15003,6 +15402,7 @@ impl ::core::default::Default for LINEAGENTSESSIONENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEAGENTSESSIONINFO {
     pub dwTotalSize: u32,
@@ -15050,6 +15450,7 @@ impl ::core::default::Default for LINEAGENTSESSIONINFO {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTSESSIONLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -15105,6 +15506,7 @@ pub const LINEAGENTSTATE_UNAVAIL: u32 = 512u32;
 pub const LINEAGENTSTATE_UNKNOWN: u32 = 256u32;
 pub const LINEAGENTSTATE_WORKINGAFTERCALL: u32 = 128u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAGENTSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -15157,6 +15559,7 @@ pub const LINEANSWERMODE_DROP: u32 = 2u32;
 pub const LINEANSWERMODE_HOLD: u32 = 4u32;
 pub const LINEANSWERMODE_NONE: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEAPPINFO {
     pub dwMachineNameSize: u32,
     pub dwMachineNameOffset: u32,
@@ -15201,6 +15604,7 @@ pub const LINEBUSYMODE_STATION: u32 = 1u32;
 pub const LINEBUSYMODE_TRUNK: u32 = 2u32;
 pub const LINEBUSYMODE_UNAVAIL: u32 = 8u32;
 pub const LINEBUSYMODE_UNKNOWN: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type LINECALLBACK = ::core::option::Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
 pub const LINECALLCOMPLCOND_BUSY: u32 = 1u32;
 pub const LINECALLCOMPLCOND_NOANSWER: u32 = 2u32;
@@ -15254,6 +15658,7 @@ pub const LINECALLHUBTRACKING_ALLCALLS: u32 = 2u32;
 pub const LINECALLHUBTRACKING_NONE: u32 = 0u32;
 pub const LINECALLHUBTRACKING_PROVIDERLEVEL: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINECALLINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -15386,6 +15791,7 @@ pub const LINECALLINFOSTATE_TREATMENT: u32 = 268435456u32;
 pub const LINECALLINFOSTATE_TRUNK: u32 = 16384u32;
 pub const LINECALLINFOSTATE_USERUSERINFO: u32 = 2097152u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINECALLLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -15430,6 +15836,7 @@ pub const LINECALLPARAMFLAGS_ORIGOFFHOOK: u32 = 8u32;
 pub const LINECALLPARAMFLAGS_PREDICTIVEDIAL: u32 = 64u32;
 pub const LINECALLPARAMFLAGS_SECURE: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINECALLPARAMS {
     pub dwTotalSize: u32,
     pub dwBearerMode: u32,
@@ -15541,6 +15948,7 @@ pub const LINECALLSTATE_RINGBACK: u32 = 32u32;
 pub const LINECALLSTATE_SPECIALINFO: u32 = 128u32;
 pub const LINECALLSTATE_UNKNOWN: u32 = 32768u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LINECALLSTATUS {
     pub dwTotalSize: u32,
@@ -15582,6 +15990,7 @@ impl ::core::default::Default for LINECALLSTATUS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINECALLTREATMENTENTRY {
     pub dwCallTreatmentID: u32,
     pub dwCallTreatmentNameSize: u32,
@@ -15612,6 +16021,7 @@ pub const LINECALLTREATMENT_MUSIC: u32 = 4u32;
 pub const LINECALLTREATMENT_RINGBACK: u32 = 2u32;
 pub const LINECALLTREATMENT_SILENCE: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINECARDENTRY {
     pub dwPermanentCardID: u32,
     pub dwCardNameSize: u32,
@@ -15653,6 +16063,7 @@ pub const LINECONNECTEDMODE_CONFIRMED: u32 = 16u32;
 pub const LINECONNECTEDMODE_INACTIVE: u32 = 2u32;
 pub const LINECONNECTEDMODE_INACTIVEHELD: u32 = 8u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINECOUNTRYENTRY {
     pub dwCountryID: u32,
     pub dwCountryCode: u32,
@@ -15687,6 +16098,7 @@ impl ::core::default::Default for LINECOUNTRYENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINECOUNTRYLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -15730,6 +16142,7 @@ pub const LINEDEVCAPFLAGS_MSP: u32 = 512u32;
 pub const LINEDEVCAPFLAGS_MULTIPLEADDR: u32 = 16u32;
 pub const LINEDEVCAPFLAGS_PRIVATEOBJECTS: u32 = 4096u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEDEVCAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -15833,6 +16246,7 @@ pub const LINEDEVSTATE_SIGNAL: u32 = 65536u32;
 pub const LINEDEVSTATE_TERMINALS: u32 = 8192u32;
 pub const LINEDEVSTATE_TRANSLATECHANGE: u32 = 4194304u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEDEVSTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -15882,6 +16296,7 @@ pub const LINEDEVSTATUSFLAGS_INSERVICE: u32 = 4u32;
 pub const LINEDEVSTATUSFLAGS_LOCKED: u32 = 8u32;
 pub const LINEDEVSTATUSFLAGS_MSGWAIT: u32 = 2u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEDIALPARAMS {
     pub dwDialPause: u32,
     pub dwDialSpeed: u32,
@@ -16038,8 +16453,10 @@ pub const LINEERR_TARGETSELF: u32 = 2147483727u32;
 pub const LINEERR_UNINITIALIZED: u32 = 2147483728u32;
 pub const LINEERR_USERCANCELLED: u32 = 2147483741u32;
 pub const LINEERR_USERUSERINFOTOOBIG: u32 = 2147483729u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type LINEEVENT = ::core::option::Option<unsafe extern "system" fn(htline: *mut HTAPILINE__, htcall: *mut HTAPICALL__, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEEXTENSIONID {
     pub dwExtensionID0: u32,
     pub dwExtensionID1: u32,
@@ -16076,6 +16493,7 @@ pub const LINEFEATURE_SETDEVSTATUS: u32 = 64u32;
 pub const LINEFEATURE_SETMEDIACONTROL: u32 = 16u32;
 pub const LINEFEATURE_SETTERMINAL: u32 = 32u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEFORWARD {
     pub dwForwardMode: u32,
     pub dwCallerAddressSize: u32,
@@ -16105,6 +16523,7 @@ impl ::core::default::Default for LINEFORWARD {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEFORWARDLIST {
     pub dwTotalSize: u32,
     pub dwNumEntries: u32,
@@ -16156,6 +16575,7 @@ pub const LINEGATHERTERM_TERMDIGIT: u32 = 2u32;
 pub const LINEGENERATETERM_CANCEL: u32 = 2u32;
 pub const LINEGENERATETERM_DONE: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEGENERATETONE {
     pub dwFrequency: u32,
     pub dwCadenceOn: u32,
@@ -16189,6 +16609,7 @@ pub const LINEINITIALIZEEXOPTION_USECOMPLETIONPORT: u32 = 3u32;
 pub const LINEINITIALIZEEXOPTION_USEEVENT: u32 = 2u32;
 pub const LINEINITIALIZEEXOPTION_USEHIDDENWINDOW: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LINEINITIALIZEEXPARAMS {
     pub dwTotalSize: u32,
@@ -16225,6 +16646,7 @@ impl ::core::default::Default for LINEINITIALIZEEXPARAMS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union LINEINITIALIZEEXPARAMS_0 {
     pub hEvent: super::super::Foundation::HANDLE,
@@ -16257,6 +16679,7 @@ impl ::core::default::Default for LINEINITIALIZEEXPARAMS_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINELOCATIONENTRY {
     pub dwPermanentLocationID: u32,
     pub dwLocationNameSize: u32,
@@ -16299,6 +16722,7 @@ impl ::core::default::Default for LINELOCATIONENTRY {
 pub const LINELOCATIONOPTION_PULSEDIAL: u32 = 1u32;
 pub const LINEMAPPER: u32 = 4294967295u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEMEDIACONTROLCALLSTATE {
     pub dwCallStates: u32,
     pub dwMediaControl: u32,
@@ -16324,6 +16748,7 @@ impl ::core::default::Default for LINEMEDIACONTROLCALLSTATE {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEMEDIACONTROLDIGIT {
     pub dwDigit: u32,
     pub dwDigitModes: u32,
@@ -16350,6 +16775,7 @@ impl ::core::default::Default for LINEMEDIACONTROLDIGIT {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEMEDIACONTROLMEDIA {
     pub dwMediaModes: u32,
     pub dwDuration: u32,
@@ -16376,6 +16802,7 @@ impl ::core::default::Default for LINEMEDIACONTROLMEDIA {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEMEDIACONTROLTONE {
     pub dwAppSpecific: u32,
     pub dwDuration: u32,
@@ -16431,6 +16858,7 @@ pub const LINEMEDIAMODE_VIDEO: u32 = 32768u32;
 pub const LINEMEDIAMODE_VIDEOTEX: u32 = 1024u32;
 pub const LINEMEDIAMODE_VOICEVIEW: u32 = 16384u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEMESSAGE {
     pub hDevice: u32,
     pub dwMessageID: u32,
@@ -16460,6 +16888,7 @@ impl ::core::default::Default for LINEMESSAGE {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEMONITORTONE {
     pub dwAppSpecific: u32,
     pub dwDuration: u32,
@@ -16494,6 +16923,7 @@ pub const LINEOPENOPTION_SINGLEADDRESS: u32 = 2147483648u32;
 pub const LINEPARKMODE_DIRECTED: u32 = 1u32;
 pub const LINEPARKMODE_NONDIRECTED: u32 = 2u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROVIDERENTRY {
     pub dwPermanentProviderID: u32,
     pub dwProviderFilenameSize: u32,
@@ -16520,6 +16950,7 @@ impl ::core::default::Default for LINEPROVIDERENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROVIDERLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -16549,6 +16980,7 @@ impl ::core::default::Default for LINEPROVIDERLIST {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST {
     pub dwSize: u32,
@@ -16587,6 +17019,7 @@ impl ::core::default::Default for LINEPROXYREQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub union LINEPROXYREQUEST_0 {
     pub SetAgentGroup: LINEPROXYREQUEST_0_14,
@@ -16637,6 +17070,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_0 {
     pub dwAddressID: u32,
@@ -16671,6 +17105,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_1 {
     pub hAgentSession: u32,
@@ -16707,6 +17142,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_1 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_2 {
     pub hAgent: u32,
@@ -16742,6 +17178,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_2 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_3 {
     pub dwAddressID: u32,
@@ -16774,6 +17211,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_3 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_4 {
     pub dwAddressID: u32,
@@ -16806,6 +17244,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_4 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_5 {
     pub dwAddressID: u32,
@@ -16838,6 +17277,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_5 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_6 {
     pub hAgent: u32,
@@ -16870,6 +17310,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_6 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_7 {
     pub hAgentSession: u32,
@@ -16902,6 +17343,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_7 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_8 {
     pub hAgent: u32,
@@ -16934,6 +17376,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_8 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_9 {
     pub dwAddressID: u32,
@@ -16966,6 +17409,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_9 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_10 {
     pub GroupList: LINEAGENTGROUPLIST,
@@ -16997,6 +17441,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_10 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_11 {
     pub dwQueueID: u32,
@@ -17029,6 +17474,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_11 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_12 {
     pub GroupID: ::windows::core::GUID,
@@ -17061,6 +17507,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_12 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_13 {
     pub dwAddressID: u32,
@@ -17093,6 +17540,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_13 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_14 {
     pub dwAddressID: u32,
@@ -17125,6 +17573,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_14 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_15 {
     pub hAgent: u32,
@@ -17157,6 +17606,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_15 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_16 {
     pub hAgentSession: u32,
@@ -17190,6 +17640,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_16 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_17 {
     pub hAgent: u32,
@@ -17223,6 +17674,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_17 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_18 {
     pub dwAddressID: u32,
@@ -17256,6 +17708,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_18 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_19 {
     pub dwQueueID: u32,
@@ -17288,6 +17741,7 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_19 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUESTLIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -17344,6 +17798,7 @@ pub const LINEQOSSERVICELEVEL_BESTEFFORT: u32 = 3u32;
 pub const LINEQOSSERVICELEVEL_IFAVAILABLE: u32 = 2u32;
 pub const LINEQOSSERVICELEVEL_NEEDED: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEQUEUEENTRY {
     pub dwQueueID: u32,
     pub dwNameSize: u32,
@@ -17370,6 +17825,7 @@ impl ::core::default::Default for LINEQUEUEENTRY {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEQUEUEINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -17406,6 +17862,7 @@ impl ::core::default::Default for LINEQUEUEINFO {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEQUEUELIST {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -17441,6 +17898,7 @@ pub const LINEREMOVEFROMCONF_ANY: u32 = 3u32;
 pub const LINEREMOVEFROMCONF_LAST: u32 = 2u32;
 pub const LINEREMOVEFROMCONF_NONE: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LINEREQMAKECALL {
     pub szDestAddress: [super::super::Foundation::CHAR; 80],
@@ -17475,6 +17933,7 @@ impl ::core::default::Default for LINEREQMAKECALL {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LINEREQMEDIACALL {
     pub hWnd: super::super::Foundation::HWND,
@@ -17528,6 +17987,7 @@ pub const LINESPECIALINFO_REORDER: u32 = 4u32;
 pub const LINESPECIALINFO_UNAVAIL: u32 = 16u32;
 pub const LINESPECIALINFO_UNKNOWN: u32 = 8u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINETERMCAPS {
     pub dwTermDev: u32,
     pub dwTermModes: u32,
@@ -17577,6 +18037,7 @@ pub const LINETONEMODE_RINGBACK: u32 = 2u32;
 pub const LINETRANSFERMODE_CONFERENCE: u32 = 2u32;
 pub const LINETRANSFERMODE_TRANSFER: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINETRANSLATECAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -17615,6 +18076,7 @@ pub const LINETRANSLATEOPTION_CARDOVERRIDE: u32 = 1u32;
 pub const LINETRANSLATEOPTION_FORCELD: u32 = 8u32;
 pub const LINETRANSLATEOPTION_FORCELOCAL: u32 = 4u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINETRANSLATEOUTPUT {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -17688,41 +18150,73 @@ pub const LINE_QUEUESTATUS: i32 = 28i32;
 pub const LINE_REMOVE: i32 = 25i32;
 pub const LINE_REPLY: i32 = 12i32;
 pub const LINE_REQUEST: i32 = 13i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub type LPGETTNEFSTREAMCODEPAGE = ::core::option::Option<unsafe extern "system" fn(lpstream: ::core::option::Option<super::super::System::Com::IStream>, lpulcodepage: *mut u32, lpulsubcodepage: *mut u32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_AddressBook', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 pub type LPOPENTNEFSTREAM = ::core::option::Option<unsafe extern "system" fn(lpvsupport: *mut ::core::ffi::c_void, lpstream: ::core::option::Option<super::super::System::Com::IStream>, lpszstreamname: *const i8, ulflags: u32, lpmessage: ::core::option::Option<super::super::System::AddressBook::IMessage>, wkeyval: u16, lpptnef: *mut ::core::option::Option<ITnef>) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_AddressBook', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 pub type LPOPENTNEFSTREAMEX = ::core::option::Option<unsafe extern "system" fn(lpvsupport: *mut ::core::ffi::c_void, lpstream: ::core::option::Option<super::super::System::Com::IStream>, lpszstreamname: *const i8, ulflags: u32, lpmessage: ::core::option::Option<super::super::System::AddressBook::IMessage>, wkeyval: u16, lpadressbook: ::core::option::Option<super::super::System::AddressBook::IAddrBook>, lpptnef: *mut ::core::option::Option<ITnef>) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type MSP_ADDRESS_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ADDRESS_TERMINAL_AVAILABLE: MSP_ADDRESS_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ADDRESS_TERMINAL_UNAVAILABLE: MSP_ADDRESS_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type MSP_CALL_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_NEW_STREAM: MSP_CALL_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_STREAM_FAIL: MSP_CALL_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_TERMINAL_FAIL: MSP_CALL_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_STREAM_NOT_USED: MSP_CALL_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_STREAM_ACTIVE: MSP_CALL_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_STREAM_INACTIVE: MSP_CALL_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type MSP_CALL_EVENT_CAUSE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_CAUSE_UNKNOWN: MSP_CALL_EVENT_CAUSE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_CAUSE_BAD_DEVICE: MSP_CALL_EVENT_CAUSE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_CAUSE_CONNECT_FAIL: MSP_CALL_EVENT_CAUSE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_CAUSE_LOCAL_REQUEST: MSP_CALL_EVENT_CAUSE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_CAUSE_REMOTE_REQUEST: MSP_CALL_EVENT_CAUSE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_CAUSE_MEDIA_TIMEOUT: MSP_CALL_EVENT_CAUSE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_CAUSE_MEDIA_RECOVERED: MSP_CALL_EVENT_CAUSE = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const CALL_CAUSE_QUALITY_OF_SERVICE: MSP_CALL_EVENT_CAUSE = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type MSP_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ME_ADDRESS_EVENT: MSP_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ME_CALL_EVENT: MSP_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ME_TSP_DATA: MSP_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ME_PRIVATE_EVENT: MSP_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ME_ASR_TERMINAL_EVENT: MSP_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ME_TTS_TERMINAL_EVENT: MSP_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ME_FILE_TERMINAL_EVENT: MSP_EVENT = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const ME_TONE_TERMINAL_EVENT: MSP_EVENT = 7i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO {
     pub dwSize: u32,
@@ -17755,6 +18249,7 @@ impl ::core::default::Default for MSP_EVENT_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub union MSP_EVENT_INFO_0 {
     pub MSP_ADDRESS_EVENT_INFO: ::core::mem::ManuallyDrop<MSP_EVENT_INFO_0_0>,
@@ -17791,6 +18286,7 @@ impl ::core::default::Default for MSP_EVENT_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_0 {
     pub Type: MSP_ADDRESS_EVENT,
@@ -17821,6 +18317,7 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_1 {
     pub pASRTerminal: ::core::option::Option<ITTerminal>,
@@ -17851,6 +18348,7 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_2 {
     pub Type: MSP_CALL_EVENT,
@@ -17884,6 +18382,7 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_3 {
     pub pParentFileTerminal: ::core::option::Option<ITTerminal>,
@@ -17923,6 +18422,7 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_3 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_4 {
     pub pEvent: ::core::option::Option<super::super::System::Com::IDispatch>,
@@ -17953,6 +18453,7 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_4 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_5 {
     pub pToneTerminal: ::core::option::Option<ITTerminal>,
@@ -17983,6 +18484,7 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_5 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_6 {
     pub dwBufferSize: u32,
@@ -18015,6 +18517,7 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_6 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_7 {
     pub pTTSTerminal: ::core::option::Option<ITTerminal>,
@@ -18046,6 +18549,7 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_7 {
 }
 pub const McastAddressAllocation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf0daef2_a289_11d1_8697_006008b0e5d2);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NSID {
     pub dwSize: u32,
@@ -18081,6 +18585,7 @@ impl ::core::default::Default for NSID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union NSID_0 {
     pub alias: _ADDR_ALIAS,
@@ -18112,6 +18617,7 @@ impl ::core::default::Default for NSID_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_AddressBook', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OpenTnefStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param4: ::windows::core::IntoParam<'a, super::super::System::AddressBook::IMessage>>(lpvsupport: *mut ::core::ffi::c_void, lpstream: Param1, lpszstreamname: *const i8, ulflags: u32, lpmessage: Param4, wkeyval: u16, lpptnef: *mut ::core::option::Option<ITnef>) -> ::windows::core::Result<()> {
@@ -18126,6 +18632,7 @@ pub unsafe fn OpenTnefStream<'a, Param1: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_AddressBook', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OpenTnefStreamEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param4: ::windows::core::IntoParam<'a, super::super::System::AddressBook::IMessage>, Param6: ::windows::core::IntoParam<'a, super::super::System::AddressBook::IAddrBook>>(lpvsupport: *mut ::core::ffi::c_void, lpstream: Param1, lpszstreamname: *const i8, ulflags: u32, lpmessage: Param4, wkeyval: u16, lpadressbook: Param6, lpptnef: *mut ::core::option::Option<ITnef>) -> ::windows::core::Result<()> {
@@ -18189,6 +18696,7 @@ pub const PHONEBUTTONFUNCTION_UNKNOWN: u32 = 0u32;
 pub const PHONEBUTTONFUNCTION_VOLUMEDOWN: u32 = 20u32;
 pub const PHONEBUTTONFUNCTION_VOLUMEUP: u32 = 19u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct PHONEBUTTONINFO {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18231,8 +18739,10 @@ pub const PHONEBUTTONSTATE_DOWN: u32 = 2u32;
 pub const PHONEBUTTONSTATE_UNAVAIL: u32 = 8u32;
 pub const PHONEBUTTONSTATE_UNKNOWN: u32 = 4u32;
 pub const PHONEBUTTONSTATE_UP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONECALLBACK = ::core::option::Option<unsafe extern "system" fn(hdevice: u32, dwmessage: u32, dwinstance: usize, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct PHONECAPS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18301,21 +18811,37 @@ impl ::core::default::Default for PHONECAPS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONECAPS_BUFFER = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCB_DEVSPECIFICBUFFER: PHONECAPS_BUFFER = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONECAPS_LONG = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCL_HOOKSWITCHES: PHONECAPS_LONG = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCL_HANDSETHOOKSWITCHMODES: PHONECAPS_LONG = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCL_HEADSETHOOKSWITCHMODES: PHONECAPS_LONG = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCL_SPEAKERPHONEHOOKSWITCHMODES: PHONECAPS_LONG = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCL_DISPLAYNUMROWS: PHONECAPS_LONG = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCL_DISPLAYNUMCOLUMNS: PHONECAPS_LONG = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCL_NUMRINGMODES: PHONECAPS_LONG = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCL_NUMBUTTONLAMPS: PHONECAPS_LONG = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCL_GENERICPHONE: PHONECAPS_LONG = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONECAPS_STRING = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCS_PHONENAME: PHONECAPS_STRING = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCS_PHONEINFO: PHONECAPS_STRING = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PCS_PROVIDERINFO: PHONECAPS_STRING = 2i32;
 pub const PHONEERR_ALLOCATED: u32 = 2415919105u32;
 pub const PHONEERR_BADDEVICEID: u32 = 2415919106u32;
@@ -18353,8 +18879,10 @@ pub const PHONEERR_RESOURCEUNAVAIL: u32 = 2415919135u32;
 pub const PHONEERR_SERVICE_NOT_RUNNING: u32 = 2415919141u32;
 pub const PHONEERR_STRUCTURETOOSMALL: u32 = 2415919137u32;
 pub const PHONEERR_UNINITIALIZED: u32 = 2415919138u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONEEVENT = ::core::option::Option<unsafe extern "system" fn(htphone: *mut HTAPIPHONE__, dwmsg: u32, dwparam1: usize, dwparam2: usize, dwparam3: usize)>;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct PHONEEXTENSIONID {
     pub dwExtensionID0: u32,
     pub dwExtensionID1: u32,
@@ -18422,6 +18950,7 @@ pub const PHONEINITIALIZEEXOPTION_USECOMPLETIONPORT: u32 = 3u32;
 pub const PHONEINITIALIZEEXOPTION_USEEVENT: u32 = 2u32;
 pub const PHONEINITIALIZEEXOPTION_USEHIDDENWINDOW: u32 = 1u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PHONEINITIALIZEEXPARAMS {
     pub dwTotalSize: u32,
@@ -18458,6 +18987,7 @@ impl ::core::default::Default for PHONEINITIALIZEEXPARAMS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union PHONEINITIALIZEEXPARAMS_0 {
     pub hEvent: super::super::Foundation::HANDLE,
@@ -18498,6 +19028,7 @@ pub const PHONELAMPMODE_STEADY: u32 = 4u32;
 pub const PHONELAMPMODE_UNKNOWN: u32 = 128u32;
 pub const PHONELAMPMODE_WINK: u32 = 8u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct PHONEMESSAGE {
     pub hDevice: u32,
     pub dwMessageID: u32,
@@ -18553,6 +19084,7 @@ pub const PHONESTATE_SPEAKERHOOKSWITCH: u32 = 4096u32;
 pub const PHONESTATE_SPEAKERVOLUME: u32 = 8192u32;
 pub const PHONESTATE_SUSPEND: u32 = 262144u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct PHONESTATUS {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -18604,130 +19136,249 @@ impl ::core::default::Default for PHONESTATUS {
 pub const PHONESTATUSFLAGS_CONNECTED: u32 = 1u32;
 pub const PHONESTATUSFLAGS_SUSPENDED: u32 = 2u32;
 pub const PHONE_BUTTON: i32 = 14i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONE_BUTTON_FUNCTION = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_UNKNOWN: PHONE_BUTTON_FUNCTION = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_CONFERENCE: PHONE_BUTTON_FUNCTION = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_TRANSFER: PHONE_BUTTON_FUNCTION = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_DROP: PHONE_BUTTON_FUNCTION = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_HOLD: PHONE_BUTTON_FUNCTION = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_RECALL: PHONE_BUTTON_FUNCTION = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_DISCONNECT: PHONE_BUTTON_FUNCTION = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_CONNECT: PHONE_BUTTON_FUNCTION = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_MSGWAITON: PHONE_BUTTON_FUNCTION = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_MSGWAITOFF: PHONE_BUTTON_FUNCTION = 9i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_SELECTRING: PHONE_BUTTON_FUNCTION = 10i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_ABBREVDIAL: PHONE_BUTTON_FUNCTION = 11i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_FORWARD: PHONE_BUTTON_FUNCTION = 12i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_PICKUP: PHONE_BUTTON_FUNCTION = 13i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_RINGAGAIN: PHONE_BUTTON_FUNCTION = 14i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_PARK: PHONE_BUTTON_FUNCTION = 15i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_REJECT: PHONE_BUTTON_FUNCTION = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_REDIRECT: PHONE_BUTTON_FUNCTION = 17i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_MUTE: PHONE_BUTTON_FUNCTION = 18i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_VOLUMEUP: PHONE_BUTTON_FUNCTION = 19i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_VOLUMEDOWN: PHONE_BUTTON_FUNCTION = 20i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_SPEAKERON: PHONE_BUTTON_FUNCTION = 21i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_SPEAKEROFF: PHONE_BUTTON_FUNCTION = 22i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_FLASH: PHONE_BUTTON_FUNCTION = 23i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_DATAON: PHONE_BUTTON_FUNCTION = 24i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_DATAOFF: PHONE_BUTTON_FUNCTION = 25i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_DONOTDISTURB: PHONE_BUTTON_FUNCTION = 26i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_INTERCOM: PHONE_BUTTON_FUNCTION = 27i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_BRIDGEDAPP: PHONE_BUTTON_FUNCTION = 28i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_BUSY: PHONE_BUTTON_FUNCTION = 29i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_CALLAPP: PHONE_BUTTON_FUNCTION = 30i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_DATETIME: PHONE_BUTTON_FUNCTION = 31i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_DIRECTORY: PHONE_BUTTON_FUNCTION = 32i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_COVER: PHONE_BUTTON_FUNCTION = 33i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_CALLID: PHONE_BUTTON_FUNCTION = 34i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_LASTNUM: PHONE_BUTTON_FUNCTION = 35i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_NIGHTSRV: PHONE_BUTTON_FUNCTION = 36i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_SENDCALLS: PHONE_BUTTON_FUNCTION = 37i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_MSGINDICATOR: PHONE_BUTTON_FUNCTION = 38i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_REPDIAL: PHONE_BUTTON_FUNCTION = 39i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_SETREPDIAL: PHONE_BUTTON_FUNCTION = 40i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_SYSTEMSPEED: PHONE_BUTTON_FUNCTION = 41i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_STATIONSPEED: PHONE_BUTTON_FUNCTION = 42i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_CAMPON: PHONE_BUTTON_FUNCTION = 43i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_SAVEREPEAT: PHONE_BUTTON_FUNCTION = 44i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_QUEUECALL: PHONE_BUTTON_FUNCTION = 45i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_NONE: PHONE_BUTTON_FUNCTION = 46i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBF_SEND: PHONE_BUTTON_FUNCTION = 47i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONE_BUTTON_MODE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBM_DUMMY: PHONE_BUTTON_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBM_CALL: PHONE_BUTTON_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBM_FEATURE: PHONE_BUTTON_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBM_KEYPAD: PHONE_BUTTON_MODE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBM_LOCAL: PHONE_BUTTON_MODE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBM_DISPLAY: PHONE_BUTTON_MODE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONE_BUTTON_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBS_UP: PHONE_BUTTON_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBS_DOWN: PHONE_BUTTON_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBS_UNKNOWN: PHONE_BUTTON_STATE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PBS_UNAVAIL: PHONE_BUTTON_STATE = 8i32;
 pub const PHONE_CLOSE: i32 = 15i32;
 pub const PHONE_CREATE: i32 = 20i32;
 pub const PHONE_DEVSPECIFIC: i32 = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONE_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_DISPLAY: PHONE_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_LAMPMODE: PHONE_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_RINGMODE: PHONE_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_RINGVOLUME: PHONE_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_HOOKSWITCH: PHONE_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_CAPSCHANGE: PHONE_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_BUTTON: PHONE_EVENT = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_CLOSE: PHONE_EVENT = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_NUMBERGATHERED: PHONE_EVENT = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_DIALING: PHONE_EVENT = 9i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_ANSWER: PHONE_EVENT = 10i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_DISCONNECT: PHONE_EVENT = 11i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PE_LASTITEM: PHONE_EVENT = 11i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONE_HOOK_SWITCH_DEVICE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PHSD_HANDSET: PHONE_HOOK_SWITCH_DEVICE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PHSD_SPEAKERPHONE: PHONE_HOOK_SWITCH_DEVICE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PHSD_HEADSET: PHONE_HOOK_SWITCH_DEVICE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONE_HOOK_SWITCH_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PHSS_ONHOOK: PHONE_HOOK_SWITCH_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PHSS_OFFHOOK_MIC_ONLY: PHONE_HOOK_SWITCH_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PHSS_OFFHOOK_SPEAKER_ONLY: PHONE_HOOK_SWITCH_STATE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PHSS_OFFHOOK: PHONE_HOOK_SWITCH_STATE = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONE_LAMP_MODE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const LM_DUMMY: PHONE_LAMP_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const LM_OFF: PHONE_LAMP_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const LM_STEADY: PHONE_LAMP_MODE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const LM_WINK: PHONE_LAMP_MODE = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const LM_FLASH: PHONE_LAMP_MODE = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const LM_FLUTTER: PHONE_LAMP_MODE = 32i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const LM_BROKENFLUTTER: PHONE_LAMP_MODE = 64i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const LM_UNKNOWN: PHONE_LAMP_MODE = 128i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONE_PRIVILEGE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PP_OWNER: PHONE_PRIVILEGE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PP_MONITOR: PHONE_PRIVILEGE = 1i32;
 pub const PHONE_REMOVE: i32 = 26i32;
 pub const PHONE_REPLY: i32 = 17i32;
 pub const PHONE_STATE: i32 = 18i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type PHONE_TONE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADZERO: PHONE_TONE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADONE: PHONE_TONE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADTWO: PHONE_TONE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADTHREE: PHONE_TONE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADFOUR: PHONE_TONE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADFIVE: PHONE_TONE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADSIX: PHONE_TONE = 6i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADSEVEN: PHONE_TONE = 7i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADEIGHT: PHONE_TONE = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADNINE: PHONE_TONE = 9i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADSTAR: PHONE_TONE = 10i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADPOUND: PHONE_TONE = 11i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADA: PHONE_TONE = 12i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADB: PHONE_TONE = 13i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADC: PHONE_TONE = 14i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_KEYPADD: PHONE_TONE = 15i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_NORMALDIALTONE: PHONE_TONE = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_EXTERNALDIALTONE: PHONE_TONE = 17i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_BUSY: PHONE_TONE = 18i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_RINGBACK: PHONE_TONE = 19i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_ERRORTONE: PHONE_TONE = 20i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const PT_SILENCE: PHONE_TONE = 21i32;
 pub const PRIVATEOBJECT_ADDRESS: u32 = 6u32;
 pub const PRIVATEOBJECT_CALL: u32 = 4u32;
@@ -18735,25 +19386,40 @@ pub const PRIVATEOBJECT_CALLID: u32 = 2u32;
 pub const PRIVATEOBJECT_LINE: u32 = 3u32;
 pub const PRIVATEOBJECT_NONE: u32 = 1u32;
 pub const PRIVATEOBJECT_PHONE: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type QOS_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const QE_NOQOS: QOS_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const QE_ADMISSIONFAILURE: QOS_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const QE_POLICYFAILURE: QOS_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const QE_GENERICERROR: QOS_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const QE_LASTITEM: QOS_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type QOS_SERVICE_LEVEL = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const QSL_NEEDED: QOS_SERVICE_LEVEL = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const QSL_IF_AVAILABLE: QOS_SERVICE_LEVEL = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const QSL_BEST_EFFORT: QOS_SERVICE_LEVEL = 3i32;
 pub const RENDBIND_AUTHENTICATE: u32 = 1u32;
 pub const RENDBIND_DEFAULTCREDENTIALS: u32 = 14u32;
 pub const RENDBIND_DEFAULTDOMAINNAME: u32 = 2u32;
 pub const RENDBIND_DEFAULTPASSWORD: u32 = 8u32;
 pub const RENDBIND_DEFAULTUSERNAME: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type RND_ADVERTISING_SCOPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const RAS_LOCAL: RND_ADVERTISING_SCOPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const RAS_SITE: RND_ADVERTISING_SCOPE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const RAS_REGION: RND_ADVERTISING_SCOPE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const RAS_WORLD: RND_ADVERTISING_SCOPE = 4i32;
 pub const Rendezvous: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1029e5b_cb5b_11d0_8d59_00c04fd91ac0);
 pub const RequestMakeCall: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac48ffe0_f8c4_11d1_a030_00c04fb6809f);
@@ -18768,6 +19434,7 @@ pub const STRM_RUNNING: u32 = 4u32;
 pub const STRM_STOPPED: u32 = 16u32;
 pub const STRM_TERMINALSELECTED: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct STnefProblem {
     pub ulComponent: u32,
     pub ulAttribute: u32,
@@ -18795,6 +19462,7 @@ impl ::core::default::Default for STnefProblem {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct STnefProblemArray {
     pub cProblem: u32,
     pub aProblem: [STnefProblem; 1],
@@ -18855,16 +19523,25 @@ pub const TAPIMEDIATYPE_DATAMODEM: u32 = 16u32;
 pub const TAPIMEDIATYPE_G3FAX: u32 = 32u32;
 pub const TAPIMEDIATYPE_MULTITRACK: u32 = 65536u32;
 pub const TAPIMEDIATYPE_VIDEO: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TAPIOBJECT_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_ADDRESSCREATE: TAPIOBJECT_EVENT = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_ADDRESSREMOVE: TAPIOBJECT_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_REINIT: TAPIOBJECT_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_TRANSLATECHANGE: TAPIOBJECT_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_ADDRESSCLOSE: TAPIOBJECT_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_PHONECREATE: TAPIOBJECT_EVENT = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_PHONEREMOVE: TAPIOBJECT_EVENT = 6i32;
 pub const TAPI_CURRENT_VERSION: u32 = 131074u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct TAPI_CUSTOMTONE {
     pub dwFrequency: u32,
     pub dwCadenceOn: u32,
@@ -18892,6 +19569,7 @@ impl ::core::default::Default for TAPI_CUSTOMTONE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct TAPI_DETECTTONE {
     pub dwAppSpecific: u32,
     pub dwDuration: u32,
@@ -18919,159 +19597,312 @@ impl ::core::default::Default for TAPI_DETECTTONE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TAPI_EVENT = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_TAPIOBJECT: TAPI_EVENT = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_ADDRESS: TAPI_EVENT = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_CALLNOTIFICATION: TAPI_EVENT = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_CALLSTATE: TAPI_EVENT = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_CALLMEDIA: TAPI_EVENT = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_CALLHUB: TAPI_EVENT = 32i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_CALLINFOCHANGE: TAPI_EVENT = 64i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_PRIVATE: TAPI_EVENT = 128i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_REQUEST: TAPI_EVENT = 256i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_AGENT: TAPI_EVENT = 512i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_AGENTSESSION: TAPI_EVENT = 1024i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_QOSEVENT: TAPI_EVENT = 2048i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_AGENTHANDLER: TAPI_EVENT = 4096i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_ACDGROUP: TAPI_EVENT = 8192i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_QUEUE: TAPI_EVENT = 16384i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_DIGITEVENT: TAPI_EVENT = 32768i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_GENERATEEVENT: TAPI_EVENT = 65536i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_ASRTERMINAL: TAPI_EVENT = 131072i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_TTSTERMINAL: TAPI_EVENT = 262144i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_FILETERMINAL: TAPI_EVENT = 524288i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_TONETERMINAL: TAPI_EVENT = 1048576i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_PHONEEVENT: TAPI_EVENT = 2097152i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_TONEEVENT: TAPI_EVENT = 4194304i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_GATHERDIGITS: TAPI_EVENT = 8388608i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_ADDRESSDEVSPECIFIC: TAPI_EVENT = 16777216i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TE_PHONEDEVSPECIFIC: TAPI_EVENT = 33554432i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_ADDRESSBLOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221462i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_ALLOCATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221498i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_BILLINGREJECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221461i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLCENTER_GROUP_REMOVED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221435i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLCENTER_INVALAGENTACTIVITY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221428i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLCENTER_INVALAGENTGROUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221431i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLCENTER_INVALAGENTID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221432i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLCENTER_INVALAGENTSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221429i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLCENTER_INVALPASSWORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221430i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLCENTER_NO_AGENT_ID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221433i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLCENTER_QUEUE_REMOVED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221434i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLNOTSELECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221420i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CALLUNAVAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221497i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_COMPLETIONOVERRUN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221496i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_CONFERENCEFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221495i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_DESTBUSY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221452i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_DESTNOANSWER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221451i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_DESTUNAVAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221450i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_DIALMODIFIERNOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221494i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_DROPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221455i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INUSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221493i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221492i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALADDRESSSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221491i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALADDRESSTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221423i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALBUTTONLAMPID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221459i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALBUTTONSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221458i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALCALLPARAMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221490i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALCALLPRIVILEGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221489i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALCALLSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221488i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALCARD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221487i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALCOMPLETIONID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221486i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALCOUNTRYCODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221485i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALDATAID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221457i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALDEVICECLASS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221484i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALDIALPARAMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221483i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALDIGITS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221482i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALFEATURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221460i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALGROUPID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221481i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALHOOKSWITCHDEV: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221456i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALIDDIRECTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221446i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALIDMEDIATYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221500i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALIDSTREAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221437i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALIDSTREAMSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221417i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALIDTERMINAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221445i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALIDTERMINALCLASS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221444i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALLIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221474i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALLOCATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221480i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALMESSAGEID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221479i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALMODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221473i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALPARKID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221478i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALPRIVILEGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221447i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALRATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221477i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALTIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221476i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_INVALTONE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221475i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_MAXSTREAMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221442i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_MAXTERMINALS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221438i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOCONFERENCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221472i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NODEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221471i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NODRIVER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221443i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOEVENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221424i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221418i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOITEMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221502i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOREQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221470i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOREQUESTRECIPIENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221454i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOTENOUGHMEMORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221503i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOTERMINALSELECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221441i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOTOWNER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221469i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOTREGISTERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221468i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOTSTOPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221439i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221501i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221415i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_OPERATIONFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221499i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_PEER_NOT_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221425i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_PHONENOTOPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221421i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_REGISTRY_SETTING_CORRUPT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221427i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_REINIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221463i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_REQUESTCANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221448i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_REQUESTFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221449i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_REQUESTOVERRUN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221467i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_REQUESTQUEUEFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221453i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_RESOURCEUNAVAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221422i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_SERVICE_NOT_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221414i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_TARGETNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221466i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_TARGETSELF: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221465i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_TERMINALINUSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221440i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_TERMINAL_PEER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221426i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221436i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_USERUSERINFOTOOBIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221464i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_WRONGEVENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221419i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TAPI_E_WRONG_STATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221416i32);
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TAPI_GATHERTERM = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TGT_BUFFERFULL: TAPI_GATHERTERM = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TGT_TERMDIGIT: TAPI_GATHERTERM = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TGT_FIRSTTIMEOUT: TAPI_GATHERTERM = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TGT_INTERTIMEOUT: TAPI_GATHERTERM = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TGT_CANCEL: TAPI_GATHERTERM = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TAPI_OBJECT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TOT_NONE: TAPI_OBJECT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TOT_TAPI: TAPI_OBJECT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TOT_ADDRESS: TAPI_OBJECT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TOT_TERMINAL: TAPI_OBJECT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TOT_CALL: TAPI_OBJECT_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TOT_CALLHUB: TAPI_OBJECT_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TOT_PHONE: TAPI_OBJECT_TYPE = 6i32;
 pub const TAPI_REPLY: u32 = 1123u32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TAPI_TONEMODE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TTM_RINGBACK: TAPI_TONEMODE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TTM_BUSY: TAPI_TONEMODE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TTM_BEEP: TAPI_TONEMODE = 8i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TTM_BILLING: TAPI_TONEMODE = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TERMINAL_DIRECTION = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TD_CAPTURE: TERMINAL_DIRECTION = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TD_RENDER: TERMINAL_DIRECTION = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TD_BIDIRECTIONAL: TERMINAL_DIRECTION = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TD_MULTITRACK_MIXED: TERMINAL_DIRECTION = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TD_NONE: TERMINAL_DIRECTION = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TERMINAL_MEDIA_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TMS_IDLE: TERMINAL_MEDIA_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TMS_ACTIVE: TERMINAL_MEDIA_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TMS_PAUSED: TERMINAL_MEDIA_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TMS_LASTITEM: TERMINAL_MEDIA_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TERMINAL_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TS_INUSE: TERMINAL_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TS_NOTINUSE: TERMINAL_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TERMINAL_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TT_STATIC: TERMINAL_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub const TT_DYNAMIC: TERMINAL_TYPE = 1i32;
 pub const TSPI_LINEACCEPT: u32 = 500u32;
 pub const TSPI_LINEADDTOCONFERENCE: u32 = 501u32;
@@ -19186,6 +20017,7 @@ pub const TSPI_PROVIDERINSTALL: u32 = 592u32;
 pub const TSPI_PROVIDERREMOVE: u32 = 593u32;
 pub const TSPI_PROVIDERSHUTDOWN: u32 = 594u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TUISPICREATEDIALOGINSTANCEPARAMS {
     pub dwRequestID: u32,
@@ -19221,12 +20053,14 @@ impl ::core::default::Default for TUISPICREATEDIALOGINSTANCEPARAMS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub type TUISPIDLLCALLBACK = ::core::option::Option<unsafe extern "system" fn(dwobjectid: usize, dwobjecttype: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32>;
 pub const TUISPIDLL_OBJECT_DIALOGINSTANCE: i32 = 4i32;
 pub const TUISPIDLL_OBJECT_LINEID: i32 = 1i32;
 pub const TUISPIDLL_OBJECT_PHONEID: i32 = 2i32;
 pub const TUISPIDLL_OBJECT_PROVIDERID: i32 = 3i32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct VARSTRING {
     pub dwTotalSize: u32,
     pub dwNeededSize: u32,
@@ -19256,6 +20090,7 @@ impl ::core::default::Default for VARSTRING {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct _ADDR_ALIAS {
     pub rgchName: [super::super::Foundation::CHAR; 41],
@@ -19291,6 +20126,7 @@ impl ::core::default::Default for _ADDR_ALIAS {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct _dtr {
     pub wYear: u16,
     pub wMonth: u16,
@@ -19321,6 +20157,7 @@ impl ::core::default::Default for _dtr {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct _renddata {
     pub atyp: u16,
     pub ulPosition: u32,
@@ -19349,6 +20186,7 @@ impl ::core::default::Default for _renddata {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct _trp {
     pub trpid: u16,
     pub cbgrtrp: u16,
@@ -19380,6 +20218,7 @@ pub const atypMax: i32 = 4i32;
 pub const atypNull: i32 = 0i32;
 pub const atypOle: i32 = 2i32;
 pub const atypPicture: i32 = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineAccept<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpsuseruserinfo: Param1, dwsize: u32) -> i32 {
@@ -19394,6 +20233,7 @@ pub unsafe fn lineAccept<'a, Param1: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineAddProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszproviderfilename: Param0, hwndowner: Param1, lpdwpermanentproviderid: *mut u32) -> i32 {
@@ -19408,6 +20248,7 @@ pub unsafe fn lineAddProvider<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineAddProviderA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszproviderfilename: Param0, hwndowner: Param1, lpdwpermanentproviderid: *mut u32) -> i32 {
@@ -19422,6 +20263,7 @@ pub unsafe fn lineAddProviderA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineAddProviderW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszproviderfilename: Param0, hwndowner: Param1, lpdwpermanentproviderid: *mut u32) -> i32 {
@@ -19436,6 +20278,7 @@ pub unsafe fn lineAddProviderW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineAddToConference(hconfcall: u32, hconsultcall: u32) -> i32 {
     #[cfg(windows)]
@@ -19449,6 +20292,7 @@ pub unsafe fn lineAddToConference(hconfcall: u32, hconsultcall: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineAgentSpecific(hline: u32, dwaddressid: u32, dwagentextensionidindex: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32 {
     #[cfg(windows)]
@@ -19462,6 +20306,7 @@ pub unsafe fn lineAgentSpecific(hline: u32, dwaddressid: u32, dwagentextensionid
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineAnswer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpsuseruserinfo: Param1, dwsize: u32) -> i32 {
@@ -19476,6 +20321,7 @@ pub unsafe fn lineAnswer<'a, Param1: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineBlindTransfer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
@@ -19490,6 +20336,7 @@ pub unsafe fn lineBlindTransfer<'a, Param1: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineBlindTransferA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
@@ -19504,6 +20351,7 @@ pub unsafe fn lineBlindTransferA<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineBlindTransferW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcall: u32, lpszdestaddressw: Param1, dwcountrycode: u32) -> i32 {
@@ -19518,6 +20366,7 @@ pub unsafe fn lineBlindTransferW<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineClose(hline: u32) -> i32 {
     #[cfg(windows)]
@@ -19531,6 +20380,7 @@ pub unsafe fn lineClose(hline: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineCompleteCall(hcall: u32, lpdwcompletionid: *mut u32, dwcompletionmode: u32, dwmessageid: u32) -> i32 {
     #[cfg(windows)]
@@ -19544,6 +20394,7 @@ pub unsafe fn lineCompleteCall(hcall: u32, lpdwcompletionid: *mut u32, dwcomplet
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineCompleteTransfer(hcall: u32, hconsultcall: u32, lphconfcall: *mut u32, dwtransfermode: u32) -> i32 {
     #[cfg(windows)]
@@ -19557,6 +20408,7 @@ pub unsafe fn lineCompleteTransfer(hcall: u32, hconsultcall: u32, lphconfcall: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineConfigDialog<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
@@ -19571,6 +20423,7 @@ pub unsafe fn lineConfigDialog<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineConfigDialogA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
@@ -19585,6 +20438,7 @@ pub unsafe fn lineConfigDialogA<'a, Param1: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineConfigDialogEdit<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32 {
@@ -19599,6 +20453,7 @@ pub unsafe fn lineConfigDialogEdit<'a, Param1: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineConfigDialogEditA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32 {
@@ -19613,6 +20468,7 @@ pub unsafe fn lineConfigDialogEditA<'a, Param1: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineConfigDialogEditW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2, lpdeviceconfigin: *const ::core::ffi::c_void, dwsize: u32, lpdeviceconfigout: *mut VARSTRING) -> i32 {
@@ -19627,6 +20483,7 @@ pub unsafe fn lineConfigDialogEditW<'a, Param1: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineConfigDialogW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
@@ -19641,6 +20498,7 @@ pub unsafe fn lineConfigDialogW<'a, Param1: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineConfigProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndowner: Param0, dwpermanentproviderid: u32) -> i32 {
@@ -19655,6 +20513,7 @@ pub unsafe fn lineConfigProvider<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineCreateAgentA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, lpszagentid: Param1, lpszagentpin: Param2, lphagent: *mut u32) -> i32 {
@@ -19669,6 +20528,7 @@ pub unsafe fn lineCreateAgentA<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineCreateAgentSessionA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, hagent: u32, lpszagentpin: Param2, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32 {
@@ -19683,6 +20543,7 @@ pub unsafe fn lineCreateAgentSessionA<'a, Param2: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineCreateAgentSessionW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hline: u32, hagent: u32, lpszagentpin: Param2, dwworkingaddressid: u32, lpgroupid: *mut ::windows::core::GUID, lphagentsession: *mut u32) -> i32 {
@@ -19697,6 +20558,7 @@ pub unsafe fn lineCreateAgentSessionW<'a, Param2: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineCreateAgentW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hline: u32, lpszagentid: Param1, lpszagentpin: Param2, lphagent: *mut u32) -> i32 {
@@ -19711,6 +20573,7 @@ pub unsafe fn lineCreateAgentW<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineDeallocateCall(hcall: u32) -> i32 {
     #[cfg(windows)]
@@ -19724,6 +20587,7 @@ pub unsafe fn lineDeallocateCall(hcall: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineDevSpecific(hline: u32, dwaddressid: u32, hcall: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32 {
     #[cfg(windows)]
@@ -19737,6 +20601,7 @@ pub unsafe fn lineDevSpecific(hline: u32, dwaddressid: u32, hcall: u32, lpparams
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineDevSpecificFeature(hline: u32, dwfeature: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32 {
     #[cfg(windows)]
@@ -19750,6 +20615,7 @@ pub unsafe fn lineDevSpecificFeature(hline: u32, dwfeature: u32, lpparams: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineDial<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
@@ -19764,6 +20630,7 @@ pub unsafe fn lineDial<'a, Param1: ::windows::core::IntoParam<'a, super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineDialA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
@@ -19778,6 +20645,7 @@ pub unsafe fn lineDialA<'a, Param1: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineDialW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
@@ -19792,6 +20660,7 @@ pub unsafe fn lineDialW<'a, Param1: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineDrop<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpsuseruserinfo: Param1, dwsize: u32) -> i32 {
@@ -19806,6 +20675,7 @@ pub unsafe fn lineDrop<'a, Param1: ::windows::core::IntoParam<'a, super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineForward(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
@@ -19819,6 +20689,7 @@ pub unsafe fn lineForward(hline: u32, balladdresses: u32, dwaddressid: u32, lpfo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineForwardA(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
@@ -19832,6 +20703,7 @@ pub unsafe fn lineForwardA(hline: u32, balladdresses: u32, dwaddressid: u32, lpf
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineForwardW(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
@@ -19845,6 +20717,7 @@ pub unsafe fn lineForwardW(hline: u32, balladdresses: u32, dwaddressid: u32, lpf
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGatherDigits<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, dwdigitmodes: u32, lpsdigits: super::super::Foundation::PSTR, dwnumdigits: u32, lpszterminationdigits: Param4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32 {
@@ -19859,6 +20732,7 @@ pub unsafe fn lineGatherDigits<'a, Param4: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGatherDigitsA<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, dwdigitmodes: u32, lpsdigits: super::super::Foundation::PSTR, dwnumdigits: u32, lpszterminationdigits: Param4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32 {
@@ -19873,6 +20747,7 @@ pub unsafe fn lineGatherDigitsA<'a, Param4: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGatherDigitsW<'a, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcall: u32, dwdigitmodes: u32, lpsdigits: super::super::Foundation::PWSTR, dwnumdigits: u32, lpszterminationdigits: Param4, dwfirstdigittimeout: u32, dwinterdigittimeout: u32) -> i32 {
@@ -19887,6 +20762,7 @@ pub unsafe fn lineGatherDigitsW<'a, Param4: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGenerateDigits<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, dwdigitmode: u32, lpszdigits: Param2, dwduration: u32) -> i32 {
@@ -19901,6 +20777,7 @@ pub unsafe fn lineGenerateDigits<'a, Param2: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGenerateDigitsA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, dwdigitmode: u32, lpszdigits: Param2, dwduration: u32) -> i32 {
@@ -19915,6 +20792,7 @@ pub unsafe fn lineGenerateDigitsA<'a, Param2: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGenerateDigitsW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcall: u32, dwdigitmode: u32, lpszdigits: Param2, dwduration: u32) -> i32 {
@@ -19929,6 +20807,7 @@ pub unsafe fn lineGenerateDigitsW<'a, Param2: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGenerateTone(hcall: u32, dwtonemode: u32, dwduration: u32, dwnumtones: u32, lptones: *const LINEGENERATETONE) -> i32 {
     #[cfg(windows)]
@@ -19942,6 +20821,7 @@ pub unsafe fn lineGenerateTone(hcall: u32, dwtonemode: u32, dwduration: u32, dwn
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetAddressCaps(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32 {
     #[cfg(windows)]
@@ -19955,6 +20835,7 @@ pub unsafe fn lineGetAddressCaps(hlineapp: u32, dwdeviceid: u32, dwaddressid: u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetAddressCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32 {
     #[cfg(windows)]
@@ -19968,6 +20849,7 @@ pub unsafe fn lineGetAddressCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetAddressCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32 {
     #[cfg(windows)]
@@ -19981,6 +20863,7 @@ pub unsafe fn lineGetAddressCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGetAddressID<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: Param3, dwsize: u32) -> i32 {
@@ -19995,6 +20878,7 @@ pub unsafe fn lineGetAddressID<'a, Param3: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGetAddressIDA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: Param3, dwsize: u32) -> i32 {
@@ -20009,6 +20893,7 @@ pub unsafe fn lineGetAddressIDA<'a, Param3: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGetAddressIDW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hline: u32, lpdwaddressid: *mut u32, dwaddressmode: u32, lpsaddress: Param3, dwsize: u32) -> i32 {
@@ -20023,6 +20908,7 @@ pub unsafe fn lineGetAddressIDW<'a, Param3: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetAddressStatus(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32 {
     #[cfg(windows)]
@@ -20036,6 +20922,7 @@ pub unsafe fn lineGetAddressStatus(hline: u32, dwaddressid: u32, lpaddressstatus
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetAddressStatusA(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32 {
     #[cfg(windows)]
@@ -20049,6 +20936,7 @@ pub unsafe fn lineGetAddressStatusA(hline: u32, dwaddressid: u32, lpaddressstatu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetAddressStatusW(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32 {
     #[cfg(windows)]
@@ -20062,6 +20950,7 @@ pub unsafe fn lineGetAddressStatusW(hline: u32, dwaddressid: u32, lpaddressstatu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetAgentActivityListA(hline: u32, dwaddressid: u32, lpagentactivitylist: *mut LINEAGENTACTIVITYLIST) -> i32 {
     #[cfg(windows)]
@@ -20075,6 +20964,7 @@ pub unsafe fn lineGetAgentActivityListA(hline: u32, dwaddressid: u32, lpagentact
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetAgentActivityListW(hline: u32, dwaddressid: u32, lpagentactivitylist: *mut LINEAGENTACTIVITYLIST) -> i32 {
     #[cfg(windows)]
@@ -20088,6 +20978,7 @@ pub unsafe fn lineGetAgentActivityListW(hline: u32, dwaddressid: u32, lpagentact
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetAgentCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwappapiversion: u32, lpagentcaps: *mut LINEAGENTCAPS) -> i32 {
     #[cfg(windows)]
@@ -20101,6 +20992,7 @@ pub unsafe fn lineGetAgentCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetAgentCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwappapiversion: u32, lpagentcaps: *mut LINEAGENTCAPS) -> i32 {
     #[cfg(windows)]
@@ -20114,6 +21006,7 @@ pub unsafe fn lineGetAgentCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetAgentGroupListA(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
     #[cfg(windows)]
@@ -20127,6 +21020,7 @@ pub unsafe fn lineGetAgentGroupListA(hline: u32, dwaddressid: u32, lpagentgroupl
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetAgentGroupListW(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
     #[cfg(windows)]
@@ -20140,6 +21034,7 @@ pub unsafe fn lineGetAgentGroupListW(hline: u32, dwaddressid: u32, lpagentgroupl
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn lineGetAgentInfo(hline: u32, hagent: u32, lpagentinfo: *mut LINEAGENTINFO) -> i32 {
@@ -20154,6 +21049,7 @@ pub unsafe fn lineGetAgentInfo(hline: u32, hagent: u32, lpagentinfo: *mut LINEAG
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn lineGetAgentSessionInfo(hline: u32, hagentsession: u32, lpagentsessioninfo: *mut LINEAGENTSESSIONINFO) -> i32 {
@@ -20168,6 +21064,7 @@ pub unsafe fn lineGetAgentSessionInfo(hline: u32, hagentsession: u32, lpagentses
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetAgentSessionList(hline: u32, hagent: u32, lpagentsessionlist: *mut LINEAGENTSESSIONLIST) -> i32 {
     #[cfg(windows)]
@@ -20181,6 +21078,7 @@ pub unsafe fn lineGetAgentSessionList(hline: u32, hagent: u32, lpagentsessionlis
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetAgentStatusA(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32 {
     #[cfg(windows)]
@@ -20194,6 +21092,7 @@ pub unsafe fn lineGetAgentStatusA(hline: u32, dwaddressid: u32, lpagentstatus: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetAgentStatusW(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32 {
     #[cfg(windows)]
@@ -20207,6 +21106,7 @@ pub unsafe fn lineGetAgentStatusW(hline: u32, dwaddressid: u32, lpagentstatus: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGetAppPriority<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32 {
@@ -20221,6 +21121,7 @@ pub unsafe fn lineGetAppPriority<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGetAppPriorityA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32 {
@@ -20235,6 +21136,7 @@ pub unsafe fn lineGetAppPriorityA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGetAppPriorityW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpextensionname: *mut VARSTRING, lpdwpriority: *mut u32) -> i32 {
@@ -20249,6 +21151,7 @@ pub unsafe fn lineGetAppPriorityW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetCallInfo(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 {
     #[cfg(windows)]
@@ -20262,6 +21165,7 @@ pub unsafe fn lineGetCallInfo(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetCallInfoA(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 {
     #[cfg(windows)]
@@ -20275,6 +21179,7 @@ pub unsafe fn lineGetCallInfoA(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetCallInfoW(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 {
     #[cfg(windows)]
@@ -20288,6 +21193,7 @@ pub unsafe fn lineGetCallInfoW(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGetCallStatus(hcall: u32, lpcallstatus: *mut LINECALLSTATUS) -> i32 {
@@ -20302,6 +21208,7 @@ pub unsafe fn lineGetCallStatus(hcall: u32, lpcallstatus: *mut LINECALLSTATUS) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetConfRelatedCalls(hcall: u32, lpcalllist: *mut LINECALLLIST) -> i32 {
     #[cfg(windows)]
@@ -20315,6 +21222,7 @@ pub unsafe fn lineGetConfRelatedCalls(hcall: u32, lpcalllist: *mut LINECALLLIST)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetCountry(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32 {
     #[cfg(windows)]
@@ -20328,6 +21236,7 @@ pub unsafe fn lineGetCountry(dwcountryid: u32, dwapiversion: u32, lplinecountryl
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetCountryA(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32 {
     #[cfg(windows)]
@@ -20341,6 +21250,7 @@ pub unsafe fn lineGetCountryA(dwcountryid: u32, dwapiversion: u32, lplinecountry
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetCountryW(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32 {
     #[cfg(windows)]
@@ -20354,6 +21264,7 @@ pub unsafe fn lineGetCountryW(dwcountryid: u32, dwapiversion: u32, lplinecountry
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetDevCaps(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32 {
     #[cfg(windows)]
@@ -20367,6 +21278,7 @@ pub unsafe fn lineGetDevCaps(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetDevCapsA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32 {
     #[cfg(windows)]
@@ -20380,6 +21292,7 @@ pub unsafe fn lineGetDevCapsA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetDevCapsW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32 {
     #[cfg(windows)]
@@ -20393,6 +21306,7 @@ pub unsafe fn lineGetDevCapsW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGetDevConfig<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
@@ -20407,6 +21321,7 @@ pub unsafe fn lineGetDevConfig<'a, Param2: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGetDevConfigA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
@@ -20421,6 +21336,7 @@ pub unsafe fn lineGetDevConfigA<'a, Param2: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGetDevConfigW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
@@ -20435,6 +21351,7 @@ pub unsafe fn lineGetDevConfigW<'a, Param2: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetGroupListA(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
     #[cfg(windows)]
@@ -20448,6 +21365,7 @@ pub unsafe fn lineGetGroupListA(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetGroupListW(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
     #[cfg(windows)]
@@ -20461,6 +21379,7 @@ pub unsafe fn lineGetGroupListW(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGetID<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param5) -> i32 {
@@ -20475,6 +21394,7 @@ pub unsafe fn lineGetID<'a, Param5: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGetIDA<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param5) -> i32 {
@@ -20489,6 +21409,7 @@ pub unsafe fn lineGetIDA<'a, Param5: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGetIDW<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param5) -> i32 {
@@ -20503,6 +21424,7 @@ pub unsafe fn lineGetIDW<'a, Param5: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGetIcon<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
@@ -20517,6 +21439,7 @@ pub unsafe fn lineGetIcon<'a, Param1: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGetIconA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
@@ -20531,6 +21454,7 @@ pub unsafe fn lineGetIconA<'a, Param1: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineGetIconW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
@@ -20545,6 +21469,7 @@ pub unsafe fn lineGetIconW<'a, Param1: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetLineDevStatus(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32 {
     #[cfg(windows)]
@@ -20558,6 +21483,7 @@ pub unsafe fn lineGetLineDevStatus(hline: u32, lplinedevstatus: *mut LINEDEVSTAT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetLineDevStatusA(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32 {
     #[cfg(windows)]
@@ -20571,6 +21497,7 @@ pub unsafe fn lineGetLineDevStatusA(hline: u32, lplinedevstatus: *mut LINEDEVSTA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetLineDevStatusW(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32 {
     #[cfg(windows)]
@@ -20584,6 +21511,7 @@ pub unsafe fn lineGetLineDevStatusW(hline: u32, lplinedevstatus: *mut LINEDEVSTA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetMessage(hlineapp: u32, lpmessage: *mut LINEMESSAGE, dwtimeout: u32) -> i32 {
     #[cfg(windows)]
@@ -20597,6 +21525,7 @@ pub unsafe fn lineGetMessage(hlineapp: u32, lpmessage: *mut LINEMESSAGE, dwtimeo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetNewCalls(hline: u32, dwaddressid: u32, dwselect: u32, lpcalllist: *mut LINECALLLIST) -> i32 {
     #[cfg(windows)]
@@ -20610,6 +21539,7 @@ pub unsafe fn lineGetNewCalls(hline: u32, dwaddressid: u32, dwselect: u32, lpcal
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetNumRings(hline: u32, dwaddressid: u32, lpdwnumrings: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -20623,6 +21553,7 @@ pub unsafe fn lineGetNumRings(hline: u32, dwaddressid: u32, lpdwnumrings: *mut u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetProviderList(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32 {
     #[cfg(windows)]
@@ -20636,6 +21567,7 @@ pub unsafe fn lineGetProviderList(dwapiversion: u32, lpproviderlist: *mut LINEPR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetProviderListA(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32 {
     #[cfg(windows)]
@@ -20649,6 +21581,7 @@ pub unsafe fn lineGetProviderListA(dwapiversion: u32, lpproviderlist: *mut LINEP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetProviderListW(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32 {
     #[cfg(windows)]
@@ -20662,6 +21595,7 @@ pub unsafe fn lineGetProviderListW(dwapiversion: u32, lpproviderlist: *mut LINEP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetProxyStatus(hlineapp: u32, dwdeviceid: u32, dwappapiversion: u32, lplineproxyreqestlist: *mut LINEPROXYREQUESTLIST) -> i32 {
     #[cfg(windows)]
@@ -20675,6 +21609,7 @@ pub unsafe fn lineGetProxyStatus(hlineapp: u32, dwdeviceid: u32, dwappapiversion
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetQueueInfo(hline: u32, dwqueueid: u32, lplinequeueinfo: *mut LINEQUEUEINFO) -> i32 {
     #[cfg(windows)]
@@ -20688,6 +21623,7 @@ pub unsafe fn lineGetQueueInfo(hline: u32, dwqueueid: u32, lplinequeueinfo: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetQueueListA(hline: u32, lpgroupid: *mut ::windows::core::GUID, lpqueuelist: *mut LINEQUEUELIST) -> i32 {
     #[cfg(windows)]
@@ -20701,6 +21637,7 @@ pub unsafe fn lineGetQueueListA(hline: u32, lpgroupid: *mut ::windows::core::GUI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetQueueListW(hline: u32, lpgroupid: *mut ::windows::core::GUID, lpqueuelist: *mut LINEQUEUELIST) -> i32 {
     #[cfg(windows)]
@@ -20714,6 +21651,7 @@ pub unsafe fn lineGetQueueListW(hline: u32, lpgroupid: *mut ::windows::core::GUI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetRequest(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
@@ -20727,6 +21665,7 @@ pub unsafe fn lineGetRequest(hlineapp: u32, dwrequestmode: u32, lprequestbuffer:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetRequestA(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
@@ -20740,6 +21679,7 @@ pub unsafe fn lineGetRequestA(hlineapp: u32, dwrequestmode: u32, lprequestbuffer
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetRequestW(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
@@ -20753,6 +21693,7 @@ pub unsafe fn lineGetRequestW(hlineapp: u32, dwrequestmode: u32, lprequestbuffer
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetStatusMessages(hline: u32, lpdwlinestates: *mut u32, lpdwaddressstates: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -20766,6 +21707,7 @@ pub unsafe fn lineGetStatusMessages(hline: u32, lpdwlinestates: *mut u32, lpdwad
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetTranslateCaps(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32 {
     #[cfg(windows)]
@@ -20779,6 +21721,7 @@ pub unsafe fn lineGetTranslateCaps(hlineapp: u32, dwapiversion: u32, lptranslate
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetTranslateCapsA(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32 {
     #[cfg(windows)]
@@ -20792,6 +21735,7 @@ pub unsafe fn lineGetTranslateCapsA(hlineapp: u32, dwapiversion: u32, lptranslat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineGetTranslateCapsW(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32 {
     #[cfg(windows)]
@@ -20805,6 +21749,7 @@ pub unsafe fn lineGetTranslateCapsW(hlineapp: u32, dwapiversion: u32, lptranslat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineHandoff<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpszfilename: Param1, dwmediamode: u32) -> i32 {
@@ -20819,6 +21764,7 @@ pub unsafe fn lineHandoff<'a, Param1: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineHandoffA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpszfilename: Param1, dwmediamode: u32) -> i32 {
@@ -20833,6 +21779,7 @@ pub unsafe fn lineHandoffA<'a, Param1: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineHandoffW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcall: u32, lpszfilename: Param1, dwmediamode: u32) -> i32 {
@@ -20847,6 +21794,7 @@ pub unsafe fn lineHandoffW<'a, Param1: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineHold(hcall: u32) -> i32 {
     #[cfg(windows)]
@@ -20860,6 +21808,7 @@ pub unsafe fn lineHold(hcall: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineInitialize<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: LINECALLBACK, lpszappname: Param3, lpdwnumdevs: *mut u32) -> i32 {
@@ -20874,6 +21823,7 @@ pub unsafe fn lineInitialize<'a, Param1: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineInitializeExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: LINECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32 {
@@ -20888,6 +21838,7 @@ pub unsafe fn lineInitializeExA<'a, Param1: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineInitializeExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lphlineapp: *mut u32, hinstance: Param1, lpfncallback: LINECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lplineinitializeexparams: *mut LINEINITIALIZEEXPARAMS) -> i32 {
@@ -20902,6 +21853,7 @@ pub unsafe fn lineInitializeExW<'a, Param1: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineMakeCall<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, lphcall: *mut u32, lpszdestaddress: Param2, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
@@ -20916,6 +21868,7 @@ pub unsafe fn lineMakeCall<'a, Param2: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineMakeCallA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, lphcall: *mut u32, lpszdestaddress: Param2, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
@@ -20930,6 +21883,7 @@ pub unsafe fn lineMakeCallA<'a, Param2: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineMakeCallW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hline: u32, lphcall: *mut u32, lpszdestaddress: Param2, dwcountrycode: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
@@ -20944,6 +21898,7 @@ pub unsafe fn lineMakeCallW<'a, Param2: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32 {
     #[cfg(windows)]
@@ -20957,6 +21912,7 @@ pub unsafe fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineMonitorMedia(hcall: u32, dwmediamodes: u32) -> i32 {
     #[cfg(windows)]
@@ -20970,6 +21926,7 @@ pub unsafe fn lineMonitorMedia(hcall: u32, dwmediamodes: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineMonitorTones(hcall: u32, lptonelist: *const LINEMONITORTONE, dwnumentries: u32) -> i32 {
     #[cfg(windows)]
@@ -20983,6 +21940,7 @@ pub unsafe fn lineMonitorTones(hcall: u32, lptonelist: *const LINEMONITORTONE, d
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineNegotiateAPIVersion(hlineapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut LINEEXTENSIONID) -> i32 {
     #[cfg(windows)]
@@ -20996,6 +21954,7 @@ pub unsafe fn lineNegotiateAPIVersion(hlineapp: u32, dwdeviceid: u32, dwapilowve
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineNegotiateExtVersion(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextlowversion: u32, dwexthighversion: u32, lpdwextversion: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -21009,6 +21968,7 @@ pub unsafe fn lineNegotiateExtVersion(hlineapp: u32, dwdeviceid: u32, dwapiversi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineOpen(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
@@ -21022,6 +21982,7 @@ pub unsafe fn lineOpen(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiv
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineOpenA(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
@@ -21035,6 +21996,7 @@ pub unsafe fn lineOpenA(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineOpenW(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
@@ -21048,6 +22010,7 @@ pub unsafe fn lineOpenW(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn linePark<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, dwparkmode: u32, lpszdiraddress: Param2, lpnondiraddress: *mut VARSTRING) -> i32 {
@@ -21062,6 +22025,7 @@ pub unsafe fn linePark<'a, Param2: ::windows::core::IntoParam<'a, super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineParkA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, dwparkmode: u32, lpszdiraddress: Param2, lpnondiraddress: *mut VARSTRING) -> i32 {
@@ -21076,6 +22040,7 @@ pub unsafe fn lineParkA<'a, Param2: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineParkW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcall: u32, dwparkmode: u32, lpszdiraddress: Param2, lpnondiraddress: *mut VARSTRING) -> i32 {
@@ -21090,6 +22055,7 @@ pub unsafe fn lineParkW<'a, Param2: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn linePickup<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3, lpszgroupid: Param4) -> i32 {
@@ -21104,6 +22070,7 @@ pub unsafe fn linePickup<'a, Param3: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn linePickupA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3, lpszgroupid: Param4) -> i32 {
@@ -21118,6 +22085,7 @@ pub unsafe fn linePickupA<'a, Param3: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn linePickupW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3, lpszgroupid: Param4) -> i32 {
@@ -21132,6 +22100,7 @@ pub unsafe fn linePickupW<'a, Param3: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn linePrepareAddToConference(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
@@ -21145,6 +22114,7 @@ pub unsafe fn linePrepareAddToConference(hconfcall: u32, lphconsultcall: *mut u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn linePrepareAddToConferenceA(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
@@ -21158,6 +22128,7 @@ pub unsafe fn linePrepareAddToConferenceA(hconfcall: u32, lphconsultcall: *mut u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn linePrepareAddToConferenceW(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
@@ -21171,6 +22142,7 @@ pub unsafe fn linePrepareAddToConferenceW(hconfcall: u32, lphconsultcall: *mut u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineProxyMessage(hline: u32, hcall: u32, dwmsg: u32, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> i32 {
     #[cfg(windows)]
@@ -21184,6 +22156,7 @@ pub unsafe fn lineProxyMessage(hline: u32, hcall: u32, dwmsg: u32, dwparam1: u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn lineProxyResponse(hline: u32, lpproxyrequest: *mut LINEPROXYREQUEST, dwresult: u32) -> i32 {
@@ -21198,6 +22171,7 @@ pub unsafe fn lineProxyResponse(hline: u32, lpproxyrequest: *mut LINEPROXYREQUES
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineRedirect<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
@@ -21212,6 +22186,7 @@ pub unsafe fn lineRedirect<'a, Param1: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineRedirectA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
@@ -21226,6 +22201,7 @@ pub unsafe fn lineRedirectA<'a, Param1: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineRedirectW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hcall: u32, lpszdestaddress: Param1, dwcountrycode: u32) -> i32 {
@@ -21240,6 +22216,7 @@ pub unsafe fn lineRedirectW<'a, Param1: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineRegisterRequestRecipient(hlineapp: u32, dwregistrationinstance: u32, dwrequestmode: u32, benable: u32) -> i32 {
     #[cfg(windows)]
@@ -21253,6 +22230,7 @@ pub unsafe fn lineRegisterRequestRecipient(hlineapp: u32, dwregistrationinstance
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineReleaseUserUserInfo(hcall: u32) -> i32 {
     #[cfg(windows)]
@@ -21266,6 +22244,7 @@ pub unsafe fn lineReleaseUserUserInfo(hcall: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineRemoveFromConference(hcall: u32) -> i32 {
     #[cfg(windows)]
@@ -21279,6 +22258,7 @@ pub unsafe fn lineRemoveFromConference(hcall: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineRemoveProvider<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(dwpermanentproviderid: u32, hwndowner: Param1) -> i32 {
@@ -21293,6 +22273,7 @@ pub unsafe fn lineRemoveProvider<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSecureCall(hcall: u32) -> i32 {
     #[cfg(windows)]
@@ -21306,6 +22287,7 @@ pub unsafe fn lineSecureCall(hcall: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineSendUserUserInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hcall: u32, lpsuseruserinfo: Param1, dwsize: u32) -> i32 {
@@ -21320,6 +22302,7 @@ pub unsafe fn lineSendUserUserInfo<'a, Param1: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetAgentActivity(hline: u32, dwaddressid: u32, dwactivityid: u32) -> i32 {
     #[cfg(windows)]
@@ -21333,6 +22316,7 @@ pub unsafe fn lineSetAgentActivity(hline: u32, dwaddressid: u32, dwactivityid: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetAgentGroup(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
     #[cfg(windows)]
@@ -21346,6 +22330,7 @@ pub unsafe fn lineSetAgentGroup(hline: u32, dwaddressid: u32, lpagentgrouplist: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetAgentMeasurementPeriod(hline: u32, hagent: u32, dwmeasurementperiod: u32) -> i32 {
     #[cfg(windows)]
@@ -21359,6 +22344,7 @@ pub unsafe fn lineSetAgentMeasurementPeriod(hline: u32, hagent: u32, dwmeasureme
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetAgentSessionState(hline: u32, hagentsession: u32, dwagentsessionstate: u32, dwnextagentsessionstate: u32) -> i32 {
     #[cfg(windows)]
@@ -21372,6 +22358,7 @@ pub unsafe fn lineSetAgentSessionState(hline: u32, hagentsession: u32, dwagentse
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetAgentState(hline: u32, dwaddressid: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32 {
     #[cfg(windows)]
@@ -21385,6 +22372,7 @@ pub unsafe fn lineSetAgentState(hline: u32, dwaddressid: u32, dwagentstate: u32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetAgentStateEx(hline: u32, hagent: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32 {
     #[cfg(windows)]
@@ -21398,6 +22386,7 @@ pub unsafe fn lineSetAgentStateEx(hline: u32, hagent: u32, dwagentstate: u32, dw
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineSetAppPriority<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: Param4, dwpriority: u32) -> i32 {
@@ -21412,6 +22401,7 @@ pub unsafe fn lineSetAppPriority<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineSetAppPriorityA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: Param4, dwpriority: u32) -> i32 {
@@ -21426,6 +22416,7 @@ pub unsafe fn lineSetAppPriorityA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineSetAppPriorityW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszappfilename: Param0, dwmediamode: u32, lpextensionid: *mut LINEEXTENSIONID, dwrequestmode: u32, lpszextensionname: Param4, dwpriority: u32) -> i32 {
@@ -21440,6 +22431,7 @@ pub unsafe fn lineSetAppPriorityW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetAppSpecific(hcall: u32, dwappspecific: u32) -> i32 {
     #[cfg(windows)]
@@ -21453,6 +22445,7 @@ pub unsafe fn lineSetAppSpecific(hcall: u32, dwappspecific: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetCallData(hcall: u32, lpcalldata: *mut ::core::ffi::c_void, dwsize: u32) -> i32 {
     #[cfg(windows)]
@@ -21466,6 +22459,7 @@ pub unsafe fn lineSetCallData(hcall: u32, lpcalldata: *mut ::core::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetCallParams(hcall: u32, dwbearermode: u32, dwminrate: u32, dwmaxrate: u32, lpdialparams: *const LINEDIALPARAMS) -> i32 {
     #[cfg(windows)]
@@ -21479,6 +22473,7 @@ pub unsafe fn lineSetCallParams(hcall: u32, dwbearermode: u32, dwminrate: u32, d
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetCallPrivilege(hcall: u32, dwcallprivilege: u32) -> i32 {
     #[cfg(windows)]
@@ -21492,6 +22487,7 @@ pub unsafe fn lineSetCallPrivilege(hcall: u32, dwcallprivilege: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetCallQualityOfService(hcall: u32, lpsendingflowspec: *mut ::core::ffi::c_void, dwsendingflowspecsize: u32, lpreceivingflowspec: *mut ::core::ffi::c_void, dwreceivingflowspecsize: u32) -> i32 {
     #[cfg(windows)]
@@ -21505,6 +22501,7 @@ pub unsafe fn lineSetCallQualityOfService(hcall: u32, lpsendingflowspec: *mut ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetCallTreatment(hcall: u32, dwtreatment: u32) -> i32 {
     #[cfg(windows)]
@@ -21518,6 +22515,7 @@ pub unsafe fn lineSetCallTreatment(hcall: u32, dwtreatment: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetCurrentLocation(hlineapp: u32, dwlocation: u32) -> i32 {
     #[cfg(windows)]
@@ -21531,6 +22529,7 @@ pub unsafe fn lineSetCurrentLocation(hlineapp: u32, dwlocation: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineSetDevConfig<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: Param3) -> i32 {
@@ -21545,6 +22544,7 @@ pub unsafe fn lineSetDevConfig<'a, Param3: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineSetDevConfigA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: Param3) -> i32 {
@@ -21559,6 +22559,7 @@ pub unsafe fn lineSetDevConfigA<'a, Param3: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineSetDevConfigW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwdeviceid: u32, lpdeviceconfig: *const ::core::ffi::c_void, dwsize: u32, lpszdeviceclass: Param3) -> i32 {
@@ -21573,6 +22574,7 @@ pub unsafe fn lineSetDevConfigW<'a, Param3: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetLineDevStatus(hline: u32, dwstatustochange: u32, fstatus: u32) -> i32 {
     #[cfg(windows)]
@@ -21586,6 +22588,7 @@ pub unsafe fn lineSetLineDevStatus(hline: u32, dwstatustochange: u32, fstatus: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetMediaControl(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdigitlist: *const LINEMEDIACONTROLDIGIT, dwdigitnumentries: u32, lpmedialist: *const LINEMEDIACONTROLMEDIA, dwmedianumentries: u32, lptonelist: *const LINEMEDIACONTROLTONE, dwtonenumentries: u32, lpcallstatelist: *const LINEMEDIACONTROLCALLSTATE, dwcallstatenumentries: u32) -> i32 {
     #[cfg(windows)]
@@ -21599,6 +22602,7 @@ pub unsafe fn lineSetMediaControl(hline: u32, dwaddressid: u32, hcall: u32, dwse
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetMediaMode(hcall: u32, dwmediamodes: u32) -> i32 {
     #[cfg(windows)]
@@ -21612,6 +22616,7 @@ pub unsafe fn lineSetMediaMode(hcall: u32, dwmediamodes: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetNumRings(hline: u32, dwaddressid: u32, dwnumrings: u32) -> i32 {
     #[cfg(windows)]
@@ -21625,6 +22630,7 @@ pub unsafe fn lineSetNumRings(hline: u32, dwaddressid: u32, dwnumrings: u32) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetQueueMeasurementPeriod(hline: u32, dwqueueid: u32, dwmeasurementperiod: u32) -> i32 {
     #[cfg(windows)]
@@ -21638,6 +22644,7 @@ pub unsafe fn lineSetQueueMeasurementPeriod(hline: u32, dwqueueid: u32, dwmeasur
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetStatusMessages(hline: u32, dwlinestates: u32, dwaddressstates: u32) -> i32 {
     #[cfg(windows)]
@@ -21651,6 +22658,7 @@ pub unsafe fn lineSetStatusMessages(hline: u32, dwlinestates: u32, dwaddressstat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetTerminal(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, dwterminalmodes: u32, dwterminalid: u32, benable: u32) -> i32 {
     #[cfg(windows)]
@@ -21664,6 +22672,7 @@ pub unsafe fn lineSetTerminal(hline: u32, dwaddressid: u32, hcall: u32, dwselect
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineSetTollList<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hlineapp: u32, dwdeviceid: u32, lpszaddressin: Param2, dwtolllistoption: u32) -> i32 {
@@ -21678,6 +22687,7 @@ pub unsafe fn lineSetTollList<'a, Param2: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineSetTollListA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hlineapp: u32, dwdeviceid: u32, lpszaddressin: Param2, dwtolllistoption: u32) -> i32 {
@@ -21692,6 +22702,7 @@ pub unsafe fn lineSetTollListA<'a, Param2: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineSetTollListW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlineapp: u32, dwdeviceid: u32, lpszaddressinw: Param2, dwtolllistoption: u32) -> i32 {
@@ -21706,6 +22717,7 @@ pub unsafe fn lineSetTollListW<'a, Param2: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetupConference(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
@@ -21719,6 +22731,7 @@ pub unsafe fn lineSetupConference(hcall: u32, hline: u32, lphconfcall: *mut u32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetupConferenceA(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
@@ -21732,6 +22745,7 @@ pub unsafe fn lineSetupConferenceA(hcall: u32, hline: u32, lphconfcall: *mut u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetupConferenceW(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
@@ -21745,6 +22759,7 @@ pub unsafe fn lineSetupConferenceW(hcall: u32, hline: u32, lphconfcall: *mut u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetupTransfer(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
@@ -21758,6 +22773,7 @@ pub unsafe fn lineSetupTransfer(hcall: u32, lphconsultcall: *mut u32, lpcallpara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetupTransferA(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
@@ -21771,6 +22787,7 @@ pub unsafe fn lineSetupTransferA(hcall: u32, lphconsultcall: *mut u32, lpcallpar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSetupTransferW(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
     #[cfg(windows)]
@@ -21784,6 +22801,7 @@ pub unsafe fn lineSetupTransferW(hcall: u32, lphconsultcall: *mut u32, lpcallpar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineShutdown(hlineapp: u32) -> i32 {
     #[cfg(windows)]
@@ -21797,6 +22815,7 @@ pub unsafe fn lineShutdown(hlineapp: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineSwapHold(hactivecall: u32, hheldcall: u32) -> i32 {
     #[cfg(windows)]
@@ -21810,6 +22829,7 @@ pub unsafe fn lineSwapHold(hactivecall: u32, hheldcall: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineTranslateAddress<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: Param3, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32 {
@@ -21824,6 +22844,7 @@ pub unsafe fn lineTranslateAddress<'a, Param3: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineTranslateAddressA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: Param3, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32 {
@@ -21838,6 +22859,7 @@ pub unsafe fn lineTranslateAddressA<'a, Param3: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineTranslateAddressW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, lpszaddressin: Param3, dwcard: u32, dwtranslateoptions: u32, lptranslateoutput: *mut LINETRANSLATEOUTPUT) -> i32 {
@@ -21852,6 +22874,7 @@ pub unsafe fn lineTranslateAddressW<'a, Param3: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineTranslateDialog<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: Param3, lpszaddressin: Param4) -> i32 {
@@ -21866,6 +22889,7 @@ pub unsafe fn lineTranslateDialog<'a, Param3: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineTranslateDialogA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: Param3, lpszaddressin: Param4) -> i32 {
@@ -21880,6 +22904,7 @@ pub unsafe fn lineTranslateDialogA<'a, Param3: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineTranslateDialogW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, hwndowner: Param3, lpszaddressin: Param4) -> i32 {
@@ -21894,6 +22919,7 @@ pub unsafe fn lineTranslateDialogW<'a, Param3: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32 {
     #[cfg(windows)]
@@ -21907,6 +22933,7 @@ pub unsafe fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn lineUnhold(hcall: u32) -> i32 {
     #[cfg(windows)]
@@ -21920,6 +22947,7 @@ pub unsafe fn lineUnhold(hcall: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineUnpark<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3) -> i32 {
@@ -21934,6 +22962,7 @@ pub unsafe fn lineUnpark<'a, Param3: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineUnparkA<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3) -> i32 {
@@ -21948,6 +22977,7 @@ pub unsafe fn lineUnparkA<'a, Param3: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn lineUnparkW<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lpszdestaddress: Param3) -> i32 {
@@ -21963,6 +22993,7 @@ pub unsafe fn lineUnparkW<'a, Param3: ::windows::core::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct linereqmakecallW_tag {
     pub szDestAddress: [u16; 80],
     pub szAppName: [u16; 40],
@@ -21990,6 +23021,7 @@ impl ::core::default::Default for linereqmakecallW_tag {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct linereqmediacallW_tag {
     pub hWnd: super::super::Foundation::HWND,
@@ -22029,6 +23061,7 @@ impl ::core::default::Default for linereqmediacallW_tag {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneClose(hphone: u32) -> i32 {
     #[cfg(windows)]
@@ -22042,6 +23075,7 @@ pub unsafe fn phoneClose(hphone: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn phoneConfigDialog<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
@@ -22056,6 +23090,7 @@ pub unsafe fn phoneConfigDialog<'a, Param1: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn phoneConfigDialogA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
@@ -22070,6 +23105,7 @@ pub unsafe fn phoneConfigDialogA<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn phoneConfigDialogW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwdeviceid: u32, hwndowner: Param1, lpszdeviceclass: Param2) -> i32 {
@@ -22084,6 +23120,7 @@ pub unsafe fn phoneConfigDialogW<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneDevSpecific(hphone: u32, lpparams: *mut ::core::ffi::c_void, dwsize: u32) -> i32 {
     #[cfg(windows)]
@@ -22097,6 +23134,7 @@ pub unsafe fn phoneDevSpecific(hphone: u32, lpparams: *mut ::core::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneGetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32 {
     #[cfg(windows)]
@@ -22110,6 +23148,7 @@ pub unsafe fn phoneGetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneGetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32 {
     #[cfg(windows)]
@@ -22123,6 +23162,7 @@ pub unsafe fn phoneGetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneGetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32 {
     #[cfg(windows)]
@@ -22136,6 +23176,7 @@ pub unsafe fn phoneGetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneGetData(hphone: u32, dwdataid: u32, lpdata: *mut ::core::ffi::c_void, dwsize: u32) -> i32 {
     #[cfg(windows)]
@@ -22149,6 +23190,7 @@ pub unsafe fn phoneGetData(hphone: u32, dwdataid: u32, lpdata: *mut ::core::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneGetDevCaps(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32 {
     #[cfg(windows)]
@@ -22162,6 +23204,7 @@ pub unsafe fn phoneGetDevCaps(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneGetDevCapsA(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32 {
     #[cfg(windows)]
@@ -22175,6 +23218,7 @@ pub unsafe fn phoneGetDevCapsA(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneGetDevCapsW(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32 {
     #[cfg(windows)]
@@ -22188,6 +23232,7 @@ pub unsafe fn phoneGetDevCapsW(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneGetDisplay(hphone: u32, lpdisplay: *mut VARSTRING) -> i32 {
     #[cfg(windows)]
@@ -22201,6 +23246,7 @@ pub unsafe fn phoneGetDisplay(hphone: u32, lpdisplay: *mut VARSTRING) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneGetGain(hphone: u32, dwhookswitchdev: u32, lpdwgain: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -22214,6 +23260,7 @@ pub unsafe fn phoneGetGain(hphone: u32, dwhookswitchdev: u32, lpdwgain: *mut u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneGetHookSwitch(hphone: u32, lpdwhookswitchdevs: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -22227,6 +23274,7 @@ pub unsafe fn phoneGetHookSwitch(hphone: u32, lpdwhookswitchdevs: *mut u32) -> i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn phoneGetID<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
@@ -22241,6 +23289,7 @@ pub unsafe fn phoneGetID<'a, Param2: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn phoneGetIDA<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
@@ -22255,6 +23304,7 @@ pub unsafe fn phoneGetIDA<'a, Param2: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn phoneGetIDW<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdeviceclass: Param2) -> i32 {
@@ -22269,6 +23319,7 @@ pub unsafe fn phoneGetIDW<'a, Param2: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn phoneGetIcon<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
@@ -22283,6 +23334,7 @@ pub unsafe fn phoneGetIcon<'a, Param1: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn phoneGetIconA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
@@ -22297,6 +23349,7 @@ pub unsafe fn phoneGetIconA<'a, Param1: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn phoneGetIconW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwdeviceid: u32, lpszdeviceclass: Param1, lphicon: *mut isize) -> i32 {
@@ -22311,6 +23364,7 @@ pub unsafe fn phoneGetIconW<'a, Param1: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneGetLamp(hphone: u32, dwbuttonlampid: u32, lpdwlampmode: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -22324,6 +23378,7 @@ pub unsafe fn phoneGetLamp(hphone: u32, dwbuttonlampid: u32, lpdwlampmode: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneGetMessage(hphoneapp: u32, lpmessage: *mut PHONEMESSAGE, dwtimeout: u32) -> i32 {
     #[cfg(windows)]
@@ -22337,6 +23392,7 @@ pub unsafe fn phoneGetMessage(hphoneapp: u32, lpmessage: *mut PHONEMESSAGE, dwti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneGetRing(hphone: u32, lpdwringmode: *mut u32, lpdwvolume: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -22350,6 +23406,7 @@ pub unsafe fn phoneGetRing(hphone: u32, lpdwringmode: *mut u32, lpdwvolume: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneGetStatus(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32 {
     #[cfg(windows)]
@@ -22363,6 +23420,7 @@ pub unsafe fn phoneGetStatus(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneGetStatusA(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32 {
     #[cfg(windows)]
@@ -22376,6 +23434,7 @@ pub unsafe fn phoneGetStatusA(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneGetStatusMessages(hphone: u32, lpdwphonestates: *mut u32, lpdwbuttonmodes: *mut u32, lpdwbuttonstates: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -22389,6 +23448,7 @@ pub unsafe fn phoneGetStatusMessages(hphone: u32, lpdwphonestates: *mut u32, lpd
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneGetStatusW(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32 {
     #[cfg(windows)]
@@ -22402,6 +23462,7 @@ pub unsafe fn phoneGetStatusW(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -22415,6 +23476,7 @@ pub unsafe fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn phoneInitialize<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: PHONECALLBACK, lpszappname: Param3, lpdwnumdevs: *mut u32) -> i32 {
@@ -22429,6 +23491,7 @@ pub unsafe fn phoneInitialize<'a, Param1: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn phoneInitializeExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: PHONECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32 {
@@ -22443,6 +23506,7 @@ pub unsafe fn phoneInitializeExA<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn phoneInitializeExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lphphoneapp: *mut u32, hinstance: Param1, lpfncallback: PHONECALLBACK, lpszfriendlyappname: Param3, lpdwnumdevs: *mut u32, lpdwapiversion: *mut u32, lpphoneinitializeexparams: *mut PHONEINITIALIZEEXPARAMS) -> i32 {
@@ -22457,6 +23521,7 @@ pub unsafe fn phoneInitializeExW<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneNegotiateAPIVersion(hphoneapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut PHONEEXTENSIONID) -> i32 {
     #[cfg(windows)]
@@ -22470,6 +23535,7 @@ pub unsafe fn phoneNegotiateAPIVersion(hphoneapp: u32, dwdeviceid: u32, dwapilow
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneNegotiateExtVersion(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextlowversion: u32, dwexthighversion: u32, lpdwextversion: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -22483,6 +23549,7 @@ pub unsafe fn phoneNegotiateExtVersion(hphoneapp: u32, dwdeviceid: u32, dwapiver
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneOpen(hphoneapp: u32, dwdeviceid: u32, lphphone: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivilege: u32) -> i32 {
     #[cfg(windows)]
@@ -22496,6 +23563,7 @@ pub unsafe fn phoneOpen(hphoneapp: u32, dwdeviceid: u32, lphphone: *mut u32, dwa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneSetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32 {
     #[cfg(windows)]
@@ -22509,6 +23577,7 @@ pub unsafe fn phoneSetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneSetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32 {
     #[cfg(windows)]
@@ -22522,6 +23591,7 @@ pub unsafe fn phoneSetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneSetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32 {
     #[cfg(windows)]
@@ -22535,6 +23605,7 @@ pub unsafe fn phoneSetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneSetData(hphone: u32, dwdataid: u32, lpdata: *const ::core::ffi::c_void, dwsize: u32) -> i32 {
     #[cfg(windows)]
@@ -22548,6 +23619,7 @@ pub unsafe fn phoneSetData(hphone: u32, dwdataid: u32, lpdata: *const ::core::ff
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn phoneSetDisplay<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hphone: u32, dwrow: u32, dwcolumn: u32, lpsdisplay: Param3, dwsize: u32) -> i32 {
@@ -22562,6 +23634,7 @@ pub unsafe fn phoneSetDisplay<'a, Param3: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneSetGain(hphone: u32, dwhookswitchdev: u32, dwgain: u32) -> i32 {
     #[cfg(windows)]
@@ -22575,6 +23648,7 @@ pub unsafe fn phoneSetGain(hphone: u32, dwhookswitchdev: u32, dwgain: u32) -> i3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneSetHookSwitch(hphone: u32, dwhookswitchdevs: u32, dwhookswitchmode: u32) -> i32 {
     #[cfg(windows)]
@@ -22588,6 +23662,7 @@ pub unsafe fn phoneSetHookSwitch(hphone: u32, dwhookswitchdevs: u32, dwhookswitc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneSetLamp(hphone: u32, dwbuttonlampid: u32, dwlampmode: u32) -> i32 {
     #[cfg(windows)]
@@ -22601,6 +23676,7 @@ pub unsafe fn phoneSetLamp(hphone: u32, dwbuttonlampid: u32, dwlampmode: u32) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneSetRing(hphone: u32, dwringmode: u32, dwvolume: u32) -> i32 {
     #[cfg(windows)]
@@ -22614,6 +23690,7 @@ pub unsafe fn phoneSetRing(hphone: u32, dwringmode: u32, dwvolume: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneSetStatusMessages(hphone: u32, dwphonestates: u32, dwbuttonmodes: u32, dwbuttonstates: u32) -> i32 {
     #[cfg(windows)]
@@ -22627,6 +23704,7 @@ pub unsafe fn phoneSetStatusMessages(hphone: u32, dwphonestates: u32, dwbuttonmo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneSetVolume(hphone: u32, dwhookswitchdev: u32, dwvolume: u32) -> i32 {
     #[cfg(windows)]
@@ -22640,6 +23718,7 @@ pub unsafe fn phoneSetVolume(hphone: u32, dwhookswitchdev: u32, dwvolume: u32) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 #[inline]
 pub unsafe fn phoneShutdown(hphoneapp: u32) -> i32 {
     #[cfg(windows)]
@@ -22653,6 +23732,7 @@ pub unsafe fn phoneShutdown(hphoneapp: u32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn tapiGetLocationInfo(lpszcountrycode: super::super::Foundation::PSTR, lpszcitycode: super::super::Foundation::PSTR) -> i32 {
@@ -22667,6 +23747,7 @@ pub unsafe fn tapiGetLocationInfo(lpszcountrycode: super::super::Foundation::PST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn tapiGetLocationInfoA(lpszcountrycode: super::super::Foundation::PSTR, lpszcitycode: super::super::Foundation::PSTR) -> i32 {
@@ -22681,6 +23762,7 @@ pub unsafe fn tapiGetLocationInfoA(lpszcountrycode: super::super::Foundation::PS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn tapiGetLocationInfoW(lpszcountrycodew: super::super::Foundation::PWSTR, lpszcitycodew: super::super::Foundation::PWSTR) -> i32 {
@@ -22695,6 +23777,7 @@ pub unsafe fn tapiGetLocationInfoW(lpszcountrycodew: super::super::Foundation::P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn tapiRequestDrop<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>>(hwnd: Param0, wrequestid: Param1) -> i32 {
@@ -22709,6 +23792,7 @@ pub unsafe fn tapiRequestDrop<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn tapiRequestMakeCall<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszdestaddress: Param0, lpszappname: Param1, lpszcalledparty: Param2, lpszcomment: Param3) -> i32 {
@@ -22723,6 +23807,7 @@ pub unsafe fn tapiRequestMakeCall<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn tapiRequestMakeCallA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszdestaddress: Param0, lpszappname: Param1, lpszcalledparty: Param2, lpszcomment: Param3) -> i32 {
@@ -22737,6 +23822,7 @@ pub unsafe fn tapiRequestMakeCallA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn tapiRequestMakeCallW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszdestaddress: Param0, lpszappname: Param1, lpszcalledparty: Param2, lpszcomment: Param3) -> i32 {
@@ -22751,6 +23837,7 @@ pub unsafe fn tapiRequestMakeCallW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn tapiRequestMediaCall<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
@@ -22776,6 +23863,7 @@ pub unsafe fn tapiRequestMediaCall<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn tapiRequestMediaCallA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(
@@ -22801,6 +23889,7 @@ pub unsafe fn tapiRequestMediaCallA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn tapiRequestMediaCallW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param9: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(

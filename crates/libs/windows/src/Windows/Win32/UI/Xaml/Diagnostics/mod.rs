@@ -1,21 +1,38 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub type BaseValueSource = i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const BaseValueSourceUnknown: BaseValueSource = 0i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const BaseValueSourceDefault: BaseValueSource = 1i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const BaseValueSourceBuiltInStyle: BaseValueSource = 2i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const BaseValueSourceStyle: BaseValueSource = 3i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const BaseValueSourceLocal: BaseValueSource = 4i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const Inherited: BaseValueSource = 5i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const DefaultStyleTrigger: BaseValueSource = 6i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const TemplateTrigger: BaseValueSource = 7i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const StyleTrigger: BaseValueSource = 8i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const ImplicitStyleReference: BaseValueSource = 9i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const ParentTemplate: BaseValueSource = 10i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const ParentTemplateTrigger: BaseValueSource = 11i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const Animation: BaseValueSource = 12i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const Coercion: BaseValueSource = 13i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const BaseValueSourceVisualState: BaseValueSource = 14i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct BitmapDescription {
     pub Width: u32,
@@ -50,6 +67,7 @@ impl ::core::default::Default for BitmapDescription {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CollectionElementValue {
     pub Index: u32,
@@ -81,8 +99,10 @@ impl ::core::default::Default for CollectionElementValue {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const E_UNKNOWNTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144665560i32);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct EnumType {
     pub Name: super::super::super::Foundation::BSTR,
@@ -113,6 +133,7 @@ impl ::core::default::Default for EnumType {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 #[repr(transparent)]
 pub struct IBitmapData(::windows::core::IUnknown);
 impl IBitmapData {
@@ -182,6 +203,7 @@ pub struct IBitmapDataVtbl(
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbitmapdescription: *mut BitmapDescription) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 #[repr(transparent)]
 pub struct IVisualTreeService(::windows::core::IUnknown);
 impl IVisualTreeService {
@@ -286,6 +308,7 @@ pub struct IVisualTreeServiceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parent: u64, index: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parent: u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 #[repr(transparent)]
 pub struct IVisualTreeService2(::windows::core::IUnknown);
 impl IVisualTreeService2 {
@@ -431,6 +454,7 @@ pub struct IVisualTreeService2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourcedictionary: u64, key: u64, newvalue: u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: u64, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32, ppbitmapdata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 #[repr(transparent)]
 pub struct IVisualTreeService3(::windows::core::IUnknown);
 impl IVisualTreeService3 {
@@ -617,6 +641,7 @@ pub struct IVisualTreeService3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionaryhandle: u64, resourcekey: u64, resourcehandle: u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionaryhandle: u64, resourcekey: u64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 #[repr(transparent)]
 pub struct IVisualTreeServiceCallback(::windows::core::IUnknown);
 impl IVisualTreeServiceCallback {
@@ -669,6 +694,7 @@ pub struct IVisualTreeServiceCallbackVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relation: ParentChildRelation, element: ::core::mem::ManuallyDrop<VisualElement>, mutationtype: VisualMutationType) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 #[repr(transparent)]
 pub struct IVisualTreeServiceCallback2(::windows::core::IUnknown);
 impl IVisualTreeServiceCallback2 {
@@ -747,6 +773,7 @@ pub struct IVisualTreeServiceCallback2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: u64, elementstate: VisualElementState, context: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 #[repr(transparent)]
 pub struct IXamlDiagnostics(::windows::core::IUnknown);
 impl IXamlDiagnostics {
@@ -836,6 +863,7 @@ pub struct IXamlDiagnosticsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinitializationdata: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitializeXamlDiagnostic<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(endpointname: Param0, pid: u32, wszdllxamldiagnostics: Param2, wsztapdllname: Param3, tapclsid: Param4) -> ::windows::core::Result<()> {
@@ -850,6 +878,7 @@ pub unsafe fn InitializeXamlDiagnostic<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitializeXamlDiagnosticsEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(endpointname: Param0, pid: u32, wszdllxamldiagnostics: Param2, wsztapdllname: Param3, tapclsid: Param4, wszinitializationdata: Param5) -> ::windows::core::Result<()> {
@@ -864,6 +893,7 @@ pub unsafe fn InitializeXamlDiagnosticsEx<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 #[repr(transparent)]
 pub struct MetadataBit(pub i32);
 impl MetadataBit {
@@ -892,6 +922,7 @@ impl ::core::cmp::PartialEq for MetadataBit {
 }
 impl ::core::cmp::Eq for MetadataBit {}
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub struct ParentChildRelation {
     pub Parent: u64,
     pub Child: u64,
@@ -918,6 +949,7 @@ impl ::core::default::Default for ParentChildRelation {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PropertyChainSource {
     pub Handle: u64,
@@ -951,6 +983,7 @@ impl ::core::default::Default for PropertyChainSource {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PropertyChainValue {
     pub Index: u32,
@@ -999,13 +1032,20 @@ impl ::core::default::Default for PropertyChainValue {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub type RenderTargetBitmapOptions = i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const RenderTarget: RenderTargetBitmapOptions = 0i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const RenderTargetAndChildren: RenderTargetBitmapOptions = 1i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub type ResourceType = i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const ResourceTypeStatic: ResourceType = 0i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const ResourceTypeTheme: ResourceType = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SourceInfo {
     pub FileName: super::super::super::Foundation::BSTR,
@@ -1045,6 +1085,7 @@ impl ::core::default::Default for SourceInfo {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VisualElement {
     pub Handle: u64,
@@ -1077,10 +1118,17 @@ impl ::core::default::Default for VisualElement {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub type VisualElementState = i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const ErrorResolved: VisualElementState = 0i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const ErrorResourceNotFound: VisualElementState = 1i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const ErrorInvalidResource: VisualElementState = 2i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub type VisualMutationType = i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const Add: VisualMutationType = 0i32;
+#[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 pub const Remove: VisualMutationType = 1i32;

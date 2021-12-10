@@ -5,386 +5,600 @@ pub mod Dialogs;
 pub mod RichEdit;
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn BeginBufferedAnimation(hwnd: super::super::Foundation::HWND, hdctarget: super::super::Graphics::Gdi::HDC, prctarget: *const super::super::Foundation::RECT, dwformat: BP_BUFFERFORMAT, ppaintparams: *const BP_PAINTPARAMS, panimationparams: *const BP_ANIMATIONPARAMS, phdcfrom: *mut super::super::Graphics::Gdi::HDC, phdcto: *mut super::super::Graphics::Gdi::HDC) -> isize;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn BeginBufferedPaint(hdctarget: super::super::Graphics::Gdi::HDC, prctarget: *const super::super::Foundation::RECT, dwformat: BP_BUFFERFORMAT, ppaintparams: *const BP_PAINTPARAMS, phdc: *mut super::super::Graphics::Gdi::HDC) -> isize;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BeginPanningFeedback(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BufferedPaintClear(hbufferedpaint: isize, prc: *const super::super::Foundation::RECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn BufferedPaintInit() -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn BufferedPaintRenderAnimation(hwnd: super::super::Foundation::HWND, hdctarget: super::super::Graphics::Gdi::HDC) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BufferedPaintSetAlpha(hbufferedpaint: isize, prc: *const super::super::Foundation::RECT, alpha: u8) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn BufferedPaintStopAllAnimations(hwnd: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn BufferedPaintUnInit() -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CheckDlgButton(hdlg: super::super::Foundation::HWND, nidbutton: i32, ucheck: DLG_BUTTON_CHECK_STATE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CheckRadioButton(hdlg: super::super::Foundation::HWND, nidfirstbutton: i32, nidlastbutton: i32, nidcheckbutton: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn CloseThemeData(htheme: isize) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn CreateMappedBitmap(hinstance: super::super::Foundation::HINSTANCE, idbitmap: isize, wflags: u32, lpcolormap: *const COLORMAP, inummaps: i32) -> super::super::Graphics::Gdi::HBITMAP;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn CreatePropertySheetPageA(constpropsheetpagepointer: *mut PROPSHEETPAGEA) -> HPROPSHEETPAGE;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn CreatePropertySheetPageW(constpropsheetpagepointer: *mut PROPSHEETPAGEW) -> HPROPSHEETPAGE;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateStatusWindowA(style: i32, lpsztext: super::super::Foundation::PSTR, hwndparent: super::super::Foundation::HWND, wid: u32) -> super::super::Foundation::HWND;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateStatusWindowW(style: i32, lpsztext: super::super::Foundation::PWSTR, hwndparent: super::super::Foundation::HWND, wid: u32) -> super::super::Foundation::HWND;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub fn CreateSyntheticPointerDevice(pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, maxcount: u32, mode: POINTER_FEEDBACK_MODE) -> HSYNTHETICPOINTERDEVICE;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateToolbarEx(hwnd: super::super::Foundation::HWND, ws: u32, wid: u32, nbitmaps: i32, hbminst: super::super::Foundation::HINSTANCE, wbmid: usize, lpbuttons: *mut TBBUTTON, inumbuttons: i32, dxbutton: i32, dybutton: i32, dxbitmap: i32, dybitmap: i32, ustructsize: u32) -> super::super::Foundation::HWND;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateUpDownControl(dwstyle: u32, x: i32, y: i32, cx: i32, cy: i32, hparent: super::super::Foundation::HWND, nid: i32, hinst: super::super::Foundation::HINSTANCE, hbuddy: super::super::Foundation::HWND, nupper: i32, nlower: i32, npos: i32) -> super::super::Foundation::HWND;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn DPA_Clone(hdpa: HDPA, hdpanew: HDPA) -> HDPA;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn DPA_Create(citemgrow: i32) -> HDPA;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DPA_CreateEx(cpgrow: i32, hheap: super::super::Foundation::HANDLE) -> HDPA;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DPA_DeleteAllPtrs(hdpa: HDPA) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn DPA_DeletePtr(hdpa: HDPA, i: i32) -> *mut ::core::ffi::c_void;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DPA_Destroy(hdpa: HDPA) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn DPA_DestroyCallback(hdpa: HDPA, pfncb: PFNDAENUMCALLBACK, pdata: *const ::core::ffi::c_void);
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn DPA_EnumCallback(hdpa: HDPA, pfncb: PFNDAENUMCALLBACK, pdata: *const ::core::ffi::c_void);
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn DPA_GetPtr(hdpa: HDPA, i: isize) -> *mut ::core::ffi::c_void;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn DPA_GetPtrIndex(hdpa: HDPA, p: *const ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn DPA_GetSize(hdpa: HDPA) -> u64;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DPA_Grow(pdpa: HDPA, cp: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn DPA_InsertPtr(hdpa: HDPA, i: i32, p: *const ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn DPA_LoadStream(phdpa: *mut HDPA, pfn: PFNDPASTREAM, pstream: super::super::System::Com::IStream, pvinstdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DPA_Merge(hdpadest: HDPA, hdpasrc: HDPA, dwflags: u32, pfncompare: PFNDACOMPARE, pfnmerge: PFNDPAMERGE, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn DPA_SaveStream(hdpa: HDPA, pfn: PFNDPASTREAM, pstream: super::super::System::Com::IStream, pvinstdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DPA_Search(hdpa: HDPA, pfind: *const ::core::ffi::c_void, istart: i32, pfncompare: PFNDACOMPARE, lparam: super::super::Foundation::LPARAM, options: u32) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DPA_SetPtr(hdpa: HDPA, i: i32, p: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DPA_Sort(hdpa: HDPA, pfncompare: PFNDACOMPARE, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn DSA_Clone(hdsa: HDSA) -> HDSA;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn DSA_Create(cbitem: i32, citemgrow: i32) -> HDSA;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DSA_DeleteAllItems(hdsa: HDSA) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DSA_DeleteItem(hdsa: HDSA, i: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DSA_Destroy(hdsa: HDSA) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn DSA_DestroyCallback(hdsa: HDSA, pfncb: PFNDAENUMCALLBACK, pdata: *const ::core::ffi::c_void);
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn DSA_EnumCallback(hdsa: HDSA, pfncb: PFNDAENUMCALLBACK, pdata: *const ::core::ffi::c_void);
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DSA_GetItem(hdsa: HDSA, i: i32, pitem: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn DSA_GetItemPtr(hdsa: HDSA, i: i32) -> *mut ::core::ffi::c_void;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn DSA_GetSize(hdsa: HDSA) -> u64;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn DSA_InsertItem(hdsa: HDSA, i: i32, pitem: *const ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DSA_SetItem(hdsa: HDSA, i: i32, pitem: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DSA_Sort(pdsa: HDSA, pfncompare: PFNDACOMPARE, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DestroyPropertySheetPage(param0: HPROPSHEETPAGE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn DestroySyntheticPointerDevice(device: HSYNTHETICPOINTERDEVICE);
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DlgDirListA(hdlg: super::super::Foundation::HWND, lppathspec: super::super::Foundation::PSTR, nidlistbox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DlgDirListComboBoxA(hdlg: super::super::Foundation::HWND, lppathspec: super::super::Foundation::PSTR, nidcombobox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DlgDirListComboBoxW(hdlg: super::super::Foundation::HWND, lppathspec: super::super::Foundation::PWSTR, nidcombobox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DlgDirListW(hdlg: super::super::Foundation::HWND, lppathspec: super::super::Foundation::PWSTR, nidlistbox: i32, nidstaticpath: i32, ufiletype: DLG_DIR_LIST_FILE_TYPE) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DlgDirSelectComboBoxExA(hwnddlg: super::super::Foundation::HWND, lpstring: super::super::Foundation::PSTR, cchout: i32, idcombobox: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DlgDirSelectComboBoxExW(hwnddlg: super::super::Foundation::HWND, lpstring: super::super::Foundation::PWSTR, cchout: i32, idcombobox: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DlgDirSelectExA(hwnddlg: super::super::Foundation::HWND, lpstring: super::super::Foundation::PSTR, chcount: i32, idlistbox: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DlgDirSelectExW(hwnddlg: super::super::Foundation::HWND, lpstring: super::super::Foundation::PWSTR, chcount: i32, idlistbox: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DrawInsert(handparent: super::super::Foundation::HWND, hlb: super::super::Foundation::HWND, nitem: i32);
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn DrawShadowText(hdc: super::super::Graphics::Gdi::HDC, psztext: super::super::Foundation::PWSTR, cch: u32, prc: *const super::super::Foundation::RECT, dwflags: u32, crtext: u32, crshadow: u32, ixoffset: i32, iyoffset: i32) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn DrawStatusTextA(hdc: super::super::Graphics::Gdi::HDC, lprc: *mut super::super::Foundation::RECT, psztext: super::super::Foundation::PSTR, uflags: u32);
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn DrawStatusTextW(hdc: super::super::Graphics::Gdi::HDC, lprc: *mut super::super::Foundation::RECT, psztext: super::super::Foundation::PWSTR, uflags: u32);
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn DrawThemeBackground(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, pcliprect: *const super::super::Foundation::RECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn DrawThemeBackgroundEx(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, poptions: *const DTBGOPTS) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn DrawThemeEdge(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, pdestrect: *const super::super::Foundation::RECT, uedge: u32, uflags: u32, pcontentrect: *mut super::super::Foundation::RECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn DrawThemeIcon(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, himl: HIMAGELIST, iimageindex: i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn DrawThemeParentBackground(hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC, prc: *const super::super::Foundation::RECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn DrawThemeParentBackgroundEx(hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC, dwflags: DRAW_THEME_PARENT_BACKGROUND_FLAGS, prc: *const super::super::Foundation::RECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn DrawThemeText(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: super::super::Foundation::PWSTR, cchtext: i32, dwtextflags: u32, dwtextflags2: u32, prect: *const super::super::Foundation::RECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn DrawThemeTextEx(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: super::super::Foundation::PWSTR, cchtext: i32, dwtextflags: u32, prect: *mut super::super::Foundation::RECT, poptions: *const DTTOPTS) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn EnableScrollBar(hwnd: super::super::Foundation::HWND, wsbflags: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, warrows: ENABLE_SCROLL_BAR_ARROWS) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EnableThemeDialogTexture(hwnd: super::super::Foundation::HWND, dwflags: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EnableTheming(fenable: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EndBufferedAnimation(hbpanimation: isize, fupdatetarget: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EndBufferedPaint(hbufferedpaint: isize, fupdatetarget: super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EndPanningFeedback(hwnd: super::super::Foundation::HWND, fanimateback: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EvaluateProximityToPolygon(numvertices: u32, controlpolygon: *const super::super::Foundation::POINT, phittestinginput: *const TOUCH_HIT_TESTING_INPUT, pproximityeval: *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn EvaluateProximityToRect(controlboundingbox: *const super::super::Foundation::RECT, phittestinginput: *const TOUCH_HIT_TESTING_INPUT, pproximityeval: *mut TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FlatSB_EnableScrollBar(param0: super::super::Foundation::HWND, param1: i32, param2: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn FlatSB_GetScrollInfo(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: *mut super::WindowsAndMessaging::SCROLLINFO) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn FlatSB_GetScrollPos(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FlatSB_GetScrollProp(param0: super::super::Foundation::HWND, propindex: WSB_PROP, param2: *mut i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn FlatSB_GetScrollRange(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: *mut i32, param3: *mut i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn FlatSB_SetScrollInfo(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, psi: *mut super::WindowsAndMessaging::SCROLLINFO, fredraw: super::super::Foundation::BOOL) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn FlatSB_SetScrollPos(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, pos: i32, fredraw: super::super::Foundation::BOOL) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FlatSB_SetScrollProp(param0: super::super::Foundation::HWND, index: WSB_PROP, newvalue: isize, param3: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn FlatSB_SetScrollRange(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, min: i32, max: i32, fredraw: super::super::Foundation::BOOL) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn FlatSB_ShowScrollBar(param0: super::super::Foundation::HWND, code: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, param2: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn GetBufferedPaintBits(hbufferedpaint: isize, ppbbuffer: *mut *mut super::super::Graphics::Gdi::RGBQUAD, pcxrow: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn GetBufferedPaintDC(hbufferedpaint: isize) -> super::super::Graphics::Gdi::HDC;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn GetBufferedPaintTargetDC(hbufferedpaint: isize) -> super::super::Graphics::Gdi::HDC;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetBufferedPaintTargetRect(hbufferedpaint: isize, prc: *mut super::super::Foundation::RECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetComboBoxInfo(hwndcombo: super::super::Foundation::HWND, pcbi: *mut COMBOBOXINFO) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetCurrentThemeName(pszthemefilename: super::super::Foundation::PWSTR, cchmaxnamechars: i32, pszcolorbuff: super::super::Foundation::PWSTR, cchmaxcolorchars: i32, pszsizebuff: super::super::Foundation::PWSTR, cchmaxsizechars: i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetEffectiveClientRect(hwnd: super::super::Foundation::HWND, lprc: *mut super::super::Foundation::RECT, lpinfo: *const i32);
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetListBoxInfo(hwnd: super::super::Foundation::HWND) -> u32;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn GetMUILanguage() -> u16;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn GetThemeAnimationProperty(htheme: isize, istoryboardid: i32, itargetid: i32, eproperty: TA_PROPERTY, pvproperty: *mut ::core::ffi::c_void, cbsize: u32, pcbsizeout: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn GetThemeAnimationTransform(htheme: isize, istoryboardid: i32, itargetid: i32, dwtransformindex: u32, ptransform: *mut TA_TRANSFORM, cbsize: u32, pcbsizeout: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn GetThemeAppProperties() -> u32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn GetThemeBackgroundContentRect(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, pboundingrect: *const super::super::Foundation::RECT, pcontentrect: *mut super::super::Foundation::RECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn GetThemeBackgroundExtent(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, pcontentrect: *const super::super::Foundation::RECT, pextentrect: *mut super::super::Foundation::RECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn GetThemeBackgroundRegion(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prect: *const super::super::Foundation::RECT, pregion: *mut super::super::Graphics::Gdi::HRGN) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn GetThemeBitmap(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, dwflags: GET_THEME_BITMAP_FLAGS, phbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetThemeBool(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pfval: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn GetThemeColor(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pcolor: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetThemeDocumentationProperty(pszthemename: super::super::Foundation::PWSTR, pszpropertyname: super::super::Foundation::PWSTR, pszvaluebuff: super::super::Foundation::PWSTR, cchmaxvalchars: i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn GetThemeEnumValue(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pival: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetThemeFilename(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pszthemefilename: super::super::Foundation::PWSTR, cchmaxbuffchars: i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn GetThemeFont(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, ipropid: i32, pfont: *mut super::super::Graphics::Gdi::LOGFONTW) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn GetThemeInt(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pival: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn GetThemeIntList(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pintlist: *mut INTLIST) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn GetThemeMargins(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, ipropid: i32, prc: *const super::super::Foundation::RECT, pmargins: *mut MARGINS) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn GetThemeMetric(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pival: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn GetThemePartSize(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, prc: *const super::super::Foundation::RECT, esize: THEMESIZE, psz: *mut super::super::Foundation::SIZE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetThemePosition(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, ppoint: *mut super::super::Foundation::POINT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn GetThemePropertyOrigin(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, porigin: *mut PROPERTYORIGIN) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetThemeRect(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, prect: *mut super::super::Foundation::RECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetThemeStream(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, ppvstream: *mut *mut ::core::ffi::c_void, pcbstream: *mut u32, hinst: super::super::Foundation::HINSTANCE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetThemeString(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pszbuff: super::super::Foundation::PWSTR, cchmaxbuffchars: i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetThemeSysBool(htheme: isize, iboolid: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn GetThemeSysColor(htheme: isize, icolorid: i32) -> u32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn GetThemeSysColorBrush(htheme: isize, icolorid: THEME_PROPERTY_SYMBOL_ID) -> super::super::Graphics::Gdi::HBRUSH;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn GetThemeSysFont(htheme: isize, ifontid: THEME_PROPERTY_SYMBOL_ID, plf: *mut super::super::Graphics::Gdi::LOGFONTW) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn GetThemeSysInt(htheme: isize, iintid: i32, pivalue: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn GetThemeSysSize(htheme: isize, isizeid: i32) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetThemeSysString(htheme: isize, istringid: THEME_PROPERTY_SYMBOL_ID, pszstringbuff: super::super::Foundation::PWSTR, cchmaxstringchars: i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn GetThemeTextExtent(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, psztext: super::super::Foundation::PWSTR, cchcharcount: i32, dwtextflags: u32, pboundingrect: *const super::super::Foundation::RECT, pextentrect: *mut super::super::Foundation::RECT) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn GetThemeTextMetrics(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, ptm: *mut super::super::Graphics::Gdi::TEXTMETRICW) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn GetThemeTimingFunction(htheme: isize, itimingfunctionid: i32, ptimingfunction: *mut TA_TIMINGFUNCTION, cbsize: u32, pcbsizeout: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn GetThemeTransitionDuration(htheme: isize, ipartid: i32, istateidfrom: i32, istateidto: i32, ipropid: i32, pdwduration: *mut u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetWindowFeedbackSetting(hwnd: super::super::Foundation::HWND, feedback: FEEDBACK_TYPE, dwflags: u32, psize: *mut u32, config: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetWindowTheme(hwnd: super::super::Foundation::HWND) -> isize;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn HIMAGELIST_QueryInterface(himl: HIMAGELIST, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn HitTestThemeBackground(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, dwoptions: u32, prect: *const super::super::Foundation::RECT, hrgn: super::super::Graphics::Gdi::HRGN, pttest: super::super::Foundation::POINT, pwhittestcode: *mut u16) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn ImageList_Add(himl: HIMAGELIST, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn ImageList_AddMasked(himl: HIMAGELIST, hbmimage: super::super::Graphics::Gdi::HBITMAP, crmask: u32) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageList_BeginDrag(himltrack: HIMAGELIST, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn ImageList_CoCreateInstance(rclsid: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageList_Copy(himldst: HIMAGELIST, idst: i32, himlsrc: HIMAGELIST, isrc: i32, uflags: IMAGE_LIST_COPY_FLAGS) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn ImageList_Create(cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> HIMAGELIST;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageList_Destroy(himl: HIMAGELIST) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageList_DragEnter(hwndlock: super::super::Foundation::HWND, x: i32, y: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageList_DragLeave(hwndlock: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageList_DragMove(x: i32, y: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageList_DragShowNolock(fshow: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn ImageList_Draw(himl: HIMAGELIST, i: i32, hdcdst: super::super::Graphics::Gdi::HDC, x: i32, y: i32, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn ImageList_DrawEx(himl: HIMAGELIST, i: i32, hdcdst: super::super::Graphics::Gdi::HDC, x: i32, y: i32, dx: i32, dy: i32, rgbbk: u32, rgbfg: u32, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn ImageList_DrawIndirect(pimldp: *const IMAGELISTDRAWPARAMS) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn ImageList_Duplicate(himl: HIMAGELIST) -> HIMAGELIST;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn ImageList_EndDrag();
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn ImageList_GetBkColor(himl: HIMAGELIST) -> u32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageList_GetDragImage(ppt: *mut super::super::Foundation::POINT, ppthotspot: *mut super::super::Foundation::POINT) -> HIMAGELIST;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub fn ImageList_GetIcon(himl: HIMAGELIST, i: i32, flags: u32) -> super::WindowsAndMessaging::HICON;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageList_GetIconSize(himl: HIMAGELIST, cx: *mut i32, cy: *mut i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn ImageList_GetImageCount(himl: HIMAGELIST) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn ImageList_GetImageInfo(himl: HIMAGELIST, i: i32, pimageinfo: *mut IMAGEINFO) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn ImageList_LoadImageA(hi: super::super::Foundation::HINSTANCE, lpbmp: super::super::Foundation::PSTR, cx: i32, cgrow: i32, crmask: u32, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn ImageList_LoadImageW(hi: super::super::Foundation::HINSTANCE, lpbmp: super::super::Foundation::PWSTR, cx: i32, cgrow: i32, crmask: u32, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn ImageList_Merge(himl1: HIMAGELIST, i1: i32, himl2: HIMAGELIST, i2: i32, dx: i32, dy: i32) -> HIMAGELIST;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn ImageList_Read(pstm: super::super::System::Com::IStream) -> HIMAGELIST;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn ImageList_ReadEx(dwflags: u32, pstm: super::super::System::Com::IStream, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageList_Remove(himl: HIMAGELIST, i: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn ImageList_Replace(himl: HIMAGELIST, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub fn ImageList_ReplaceIcon(himl: HIMAGELIST, i: i32, hicon: super::WindowsAndMessaging::HICON) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn ImageList_SetBkColor(himl: HIMAGELIST, clrbk: u32) -> u32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageList_SetDragCursorImage(himldrag: HIMAGELIST, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageList_SetIconSize(himl: HIMAGELIST, cx: i32, cy: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageList_SetImageCount(himl: HIMAGELIST, unewcount: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImageList_SetOverlayImage(himl: HIMAGELIST, iimage: i32, ioverlay: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub fn ImageList_Write(himl: HIMAGELIST, pstm: super::super::System::Com::IStream) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub fn ImageList_WriteEx(himl: HIMAGELIST, dwflags: u32, pstm: super::super::System::Com::IStream) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn InitCommonControls();
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn InitCommonControlsEx(picce: *const INITCOMMONCONTROLSEX) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn InitMUILanguage(uilang: u16);
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn InitializeFlatSB(param0: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsAppThemed() -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsCharLowerW(ch: u16) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsCompositionActive() -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsDlgButtonChecked(hdlg: super::super::Foundation::HWND, nidbutton: i32) -> u32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsThemeActive() -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsThemeBackgroundPartiallyTransparent(htheme: isize, ipartid: i32, istateid: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsThemeDialogTextureEnabled(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsThemePartDefined(htheme: isize, ipartid: i32, istateid: i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LBItemFromPt(hlb: super::super::Foundation::HWND, pt: super::super::Foundation::POINT, bautoscroll: super::super::Foundation::BOOL) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn LoadIconMetric(hinst: super::super::Foundation::HINSTANCE, pszname: super::super::Foundation::PWSTR, lims: _LI_METRIC, phico: *mut super::WindowsAndMessaging::HICON) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn LoadIconWithScaleDown(hinst: super::super::Foundation::HINSTANCE, pszname: super::super::Foundation::PWSTR, cx: i32, cy: i32, phico: *mut super::WindowsAndMessaging::HICON) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MakeDragList(hlb: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn MenuHelp(umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, hmainmenu: super::WindowsAndMessaging::HMENU, hinst: super::super::Foundation::HINSTANCE, hwndstatus: super::super::Foundation::HWND, lpwids: *const u32);
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn OpenThemeData(hwnd: super::super::Foundation::HWND, pszclasslist: super::super::Foundation::PWSTR) -> isize;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn OpenThemeDataEx(hwnd: super::super::Foundation::HWND, pszclasslist: super::super::Foundation::PWSTR, dwflags: OPEN_THEME_DATA_FLAGS) -> isize;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PackTouchHitTestingProximityEvaluation(phittestinginput: *const TOUCH_HIT_TESTING_INPUT, pproximityeval: *const TOUCH_HIT_TESTING_PROXIMITY_EVALUATION) -> super::super::Foundation::LRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn PropertySheetA(param0: *mut PROPSHEETHEADERA_V2) -> isize;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn PropertySheetW(param0: *mut PROPSHEETHEADERW_V2) -> isize;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegisterPointerDeviceNotifications(window: super::super::Foundation::HWND, notifyrange: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegisterTouchHitTestingWindow(hwnd: super::super::Foundation::HWND, value: u32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn SetScrollInfo(hwnd: super::super::Foundation::HWND, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, lpsi: *const super::WindowsAndMessaging::SCROLLINFO, redraw: super::super::Foundation::BOOL) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn SetScrollPos(hwnd: super::super::Foundation::HWND, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, npos: i32, bredraw: super::super::Foundation::BOOL) -> i32;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn SetScrollRange(hwnd: super::super::Foundation::HWND, nbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, nminpos: i32, nmaxpos: i32, bredraw: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub fn SetThemeAppProperties(dwflags: u32);
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetWindowFeedbackSetting(hwnd: super::super::Foundation::HWND, feedback: FEEDBACK_TYPE, dwflags: u32, size: u32, configuration: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetWindowTheme(hwnd: super::super::Foundation::HWND, pszsubappname: super::super::Foundation::PWSTR, pszsubidlist: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetWindowThemeAttribute(hwnd: super::super::Foundation::HWND, eattribute: WINDOWTHEMEATTRIBUTETYPE, pvattribute: *const ::core::ffi::c_void, cbattribute: u32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ShowHideMenuCtl(hwnd: super::super::Foundation::HWND, uflags: usize, lpinfo: *const i32) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn ShowScrollBar(hwnd: super::super::Foundation::HWND, wbar: super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, bshow: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn Str_SetPtrW(ppsz: *mut super::super::Foundation::PWSTR, psz: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TaskDialog(hwndowner: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, pszwindowtitle: super::super::Foundation::PWSTR, pszmaininstruction: super::super::Foundation::PWSTR, pszcontent: super::super::Foundation::PWSTR, dwcommonbuttons: TASKDIALOG_COMMON_BUTTON_FLAGS, pszicon: super::super::Foundation::PWSTR, pnbutton: *mut i32) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub fn TaskDialogIndirect(ptaskconfig: *const TASKDIALOGCONFIG, pnbutton: *mut i32, pnradiobutton: *mut i32, pfverificationflagchecked: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn UninitializeFlatSB(param0: super::super::Foundation::HWND) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn UpdatePanningFeedback(hwnd: super::super::Foundation::HWND, ltotaloverpanoffsetx: i32, ltotaloverpanoffsety: i32, fininertia: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
 }
@@ -424,15 +638,24 @@ pub const BCSS_ALIGNLEFT: u32 = 4u32;
 pub const BCSS_IMAGE: u32 = 8u32;
 pub const BCSS_NOSPLIT: u32 = 1u32;
 pub const BCSS_STRETCH: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type BGTYPE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BT_IMAGEFILE: BGTYPE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BT_BORDERFILL: BGTYPE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BT_NONE: BGTYPE = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type BORDERTYPE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BT_RECT: BORDERTYPE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BT_ROUNDRECT: BORDERTYPE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BT_ELLIPSE: BORDERTYPE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct BP_ANIMATIONPARAMS {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -445,17 +668,28 @@ impl ::core::clone::Clone for BP_ANIMATIONPARAMS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type BP_ANIMATIONSTYLE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BPAS_NONE: BP_ANIMATIONSTYLE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BPAS_LINEAR: BP_ANIMATIONSTYLE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BPAS_CUBIC: BP_ANIMATIONSTYLE = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BPAS_SINE: BP_ANIMATIONSTYLE = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type BP_BUFFERFORMAT = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BPBF_COMPATIBLEBITMAP: BP_BUFFERFORMAT = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BPBF_DIB: BP_BUFFERFORMAT = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BPBF_TOPDOWNDIB: BP_BUFFERFORMAT = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BPBF_TOPDOWNMONODIB: BP_BUFFERFORMAT = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct BP_PAINTPARAMS {
     pub cbSize: u32,
@@ -471,9 +705,13 @@ impl ::core::clone::Clone for BP_PAINTPARAMS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type BP_PAINTPARAMS_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BPPF_ERASE: BP_PAINTPARAMS_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BPPF_NOCLIP: BP_PAINTPARAMS_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BPPF_NONCLIENT: BP_PAINTPARAMS_FLAGS = 4u32;
 pub const BST_DROPDOWNPUSHED: u32 = 1024u32;
 pub const BST_HOT: u32 = 512u32;
@@ -491,6 +729,7 @@ pub const BTNS_SEP: u32 = 1u32;
 pub const BTNS_SHOWTEXT: u32 = 64u32;
 pub const BTNS_WHOLEDROPDOWN: u32 = 128u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BUTTON_IMAGELIST {
     pub himl: HIMAGELIST,
@@ -505,13 +744,20 @@ impl ::core::clone::Clone for BUTTON_IMAGELIST {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type BUTTON_IMAGELIST_ALIGN = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BUTTON_IMAGELIST_ALIGN_LEFT: BUTTON_IMAGELIST_ALIGN = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BUTTON_IMAGELIST_ALIGN_RIGHT: BUTTON_IMAGELIST_ALIGN = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BUTTON_IMAGELIST_ALIGN_TOP: BUTTON_IMAGELIST_ALIGN = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BUTTON_IMAGELIST_ALIGN_BOTTOM: BUTTON_IMAGELIST_ALIGN = 3u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BUTTON_IMAGELIST_ALIGN_CENTER: BUTTON_IMAGELIST_ALIGN = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BUTTON_SPLITINFO {
     pub mask: u32,
@@ -569,6 +815,7 @@ pub const CCHCCCLASS: u32 = 32u32;
 pub const CCHCCDESC: u32 = 32u32;
 pub const CCHCCTEXT: u32 = 256u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CCINFOA {
     pub szClass: [super::super::Foundation::CHAR; 32],
@@ -596,6 +843,7 @@ impl ::core::clone::Clone for CCINFOA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CCINFOW {
     pub szClass: [u16; 32],
@@ -636,6 +884,7 @@ pub const CCM_SETUNICODEFORMAT: u32 = 8197u32;
 pub const CCM_SETVERSION: u32 = 8199u32;
 pub const CCM_SETWINDOWTHEME: u32 = 8203u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CCSTYLEA {
     pub flStyle: u32,
@@ -653,6 +902,7 @@ impl ::core::clone::Clone for CCSTYLEA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CCSTYLEFLAGA {
     pub flStyle: u32,
@@ -668,6 +918,7 @@ impl ::core::clone::Clone for CCSTYLEFLAGA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CCSTYLEFLAGW {
     pub flStyle: u32,
@@ -683,6 +934,7 @@ impl ::core::clone::Clone for CCSTYLEFLAGW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct CCSTYLEW {
     pub flStyle: u32,
     pub flExtStyle: u32,
@@ -728,17 +980,24 @@ pub const CDRF_NOTIFYPOSTPAINT: u32 = 16u32;
 pub const CDRF_NOTIFYSUBITEMDRAW: u32 = 32u32;
 pub const CDRF_SKIPDEFAULT: u32 = 4u32;
 pub const CDRF_SKIPPOSTPAINT: u32 = 256u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type CLOCKPARTS = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CLP_TIME: CLOCKPARTS = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type CLOCKSTATES = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CLS_NORMAL: CLOCKSTATES = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CLS_HOT: CLOCKSTATES = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CLS_PRESSED: CLOCKSTATES = 3i32;
 pub const CLR_DEFAULT: i32 = -16777216i32;
 pub const CLR_HILIGHT: i32 = -16777216i32;
 pub const CLR_NONE: i32 = -1i32;
 pub const CMB_MASKED: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct COLORMAP {
     pub from: u32,
     pub to: u32,
@@ -751,6 +1010,7 @@ impl ::core::clone::Clone for COLORMAP {
 }
 pub const COLORMGMTDLGORD: u32 = 1551u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct COLORSCHEME {
     pub dwSize: u32,
     pub clrBtnHighlight: u32,
@@ -763,6 +1023,7 @@ impl ::core::clone::Clone for COLORSCHEME {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COMBOBOXEXITEMA {
     pub mask: COMBOBOX_EX_ITEM_FLAGS,
@@ -784,6 +1045,7 @@ impl ::core::clone::Clone for COMBOBOXEXITEMA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COMBOBOXEXITEMW {
     pub mask: COMBOBOX_EX_ITEM_FLAGS,
@@ -805,6 +1067,7 @@ impl ::core::clone::Clone for COMBOBOXEXITEMW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COMBOBOXINFO {
     pub cbSize: u32,
@@ -823,22 +1086,37 @@ impl ::core::clone::Clone for COMBOBOXINFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type COMBOBOXINFO_BUTTON_STATE = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const STATE_SYSTEM_INVISIBLE: COMBOBOXINFO_BUTTON_STATE = 32768u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const STATE_SYSTEM_PRESSED: COMBOBOXINFO_BUTTON_STATE = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const STATE_SYSTEM_FOCUSABLE: COMBOBOXINFO_BUTTON_STATE = 1048576u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const STATE_SYSTEM_OFFSCREEN: COMBOBOXINFO_BUTTON_STATE = 65536u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const STATE_SYSTEM_UNAVAILABLE: COMBOBOXINFO_BUTTON_STATE = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type COMBOBOX_EX_ITEM_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CBEIF_DI_SETITEM: COMBOBOX_EX_ITEM_FLAGS = 268435456u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CBEIF_IMAGE: COMBOBOX_EX_ITEM_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CBEIF_INDENT: COMBOBOX_EX_ITEM_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CBEIF_LPARAM: COMBOBOX_EX_ITEM_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CBEIF_OVERLAY: COMBOBOX_EX_ITEM_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CBEIF_SELECTEDIMAGE: COMBOBOX_EX_ITEM_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CBEIF_TEXT: COMBOBOX_EX_ITEM_FLAGS = 1u32;
 pub const COMCTL32_VERSION: u32 = 6u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COMPAREITEMSTRUCT {
     pub CtlType: u32,
@@ -858,11 +1136,16 @@ impl ::core::clone::Clone for COMPAREITEMSTRUCT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type CONTENTALIGNMENT = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CA_LEFT: CONTENTALIGNMENT = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CA_CENTER: CONTENTALIGNMENT = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CA_RIGHT: CONTENTALIGNMENT = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DATETIMEPICKERINFO {
     pub cbSize: u32,
@@ -885,6 +1168,7 @@ impl ::core::clone::Clone for DATETIMEPICKERINFO {
 pub const DA_ERR: i32 = -1i32;
 pub const DA_LAST: u32 = 2147483647u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DELETEITEMSTRUCT {
     pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
@@ -901,33 +1185,52 @@ impl ::core::clone::Clone for DELETEITEMSTRUCT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type DLG_BUTTON_CHECK_STATE = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BST_CHECKED: DLG_BUTTON_CHECK_STATE = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BST_INDETERMINATE: DLG_BUTTON_CHECK_STATE = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const BST_UNCHECKED: DLG_BUTTON_CHECK_STATE = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type DLG_DIR_LIST_FILE_TYPE = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const DDL_ARCHIVE: DLG_DIR_LIST_FILE_TYPE = 32u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const DDL_DIRECTORY: DLG_DIR_LIST_FILE_TYPE = 16u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const DDL_DRIVES: DLG_DIR_LIST_FILE_TYPE = 16384u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const DDL_EXCLUSIVE: DLG_DIR_LIST_FILE_TYPE = 32768u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const DDL_HIDDEN: DLG_DIR_LIST_FILE_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const DDL_READONLY: DLG_DIR_LIST_FILE_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const DDL_READWRITE: DLG_DIR_LIST_FILE_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const DDL_SYSTEM: DLG_DIR_LIST_FILE_TYPE = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const DDL_POSTMSGS: DLG_DIR_LIST_FILE_TYPE = 8192u32;
 pub const DL_COPYCURSOR: u32 = 2u32;
 pub const DL_CURSORSET: u32 = 0u32;
 pub const DL_MOVECURSOR: u32 = 3u32;
 pub const DL_STOPCURSOR: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type DPAMM_MESSAGE = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const DPAMM_MERGE: DPAMM_MESSAGE = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const DPAMM_DELETE: DPAMM_MESSAGE = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const DPAMM_INSERT: DPAMM_MESSAGE = 3u32;
 pub const DPAM_INTERSECT: u32 = 8u32;
 pub const DPAM_NORMAL: u32 = 2u32;
 pub const DPAM_SORTED: u32 = 1u32;
 pub const DPAM_UNION: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct DPASTREAMINFO {
     pub iPos: i32,
     pub pvItem: *mut ::core::ffi::c_void,
@@ -944,6 +1247,7 @@ pub const DPAS_SORTED: u32 = 1u32;
 pub const DPA_APPEND: u32 = 2147483647u32;
 pub const DPA_ERR: i32 = -1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRAGLISTINFO {
     pub uNotification: DRAGLISTINFO_NOTIFICATION_FLAGS,
@@ -958,12 +1262,18 @@ impl ::core::clone::Clone for DRAGLISTINFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type DRAGLISTINFO_NOTIFICATION_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const DL_BEGINDRAG: DRAGLISTINFO_NOTIFICATION_FLAGS = 1157u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const DL_CANCELDRAG: DRAGLISTINFO_NOTIFICATION_FLAGS = 1160u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const DL_DRAGGING: DRAGLISTINFO_NOTIFICATION_FLAGS = 1158u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const DL_DROPPED: DRAGLISTINFO_NOTIFICATION_FLAGS = 1159u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DRAWITEMSTRUCT {
     pub CtlType: DRAWITEMSTRUCT_CTL_TYPE,
@@ -984,21 +1294,34 @@ impl ::core::clone::Clone for DRAWITEMSTRUCT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type DRAWITEMSTRUCT_CTL_TYPE = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ODT_BUTTON: DRAWITEMSTRUCT_CTL_TYPE = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ODT_COMBOBOX: DRAWITEMSTRUCT_CTL_TYPE = 3u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ODT_LISTBOX: DRAWITEMSTRUCT_CTL_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ODT_LISTVIEW: DRAWITEMSTRUCT_CTL_TYPE = 102u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ODT_MENU: DRAWITEMSTRUCT_CTL_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ODT_STATIC: DRAWITEMSTRUCT_CTL_TYPE = 5u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ODT_TAB: DRAWITEMSTRUCT_CTL_TYPE = 101u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type DRAW_THEME_PARENT_BACKGROUND_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const DTPB_WINDOWDC: DRAW_THEME_PARENT_BACKGROUND_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const DTPB_USECTLCOLORSTATIC: DRAW_THEME_PARENT_BACKGROUND_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const DTPB_USEERASEBKGND: DRAW_THEME_PARENT_BACKGROUND_FLAGS = 4u32;
 pub const DSA_APPEND: u32 = 2147483647u32;
 pub const DSA_ERR: i32 = -1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DTBGOPTS {
     pub dwSize: u32,
@@ -1047,6 +1370,7 @@ pub const DTS_SHOWNONE: u32 = 2u32;
 pub const DTS_TIMEFORMAT: u32 = 9u32;
 pub const DTS_UPDOWN: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DTTOPTS {
     pub dwSize: u32,
@@ -1073,20 +1397,30 @@ impl ::core::clone::Clone for DTTOPTS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type DTT_CALLBACK_PROC = ::core::option::Option<unsafe extern "system" fn(hdc: super::super::Graphics::Gdi::HDC, psztext: super::super::Foundation::PWSTR, cchtext: i32, prc: *mut super::super::Foundation::RECT, dwflags: u32, lparam: super::super::Foundation::LPARAM) -> i32>;
 pub const DTT_FLAGS2VALIDBITS: u32 = 1u32;
 pub const DTT_GRAYED: u32 = 1u32;
 pub const ECM_FIRST: u32 = 5376u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type EC_ENDOFLINE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const EC_ENDOFLINE_DETECTFROMCONTENT: EC_ENDOFLINE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const EC_ENDOFLINE_CRLF: EC_ENDOFLINE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const EC_ENDOFLINE_CR: EC_ENDOFLINE = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const EC_ENDOFLINE_LF: EC_ENDOFLINE = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type EC_SEARCHWEB_ENTRYPOINT = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const EC_SEARCHWEB_ENTRYPOINT_EXTERNAL: EC_SEARCHWEB_ENTRYPOINT = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const EC_SEARCHWEB_ENTRYPOINT_CONTEXTMENU: EC_SEARCHWEB_ENTRYPOINT = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EDITBALLOONTIP {
     pub cbStruct: u32,
@@ -1102,19 +1436,31 @@ impl ::core::clone::Clone for EDITBALLOONTIP {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type EDITBALLOONTIP_ICON = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TTI_ERROR: EDITBALLOONTIP_ICON = 3u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TTI_INFO: EDITBALLOONTIP_ICON = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TTI_NONE: EDITBALLOONTIP_ICON = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TTI_WARNING: EDITBALLOONTIP_ICON = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TTI_INFO_LARGE: EDITBALLOONTIP_ICON = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TTI_WARNING_LARGE: EDITBALLOONTIP_ICON = 5u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TTI_ERROR_LARGE: EDITBALLOONTIP_ICON = 6u32;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type EDITWORDBREAKPROCA = ::core::option::Option<unsafe extern "system" fn(lpch: super::super::Foundation::PSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type EDITWORDBREAKPROCW = ::core::option::Option<unsafe extern "system" fn(lpch: super::super::Foundation::PWSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type EMPTYMARKUPPARTS = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const EMP_MARKUPTEXT: EMPTYMARKUPPARTS = 1i32;
 pub const EM_CANUNDO: u32 = 198u32;
 pub const EM_CHARFROMPOS: u32 = 215u32;
@@ -1177,14 +1523,23 @@ pub const EM_SETWORDBREAKPROC: u32 = 208u32;
 pub const EM_SHOWBALLOONTIP: u32 = 5379u32;
 pub const EM_TAKEFOCUS: u32 = 5384u32;
 pub const EM_UNDO: u32 = 199u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type ENABLE_SCROLL_BAR_ARROWS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ESB_DISABLE_BOTH: ENABLE_SCROLL_BAR_ARROWS = 3u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ESB_DISABLE_DOWN: ENABLE_SCROLL_BAR_ARROWS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ESB_DISABLE_LEFT: ENABLE_SCROLL_BAR_ARROWS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ESB_DISABLE_LTUP: ENABLE_SCROLL_BAR_ARROWS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ESB_DISABLE_RIGHT: ENABLE_SCROLL_BAR_ARROWS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ESB_DISABLE_RTDN: ENABLE_SCROLL_BAR_ARROWS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ESB_DISABLE_UP: ENABLE_SCROLL_BAR_ARROWS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ESB_ENABLE_BOTH: ENABLE_SCROLL_BAR_ARROWS = 0u32;
 pub const ES_EX_ALLOWEOL_CR: i32 = 1i32;
 pub const ES_EX_ALLOWEOL_LF: i32 = 2i32;
@@ -1194,25 +1549,44 @@ pub const ETDT_DISABLE: u32 = 1u32;
 pub const ETDT_ENABLE: u32 = 2u32;
 pub const ETDT_USEAEROWIZARDTABTEXTURE: u32 = 8u32;
 pub const ETDT_USETABTEXTURE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type FEEDBACK_TYPE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const FEEDBACK_TOUCH_CONTACTVISUALIZATION: FEEDBACK_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const FEEDBACK_PEN_BARRELVISUALIZATION: FEEDBACK_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const FEEDBACK_PEN_TAP: FEEDBACK_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const FEEDBACK_PEN_DOUBLETAP: FEEDBACK_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const FEEDBACK_PEN_PRESSANDHOLD: FEEDBACK_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const FEEDBACK_PEN_RIGHTTAP: FEEDBACK_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const FEEDBACK_TOUCH_TAP: FEEDBACK_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const FEEDBACK_TOUCH_DOUBLETAP: FEEDBACK_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const FEEDBACK_TOUCH_PRESSANDHOLD: FEEDBACK_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const FEEDBACK_TOUCH_RIGHTTAP: FEEDBACK_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const FEEDBACK_GESTURE_PRESSANDTAP: FEEDBACK_TYPE = 11i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const FEEDBACK_MAX: FEEDBACK_TYPE = -1i32;
 pub const FILEOPENORD: u32 = 1536u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type FILLTYPE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const FT_SOLID: FILLTYPE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const FT_VERTGRADIENT: FILLTYPE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const FT_HORZGRADIENT: FILLTYPE = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const FT_RADIALGRADIENT: FILLTYPE = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const FT_TILEIMAGE: FILLTYPE = 4i32;
 pub const FINDDLGORD: u32 = 1540u32;
 pub const FONTDLGORD: u32 = 1542u32;
@@ -1226,44 +1600,81 @@ pub const GDTR_MIN: u32 = 1u32;
 pub const GDT_ERROR: i32 = -1i32;
 pub const GDT_NONE: u32 = 1u32;
 pub const GDT_VALID: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type GET_THEME_BITMAP_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const GBF_DIRECT: GET_THEME_BITMAP_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const GBF_COPY: GET_THEME_BITMAP_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const GBF_VALIDBITS: GET_THEME_BITMAP_FLAGS = 3u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type GLYPHFONTSIZINGTYPE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const GFST_NONE: GLYPHFONTSIZINGTYPE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const GFST_SIZE: GLYPHFONTSIZINGTYPE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const GFST_DPI: GLYPHFONTSIZINGTYPE = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type GLYPHTYPE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const GT_NONE: GLYPHTYPE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const GT_IMAGEGLYPH: GLYPHTYPE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const GT_FONTGLYPH: GLYPHTYPE = 2i32;
 pub const GMR_DAYSTATE: u32 = 1u32;
 pub const GMR_VISIBLE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type GRIDCELLBACKGROUNDSTATES = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGCB_SELECTED: GRIDCELLBACKGROUNDSTATES = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGCB_HOT: GRIDCELLBACKGROUNDSTATES = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGCB_SELECTEDHOT: GRIDCELLBACKGROUNDSTATES = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGCB_SELECTEDNOTFOCUSED: GRIDCELLBACKGROUNDSTATES = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGCB_TODAY: GRIDCELLBACKGROUNDSTATES = 5i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGCB_TODAYSELECTED: GRIDCELLBACKGROUNDSTATES = 6i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type GRIDCELLSTATES = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGC_HOT: GRIDCELLSTATES = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGC_HASSTATE: GRIDCELLSTATES = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGC_HASSTATEHOT: GRIDCELLSTATES = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGC_TODAY: GRIDCELLSTATES = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGC_TODAYSELECTED: GRIDCELLSTATES = 5i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGC_SELECTED: GRIDCELLSTATES = 6i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGC_SELECTEDHOT: GRIDCELLSTATES = 7i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type GRIDCELLUPPERSTATES = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGCU_HOT: GRIDCELLUPPERSTATES = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGCU_HASSTATE: GRIDCELLUPPERSTATES = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGCU_HASSTATEHOT: GRIDCELLUPPERSTATES = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGCU_SELECTED: GRIDCELLUPPERSTATES = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGCU_SELECTEDHOT: GRIDCELLUPPERSTATES = 5i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type HALIGN = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HA_LEFT: HALIGN = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HA_CENTER: HALIGN = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HA_RIGHT: HALIGN = 2i32;
 pub const HDFT_HASNOVALUE: u32 = 32768u32;
 pub const HDFT_ISDATE: u32 = 2u32;
@@ -1286,6 +1697,7 @@ pub const HDF_SORTUP: u32 = 1024u32;
 pub const HDF_SPLITBUTTON: u32 = 16777216u32;
 pub const HDF_STRING: u32 = 16384u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HDHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
@@ -1302,6 +1714,7 @@ impl ::core::clone::Clone for HDHITTESTINFO {
 }
 pub const HDIS_FOCUSED: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct HDITEMA {
     pub mask: HDI_MASK,
@@ -1326,6 +1739,7 @@ impl ::core::clone::Clone for HDITEMA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct HDITEMW {
     pub mask: HDI_MASK,
@@ -1349,19 +1763,32 @@ impl ::core::clone::Clone for HDITEMW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type HDI_MASK = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HDI_WIDTH: HDI_MASK = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HDI_HEIGHT: HDI_MASK = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HDI_TEXT: HDI_MASK = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HDI_FORMAT: HDI_MASK = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HDI_LPARAM: HDI_MASK = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HDI_BITMAP: HDI_MASK = 16u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HDI_IMAGE: HDI_MASK = 32u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HDI_DI_SETITEM: HDI_MASK = 64u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HDI_ORDER: HDI_MASK = 128u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HDI_FILTER: HDI_MASK = 256u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HDI_STATE: HDI_MASK = 512u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct HDLAYOUT {
     pub prc: *mut super::super::Foundation::RECT,
@@ -1424,6 +1851,7 @@ pub const HDS_HOTTRACK: u32 = 4u32;
 pub const HDS_NOSIZING: u32 = 2048u32;
 pub const HDS_OVERFLOW: u32 = 4096u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HD_TEXTFILTERA {
     pub pszText: super::super::Foundation::PSTR,
@@ -1438,6 +1866,7 @@ impl ::core::clone::Clone for HD_TEXTFILTERA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HD_TEXTFILTERW {
     pub pszText: super::super::Foundation::PWSTR,
@@ -1451,9 +1880,13 @@ impl ::core::clone::Clone for HD_TEXTFILTERW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type HEADER_CONTROL_NOTIFICATION_BUTTON = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HEADER_CONTROL_NOTIFICATION_BUTTON_LEFT: HEADER_CONTROL_NOTIFICATION_BUTTON = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HEADER_CONTROL_NOTIFICATION_BUTTON_RIGHT: HEADER_CONTROL_NOTIFICATION_BUTTON = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HEADER_CONTROL_NOTIFICATION_BUTTON_MIDDLE: HEADER_CONTROL_NOTIFICATION_BUTTON = 2u32;
 pub const HHT_ABOVE: u32 = 256u32;
 pub const HHT_BELOW: u32 = 512u32;
@@ -1502,14 +1935,23 @@ pub const HTTB_RESIZINGBORDER_RIGHT: u32 = 64u32;
 pub const HTTB_RESIZINGBORDER_TOP: u32 = 32u32;
 pub const HTTB_SIZINGTEMPLATE: u32 = 256u32;
 pub const HTTB_SYSTEMSIZINGMARGINS: u32 = 512u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type HYPERLINKSTATES = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HLS_NORMALTEXT: HYPERLINKSTATES = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HLS_LINKTEXT: HYPERLINKSTATES = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type ICONEFFECT = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICE_NONE: ICONEFFECT = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICE_GLOW: ICONEFFECT = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICE_SHADOW: ICONEFFECT = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICE_PULSE: ICONEFFECT = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICE_ALPHA: ICONEFFECT = 4i32;
 pub const IDB_HIST_DISABLED: u32 = 14u32;
 pub const IDB_HIST_HOT: u32 = 13u32;
@@ -1563,6 +2005,7 @@ pub const ILS_NORMAL: u32 = 0u32;
 pub const ILS_SATURATE: u32 = 4u32;
 pub const ILS_SHADOW: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct IMAGEINFO {
     pub hbmImage: super::super::Graphics::Gdi::HBITMAP,
@@ -1579,10 +2022,14 @@ impl ::core::clone::Clone for IMAGEINFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type IMAGELAYOUT = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const IL_VERTICAL: IMAGELAYOUT = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const IL_HORIZONTAL: IMAGELAYOUT = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct IMAGELISTDRAWPARAMS {
     pub cbSize: u32,
@@ -1612,6 +2059,7 @@ impl ::core::clone::Clone for IMAGELISTDRAWPARAMS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct IMAGELISTSTATS {
     pub cbSize: u32,
     pub cAlloc: i32,
@@ -1624,39 +2072,71 @@ impl ::core::clone::Clone for IMAGELISTSTATS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type IMAGELIST_CREATION_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILC_MASK: IMAGELIST_CREATION_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILC_COLOR: IMAGELIST_CREATION_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILC_COLORDDB: IMAGELIST_CREATION_FLAGS = 254u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILC_COLOR4: IMAGELIST_CREATION_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILC_COLOR8: IMAGELIST_CREATION_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILC_COLOR16: IMAGELIST_CREATION_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILC_COLOR24: IMAGELIST_CREATION_FLAGS = 24u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILC_COLOR32: IMAGELIST_CREATION_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILC_PALETTE: IMAGELIST_CREATION_FLAGS = 2048u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILC_MIRROR: IMAGELIST_CREATION_FLAGS = 8192u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILC_PERITEMMIRROR: IMAGELIST_CREATION_FLAGS = 32768u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILC_ORIGINALSIZE: IMAGELIST_CREATION_FLAGS = 65536u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILC_HIGHQUALITYSCALE: IMAGELIST_CREATION_FLAGS = 131072u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type IMAGESELECTTYPE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const IST_NONE: IMAGESELECTTYPE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const IST_SIZE: IMAGESELECTTYPE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const IST_DPI: IMAGESELECTTYPE = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type IMAGE_LIST_COPY_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILCF_MOVE: IMAGE_LIST_COPY_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILCF_SWAP: IMAGE_LIST_COPY_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type IMAGE_LIST_DRAW_STYLE = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILD_BLEND: IMAGE_LIST_DRAW_STYLE = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILD_BLEND50: IMAGE_LIST_DRAW_STYLE = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILD_FOCUS: IMAGE_LIST_DRAW_STYLE = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILD_MASK: IMAGE_LIST_DRAW_STYLE = 16u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILD_NORMAL: IMAGE_LIST_DRAW_STYLE = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILD_SELECTED: IMAGE_LIST_DRAW_STYLE = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type IMAGE_LIST_ITEM_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILIF_ALPHA: IMAGE_LIST_ITEM_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ILIF_LOWQUALITY: IMAGE_LIST_ITEM_FLAGS = 2u32;
 pub const INFOTIPSIZE: u32 = 1024u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct INITCOMMONCONTROLSEX {
     pub dwSize: u32,
     pub dwICC: INITCOMMONCONTROLSEX_ICC,
@@ -1667,25 +2147,44 @@ impl ::core::clone::Clone for INITCOMMONCONTROLSEX {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type INITCOMMONCONTROLSEX_ICC = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICC_ANIMATE_CLASS: INITCOMMONCONTROLSEX_ICC = 128u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICC_BAR_CLASSES: INITCOMMONCONTROLSEX_ICC = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICC_COOL_CLASSES: INITCOMMONCONTROLSEX_ICC = 1024u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICC_DATE_CLASSES: INITCOMMONCONTROLSEX_ICC = 256u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICC_HOTKEY_CLASS: INITCOMMONCONTROLSEX_ICC = 64u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICC_INTERNET_CLASSES: INITCOMMONCONTROLSEX_ICC = 2048u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICC_LINK_CLASS: INITCOMMONCONTROLSEX_ICC = 32768u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICC_LISTVIEW_CLASSES: INITCOMMONCONTROLSEX_ICC = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICC_NATIVEFNTCTL_CLASS: INITCOMMONCONTROLSEX_ICC = 8192u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICC_PAGESCROLLER_CLASS: INITCOMMONCONTROLSEX_ICC = 4096u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICC_PROGRESS_CLASS: INITCOMMONCONTROLSEX_ICC = 32u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICC_STANDARD_CLASSES: INITCOMMONCONTROLSEX_ICC = 16384u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICC_TAB_CLASSES: INITCOMMONCONTROLSEX_ICC = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICC_TREEVIEW_CLASSES: INITCOMMONCONTROLSEX_ICC = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICC_UPDOWN_CLASS: INITCOMMONCONTROLSEX_ICC = 16u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICC_USEREX_CLASSES: INITCOMMONCONTROLSEX_ICC = 512u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ICC_WIN95_CLASSES: INITCOMMONCONTROLSEX_ICC = 255u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct INTLIST {
     pub iValueCount: i32,
     pub iValues: [i32; 402],
@@ -1708,6 +2207,7 @@ pub const I_IMAGENONE: i32 = -2i32;
 pub const I_INDENTCALLBACK: i32 = -1i32;
 pub const ImageList: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2085055394, data2: 689, data3: 18676, data4: [128, 72, 178, 70, 25, 221, 192, 88] };
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
@@ -1725,7 +2225,9 @@ pub const LIF_ITEMID: u32 = 4u32;
 pub const LIF_ITEMINDEX: u32 = 1u32;
 pub const LIF_STATE: u32 = 2u32;
 pub const LIF_URL: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type LINKPARTS = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LP_HYPERLINK: LINKPARTS = 1i32;
 pub const LIS_DEFAULTCOLORS: u32 = 16u32;
 pub const LIS_ENABLED: u32 = 2u32;
@@ -1733,6 +2235,7 @@ pub const LIS_FOCUSED: u32 = 1u32;
 pub const LIS_HOTTRACK: u32 = 8u32;
 pub const LIS_VISITED: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct LITEM {
     pub mask: u32,
     pub iLink: i32,
@@ -1752,28 +2255,42 @@ pub const LM_GETIDEALSIZE: u32 = 1793u32;
 pub const LM_GETITEM: u32 = 1795u32;
 pub const LM_HITTEST: u32 = 1792u32;
 pub const LM_SETITEM: u32 = 1794u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type LOGOFFBUTTONSSTATES = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPLS_NORMAL: LOGOFFBUTTONSSTATES = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPLS_HOT: LOGOFFBUTTONSSTATES = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPLS_PRESSED: LOGOFFBUTTONSSTATES = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNADDPROPSHEETPAGES = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: LPFNSVADDPROPSHEETPAGE, param2: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPFNCCINFOA = ::core::option::Option<unsafe extern "system" fn(acci: *mut CCINFOA) -> u32>;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPFNCCINFOW = ::core::option::Option<unsafe extern "system" fn(acci: *mut CCINFOW) -> u32>;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPFNCCSIZETOTEXTA = ::core::option::Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: super::super::Foundation::PSTR) -> i32>;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPFNCCSIZETOTEXTW = ::core::option::Option<unsafe extern "system" fn(flstyle: u32, flextstyle: u32, hfont: super::super::Graphics::Gdi::HFONT, psztext: super::super::Foundation::PWSTR) -> i32>;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNCCSTYLEA = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEA) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNCCSTYLEW = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pccs: *mut CCSTYLEW) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type LPFNPSPCALLBACKA = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut PROPSHEETPAGEA) -> u32>;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type LPFNPSPCALLBACKW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: PSPCB_MESSAGE, ppsp: *mut PROPSHEETPAGEW) -> u32>;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNSVADDPROPSHEETPAGE = ::core::option::Option<unsafe extern "system" fn(param0: HPROPSHEETPAGE, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 pub const LVA_ALIGNLEFT: u32 = 1u32;
@@ -1791,6 +2308,7 @@ pub const LVBKIF_STYLE_NORMAL: u32 = 0u32;
 pub const LVBKIF_STYLE_TILE: u32 = 16u32;
 pub const LVBKIF_TYPE_WATERMARK: u32 = 268435456u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LVBKIMAGEA {
     pub ulFlags: u32,
@@ -1809,6 +2327,7 @@ impl ::core::clone::Clone for LVBKIMAGEA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LVBKIMAGEW {
     pub ulFlags: u32,
@@ -1833,6 +2352,7 @@ pub const LVCFMT_LINE_BREAK: u32 = 1048576u32;
 pub const LVCFMT_NO_TITLE: u32 = 8388608u32;
 pub const LVCFMT_WRAP: u32 = 4194304u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVCOLUMNA {
     pub mask: LVCOLUMNW_MASK,
@@ -1856,6 +2376,7 @@ impl ::core::clone::Clone for LVCOLUMNA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVCOLUMNW {
     pub mask: LVCOLUMNW_MASK,
@@ -1878,30 +2399,53 @@ impl ::core::clone::Clone for LVCOLUMNW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type LVCOLUMNW_FORMAT = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCFMT_LEFT: LVCOLUMNW_FORMAT = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCFMT_RIGHT: LVCOLUMNW_FORMAT = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCFMT_CENTER: LVCOLUMNW_FORMAT = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCFMT_JUSTIFYMASK: LVCOLUMNW_FORMAT = 3u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCFMT_IMAGE: LVCOLUMNW_FORMAT = 2048u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCFMT_BITMAP_ON_RIGHT: LVCOLUMNW_FORMAT = 4096u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCFMT_COL_HAS_IMAGES: LVCOLUMNW_FORMAT = 32768u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCFMT_FIXED_WIDTH: LVCOLUMNW_FORMAT = 256u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCFMT_NO_DPI_SCALE: LVCOLUMNW_FORMAT = 262144u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCFMT_FIXED_RATIO: LVCOLUMNW_FORMAT = 524288u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCFMT_SPLITBUTTON: LVCOLUMNW_FORMAT = 16777216u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type LVCOLUMNW_MASK = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCF_FMT: LVCOLUMNW_MASK = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCF_WIDTH: LVCOLUMNW_MASK = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCF_TEXT: LVCOLUMNW_MASK = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCF_SUBITEM: LVCOLUMNW_MASK = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCF_IMAGE: LVCOLUMNW_MASK = 16u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCF_ORDER: LVCOLUMNW_MASK = 32u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCF_MINWIDTH: LVCOLUMNW_MASK = 64u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCF_DEFAULTWIDTH: LVCOLUMNW_MASK = 128u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCF_IDEALWIDTH: LVCOLUMNW_MASK = 256u32;
 pub const LVFF_ITEMCOUNT: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVFINDINFOA {
     pub flags: LVFINDINFOW_FLAGS,
@@ -1919,6 +2463,7 @@ impl ::core::clone::Clone for LVFINDINFOA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVFINDINFOW {
     pub flags: LVFINDINFOW_FLAGS,
@@ -1935,15 +2480,23 @@ impl ::core::clone::Clone for LVFINDINFOW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type LVFINDINFOW_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVFI_PARAM: LVFINDINFOW_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVFI_PARTIAL: LVFINDINFOW_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVFI_STRING: LVFINDINFOW_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVFI_SUBSTRING: LVFINDINFOW_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVFI_WRAP: LVFINDINFOW_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVFI_NEARESTXY: LVFINDINFOW_FLAGS = 64u32;
 pub const LVFIS_FOCUSED: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVFOOTERINFO {
     pub mask: u32,
@@ -1960,6 +2513,7 @@ impl ::core::clone::Clone for LVFOOTERINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVFOOTERITEM {
     pub mask: LVFOOTERITEM_MASK,
@@ -1977,8 +2531,11 @@ impl ::core::clone::Clone for LVFOOTERITEM {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type LVFOOTERITEM_MASK = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVFIF_TEXT: LVFOOTERITEM_MASK = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVFIF_STATE: LVFOOTERITEM_MASK = 2u32;
 pub const LVGA_FOOTER_CENTER: u32 = 16u32;
 pub const LVGA_FOOTER_LEFT: u32 = 8u32;
@@ -2004,6 +2561,7 @@ pub const LVGMF_BORDERSIZE: u32 = 1u32;
 pub const LVGMF_NONE: u32 = 0u32;
 pub const LVGMF_TEXTCOLOR: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVGROUP {
     pub cbSize: u32,
@@ -2040,6 +2598,7 @@ impl ::core::clone::Clone for LVGROUP {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct LVGROUPMETRICS {
     pub cbSize: u32,
     pub mask: u32,
@@ -2060,10 +2619,15 @@ impl ::core::clone::Clone for LVGROUPMETRICS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type LVGROUP_MASK = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVGF_NONE: LVGROUP_MASK = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVGF_HEADER: LVGROUP_MASK = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVGF_FOOTER: LVGROUP_MASK = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVGF_STATE: LVGROUP_MASK = 4u32;
 pub const LVGS_COLLAPSED: u32 = 1u32;
 pub const LVGS_COLLAPSIBLE: u32 = 8u32;
@@ -2075,6 +2639,7 @@ pub const LVGS_SELECTED: u32 = 32u32;
 pub const LVGS_SUBSETED: u32 = 64u32;
 pub const LVGS_SUBSETLINKFOCUSED: u32 = 128u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
@@ -2091,23 +2656,41 @@ impl ::core::clone::Clone for LVHITTESTINFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type LVHITTESTINFO_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVHT_ABOVE: LVHITTESTINFO_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVHT_BELOW: LVHITTESTINFO_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVHT_NOWHERE: LVHITTESTINFO_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVHT_ONITEMICON: LVHITTESTINFO_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVHT_ONITEMLABEL: LVHITTESTINFO_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVHT_ONITEMSTATEICON: LVHITTESTINFO_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVHT_TOLEFT: LVHITTESTINFO_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVHT_TORIGHT: LVHITTESTINFO_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVHT_EX_GROUP_HEADER: LVHITTESTINFO_FLAGS = 268435456u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVHT_EX_GROUP_FOOTER: LVHITTESTINFO_FLAGS = 536870912u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVHT_EX_GROUP_COLLAPSE: LVHITTESTINFO_FLAGS = 1073741824u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVHT_EX_GROUP_BACKGROUND: LVHITTESTINFO_FLAGS = 2147483648u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVHT_EX_GROUP_STATEICON: LVHITTESTINFO_FLAGS = 16777216u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVHT_EX_GROUP_SUBSETLINK: LVHITTESTINFO_FLAGS = 33554432u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVHT_EX_GROUP: LVHITTESTINFO_FLAGS = 4076863488u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVHT_EX_ONCONTENTS: LVHITTESTINFO_FLAGS = 67108864u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVHT_EX_FOOTER: LVHITTESTINFO_FLAGS = 134217728u32;
 pub const LVIF_COLFMT: u32 = 65536u32;
 pub const LVIF_COLUMNS: u32 = 512u32;
@@ -2121,6 +2704,7 @@ pub const LVIF_STATE: u32 = 8u32;
 pub const LVIF_TEXT: u32 = 1u32;
 pub const LVIM_AFTER: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVINSERTGROUPSORTED {
     pub pfnGroupCompare: PFNLVGROUPCOMPARE,
@@ -2136,6 +2720,7 @@ impl ::core::clone::Clone for LVINSERTGROUPSORTED {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct LVINSERTMARK {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -2161,6 +2746,7 @@ pub const LVIS_OVERLAYMASK: u32 = 3840u32;
 pub const LVIS_SELECTED: u32 = 2u32;
 pub const LVIS_STATEIMAGEMASK: u32 = 61440u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVITEMA {
     pub mask: u32,
@@ -2187,10 +2773,14 @@ impl ::core::clone::Clone for LVITEMA {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type LVITEMA_GROUP_ID = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const I_GROUPIDCALLBACK: LVITEMA_GROUP_ID = -1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const I_GROUPIDNONE: LVITEMA_GROUP_ID = -2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct LVITEMINDEX {
     pub iItem: i32,
     pub iGroup: i32,
@@ -2202,6 +2792,7 @@ impl ::core::clone::Clone for LVITEMINDEX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVITEMW {
     pub mask: u32,
@@ -2404,6 +2995,7 @@ pub const LVNSCH_IGNORE: i32 = -3i32;
 pub const LVSCW_AUTOSIZE: i32 = -1i32;
 pub const LVSCW_AUTOSIZE_USEHEADER: i32 = -2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVSETINFOTIP {
     pub cbSize: u32,
@@ -2479,6 +3071,7 @@ pub const LVS_SORTDESCENDING: u32 = 32u32;
 pub const LVS_TYPEMASK: u32 = 3u32;
 pub const LVS_TYPESTYLEMASK: u32 = 64512u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct LVTILEINFO {
     pub cbSize: u32,
     pub iItem: i32,
@@ -2493,6 +3086,7 @@ impl ::core::clone::Clone for LVTILEINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LVTILEVIEWINFO {
     pub cbSize: u32,
@@ -2510,7 +3104,9 @@ impl ::core::clone::Clone for LVTILEVIEWINFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type LVTILEVIEWINFO_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVTVIF_EXTENDED: LVTILEVIEWINFO_FLAGS = 4u32;
 pub const LVTVIF_AUTOSIZE: u32 = 0u32;
 pub const LVTVIF_FIXEDHEIGHT: u32 = 2u32;
@@ -2533,6 +3129,7 @@ pub const LWS_TRANSPARENT: u32 = 1u32;
 pub const LWS_USECUSTOMTEXT: u32 = 16u32;
 pub const LWS_USEVISUALSTYLE: u32 = 8u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct MARGINS {
     pub cxLeftWidth: i32,
     pub cxRightWidth: i32,
@@ -2545,8 +3142,11 @@ impl ::core::clone::Clone for MARGINS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type MARKUPTEXTSTATES = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const EMT_NORMALTEXT: MARKUPTEXTSTATES = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const EMT_LINKTEXT: MARKUPTEXTSTATES = 2i32;
 pub const MAXPROPPAGES: u32 = 100u32;
 pub const MAX_INTLIST_COUNT: u32 = 402u32;
@@ -2554,6 +3154,7 @@ pub const MAX_LINKID_TEXT: u32 = 48u32;
 pub const MAX_THEMECOLOR: u32 = 64u32;
 pub const MAX_THEMESIZE: u32 = 64u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCGRIDINFO {
     pub cbSize: u32,
@@ -2577,21 +3178,36 @@ impl ::core::clone::Clone for MCGRIDINFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type MCGRIDINFO_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGIF_DATE: MCGRIDINFO_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGIF_RECT: MCGRIDINFO_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGIF_NAME: MCGRIDINFO_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type MCGRIDINFO_PART = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGIP_CALENDARCONTROL: MCGRIDINFO_PART = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGIP_NEXT: MCGRIDINFO_PART = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGIP_PREV: MCGRIDINFO_PART = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGIP_FOOTER: MCGRIDINFO_PART = 3u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGIP_CALENDAR: MCGRIDINFO_PART = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGIP_CALENDARHEADER: MCGRIDINFO_PART = 5u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGIP_CALENDARBODY: MCGRIDINFO_PART = 6u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGIP_CALENDARROW: MCGRIDINFO_PART = 7u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCGIP_CALENDARCELL: MCGRIDINFO_PART = 8u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCHITTESTINFO {
     pub cbSize: u32,
@@ -2673,6 +3289,7 @@ pub const MCS_NOTRAILINGDATES: u32 = 64u32;
 pub const MCS_SHORTDAYSOFWEEK: u32 = 128u32;
 pub const MCS_WEEKNUMBERS: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct MEASUREITEMSTRUCT {
     pub CtlType: u32,
     pub CtlID: u32,
@@ -2687,56 +3304,102 @@ impl ::core::clone::Clone for MEASUREITEMSTRUCT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type MENUBANDPARTS = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MDP_NEWAPPBUTTON: MENUBANDPARTS = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MDP_SEPERATOR: MENUBANDPARTS = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type MENUBANDSTATES = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MDS_NORMAL: MENUBANDSTATES = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MDS_HOT: MENUBANDSTATES = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MDS_PRESSED: MENUBANDSTATES = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MDS_DISABLED: MENUBANDSTATES = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MDS_CHECKED: MENUBANDSTATES = 5i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MDS_HOTCHECKED: MENUBANDSTATES = 6i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type MONTHCALPARTS = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MC_BACKGROUND: MONTHCALPARTS = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MC_BORDERS: MONTHCALPARTS = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MC_GRIDBACKGROUND: MONTHCALPARTS = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MC_COLHEADERSPLITTER: MONTHCALPARTS = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MC_GRIDCELLBACKGROUND: MONTHCALPARTS = 5i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MC_GRIDCELL: MONTHCALPARTS = 6i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MC_GRIDCELLUPPER: MONTHCALPARTS = 7i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MC_TRAILINGGRIDCELL: MONTHCALPARTS = 8i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MC_TRAILINGGRIDCELLUPPER: MONTHCALPARTS = 9i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MC_NAVNEXT: MONTHCALPARTS = 10i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MC_NAVPREV: MONTHCALPARTS = 11i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type MOREPROGRAMSARROWBACKSTATES = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPSB_NORMAL: MOREPROGRAMSARROWBACKSTATES = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPSB_HOT: MOREPROGRAMSARROWBACKSTATES = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPSB_PRESSED: MOREPROGRAMSARROWBACKSTATES = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type MOREPROGRAMSARROWSTATES = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPS_NORMAL: MOREPROGRAMSARROWSTATES = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPS_HOT: MOREPROGRAMSARROWSTATES = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPS_PRESSED: MOREPROGRAMSARROWSTATES = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type MOREPROGRAMSTABSTATES = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPMPT_NORMAL: MOREPROGRAMSTABSTATES = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPMPT_HOT: MOREPROGRAMSTABSTATES = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPMPT_SELECTED: MOREPROGRAMSTABSTATES = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPMPT_DISABLED: MOREPROGRAMSTABSTATES = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPMPT_FOCUSED: MOREPROGRAMSTABSTATES = 5i32;
 pub const MSGF_COMMCTRL_BEGINDRAG: u32 = 16896u32;
 pub const MSGF_COMMCTRL_DRAGSELECT: u32 = 16898u32;
 pub const MSGF_COMMCTRL_SIZEHEADER: u32 = 16897u32;
 pub const MSGF_COMMCTRL_TOOLBARCUST: u32 = 16899u32;
 pub const MULTIFILEOPENORD: u32 = 1537u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type NAVNEXTSTATES = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCNN_NORMAL: NAVNEXTSTATES = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCNN_HOT: NAVNEXTSTATES = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCNN_PRESSED: NAVNEXTSTATES = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCNN_DISABLED: NAVNEXTSTATES = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type NAVPREVSTATES = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCNP_NORMAL: NAVPREVSTATES = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCNP_HOT: NAVPREVSTATES = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCNP_PRESSED: NAVPREVSTATES = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCNP_DISABLED: NAVPREVSTATES = 4i32;
 pub const NEWFILEOPENORD: u32 = 1547u32;
 pub const NEWFILEOPENV2ORD: u32 = 1552u32;
@@ -2749,6 +3412,7 @@ pub const NFS_LISTCOMBO: u32 = 4u32;
 pub const NFS_STATIC: u32 = 2u32;
 pub const NFS_USEFONTASSOC: u32 = 32u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMBCDROPDOWN {
     pub hdr: NMHDR,
@@ -2763,6 +3427,7 @@ impl ::core::clone::Clone for NMBCDROPDOWN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMBCHOTITEM {
     pub hdr: NMHDR,
@@ -2777,6 +3442,7 @@ impl ::core::clone::Clone for NMBCHOTITEM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMCBEDRAGBEGINA {
     pub hdr: NMHDR,
@@ -2792,6 +3458,7 @@ impl ::core::clone::Clone for NMCBEDRAGBEGINA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMCBEDRAGBEGINW {
     pub hdr: NMHDR,
@@ -2807,6 +3474,7 @@ impl ::core::clone::Clone for NMCBEDRAGBEGINW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMCBEENDEDITA {
     pub hdr: NMHDR,
@@ -2824,6 +3492,7 @@ impl ::core::clone::Clone for NMCBEENDEDITA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMCBEENDEDITW {
     pub hdr: NMHDR,
@@ -2841,6 +3510,7 @@ impl ::core::clone::Clone for NMCBEENDEDITW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMCHAR {
     pub hdr: NMHDR,
@@ -2857,6 +3527,7 @@ impl ::core::clone::Clone for NMCHAR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMCOMBOBOXEXA {
     pub hdr: NMHDR,
@@ -2871,6 +3542,7 @@ impl ::core::clone::Clone for NMCOMBOBOXEXA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMCOMBOBOXEXW {
     pub hdr: NMHDR,
@@ -2885,6 +3557,7 @@ impl ::core::clone::Clone for NMCOMBOBOXEXW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMCUSTOMDRAW {
     pub hdr: NMHDR,
@@ -2903,16 +3576,26 @@ impl ::core::clone::Clone for NMCUSTOMDRAW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type NMCUSTOMDRAW_DRAW_STAGE = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CDDS_POSTPAINT: NMCUSTOMDRAW_DRAW_STAGE = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CDDS_PREERASE: NMCUSTOMDRAW_DRAW_STAGE = 3u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CDDS_PREPAINT: NMCUSTOMDRAW_DRAW_STAGE = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CDDS_ITEMPOSTERASE: NMCUSTOMDRAW_DRAW_STAGE = 65540u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CDDS_ITEMPOSTPAINT: NMCUSTOMDRAW_DRAW_STAGE = 65538u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CDDS_ITEMPREERASE: NMCUSTOMDRAW_DRAW_STAGE = 65539u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CDDS_ITEMPREPAINT: NMCUSTOMDRAW_DRAW_STAGE = 65537u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const CDDS_SUBITEM: NMCUSTOMDRAW_DRAW_STAGE = 131072u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMCUSTOMSPLITRECTINFO {
     pub hdr: NMHDR,
@@ -2929,6 +3612,7 @@ impl ::core::clone::Clone for NMCUSTOMSPLITRECTINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMCUSTOMTEXT {
     pub hdr: NMHDR,
@@ -2948,6 +3632,7 @@ impl ::core::clone::Clone for NMCUSTOMTEXT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMECHANGE {
     pub nmhdr: NMHDR,
@@ -2963,6 +3648,7 @@ impl ::core::clone::Clone for NMDATETIMECHANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMEFORMATA {
     pub nmhdr: NMHDR,
@@ -2980,6 +3666,7 @@ impl ::core::clone::Clone for NMDATETIMEFORMATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMEFORMATQUERYA {
     pub nmhdr: NMHDR,
@@ -2995,6 +3682,7 @@ impl ::core::clone::Clone for NMDATETIMEFORMATQUERYA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMEFORMATQUERYW {
     pub nmhdr: NMHDR,
@@ -3010,6 +3698,7 @@ impl ::core::clone::Clone for NMDATETIMEFORMATQUERYW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMEFORMATW {
     pub nmhdr: NMHDR,
@@ -3027,6 +3716,7 @@ impl ::core::clone::Clone for NMDATETIMEFORMATW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMESTRINGA {
     pub nmhdr: NMHDR,
@@ -3043,6 +3733,7 @@ impl ::core::clone::Clone for NMDATETIMESTRINGA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMESTRINGW {
     pub nmhdr: NMHDR,
@@ -3059,6 +3750,7 @@ impl ::core::clone::Clone for NMDATETIMESTRINGW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMEWMKEYDOWNA {
     pub nmhdr: NMHDR,
@@ -3075,6 +3767,7 @@ impl ::core::clone::Clone for NMDATETIMEWMKEYDOWNA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMDATETIMEWMKEYDOWNW {
     pub nmhdr: NMHDR,
@@ -3091,6 +3784,7 @@ impl ::core::clone::Clone for NMDATETIMEWMKEYDOWNW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMDAYSTATE {
     pub nmhdr: NMHDR,
@@ -3107,6 +3801,7 @@ impl ::core::clone::Clone for NMDAYSTATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMHDDISPINFOA {
     pub hdr: NMHDR,
@@ -3126,6 +3821,7 @@ impl ::core::clone::Clone for NMHDDISPINFOA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMHDDISPINFOW {
     pub hdr: NMHDR,
@@ -3145,6 +3841,7 @@ impl ::core::clone::Clone for NMHDDISPINFOW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMHDFILTERBTNCLICK {
     pub hdr: NMHDR,
@@ -3160,6 +3857,7 @@ impl ::core::clone::Clone for NMHDFILTERBTNCLICK {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMHDR {
     pub hwndFrom: super::super::Foundation::HWND,
@@ -3175,6 +3873,7 @@ impl ::core::clone::Clone for NMHDR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMHEADERA {
     pub hdr: NMHDR,
@@ -3191,6 +3890,7 @@ impl ::core::clone::Clone for NMHEADERA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMHEADERW {
     pub hdr: NMHDR,
@@ -3207,6 +3907,7 @@ impl ::core::clone::Clone for NMHEADERW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMIPADDRESS {
     pub hdr: NMHDR,
@@ -3222,6 +3923,7 @@ impl ::core::clone::Clone for NMIPADDRESS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMITEMACTIVATE {
     pub hdr: NMHDR,
@@ -3243,6 +3945,7 @@ impl ::core::clone::Clone for NMITEMACTIVATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMKEY {
     pub hdr: NMHDR,
@@ -3258,6 +3961,7 @@ impl ::core::clone::Clone for NMKEY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMLINK {
     pub hdr: NMHDR,
@@ -3272,6 +3976,7 @@ impl ::core::clone::Clone for NMLINK {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMLISTVIEW {
     pub hdr: NMHDR,
@@ -3292,6 +3997,7 @@ impl ::core::clone::Clone for NMLISTVIEW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMLVCACHEHINT {
     pub hdr: NMHDR,
@@ -3307,6 +4013,7 @@ impl ::core::clone::Clone for NMLVCACHEHINT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMLVCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
@@ -3330,15 +4037,24 @@ impl ::core::clone::Clone for NMLVCUSTOMDRAW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type NMLVCUSTOMDRAW_ALIGN = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVGA_HEADER_CENTER: NMLVCUSTOMDRAW_ALIGN = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVGA_HEADER_LEFT: NMLVCUSTOMDRAW_ALIGN = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVGA_HEADER_RIGHT: NMLVCUSTOMDRAW_ALIGN = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type NMLVCUSTOMDRAW_ITEM_TYPE = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCDI_ITEM: NMLVCUSTOMDRAW_ITEM_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCDI_GROUP: NMLVCUSTOMDRAW_ITEM_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LVCDI_ITEMSLIST: NMLVCUSTOMDRAW_ITEM_TYPE = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMLVDISPINFOA {
     pub hdr: NMHDR,
@@ -3353,6 +4069,7 @@ impl ::core::clone::Clone for NMLVDISPINFOA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMLVDISPINFOW {
     pub hdr: NMHDR,
@@ -3367,6 +4084,7 @@ impl ::core::clone::Clone for NMLVDISPINFOW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMLVEMPTYMARKUP {
     pub hdr: NMHDR,
@@ -3381,9 +4099,12 @@ impl ::core::clone::Clone for NMLVEMPTYMARKUP {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type NMLVEMPTYMARKUP_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const EMF_CENTERED: NMLVEMPTYMARKUP_FLAGS = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMLVFINDITEMA {
     pub hdr: NMHDR,
@@ -3399,6 +4120,7 @@ impl ::core::clone::Clone for NMLVFINDITEMA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMLVFINDITEMW {
     pub hdr: NMHDR,
@@ -3414,6 +4136,7 @@ impl ::core::clone::Clone for NMLVFINDITEMW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMLVGETINFOTIPA {
     pub hdr: NMHDR,
@@ -3433,6 +4156,7 @@ impl ::core::clone::Clone for NMLVGETINFOTIPA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMLVGETINFOTIPW {
     pub hdr: NMHDR,
@@ -3452,6 +4176,7 @@ impl ::core::clone::Clone for NMLVGETINFOTIPW {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMLVKEYDOWN {
     pub hdr: NMHDR,
@@ -3467,6 +4192,7 @@ impl ::core::clone::Clone for NMLVKEYDOWN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMLVLINK {
     pub hdr: NMHDR,
@@ -3483,6 +4209,7 @@ impl ::core::clone::Clone for NMLVLINK {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMLVODSTATECHANGE {
     pub hdr: NMHDR,
@@ -3500,6 +4227,7 @@ impl ::core::clone::Clone for NMLVODSTATECHANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMLVSCROLL {
     pub hdr: NMHDR,
@@ -3515,6 +4243,7 @@ impl ::core::clone::Clone for NMLVSCROLL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMMOUSE {
     pub hdr: NMHDR,
@@ -3532,6 +4261,7 @@ impl ::core::clone::Clone for NMMOUSE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMOBJECTNOTIFY {
     pub hdr: NMHDR,
@@ -3550,6 +4280,7 @@ impl ::core::clone::Clone for NMOBJECTNOTIFY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMPGCALCSIZE {
     pub hdr: NMHDR,
@@ -3565,10 +4296,14 @@ impl ::core::clone::Clone for NMPGCALCSIZE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type NMPGCALCSIZE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PGF_CALCHEIGHT: NMPGCALCSIZE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PGF_CALCWIDTH: NMPGCALCSIZE_FLAGS = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMPGHOTITEM {
     pub hdr: NMHDR,
@@ -3585,6 +4320,7 @@ impl ::core::clone::Clone for NMPGHOTITEM {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMPGSCROLL {
     pub hdr: NMHDR,
@@ -3603,17 +4339,28 @@ impl ::core::clone::Clone for NMPGSCROLL {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type NMPGSCROLL_DIR = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PGF_SCROLLDOWN: NMPGSCROLL_DIR = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PGF_SCROLLLEFT: NMPGSCROLL_DIR = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PGF_SCROLLRIGHT: NMPGSCROLL_DIR = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PGF_SCROLLUP: NMPGSCROLL_DIR = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type NMPGSCROLL_KEYS = u16;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PGK_NONE: NMPGSCROLL_KEYS = 0u16;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PGK_SHIFT: NMPGSCROLL_KEYS = 1u16;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PGK_CONTROL: NMPGSCROLL_KEYS = 2u16;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PGK_MENU: NMPGSCROLL_KEYS = 4u16;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMRBAUTOSIZE {
     pub hdr: NMHDR,
@@ -3630,6 +4377,7 @@ impl ::core::clone::Clone for NMRBAUTOSIZE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMREBAR {
     pub hdr: NMHDR,
@@ -3648,6 +4396,7 @@ impl ::core::clone::Clone for NMREBAR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMREBARAUTOBREAK {
     pub hdr: NMHDR,
@@ -3667,6 +4416,7 @@ impl ::core::clone::Clone for NMREBARAUTOBREAK {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMREBARCHEVRON {
     pub hdr: NMHDR,
@@ -3685,6 +4435,7 @@ impl ::core::clone::Clone for NMREBARCHEVRON {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMREBARCHILDSIZE {
     pub hdr: NMHDR,
@@ -3702,6 +4453,7 @@ impl ::core::clone::Clone for NMREBARCHILDSIZE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMREBARSPLITTER {
     pub hdr: NMHDR,
@@ -3715,11 +4467,16 @@ impl ::core::clone::Clone for NMREBARSPLITTER {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type NMREBAR_MASK_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const RBNM_ID: NMREBAR_MASK_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const RBNM_LPARAM: NMREBAR_MASK_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const RBNM_STYLE: NMREBAR_MASK_FLAGS = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMSEARCHWEB {
     pub hdr: NMHDR,
@@ -3736,6 +4493,7 @@ impl ::core::clone::Clone for NMSEARCHWEB {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMSELCHANGE {
     pub nmhdr: NMHDR,
@@ -3751,6 +4509,7 @@ impl ::core::clone::Clone for NMSELCHANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMTBCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
@@ -3777,6 +4536,7 @@ impl ::core::clone::Clone for NMTBCUSTOMDRAW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTBDISPINFOA {
     pub hdr: NMHDR,
@@ -3796,6 +4556,7 @@ impl ::core::clone::Clone for NMTBDISPINFOA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTBDISPINFOW {
     pub hdr: NMHDR,
@@ -3814,11 +4575,16 @@ impl ::core::clone::Clone for NMTBDISPINFOW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type NMTBDISPINFOW_MASK = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBNF_IMAGE: NMTBDISPINFOW_MASK = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBNF_TEXT: NMTBDISPINFOW_MASK = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBNF_DI_SETITEM: NMTBDISPINFOW_MASK = 268435456u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTBGETINFOTIPA {
     pub hdr: NMHDR,
@@ -3836,6 +4602,7 @@ impl ::core::clone::Clone for NMTBGETINFOTIPA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTBGETINFOTIPW {
     pub hdr: NMHDR,
@@ -3853,6 +4620,7 @@ impl ::core::clone::Clone for NMTBGETINFOTIPW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTBHOTITEM {
     pub hdr: NMHDR,
@@ -3868,18 +4636,30 @@ impl ::core::clone::Clone for NMTBHOTITEM {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type NMTBHOTITEM_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HICF_ACCELERATOR: NMTBHOTITEM_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HICF_ARROWKEYS: NMTBHOTITEM_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HICF_DUPACCEL: NMTBHOTITEM_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HICF_ENTERING: NMTBHOTITEM_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HICF_LEAVING: NMTBHOTITEM_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HICF_LMOUSE: NMTBHOTITEM_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HICF_MOUSE: NMTBHOTITEM_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HICF_OTHER: NMTBHOTITEM_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HICF_RESELECT: NMTBHOTITEM_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const HICF_TOGGLEDROPDOWN: NMTBHOTITEM_FLAGS = 256u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTBRESTORE {
     pub hdr: NMHDR,
@@ -3900,6 +4680,7 @@ impl ::core::clone::Clone for NMTBRESTORE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTBSAVE {
     pub hdr: NMHDR,
@@ -3919,6 +4700,7 @@ impl ::core::clone::Clone for NMTBSAVE {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTCKEYDOWN {
     pub hdr: NMHDR,
@@ -3934,6 +4716,7 @@ impl ::core::clone::Clone for NMTCKEYDOWN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTOOLBARA {
     pub hdr: NMHDR,
@@ -3952,6 +4735,7 @@ impl ::core::clone::Clone for NMTOOLBARA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTOOLBARW {
     pub hdr: NMHDR,
@@ -3970,6 +4754,7 @@ impl ::core::clone::Clone for NMTOOLBARW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTOOLTIPSCREATED {
     pub hdr: NMHDR,
@@ -3984,6 +4769,7 @@ impl ::core::clone::Clone for NMTOOLTIPSCREATED {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTRBTHUMBPOSCHANGING {
     pub hdr: NMHDR,
@@ -3999,6 +4785,7 @@ impl ::core::clone::Clone for NMTRBTHUMBPOSCHANGING {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTREEVIEWA {
     pub hdr: NMHDR,
@@ -4016,6 +4803,7 @@ impl ::core::clone::Clone for NMTREEVIEWA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTREEVIEWW {
     pub hdr: NMHDR,
@@ -4033,6 +4821,7 @@ impl ::core::clone::Clone for NMTREEVIEWW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMTTCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
@@ -4047,6 +4836,7 @@ impl ::core::clone::Clone for NMTTCUSTOMDRAW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTTDISPINFOA {
     pub hdr: NMHDR,
@@ -4065,6 +4855,7 @@ impl ::core::clone::Clone for NMTTDISPINFOA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTTDISPINFOW {
     pub hdr: NMHDR,
@@ -4083,6 +4874,7 @@ impl ::core::clone::Clone for NMTTDISPINFOW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMTVASYNCDRAW {
     pub hdr: NMHDR,
@@ -4102,6 +4894,7 @@ impl ::core::clone::Clone for NMTVASYNCDRAW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMTVCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
@@ -4118,6 +4911,7 @@ impl ::core::clone::Clone for NMTVCUSTOMDRAW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTVDISPINFOA {
     pub hdr: NMHDR,
@@ -4132,6 +4926,7 @@ impl ::core::clone::Clone for NMTVDISPINFOA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTVDISPINFOEXA {
     pub hdr: NMHDR,
@@ -4146,6 +4941,7 @@ impl ::core::clone::Clone for NMTVDISPINFOEXA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTVDISPINFOEXW {
     pub hdr: NMHDR,
@@ -4160,6 +4956,7 @@ impl ::core::clone::Clone for NMTVDISPINFOEXW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTVDISPINFOW {
     pub hdr: NMHDR,
@@ -4174,6 +4971,7 @@ impl ::core::clone::Clone for NMTVDISPINFOW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTVGETINFOTIPA {
     pub hdr: NMHDR,
@@ -4191,6 +4989,7 @@ impl ::core::clone::Clone for NMTVGETINFOTIPA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTVGETINFOTIPW {
     pub hdr: NMHDR,
@@ -4208,6 +5007,7 @@ impl ::core::clone::Clone for NMTVGETINFOTIPW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTVITEMCHANGE {
     pub hdr: NMHDR,
@@ -4226,6 +5026,7 @@ impl ::core::clone::Clone for NMTVITEMCHANGE {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTVKEYDOWN {
     pub hdr: NMHDR,
@@ -4241,6 +5042,7 @@ impl ::core::clone::Clone for NMTVKEYDOWN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMTVSTATEIMAGECHANGING {
     pub hdr: NMHDR,
@@ -4257,6 +5059,7 @@ impl ::core::clone::Clone for NMTVSTATEIMAGECHANGING {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMUPDOWN {
     pub hdr: NMHDR,
@@ -4272,6 +5075,7 @@ impl ::core::clone::Clone for NMUPDOWN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NMVIEWCHANGE {
     pub nmhdr: NMHDR,
@@ -4288,34 +5092,63 @@ impl ::core::clone::Clone for NMVIEWCHANGE {
 }
 pub const NM_GETCUSTOMSPLITRECT: u32 = 4294966049u32;
 pub const ODT_HEADER: u32 = 100u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type OFFSETTYPE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const OT_TOPLEFT: OFFSETTYPE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const OT_TOPRIGHT: OFFSETTYPE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const OT_TOPMIDDLE: OFFSETTYPE = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const OT_BOTTOMLEFT: OFFSETTYPE = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const OT_BOTTOMRIGHT: OFFSETTYPE = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const OT_BOTTOMMIDDLE: OFFSETTYPE = 5i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const OT_MIDDLELEFT: OFFSETTYPE = 6i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const OT_MIDDLERIGHT: OFFSETTYPE = 7i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const OT_LEFTOFCAPTION: OFFSETTYPE = 8i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const OT_RIGHTOFCAPTION: OFFSETTYPE = 9i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const OT_LEFTOFLASTBUTTON: OFFSETTYPE = 10i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const OT_RIGHTOFLASTBUTTON: OFFSETTYPE = 11i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const OT_ABOVELASTBUTTON: OFFSETTYPE = 12i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const OT_BELOWLASTBUTTON: OFFSETTYPE = 13i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type OPENBOXSTATES = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPOB_NORMAL: OPENBOXSTATES = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPOB_HOT: OPENBOXSTATES = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPOB_SELECTED: OPENBOXSTATES = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPOB_DISABLED: OPENBOXSTATES = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPOB_FOCUSED: OPENBOXSTATES = 5i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type OPEN_THEME_DATA_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const OTD_FORCE_RECT_SIZING: OPEN_THEME_DATA_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const OTD_NONCLIENT: OPEN_THEME_DATA_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type PAGEPARTS = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PGRP_UP: PAGEPARTS = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PGRP_DOWN: PAGEPARTS = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PGRP_UPHORZ: PAGEPARTS = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PGRP_DOWNHORZ: PAGEPARTS = 4i32;
 pub const PAGESETUPDLGORD: u32 = 1546u32;
 pub const PAGESETUPDLGORDMOTIF: u32 = 1550u32;
@@ -4336,6 +5169,7 @@ pub const PBM_SETSTATE: u32 = 1040u32;
 pub const PBM_SETSTEP: u32 = 1028u32;
 pub const PBM_STEPIT: u32 = 1029u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct PBRANGE {
     pub iLow: i32,
     pub iHigh: i32,
@@ -4353,25 +5187,37 @@ pub const PBS_MARQUEE: u32 = 8u32;
 pub const PBS_SMOOTH: u32 = 1u32;
 pub const PBS_SMOOTHREVERSE: u32 = 16u32;
 pub const PBS_VERTICAL: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNDACOMPARE = ::core::option::Option<unsafe extern "system" fn(p1: *const ::core::ffi::c_void, p2: *const ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32>;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNDACOMPARECONST = ::core::option::Option<unsafe extern "system" fn(p1: *const ::core::ffi::c_void, p2: *const ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> i32>;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type PFNDAENUMCALLBACK = ::core::option::Option<unsafe extern "system" fn(p: *const ::core::ffi::c_void, pdata: *const ::core::ffi::c_void) -> i32>;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type PFNDAENUMCALLBACKCONST = ::core::option::Option<unsafe extern "system" fn(p: *const ::core::ffi::c_void, pdata: *const ::core::ffi::c_void) -> i32>;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNDPAMERGE = ::core::option::Option<unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const ::core::ffi::c_void, pvsrc: *const ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNDPAMERGECONST = ::core::option::Option<unsafe extern "system" fn(umsg: DPAMM_MESSAGE, pvdest: *const ::core::ffi::c_void, pvsrc: *const ::core::ffi::c_void, lparam: super::super::Foundation::LPARAM) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub type PFNDPASTREAM = ::core::option::Option<unsafe extern "system" fn(pinfo: *const DPASTREAMINFO, pstream: super::super::System::Com::IStream, pvinstdata: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNLVCOMPARE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::LPARAM, param1: super::super::Foundation::LPARAM, param2: super::super::Foundation::LPARAM) -> i32>;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type PFNLVGROUPCOMPARE = ::core::option::Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: *mut ::core::ffi::c_void) -> i32>;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNPROPSHEETCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::LPARAM) -> i32>;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNTVCOMPARE = ::core::option::Option<unsafe extern "system" fn(lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM, lparamsort: super::super::Foundation::LPARAM) -> i32>;
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFTASKDIALOGCALLBACK = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, lprefdata: isize) -> ::windows_sys::core::HRESULT>;
 pub const PGB_BOTTOMORRIGHT: u32 = 1u32;
@@ -4401,6 +5247,7 @@ pub const PGS_DRAGNDROP: u32 = 4u32;
 pub const PGS_HORZ: u32 = 1u32;
 pub const PGS_VERT: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct POINTER_DEVICE_CURSOR_INFO {
     pub cursorId: u32,
     pub cursor: POINTER_DEVICE_CURSOR_TYPE,
@@ -4411,12 +5258,18 @@ impl ::core::clone::Clone for POINTER_DEVICE_CURSOR_INFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type POINTER_DEVICE_CURSOR_TYPE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const POINTER_DEVICE_CURSOR_TYPE_UNKNOWN: POINTER_DEVICE_CURSOR_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const POINTER_DEVICE_CURSOR_TYPE_TIP: POINTER_DEVICE_CURSOR_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const POINTER_DEVICE_CURSOR_TYPE_ERASER: POINTER_DEVICE_CURSOR_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const POINTER_DEVICE_CURSOR_TYPE_MAX: POINTER_DEVICE_CURSOR_TYPE = -1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct POINTER_DEVICE_INFO {
     pub displayOrientation: u32,
@@ -4436,6 +5289,7 @@ impl ::core::clone::Clone for POINTER_DEVICE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct POINTER_DEVICE_PROPERTY {
     pub logicalMin: i32,
     pub logicalMax: i32,
@@ -4452,17 +5306,28 @@ impl ::core::clone::Clone for POINTER_DEVICE_PROPERTY {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type POINTER_DEVICE_TYPE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const POINTER_DEVICE_TYPE_INTEGRATED_PEN: POINTER_DEVICE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const POINTER_DEVICE_TYPE_EXTERNAL_PEN: POINTER_DEVICE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const POINTER_DEVICE_TYPE_TOUCH: POINTER_DEVICE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const POINTER_DEVICE_TYPE_TOUCH_PAD: POINTER_DEVICE_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const POINTER_DEVICE_TYPE_MAX: POINTER_DEVICE_TYPE = -1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type POINTER_FEEDBACK_MODE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const POINTER_FEEDBACK_DEFAULT: POINTER_FEEDBACK_MODE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const POINTER_FEEDBACK_INDIRECT: POINTER_FEEDBACK_MODE = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const POINTER_FEEDBACK_NONE: POINTER_FEEDBACK_MODE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_Input_Pointer', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct POINTER_TYPE_INFO {
     pub r#type: super::WindowsAndMessaging::POINTER_INPUT_TYPE,
@@ -4477,6 +5342,7 @@ impl ::core::clone::Clone for POINTER_TYPE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_Input_Pointer', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union POINTER_TYPE_INFO_0 {
     pub touchInfo: super::Input::Pointer::POINTER_TOUCH_INFO,
@@ -4493,13 +5359,20 @@ impl ::core::clone::Clone for POINTER_TYPE_INFO_0 {
 pub const PRINTDLGEXORD: u32 = 1549u32;
 pub const PRINTDLGORD: u32 = 1538u32;
 pub const PRNSETUPDLGORD: u32 = 1539u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type PROPERTYORIGIN = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PO_STATE: PROPERTYORIGIN = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PO_PART: PROPERTYORIGIN = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PO_CLASS: PROPERTYORIGIN = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PO_GLOBAL: PROPERTYORIGIN = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PO_NOTFOUND: PROPERTYORIGIN = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETHEADERA_V1 {
     pub dwSize: u32,
@@ -4522,6 +5395,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V1_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -4536,6 +5410,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V1_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V1_1 {
     pub nStartPage: u32,
@@ -4550,6 +5425,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V1_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V1_2 {
     pub ppsp: *mut PROPSHEETPAGEA,
@@ -4564,6 +5440,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V1_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETHEADERA_V2 {
     pub dwSize: u32,
@@ -4589,6 +5466,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V2_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -4603,6 +5481,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V2_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V2_1 {
     pub nStartPage: u32,
@@ -4617,6 +5496,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V2_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V2_2 {
     pub ppsp: *mut PROPSHEETPAGEA,
@@ -4631,6 +5511,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V2_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V2_3 {
     pub hbmWatermark: super::super::Graphics::Gdi::HBITMAP,
@@ -4645,6 +5526,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V2_3 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V2_4 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
@@ -4659,6 +5541,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V2_4 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETHEADERW_V1 {
     pub dwSize: u32,
@@ -4681,6 +5564,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V1_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -4695,6 +5579,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V1_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V1_1 {
     pub nStartPage: u32,
@@ -4709,6 +5594,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V1_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V1_2 {
     pub ppsp: *mut PROPSHEETPAGEW,
@@ -4723,6 +5609,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V1_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETHEADERW_V2 {
     pub dwSize: u32,
@@ -4748,6 +5635,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V2_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -4762,6 +5650,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V2_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V2_1 {
     pub nStartPage: u32,
@@ -4776,6 +5665,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V2_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V2_2 {
     pub ppsp: *mut PROPSHEETPAGEW,
@@ -4790,6 +5680,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V2_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V2_3 {
     pub hbmWatermark: super::super::Graphics::Gdi::HBITMAP,
@@ -4804,6 +5695,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V2_3 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V2_4 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
@@ -4818,6 +5710,7 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V2_4 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEA {
     pub dwSize: u32,
@@ -4844,6 +5737,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_0 {
     pub pszTemplate: super::super::Foundation::PSTR,
@@ -4858,6 +5752,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -4872,6 +5767,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_2 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
@@ -4886,6 +5782,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEA_V1 {
     pub dwSize: u32,
@@ -4908,6 +5805,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V1_0 {
     pub pszTemplate: super::super::Foundation::PSTR,
@@ -4922,6 +5820,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V1_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V1_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -4936,6 +5835,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V1_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEA_V2 {
     pub dwSize: u32,
@@ -4960,6 +5860,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V2_0 {
     pub pszTemplate: super::super::Foundation::PSTR,
@@ -4974,6 +5875,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V2_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V2_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -4988,6 +5890,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V2_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEA_V3 {
     pub dwSize: u32,
@@ -5013,6 +5916,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V3 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V3_0 {
     pub pszTemplate: super::super::Foundation::PSTR,
@@ -5027,6 +5931,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V3_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V3_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -5041,6 +5946,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V3_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEW {
     pub dwSize: u32,
@@ -5067,6 +5973,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_0 {
     pub pszTemplate: super::super::Foundation::PWSTR,
@@ -5081,6 +5988,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -5095,6 +6003,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_2 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
@@ -5109,6 +6018,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEW_V1 {
     pub dwSize: u32,
@@ -5131,6 +6041,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V1_0 {
     pub pszTemplate: super::super::Foundation::PWSTR,
@@ -5145,6 +6056,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V1_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V1_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -5159,6 +6071,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V1_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEW_V2 {
     pub dwSize: u32,
@@ -5183,6 +6096,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V2_0 {
     pub pszTemplate: super::super::Foundation::PWSTR,
@@ -5197,6 +6111,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V2_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V2_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -5211,6 +6126,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V2_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PROPSHEETPAGEW_V3 {
     pub dwSize: u32,
@@ -5236,6 +6152,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V3 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V3_0 {
     pub pszTemplate: super::super::Foundation::PWSTR,
@@ -5250,6 +6167,7 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V3_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V3_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
@@ -5281,6 +6199,7 @@ pub const PSCB_BUTTONPRESSED: u32 = 3u32;
 pub const PSCB_INITIALIZED: u32 = 1u32;
 pub const PSCB_PRECREATE: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PSHNOTIFY {
     pub hdr: NMHDR,
@@ -5369,10 +6288,15 @@ pub const PSNRET_INVALID: u32 = 1u32;
 pub const PSNRET_INVALID_NOCHANGEPAGE: u32 = 2u32;
 pub const PSNRET_MESSAGEHANDLED: u32 = 3u32;
 pub const PSNRET_NOERROR: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type PSPCB_MESSAGE = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PSPCB_ADDREF: PSPCB_MESSAGE = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PSPCB_CREATE: PSPCB_MESSAGE = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PSPCB_RELEASE: PSPCB_MESSAGE = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const PSPCB_SI_INITDIALOG: PSPCB_MESSAGE = 1025u32;
 pub const PSP_DEFAULT: u32 = 0u32;
 pub const PSP_DLGINDIRECT: u32 = 1u32;
@@ -5425,6 +6349,7 @@ pub const RBBS_TOPALIGN: u32 = 2048u32;
 pub const RBBS_USECHEVRON: u32 = 512u32;
 pub const RBBS_VARIABLEHEIGHT: u32 = 64u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RBHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
@@ -5504,6 +6429,7 @@ pub const RB_SETWINDOWTHEME: u32 = 8203u32;
 pub const RB_SHOWBAND: u32 = 1059u32;
 pub const RB_SIZETORECT: u32 = 1047u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct REBARBANDINFOA {
     pub cbSize: u32,
@@ -5538,6 +6464,7 @@ impl ::core::clone::Clone for REBARBANDINFOA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct REBARBANDINFOW {
     pub cbSize: u32,
@@ -5572,6 +6499,7 @@ impl ::core::clone::Clone for REBARBANDINFOW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct REBARINFO {
     pub cbSize: u32,
     pub fMask: u32,
@@ -5619,37 +6547,69 @@ pub const SB_SETTIPTEXTW: u32 = 1041u32;
 pub const SB_SETUNICODEFORMAT: u32 = 8197u32;
 pub const SB_SIMPLE: u32 = 1033u32;
 pub const SB_SIMPLEID: u32 = 255u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type SIZINGTYPE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ST_TRUESIZE: SIZINGTYPE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ST_STRETCH: SIZINGTYPE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const ST_TILE: SIZINGTYPE = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type SOFTWAREEXPLORERSTATES = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPSE_NORMAL: SOFTWAREEXPLORERSTATES = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPSE_HOT: SOFTWAREEXPLORERSTATES = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPSE_SELECTED: SOFTWAREEXPLORERSTATES = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPSE_DISABLED: SOFTWAREEXPLORERSTATES = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPSE_FOCUSED: SOFTWAREEXPLORERSTATES = 5i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type STARTPANELPARTS = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPP_USERPANE: STARTPANELPARTS = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPP_MOREPROGRAMS: STARTPANELPARTS = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPP_MOREPROGRAMSARROW: STARTPANELPARTS = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPP_PROGLIST: STARTPANELPARTS = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPP_PROGLISTSEPARATOR: STARTPANELPARTS = 5i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPP_PLACESLIST: STARTPANELPARTS = 6i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPP_PLACESLISTSEPARATOR: STARTPANELPARTS = 7i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPP_LOGOFF: STARTPANELPARTS = 8i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPP_LOGOFFBUTTONS: STARTPANELPARTS = 9i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPP_USERPICTURE: STARTPANELPARTS = 10i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPP_PREVIEW: STARTPANELPARTS = 11i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPP_MOREPROGRAMSTAB: STARTPANELPARTS = 12i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPP_NSCHOST: STARTPANELPARTS = 13i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPP_SOFTWAREEXPLORER: STARTPANELPARTS = 14i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPP_OPENBOX: STARTPANELPARTS = 15i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPP_SEARCHVIEW: STARTPANELPARTS = 16i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPP_MOREPROGRAMSARROWBACK: STARTPANELPARTS = 17i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPP_TOPMATCH: STARTPANELPARTS = 18i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const SPP_LOGOFFSPLITBUTTONDROPDOWN: STARTPANELPARTS = 19i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type STATICPARTS = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const STAT_TEXT: STATICPARTS = 1i32;
 pub const STD_COPY: u32 = 1u32;
 pub const STD_CUT: u32 = 0u32;
@@ -5666,20 +6626,34 @@ pub const STD_PROPERTIES: u32 = 10u32;
 pub const STD_REDOW: u32 = 4u32;
 pub const STD_REPLACE: u32 = 13u32;
 pub const STD_UNDO: u32 = 3u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TASKBANDPARTS = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDP_GROUPCOUNT: TASKBANDPARTS = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDP_FLASHBUTTON: TASKBANDPARTS = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDP_FLASHBUTTONGROUPMENU: TASKBANDPARTS = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TASKBARPARTS = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBP_BACKGROUNDBOTTOM: TASKBARPARTS = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBP_BACKGROUNDRIGHT: TASKBARPARTS = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBP_BACKGROUNDTOP: TASKBARPARTS = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBP_BACKGROUNDLEFT: TASKBARPARTS = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBP_SIZINGBARBOTTOM: TASKBARPARTS = 5i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBP_SIZINGBARRIGHT: TASKBARPARTS = 6i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBP_SIZINGBARTOP: TASKBARPARTS = 7i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBP_SIZINGBARLEFT: TASKBARPARTS = 8i32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct TASKDIALOGCONFIG {
     pub cbSize: u32,
@@ -5716,6 +6690,7 @@ impl ::core::clone::Clone for TASKDIALOGCONFIG {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union TASKDIALOGCONFIG_0 {
     pub hMainIcon: super::WindowsAndMessaging::HICON,
@@ -5730,6 +6705,7 @@ impl ::core::clone::Clone for TASKDIALOGCONFIG_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union TASKDIALOGCONFIG_1 {
     pub hFooterIcon: super::WindowsAndMessaging::HICON,
@@ -5744,6 +6720,7 @@ impl ::core::clone::Clone for TASKDIALOGCONFIG_1 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TASKDIALOG_BUTTON {
     pub nButtonID: i32,
@@ -5757,69 +6734,132 @@ impl ::core::clone::Clone for TASKDIALOG_BUTTON {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TASKDIALOG_COMMON_BUTTON_FLAGS = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDCBF_OK_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDCBF_YES_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDCBF_NO_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDCBF_CANCEL_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 8i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDCBF_RETRY_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 16i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDCBF_CLOSE_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = 32i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TASKDIALOG_ELEMENTS = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDE_CONTENT: TASKDIALOG_ELEMENTS = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDE_EXPANDED_INFORMATION: TASKDIALOG_ELEMENTS = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDE_FOOTER: TASKDIALOG_ELEMENTS = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDE_MAIN_INSTRUCTION: TASKDIALOG_ELEMENTS = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TASKDIALOG_FLAGS = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDF_ENABLE_HYPERLINKS: TASKDIALOG_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDF_USE_HICON_MAIN: TASKDIALOG_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDF_USE_HICON_FOOTER: TASKDIALOG_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDF_ALLOW_DIALOG_CANCELLATION: TASKDIALOG_FLAGS = 8i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDF_USE_COMMAND_LINKS: TASKDIALOG_FLAGS = 16i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDF_USE_COMMAND_LINKS_NO_ICON: TASKDIALOG_FLAGS = 32i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDF_EXPAND_FOOTER_AREA: TASKDIALOG_FLAGS = 64i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDF_EXPANDED_BY_DEFAULT: TASKDIALOG_FLAGS = 128i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDF_VERIFICATION_FLAG_CHECKED: TASKDIALOG_FLAGS = 256i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDF_SHOW_PROGRESS_BAR: TASKDIALOG_FLAGS = 512i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDF_SHOW_MARQUEE_PROGRESS_BAR: TASKDIALOG_FLAGS = 1024i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDF_CALLBACK_TIMER: TASKDIALOG_FLAGS = 2048i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDF_POSITION_RELATIVE_TO_WINDOW: TASKDIALOG_FLAGS = 4096i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDF_RTL_LAYOUT: TASKDIALOG_FLAGS = 8192i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDF_NO_DEFAULT_RADIO_BUTTON: TASKDIALOG_FLAGS = 16384i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDF_CAN_BE_MINIMIZED: TASKDIALOG_FLAGS = 32768i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDF_NO_SET_FOREGROUND: TASKDIALOG_FLAGS = 65536i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDF_SIZE_TO_CONTENT: TASKDIALOG_FLAGS = 16777216i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TASKDIALOG_ICON_ELEMENTS = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDIE_ICON_MAIN: TASKDIALOG_ICON_ELEMENTS = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDIE_ICON_FOOTER: TASKDIALOG_ICON_ELEMENTS = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TASKDIALOG_MESSAGES = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDM_NAVIGATE_PAGE: TASKDIALOG_MESSAGES = 1125i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDM_CLICK_BUTTON: TASKDIALOG_MESSAGES = 1126i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDM_SET_MARQUEE_PROGRESS_BAR: TASKDIALOG_MESSAGES = 1127i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDM_SET_PROGRESS_BAR_STATE: TASKDIALOG_MESSAGES = 1128i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDM_SET_PROGRESS_BAR_RANGE: TASKDIALOG_MESSAGES = 1129i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDM_SET_PROGRESS_BAR_POS: TASKDIALOG_MESSAGES = 1130i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDM_SET_PROGRESS_BAR_MARQUEE: TASKDIALOG_MESSAGES = 1131i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDM_SET_ELEMENT_TEXT: TASKDIALOG_MESSAGES = 1132i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDM_CLICK_RADIO_BUTTON: TASKDIALOG_MESSAGES = 1134i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDM_ENABLE_BUTTON: TASKDIALOG_MESSAGES = 1135i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDM_ENABLE_RADIO_BUTTON: TASKDIALOG_MESSAGES = 1136i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDM_CLICK_VERIFICATION: TASKDIALOG_MESSAGES = 1137i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDM_UPDATE_ELEMENT_TEXT: TASKDIALOG_MESSAGES = 1138i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDM_SET_BUTTON_ELEVATION_REQUIRED_STATE: TASKDIALOG_MESSAGES = 1139i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDM_UPDATE_ICON: TASKDIALOG_MESSAGES = 1140i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TASKDIALOG_NOTIFICATIONS = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDN_CREATED: TASKDIALOG_NOTIFICATIONS = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDN_NAVIGATED: TASKDIALOG_NOTIFICATIONS = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDN_BUTTON_CLICKED: TASKDIALOG_NOTIFICATIONS = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDN_HYPERLINK_CLICKED: TASKDIALOG_NOTIFICATIONS = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDN_TIMER: TASKDIALOG_NOTIFICATIONS = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDN_DESTROYED: TASKDIALOG_NOTIFICATIONS = 5i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDN_RADIO_BUTTON_CLICKED: TASKDIALOG_NOTIFICATIONS = 6i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDN_DIALOG_CONSTRUCTED: TASKDIALOG_NOTIFICATIONS = 7i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDN_VERIFICATION_CLICKED: TASKDIALOG_NOTIFICATIONS = 8i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDN_HELP: TASKDIALOG_NOTIFICATIONS = 9i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TDN_EXPANDO_BUTTON_CLICKED: TASKDIALOG_NOTIFICATIONS = 10i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct TA_CUBIC_BEZIER {
     pub header: TA_TIMINGFUNCTION,
     pub rX0: f32,
@@ -5833,21 +6873,36 @@ impl ::core::clone::Clone for TA_CUBIC_BEZIER {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TA_PROPERTY = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TAP_FLAGS: TA_PROPERTY = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TAP_TRANSFORMCOUNT: TA_PROPERTY = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TAP_STAGGERDELAY: TA_PROPERTY = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TAP_STAGGERDELAYCAP: TA_PROPERTY = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TAP_STAGGERDELAYFACTOR: TA_PROPERTY = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TAP_ZORDER: TA_PROPERTY = 5i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TA_PROPERTY_FLAG = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TAPF_NONE: TA_PROPERTY_FLAG = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TAPF_HASSTAGGER: TA_PROPERTY_FLAG = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TAPF_ISRTLAWARE: TA_PROPERTY_FLAG = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TAPF_ALLOWCOLLECTION: TA_PROPERTY_FLAG = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TAPF_HASBACKGROUND: TA_PROPERTY_FLAG = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TAPF_HASPERSPECTIVE: TA_PROPERTY_FLAG = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct TA_TIMINGFUNCTION {
     pub eTimingFunctionType: TA_TIMINGFUNCTION_TYPE,
 }
@@ -5857,10 +6912,14 @@ impl ::core::clone::Clone for TA_TIMINGFUNCTION {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TA_TIMINGFUNCTION_TYPE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TTFT_UNDEFINED: TA_TIMINGFUNCTION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TTFT_CUBIC_BEZIER: TA_TIMINGFUNCTION_TYPE = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct TA_TRANSFORM {
     pub eTransformType: TA_TRANSFORM_TYPE,
     pub dwTimingFunctionId: u32,
@@ -5875,6 +6934,7 @@ impl ::core::clone::Clone for TA_TRANSFORM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct TA_TRANSFORM_2D {
     pub header: TA_TRANSFORM,
     pub rX: f32,
@@ -5891,6 +6951,7 @@ impl ::core::clone::Clone for TA_TRANSFORM_2D {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct TA_TRANSFORM_CLIP {
     pub header: TA_TRANSFORM,
     pub rLeft: f32,
@@ -5908,12 +6969,18 @@ impl ::core::clone::Clone for TA_TRANSFORM_CLIP {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TA_TRANSFORM_FLAG = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TATF_NONE: TA_TRANSFORM_FLAG = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TATF_TARGETVALUES_USER: TA_TRANSFORM_FLAG = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TATF_HASINITIALVALUES: TA_TRANSFORM_FLAG = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TATF_HASORIGINVALUES: TA_TRANSFORM_FLAG = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct TA_TRANSFORM_OPACITY {
     pub header: TA_TRANSFORM,
     pub rOpacity: f32,
@@ -5925,12 +6992,18 @@ impl ::core::clone::Clone for TA_TRANSFORM_OPACITY {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TA_TRANSFORM_TYPE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TATT_TRANSLATE_2D: TA_TRANSFORM_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TATT_SCALE_2D: TA_TRANSFORM_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TATT_OPACITY: TA_TRANSFORM_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TATT_CLIP: TA_TRANSFORM_TYPE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TBADDBITMAP {
     pub hInst: super::super::Foundation::HINSTANCE,
@@ -5946,7 +7019,8 @@ impl ::core::clone::Clone for TBADDBITMAP {
 }
 pub const TBBF_LARGE: u32 = 1u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct TBBUTTON {
     pub iBitmap: i32,
     pub idCommand: i32,
@@ -5956,16 +7030,17 @@ pub struct TBBUTTON {
     pub dwData: usize,
     pub iString: isize,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for TBBUTTON {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for TBBUTTON {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
+#[cfg(target_arch = "x86")]
 pub struct TBBUTTON {
     pub iBitmap: i32,
     pub idCommand: i32,
@@ -5975,15 +7050,16 @@ pub struct TBBUTTON {
     pub dwData: usize,
     pub iString: isize,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for TBBUTTON {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for TBBUTTON {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TBBUTTONINFOA {
     pub cbSize: u32,
@@ -6006,6 +7082,7 @@ impl ::core::clone::Clone for TBBUTTONINFOA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TBBUTTONINFOW {
     pub cbSize: u32,
@@ -6027,14 +7104,23 @@ impl ::core::clone::Clone for TBBUTTONINFOW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TBBUTTONINFOW_MASK = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBIF_BYINDEX: TBBUTTONINFOW_MASK = 2147483648u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBIF_COMMAND: TBBUTTONINFOW_MASK = 32u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBIF_IMAGE: TBBUTTONINFOW_MASK = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBIF_LPARAM: TBBUTTONINFOW_MASK = 16u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBIF_SIZE: TBBUTTONINFOW_MASK = 64u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBIF_STATE: TBBUTTONINFOW_MASK = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBIF_STYLE: TBBUTTONINFOW_MASK = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBIF_TEXT: TBBUTTONINFOW_MASK = 2u32;
 pub const TBCDRF_BLENDICON: u32 = 2097152u32;
 pub const TBCDRF_HILITEHOTTRACK: u32 = 131072u32;
@@ -6051,6 +7137,7 @@ pub const TBDDRET_DEFAULT: u32 = 0u32;
 pub const TBDDRET_NODEFAULT: u32 = 1u32;
 pub const TBDDRET_TREATPRESSED: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct TBINSERTMARK {
     pub iButton: i32,
     pub dwFlags: TBINSERTMARK_FLAGS,
@@ -6061,11 +7148,16 @@ impl ::core::clone::Clone for TBINSERTMARK {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TBINSERTMARK_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBIMHT_NONE: TBINSERTMARK_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBIMHT_AFTER: TBINSERTMARK_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TBIMHT_BACKGROUND: TBINSERTMARK_FLAGS = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct TBMETRICS {
     pub cbSize: u32,
     pub dwMask: u32,
@@ -6123,6 +7215,7 @@ pub const TBM_SETUNICODEFORMAT: u32 = 8197u32;
 pub const TBNRF_ENDCUSTOMIZE: u32 = 2u32;
 pub const TBNRF_HIDEHELP: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TBREPLACEBITMAP {
     pub hInstOld: super::super::Foundation::HINSTANCE,
@@ -6140,6 +7233,7 @@ impl ::core::clone::Clone for TBREPLACEBITMAP {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_System_Registry'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct TBSAVEPARAMSA {
     pub hkr: super::super::System::Registry::HKEY,
@@ -6155,6 +7249,7 @@ impl ::core::clone::Clone for TBSAVEPARAMSA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_System_Registry'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub struct TBSAVEPARAMSW {
     pub hkr: super::super::System::Registry::HKEY,
@@ -6340,6 +7435,7 @@ pub const TB_THUMBPOSITION: u32 = 4u32;
 pub const TB_THUMBTRACK: u32 = 5u32;
 pub const TB_TOP: u32 = 6u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TCHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
@@ -6353,14 +7449,20 @@ impl ::core::clone::Clone for TCHITTESTINFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TCHITTESTINFO_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TCHT_NOWHERE: TCHITTESTINFO_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TCHT_ONITEM: TCHITTESTINFO_FLAGS = 6u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TCHT_ONITEMICON: TCHITTESTINFO_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TCHT_ONITEMLABEL: TCHITTESTINFO_FLAGS = 4u32;
 pub const TCIS_BUTTONPRESSED: u32 = 1u32;
 pub const TCIS_HIGHLIGHTED: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TCITEMA {
     pub mask: TCITEMHEADERA_MASK,
@@ -6380,6 +7482,7 @@ impl ::core::clone::Clone for TCITEMA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TCITEMHEADERA {
     pub mask: TCITEMHEADERA_MASK,
@@ -6397,13 +7500,20 @@ impl ::core::clone::Clone for TCITEMHEADERA {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TCITEMHEADERA_MASK = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TCIF_IMAGE: TCITEMHEADERA_MASK = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TCIF_RTLREADING: TCITEMHEADERA_MASK = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TCIF_TEXT: TCITEMHEADERA_MASK = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TCIF_PARAM: TCITEMHEADERA_MASK = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TCIF_STATE: TCITEMHEADERA_MASK = 16u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TCITEMHEADERW {
     pub mask: TCITEMHEADERA_MASK,
@@ -6422,6 +7532,7 @@ impl ::core::clone::Clone for TCITEMHEADERW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TCITEMW {
     pub mask: TCITEMHEADERA_MASK,
@@ -6498,273 +7609,540 @@ pub const TCS_SINGLELINE: u32 = 0u32;
 pub const TCS_TABS: u32 = 0u32;
 pub const TCS_TOOLTIPS: u32 = 16384u32;
 pub const TCS_VERTICAL: u32 = 128u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TEXTSHADOWTYPE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TST_NONE: TEXTSHADOWTYPE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TST_SINGLE: TEXTSHADOWTYPE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TST_CONTINUOUS: TEXTSHADOWTYPE = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type THEMESIZE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TS_MIN: THEMESIZE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TS_TRUE: THEMESIZE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TS_DRAW: THEMESIZE = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type THEME_PROPERTY_SYMBOL_ID = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_RESERVEDLOW: THEME_PROPERTY_SYMBOL_ID = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_RESERVEDHIGH: THEME_PROPERTY_SYMBOL_ID = 7999u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_DIBDATA: THEME_PROPERTY_SYMBOL_ID = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GLYPHDIBDATA: THEME_PROPERTY_SYMBOL_ID = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_ENUM: THEME_PROPERTY_SYMBOL_ID = 200u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_STRING: THEME_PROPERTY_SYMBOL_ID = 201u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_INT: THEME_PROPERTY_SYMBOL_ID = 202u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_BOOL: THEME_PROPERTY_SYMBOL_ID = 203u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_COLOR: THEME_PROPERTY_SYMBOL_ID = 204u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MARGINS: THEME_PROPERTY_SYMBOL_ID = 205u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FILENAME: THEME_PROPERTY_SYMBOL_ID = 206u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_SIZE: THEME_PROPERTY_SYMBOL_ID = 207u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_POSITION: THEME_PROPERTY_SYMBOL_ID = 208u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_RECT: THEME_PROPERTY_SYMBOL_ID = 209u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FONT: THEME_PROPERTY_SYMBOL_ID = 210u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_INTLIST: THEME_PROPERTY_SYMBOL_ID = 211u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_HBITMAP: THEME_PROPERTY_SYMBOL_ID = 212u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_DISKSTREAM: THEME_PROPERTY_SYMBOL_ID = 213u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_STREAM: THEME_PROPERTY_SYMBOL_ID = 214u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_BITMAPREF: THEME_PROPERTY_SYMBOL_ID = 215u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FLOAT: THEME_PROPERTY_SYMBOL_ID = 216u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FLOATLIST: THEME_PROPERTY_SYMBOL_ID = 217u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_COLORSCHEMES: THEME_PROPERTY_SYMBOL_ID = 401u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_SIZES: THEME_PROPERTY_SYMBOL_ID = 402u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_CHARSET: THEME_PROPERTY_SYMBOL_ID = 403u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_NAME: THEME_PROPERTY_SYMBOL_ID = 600u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_DISPLAYNAME: THEME_PROPERTY_SYMBOL_ID = 601u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TOOLTIP: THEME_PROPERTY_SYMBOL_ID = 602u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_COMPANY: THEME_PROPERTY_SYMBOL_ID = 603u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_AUTHOR: THEME_PROPERTY_SYMBOL_ID = 604u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_COPYRIGHT: THEME_PROPERTY_SYMBOL_ID = 605u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_URL: THEME_PROPERTY_SYMBOL_ID = 606u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_VERSION: THEME_PROPERTY_SYMBOL_ID = 607u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_DESCRIPTION: THEME_PROPERTY_SYMBOL_ID = 608u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FIRST_RCSTRING_NAME: THEME_PROPERTY_SYMBOL_ID = 601u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_LAST_RCSTRING_NAME: THEME_PROPERTY_SYMBOL_ID = 608u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_CAPTIONFONT: THEME_PROPERTY_SYMBOL_ID = 801u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_SMALLCAPTIONFONT: THEME_PROPERTY_SYMBOL_ID = 802u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MENUFONT: THEME_PROPERTY_SYMBOL_ID = 803u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_STATUSFONT: THEME_PROPERTY_SYMBOL_ID = 804u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MSGBOXFONT: THEME_PROPERTY_SYMBOL_ID = 805u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_ICONTITLEFONT: THEME_PROPERTY_SYMBOL_ID = 806u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_HEADING1FONT: THEME_PROPERTY_SYMBOL_ID = 807u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_HEADING2FONT: THEME_PROPERTY_SYMBOL_ID = 808u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_BODYFONT: THEME_PROPERTY_SYMBOL_ID = 809u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FIRSTFONT: THEME_PROPERTY_SYMBOL_ID = 801u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_LASTFONT: THEME_PROPERTY_SYMBOL_ID = 809u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FLATMENUS: THEME_PROPERTY_SYMBOL_ID = 1001u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FIRSTBOOL: THEME_PROPERTY_SYMBOL_ID = 1001u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_LASTBOOL: THEME_PROPERTY_SYMBOL_ID = 1001u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_SIZINGBORDERWIDTH: THEME_PROPERTY_SYMBOL_ID = 1201u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_SCROLLBARWIDTH: THEME_PROPERTY_SYMBOL_ID = 1202u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_SCROLLBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = 1203u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_CAPTIONBARWIDTH: THEME_PROPERTY_SYMBOL_ID = 1204u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_CAPTIONBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = 1205u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_SMCAPTIONBARWIDTH: THEME_PROPERTY_SYMBOL_ID = 1206u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_SMCAPTIONBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = 1207u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MENUBARWIDTH: THEME_PROPERTY_SYMBOL_ID = 1208u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MENUBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = 1209u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_PADDEDBORDERWIDTH: THEME_PROPERTY_SYMBOL_ID = 1210u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FIRSTSIZE: THEME_PROPERTY_SYMBOL_ID = 1201u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_LASTSIZE: THEME_PROPERTY_SYMBOL_ID = 1210u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MINCOLORDEPTH: THEME_PROPERTY_SYMBOL_ID = 1301u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FIRSTINT: THEME_PROPERTY_SYMBOL_ID = 1301u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_LASTINT: THEME_PROPERTY_SYMBOL_ID = 1301u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_CSSNAME: THEME_PROPERTY_SYMBOL_ID = 1401u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_XMLNAME: THEME_PROPERTY_SYMBOL_ID = 1402u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_LASTUPDATED: THEME_PROPERTY_SYMBOL_ID = 1403u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_ALIAS: THEME_PROPERTY_SYMBOL_ID = 1404u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FIRSTSTRING: THEME_PROPERTY_SYMBOL_ID = 1401u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_LASTSTRING: THEME_PROPERTY_SYMBOL_ID = 1404u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_SCROLLBAR: THEME_PROPERTY_SYMBOL_ID = 1601u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_BACKGROUND: THEME_PROPERTY_SYMBOL_ID = 1602u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_ACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = 1603u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_INACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = 1604u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MENU: THEME_PROPERTY_SYMBOL_ID = 1605u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_WINDOW: THEME_PROPERTY_SYMBOL_ID = 1606u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_WINDOWFRAME: THEME_PROPERTY_SYMBOL_ID = 1607u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MENUTEXT: THEME_PROPERTY_SYMBOL_ID = 1608u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_WINDOWTEXT: THEME_PROPERTY_SYMBOL_ID = 1609u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_CAPTIONTEXT: THEME_PROPERTY_SYMBOL_ID = 1610u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_ACTIVEBORDER: THEME_PROPERTY_SYMBOL_ID = 1611u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_INACTIVEBORDER: THEME_PROPERTY_SYMBOL_ID = 1612u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_APPWORKSPACE: THEME_PROPERTY_SYMBOL_ID = 1613u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_HIGHLIGHT: THEME_PROPERTY_SYMBOL_ID = 1614u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_HIGHLIGHTTEXT: THEME_PROPERTY_SYMBOL_ID = 1615u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_BTNFACE: THEME_PROPERTY_SYMBOL_ID = 1616u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_BTNSHADOW: THEME_PROPERTY_SYMBOL_ID = 1617u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GRAYTEXT: THEME_PROPERTY_SYMBOL_ID = 1618u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_BTNTEXT: THEME_PROPERTY_SYMBOL_ID = 1619u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_INACTIVECAPTIONTEXT: THEME_PROPERTY_SYMBOL_ID = 1620u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_BTNHIGHLIGHT: THEME_PROPERTY_SYMBOL_ID = 1621u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_DKSHADOW3D: THEME_PROPERTY_SYMBOL_ID = 1622u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_LIGHT3D: THEME_PROPERTY_SYMBOL_ID = 1623u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_INFOTEXT: THEME_PROPERTY_SYMBOL_ID = 1624u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_INFOBK: THEME_PROPERTY_SYMBOL_ID = 1625u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_BUTTONALTERNATEFACE: THEME_PROPERTY_SYMBOL_ID = 1626u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_HOTTRACKING: THEME_PROPERTY_SYMBOL_ID = 1627u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GRADIENTACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = 1628u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GRADIENTINACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = 1629u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MENUHILIGHT: THEME_PROPERTY_SYMBOL_ID = 1630u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MENUBAR: THEME_PROPERTY_SYMBOL_ID = 1631u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FIRSTCOLOR: THEME_PROPERTY_SYMBOL_ID = 1601u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_LASTCOLOR: THEME_PROPERTY_SYMBOL_ID = 1631u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FROMHUE1: THEME_PROPERTY_SYMBOL_ID = 1801u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FROMHUE2: THEME_PROPERTY_SYMBOL_ID = 1802u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FROMHUE3: THEME_PROPERTY_SYMBOL_ID = 1803u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FROMHUE4: THEME_PROPERTY_SYMBOL_ID = 1804u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FROMHUE5: THEME_PROPERTY_SYMBOL_ID = 1805u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TOHUE1: THEME_PROPERTY_SYMBOL_ID = 1806u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TOHUE2: THEME_PROPERTY_SYMBOL_ID = 1807u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TOHUE3: THEME_PROPERTY_SYMBOL_ID = 1808u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TOHUE4: THEME_PROPERTY_SYMBOL_ID = 1809u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TOHUE5: THEME_PROPERTY_SYMBOL_ID = 1810u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FROMCOLOR1: THEME_PROPERTY_SYMBOL_ID = 2001u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FROMCOLOR2: THEME_PROPERTY_SYMBOL_ID = 2002u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FROMCOLOR3: THEME_PROPERTY_SYMBOL_ID = 2003u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FROMCOLOR4: THEME_PROPERTY_SYMBOL_ID = 2004u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FROMCOLOR5: THEME_PROPERTY_SYMBOL_ID = 2005u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TOCOLOR1: THEME_PROPERTY_SYMBOL_ID = 2006u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TOCOLOR2: THEME_PROPERTY_SYMBOL_ID = 2007u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TOCOLOR3: THEME_PROPERTY_SYMBOL_ID = 2008u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TOCOLOR4: THEME_PROPERTY_SYMBOL_ID = 2009u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TOCOLOR5: THEME_PROPERTY_SYMBOL_ID = 2010u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TRANSPARENT: THEME_PROPERTY_SYMBOL_ID = 2201u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_AUTOSIZE: THEME_PROPERTY_SYMBOL_ID = 2202u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_BORDERONLY: THEME_PROPERTY_SYMBOL_ID = 2203u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_COMPOSITED: THEME_PROPERTY_SYMBOL_ID = 2204u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_BGFILL: THEME_PROPERTY_SYMBOL_ID = 2205u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GLYPHTRANSPARENT: THEME_PROPERTY_SYMBOL_ID = 2206u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GLYPHONLY: THEME_PROPERTY_SYMBOL_ID = 2207u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_ALWAYSSHOWSIZINGBAR: THEME_PROPERTY_SYMBOL_ID = 2208u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MIRRORIMAGE: THEME_PROPERTY_SYMBOL_ID = 2209u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_UNIFORMSIZING: THEME_PROPERTY_SYMBOL_ID = 2210u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_INTEGRALSIZING: THEME_PROPERTY_SYMBOL_ID = 2211u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_SOURCEGROW: THEME_PROPERTY_SYMBOL_ID = 2212u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_SOURCESHRINK: THEME_PROPERTY_SYMBOL_ID = 2213u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_DRAWBORDERS: THEME_PROPERTY_SYMBOL_ID = 2214u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_NOETCHEDEFFECT: THEME_PROPERTY_SYMBOL_ID = 2215u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TEXTAPPLYOVERLAY: THEME_PROPERTY_SYMBOL_ID = 2216u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TEXTGLOW: THEME_PROPERTY_SYMBOL_ID = 2217u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TEXTITALIC: THEME_PROPERTY_SYMBOL_ID = 2218u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_COMPOSITEDOPAQUE: THEME_PROPERTY_SYMBOL_ID = 2219u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_LOCALIZEDMIRRORIMAGE: THEME_PROPERTY_SYMBOL_ID = 2220u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_IMAGECOUNT: THEME_PROPERTY_SYMBOL_ID = 2401u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_ALPHALEVEL: THEME_PROPERTY_SYMBOL_ID = 2402u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_BORDERSIZE: THEME_PROPERTY_SYMBOL_ID = 2403u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_ROUNDCORNERWIDTH: THEME_PROPERTY_SYMBOL_ID = 2404u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_ROUNDCORNERHEIGHT: THEME_PROPERTY_SYMBOL_ID = 2405u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GRADIENTRATIO1: THEME_PROPERTY_SYMBOL_ID = 2406u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GRADIENTRATIO2: THEME_PROPERTY_SYMBOL_ID = 2407u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GRADIENTRATIO3: THEME_PROPERTY_SYMBOL_ID = 2408u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GRADIENTRATIO4: THEME_PROPERTY_SYMBOL_ID = 2409u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GRADIENTRATIO5: THEME_PROPERTY_SYMBOL_ID = 2410u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_PROGRESSCHUNKSIZE: THEME_PROPERTY_SYMBOL_ID = 2411u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_PROGRESSSPACESIZE: THEME_PROPERTY_SYMBOL_ID = 2412u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_SATURATION: THEME_PROPERTY_SYMBOL_ID = 2413u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TEXTBORDERSIZE: THEME_PROPERTY_SYMBOL_ID = 2414u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_ALPHATHRESHOLD: THEME_PROPERTY_SYMBOL_ID = 2415u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_WIDTH: THEME_PROPERTY_SYMBOL_ID = 2416u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_HEIGHT: THEME_PROPERTY_SYMBOL_ID = 2417u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GLYPHINDEX: THEME_PROPERTY_SYMBOL_ID = 2418u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TRUESIZESTRETCHMARK: THEME_PROPERTY_SYMBOL_ID = 2419u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MINDPI1: THEME_PROPERTY_SYMBOL_ID = 2420u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MINDPI2: THEME_PROPERTY_SYMBOL_ID = 2421u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MINDPI3: THEME_PROPERTY_SYMBOL_ID = 2422u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MINDPI4: THEME_PROPERTY_SYMBOL_ID = 2423u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MINDPI5: THEME_PROPERTY_SYMBOL_ID = 2424u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TEXTGLOWSIZE: THEME_PROPERTY_SYMBOL_ID = 2425u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FRAMESPERSECOND: THEME_PROPERTY_SYMBOL_ID = 2426u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_PIXELSPERFRAME: THEME_PROPERTY_SYMBOL_ID = 2427u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_ANIMATIONDELAY: THEME_PROPERTY_SYMBOL_ID = 2428u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GLOWINTENSITY: THEME_PROPERTY_SYMBOL_ID = 2429u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_OPACITY: THEME_PROPERTY_SYMBOL_ID = 2430u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_COLORIZATIONCOLOR: THEME_PROPERTY_SYMBOL_ID = 2431u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_COLORIZATIONOPACITY: THEME_PROPERTY_SYMBOL_ID = 2432u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MINDPI6: THEME_PROPERTY_SYMBOL_ID = 2433u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MINDPI7: THEME_PROPERTY_SYMBOL_ID = 2434u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GLYPHFONT: THEME_PROPERTY_SYMBOL_ID = 2601u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_IMAGEFILE: THEME_PROPERTY_SYMBOL_ID = 3001u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_IMAGEFILE1: THEME_PROPERTY_SYMBOL_ID = 3002u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_IMAGEFILE2: THEME_PROPERTY_SYMBOL_ID = 3003u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_IMAGEFILE3: THEME_PROPERTY_SYMBOL_ID = 3004u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_IMAGEFILE4: THEME_PROPERTY_SYMBOL_ID = 3005u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_IMAGEFILE5: THEME_PROPERTY_SYMBOL_ID = 3006u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GLYPHIMAGEFILE: THEME_PROPERTY_SYMBOL_ID = 3008u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_IMAGEFILE6: THEME_PROPERTY_SYMBOL_ID = 3009u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_IMAGEFILE7: THEME_PROPERTY_SYMBOL_ID = 3010u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TEXT: THEME_PROPERTY_SYMBOL_ID = 3201u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_CLASSICVALUE: THEME_PROPERTY_SYMBOL_ID = 3202u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_OFFSET: THEME_PROPERTY_SYMBOL_ID = 3401u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TEXTSHADOWOFFSET: THEME_PROPERTY_SYMBOL_ID = 3402u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MINSIZE: THEME_PROPERTY_SYMBOL_ID = 3403u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MINSIZE1: THEME_PROPERTY_SYMBOL_ID = 3404u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MINSIZE2: THEME_PROPERTY_SYMBOL_ID = 3405u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MINSIZE3: THEME_PROPERTY_SYMBOL_ID = 3406u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MINSIZE4: THEME_PROPERTY_SYMBOL_ID = 3407u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MINSIZE5: THEME_PROPERTY_SYMBOL_ID = 3408u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_NORMALSIZE: THEME_PROPERTY_SYMBOL_ID = 3409u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MINSIZE6: THEME_PROPERTY_SYMBOL_ID = 3410u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_MINSIZE7: THEME_PROPERTY_SYMBOL_ID = 3411u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_SIZINGMARGINS: THEME_PROPERTY_SYMBOL_ID = 3601u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_CONTENTMARGINS: THEME_PROPERTY_SYMBOL_ID = 3602u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_CAPTIONMARGINS: THEME_PROPERTY_SYMBOL_ID = 3603u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_BORDERCOLOR: THEME_PROPERTY_SYMBOL_ID = 3801u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FILLCOLOR: THEME_PROPERTY_SYMBOL_ID = 3802u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3803u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_EDGELIGHTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3804u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_EDGEHIGHLIGHTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3805u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_EDGESHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = 3806u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_EDGEDKSHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = 3807u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_EDGEFILLCOLOR: THEME_PROPERTY_SYMBOL_ID = 3808u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TRANSPARENTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3809u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GRADIENTCOLOR1: THEME_PROPERTY_SYMBOL_ID = 3810u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GRADIENTCOLOR2: THEME_PROPERTY_SYMBOL_ID = 3811u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GRADIENTCOLOR3: THEME_PROPERTY_SYMBOL_ID = 3812u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GRADIENTCOLOR4: THEME_PROPERTY_SYMBOL_ID = 3813u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GRADIENTCOLOR5: THEME_PROPERTY_SYMBOL_ID = 3814u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_SHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = 3815u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GLOWCOLOR: THEME_PROPERTY_SYMBOL_ID = 3816u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TEXTBORDERCOLOR: THEME_PROPERTY_SYMBOL_ID = 3817u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TEXTSHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = 3818u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GLYPHTEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3819u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GLYPHTRANSPARENTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3820u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FILLCOLORHINT: THEME_PROPERTY_SYMBOL_ID = 3821u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_BORDERCOLORHINT: THEME_PROPERTY_SYMBOL_ID = 3822u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_ACCENTCOLORHINT: THEME_PROPERTY_SYMBOL_ID = 3823u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TEXTCOLORHINT: THEME_PROPERTY_SYMBOL_ID = 3824u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_HEADING1TEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3825u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_HEADING2TEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3826u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_BODYTEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = 3827u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_BGTYPE: THEME_PROPERTY_SYMBOL_ID = 4001u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_BORDERTYPE: THEME_PROPERTY_SYMBOL_ID = 4002u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_FILLTYPE: THEME_PROPERTY_SYMBOL_ID = 4003u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_SIZINGTYPE: THEME_PROPERTY_SYMBOL_ID = 4004u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_HALIGN: THEME_PROPERTY_SYMBOL_ID = 4005u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_CONTENTALIGNMENT: THEME_PROPERTY_SYMBOL_ID = 4006u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_VALIGN: THEME_PROPERTY_SYMBOL_ID = 4007u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_OFFSETTYPE: THEME_PROPERTY_SYMBOL_ID = 4008u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_ICONEFFECT: THEME_PROPERTY_SYMBOL_ID = 4009u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TEXTSHADOWTYPE: THEME_PROPERTY_SYMBOL_ID = 4010u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_IMAGELAYOUT: THEME_PROPERTY_SYMBOL_ID = 4011u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GLYPHTYPE: THEME_PROPERTY_SYMBOL_ID = 4012u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_IMAGESELECTTYPE: THEME_PROPERTY_SYMBOL_ID = 4013u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_GLYPHFONTSIZINGTYPE: THEME_PROPERTY_SYMBOL_ID = 4014u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TRUESIZESCALINGTYPE: THEME_PROPERTY_SYMBOL_ID = 4015u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_USERPICTURE: THEME_PROPERTY_SYMBOL_ID = 5001u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_DEFAULTPANESIZE: THEME_PROPERTY_SYMBOL_ID = 5002u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_BLENDCOLOR: THEME_PROPERTY_SYMBOL_ID = 5003u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_CUSTOMSPLITRECT: THEME_PROPERTY_SYMBOL_ID = 5004u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_ANIMATIONBUTTONRECT: THEME_PROPERTY_SYMBOL_ID = 5005u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_ANIMATIONDURATION: THEME_PROPERTY_SYMBOL_ID = 5006u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_TRANSITIONDURATIONS: THEME_PROPERTY_SYMBOL_ID = 6000u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_SCALEDBACKGROUND: THEME_PROPERTY_SYMBOL_ID = 7001u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_ATLASIMAGE: THEME_PROPERTY_SYMBOL_ID = 8000u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_ATLASINPUTIMAGE: THEME_PROPERTY_SYMBOL_ID = 8001u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TMT_ATLASRECT: THEME_PROPERTY_SYMBOL_ID = 8002u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOUCH_HIT_TESTING_INPUT {
     pub pointerId: u32,
@@ -6782,6 +8160,7 @@ impl ::core::clone::Clone for TOUCH_HIT_TESTING_INPUT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
     pub score: u16,
@@ -6795,26 +8174,47 @@ impl ::core::clone::Clone for TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TRAILINGGRIDCELLSTATES = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCTGC_HOT: TRAILINGGRIDCELLSTATES = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCTGC_HASSTATE: TRAILINGGRIDCELLSTATES = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCTGC_HASSTATEHOT: TRAILINGGRIDCELLSTATES = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCTGC_TODAY: TRAILINGGRIDCELLSTATES = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCTGC_TODAYSELECTED: TRAILINGGRIDCELLSTATES = 5i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCTGC_SELECTED: TRAILINGGRIDCELLSTATES = 6i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCTGC_SELECTEDHOT: TRAILINGGRIDCELLSTATES = 7i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TRAILINGGRIDCELLUPPERSTATES = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCTGCU_HOT: TRAILINGGRIDCELLUPPERSTATES = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCTGCU_HASSTATE: TRAILINGGRIDCELLUPPERSTATES = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCTGCU_HASSTATEHOT: TRAILINGGRIDCELLUPPERSTATES = 3i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCTGCU_SELECTED: TRAILINGGRIDCELLUPPERSTATES = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const MCTGCU_SELECTEDHOT: TRAILINGGRIDCELLUPPERSTATES = 5i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TRAYNOTIFYPARTS = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TNP_BACKGROUND: TRAYNOTIFYPARTS = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TNP_ANIMBACKGROUND: TRAYNOTIFYPARTS = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TRUESIZESCALINGTYPE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TSST_NONE: TRUESIZESCALINGTYPE = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TSST_SIZE: TRUESIZESCALINGTYPE = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TSST_DPI: TRUESIZESCALINGTYPE = 2i32;
 pub const TTDT_AUTOMATIC: u32 = 0u32;
 pub const TTDT_AUTOPOP: u32 = 2u32;
@@ -6822,6 +8222,7 @@ pub const TTDT_INITIAL: u32 = 3u32;
 pub const TTDT_RESHOW: u32 = 1u32;
 pub const TTF_DI_SETITEM: u32 = 32768u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TTGETTITLE {
     pub dwSize: u32,
@@ -6838,6 +8239,7 @@ impl ::core::clone::Clone for TTGETTITLE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TTHITTESTINFOA {
     pub hwnd: super::super::Foundation::HWND,
@@ -6853,6 +8255,7 @@ impl ::core::clone::Clone for TTHITTESTINFOA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TTHITTESTINFOW {
     pub hwnd: super::super::Foundation::HWND,
@@ -6931,6 +8334,7 @@ pub const TTS_NOFADE: u32 = 32u32;
 pub const TTS_NOPREFIX: u32 = 2u32;
 pub const TTS_USEVISUALSTYLE: u32 = 256u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TTTOOLINFOA {
     pub cbSize: u32,
@@ -6952,6 +8356,7 @@ impl ::core::clone::Clone for TTTOOLINFOA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TTTOOLINFOW {
     pub cbSize: u32,
@@ -6972,14 +8377,23 @@ impl ::core::clone::Clone for TTTOOLINFOW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TTTOOLINFO_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TTF_ABSOLUTE: TTTOOLINFO_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TTF_CENTERTIP: TTTOOLINFO_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TTF_IDISHWND: TTTOOLINFO_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TTF_PARSELINKS: TTTOOLINFO_FLAGS = 4096u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TTF_RTLREADING: TTTOOLINFO_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TTF_SUBCLASS: TTTOOLINFO_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TTF_TRACK: TTTOOLINFO_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TTF_TRANSPARENT: TTTOOLINFO_FLAGS = 256u32;
 pub const TVCDRF_NOIMAGES: u32 = 65536u32;
 pub const TVC_BYKEYBOARD: u32 = 2u32;
@@ -6991,6 +8405,7 @@ pub const TVE_EXPAND: u32 = 2u32;
 pub const TVE_EXPANDPARTIAL: u32 = 16384u32;
 pub const TVE_TOGGLE: u32 = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TVGETITEMPARTRECTINFO {
     pub hti: HTREEITEM,
@@ -7018,6 +8433,7 @@ pub const TVGN_PREVIOUS: u32 = 2u32;
 pub const TVGN_PREVIOUSVISIBLE: u32 = 7u32;
 pub const TVGN_ROOT: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TVHITTESTINFO {
     pub pt: super::super::Foundation::POINT,
@@ -7032,20 +8448,34 @@ impl ::core::clone::Clone for TVHITTESTINFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TVHITTESTINFO_FLAGS = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVHT_ABOVE: TVHITTESTINFO_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVHT_BELOW: TVHITTESTINFO_FLAGS = 512u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVHT_NOWHERE: TVHITTESTINFO_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVHT_ONITEM: TVHITTESTINFO_FLAGS = 70u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVHT_ONITEMBUTTON: TVHITTESTINFO_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVHT_ONITEMICON: TVHITTESTINFO_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVHT_ONITEMINDENT: TVHITTESTINFO_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVHT_ONITEMLABEL: TVHITTESTINFO_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVHT_ONITEMRIGHT: TVHITTESTINFO_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVHT_ONITEMSTATEICON: TVHITTESTINFO_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVHT_TOLEFT: TVHITTESTINFO_FLAGS = 2048u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVHT_TORIGHT: TVHITTESTINFO_FLAGS = 1024u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TVINSERTSTRUCTA {
     pub hParent: HTREEITEM,
@@ -7061,6 +8491,7 @@ impl ::core::clone::Clone for TVINSERTSTRUCTA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union TVINSERTSTRUCTA_0 {
     pub itemex: TVITEMEXA,
@@ -7075,6 +8506,7 @@ impl ::core::clone::Clone for TVINSERTSTRUCTA_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TVINSERTSTRUCTW {
     pub hParent: HTREEITEM,
@@ -7090,6 +8522,7 @@ impl ::core::clone::Clone for TVINSERTSTRUCTW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union TVINSERTSTRUCTW_0 {
     pub itemex: TVITEMEXW,
@@ -7117,6 +8550,7 @@ pub const TVIS_SELECTED: u32 = 2u32;
 pub const TVIS_STATEIMAGEMASK: u32 = 61440u32;
 pub const TVIS_USERMASK: u32 = 61440u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TVITEMA {
     pub mask: TVITEM_MASK,
@@ -7139,6 +8573,7 @@ impl ::core::clone::Clone for TVITEMA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TVITEMEXA {
     pub mask: TVITEM_MASK,
@@ -7166,6 +8601,7 @@ impl ::core::clone::Clone for TVITEMEXA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TVITEMEXW {
     pub mask: TVITEM_MASK,
@@ -7192,14 +8628,22 @@ impl ::core::clone::Clone for TVITEMEXW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TVITEMEXW_CHILDREN = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const I_ZERO: TVITEMEXW_CHILDREN = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const I_ONE_OR_MORE: TVITEMEXW_CHILDREN = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const I_CHILDRENCALLBACK: TVITEMEXW_CHILDREN = -1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const I_CHILDRENAUTO: TVITEMEXW_CHILDREN = -2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TVITEMPART = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVGIPR_BUTTON: TVITEMPART = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TVITEMW {
     pub mask: TVITEM_MASK,
@@ -7221,21 +8665,37 @@ impl ::core::clone::Clone for TVITEMW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type TVITEM_MASK = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVIF_CHILDREN: TVITEM_MASK = 64u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVIF_DI_SETITEM: TVITEM_MASK = 4096u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVIF_HANDLE: TVITEM_MASK = 16u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVIF_IMAGE: TVITEM_MASK = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVIF_PARAM: TVITEM_MASK = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVIF_SELECTEDIMAGE: TVITEM_MASK = 32u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVIF_STATE: TVITEM_MASK = 8u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVIF_TEXT: TVITEM_MASK = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVIF_EXPANDEDIMAGE: TVITEM_MASK = 512u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVIF_INTEGRAL: TVITEM_MASK = 128u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVIF_STATEEX: TVITEM_MASK = 256u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVI_FIRST: HTREEITEM = -65535i32 as _;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVI_LAST: HTREEITEM = -65534i32 as _;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVI_ROOT: HTREEITEM = -65536i32 as _;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const TVI_SORT: HTREEITEM = -65533i32 as _;
 pub const TVM_CREATEDRAGIMAGE: u32 = 4370u32;
 pub const TVM_DELETEITEM: u32 = 4353u32;
@@ -7307,6 +8767,7 @@ pub const TVSIL_NORMAL: u32 = 0u32;
 pub const TVSIL_STATE: u32 = 2u32;
 pub const TVSI_NOSINGLEEXPAND: u32 = 32768u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TVSORTCB {
     pub hParent: HTREEITEM,
@@ -7350,6 +8811,7 @@ pub const TVS_SINGLEEXPAND: u32 = 1024u32;
 pub const TVS_TRACKSELECT: u32 = 512u32;
 pub const TV_FIRST: u32 = 4352u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct UDACCEL {
     pub nSec: u32,
     pub nInc: u32,
@@ -7387,6 +8849,7 @@ pub const UDS_SETBUDDYINT: u32 = 2u32;
 pub const UDS_WRAP: u32 = 1u32;
 pub const UD_MAXVAL: u32 = 32767u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct USAGE_PROPERTIES {
     pub level: u16,
     pub page: u16,
@@ -7405,9 +8868,13 @@ impl ::core::clone::Clone for USAGE_PROPERTIES {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type VALIGN = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const VA_TOP: VALIGN = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const VA_CENTER: VALIGN = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const VA_BOTTOM: VALIGN = 2i32;
 pub const VIEW_DETAILS: u32 = 3u32;
 pub const VIEW_LARGEICONS: u32 = 0u32;
@@ -7422,7 +8889,9 @@ pub const VIEW_SORTNAME: u32 = 4u32;
 pub const VIEW_SORTSIZE: u32 = 5u32;
 pub const VIEW_SORTTYPE: u32 = 7u32;
 pub const VIEW_VIEWMENU: u32 = 12u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type WINDOWTHEMEATTRIBUTETYPE = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WTA_NONCLIENT: WINDOWTHEMEATTRIBUTETYPE = 1i32;
 pub const WIZ_BODYCX: u32 = 184u32;
 pub const WIZ_BODYX: u32 = 92u32;
@@ -7432,30 +8901,53 @@ pub const WIZ_CYDLG: u32 = 140u32;
 pub const WM_CTLCOLOR: u32 = 25u32;
 pub const WM_MOUSEHOVER: u32 = 673u32;
 pub const WM_MOUSELEAVE: u32 = 675u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type WORD_BREAK_ACTION = u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WB_CLASSIFY: WORD_BREAK_ACTION = 3u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WB_ISDELIMITER: WORD_BREAK_ACTION = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WB_LEFT: WORD_BREAK_ACTION = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WB_LEFTBREAK: WORD_BREAK_ACTION = 6u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WB_MOVEWORDLEFT: WORD_BREAK_ACTION = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WB_MOVEWORDRIGHT: WORD_BREAK_ACTION = 5u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WB_RIGHT: WORD_BREAK_ACTION = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WB_RIGHTBREAK: WORD_BREAK_ACTION = 7u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type WSB_PROP = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WSB_PROP_CXHSCROLL: WSB_PROP = 2i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WSB_PROP_CXHTHUMB: WSB_PROP = 16i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WSB_PROP_CXVSCROLL: WSB_PROP = 8i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WSB_PROP_CYHSCROLL: WSB_PROP = 4i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WSB_PROP_CYVSCROLL: WSB_PROP = 1i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WSB_PROP_CYVTHUMB: WSB_PROP = 32i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WSB_PROP_HBKGCOLOR: WSB_PROP = 128i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WSB_PROP_HSTYLE: WSB_PROP = 512i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WSB_PROP_PALETTE: WSB_PROP = 2048i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WSB_PROP_VBKGCOLOR: WSB_PROP = 64i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WSB_PROP_VSTYLE: WSB_PROP = 256i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const WSB_PROP_WINSTYLE: WSB_PROP = 1024i32;
 pub const WSB_PROP_MASK: i32 = 4095i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub struct WTA_OPTIONS {
     pub dwFlags: u32,
     pub dwMask: u32,
@@ -7470,6 +8962,9 @@ pub const WTNCA_NODRAWCAPTION: u32 = 1u32;
 pub const WTNCA_NODRAWICON: u32 = 2u32;
 pub const WTNCA_NOMIRRORHELP: u32 = 8u32;
 pub const WTNCA_NOSYSMENU: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub type _LI_METRIC = i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LIM_SMALL: _LI_METRIC = 0i32;
+#[doc = "*Required features: 'Win32_UI_Controls'*"]
 pub const LIM_LARGE: _LI_METRIC = 1i32;
