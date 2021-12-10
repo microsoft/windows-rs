@@ -215,8 +215,11 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UnpackDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM, puilo: *mut usize, puihi: *mut usize) -> super::super::Foundation::BOOL;
 }
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const APPCLASS_MASK: i32 = 15i32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const APPCMD_MASK: i32 = 4080i32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const CADV_LATEACK: u32 = 65535u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation', 'Win32_Security'*"]
@@ -336,8 +339,11 @@ impl ::core::clone::Clone for COPYDATASTRUCT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const CP_WINANSI: i32 = 1004i32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const CP_WINNEUTRAL: i32 = 1200i32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const CP_WINUNICODE: i32 = 1200i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
@@ -469,13 +475,21 @@ pub const EC_ENABLEONE: DDE_ENABLE_CALLBACK_CMD = 128u32;
 pub const EC_DISABLE: DDE_ENABLE_CALLBACK_CMD = 8u32;
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const EC_QUERYWAITING: DDE_ENABLE_CALLBACK_CMD = 2u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DDE_FACK: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DDE_FACKREQ: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DDE_FAPPSTATUS: u32 = 255u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DDE_FBUSY: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DDE_FDEFERUPD: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DDE_FNOTPROCESSED: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DDE_FRELEASE: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DDE_FREQUESTED: u32 = 4096u32;
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub type DDE_INITIALIZE_COMMAND = u32;
@@ -535,29 +549,51 @@ pub const DNS_UNREGISTER: DDE_NAME_SERVICE_CMD = 2u32;
 pub const DNS_FILTERON: DDE_NAME_SERVICE_CMD = 4u32;
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DNS_FILTEROFF: DDE_NAME_SERVICE_CMD = 8u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_ADVACKTIMEOUT: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_BUSY: u32 = 16385u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_DATAACKTIMEOUT: u32 = 16386u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_DLL_NOT_INITIALIZED: u32 = 16387u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_DLL_USAGE: u32 = 16388u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_EXECACKTIMEOUT: u32 = 16389u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_FIRST: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_INVALIDPARAMETER: u32 = 16390u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_LAST: u32 = 16401u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_LOW_MEMORY: u32 = 16391u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_MEMORY_ERROR: u32 = 16392u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_NOTPROCESSED: u32 = 16393u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_NO_CONV_ESTABLISHED: u32 = 16394u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_NO_ERROR: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_POKEACKTIMEOUT: u32 = 16395u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_POSTMSG_FAILED: u32 = 16396u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_REENTRANCY: u32 = 16397u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_SERVER_DIED: u32 = 16398u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_SYS_ERROR: u32 = 16399u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_UNADVACKTIMEOUT: u32 = 16400u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_UNFOUND_QUEUE_ID: u32 = 16401u32;
 pub type HCONV = isize;
 pub type HCONVLIST = isize;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const HDATA_APPOWNED: u32 = 1u32;
 pub type HDDEDATA = isize;
 pub type HSZ = isize;
@@ -573,6 +609,7 @@ impl ::core::clone::Clone for HSZPAIR {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const MAX_MONITORS: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Graphics_Gdi'*"]
@@ -591,10 +628,15 @@ impl ::core::clone::Clone for METAFILEPICT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const MF_MASK: u32 = 4278190080u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const MH_CLEANUP: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const MH_CREATE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const MH_DELETE: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const MH_KEEP: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_DataExchange', 'Win32_Foundation', 'Win32_Security'*"]
@@ -746,29 +788,53 @@ impl ::core::clone::Clone for MONMSGSTRUCT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const MSGF_DDEMGR: u32 = 32769u32;
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub type PFNCALLBACK = ::core::option::Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA>;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const QID_SYNC: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const TIMEOUT_ASYNC: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const WM_DDE_ACK: u32 = 996u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const WM_DDE_ADVISE: u32 = 994u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const WM_DDE_DATA: u32 = 997u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const WM_DDE_EXECUTE: u32 = 1000u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const WM_DDE_FIRST: u32 = 992u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const WM_DDE_INITIATE: u32 = 992u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const WM_DDE_LAST: u32 = 1000u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const WM_DDE_POKE: u32 = 999u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const WM_DDE_REQUEST: u32 = 998u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const WM_DDE_TERMINATE: u32 = 993u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const WM_DDE_UNADVISE: u32 = 995u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const XCLASS_BOOL: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const XCLASS_DATA: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const XCLASS_FLAGS: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const XCLASS_MASK: u32 = 64512u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const XCLASS_NOTIFICATION: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const XTYPF_ACKREQ: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const XTYPF_NOBLOCK: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const XTYPF_NODATA: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const XTYP_MASK: u32 = 240u32;
+#[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const XTYP_SHIFT: u32 = 4u32;

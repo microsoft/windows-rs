@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
 pub const CONNECTION_AOL: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
 #[repr(transparent)]
@@ -583,9 +584,13 @@ pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::B
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
 pub const NETWORK_ALIVE_AOL: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
 pub const NETWORK_ALIVE_INTERNET: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
 pub const NETWORK_ALIVE_LAN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
 pub const NETWORK_ALIVE_WAN: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_EventNotificationService'*"]

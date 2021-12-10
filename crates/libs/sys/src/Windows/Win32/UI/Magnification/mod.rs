@@ -97,10 +97,15 @@ impl ::core::clone::Clone for MAGTRANSFORM {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_Magnification'*"]
 pub const MS_CLIPAROUNDCURSOR: i32 = 2i32;
+#[doc = "*Required features: 'Win32_UI_Magnification'*"]
 pub const MS_INVERTCOLORS: i32 = 4i32;
+#[doc = "*Required features: 'Win32_UI_Magnification'*"]
 pub const MS_SHOWMAGNIFIEDCURSOR: i32 = 1i32;
+#[doc = "*Required features: 'Win32_UI_Magnification'*"]
 pub const MW_FILTERMODE_EXCLUDE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_Magnification'*"]
 pub const MW_FILTERMODE_INCLUDE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_Magnification', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

@@ -26,6 +26,7 @@ pub const DXC_CP_ACP: DXC_CP = 0u32;
 pub const DXC_CP_UTF16: DXC_CP = 1200u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_CP_UTF8: DXC_CP = 65001u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_HASHFLAG_INCLUDES_SOURCE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub type DXC_OUT_KIND = i32;
@@ -113,13 +114,21 @@ impl ::core::clone::Clone for DxcShaderHash {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DxcValidatorFlags_Default: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DxcValidatorFlags_InPlaceEdit: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DxcValidatorFlags_ModuleOnly: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DxcValidatorFlags_RootSignatureOnly: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DxcValidatorFlags_ValidMask: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DxcVersionInfoFlags_Debug: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DxcVersionInfoFlags_Internal: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DxcVersionInfoFlags_None: u32 = 0u32;
 pub type IDxcAssembler = *mut ::core::ffi::c_void;
 pub type IDxcBlob = *mut ::core::ffi::c_void;

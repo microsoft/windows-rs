@@ -178,14 +178,23 @@ pub unsafe fn LockWorkStation() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Shutdown'*"]
 pub const MAX_NUM_REASONS: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_Shutdown'*"]
 pub const MAX_REASON_BUGID_LEN: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_Shutdown'*"]
 pub const MAX_REASON_COMMENT_LEN: u32 = 512u32;
+#[doc = "*Required features: 'Win32_System_Shutdown'*"]
 pub const MAX_REASON_DESC_LEN: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_Shutdown'*"]
 pub const MAX_REASON_NAME_LEN: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_Shutdown'*"]
 pub const POLICY_SHOWREASONUI_ALWAYS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Shutdown'*"]
 pub const POLICY_SHOWREASONUI_NEVER: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Shutdown'*"]
 pub const POLICY_SHOWREASONUI_SERVERONLY: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_Shutdown'*"]
 pub const POLICY_SHOWREASONUI_WORKSTATIONONLY: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Shutdown'*"]
 pub type SHUTDOWN_FLAGS = u32;
@@ -327,9 +336,13 @@ pub const SHTDN_REASON_UNKNOWN: SHUTDOWN_REASON = 255u32;
 pub const SHTDN_REASON_LEGACY_API: SHUTDOWN_REASON = 2147942400u32;
 #[doc = "*Required features: 'Win32_System_Shutdown'*"]
 pub const SHTDN_REASON_VALID_BIT_MASK: SHUTDOWN_REASON = 3238002687u32;
+#[doc = "*Required features: 'Win32_System_Shutdown'*"]
 pub const SHUTDOWN_TYPE_LEN: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_Shutdown'*"]
 pub const SNAPSHOT_POLICY_ALWAYS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Shutdown'*"]
 pub const SNAPSHOT_POLICY_NEVER: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Shutdown'*"]
 pub const SNAPSHOT_POLICY_UNPLANNED: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Shutdown', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

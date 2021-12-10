@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_Js'*"]
 pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
 #[doc = "*Required features: 'Win32_System_Js'*"]
 #[inline]

@@ -13,10 +13,15 @@ pub const kPTPageScope: EPrintTicketScope = 0i32;
 pub const kPTDocumentScope: EPrintTicketScope = 1i32;
 #[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
 pub const kPTJobScope: EPrintTicketScope = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
 pub const E_DELTA_PRINTTICKET_FORMAT: u32 = 2147745797u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
 pub const E_PRINTCAPABILITIES_FORMAT: u32 = 2147745796u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
 pub const E_PRINTDEVICECAPABILITIES_FORMAT: u32 = 2147745798u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
 pub const E_PRINTTICKET_FORMAT: u32 = 2147745795u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
 pub const PRINTTICKET_ISTREAM_APIS: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket', 'Win32_Storage_Xps'*"]
 #[cfg(feature = "Win32_Storage_Xps")]
@@ -184,5 +189,7 @@ pub unsafe fn PTReleaseMemory(pbuffer: *const ::core::ffi::c_void) -> ::windows:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
 pub const S_PT_CONFLICT_RESOLVED: u32 = 262146u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
 pub const S_PT_NO_CONFLICT: u32 = 262145u32;

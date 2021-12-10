@@ -280,9 +280,11 @@ pub const DXGI_COMPUTE_PREEMPTION_THREAD_GROUP_BOUNDARY: DXGI_COMPUTE_PREEMPTION
 pub const DXGI_COMPUTE_PREEMPTION_THREAD_BOUNDARY: DXGI_COMPUTE_PREEMPTION_GRANULARITY = 3i32;
 #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_COMPUTE_PREEMPTION_INSTRUCTION_BOUNDARY: DXGI_COMPUTE_PREEMPTION_GRANULARITY = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_CREATE_FACTORY_DEBUG: u32 = 1u32;
 pub const DXGI_DEBUG_ALL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe48ae283_da80_490b_87e6_43e9a9cfda08);
 pub const DXGI_DEBUG_APP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06cd6e01_4219_4ebd_8709_27ed23360c62);
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_DEBUG_BINARY_VERSION: u32 = 1u32;
 pub const DXGI_DEBUG_DX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35cdd7fc_13b2_421d_a5d7_7e4451287d64);
 pub const DXGI_DEBUG_DXGI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25cddaa4_b1c6_47e1_ac3e_98875b5a2e2a);
@@ -347,9 +349,13 @@ impl ::core::default::Default for DXGI_DISPLAY_COLOR_SPACE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_ENUM_MODES_DISABLED_STEREO: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_ENUM_MODES_INTERLACED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_ENUM_MODES_SCALING: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_ENUM_MODES_STEREO: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_ERROR_ACCESS_DENIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2005270485i32);
@@ -582,6 +588,7 @@ pub const DXGI_HDR_METADATA_TYPE_NONE: DXGI_HDR_METADATA_TYPE = 0i32;
 pub const DXGI_HDR_METADATA_TYPE_HDR10: DXGI_HDR_METADATA_TYPE = 1i32;
 #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_HDR_METADATA_TYPE_HDR10PLUS: DXGI_HDR_METADATA_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
@@ -693,6 +700,7 @@ pub const DXGI_INFO_QUEUE_MESSAGE_CATEGORY_RESOURCE_MANIPULATION: DXGI_INFO_QUEU
 pub const DXGI_INFO_QUEUE_MESSAGE_CATEGORY_EXECUTION: DXGI_INFO_QUEUE_MESSAGE_CATEGORY = 9i32;
 #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_INFO_QUEUE_MESSAGE_CATEGORY_SHADER: DXGI_INFO_QUEUE_MESSAGE_CATEGORY = 10i32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_INFO_QUEUE_MESSAGE_ID_STRING_FROM_APPLICATION: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub type DXGI_INFO_QUEUE_MESSAGE_SEVERITY = i32;
@@ -732,8 +740,11 @@ impl ::core::default::Default for DXGI_MAPPED_RECT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_MAP_DISCARD: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_MAP_READ: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_MAP_WRITE: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
@@ -765,6 +776,7 @@ impl ::core::default::Default for DXGI_MATRIX_3X2_F {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_MAX_SWAP_CHAIN_BUFFERS: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub type DXGI_MEMORY_SEGMENT_GROUP = i32;
@@ -818,9 +830,13 @@ pub const DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAG_NOMINAL_RANGE: DXGI_MULTIPLANE_OVER
 pub const DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAG_BT709: DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS = 2i32;
 #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAG_xvYCC: DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_MWA_NO_ALT_ENTER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_MWA_NO_PRINT_SCREEN: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_MWA_NO_WINDOW_CHANGES: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_MWA_VALID: u32 = 7u32;
 #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub type DXGI_Message_Id = i32;
@@ -1776,8 +1792,11 @@ pub type DXGI_OVERLAY_SUPPORT_FLAG = i32;
 pub const DXGI_OVERLAY_SUPPORT_FLAG_DIRECT: DXGI_OVERLAY_SUPPORT_FLAG = 1i32;
 #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_OVERLAY_SUPPORT_FLAG_SCALING: DXGI_OVERLAY_SUPPORT_FLAG = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_PRESENT_ALLOW_TEARING: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_PRESENT_DO_NOT_SEQUENCE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_PRESENT_DO_NOT_WAIT: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
@@ -1814,11 +1833,17 @@ impl ::core::default::Default for DXGI_PRESENT_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_PRESENT_RESTART: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_PRESENT_RESTRICT_TO_OUTPUT: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_PRESENT_STEREO_PREFER_RIGHT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_PRESENT_STEREO_TEMPORARY_MONO: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_PRESENT_TEST: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_PRESENT_USE_DURATION: u32 = 256u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
@@ -1944,7 +1969,9 @@ impl ::core::default::Default for DXGI_SHARED_RESOURCE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_SHARED_RESOURCE_READ: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_SHARED_RESOURCE_WRITE: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
@@ -2141,12 +2168,19 @@ pub const DXGI_SWAP_EFFECT_SEQUENTIAL: DXGI_SWAP_EFFECT = 1i32;
 pub const DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL: DXGI_SWAP_EFFECT = 3i32;
 #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_SWAP_EFFECT_FLIP_DISCARD: DXGI_SWAP_EFFECT = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_USAGE_BACK_BUFFER: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_USAGE_DISCARD_ON_PRESENT: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_USAGE_READ_ONLY: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_USAGE_RENDER_TARGET_OUTPUT: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_USAGE_SHADER_INPUT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_USAGE_SHARED: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 pub const DXGI_USAGE_UNORDERED_ACCESS: u32 = 1024u32;
 #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
 #[repr(transparent)]

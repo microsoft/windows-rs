@@ -304,14 +304,23 @@ pub const CLFS_FLAG_FORCE_FLUSH: CLFS_FLAG = 2u32;
 pub const CLFS_FLAG_NO_FLAGS: CLFS_FLAG = 0u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_USE_RESERVATION: CLFS_FLAG = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_FILTER_INTERMEDIATE_LEVEL: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_FILTER_TOP_LEVEL: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_HIDDEN_SYSTEM_LOG: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_IGNORE_SHARE_ACCESS: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_MINIFILTER_LEVEL: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_NON_REENTRANT_FILTER: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_READ_IN_PROGRESS: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_REENTRANT_FILE_SYSTEM: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_REENTRANT_FILTER: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type CLFS_IOSTATS_CLASS = i32;
@@ -351,9 +360,13 @@ impl ::core::default::Default for CLFS_LOG_NAME_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_MARSHALLING_FLAG_DISABLE_BUFF_INIT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_MARSHALLING_FLAG_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_MAX_CONTAINER_INFO: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_MGMT_CLIENT_REGISTRATION_VERSION: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -733,6 +746,7 @@ pub const ClfsMgmtPolicyNewContainerSuffix: CLFS_MGMT_POLICY_TYPE = 8i32;
 pub const ClfsMgmtPolicyNewContainerExtension: CLFS_MGMT_POLICY_TYPE = 9i32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsMgmtPolicyInvalid: CLFS_MGMT_POLICY_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_MGMT_POLICY_VERSION: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -787,11 +801,17 @@ impl ::core::default::Default for CLFS_PHYSICAL_LSN_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_SCAN_BACKWARD: u8 = 4u8;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_SCAN_BUFFERED: u8 = 32u8;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_SCAN_CLOSE: u8 = 8u8;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_SCAN_FORWARD: u8 = 2u8;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_SCAN_INIT: u8 = 1u8;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_SCAN_INITIALIZED: u8 = 16u8;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -1630,16 +1650,27 @@ pub const TAPE_FIXED_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = 0i32;
 pub const TAPE_INITIATOR_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = 2i32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_SELECT_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CRM_PROTOCOL_DYNAMIC_MARSHAL_INFO: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CRM_PROTOCOL_EXPLICIT_MARSHAL_ONLY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CRM_PROTOCOL_MAXIMUM_OPTION: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CSC_CACHE_AUTO_REINT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CSC_CACHE_MANUAL_REINT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CSC_CACHE_NONE: u32 = 48u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CSC_CACHE_VDO: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CSC_MASK: u32 = 48u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CSC_MASK_EXT: u32 = 8240u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CSV_BLOCK_AND_FILE_CACHE_CALLBACK_VERSION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CSV_BLOCK_CACHE_CALLBACK_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1671,15 +1702,25 @@ pub unsafe fn CheckNameLegalDOS8Dot3W<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsClientRecord: u8 = 3u8;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsContainerActive: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsContainerActivePendingDelete: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsContainerInactive: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsContainerInitializing: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsContainerPendingArchive: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsContainerPendingArchiveAndDelete: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsDataRecord: u8 = 1u8;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsNullRecord: u8 = 0u8;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsRestartRecord: u8 = 2u8;
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1724,11 +1765,17 @@ pub unsafe fn CloseIoRing(ioring: *const HIORING__) -> ::windows::core::Result<(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClsContainerActive: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClsContainerActivePendingDelete: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClsContainerInactive: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClsContainerInitializing: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClsContainerPendingArchive: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClsContainerPendingArchiveAndDelete: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2416,14 +2463,23 @@ pub const DDD_EXACT_MATCH_ON_REMOVE: DEFINE_DOS_DEVICE_FLAGS = 4u32;
 pub const DDD_NO_BROADCAST_SYSTEM: DEFINE_DOS_DEVICE_FLAGS = 8u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DDD_LUID_BROADCAST_DRIVE: DEFINE_DOS_DEVICE_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_FILESTATE_INCOMPLETE: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_FILESTATE_MASK: u32 = 768u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_FILESTATE_REBUILDING: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_LOGFLAG_USER_LIMIT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_LOGFLAG_USER_THRESHOLD: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_STATE_DISABLED: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_STATE_ENFORCE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_STATE_MASK: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_STATE_TRACK: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type DISKQUOTA_USERNAME_RESOLVE = u32;
@@ -2433,11 +2489,17 @@ pub const DISKQUOTA_USERNAME_RESOLVE_ASYNC: DISKQUOTA_USERNAME_RESOLVE = 2u32;
 pub const DISKQUOTA_USERNAME_RESOLVE_NONE: DISKQUOTA_USERNAME_RESOLVE = 0u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_USERNAME_RESOLVE_SYNC: DISKQUOTA_USERNAME_RESOLVE = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_USER_ACCOUNT_DELETED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_USER_ACCOUNT_INVALID: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_USER_ACCOUNT_RESOLVED: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_USER_ACCOUNT_UNAVAILABLE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_USER_ACCOUNT_UNKNOWN: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_USER_ACCOUNT_UNRESOLVED: u32 = 5u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -2795,7 +2857,9 @@ impl ::core::default::Default for EFS_COMPATIBILITY_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_COMPATIBILITY_VERSION_NCRYPT_PROTECTOR: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_COMPATIBILITY_VERSION_PFILE_PROTECTOR: u32 = 6u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -2824,6 +2888,7 @@ impl ::core::default::Default for EFS_DECRYPTION_STATUS_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_EFS_SUBVER_EFS_CERT: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
@@ -2912,11 +2977,17 @@ impl ::core::default::Default for EFS_KEY_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_METADATA_ADD_USER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_METADATA_GENERAL_OP: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_METADATA_REMOVE_USER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_METADATA_REPLACE_USER: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_PFILE_SUBVER_APPX: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_PFILE_SUBVER_RMS: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -2971,6 +3042,7 @@ impl ::core::default::Default for EFS_RPC_BLOB {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_SUBVER_UNKNOWN: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -3235,7 +3307,9 @@ impl ::core::default::Default for ENCRYPTION_PROTECTOR_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ENLISTMENT_MAXIMUM_OPTION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ENLISTMENT_SUPERIOR: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type ERASE_TAPE_TYPE = i32;
@@ -4240,9 +4314,13 @@ impl ::core::default::Default for FILE_NOTIFY_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_PROVIDER_COMPRESSION_LZX: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_PROVIDER_COMPRESSION_XPRESS16K: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_PROVIDER_COMPRESSION_XPRESS4K: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_PROVIDER_COMPRESSION_XPRESS8K: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -7138,36 +7216,67 @@ pub struct IEnumDiskQuotaUsersVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const INVALID_FILE_ATTRIBUTES: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const INVALID_SET_FILE_POINTER: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_ALLOCATE_BC_STREAM: u32 = 5685312u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_BASE: u32 = 86u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_BC_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_FREE_BC_STREAM: u32 = 5685316u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_GET_BC_PROPERTIES: u32 = 5652540u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_GET_CSVBLOCKCACHE_CALLBACK: u32 = 5685352u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_GET_GPT_ATTRIBUTES: u32 = 5636152u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_GET_VOLUME_DISK_EXTENTS: u32 = 5636096u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_IS_CLUSTERED: u32 = 5636144u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_IS_CSV: u32 = 5636192u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_IS_DYNAMIC: u32 = 5636168u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_IS_IO_CAPABLE: u32 = 5636116u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_IS_OFFLINE: u32 = 5636112u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_IS_PARTITION: u32 = 5636136u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_LOGICAL_TO_PHYSICAL: u32 = 5636128u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_OFFLINE: u32 = 5685260u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_ONLINE: u32 = 5685256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_PHYSICAL_TO_LOGICAL: u32 = 5636132u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_POST_ONLINE: u32 = 5685348u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_PREPARE_FOR_CRITICAL_IO: u32 = 5685324u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_PREPARE_FOR_SHRINK: u32 = 5685340u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_QUERY_ALLOCATION_HINT: u32 = 5652562u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_QUERY_FAILOVER_SET: u32 = 5636120u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_QUERY_MINIMUM_SHRINK_SIZE: u32 = 5652568u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_QUERY_VOLUME_NUMBER: u32 = 5636124u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_READ_PLEX: u32 = 5652526u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_SET_GPT_ATTRIBUTES: u32 = 5636148u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_SUPPORTS_ONLINE_OFFLINE: u32 = 5636100u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_UPDATE_PROPERTIES: u32 = 5636180u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -7609,7 +7718,9 @@ impl ::core::default::Default for KCRM_TRANSACTION_BLOB {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const KTM_MARSHAL_BLOB_VERSION_MAJOR: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const KTM_MARSHAL_BLOB_VERSION_MINOR: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type LOCK_FILE_FLAGS = u32;
@@ -7652,7 +7763,9 @@ impl ::core::default::Default for LOG_MANAGEMENT_CALLBACKS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LOG_POLICY_OVERWRITE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LOG_POLICY_PERSIST: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7705,13 +7818,21 @@ pub unsafe fn LZDone() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LZERROR_BADINHANDLE: i32 = -1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LZERROR_BADOUTHANDLE: i32 = -2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LZERROR_BADVALUE: i32 = -7i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LZERROR_GLOBALLOC: i32 = -5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LZERROR_GLOBLOCK: i32 = -6i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LZERROR_READ: i32 = -3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LZERROR_UNKNOWNALG: i32 = -8i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LZERROR_WRITE: i32 = -4i32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
@@ -8041,8 +8162,11 @@ pub unsafe fn LsnRecordSequence(plsn: *const CLS_LSN) -> u32 {
 }
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type MAXMEDIALABEL = ::core::option::Option<unsafe extern "system" fn(pmaxsize: *mut u32) -> u32>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const MAX_RESOURCEMANAGER_DESCRIPTION_LENGTH: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const MAX_SID_SIZE: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const MAX_TRANSACTION_DESCRIPTION_LENGTH: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type MOVE_FILE_FLAGS = u32;
@@ -8246,8 +8370,11 @@ impl ::core::default::Default for NAME_CACHE_CONTEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMSMLI_MAXAPPDESCR: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMSMLI_MAXIDSIZE: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMSMLI_MAXTYPE: u32 = 64u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -8276,6 +8403,7 @@ impl ::core::default::Default for NTMS_ALLOCATION_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_APPLICATIONNAME_LENGTH: u32 = 64u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
@@ -8315,6 +8443,7 @@ impl ::core::default::Default for NTMS_ASYNC_IO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_BARCODE_LENGTH: u32 = 64u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
@@ -8481,8 +8610,11 @@ impl ::core::default::Default for NTMS_COMPUTERINFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_COMPUTERNAME_LENGTH: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_DESCRIPTION_LENGTH: u32 = 127u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_DEVICENAME_LENGTH: u32 = 64u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
@@ -8808,6 +8940,7 @@ impl ::core::default::Default for NTMS_I1_LIBREQUESTINFORMATIONW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_I1_MESSAGE_LENGTH: u32 = 127u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
@@ -9450,7 +9583,9 @@ impl ::core::default::Default for NTMS_LMIDINFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MAXATTR_LENGTH: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MAXATTR_NAMELEN: u32 = 32u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -9513,6 +9648,7 @@ impl ::core::default::Default for NTMS_MEDIATYPEINFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MESSAGE_LENGTH: u32 = 256u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -9742,9 +9878,13 @@ impl ::core::default::Default for NTMS_OBJECTINFORMATIONW_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OBJECTNAME_LENGTH: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OMIDLABELID_LENGTH: u32 = 255u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OMIDLABELINFO_LENGTH: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OMIDLABELTYPE_LENGTH: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NTMS_OMID_TYPE = u32;
@@ -9996,10 +10136,15 @@ impl ::core::default::Default for NTMS_PMIDINFORMATIONW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_POOLHIERARCHY_LENGTH: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PRODUCTNAME_LENGTH: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_REVISION_LENGTH: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_SEQUENCE_LENGTH: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_SERIALNUMBER_LENGTH: u32 = 32u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -10028,7 +10173,9 @@ impl ::core::default::Default for NTMS_STORAGESLOTINFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_USERNAME_LENGTH: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_VENDORNAME_LENGTH: u32 = 128u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NT_CREATE_FILE_DISPOSITION = u32;
@@ -11354,8 +11501,11 @@ pub const REPLACEFILE_WRITE_THROUGH: REPLACE_FILE_FLAGS = 1u32;
 pub const REPLACEFILE_IGNORE_MERGE_ERRORS: REPLACE_FILE_FLAGS = 2u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const REPLACEFILE_IGNORE_ACL_ERRORS: REPLACE_FILE_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const RESOURCE_MANAGER_COMMUNICATION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const RESOURCE_MANAGER_MAXIMUM_OPTION: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const RESOURCE_MANAGER_VOLATILE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12023,7 +12173,9 @@ impl ::core::default::Default for SERVER_CERTIFICATE_INFO_0 {
 pub type SERVER_CERTIFICATE_TYPE = i32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const QUIC: SERVER_CERTIFICATE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SESI1_NUM_ELEMENTS: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SESI2_NUM_ELEMENTS: u32 = 9u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
@@ -12220,7 +12372,9 @@ pub const FILE_BEGIN: SET_FILE_POINTER_MOVE_METHOD = 0u32;
 pub const FILE_CURRENT: SET_FILE_POINTER_MOVE_METHOD = 1u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_END: SET_FILE_POINTER_MOVE_METHOD = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_CURRENT_USES_PARMNUM: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_FILE_SD_PARMNUM: u32 = 501u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
@@ -12603,12 +12757,19 @@ pub const ACCESS_ATRIB: SHARE_INFO_PERMISSIONS = 32u32;
 pub const ACCESS_PERM: SHARE_INFO_PERMISSIONS = 64u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ACCESS_ALL: SHARE_INFO_PERMISSIONS = 32768u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_MAX_USES_PARMNUM: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_NETNAME_PARMNUM: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_PASSWD_PARMNUM: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_PATH_PARMNUM: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_PERMISSIONS_PARMNUM: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_REMARK_PARMNUM: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_SERVER_PARMNUM: u32 = 503u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type SHARE_TYPE = u32;
@@ -12626,25 +12787,45 @@ pub const STYPE_SPECIAL: SHARE_TYPE = 2147483648u32;
 pub const STYPE_TEMPORARY: SHARE_TYPE = 1073741824u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_MASK: SHARE_TYPE = 255u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_TYPE_PARMNUM: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_ACCESS_BASED_DIRECTORY_ENUM: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_ALLOW_NAMESPACE_CACHING: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_CLUSTER_MANAGED: u32 = 524288u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_COMPRESS_DATA: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_DFS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_DFS_ROOT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_DISABLE_CLIENT_BUFFERING: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_ENABLE_CA: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_ENABLE_HASH: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_ENCRYPT_DATA: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_FORCE_LEVELII_OPLOCK: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_FORCE_SHARED_DELETE: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_IDENTITY_REMOTING: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_RESERVED: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_RESTRICT_EXCLUSIVE_OPENS: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1_NUM_ELEMENTS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI2_NUM_ELEMENTS: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI_USES_UNLIMITED: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STATSOPT_CLR: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -12803,11 +12984,17 @@ pub type STREAM_INFO_LEVELS = i32;
 pub const FindStreamInfoStandard: STREAM_INFO_LEVELS = 0i32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FindStreamInfoMaxInfoLevel: STREAM_INFO_LEVELS = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_RESERVED1: u32 = 16777216u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_RESERVED2: u32 = 33554432u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_RESERVED3: u32 = 67108864u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_RESERVED4: u32 = 134217728u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_RESERVED5: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_RESERVED_ALL: u32 = 1073741568u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type SYMBOLIC_LINK_FLAGS = u32;
@@ -13632,15 +13819,25 @@ impl ::core::default::Default for TAPE_WRITE_MARKS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_DO_NOT_PROMOTE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_MANAGER_COMMIT_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_MANAGER_COMMIT_LOWEST: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_MANAGER_COMMIT_SYSTEM_HIVES: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_MANAGER_COMMIT_SYSTEM_VOLUME: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_MANAGER_CORRUPT_FOR_PROGRESS: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_MANAGER_CORRUPT_FOR_RECOVERY: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_MANAGER_MAXIMUM_OPTION: u32 = 63u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_MANAGER_VOLATILE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_MAXIMUM_OPTION: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -13801,33 +13998,61 @@ impl ::core::default::Default for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFICATION_TM_ONLINE_FLAG_IS_CLUSTERED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_COMMIT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_COMMIT_COMPLETE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_COMMIT_FINALIZE: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_COMMIT_REQUEST: u32 = 67108864u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_DELEGATE_COMMIT: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_ENLIST_MASK: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_ENLIST_PREPREPARE: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_INDOUBT: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_LAST_RECOVER: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_MARSHAL: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_MASK: u32 = 1073741823u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_PREPARE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_PREPARE_COMPLETE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_PREPREPARE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_PREPREPARE_COMPLETE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_PROMOTE: u32 = 134217728u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_PROMOTE_NEW: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_PROPAGATE_PULL: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_PROPAGATE_PUSH: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_RECOVER: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_RECOVER_QUERY: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_REQUEST_OUTCOME: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_RM_DISCONNECTED: u32 = 16777216u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_ROLLBACK: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_ROLLBACK_COMPLETE: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_SINGLE_PHASE_COMMIT: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_TM_ONLINE: u32 = 33554432u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type TRANSACTION_OUTCOME = i32;
@@ -13954,9 +14179,13 @@ impl ::core::default::Default for TXF_LOG_RECORD_BASE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TXF_LOG_RECORD_GENERIC_TYPE_ABORT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TXF_LOG_RECORD_GENERIC_TYPE_COMMIT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TXF_LOG_RECORD_GENERIC_TYPE_DATA: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TXF_LOG_RECORD_GENERIC_TYPE_PREPARE: u32 = 4u32;
 #[repr(C, packed(4))]
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -14727,8 +14956,11 @@ impl ::core::default::Default for VOLUME_SHRINK_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VS_FFI_FILEFLAGSMASK: i32 = 63i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VS_FFI_SIGNATURE: i32 = -17890115i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VS_FFI_STRUCVERSION: i32 = 65536i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
@@ -14865,7 +15097,9 @@ pub const VFT_FONT: VS_FIXEDFILEINFO_FILE_TYPE = 4i32;
 pub const VFT_VXD: VS_FIXEDFILEINFO_FILE_TYPE = 5i32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT_STATIC_LIB: VS_FIXEDFILEINFO_FILE_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VS_USER_DEFINED: u32 = 100u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VS_VERSION_INFO: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -15002,9 +15236,13 @@ pub unsafe fn VerQueryValueW<'a, Param1: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WIM_BOOT_NOT_OS_WIM: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WIM_BOOT_OS_WIM: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WIM_ENTRY_FLAG_NOT_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WIM_ENTRY_FLAG_SUSPENDED: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
@@ -15071,8 +15309,11 @@ impl ::core::default::Default for WIM_EXTERNAL_FILE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WIM_EXTERNAL_FILE_INFO_FLAG_NOT_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WIM_EXTERNAL_FILE_INFO_FLAG_SUSPENDED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WIM_PROVIDER_HASH_SIZE: u32 = 20u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
@@ -15248,6 +15489,7 @@ impl ::core::default::Default for WIN32_STREAM_ID {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WINEFS_SETUSERKEY_SET_CAPABILITIES: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type WIN_STREAM_ID = u32;
@@ -15322,7 +15564,9 @@ impl ::core::default::Default for WOF_FILE_COMPRESSION_INFO_V1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WOF_PROVIDER_FILE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WOF_PROVIDER_WIM: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15631,4 +15875,5 @@ pub unsafe fn WriteTapemark<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const _FT_TYPES_DEFINITION_: u32 = 1u32;

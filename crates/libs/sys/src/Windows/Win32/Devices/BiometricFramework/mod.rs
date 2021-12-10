@@ -113,9 +113,12 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
     pub fn WinBioWait(sessionhandle: u32) -> ::windows_sys::core::HRESULT;
 }
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub const FACILITY_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub const FACILITY_WINBIO: u32 = 9u32;
 pub const GUID_DEVINTERFACE_BIOMETRIC_READER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3803519034, data2: 39402, data3: 19651, data4: [173, 107, 128, 202, 141, 113, 91, 128] };
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub const IOCTL_BIOMETRIC_VENDOR: u32 = 4464640u32;
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -1000,7 +1003,9 @@ impl ::core::clone::Clone for WINBIO_BIR {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub const WINBIO_BIR_ALGIN_SIZE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub const WINBIO_BIR_ALIGN_SIZE: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
@@ -2093,6 +2098,7 @@ impl ::core::clone::Clone for WINBIO_IDENTITY_0_0 {
 pub const WINBIO_I_EXTENDED_STATUS_INFORMATION: ::windows_sys::core::HRESULT = 589826i32;
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub const WINBIO_I_MORE_DATA: ::windows_sys::core::HRESULT = 589825i32;
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub const WINBIO_MAX_STRING_LEN: u32 = 256u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
@@ -2288,14 +2294,23 @@ impl ::core::clone::Clone for WINBIO_REGISTERED_FORMAT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub const WINBIO_SCP_CURVE_FIELD_SIZE_V1: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub const WINBIO_SCP_DIGEST_SIZE_V1: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub const WINBIO_SCP_ENCRYPTION_BLOCK_SIZE_V1: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub const WINBIO_SCP_ENCRYPTION_KEY_SIZE_V1: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub const WINBIO_SCP_PRIVATE_KEY_SIZE_V1: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub const WINBIO_SCP_PUBLIC_KEY_SIZE_V1: u32 = 65u32;
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub const WINBIO_SCP_RANDOM_SIZE_V1: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub const WINBIO_SCP_SIGNATURE_SIZE_V1: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub const WINBIO_SCP_VERSION_1: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
@@ -2572,7 +2587,9 @@ impl ::core::clone::Clone for WINBIO_VERSION {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub const WINBIO_WBDI_MAJOR_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
 pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0u32;
 #[repr(C)]
 pub struct _WINIBIO_ENGINE_CONTEXT(pub u8);

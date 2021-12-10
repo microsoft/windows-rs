@@ -1,8 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
 pub const CB_MAX_CABINET_NAME: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
 pub const CB_MAX_CAB_PATH: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
 pub const CB_MAX_DISK: i32 = 2147483647i32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
 pub const CB_MAX_DISK_NAME: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
 pub const CB_MAX_FILENAME: u32 = 256u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_Cabinets', 'Win32_Foundation'*"]
@@ -646,8 +651,11 @@ pub unsafe fn FDITruncateCabinet<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
 pub const INCLUDED_FCI: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
 pub const INCLUDED_FDI: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
 pub const INCLUDED_TYPES_FCI_FDI: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
 pub type PFNALLOC = ::core::option::Option<unsafe extern "system" fn(cb: u32) -> *mut ::core::ffi::c_void>;
@@ -702,5 +710,7 @@ pub type PFNREAD = ::core::option::Option<unsafe extern "system" fn(hf: isize, p
 pub type PFNSEEK = ::core::option::Option<unsafe extern "system" fn(hf: isize, dist: i32, seektype: i32) -> i32>;
 #[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
 pub type PFNWRITE = ::core::option::Option<unsafe extern "system" fn(hf: isize, pv: *const ::core::ffi::c_void, cb: u32) -> u32>;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
 pub const _A_EXEC: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
 pub const _A_NAME_IS_UTF: u32 = 128u32;

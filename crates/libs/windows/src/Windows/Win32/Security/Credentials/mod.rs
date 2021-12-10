@@ -51,6 +51,7 @@ impl ::core::default::Default for CERT_CREDENTIAL_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CERT_HASH_LENGTH: u32 = 20u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
@@ -360,11 +361,17 @@ impl ::core::default::Default for CREDSSP_CRED_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CREDSSP_CRED_EX_VERSION: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CREDSSP_FLAG_REDIRECT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CREDSSP_SERVER_AUTH_CERTIFICATE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CREDSSP_SERVER_AUTH_LOOPBACK: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CREDSSP_SERVER_AUTH_NEGOTIATE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CREDUIWIN_DOWNLEVEL_HELLO_AS_SMART_CARD: u32 = 2147483648u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub type CREDUIWIN_FLAGS = u32;
@@ -386,6 +393,7 @@ pub const CREDUIWIN_SECURE_PROMPT: CREDUIWIN_FLAGS = 4096u32;
 pub const CREDUIWIN_PREPROMPTING: CREDUIWIN_FLAGS = 8192u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CREDUIWIN_PACK_32_WOW: CREDUIWIN_FLAGS = 268435456u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CREDUIWIN_IGNORE_CLOUDAUTHORITY_NAME: u32 = 262144u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub type CREDUI_FLAGS = u32;
@@ -495,10 +503,15 @@ impl ::core::default::Default for CREDUI_INFOW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CREDUI_MAX_CAPTION_LENGTH: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CREDUI_MAX_GENERIC_TARGET_LENGTH: u32 = 32767u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CREDUI_MAX_MESSAGE_LENGTH: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_ALLOW_NAME_RESOLUTION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_CACHE_TARGET_INFORMATION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub type CRED_ENUMERATE_FLAGS = u32;
@@ -526,6 +539,7 @@ pub const CRED_FLAGS_NGC_CERT: CRED_FLAGS = 128u32;
 pub const CRED_FLAGS_VALID_FLAGS: CRED_FLAGS = 61695u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_FLAGS_VALID_INPUT_FLAGS: CRED_FLAGS = 61599u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_LOGON_TYPES_MASK: u32 = 61440u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub type CRED_MARSHAL_TYPE = i32;
@@ -539,11 +553,17 @@ pub const BinaryBlobCredential: CRED_MARSHAL_TYPE = 3i32;
 pub const UsernameForPackedCredentials: CRED_MARSHAL_TYPE = 4i32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const BinaryBlobForSystem: CRED_MARSHAL_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_MAX_ATTRIBUTES: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_MAX_GENERIC_TARGET_NAME_LENGTH: u32 = 32767u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_MAX_STRING_LENGTH: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_MAX_TARGETNAME_ATTRIBUTE_LENGTH: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_MAX_TARGETNAME_NAMESPACE_LENGTH: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_MAX_VALUE_SIZE: u32 = 256u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub type CRED_PACK_FLAGS = u32;
@@ -565,6 +585,7 @@ pub const CRED_PERSIST_SESSION: CRED_PERSIST = 1u32;
 pub const CRED_PERSIST_LOCAL_MACHINE: CRED_PERSIST = 2u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_PERSIST_ENTERPRISE: CRED_PERSIST = 3u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_PRESERVE_CREDENTIAL_BLOB: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub type CRED_PROTECTION_TYPE = i32;
@@ -576,15 +597,25 @@ pub const CredUserProtection: CRED_PROTECTION_TYPE = 1i32;
 pub const CredTrustedProtection: CRED_PROTECTION_TYPE = 2i32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CredForSystemProtection: CRED_PROTECTION_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_PROTECT_AS_SELF: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_PROTECT_TO_SYSTEM: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_TI_CREATE_EXPLICIT_CRED: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_TI_DNSTREE_IS_DFS_SERVER: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_TI_DOMAIN_FORMAT_UNKNOWN: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_TI_ONLY_PASSWORD_REQUIRED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_TI_SERVER_FORMAT_UNKNOWN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_TI_USERNAME_TARGET: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_TI_VALID_FLAGS: u32 = 61567u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_TI_WORKGROUP_MEMBER: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub type CRED_TYPE = u32;
@@ -604,7 +635,9 @@ pub const CRED_TYPE_DOMAIN_EXTENDED: CRED_TYPE = 6u32;
 pub const CRED_TYPE_MAXIMUM: CRED_TYPE = 7u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_TYPE_MAXIMUM_EX: CRED_TYPE = 1007u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_UNPROTECT_ALLOW_TO_SYSTEM: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const CRED_UNPROTECT_AS_SELF: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1325,6 +1358,7 @@ pub unsafe fn CredWriteW(credential: *const CREDENTIALW, flags: u32) -> super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const FILE_DEVICE_SMARTCARD: u32 = 49u32;
 pub const GUID_DEVINTERFACE_SMARTCARD_READER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50dd5230_ba8a_11d1_bf5d_0000f805f530);
 #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
@@ -1478,7 +1512,9 @@ pub type LPOCNCONNPROCA = ::core::option::Option<unsafe extern "system" fn(param
 pub type LPOCNCONNPROCW = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: super::super::Foundation::PWSTR, param2: super::super::Foundation::PWSTR, param3: *const ::core::ffi::c_void) -> usize>;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub type LPOCNDSCPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize, param1: usize, param2: *const ::core::ffi::c_void)>;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const MAXIMUM_ATTR_STRING_LENGTH: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const MAXIMUM_SMARTCARD_READERS: u32 = 10u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
@@ -1921,6 +1957,7 @@ impl ::core::default::Default for READER_SEL_RESPONSE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_ABSENT: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
@@ -1949,21 +1986,37 @@ impl ::core::default::Default for SCARD_ATRMASK {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_ATR_LENGTH: u32 = 33u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_AUDIT_CHV_FAILURE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_AUDIT_CHV_SUCCESS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_CLASS_COMMUNICATIONS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_CLASS_ICC_STATE: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_CLASS_IFD_PROTOCOL: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_CLASS_MECHANICAL: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_CLASS_PERF: u32 = 32766u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_CLASS_POWER_MGMT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_CLASS_PROTOCOL: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_CLASS_SECURITY: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_CLASS_SYSTEM: u32 = 32767u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_CLASS_VENDOR_DEFINED: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_CLASS_VENDOR_INFO: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_COLD_RESET: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_EJECT_CARD: u32 = 3u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
@@ -1991,19 +2044,33 @@ impl ::core::default::Default for SCARD_IO_REQUEST {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_LEAVE_CARD: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_NEGOTIABLE: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_POWERED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_POWER_DOWN: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_PRESENT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_PROTOCOL_DEFAULT: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_PROTOCOL_OPTIMAL: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_PROTOCOL_RAW: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_PROTOCOL_T0: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_PROTOCOL_T1: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_PROTOCOL_UNDEFINED: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_PROVIDER_CSP: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_PROVIDER_KSP: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_PROVIDER_PRIMARY: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
@@ -2079,23 +2146,41 @@ impl ::core::default::Default for SCARD_READERSTATEW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_READER_CONFISCATES: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_READER_CONTACTLESS: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_READER_EJECTS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_READER_SWALLOWS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_READER_TYPE_EMBEDDEDSE: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_READER_TYPE_IDE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_READER_TYPE_KEYBOARD: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_READER_TYPE_NFC: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_READER_TYPE_NGC: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_READER_TYPE_PARALELL: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_READER_TYPE_PCMCIA: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_READER_TYPE_SCSI: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_READER_TYPE_SERIAL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_READER_TYPE_TPM: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_READER_TYPE_UICC: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_READER_TYPE_USB: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_READER_TYPE_VENDOR: u32 = 240u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_RESET_CARD: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub type SCARD_SCOPE = u32;
@@ -2103,10 +2188,15 @@ pub type SCARD_SCOPE = u32;
 pub const SCARD_SCOPE_USER: SCARD_SCOPE = 0u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_SCOPE_SYSTEM: SCARD_SCOPE = 2u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_SCOPE_TERMINAL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_SHARE_DIRECT: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_SHARE_EXCLUSIVE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_SHARE_SHARED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_SPECIFIC: u32 = 6u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub type SCARD_STATE = u32;
@@ -2132,8 +2222,11 @@ pub const SCARD_STATE_MUTE: SCARD_STATE = 512u32;
 pub const SCARD_STATE_CHANGED: SCARD_STATE = 2u32;
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_STATE_UNKNOWN: SCARD_STATE = 4u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_STATE_UNPOWERED: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_SWALLOWED: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_T0_CMD_LENGTH: u32 = 5u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
@@ -2164,6 +2257,7 @@ impl ::core::default::Default for SCARD_T0_COMMAND {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_T0_HEADER_LENGTH: u32 = 7u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
@@ -2219,9 +2313,13 @@ impl ::core::default::Default for SCARD_T0_REQUEST_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_T1_EPILOGUE_LENGTH: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_T1_EPILOGUE_LENGTH_LRC: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_T1_MAX_IFS: u32 = 254u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_T1_PROLOGUE_LENGTH: u32 = 3u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Credentials'*"]
@@ -2248,13 +2346,21 @@ impl ::core::default::Default for SCARD_T1_REQUEST {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_UNPOWER_CARD: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCARD_WARM_RESET: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCERR_NOCARDNAME: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SCERR_NOGUIDS: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SC_DLG_FORCE_UI: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SC_DLG_MINIMAL_UI: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SC_DLG_NO_UI: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3333,7 +3439,9 @@ pub unsafe fn SCardWriteCacheW<'a, Param3: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SECPKG_ALT_ATTR: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_Security_Credentials'*"]
 pub const SECPKG_ATTR_C_FULL_IDENT_TOKEN: u32 = 2147483781u32;
 #[doc = "*Required features: 'Win32_Security_Credentials', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

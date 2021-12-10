@@ -84,8 +84,11 @@ pub const CASTING_CONNECTION_STATE_RENDERING: CASTING_CONNECTION_STATE = 2i32;
 pub const CASTING_CONNECTION_STATE_DISCONNECTING: CASTING_CONNECTION_STATE = 3i32;
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
 pub const CASTING_CONNECTION_STATE_CONNECTING: CASTING_CONNECTION_STATE = 4i32;
+#[doc = "*Required features: 'Win32_System_WinRT'*"]
 pub const CastingSourceInfo_Property_CastingTypes: &'static str = "CastingTypes";
+#[doc = "*Required features: 'Win32_System_WinRT'*"]
 pub const CastingSourceInfo_Property_PreferredSourceUriScheme: &'static str = "PreferredSourceUriScheme";
+#[doc = "*Required features: 'Win32_System_WinRT'*"]
 pub const CastingSourceInfo_Property_ProtectedMedia: &'static str = "ProtectedMedia";
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
 #[inline]
@@ -2814,6 +2817,7 @@ pub unsafe fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_WinRT'*"]
 pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512u32;
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
 #[inline]

@@ -15,10 +15,15 @@ pub unsafe fn ApplyLocalManagementSyncML<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
 pub const DEVICEREGISTRATIONTYPE_MAM: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
 pub const DEVICEREGISTRATIONTYPE_MDM_DEVICEWIDE_WITH_AAD: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
 pub const DEVICEREGISTRATIONTYPE_MDM_ONLY: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
 pub const DEVICEREGISTRATIONTYPE_MDM_USERSPECIFIC_WITH_AAD: u32 = 13u32;
+#[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
 pub const DEVICE_ENROLLER_FACILITY_CODE: u32 = 24u32;
 #[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -211,6 +216,7 @@ impl ::core::default::Default for MANAGEMENT_SERVICE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
 pub const MDM_REGISTRATION_FACILITY_CODE: u32 = 25u32;
 #[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
 pub const MENROLL_E_CERTAUTH_FAILED_TO_FIND_CERT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145910744i32);

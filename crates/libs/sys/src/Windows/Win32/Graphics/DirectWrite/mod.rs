@@ -4,6 +4,7 @@ extern "system" {
     #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
     pub fn DWriteCreateFactory(factorytype: DWRITE_FACTORY_TYPE, iid: *const ::windows_sys::core::GUID, factory: *mut ::windows_sys::core::IUnknown) -> ::windows_sys::core::HRESULT;
 }
+#[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 pub const DWRITE_ALPHA_MAX: u32 = 255u32;
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 pub type DWRITE_AUTOMATIC_FONT_AXES = u32;
@@ -124,6 +125,7 @@ pub const DWRITE_CONTAINER_TYPE_UNKNOWN: DWRITE_CONTAINER_TYPE = 0i32;
 pub const DWRITE_CONTAINER_TYPE_WOFF: DWRITE_CONTAINER_TYPE = 1i32;
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 pub const DWRITE_CONTAINER_TYPE_WOFF2: DWRITE_CONTAINER_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 pub const DWRITE_ERR_BASE: u32 = 20480u32;
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 pub const DWRITE_E_DOWNLOADCANCELLED: ::windows_sys::core::HRESULT = -2003283954i32;
@@ -2007,6 +2009,7 @@ pub const DWRITE_WORD_WRAPPING_EMERGENCY_BREAK: DWRITE_WORD_WRAPPING = 2i32;
 pub const DWRITE_WORD_WRAPPING_WHOLE_WORD: DWRITE_WORD_WRAPPING = 3i32;
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 pub const DWRITE_WORD_WRAPPING_CHARACTER: DWRITE_WORD_WRAPPING = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 pub const FACILITY_DWRITE: u32 = 2200u32;
 pub type IDWriteAsyncResult = *mut ::core::ffi::c_void;
 pub type IDWriteBitmapRenderTarget = *mut ::core::ffi::c_void;

@@ -137,18 +137,31 @@ pub struct DIFsrmClassificationEventsVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FSRM_DISPID_FEATURE_CLASSIFICATION: u32 = 83886080u32;
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FSRM_DISPID_FEATURE_FILESCREEN: u32 = 50331648u32;
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FSRM_DISPID_FEATURE_GENERAL: u32 = 16777216u32;
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FSRM_DISPID_FEATURE_MASK: u32 = 251658240u32;
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FSRM_DISPID_FEATURE_PIPELINE: u32 = 100663296u32;
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FSRM_DISPID_FEATURE_QUOTA: u32 = 33554432u32;
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FSRM_DISPID_FEATURE_REPORTS: u32 = 67108864u32;
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FSRM_DISPID_INTERFACE_A_MASK: u32 = 15728640u32;
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FSRM_DISPID_INTERFACE_B_MASK: u32 = 983040u32;
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FSRM_DISPID_INTERFACE_C_MASK: u32 = 61440u32;
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FSRM_DISPID_INTERFACE_D_MASK: u32 = 3840u32;
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FSRM_DISPID_IS_PROPERTY: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FSRM_DISPID_METHOD_NUM_MASK: u32 = 127u32;
 #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FSRM_E_ADR_MAX_EMAILS_SENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200130i32);
@@ -468,6 +481,7 @@ pub type FsrmCommitOptions = i32;
 pub const FsrmCommitOptions_None: FsrmCommitOptions = 0i32;
 #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FsrmCommitOptions_Asynchronous: FsrmCommitOptions = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FsrmDaysNotSpecified: i32 = -1i32;
 #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub type FsrmEnumOptions = i32;
@@ -578,11 +592,17 @@ pub const FsrmGetFilePropertyOptions_Persistent: FsrmGetFilePropertyOptions = 2i
 pub const FsrmGetFilePropertyOptions_FailOnPersistErrors: FsrmGetFilePropertyOptions = 4i32;
 #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FsrmGetFilePropertyOptions_SkipOrphaned: FsrmGetFilePropertyOptions = 8i32;
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FsrmMaxExcludeFolders: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FsrmMaxNumberPropertyDefinitions: u32 = 100u32;
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FsrmMaxNumberThresholds: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FsrmMaxThresholdValue: u32 = 250u32;
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FsrmMinQuotaLimit: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const FsrmMinThresholdValue: u32 = 1u32;
 pub const FsrmPathMapper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3be42bd_8ac2_409e_bbd8_faf9b6b41feb);
 pub const FsrmPipelineModuleConnector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7643375_1eb5_44de_a062_623547d933bc);
@@ -13465,4 +13485,5 @@ pub struct IFsrmStorageModuleImplementationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertybag: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertybag: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub const MessageSizeLimit: u32 = 4096u32;

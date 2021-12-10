@@ -29,7 +29,9 @@ impl ::core::default::Default for APPLICATION_EVENT_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_SideShow'*"]
 pub const CONTENT_ID_GLANCE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_SideShow'*"]
 pub const CONTENT_ID_HOME: u32 = 1u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_System_SideShow'*"]
@@ -1126,7 +1128,9 @@ pub const SIDESHOW_COLOR_TYPE_BLACK_AND_WHITE: SIDESHOW_COLOR_TYPE = 2i32;
 pub const SIDESHOW_CONTENT_MISSING_EVENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5007fba8_d313_439f_bea2_a50201d3e9a8);
 pub const SIDESHOW_ENDPOINT_ICAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4dff36b5_9dde_4f76_9a2a_96435047063d);
 pub const SIDESHOW_ENDPOINT_SIMPLE_CONTENT_FORMAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9a5353f_2d4b_47ce_93ee_759f3a7dda4f);
+#[doc = "*Required features: 'Win32_System_SideShow'*"]
 pub const SIDESHOW_EVENTID_APPLICATION_ENTER: u32 = 4294901760u32;
+#[doc = "*Required features: 'Win32_System_SideShow'*"]
 pub const SIDESHOW_EVENTID_APPLICATION_EXIT: u32 = 4294901761u32;
 pub const SIDESHOW_NEW_EVENT_DATA_AVAILABLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57813854_2fc1_411c_a59f_f24927608804);
 #[doc = "*Required features: 'Win32_System_SideShow'*"]
@@ -1140,4 +1144,5 @@ pub const SideShowKeyCollection: ::windows::core::GUID = ::windows::core::GUID::
 pub const SideShowNotification: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ce3e86f_d5cd_4525_a766_1abab1a752f5);
 pub const SideShowPropVariantCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe640f415_539e_4923_96cd_5f093bc250cd);
 pub const SideShowSession: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe20543b9_f785_4ea2_981e_c4ffa76bbc7c);
+#[doc = "*Required features: 'Win32_System_SideShow'*"]
 pub const VERSION_1_WINDOWS_7: u32 = 0u32;

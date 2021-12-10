@@ -1189,6 +1189,7 @@ pub type RADIUS_EXTENSION_POINT = i32;
 pub const repAuthentication: RADIUS_EXTENSION_POINT = 0i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
 pub const repAuthorization: RADIUS_EXTENSION_POINT = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
 pub const RADIUS_EXTENSION_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkPolicyServer'*"]
 pub type RADIUS_REJECT_REASON_CODE = i32;

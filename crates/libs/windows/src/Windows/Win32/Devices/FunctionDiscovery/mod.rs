@@ -15,15 +15,25 @@ pub const E_FDPAIRING_NOCONNECTION: ::windows::core::HRESULT = ::windows::core::
 pub const E_FDPAIRING_NOPROFILES: ::windows::core::HRESULT = ::windows::core::HRESULT(-1882193912i32);
 #[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub const E_FDPAIRING_TOOMANYCONNECTIONS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1882193915i32);
+#[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub const FD_EVENTID: u32 = 1000u32;
+#[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub const FD_EVENTID_ASYNCTHREADEXIT: u32 = 1001u32;
+#[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub const FD_EVENTID_IPADDRESSCHANGE: u32 = 1003u32;
+#[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub const FD_EVENTID_PRIVATE: u32 = 100u32;
+#[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub const FD_EVENTID_QUERYREFRESH: u32 = 1004u32;
+#[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub const FD_EVENTID_SEARCHCOMPLETE: u32 = 1000u32;
+#[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub const FD_EVENTID_SEARCHSTART: u32 = 1002u32;
+#[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub const FD_LONGHORN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub const FD_Visibility_Default: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub const FD_Visibility_Hidden: u32 = 1u32;
 pub const FMTID_Device: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78c34fc8_104a_4aca_9ea4_524d52996e57);
 pub const FMTID_DeviceInterface: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53808008_07bb_4661_bc3c_b5953e708560);
@@ -1317,7 +1327,9 @@ pub struct IProviderQueryConstraintCollectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub const MAX_FDCONSTRAINTNAME_LENGTH: u32 = 100u32;
+#[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub const MAX_FDCONSTRAINTVALUE_LENGTH: u32 = 1000u32;
 #[doc = "*Required features: 'Win32_Devices_FunctionDiscovery', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -2035,9 +2047,13 @@ pub const PKEY_WNET_Type: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY
 pub const PKEY_WNET_Usage: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xdebda43a_37b3_4383_91e7_4498da2995ab), pid: 4u32 };
 pub const PNPXAssociation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcee8ccc9_4f6b_4469_a235_5a22869eef03);
 pub const PNPXPairingHandler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8a27942_ade7_4085_aa6e_4fadc7ada1ef);
+#[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub const PNPX_INSTALLSTATE_FAILED: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub const PNPX_INSTALLSTATE_INSTALLED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub const PNPX_INSTALLSTATE_INSTALLING: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub const PNPX_INSTALLSTATE_NOTINSTALLED: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub type PropertyConstraint = i32;

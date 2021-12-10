@@ -1,11 +1,19 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ADDRESS_TYPE_IANA: u32 = 0u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ADDRESS_TYPE_IATA: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const CHANGESTATE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const CLIENT_TYPE_BOOTP: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const CLIENT_TYPE_DHCP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const CLIENT_TYPE_NONE: u32 = 100u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const CLIENT_TYPE_RESERVATION_FLAG: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const CLIENT_TYPE_UNSPECIFIED: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
@@ -96,6 +104,7 @@ impl ::core::default::Default for DHCPCAPI_CLASSID {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPCAPI_DEREGISTER_HANDLE_EVENT: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
@@ -130,11 +139,17 @@ impl ::core::default::Default for DHCPCAPI_PARAMS_ARRAY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPCAPI_REGISTER_HANDLE_EVENT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPCAPI_REQUEST_ASYNCHRONOUS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPCAPI_REQUEST_CANCEL: u32 = 8u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPCAPI_REQUEST_MASK: u32 = 15u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPCAPI_REQUEST_PERSISTENT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPCAPI_REQUEST_SYNCHRONOUS: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
@@ -603,26 +618,47 @@ impl ::core::default::Default for DHCPV6_IP_ARRAY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_CLIENTID: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_DNS_SERVERS: u32 = 23u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_DOMAIN_LIST: u32 = 24u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_IA_NA: u32 = 3u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_IA_PD: u32 = 25u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_IA_TA: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_NISP_DOMAIN_NAME: u32 = 30u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_NISP_SERVERS: u32 = 28u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_NIS_DOMAIN_NAME: u32 = 29u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_NIS_SERVERS: u32 = 27u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_ORO: u32 = 6u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_PREFERENCE: u32 = 7u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_RAPID_COMMIT: u32 = 14u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_RECONF_MSG: u32 = 19u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_SERVERID: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_SIP_SERVERS_ADDRS: u32 = 22u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_SIP_SERVERS_NAMES: u32 = 21u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_UNICAST: u32 = 12u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_USER_CLASS: u32 = 15u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_VENDOR_CLASS: u32 = 16u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCPV6_OPTION_VENDOR_OPTS: u32 = 17u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
@@ -1059,13 +1095,21 @@ impl ::core::default::Default for DHCP_ATTRIB_ARRAY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_ATTRIB_BOOL_IS_ADMIN: u32 = 5u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_ATTRIB_BOOL_IS_BINDING_AWARE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_ATTRIB_BOOL_IS_DYNBOOTP: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_ATTRIB_BOOL_IS_PART_OF_DSDC: u32 = 3u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_ATTRIB_BOOL_IS_ROGUE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_ATTRIB_TYPE_BOOL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_ATTRIB_TYPE_ULONG: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_ATTRIB_ULONG_RESTORE_STATUS: u32 = 6u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
@@ -1374,7 +1418,9 @@ impl ::core::default::Default for DHCP_CLASS_INFO_V6 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_CLIENT_BOOTP: u32 = 805306371u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_CLIENT_DHCP: u32 = 805306372u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
@@ -1977,25 +2023,45 @@ impl ::core::default::Default for DHCP_CLIENT_INFO_VQ {
 }
 #[repr(C)]
 pub struct DHCP_CLIENT_SEARCH_UNION(pub u8);
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_CONTROL_CONTINUE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_CONTROL_PAUSE: u32 = 3u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_CONTROL_START: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_CONTROL_STOP: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_DROP_DUPLICATE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_DROP_GEN_FAILURE: u32 = 256u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_DROP_INTERNAL_ERROR: u32 = 3u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_DROP_INVALID: u32 = 8u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_DROP_NOADDRESS: u32 = 10u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_DROP_NOMEM: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_DROP_NO_SUBNETS: u32 = 7u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_DROP_PAUSED: u32 = 6u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_DROP_PROCESSED: u32 = 11u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_DROP_TIMEOUT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_DROP_UNAUTH: u32 = 5u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_DROP_WRONG_SERVER: u32 = 9u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_ENDPOINT_FLAG_CANT_MODIFY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_FAILOVER_DELETE_SCOPES: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_FAILOVER_MAX_NUM_ADD_SCOPES: u32 = 400u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_FAILOVER_MAX_NUM_REL: u32 = 31u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub type DHCP_FAILOVER_MODE = i32;
@@ -2257,8 +2323,11 @@ impl ::core::default::Default for DHCP_FILTER_RECORD {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_FLAGS_DONT_ACCESS_DS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_FLAGS_DONT_DO_RPC: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_FLAGS_OPTION_IS_VENDOR: u32 = 3u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub type DHCP_FORCE_FLAG = i32;
@@ -2268,7 +2337,9 @@ pub const DhcpFullForce: DHCP_FORCE_FLAG = 0i32;
 pub const DhcpNoForce: DHCP_FORCE_FLAG = 1i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DhcpFailoverForce: DHCP_FORCE_FLAG = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_GIVE_ADDRESS_NEW: u32 = 805306369u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_GIVE_ADDRESS_OLD: u32 = 805306370u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
@@ -2611,6 +2682,7 @@ impl ::core::default::Default for DHCP_IP_RESERVATION_V6 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_MAX_DELAY: u32 = 1000u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
@@ -2767,6 +2839,7 @@ impl ::core::default::Default for DHCP_MIB_INFO_VQ {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_MIN_DELAY: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
@@ -3216,7 +3289,9 @@ impl ::core::default::Default for DHCP_OPTION_VALUE_ARRAY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_OPT_ENUM_IGNORE_VENDOR: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_OPT_ENUM_USE_CLASSNAME: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
@@ -3580,9 +3655,13 @@ pub type DHCP_POL_LOGIC_OPER = i32;
 pub const DhcpLogicalOr: DHCP_POL_LOGIC_OPER = 0i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DhcpLogicalAnd: DHCP_POL_LOGIC_OPER = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_PROB_CONFLICT: u32 = 536870913u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_PROB_DECLINE: u32 = 536870914u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_PROB_NACKED: u32 = 536870916u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_PROB_RELEASE: u32 = 536870915u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
@@ -3998,6 +4077,7 @@ impl ::core::default::Default for DHCP_SEARCH_INFO_V6_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_SEND_PACKET: u32 = 268435456u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp', 'Win32_Foundation'*"]
@@ -4863,6 +4943,7 @@ impl ::core::default::Default for DHCP_SUBNET_INFO_VQ {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DHCP_SUBNET_INFO_VQ_FLAG_QUARANTINE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub type DHCP_SUBNET_STATE = i32;
@@ -4944,12 +5025,19 @@ impl ::core::default::Default for DHCP_SUPER_SCOPE_TABLE_ENTRY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DNS_FLAG_CLEANUP_EXPIRED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DNS_FLAG_DISABLE_PTR_UPDATE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DNS_FLAG_ENABLED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DNS_FLAG_HAS_DNS_SUFFIX: u32 = 128u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DNS_FLAG_UPDATE_BOTH_ALWAYS: u32 = 16u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DNS_FLAG_UPDATE_DHCID: u32 = 32u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const DNS_FLAG_UPDATE_DOWNLEVEL: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
@@ -8116,128 +8204,251 @@ pub unsafe fn Dhcpv6RequestPrefix<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DDS_CLASS_DOES_NOT_EXIST: u32 = 20078u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DDS_CLASS_EXISTS: u32 = 20077u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DDS_DHCP_SERVER_NOT_FOUND: u32 = 20074u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DDS_NO_DHCP_ROOT: u32 = 20071u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DDS_NO_DS_AVAILABLE: u32 = 20070u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DDS_OPTION_ALREADY_EXISTS: u32 = 20075u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DDS_OPTION_DOES_NOT_EXIST: u32 = 20076u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DDS_POSSIBLE_RANGE_CONFLICT: u32 = 20087u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DDS_RANGE_DOES_NOT_EXIST: u32 = 20088u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DDS_RESERVATION_CONFLICT: u32 = 20086u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DDS_RESERVATION_NOT_PRESENT: u32 = 20085u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DDS_SERVER_ADDRESS_MISMATCH: u32 = 20081u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DDS_SERVER_ALREADY_EXISTS: u32 = 20079u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DDS_SERVER_DOES_NOT_EXIST: u32 = 20080u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DDS_SUBNET_EXISTS: u32 = 20082u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DDS_SUBNET_HAS_DIFF_SSCOPE: u32 = 20083u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DDS_SUBNET_NOT_PRESENT: u32 = 20084u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DDS_TOO_MANY_ERRORS: u32 = 20073u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DDS_UNEXPECTED_ERROR: u32 = 20072u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_ADDRESS_NOT_AVAILABLE: u32 = 20011u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_CANNOT_MODIFY_BINDINGS: u32 = 20051u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_CANT_CHANGE_ATTRIBUTE: u32 = 20048u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_CLASS_ALREADY_EXISTS: u32 = 20045u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_CLASS_NOT_FOUND: u32 = 20044u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_CLIENT_EXISTS: u32 = 20014u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_DATABASE_INIT_FAILED: u32 = 20001u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_DEFAULT_SCOPE_EXITS: u32 = 20047u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_DELETE_BUILTIN_CLASS: u32 = 20089u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_ELEMENT_CANT_REMOVE: u32 = 20007u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_EXEMPTION_EXISTS: u32 = 20055u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_EXEMPTION_NOT_PRESENT: u32 = 20056u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_FO_ADDSCOPE_LEASES_NOT_SYNCED: u32 = 20127u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_FO_BOOT_NOT_SUPPORTED: u32 = 20131u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_FO_FEATURE_NOT_SUPPORTED: u32 = 20134u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_FO_IPRANGE_TYPE_CONV_ILLEGAL: u32 = 20129u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_FO_MAX_ADD_SCOPES: u32 = 20130u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_FO_MAX_RELATIONSHIPS: u32 = 20128u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_FO_NOT_SUPPORTED: u32 = 20118u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_FO_RANGE_PART_OF_REL: u32 = 20132u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_FO_RELATIONSHIP_DOES_NOT_EXIST: u32 = 20115u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_FO_RELATIONSHIP_EXISTS: u32 = 20114u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_FO_RELATIONSHIP_NAME_TOO_LONG: u32 = 20125u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_FO_RELATION_IS_SECONDARY: u32 = 20117u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_FO_SCOPE_ALREADY_IN_RELATIONSHIP: u32 = 20113u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_FO_SCOPE_NOT_IN_RELATIONSHIP: u32 = 20116u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_FO_SCOPE_SYNC_IN_PROGRESS: u32 = 20133u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_FO_STATE_NOT_NORMAL: u32 = 20120u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_FO_TIME_OUT_OF_SYNC: u32 = 20119u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_HARDWARE_ADDRESS_TYPE_ALREADY_EXEMPT: u32 = 20101u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_INVALID_DELAY: u32 = 20092u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_INVALID_DHCP_CLIENT: u32 = 20016u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_INVALID_DHCP_MESSAGE: u32 = 20015u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_INVALID_PARAMETER_OPTION32: u32 = 20057u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_INVALID_POLICY_EXPRESSION: u32 = 20109u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_INVALID_PROCESSING_ORDER: u32 = 20110u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_INVALID_RANGE: u32 = 20023u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_INVALID_SUBNET_PREFIX: u32 = 20091u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_IPRANGE_CONV_ILLEGAL: u32 = 20049u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_IPRANGE_EXITS: u32 = 20021u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_IP_ADDRESS_IN_USE: u32 = 20032u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_JET97_CONV_REQUIRED: u32 = 20036u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_JET_CONV_REQUIRED: u32 = 20027u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_JET_ERROR: u32 = 20013u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_LINKLAYER_ADDRESS_DOES_NOT_EXIST: u32 = 20095u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_LINKLAYER_ADDRESS_EXISTS: u32 = 20093u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_LINKLAYER_ADDRESS_RESERVATION_EXISTS: u32 = 20094u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_LOG_FILE_PATH_TOO_LONG: u32 = 20033u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_MSCOPE_EXISTS: u32 = 20053u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_NAP_NOT_SUPPORTED: u32 = 20138u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_NETWORK_CHANGED: u32 = 20050u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_NETWORK_INIT_FAILED: u32 = 20003u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_NOT_RESERVED_CLIENT: u32 = 20018u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_NO_ADMIN_PERMISSION: u32 = 20121u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_OPTION_EXITS: u32 = 20009u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_OPTION_NOT_PRESENT: u32 = 20010u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_OPTION_TYPE_MISMATCH: u32 = 20103u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_POLICY_BAD_PARENT_EXPR: u32 = 20104u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_POLICY_EDIT_FQDN_UNSUPPORTED: u32 = 20137u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_POLICY_EXISTS: u32 = 20105u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_POLICY_FQDN_OPTION_UNSUPPORTED: u32 = 20136u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_POLICY_FQDN_RANGE_UNSUPPORTED: u32 = 20135u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_POLICY_NOT_FOUND: u32 = 20111u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_POLICY_RANGE_BAD: u32 = 20107u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_POLICY_RANGE_EXISTS: u32 = 20106u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_PRIMARY_NOT_FOUND: u32 = 20006u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_RANGE_EXTENDED: u32 = 20024u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_RANGE_FULL: u32 = 20012u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_RANGE_INVALID_IN_SERVER_POLICY: u32 = 20108u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_RANGE_TOO_SMALL: u32 = 20020u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_REACHED_END_OF_SELECTION: u32 = 20126u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_REGISTRY_INIT_FAILED: u32 = 20000u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_RESERVEDIP_EXITS: u32 = 20022u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_RESERVED_CLIENT: u32 = 20019u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_ROGUE_DS_CONFLICT: u32 = 20041u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_ROGUE_DS_UNREACHABLE: u32 = 20040u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_ROGUE_INIT_FAILED: u32 = 20037u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_ROGUE_NOT_AUTHORIZED: u32 = 20039u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_ROGUE_NOT_OUR_ENTERPRISE: u32 = 20042u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_ROGUE_SAMSHUTDOWN: u32 = 20038u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_ROGUE_STANDALONE_IN_DS: u32 = 20043u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_RPC_INIT_FAILED: u32 = 20002u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_SCOPE_NAME_TOO_LONG: u32 = 20046u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_SERVER_NAME_NOT_RESOLVED: u32 = 20124u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_SERVER_NOT_REACHABLE: u32 = 20122u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_SERVER_NOT_RUNNING: u32 = 20123u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_SERVICE_PAUSED: u32 = 20017u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_SUBNET_EXISTS: u32 = 20052u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_SUBNET_EXITS: u32 = 20004u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_SUBNET_NOT_PRESENT: u32 = 20005u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_SUPER_SCOPE_NAME_TOO_LONG: u32 = 20030u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_UNDEFINED_HARDWARE_ADDRESS_TYPE: u32 = 20102u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_DHCP_UNSUPPORTED_CLIENT: u32 = 20034u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_EXTEND_TOO_SMALL: u32 = 20025u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_LAST_DHCP_SERVER_ERROR: u32 = 20139u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_MSCOPE_RANGE_TOO_SMALL: u32 = 20054u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_SCOPE_RANGE_POLICY_RANGE_CONFLICT: u32 = 20112u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_SERVER_INVALID_BOOT_FILE_TABLE: u32 = 20028u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const ERROR_SERVER_UNKNOWN_BOOT_FILE_NAME: u32 = 20029u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const FILTER_STATUS_FULL_MATCH_IN_ALLOW_LIST: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const FILTER_STATUS_FULL_MATCH_IN_DENY_LIST: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const FILTER_STATUS_NONE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const FILTER_STATUS_WILDCARD_MATCH_IN_ALLOW_LIST: u32 = 8u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const FILTER_STATUS_WILDCARD_MATCH_IN_DENY_LIST: u32 = 16u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub type FSM_STATE = i32;
@@ -8269,6 +8480,7 @@ pub const RECOVER_DONE: FSM_STATE = 11i32;
 pub const PAUSED: FSM_STATE = 12i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const SHUTDOWN: FSM_STATE = 13i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const HWTYPE_ETHERNET_10MB: u32 = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub type LPDHCP_CONTROL = ::core::option::Option<unsafe extern "system" fn(dwcontrolcode: u32, lpreserved: *mut ::core::ffi::c_void) -> u32>;
@@ -8288,80 +8500,155 @@ pub type LPDHCP_HANDLE_OPTIONS = ::core::option::Option<unsafe extern "system" f
 pub type LPDHCP_NEWPKT = ::core::option::Option<unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, ipaddress: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut *mut ::core::ffi::c_void, processit: *mut i32) -> u32>;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub type LPDHCP_PROB = ::core::option::Option<unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, reserved: *mut ::core::ffi::c_void, pktcontext: *mut ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const MAC_ADDRESS_LENGTH: u32 = 6u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const MAX_PATTERN_LENGTH: u32 = 255u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const MCLT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const MODE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_ALL_SUBNETS_MTU: u32 = 27u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_ARP_CACHE_TIMEOUT: u32 = 35u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_BE_A_MASK_SUPPLIER: u32 = 30u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_BE_A_ROUTER: u32 = 19u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_BOOTFILE_NAME: u32 = 67u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_BOOT_FILE_SIZE: u32 = 13u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_BROADCAST_ADDRESS: u32 = 28u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_CLIENT_CLASS_INFO: u32 = 60u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_CLIENT_ID: u32 = 61u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_COOKIE_SERVERS: u32 = 8u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_DEFAULT_TTL: u32 = 23u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_DOMAIN_NAME: u32 = 15u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_DOMAIN_NAME_SERVERS: u32 = 6u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_END: u32 = 255u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_ETHERNET_ENCAPSULATION: u32 = 36u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_EXTENSIONS_PATH: u32 = 18u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_HOST_NAME: u32 = 12u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_IEN116_NAME_SERVERS: u32 = 5u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_IMPRESS_SERVERS: u32 = 10u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_KEEP_ALIVE_DATA_SIZE: u32 = 39u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_KEEP_ALIVE_INTERVAL: u32 = 38u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_LEASE_TIME: u32 = 51u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_LOG_SERVERS: u32 = 7u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_LPR_SERVERS: u32 = 9u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_MAX_REASSEMBLY_SIZE: u32 = 22u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_MERIT_DUMP_FILE: u32 = 14u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_MESSAGE: u32 = 56u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_MESSAGE_LENGTH: u32 = 57u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_MESSAGE_TYPE: u32 = 53u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_MSFT_IE_PROXY: u32 = 252u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_MTU: u32 = 26u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_NETBIOS_DATAGRAM_SERVER: u32 = 45u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_NETBIOS_NAME_SERVER: u32 = 44u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_NETBIOS_NODE_TYPE: u32 = 46u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_NETBIOS_SCOPE_OPTION: u32 = 47u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_NETWORK_INFO_SERVERS: u32 = 41u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_NETWORK_INFO_SERVICE_DOM: u32 = 40u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_NETWORK_TIME_SERVERS: u32 = 42u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_NON_LOCAL_SOURCE_ROUTING: u32 = 20u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_OK_TO_OVERLAY: u32 = 52u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_PAD: u32 = 0u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_PARAMETER_REQUEST_LIST: u32 = 55u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_PERFORM_MASK_DISCOVERY: u32 = 29u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_PERFORM_ROUTER_DISCOVERY: u32 = 31u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_PMTU_AGING_TIMEOUT: u32 = 24u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_PMTU_PLATEAU_TABLE: u32 = 25u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_POLICY_FILTER_FOR_NLSR: u32 = 21u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_REBIND_TIME: u32 = 59u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_RENEWAL_TIME: u32 = 58u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_REQUESTED_ADDRESS: u32 = 50u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_RLP_SERVERS: u32 = 11u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_ROOT_DISK: u32 = 17u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_ROUTER_ADDRESS: u32 = 3u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_ROUTER_SOLICITATION_ADDR: u32 = 32u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_SERVER_IDENTIFIER: u32 = 54u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_STATIC_ROUTES: u32 = 33u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_SUBNET_MASK: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_SWAP_SERVER: u32 = 16u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_TFTP_SERVER_NAME: u32 = 66u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_TIME_OFFSET: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_TIME_SERVERS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_TRAILERS: u32 = 34u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_TTL: u32 = 37u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_VENDOR_SPEC_INFO: u32 = 43u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_XWINDOW_DISPLAY_MANAGER: u32 = 49u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const OPTION_XWINDOW_FONT_SERVER: u32 = 48u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const PERCENTAGE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const PREVSTATE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const QUARANTINE_CONFIG_OPTION: u32 = 43222u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const QUARANTINE_SCOPE_QUARPROFILE_OPTION: u32 = 43221u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const QUARANTIN_OPTION_BASE: u32 = 43220u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub type QuarantineStatus = i32;
@@ -8379,6 +8666,7 @@ pub const EXEMPT: QuarantineStatus = 4i32;
 pub const DEFAULTQUARSETTING: QuarantineStatus = 5i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const NOQUARINFO: QuarantineStatus = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const SAFEPERIOD: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
@@ -8498,28 +8786,51 @@ impl ::core::default::Default for SCOPE_MIB_INFO_VQ {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const SHAREDSECRET: u32 = 64u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_APIProtocolSupport: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_AuditLogState: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_BackupInterval: u32 = 16u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_BackupPath: u32 = 8u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_BootFileTable: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_DatabaseCleanupInterval: u32 = 128u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_DatabaseLoggingFlag: u32 = 32u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_DatabaseName: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_DatabasePath: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_DebugFlag: u32 = 256u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_PingRetries: u32 = 512u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_PreferredLifetime: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_PreferredLifetimeIATA: u32 = 64u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_QuarantineDefFail: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_QuarantineON: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_RapidCommitFlag: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_RestoreFlag: u32 = 64u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_T1: u32 = 16u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_T2: u32 = 32u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_UnicastFlag: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_ValidLifetime: u32 = 8u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const Set_ValidLifetimeIATA: u32 = 128u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub type StatusCode = i32;
@@ -8531,12 +8842,21 @@ pub const STATUS_UNSPECIFIED_FAILURE: StatusCode = 1i32;
 pub const STATUS_NO_BINDING: StatusCode = 3i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const STATUS_NOPREFIX_AVAIL: StatusCode = 6i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const V5_ADDRESS_BIT_BOTH_REC: u32 = 32u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const V5_ADDRESS_BIT_DELETED: u32 = 128u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const V5_ADDRESS_BIT_UNREGISTERED: u32 = 64u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const V5_ADDRESS_EX_BIT_DISABLE_PTR_RR: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const V5_ADDRESS_STATE_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const V5_ADDRESS_STATE_DECLINED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const V5_ADDRESS_STATE_DOOM: u32 = 3u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const V5_ADDRESS_STATE_OFFERED: u32 = 0u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Dhcp'*"]
 pub const WARNING_EXTENDED_LESS: i32 = 20026i32;

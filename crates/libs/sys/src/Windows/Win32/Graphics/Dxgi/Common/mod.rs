@@ -11,6 +11,7 @@ pub const DXGI_ALPHA_MODE_STRAIGHT: DXGI_ALPHA_MODE = 2u32;
 pub const DXGI_ALPHA_MODE_IGNORE: DXGI_ALPHA_MODE = 3u32;
 #[doc = "*Required features: 'Win32_Graphics_Dxgi_Common'*"]
 pub const DXGI_ALPHA_MODE_FORCE_DWORD: DXGI_ALPHA_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi_Common'*"]
 pub const DXGI_CENTER_MULTISAMPLE_QUALITY_PATTERN: u32 = 4294967294u32;
 #[doc = "*Required features: 'Win32_Graphics_Dxgi_Common'*"]
 pub type DXGI_COLOR_SPACE_TYPE = i32;
@@ -66,10 +67,15 @@ pub const DXGI_COLOR_SPACE_YCBCR_STUDIO_G24_LEFT_P2020: DXGI_COLOR_SPACE_TYPE = 
 pub const DXGI_COLOR_SPACE_YCBCR_STUDIO_G24_TOPLEFT_P2020: DXGI_COLOR_SPACE_TYPE = 24i32;
 #[doc = "*Required features: 'Win32_Graphics_Dxgi_Common'*"]
 pub const DXGI_COLOR_SPACE_CUSTOM: DXGI_COLOR_SPACE_TYPE = -1i32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi_Common'*"]
 pub const DXGI_CPU_ACCESS_DYNAMIC: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi_Common'*"]
 pub const DXGI_CPU_ACCESS_FIELD: u32 = 15u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi_Common'*"]
 pub const DXGI_CPU_ACCESS_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi_Common'*"]
 pub const DXGI_CPU_ACCESS_READ_WRITE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi_Common'*"]
 pub const DXGI_CPU_ACCESS_SCRATCH: u32 = 3u32;
 #[doc = "*Required features: 'Win32_Graphics_Dxgi_Common'*"]
 pub type DXGI_FORMAT = u32;
@@ -317,6 +323,7 @@ pub const DXGI_FORMAT_SAMPLER_FEEDBACK_MIN_MIP_OPAQUE: DXGI_FORMAT = 189u32;
 pub const DXGI_FORMAT_SAMPLER_FEEDBACK_MIP_REGION_USED_OPAQUE: DXGI_FORMAT = 190u32;
 #[doc = "*Required features: 'Win32_Graphics_Dxgi_Common'*"]
 pub const DXGI_FORMAT_FORCE_UINT: DXGI_FORMAT = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi_Common'*"]
 pub const DXGI_FORMAT_DEFINED: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Dxgi_Common'*"]
@@ -467,5 +474,7 @@ impl ::core::clone::Clone for DXGI_SAMPLE_DESC {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Dxgi_Common'*"]
 pub const DXGI_STANDARD_MULTISAMPLE_QUALITY_PATTERN: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Dxgi_Common'*"]
 pub const _FACDXGI: u32 = 2170u32;

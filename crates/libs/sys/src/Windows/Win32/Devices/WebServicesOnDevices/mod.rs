@@ -262,17 +262,29 @@ impl ::core::clone::Clone for RESPONSEBODY_SubscriptionEnd {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
 pub const WSDAPI_ADDRESSFAMILY_IPV4: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
 pub const WSDAPI_ADDRESSFAMILY_IPV6: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
 pub const WSDAPI_COMPACTSIG_ACCEPT_ALL_MESSAGES: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
 pub const WSDAPI_OPTION_MAX_INBOUND_MESSAGE_SIZE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
 pub const WSDAPI_OPTION_TRACE_XML_TO_DEBUGGER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
 pub const WSDAPI_OPTION_TRACE_XML_TO_FILE: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
 pub const WSDAPI_SSL_CERT_APPLY_DEFAULT_CHECKS: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
 pub const WSDAPI_SSL_CERT_IGNORE_EXPIRY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
 pub const WSDAPI_SSL_CERT_IGNORE_INVALID_CN: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
 pub const WSDAPI_SSL_CERT_IGNORE_REVOCATION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
 pub const WSDAPI_SSL_CERT_IGNORE_UNKNOWN_CA: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
 pub const WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
 pub type WSDEventType = i32;
@@ -1214,7 +1226,9 @@ impl ::core::clone::Clone for WSD_SECURITY_CERT_VALIDATION_V1 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
 pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NEGOTIATE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices'*"]
 pub const WSD_SECURITY_HTTP_AUTH_SCHEME_NTLM: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_WebServicesOnDevices', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]

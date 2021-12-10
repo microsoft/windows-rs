@@ -566,6 +566,7 @@ pub const HdvMmioMappingFlagNone: HDV_MMIO_MAPPING_FLAGS = 0u32;
 pub const HdvMmioMappingFlagWriteable: HDV_MMIO_MAPPING_FLAGS = 1u32;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const HdvMmioMappingFlagExecutable: HDV_MMIO_MAPPING_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const HDV_PCI_BAR_COUNT: u32 = 6u32;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub type HDV_PCI_BAR_SELECTOR = i32;
@@ -682,6 +683,7 @@ pub type HDV_PCI_READ_INTERCEPTED_MEMORY = ::core::option::Option<unsafe extern 
 pub type HDV_PCI_WRITE_CONFIG_SPACE = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, offset: u32, value: u32) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub type HDV_PCI_WRITE_INTERCEPTED_MEMORY = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *const u8) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const HVSOCKET_ADDRESS_FLAG_PASSTHRU: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
@@ -711,9 +713,13 @@ impl ::core::default::Default for HVSOCKET_ADDRESS_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const HVSOCKET_CONNECTED_SUSPEND: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const HVSOCKET_CONNECT_TIMEOUT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const HVSOCKET_CONNECT_TIMEOUT_MAX: u32 = 300000u32;
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const HVSOCKET_CONTAINER_PASSTHRU: u32 = 2u32;
 pub const HV_GUID_BROADCAST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffffffff_ffff_ffff_ffff_ffffffffffff);
 pub const HV_GUID_CHILDREN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90db8b89_0d35_4f79_8ce9_49ea0ac8b7cd);
@@ -722,6 +728,7 @@ pub const HV_GUID_PARENT: ::windows::core::GUID = ::windows::core::GUID::from_u1
 pub const HV_GUID_SILOHOST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36bd0c5c_7276_4223_88ba_7d03b654c568);
 pub const HV_GUID_VSOCK_TEMPLATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_facb_11e6_bd58_64006a7986d3);
 pub const HV_GUID_ZERO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const HV_PROTOCOL_RAW: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 #[inline]
@@ -895,6 +902,7 @@ pub unsafe fn HdvWriteGuestMemory(requestor: *const ::core::ffi::c_void, guestph
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const IOCTL_VMGENCOUNTER_READ: u32 = 3325956u32;
 #[doc = "*Required features: 'Win32_System_Hypervisor', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2122,6 +2130,7 @@ pub type WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = u32;
 pub const WHvAllocateVpciResourceFlagNone: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = 0u32;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHvAllocateVpciResourceFlagAllowDirectP2P: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHV_ANY_VP: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub type WHV_CACHE_TYPE = i32;
@@ -2632,6 +2641,7 @@ impl ::core::default::Default for WHV_HYPERCALL_CONTEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS: u32 = 6u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
@@ -2749,6 +2759,7 @@ pub const WHvMapGpaRangeFlagWrite: WHV_MAP_GPA_RANGE_FLAGS = 2u32;
 pub const WHvMapGpaRangeFlagExecute: WHV_MAP_GPA_RANGE_FLAGS = 4u32;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHvMapGpaRangeFlagTrackDirtyPages: WHV_MAP_GPA_RANGE_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHV_MAX_DEVICE_ID_SIZE_IN_CHARS: u32 = 200u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
@@ -3395,6 +3406,7 @@ impl ::core::default::Default for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHV_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
@@ -3626,6 +3638,7 @@ impl ::core::default::Default for WHV_PROCESSOR_XSAVE_FEATURES_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHV_READ_WRITE_GPA_RANGE_MAX_SIZE: u32 = 16u32;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub type WHV_REGISTER_NAME = i32;
@@ -4372,6 +4385,7 @@ impl ::core::default::Default for WHV_SYNIC_EVENT_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHV_SYNIC_MESSAGE_SIZE: u32 = 256u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
@@ -4529,6 +4543,7 @@ impl ::core::default::Default for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub type WHV_TRANSLATE_GVA_FLAGS = u32;
@@ -5042,6 +5057,7 @@ impl ::core::default::Default for WHV_VPCI_PROBED_BARS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHV_VPCI_TYPE0_BAR_COUNT: u32 = 6u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]

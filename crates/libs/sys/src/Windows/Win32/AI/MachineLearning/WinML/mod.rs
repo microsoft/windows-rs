@@ -601,6 +601,7 @@ pub const WINML_TENSOR_UINT64: WINML_TENSOR_DATA_TYPE = 13i32;
 pub const WINML_TENSOR_COMPLEX64: WINML_TENSOR_DATA_TYPE = 14i32;
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub const WINML_TENSOR_COMPLEX128: WINML_TENSOR_DATA_TYPE = 15i32;
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub const WINML_TENSOR_DIMENSION_COUNT_MAX: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]

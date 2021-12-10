@@ -447,4 +447,5 @@ pub struct IDXCoreAdapterListVtbl(
 );
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
 pub type PFN_DXCORE_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: ::core::option::Option<::windows::core::IUnknown>, context: *const ::core::ffi::c_void)>;
+#[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
 pub const _FACDXCORE: u32 = 2176u32;

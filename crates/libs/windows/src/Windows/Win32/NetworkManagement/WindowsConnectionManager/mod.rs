@@ -97,7 +97,9 @@ impl ::core::default::Default for NET_INTERFACE_CONTEXT_TABLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub const NET_INTERFACE_FLAG_CONNECT_IF_NEEDED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub const NET_INTERFACE_FLAG_NONE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub type ONDEMAND_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *const ::core::ffi::c_void)>;
@@ -148,7 +150,9 @@ pub unsafe fn OnDemandUnRegisterNotification<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub const WCM_API_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub const WCM_API_VERSION_1_0: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager', 'Win32_Foundation'*"]
@@ -276,6 +280,7 @@ impl ::core::default::Default for WCM_DATAPLAN_STATUS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub const WCM_MAX_PROFILE_NAME: u32 = 256u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub type WCM_MEDIA_TYPE = i32;
@@ -424,6 +429,7 @@ impl ::core::default::Default for WCM_TIME_INTERVAL {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub const WCM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager', 'Win32_Foundation'*"]

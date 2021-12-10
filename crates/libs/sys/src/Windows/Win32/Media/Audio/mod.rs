@@ -390,26 +390,47 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn waveOutWrite(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_DRIVER_ABOUT: u32 = 24587u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_DRIVER_DETAILS: u32 = 24586u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_DRIVER_NOTIFY: u32 = 24577u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_FILTERTAG_DETAILS: u32 = 24626u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_FILTER_DETAILS: u32 = 24627u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_FORMATTAG_DETAILS: u32 = 24601u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_FORMAT_DETAILS: u32 = 24602u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_FORMAT_SUGGEST: u32 = 24603u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_HARDWARE_WAVE_CAPS_INPUT: u32 = 24596u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_HARDWARE_WAVE_CAPS_OUTPUT: u32 = 24597u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_RESERVED_HIGH: u32 = 28671u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_RESERVED_LOW: u32 = 24576u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_STREAM_CLOSE: u32 = 24653u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_STREAM_CONVERT: u32 = 24655u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_STREAM_OPEN: u32 = 24652u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_STREAM_PREPARE: u32 = 24657u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_STREAM_RESET: u32 = 24656u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_STREAM_SIZE: u32 = 24654u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_STREAM_UNPREPARE: u32 = 24658u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_STREAM_UPDATE: u32 = 24659u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDM_USER: u32 = 16384u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
@@ -469,17 +490,29 @@ impl ::core::clone::Clone for ACMDRIVERDETAILSW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDRIVERDETAILS_COPYRIGHT_CHARS: u32 = 80u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDRIVERDETAILS_FEATURES_CHARS: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDRIVERDETAILS_LICENSING_CHARS: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDRIVERDETAILS_LONGNAME_CHARS: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDRIVERDETAILS_SHORTNAME_CHARS: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDRIVERDETAILS_SUPPORTF_ASYNC: i32 = 16i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDRIVERDETAILS_SUPPORTF_CODEC: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDRIVERDETAILS_SUPPORTF_CONVERTER: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDRIVERDETAILS_SUPPORTF_DISABLED: i32 = -2147483648i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDRIVERDETAILS_SUPPORTF_FILTER: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDRIVERDETAILS_SUPPORTF_HARDWARE: i32 = 8i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMDRIVERDETAILS_SUPPORTF_LOCAL: i32 = 1073741824i32;
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -565,10 +598,15 @@ impl ::core::clone::Clone for ACMDRVSTREAMSIZE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMERR_BASE: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMERR_BUSY: u32 = 513u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMERR_CANCELED: u32 = 515u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMERR_NOTPOSSIBLE: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMERR_UNPREPARED: u32 = 514u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
@@ -634,11 +672,17 @@ impl ::core::clone::Clone for ACMFILTERCHOOSEW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMFILTERCHOOSE_STYLEF_CONTEXTHELP: i32 = 128i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMFILTERCHOOSE_STYLEF_ENABLEHOOK: i32 = 8i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMFILTERCHOOSE_STYLEF_ENABLETEMPLATE: i32 = 16i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMFILTERCHOOSE_STYLEF_ENABLETEMPLATEHANDLE: i32 = 32i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMFILTERCHOOSE_STYLEF_INITTOFILTERSTRUCT: i32 = 64i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMFILTERCHOOSE_STYLEF_SHOWHELP: i32 = 4i32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
@@ -677,6 +721,7 @@ impl ::core::clone::Clone for ACMFILTERDETAILSW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMFILTERDETAILS_FILTER_CHARS: u32 = 128u32;
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -721,6 +766,7 @@ impl ::core::clone::Clone for ACMFILTERTAGDETAILSW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMFILTERTAGDETAILS_FILTERTAG_CHARS: u32 = 48u32;
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -792,11 +838,17 @@ impl ::core::clone::Clone for ACMFORMATCHOOSEW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMFORMATCHOOSE_STYLEF_CONTEXTHELP: i32 = 128i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMFORMATCHOOSE_STYLEF_ENABLEHOOK: i32 = 8i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMFORMATCHOOSE_STYLEF_ENABLETEMPLATE: i32 = 16i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMFORMATCHOOSE_STYLEF_ENABLETEMPLATEHANDLE: i32 = 32i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMFORMATCHOOSE_STYLEF_INITTOWFXSTRUCT: i32 = 64i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMFORMATCHOOSE_STYLEF_SHOWHELP: i32 = 4i32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
@@ -818,6 +870,7 @@ impl ::core::clone::Clone for ACMFORMATDETAILSA {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128u32;
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -862,6 +915,7 @@ impl ::core::clone::Clone for ACMFORMATTAGDETAILSW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMFORMATTAGDETAILS_FORMATTAG_CHARS: u32 = 48u32;
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -919,77 +973,149 @@ impl ::core::clone::Clone for ACMSTREAMHEADER {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMSTREAMHEADER_STATUSF_DONE: i32 = 65536i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMSTREAMHEADER_STATUSF_INQUEUE: i32 = 1048576i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACMSTREAMHEADER_STATUSF_PREPARED: i32 = 131072i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_DRIVERADDF_FUNCTION: i32 = 3i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_DRIVERADDF_GLOBAL: i32 = 8i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_DRIVERADDF_LOCAL: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_DRIVERADDF_NAME: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_DRIVERADDF_NOTIFYHWND: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_DRIVERADDF_TYPEMASK: i32 = 7i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_DRIVERENUMF_DISABLED: i32 = -2147483648i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_DRIVERENUMF_NOLOCAL: i32 = 1073741824i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_DRIVERPRIORITYF_ABLEMASK: i32 = 3i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_DRIVERPRIORITYF_BEGIN: i32 = 65536i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_DRIVERPRIORITYF_DEFERMASK: i32 = 196608i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_DRIVERPRIORITYF_DISABLE: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_DRIVERPRIORITYF_ENABLE: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_DRIVERPRIORITYF_END: i32 = 131072i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FILTERDETAILSF_FILTER: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FILTERDETAILSF_INDEX: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FILTERDETAILSF_QUERYMASK: i32 = 15i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FILTERENUMF_DWFILTERTAG: i32 = 65536i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FILTERTAGDETAILSF_FILTERTAG: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FILTERTAGDETAILSF_INDEX: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FILTERTAGDETAILSF_LARGESTSIZE: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FILTERTAGDETAILSF_QUERYMASK: i32 = 15i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATDETAILSF_FORMAT: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATDETAILSF_INDEX: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATDETAILSF_QUERYMASK: i32 = 15i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATENUMF_CONVERT: i32 = 1048576i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATENUMF_HARDWARE: i32 = 4194304i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATENUMF_INPUT: i32 = 8388608i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATENUMF_NCHANNELS: i32 = 131072i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATENUMF_NSAMPLESPERSEC: i32 = 262144i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATENUMF_OUTPUT: i32 = 16777216i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATENUMF_SUGGEST: i32 = 2097152i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATENUMF_WBITSPERSAMPLE: i32 = 524288i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATENUMF_WFORMATTAG: i32 = 65536i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATSUGGESTF_NCHANNELS: i32 = 131072i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATSUGGESTF_NSAMPLESPERSEC: i32 = 262144i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATSUGGESTF_TYPEMASK: i32 = 16711680i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATSUGGESTF_WBITSPERSAMPLE: i32 = 524288i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATSUGGESTF_WFORMATTAG: i32 = 65536i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATTAGDETAILSF_FORMATTAG: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATTAGDETAILSF_INDEX: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATTAGDETAILSF_LARGESTSIZE: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_FORMATTAGDETAILSF_QUERYMASK: i32 = 15i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_METRIC_COUNT_CODECS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_METRIC_COUNT_CONVERTERS: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_METRIC_COUNT_DISABLED: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_METRIC_COUNT_DRIVERS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_METRIC_COUNT_FILTERS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_METRIC_COUNT_HARDWARE: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_METRIC_COUNT_LOCAL_CODECS: u32 = 21u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_METRIC_COUNT_LOCAL_CONVERTERS: u32 = 22u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_METRIC_COUNT_LOCAL_DISABLED: u32 = 24u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_METRIC_COUNT_LOCAL_DRIVERS: u32 = 20u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_METRIC_COUNT_LOCAL_FILTERS: u32 = 23u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_METRIC_DRIVER_PRIORITY: u32 = 101u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_METRIC_DRIVER_SUPPORT: u32 = 100u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_METRIC_HARDWARE_WAVE_INPUT: u32 = 30u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_METRIC_HARDWARE_WAVE_OUTPUT: u32 = 31u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_METRIC_MAX_SIZE_FILTER: u32 = 51u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_METRIC_MAX_SIZE_FORMAT: u32 = 50u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_STREAMCONVERTF_BLOCKALIGN: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_STREAMCONVERTF_END: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_STREAMCONVERTF_START: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_STREAMOPENF_ASYNC: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_STREAMOPENF_NONREALTIME: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_STREAMOPENF_QUERY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_STREAMSIZEF_DESTINATION: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_STREAMSIZEF_QUERYMASK: i32 = 15i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_STREAMSIZEF_SOURCE: i32 = 0i32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub type AMBISONICS_CHANNEL_ORDERING = i32;
@@ -1019,6 +1145,7 @@ impl ::core::clone::Clone for AMBISONICS_PARAMS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AMBISONICS_PARAM_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub type AMBISONICS_TYPE = i32;
@@ -1100,8 +1227,11 @@ pub const AUDCLNT_E_THREAD_NOT_REGISTERED: ::windows_sys::core::HRESULT = -20042
 pub const AUDCLNT_E_UNSUPPORTED_FORMAT: ::windows_sys::core::HRESULT = -2004287480i32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDCLNT_E_WRONG_ENDPOINT_TYPE: ::windows_sys::core::HRESULT = -2004287485i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDCLNT_SESSIONFLAGS_DISPLAY_HIDE: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDCLNT_SESSIONFLAGS_DISPLAY_HIDEWHENEXPIRED: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDCLNT_SESSIONFLAGS_EXPIREWHENUNOWNED: u32 = 268435456u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub type AUDCLNT_SHAREMODE = i32;
@@ -1109,12 +1239,19 @@ pub type AUDCLNT_SHAREMODE = i32;
 pub const AUDCLNT_SHAREMODE_SHARED: AUDCLNT_SHAREMODE = 0i32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDCLNT_SHAREMODE_EXCLUSIVE: AUDCLNT_SHAREMODE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDCLNT_STREAMFLAGS_AUTOCONVERTPCM: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDCLNT_STREAMFLAGS_CROSSPROCESS: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDCLNT_STREAMFLAGS_EVENTCALLBACK: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDCLNT_STREAMFLAGS_LOOPBACK: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDCLNT_STREAMFLAGS_NOPERSIST: u32 = 524288u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDCLNT_STREAMFLAGS_RATEADJUST: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDCLNT_STREAMFLAGS_SRC_DEFAULT_QUALITY: u32 = 134217728u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub type AUDCLNT_STREAMOPTIONS = u32;
@@ -1173,6 +1310,7 @@ impl ::core::clone::Clone for AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub type AUDIO_DUCKING_OPTIONS = u32;
@@ -1330,9 +1468,13 @@ impl ::core::clone::Clone for AUXCAPSW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUXCAPS_AUXIN: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUXCAPS_CDAUDIO: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUXCAPS_LRVOLUME: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUXCAPS_VOLUME: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
@@ -1466,10 +1608,15 @@ impl ::core::clone::Clone for ConnectorType {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const DEVICE_STATEMASK_ALL: u32 = 15u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const DEVICE_STATE_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const DEVICE_STATE_DISABLED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const DEVICE_STATE_NOTPRESENT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const DEVICE_STATE_UNPLUGGED: u32 = 8u32;
 pub const DEVINTERFACE_AUDIO_CAPTURE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 787448254, data2: 13306, data3: 18432, data4: [150, 112, 28, 212, 116, 151, 44, 63] };
 pub const DEVINTERFACE_AUDIO_RENDER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3862068397, data2: 56556, data3: 18761, data4: [174, 138, 153, 30, 151, 106, 121, 210] };
@@ -1488,9 +1635,13 @@ impl ::core::clone::Clone for DIRECTX_AUDIO_ACTIVATION_PARAMS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const DRVM_MAPPER: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const DRVM_MAPPER_STATUS: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const DRV_MAPPER_PREFERRED_INPUT_GET: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const DRV_MAPPER_PREFERRED_OUTPUT_GET: u32 = 16386u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub type DataFlow = i32;
@@ -1522,11 +1673,17 @@ pub const eCapture: EDataFlow = 1i32;
 pub const eAll: EDataFlow = 2i32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const EDataFlow_enum_count: EDataFlow = 3i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ENDPOINT_FORMAT_RESET_MIX_ONLY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ENDPOINT_HARDWARE_SUPPORT_METER: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ENDPOINT_HARDWARE_SUPPORT_MUTE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ENDPOINT_HARDWARE_SUPPORT_VOLUME: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ENDPOINT_SYSFX_DISABLED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ENDPOINT_SYSFX_ENABLED: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub type ERole = i32;
@@ -1565,13 +1722,21 @@ pub const DigitalAudioDisplayDevice: EndpointFormFactor = 9i32;
 pub const UnknownFormFactor: EndpointFormFactor = 10i32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const EndpointFormFactor_enum_count: EndpointFormFactor = 11i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const FILTERCHOOSE_CUSTOM_VERIFY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const FILTERCHOOSE_FILTERTAG_VERIFY: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const FILTERCHOOSE_FILTER_VERIFY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const FILTERCHOOSE_MESSAGE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const FORMATCHOOSE_CUSTOM_VERIFY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const FORMATCHOOSE_FORMATTAG_VERIFY: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const FORMATCHOOSE_FORMAT_VERIFY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const FORMATCHOOSE_MESSAGE: u32 = 0u32;
 pub type HACMDRIVER = isize;
 pub type HACMDRIVERID = isize;
@@ -1669,25 +1834,45 @@ pub type LPMIDICALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Media_Multimedia'*"]
 #[cfg(feature = "Win32_Media_Multimedia")]
 pub type LPWAVECALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr: super::Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MEVT_F_CALLBACK: i32 = 1073741824i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MEVT_F_LONG: i32 = -2147483648i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MEVT_F_SHORT: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MHDR_DONE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MHDR_INQUEUE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MHDR_ISSTRM: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MHDR_PREPARED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDICAPS_CACHE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDICAPS_LRVOLUME: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDICAPS_STREAM: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDICAPS_VOLUME: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDIERR_BADOPENMODE: u32 = 70u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDIERR_DONT_CONTINUE: u32 = 71u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDIERR_INVALIDSETUP: u32 = 69u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDIERR_LASTERROR: u32 = 71u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDIERR_NODEVICE: u32 = 68u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDIERR_NOMAP: u32 = 66u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDIERR_NOTREADY: u32 = 67u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDIERR_STILLPLAYING: u32 = 65u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDIERR_UNPREPARED: u32 = 64u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
@@ -1885,6 +2070,7 @@ impl ::core::clone::Clone for MIDIOUTCAPSW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDIPATCHSIZE: u32 = 128u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
@@ -1910,9 +2096,13 @@ impl ::core::clone::Clone for MIDIPROPTIMEDIV {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDIPROP_GET: i32 = 1073741824i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDIPROP_SET: i32 = -2147483648i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDIPROP_TEMPO: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDIPROP_TIMEDIV: i32 = 1i32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
@@ -1927,10 +2117,15 @@ impl ::core::clone::Clone for MIDISTRMBUFFVER {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDISTRM_ERROR: i32 = -2i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDI_CACHE_ALL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDI_CACHE_BESTFIT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDI_CACHE_QUERY: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDI_UNCACHE: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub type MIDI_WAVE_OPEN_TYPE = u32;
@@ -2287,63 +2482,121 @@ impl ::core::clone::Clone for MIXERCONTROLW_1 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLF_DISABLED: i32 = -2147483648i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLF_MULTIPLE: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLF_UNIFORM: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_BASS: u32 = 1342373890u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_BASS_BOOST: u32 = 536945271u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_BOOLEAN: u32 = 536936448u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_BOOLEANMETER: u32 = 268500992u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_BUTTON: u32 = 553713664u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_CUSTOM: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_DECIBELS: u32 = 805568512u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_EQUALIZER: u32 = 1342373892u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_FADER: u32 = 1342373888u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_LOUDNESS: u32 = 536936452u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_MICROTIME: u32 = 1610809344u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_MILLITIME: u32 = 1627586560u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_MIXER: u32 = 1895890945u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_MONO: u32 = 536936451u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_MULTIPLESELECT: u32 = 1895890944u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_MUTE: u32 = 536936450u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_MUX: u32 = 1879113729u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_ONOFF: u32 = 536936449u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_PAN: u32 = 1073872897u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_PEAKMETER: u32 = 268566529u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_PERCENT: u32 = 805634048u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_QSOUNDPAN: u32 = 1073872898u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_SIGNED: u32 = 805437440u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_SIGNEDMETER: u32 = 268566528u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_SINGLESELECT: u32 = 1879113728u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_SLIDER: u32 = 1073872896u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_STEREOENH: u32 = 536936453u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_TREBLE: u32 = 1342373891u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_UNSIGNED: u32 = 805502976u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_UNSIGNEDMETER: u32 = 268632064u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CONTROLTYPE_VOLUME: u32 = 1342373889u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_CLASS_CUSTOM: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_CLASS_FADER: i32 = 1342177280i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_CLASS_LIST: i32 = 1879048192i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_CLASS_MASK: i32 = -268435456i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_CLASS_METER: i32 = 268435456i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_CLASS_NUMBER: i32 = 805306368i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_CLASS_SLIDER: i32 = 1073741824i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_CLASS_SWITCH: i32 = 536870912i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_CLASS_TIME: i32 = 1610612736i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_SC_LIST_MULTIPLE: i32 = 16777216i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_SC_LIST_SINGLE: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_SC_METER_POLLED: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_SC_SWITCH_BOOLEAN: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_SC_SWITCH_BUTTON: i32 = 16777216i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_SC_TIME_MICROSECS: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_SC_TIME_MILLISECS: i32 = 16777216i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_SUBCLASS_MASK: i32 = 251658240i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_UNITS_BOOLEAN: i32 = 65536i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_UNITS_CUSTOM: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_UNITS_DECIBELS: i32 = 262144i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_UNITS_MASK: i32 = 16711680i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_UNITS_PERCENT: i32 = 327680i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_UNITS_SIGNED: i32 = 131072i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERCONTROL_CT_UNITS_UNSIGNED: i32 = 196608i32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
@@ -2533,57 +2786,108 @@ pub const MIXERLINE_COMPONENTTYPE_SRC_TELEPHONE: MIXERLINE_COMPONENTTYPE = 4102u
 pub const MIXERLINE_COMPONENTTYPE_SRC_UNDEFINED: MIXERLINE_COMPONENTTYPE = 4096u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERLINE_COMPONENTTYPE_SRC_WAVEOUT: MIXERLINE_COMPONENTTYPE = 4104u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERLINE_COMPONENTTYPE_DST_FIRST: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERLINE_COMPONENTTYPE_DST_LAST: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERLINE_COMPONENTTYPE_SRC_FIRST: i32 = 4096i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERLINE_COMPONENTTYPE_SRC_LAST: u32 = 4106u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERLINE_LINEF_ACTIVE: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERLINE_LINEF_DISCONNECTED: i32 = 32768i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERLINE_LINEF_SOURCE: i32 = -2147483648i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERLINE_TARGETTYPE_AUX: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERLINE_TARGETTYPE_MIDIIN: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERLINE_TARGETTYPE_MIDIOUT: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERLINE_TARGETTYPE_UNDEFINED: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERLINE_TARGETTYPE_WAVEIN: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERLINE_TARGETTYPE_WAVEOUT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERR_INVALCONTROL: u32 = 1025u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERR_INVALLINE: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERR_INVALVALUE: u32 = 1026u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERR_LASTERROR: u32 = 1026u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_GETCONTROLDETAILSF_LISTTEXT: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_GETCONTROLDETAILSF_QUERYMASK: i32 = 15i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_GETCONTROLDETAILSF_VALUE: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_GETLINECONTROLSF_ALL: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_GETLINECONTROLSF_ONEBYID: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_GETLINECONTROLSF_ONEBYTYPE: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_GETLINECONTROLSF_QUERYMASK: i32 = 15i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_GETLINEINFOF_COMPONENTTYPE: i32 = 3i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_GETLINEINFOF_DESTINATION: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_GETLINEINFOF_LINEID: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_GETLINEINFOF_QUERYMASK: i32 = 15i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_GETLINEINFOF_SOURCE: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_GETLINEINFOF_TARGETTYPE: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_LONG_NAME_CHARS: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_OBJECTF_AUX: i32 = 1342177280i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_OBJECTF_HANDLE: i32 = -2147483648i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_OBJECTF_MIDIIN: i32 = 1073741824i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_OBJECTF_MIDIOUT: i32 = 805306368i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_OBJECTF_MIXER: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_OBJECTF_WAVEIN: i32 = 536870912i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_OBJECTF_WAVEOUT: i32 = 268435456i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_SETCONTROLDETAILSF_CUSTOM: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_SETCONTROLDETAILSF_QUERYMASK: i32 = 15i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_SETCONTROLDETAILSF_VALUE: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXER_SHORT_NAME_CHARS: u32 = 16u32;
 pub const MMDeviceEnumerator: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3168666517, data2: 58671, data3: 18044, data4: [142, 61, 196, 87, 146, 145, 105, 46] };
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MM_ACM_FILTERCHOOSE: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MM_ACM_FORMATCHOOSE: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MOD_FMSYNTH: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MOD_MAPPER: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MOD_MIDIPORT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MOD_SQSYNTH: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MOD_SWSYNTH: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MOD_SYNTH: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MOD_WAVETABLE: u32 = 6u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub type PAudioStateMonitorCallback = ::core::option::Option<unsafe extern "system" fn(audiostatemonitor: IAudioStateMonitor, context: *const ::core::ffi::c_void)>;
@@ -2659,24 +2963,43 @@ pub type PartType = i32;
 pub const Connector: PartType = 0i32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const Subunit: PartType = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SND_ALIAS: i32 = 65536i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SND_ALIAS_ID: i32 = 1114112i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SND_ALIAS_START: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SND_APPLICATION: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SND_ASYNC: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SND_FILENAME: i32 = 131072i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SND_LOOP: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SND_MEMORY: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SND_NODEFAULT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SND_NOSTOP: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SND_NOWAIT: i32 = 8192i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SND_PURGE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SND_RESOURCE: i32 = 262148i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SND_RING: i32 = 1048576i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SND_SENTRY: i32 = 524288i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SND_SYNC: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SND_SYSTEM: i32 = 2097152i32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SPATIAL_AUDIO_POSITION: u32 = 200u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SPATIAL_AUDIO_STANDARD_COMMANDS_START: u32 = 200u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub type SPATIAL_AUDIO_STREAM_OPTIONS = u32;
@@ -3050,11 +3373,17 @@ impl ::core::clone::Clone for VOLUMEWAVEFILTER {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVECAPS_LRVOLUME: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVECAPS_PITCH: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVECAPS_PLAYBACKRATE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVECAPS_SAMPLEACCURATE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVECAPS_SYNC: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVECAPS_VOLUME: u32 = 4u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
@@ -3230,8 +3559,11 @@ impl ::core::clone::Clone for WAVEINCAPSW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVEIN_MAPPER_STATUS_DEVICE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVEIN_MAPPER_STATUS_FORMAT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVEIN_MAPPER_STATUS_MAPPED: u32 = 1u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
@@ -3317,47 +3649,89 @@ impl ::core::clone::Clone for WAVEOUTCAPSW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVEOUT_MAPPER_STATUS_DEVICE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVEOUT_MAPPER_STATUS_FORMAT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVEOUT_MAPPER_STATUS_MAPPED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVERR_BADFORMAT: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVERR_LASTERROR: u32 = 35u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVERR_STILLPLAYING: u32 = 33u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVERR_SYNC: u32 = 35u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVERR_UNPREPARED: u32 = 34u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_1M08: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_1M16: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_1S08: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_1S16: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_2M08: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_2M16: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_2S08: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_2S16: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_44M08: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_44M16: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_44S08: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_44S16: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_48M08: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_48M16: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_48S08: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_48S16: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_4M08: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_4M16: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_4S08: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_4S16: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_96M08: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_96M16: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_96S08: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_96S16: u32 = 524288u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_FORMAT_PCM: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_INVALIDFORMAT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WAVE_MAPPER: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WHDR_BEGINLOOP: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WHDR_DONE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WHDR_ENDLOOP: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WHDR_INQUEUE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WHDR_PREPARED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WIDM_MAPPER_STATUS: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WODM_MAPPER_STATUS: u32 = 8192u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub type _AUDCLNT_BUFFERFLAGS = i32;

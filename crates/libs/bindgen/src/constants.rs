@@ -11,6 +11,7 @@ pub fn gen(def: &Field, gen: &Gen) -> TokenStream {
         if signature.kind == constant.value_type() {
             let value = gen_constant_type_value(&constant.value());
             quote! {
+                #cfg
                 pub const #name: #value;
             }
         } else {

@@ -1,5 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const ALTNUMPAD_BIT: u32 = 67108864u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const ATTACH_PARENT_PROCESS: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -61,10 +63,15 @@ pub unsafe fn AttachConsole(dwprocessid: u32) -> super::super::Foundation::BOOL 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const BACKGROUND_BLUE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const BACKGROUND_GREEN: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const BACKGROUND_INTENSITY: u32 = 128u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const BACKGROUND_RED: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const CAPSLOCK_ON: u32 = 128u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
@@ -132,13 +139,21 @@ impl ::core::default::Default for CHAR_INFO_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const COMMON_LVB_GRID_HORIZONTAL: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const COMMON_LVB_GRID_LVERTICAL: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const COMMON_LVB_GRID_RVERTICAL: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const COMMON_LVB_LEADING_BYTE: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const COMMON_LVB_REVERSE_VIDEO: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const COMMON_LVB_SBCSDBCS: u32 = 768u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const COMMON_LVB_TRAILING_BYTE: u32 = 512u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const COMMON_LVB_UNDERSCORE: u32 = 32768u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
@@ -229,8 +244,11 @@ impl ::core::default::Default for CONSOLE_FONT_INFOEX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const CONSOLE_FULLSCREEN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const CONSOLE_FULLSCREEN_HARDWARE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const CONSOLE_FULLSCREEN_MODE: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Console'*"]
@@ -292,8 +310,11 @@ pub const ENABLE_VIRTUAL_TERMINAL_PROCESSING: CONSOLE_MODE = 4u32;
 pub const DISABLE_NEWLINE_AUTO_RETURN: CONSOLE_MODE = 8u32;
 #[doc = "*Required features: 'Win32_System_Console'*"]
 pub const ENABLE_LVB_GRID_WORLDWIDE: CONSOLE_MODE = 16u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const CONSOLE_MOUSE_DOWN: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const CONSOLE_MOUSE_SELECTION: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const CONSOLE_NO_SELECTION: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Console'*"]
@@ -419,9 +440,13 @@ impl ::core::default::Default for CONSOLE_SELECTION_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const CONSOLE_SELECTION_IN_PROGRESS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const CONSOLE_SELECTION_NOT_EMPTY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const CONSOLE_TEXTMODE_BUFFER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const CONSOLE_WINDOWED_MODE: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Console'*"]
@@ -449,10 +474,15 @@ impl ::core::default::Default for COORD {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const CTRL_BREAK_EVENT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const CTRL_CLOSE_EVENT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const CTRL_C_EVENT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const CTRL_LOGOFF_EVENT: u32 = 5u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const CTRL_SHUTDOWN_EVENT: u32 = 6u32;
 #[doc = "*Required features: 'Win32_System_Console'*"]
 #[inline]
@@ -499,7 +529,9 @@ pub unsafe fn CreatePseudoConsole<'a, Param0: ::windows::core::IntoParam<'a, COO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const DOUBLE_CLICK: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const ENHANCED_KEY: u32 = 256u32;
 #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -531,6 +563,7 @@ pub unsafe fn ExpungeConsoleCommandHistoryW<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const FOCUS_EVENT: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
@@ -564,13 +597,21 @@ impl ::core::default::Default for FOCUS_EVENT_RECORD {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const FOREGROUND_BLUE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const FOREGROUND_GREEN: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const FOREGROUND_INTENSITY: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const FOREGROUND_RED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const FROM_LEFT_1ST_BUTTON_PRESSED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const FROM_LEFT_2ND_BUTTON_PRESSED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const FROM_LEFT_3RD_BUTTON_PRESSED: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const FROM_LEFT_4TH_BUTTON_PRESSED: u32 = 16u32;
 #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1197,6 +1238,7 @@ pub unsafe fn GetStdHandle(nstdhandle: STD_HANDLE) -> super::super::Foundation::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const HISTORY_NO_DUP_FLAG: u32 = 1u32;
 pub type HPCON = isize;
 #[repr(C)]
@@ -1268,6 +1310,7 @@ impl ::core::default::Default for INPUT_RECORD_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const KEY_EVENT: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
@@ -1339,8 +1382,11 @@ impl ::core::default::Default for KEY_EVENT_RECORD_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const LEFT_ALT_PRESSED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const LEFT_CTRL_PRESSED: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const MENU_EVENT: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Console'*"]
@@ -1367,6 +1413,7 @@ impl ::core::default::Default for MENU_EVENT_RECORD {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const MOUSE_EVENT: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Console'*"]
@@ -1396,20 +1443,32 @@ impl ::core::default::Default for MOUSE_EVENT_RECORD {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const MOUSE_HWHEELED: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const MOUSE_MOVED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const MOUSE_WHEELED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const NLS_ALPHANUMERIC: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const NLS_DBCSCHAR: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const NLS_HIRAGANA: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const NLS_IME_CONVERSION: u32 = 8388608u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const NLS_IME_DISABLE: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const NLS_KATAKANA: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const NLS_ROMAN: u32 = 4194304u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const NUMLOCK_ON: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PHANDLER_ROUTINE = ::core::option::Option<unsafe extern "system" fn(ctrltype: u32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const PSEUDOCONSOLE_INHERIT_CURSOR: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1441,8 +1500,11 @@ pub unsafe fn PeekConsoleInputW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const RIGHTMOST_BUTTON_PRESSED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const RIGHT_ALT_PRESSED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const RIGHT_CTRL_PRESSED: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1593,7 +1655,9 @@ pub unsafe fn ResizePseudoConsole<'a, Param0: ::windows::core::IntoParam<'a, HPC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const SCROLLLOCK_ON: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const SHIFT_PRESSED: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Console'*"]
@@ -1961,6 +2025,7 @@ pub unsafe fn SetStdHandleEx<'a, Param1: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Console'*"]
 pub const WINDOW_BUFFER_SIZE_EVENT: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Console'*"]

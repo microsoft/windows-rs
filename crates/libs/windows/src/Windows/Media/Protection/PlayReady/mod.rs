@@ -3798,8 +3798,10 @@ pub struct IPlayReadyStatics5Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDCertificateFeature(pub i32);
+#[cfg(feature = "deprecated")]
 impl NDCertificateFeature {
     pub const Transmitter: Self = Self(1i32);
     pub const Receiver: Self = Self(2i32);
@@ -3809,30 +3811,39 @@ impl NDCertificateFeature {
     pub const CRLS: Self = Self(9i32);
     pub const PlayReady3Features: Self = Self(13i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for NDCertificateFeature {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDCertificateFeature {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDCertificateFeature {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for NDCertificateFeature {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDCertificateFeature {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDCertificateFeature {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificateFeature;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for NDCertificateFeature {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDCertificatePlatformID(pub i32);
+#[cfg(feature = "deprecated")]
 impl NDCertificatePlatformID {
     pub const Windows: Self = Self(0i32);
     pub const OSX: Self = Self(1i32);
@@ -3847,30 +3858,39 @@ impl NDCertificatePlatformID {
     pub const WindowsPhone81OnARM: Self = Self(12i32);
     pub const WindowsPhone81OnX86: Self = Self(13i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for NDCertificatePlatformID {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDCertificatePlatformID {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDCertificatePlatformID {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for NDCertificatePlatformID {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDCertificatePlatformID {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDCertificatePlatformID {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificatePlatformID;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for NDCertificatePlatformID {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDCertificateType(pub i32);
+#[cfg(feature = "deprecated")]
 impl NDCertificateType {
     pub const Unknown: Self = Self(0i32);
     pub const PC: Self = Self(1i32);
@@ -3886,24 +3906,31 @@ impl NDCertificateType {
     pub const Server: Self = Self(11i32);
     pub const LicenseSigner: Self = Self(12i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for NDCertificateType {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDCertificateType {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDCertificateType {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for NDCertificateType {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDCertificateType {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDCertificateType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDCertificateType;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for NDCertificateType {
     type DefaultType = Self;
 }
@@ -4112,60 +4139,78 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NDCl
     }
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDClosedCaptionFormat(pub i32);
+#[cfg(feature = "deprecated")]
 impl NDClosedCaptionFormat {
     pub const ATSC: Self = Self(0i32);
     pub const SCTE20: Self = Self(1i32);
     pub const Unknown: Self = Self(2i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for NDClosedCaptionFormat {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDClosedCaptionFormat {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDClosedCaptionFormat {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for NDClosedCaptionFormat {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDClosedCaptionFormat {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDClosedCaptionFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDClosedCaptionFormat;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for NDClosedCaptionFormat {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDContentIDType(pub i32);
+#[cfg(feature = "deprecated")]
 impl NDContentIDType {
     pub const KeyID: Self = Self(1i32);
     pub const PlayReadyObject: Self = Self(2i32);
     pub const Custom: Self = Self(3i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for NDContentIDType {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDContentIDType {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDContentIDType {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for NDContentIDType {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDContentIDType {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDContentIDType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDContentIDType;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for NDContentIDType {
     type DefaultType = Self;
 }
@@ -4616,87 +4661,114 @@ impl<'a> ::windows::core::IntoParam<'a, INDLicenseFetchDescriptor> for &NDLicens
     }
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDMediaStreamType(pub i32);
+#[cfg(feature = "deprecated")]
 impl NDMediaStreamType {
     pub const Audio: Self = Self(1i32);
     pub const Video: Self = Self(2i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for NDMediaStreamType {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDMediaStreamType {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDMediaStreamType {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for NDMediaStreamType {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDMediaStreamType {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDMediaStreamType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDMediaStreamType;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for NDMediaStreamType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDProximityDetectionType(pub i32);
+#[cfg(feature = "deprecated")]
 impl NDProximityDetectionType {
     pub const UDP: Self = Self(1i32);
     pub const TCP: Self = Self(2i32);
     pub const TransportAgnostic: Self = Self(4i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for NDProximityDetectionType {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDProximityDetectionType {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDProximityDetectionType {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for NDProximityDetectionType {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDProximityDetectionType {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDProximityDetectionType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDProximityDetectionType;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for NDProximityDetectionType {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDStartAsyncOptions(pub i32);
+#[cfg(feature = "deprecated")]
 impl NDStartAsyncOptions {
     pub const MutualAuthentication: Self = Self(1i32);
     pub const WaitForLicenseDescriptor: Self = Self(2i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for NDStartAsyncOptions {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDStartAsyncOptions {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for NDStartAsyncOptions {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for NDStartAsyncOptions {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for NDStartAsyncOptions {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for NDStartAsyncOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Protection.PlayReady.NDStartAsyncOptions;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for NDStartAsyncOptions {
     type DefaultType = Self;
 }

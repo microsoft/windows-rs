@@ -476,8 +476,11 @@ impl ::core::default::Default for APO_REG_PROPERTIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_DATA: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_TYPES: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_USER_DATA: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
@@ -596,9 +599,13 @@ pub type AUDIO_FLOW_TYPE = i32;
 pub const AUDIO_FLOW_PULL: AUDIO_FLOW_TYPE = 0i32;
 #[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const AUDIO_FLOW_PUSH: AUDIO_FLOW_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const AUDIO_MAX_CHANNELS: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const AUDIO_MAX_FRAMERATE: f64 = 384000f64;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const AUDIO_MIN_CHANNELS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media_Audio_Apo'*"]
 pub const AUDIO_MIN_FRAMERATE: f64 = 10f64;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_Foundation'*"]

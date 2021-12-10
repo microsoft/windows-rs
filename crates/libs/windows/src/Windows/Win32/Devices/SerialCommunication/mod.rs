@@ -1,7 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_Devices_SerialCommunication'*"]
 pub const CDB_REPORT_BITS: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_SerialCommunication'*"]
 pub const CDB_REPORT_BYTES: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_SerialCommunication'*"]
 pub const COMDB_MAX_PORTS_ARBITRATED: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Devices_SerialCommunication'*"]
 pub const COMDB_MIN_PORTS_ARBITRATED: u32 = 256u32;
 #[doc = "*Required features: 'Win32_Devices_SerialCommunication'*"]
 #[inline]

@@ -300,9 +300,13 @@ impl ::core::clone::Clone for CFG_CALL_TARGET_INFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Memory'*"]
 pub const FILE_CACHE_MAX_HARD_DISABLE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Memory'*"]
 pub const FILE_CACHE_MAX_HARD_ENABLE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Memory'*"]
 pub const FILE_CACHE_MIN_HARD_DISABLE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Memory'*"]
 pub const FILE_CACHE_MIN_HARD_ENABLE: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_Memory'*"]
 pub type FILE_MAP = u32;
@@ -412,6 +416,7 @@ pub const LPTR: LOCAL_ALLOC_FLAGS = 64u32;
 pub const NONZEROLHND: LOCAL_ALLOC_FLAGS = 2u32;
 #[doc = "*Required features: 'Win32_System_Memory'*"]
 pub const NONZEROLPTR: LOCAL_ALLOC_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_System_Memory'*"]
 pub const MEHC_PATROL_SCRUBBER_PRESENT: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Memory'*"]

@@ -1253,6 +1253,7 @@ pub const NLM_INTERNET_CONNECTIVITY_WEBHIJACK: NLM_INTERNET_CONNECTIVITY = 1i32;
 pub const NLM_INTERNET_CONNECTIVITY_PROXIED: NLM_INTERNET_CONNECTIVITY = 2i32;
 #[doc = "*Required features: 'Win32_Networking_NetworkListManager'*"]
 pub const NLM_INTERNET_CONNECTIVITY_CORPORATE: NLM_INTERNET_CONNECTIVITY = 4i32;
+#[doc = "*Required features: 'Win32_Networking_NetworkListManager'*"]
 pub const NLM_MAX_ADDRESS_LIST_SIZE: u32 = 10u32;
 #[doc = "*Required features: 'Win32_Networking_NetworkListManager'*"]
 pub type NLM_NETWORK_CATEGORY = i32;
@@ -1335,6 +1336,7 @@ impl ::core::default::Default for NLM_SOCKADDR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_NetworkListManager'*"]
 pub const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_NetworkListManager', 'Win32_Foundation'*"]

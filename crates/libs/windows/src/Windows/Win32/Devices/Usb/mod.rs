@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const ALLOW_PARTIAL_READS: u32 = 5u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -26,17 +27,29 @@ impl ::core::default::Default for ALTERNATE_INTERFACE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const AUTO_CLEAR_STALL: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const AUTO_FLUSH: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const AUTO_SUSPEND: u32 = 129u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const BMREQUEST_CLASS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const BMREQUEST_DEVICE_TO_HOST: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const BMREQUEST_HOST_TO_DEVICE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const BMREQUEST_STANDARD: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const BMREQUEST_TO_DEVICE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const BMREQUEST_TO_ENDPOINT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const BMREQUEST_TO_INTERFACE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const BMREQUEST_TO_OTHER: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const BMREQUEST_VENDOR: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -89,6 +102,7 @@ impl ::core::default::Default for BM_REQUEST_TYPE_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const BULKIN_FLAG: u32 = 128u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -145,6 +159,7 @@ impl ::core::default::Default for DEVICE_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const DEVICE_SPEED: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -173,8 +188,11 @@ impl ::core::default::Default for DRV_VERSION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const FILE_DEVICE_USB: u32 = 34u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const FILE_DEVICE_USB_SCAN: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const FullSpeed: u32 = 2u32;
 pub const GUID_DEVINTERFACE_USB_BILLBOARD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e9adaef_f879_473f_b807_4e5ea77d1b1c);
 pub const GUID_DEVINTERFACE_USB_DEVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5dcbf10_6530_11d2_901f_00c04fb951ed);
@@ -189,103 +207,201 @@ pub const GUID_USB_WMI_STD_DATA: ::windows::core::GUID = ::windows::core::GUID::
 pub const GUID_USB_WMI_STD_NOTIFICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e623b20_cb14_11d1_b331_00a0c959bbd2);
 pub const GUID_USB_WMI_SURPRISE_REMOVAL_NOTIFICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bbbf831_a2f2_43b4_96d1_86944b5914b3);
 pub const GUID_USB_WMI_TRACING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a61881b_b4e6_4bf9_ae0f_3cd8f394e52f);
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const HCD_DIAGNOSTIC_MODE_OFF: u32 = 257u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const HCD_DIAGNOSTIC_MODE_ON: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const HCD_DISABLE_PORT: u32 = 268u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const HCD_ENABLE_PORT: u32 = 269u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const HCD_GET_DRIVERKEY_NAME: u32 = 265u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const HCD_GET_ROOT_HUB_NAME: u32 = 258u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const HCD_GET_STATS_1: u32 = 255u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const HCD_GET_STATS_2: u32 = 266u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const HCD_TRACE_READ_REQUEST: u32 = 275u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const HCD_USER_REQUEST: u32 = 270u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const HighSpeed: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IGNORE_SHORT_PACKETS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_ABORT_PIPE: u32 = 2147491844u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_CANCEL_IO: u32 = 2147491844u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GENERICUSBFN_ACTIVATE_USB_BUS: u32 = 2277420u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GENERICUSBFN_BUS_EVENT_NOTIFICATION: u32 = 2277430u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GENERICUSBFN_CONTROL_STATUS_HANDSHAKE_IN: u32 = 2277400u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GENERICUSBFN_CONTROL_STATUS_HANDSHAKE_OUT: u32 = 2277404u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GENERICUSBFN_DEACTIVATE_USB_BUS: u32 = 2277424u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GENERICUSBFN_GET_CLASS_INFO: u32 = 2277410u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GENERICUSBFN_GET_CLASS_INFO_EX: u32 = 2277434u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GENERICUSBFN_GET_INTERFACE_DESCRIPTOR_SET: u32 = 2277438u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GENERICUSBFN_GET_PIPE_STATE: u32 = 2277414u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GENERICUSBFN_REGISTER_USB_STRING: u32 = 2277441u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GENERICUSBFN_SET_PIPE_STATE: u32 = 2277417u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GENERICUSBFN_TRANSFER_IN: u32 = 2277389u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GENERICUSBFN_TRANSFER_IN_APPEND_ZERO_PKT: u32 = 2277393u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GENERICUSBFN_TRANSFER_OUT: u32 = 2277398u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GET_CHANNEL_ALIGN_RQST: u32 = 2147491860u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GET_DEVICE_DESCRIPTOR: u32 = 2147491864u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GET_HCD_DRIVERKEY_NAME: u32 = 2229284u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GET_PIPE_CONFIGURATION: u32 = 2147491880u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GET_USB_DESCRIPTOR: u32 = 2147491872u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_GET_VERSION: u32 = 2147491840u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INDEX: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_CYCLE_PORT: u32 = 2228255u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_ENABLE_PORT: u32 = 2228247u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_FAIL_GET_STATUS_FROM_DEVICE: u32 = 2229347u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_GET_BUSGUID_INFO: u32 = 2229288u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_GET_BUS_INFO: u32 = 2229280u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_GET_CONTROLLER_NAME: u32 = 2229284u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_GET_DEVICE_CONFIG_INFO: u32 = 2229327u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_GET_DEVICE_HANDLE: u32 = 2229299u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_GET_DEVICE_HANDLE_EX: u32 = 2229303u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_GET_HUB_COUNT: u32 = 2228251u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_GET_HUB_NAME: u32 = 2228256u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_GET_PARENT_HUB_INFO: u32 = 2229292u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_GET_PORT_STATUS: u32 = 2228243u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_GET_ROOTHUB_PDO: u32 = 2228239u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_GET_TOPOLOGY_ADDRESS: u32 = 2229311u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_GET_TT_DEVICE_HANDLE: u32 = 2229307u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_NOTIFY_IDLE_READY: u32 = 2229315u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_RECORD_FAILURE: u32 = 2228267u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_REGISTER_COMPOSITE_DEVICE: u32 = 4784131u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_REQUEST_REMOTE_WAKE_NOTIFICATION: u32 = 4784139u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_REQ_GLOBAL_RESUME: u32 = 2229323u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_REQ_GLOBAL_SUSPEND: u32 = 2229319u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_RESET_PORT: u32 = 2228231u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_SUBMIT_IDLE_NOTIFICATION: u32 = 2228263u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_SUBMIT_URB: u32 = 2228227u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_INTERNAL_USB_UNREGISTER_COMPOSITE_DEVICE: u32 = 4784135u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_READ_REGISTERS: u32 = 2147491852u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_RESET_PIPE: u32 = 2147491868u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_SEND_USB_REQUEST: u32 = 2147491876u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_SET_TIMEOUT: u32 = 2147491884u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_DIAGNOSTIC_MODE_OFF: u32 = 2229252u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_DIAGNOSTIC_MODE_ON: u32 = 2229248u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_DIAG_IGNORE_HUBS_OFF: u32 = 2229276u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_DIAG_IGNORE_HUBS_ON: u32 = 2229272u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_GET_DESCRIPTOR_FROM_NODE_CONNECTION: u32 = 2229264u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_GET_DEVICE_CHARACTERISTICS: u32 = 2229376u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_GET_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC: u32 = 2229368u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_GET_HUB_CAPABILITIES: u32 = 2229308u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_GET_HUB_CAPABILITIES_EX: u32 = 2229328u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_GET_HUB_INFORMATION_EX: u32 = 2229332u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_GET_NODE_CONNECTION_ATTRIBUTES: u32 = 2229312u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_GET_NODE_CONNECTION_DRIVERKEY_NAME: u32 = 2229280u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_GET_NODE_CONNECTION_INFORMATION: u32 = 2229260u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_GET_NODE_CONNECTION_INFORMATION_EX: u32 = 2229320u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_GET_NODE_CONNECTION_INFORMATION_EX_V2: u32 = 2229340u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_GET_NODE_CONNECTION_NAME: u32 = 2229268u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_GET_NODE_INFORMATION: u32 = 2229256u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_GET_PORT_CONNECTOR_PROPERTIES: u32 = 2229336u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_GET_ROOT_HUB_NAME: u32 = 2229256u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_GET_TRANSPORT_CHARACTERISTICS: u32 = 2229348u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_HCD_DISABLE_PORT: u32 = 2229296u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_HCD_ENABLE_PORT: u32 = 2229300u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_HCD_GET_STATS_1: u32 = 2229244u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_HCD_GET_STATS_2: u32 = 2229288u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_HUB_CYCLE_PORT: u32 = 2229316u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_NOTIFY_ON_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 2229356u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_REGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 2229352u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_RESET_HUB: u32 = 2229324u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_START_TRACKING_FOR_TIME_SYNC: u32 = 2229364u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_STOP_TRACKING_FOR_TIME_SYNC: u32 = 2229372u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_USB_UNREGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 2229360u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_WAIT_ON_DEVICE_EVENT: u32 = 2147491848u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const IOCTL_WRITE_REGISTERS: u32 = 2147491856u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -346,19 +462,33 @@ impl ::core::default::Default for IO_BLOCK_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const LowSpeed: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const MAXIMUM_TRANSFER_SIZE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const MAXIMUM_USB_STRING_LENGTH: u32 = 255u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const MAX_ALTERNATE_NAME_LENGTH: u32 = 40u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const MAX_ASSOCIATION_NAME_LENGTH: u32 = 40u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const MAX_CONFIGURATION_NAME_LENGTH: u32 = 40u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const MAX_INTERFACE_NAME_LENGTH: u32 = 40u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const MAX_NUM_PIPES: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const MAX_NUM_USBFN_ENDPOINTS: u32 = 15u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const MAX_SUPPORTED_CONFIGURATIONS: u32 = 12u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const MAX_USB_STRING_LENGTH: u32 = 255u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const MS_GENRE_DESCRIPTOR_INDEX: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const MS_OS_FLAGS_CONTAINERID: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const MS_POWER_DESCRIPTOR_INDEX: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -415,6 +545,7 @@ impl ::core::default::Default for OS_STRING_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const OS_STRING_DESCRIPTOR_INDEX: u32 = 238u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -452,6 +583,7 @@ impl ::core::default::Default for PACKET_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const PIPE_TRANSFER_TIMEOUT: u32 = 3u32;
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub type PIPE_TYPE = i32;
@@ -463,19 +595,33 @@ pub const READ_DATA_PIPE: PIPE_TYPE = 1i32;
 pub const WRITE_DATA_PIPE: PIPE_TYPE = 2i32;
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const ALL_PIPE: PIPE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const PORT_LINK_STATE_COMPLIANCE_MODE: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const PORT_LINK_STATE_DISABLED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const PORT_LINK_STATE_HOT_RESET: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const PORT_LINK_STATE_INACTIVE: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const PORT_LINK_STATE_LOOPBACK: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const PORT_LINK_STATE_POLLING: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const PORT_LINK_STATE_RECOVERY: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const PORT_LINK_STATE_RX_DETECT: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const PORT_LINK_STATE_TEST_MODE: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const PORT_LINK_STATE_U0: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const PORT_LINK_STATE_U1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const PORT_LINK_STATE_U2: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const PORT_LINK_STATE_U3: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const RAW_IO: u32 = 7u32;
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub type RAW_PIPE_TYPE = i32;
@@ -566,8 +712,11 @@ impl ::core::default::Default for RAW_ROOTPORT_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const RESET_PIPE_ON_RESUME: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const SHORT_PACKET_TERMINATE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const SUSPEND_DELAY: u32 = 131u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -639,68 +788,131 @@ impl ::core::default::Default for URB_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_ABORT_PIPE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER_USING_CHAINED_MDL: u32 = 55u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_CLASS_DEVICE: u32 = 26u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_CLASS_ENDPOINT: u32 = 28u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_CLASS_INTERFACE: u32 = 27u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_CLASS_OTHER: u32 = 31u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_CLEAR_FEATURE_TO_DEVICE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_CLEAR_FEATURE_TO_ENDPOINT: u32 = 18u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_CLEAR_FEATURE_TO_INTERFACE: u32 = 17u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_CLEAR_FEATURE_TO_OTHER: u32 = 34u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_CLOSE_STATIC_STREAMS: u32 = 54u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_CONTROL_TRANSFER: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_CONTROL_TRANSFER_EX: u32 = 50u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_GET_CONFIGURATION: u32 = 38u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_GET_CURRENT_FRAME_NUMBER: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_GET_DESCRIPTOR_FROM_DEVICE: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_GET_DESCRIPTOR_FROM_ENDPOINT: u32 = 36u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_GET_DESCRIPTOR_FROM_INTERFACE: u32 = 40u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_GET_FRAME_LENGTH: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_GET_INTERFACE: u32 = 39u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS: u32 = 61u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_GET_MS_FEATURE_DESCRIPTOR: u32 = 42u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_GET_STATUS_FROM_DEVICE: u32 = 19u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_GET_STATUS_FROM_ENDPOINT: u32 = 21u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_GET_STATUS_FROM_INTERFACE: u32 = 20u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_GET_STATUS_FROM_OTHER: u32 = 33u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_ISOCH_TRANSFER: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_ISOCH_TRANSFER_USING_CHAINED_MDL: u32 = 56u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_OPEN_STATIC_STREAMS: u32 = 53u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_RELEASE_FRAME_LENGTH_CONTROL: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_RESERVED_0X0016: u32 = 22u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_RESERVE_0X001D: u32 = 29u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_RESERVE_0X002B: u32 = 43u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_RESERVE_0X002C: u32 = 44u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_RESERVE_0X002D: u32 = 45u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_RESERVE_0X002E: u32 = 46u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_RESERVE_0X002F: u32 = 47u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_RESERVE_0X0033: u32 = 51u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_RESERVE_0X0034: u32 = 52u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_RESET_PIPE: u32 = 30u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_SELECT_CONFIGURATION: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_SELECT_INTERFACE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_SET_DESCRIPTOR_TO_DEVICE: u32 = 12u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_SET_DESCRIPTOR_TO_ENDPOINT: u32 = 37u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_SET_DESCRIPTOR_TO_INTERFACE: u32 = 41u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_SET_FEATURE_TO_DEVICE: u32 = 13u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_SET_FEATURE_TO_ENDPOINT: u32 = 15u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_SET_FEATURE_TO_INTERFACE: u32 = 14u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_SET_FEATURE_TO_OTHER: u32 = 35u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_SET_FRAME_LENGTH: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_SYNC_CLEAR_STALL: u32 = 49u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_SYNC_RESET_PIPE: u32 = 48u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_SYNC_RESET_PIPE_AND_CLEAR_STALL: u32 = 30u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_TAKE_FRAME_LENGTH_CONTROL: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_VENDOR_DEVICE: u32 = 23u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_VENDOR_ENDPOINT: u32 = 25u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_VENDOR_INTERFACE: u32 = 24u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_FUNCTION_VENDOR_OTHER: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const URB_OPEN_STATIC_STREAMS_VERSION_100: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBDI_VERSION: u32 = 1536u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_DEFAULT_MAXIMUM_TRANSFER_SIZE: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_DEFAULT_PIPE_TRANSFER: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -837,16 +1049,27 @@ impl ::core::default::Default for USBD_ISO_PACKET_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_ISO_START_FRAME_RANGE: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_PF_CHANGE_MAX_PACKET: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_PF_ENABLE_RT_THREAD_ACCESS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_PF_HANDLES_SSP_HIGH_BANDWIDTH_ISOCH: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_PF_INTERACTIVE_PRIORITY: u32 = 48u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_PF_MAP_ADD_TRANSFERS: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_PF_PRIORITY_MASK: u32 = 240u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_PF_SHORT_PACKET_OPT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_PF_SSP_HIGH_BANDWIDTH_ISOCH: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_PF_VIDEO_PRIORITY: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_PF_VOICE_PRIORITY: u32 = 32u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -889,9 +1112,13 @@ pub const UsbdPipeTypeIsochronous: USBD_PIPE_TYPE = 1i32;
 pub const UsbdPipeTypeBulk: USBD_PIPE_TYPE = 2i32;
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const UsbdPipeTypeInterrupt: USBD_PIPE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_PORT_CONNECTED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_PORT_ENABLED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_SHORT_TRANSFER_OK: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_START_ISO_TRANSFER_ASAP: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -921,8 +1148,11 @@ impl ::core::default::Default for USBD_STREAM_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_TRANSFER_DIRECTION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_TRANSFER_DIRECTION_IN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBD_TRANSFER_DIRECTION_OUT: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -1213,6 +1443,7 @@ impl ::core::default::Default for USBFN_INTERFACE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBFN_INTERRUPT_ENDPOINT_SIZE_NOT_UPDATEABLE_MASK: u32 = 128u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -1504,6 +1735,7 @@ impl ::core::default::Default for USBUSER_BUS_STATISTICS_0_REQUEST {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_CLEAR_ROOTPORT_FEATURE: u32 = 536870918u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -1583,9 +1815,13 @@ impl ::core::default::Default for USBUSER_CONTROLLER_UNICODE_NAME {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_GET_BANDWIDTH_INFORMATION: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_GET_BUS_STATISTICS_0: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_GET_CONTROLLER_DRIVER_KEY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_GET_CONTROLLER_INFO_0: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
@@ -1620,8 +1856,11 @@ impl ::core::default::Default for USBUSER_GET_DRIVER_VERSION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_GET_POWER_STATE_MAP: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_GET_ROOTHUB_SYMBOLIC_NAME: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_GET_ROOTPORT_STATUS: u32 = 536870919u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -1649,8 +1888,11 @@ impl ::core::default::Default for USBUSER_GET_USB2HW_VERSION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_GET_USB2_HW_VERSION: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_GET_USB_DRIVER_VERSION: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_INVALID_REQUEST: u32 = 4294967280u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -1678,13 +1920,21 @@ impl ::core::default::Default for USBUSER_OPEN_RAW_DEVICE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_OP_CLOSE_RAW_DEVICE: u32 = 536870915u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_OP_MASK_DEVONLY_API: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_OP_MASK_HCTEST_API: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_OP_OPEN_RAW_DEVICE: u32 = 536870914u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_OP_RAW_RESET_PORT: u32 = 536870913u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_OP_SEND_ONE_PACKET: u32 = 268435457u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_OP_SEND_RAW_COMMAND: u32 = 536870916u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_PASS_THRU: u32 = 3u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -1929,10 +2179,15 @@ impl ::core::default::Default for USBUSER_SEND_RAW_COMMAND {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_SET_ROOTPORT_FEATURE: u32 = 536870917u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_USB_REFRESH_HCT_REG: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USBUSER_VERSION: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_20_ENDPOINT_TYPE_INTERRUPT_RESERVED_MASK: u32 = 252u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_20_HUB_DESCRIPTOR_TYPE: u32 = 41u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -2036,11 +2291,17 @@ impl ::core::default::Default for USB_20_PORT_STATUS_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_30_ENDPOINT_TYPE_INTERRUPT_RESERVED_MASK: u32 = 204u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_MASK: u32 = 48u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_NOTIFICATION: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_PERIODIC: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_RESERVED10: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_RESERVED11: u32 = 48u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -2075,6 +2336,7 @@ impl ::core::default::Default for USB_30_HUB_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_30_HUB_DESCRIPTOR_TYPE: u32 = 42u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -2178,6 +2440,7 @@ impl ::core::default::Default for USB_30_PORT_STATUS_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ALLOW_FIRMWARE_UPDATE: u32 = 1u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -2242,6 +2505,7 @@ impl ::core::default::Default for USB_BOS_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_BOS_DESCRIPTOR_TYPE: u32 = 15u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
@@ -2290,9 +2554,13 @@ impl ::core::default::Default for USB_BUS_STATISTICS_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_CHARGING_POLICY_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_CHARGING_POLICY_ICCHPF: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_CHARGING_POLICY_ICCLPF: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_CHARGING_POLICY_NO_POWER: u32 = 3u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -2377,6 +2645,7 @@ impl ::core::default::Default for USB_CONFIGURATION_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_CONFIGURATION_DESCRIPTOR_TYPE: u32 = 2u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -2415,11 +2684,17 @@ impl ::core::default::Default for USB_CONFIGURATION_POWER_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_CONFIG_BUS_POWERED: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_CONFIG_POWERED_MASK: u32 = 192u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_CONFIG_POWER_DESCRIPTOR_TYPE: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_CONFIG_REMOTE_WAKEUP: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_CONFIG_RESERVED: u32 = 31u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_CONFIG_SELF_POWERED: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub type USB_CONTROLLER_FLAVOR = i32;
@@ -2507,10 +2782,15 @@ impl ::core::default::Default for USB_CONTROLLER_INFO_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_CYCLE_PORT: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEBUG_DESCRIPTOR_TYPE: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEFAULT_DEVICE_ADDRESS: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEFAULT_ENDPOINT_ADDRESS: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEFAULT_MAX_PACKET: u32 = 64u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -2645,7 +2925,9 @@ impl ::core::default::Default for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_BATTERY_INFO: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_BILLBOARD: u32 = 13u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -2759,6 +3041,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1_0
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_CONTAINER_ID: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -2816,7 +3099,9 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_DESCRIPTOR_TYPE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_FIRMWARE_STATUS: u32 = 17u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -2898,8 +3183,11 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPT
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_MAX_U1_LATENCY: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_MAX_U2_LATENCY: u32 = 2047u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT: u32 = 8u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -2987,7 +3275,9 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIP
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_PD_PROVIDER_PORT: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_PLATFORM: u32 = 5u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -3019,6 +3309,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_POWER_DELIVERY: u32 = 6u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -3105,6 +3396,7 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTO
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_PRECISION_TIME_MEASUREMENT: u32 = 11u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -3157,16 +3449,27 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_DIR_RX: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_DIR_TX: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_BPS: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_GBPS: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_KBPS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_MBPS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_MODE_ASYMMETRIC: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_MODE_SYMMETRIC: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_PROTOCOL_SS: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_PROTOCOL_SSP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB: u32 = 10u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -3302,15 +3605,25 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCR
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEED_BMATTRIBUTES_LTM_CAPABLE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEED_BMATTRIBUTES_RESERVED_MASK: u32 = 253u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_FULL: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_HIGH: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_LOW: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_RESERVED_MASK: u32 = 65520u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_SUPER: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEED_U1_DEVICE_EXIT_MAX_VALUE: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEED_U2_DEVICE_EXIT_MAX_VALUE: u32 = 2047u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_SUPERSPEED_USB: u32 = 3u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -3344,7 +3657,9 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTO
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_USB20_EXTENSION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_USB20_EXTENSION_BMATTRIBUTES_RESERVED_MASK: u32 = 4294901985u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -3425,31 +3740,57 @@ impl ::core::default::Default for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPT
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CAPABILITY_WIRELESS_USB: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CHARACTERISTICS_MAXIMUM_PATH_DELAYS_AVAILABLE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CHARACTERISTICS_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_APPLICATION_SPECIFIC: u32 = 254u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_AUDIO: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_AUDIO_VIDEO: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_BILLBOARD: u32 = 17u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_CDC_DATA: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_COMMUNICATIONS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_CONTENT_SECURITY: u32 = 13u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_DIAGNOSTIC_DEVICE: u32 = 220u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_HUB: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_HUMAN_INTERFACE: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_IMAGE: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_MISCELLANEOUS: u32 = 239u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_MONITOR: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_PERSONAL_HEALTHCARE: u32 = 15u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_PHYSICAL_INTERFACE: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_POWER: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_PRINTER: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_RESERVED: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_SMART_CARD: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_STORAGE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_VENDOR_SPECIFIC: u32 = 255u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_VIDEO: u32 = 14u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_CLASS_WIRELESS_CONTROLLER: u32 = 224u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -3489,7 +3830,9 @@ impl ::core::default::Default for USB_DEVICE_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_DESCRIPTOR_TYPE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_FIRMWARE_HASH_LENGTH: u32 = 32u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -3524,6 +3867,7 @@ impl ::core::default::Default for USB_DEVICE_QUALIFIER_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DEVICE_QUALIFIER_DESCRIPTOR_TYPE: u32 = 6u32;
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub type USB_DEVICE_SPEED = i32;
@@ -3592,8 +3936,11 @@ pub type USB_DEVICE_TYPE = i32;
 pub const Usb11Device: USB_DEVICE_TYPE = 0i32;
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const Usb20Device: USB_DEVICE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DIAG_IGNORE_HUBS_OFF: u32 = 263u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DIAG_IGNORE_HUBS_ON: u32 = 262u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_DISALLOW_FIRMWARE_UPDATE: u32 = 0u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
@@ -3632,7 +3979,9 @@ impl ::core::default::Default for USB_DRIVER_VERSION_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENABLE_PORT: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_ADDRESS_MASK: u32 = 15u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -3664,7 +4013,9 @@ impl ::core::default::Default for USB_ENDPOINT_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_DESCRIPTOR_TYPE: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_DIRECTION_MASK: u32 = 128u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -3717,44 +4068,83 @@ impl ::core::default::Default for USB_ENDPOINT_STATUS_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_SUPERSPEED_BULK_MAX_PACKET_SIZE: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_SUPERSPEED_CONTROL_MAX_PACKET_SIZE: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_SUPERSPEED_INTERRUPT_MAX_PACKET_SIZE: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_SUPERSPEED_ISO_MAX_PACKET_SIZE: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_TYPE_BULK: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_TYPE_BULK_RESERVED_MASK: u32 = 252u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_TYPE_CONTROL: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_TYPE_CONTROL_RESERVED_MASK: u32 = 252u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_TYPE_INTERRUPT: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_TYPE_ISOCHRONOUS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_RESERVED_MASK: u32 = 192u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_ADAPTIVE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_ASYNCHRONOUS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_MASK: u32 = 12u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_NO_SYNCHRONIZATION: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_SYNCHRONOUS: u32 = 12u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_DATA_ENDOINT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_FEEDBACK_ENDPOINT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_IMPLICIT_FEEDBACK_DATA_ENDPOINT: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_MASK: u32 = 48u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_RESERVED: u32 = 48u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_ENDPOINT_TYPE_MASK: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_FAIL_GET_STATUS: u32 = 280u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_FEATURE_BATTERY_WAKE_MASK: u32 = 40u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_FEATURE_CHARGING_POLICY: u32 = 54u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_FEATURE_ENDPOINT_STALL: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_FEATURE_FUNCTION_SUSPEND: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_FEATURE_INTERFACE_POWER_D0: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_FEATURE_INTERFACE_POWER_D1: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_FEATURE_INTERFACE_POWER_D2: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_FEATURE_INTERFACE_POWER_D3: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_FEATURE_LDM_ENABLE: u32 = 53u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_FEATURE_LTM_ENABLE: u32 = 50u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_FEATURE_OS_IS_PD_AWARE: u32 = 41u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_FEATURE_POLICY_MODE: u32 = 42u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_FEATURE_REMOTE_WAKEUP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_FEATURE_TEST_MODE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_FEATURE_U1_ENABLE: u32 = 48u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_FEATURE_U2_ENABLE: u32 = 49u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
@@ -3849,44 +4239,83 @@ impl ::core::default::Default for USB_FUNCTION_SUSPEND_OPTIONS_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GETSTATUS_LTM_ENABLE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GETSTATUS_REMOTE_WAKEUP_ENABLED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GETSTATUS_SELF_POWERED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GETSTATUS_U1_ENABLE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GETSTATUS_U2_ENABLE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_BUSGUID_INFO: u32 = 266u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_BUS_INFO: u32 = 264u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_CONTROLLER_NAME: u32 = 265u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_DESCRIPTOR_FROM_NODE_CONNECTION: u32 = 260u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_DEVICE_CHARACTERISTICS: u32 = 288u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_DEVICE_HANDLE: u32 = 268u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_DEVICE_HANDLE_EX: u32 = 269u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_FIRMWARE_ALLOWED_OR_DISALLOWED_STATE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_FIRMWARE_HASH: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC: u32 = 286u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_HUB_CAPABILITIES: u32 = 271u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_HUB_CAPABILITIES_EX: u32 = 276u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_HUB_CONFIG_INFO: u32 = 275u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_HUB_COUNT: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_HUB_INFORMATION_EX: u32 = 277u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_HUB_NAME: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_NODE_CONNECTION_ATTRIBUTES: u32 = 272u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_NODE_CONNECTION_DRIVERKEY_NAME: u32 = 264u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_NODE_CONNECTION_INFORMATION: u32 = 259u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_NODE_CONNECTION_INFORMATION_EX: u32 = 274u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_NODE_CONNECTION_INFORMATION_EX_V2: u32 = 279u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_NODE_CONNECTION_NAME: u32 = 261u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_NODE_INFORMATION: u32 = 258u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_PARENT_HUB_INFO: u32 = 267u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_PORT_CONNECTOR_PROPERTIES: u32 = 278u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_PORT_STATUS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_ROOTHUB_PDO: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_TOPOLOGY_ADDRESS: u32 = 271u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_TRANSPORT_CHARACTERISTICS: u32 = 281u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_GET_TT_DEVICE_HANDLE: u32 = 270u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_HC_FEATURE_FLAG_PORT_POWER_SWITCHING: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_HC_FEATURE_FLAG_SEL_SUSPEND: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_HC_FEATURE_LEGACY_BIOS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_HC_FEATURE_TIME_SYNC_API: u32 = 8u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -4040,6 +4469,7 @@ impl ::core::default::Default for USB_HUB_CHANGE_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_HUB_CYCLE_PORT: u32 = 273u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -4203,7 +4633,9 @@ impl ::core::default::Default for USB_IDLE_CALLBACK_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_IDLE_NOTIFICATION: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_IDLE_NOTIFICATION_EX: u32 = 272u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -4237,6 +4669,7 @@ impl ::core::default::Default for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_INTERFACE_ASSOCIATION_DESCRIPTOR_TYPE: u32 = 11u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -4271,6 +4704,7 @@ impl ::core::default::Default for USB_INTERFACE_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_INTERFACE_DESCRIPTOR_TYPE: u32 = 4u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -4308,6 +4742,7 @@ impl ::core::default::Default for USB_INTERFACE_POWER_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_INTERFACE_POWER_DESCRIPTOR_TYPE: u32 = 8u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -4360,6 +4795,7 @@ impl ::core::default::Default for USB_INTERFACE_STATUS_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_NOTIFY_ON_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 283u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -4387,17 +4823,29 @@ impl ::core::default::Default for USB_OPEN_RAW_DEVICE_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_OTG_DESCRIPTOR_TYPE: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_OTHER_SPEED_CONFIGURATION_DESCRIPTOR_TYPE: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PACKETFLAG_ASYNC_IN: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PACKETFLAG_ASYNC_OUT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PACKETFLAG_FULL_SPEED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PACKETFLAG_HIGH_SPEED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PACKETFLAG_ISO_IN: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PACKETFLAG_ISO_OUT: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PACKETFLAG_LOW_SPEED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PACKETFLAG_SETUP: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PACKETFLAG_TOGGLE0: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PACKETFLAG_TOGGLE1: u32 = 512u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -4426,11 +4874,17 @@ impl ::core::default::Default for USB_PASS_THRU_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PORTATTR_MINI_CONNECTOR: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PORTATTR_NO_CONNECTOR: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PORTATTR_NO_OVERCURRENT_UI: u32 = 33554432u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PORTATTR_OEM_CONNECTOR: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PORTATTR_OWNED_BY_CC: u32 = 16777216u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PORTATTR_SHARED_USB2: u32 = 2u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -4641,13 +5095,21 @@ impl ::core::default::Default for USB_PORT_STATUS_AND_CHANGE_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PORT_STATUS_CONNECT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PORT_STATUS_ENABLE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PORT_STATUS_HIGH_SPEED: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PORT_STATUS_LOW_SPEED: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PORT_STATUS_OVER_CURRENT: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PORT_STATUS_POWER: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PORT_STATUS_RESET: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_PORT_STATUS_SUSPEND: u32 = 4u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
@@ -4690,38 +5152,71 @@ impl ::core::default::Default for USB_POWER_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_RECORD_FAILURE: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REGISTER_COMPOSITE_DEVICE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REGISTER_FOR_TRANSPORT_BANDWIDTH_CHANGE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 282u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REGISTER_FOR_TRANSPORT_LATENCY_CHANGE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_CLEAR_FEATURE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_CLEAR_TT_BUFFER: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_GET_CONFIGURATION: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_GET_DESCRIPTOR: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_GET_FIRMWARE_STATUS: u32 = 26u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_GET_INTERFACE: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_GET_PORT_ERR_COUNT: u32 = 13u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_GET_STATE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_GET_STATUS: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_GET_TT_STATE: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_ISOCH_DELAY: u32 = 49u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_REMOTE_WAKE_NOTIFICATION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_RESET_TT: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_SET_ADDRESS: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_SET_CONFIGURATION: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_SET_DESCRIPTOR: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_SET_FEATURE: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_SET_FIRMWARE_STATUS: u32 = 27u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_SET_HUB_DEPTH: u32 = 12u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_SET_INTERFACE: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_SET_SEL: u32 = 48u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_STOP_TT: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQUEST_SYNC_FRAME: u32 = 12u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQ_GLOBAL_RESUME: u32 = 274u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_REQ_GLOBAL_SUSPEND: u32 = 273u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_RESERVED_DESCRIPTOR_TYPE: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_RESET_HUB: u32 = 275u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_RESET_PORT: u32 = 1u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -4758,6 +5253,7 @@ impl ::core::default::Default for USB_SEND_RAW_COMMAND_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_START_TRACKING_FOR_TIME_SYNC: u32 = 285u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
@@ -4792,9 +5288,13 @@ impl ::core::default::Default for USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_STATUS_EXT_PORT_STATUS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_STATUS_PD_STATUS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_STATUS_PORT_STATUS: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_STOP_TRACKING_FOR_TIME_SYNC: u32 = 287u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]
@@ -4855,9 +5355,13 @@ impl ::core::default::Default for USB_STRING_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_STRING_DESCRIPTOR_TYPE: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_SUBMIT_URB: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_SUPERSPEEDPLUS_ISOCHRONOUS_MAX_BYTESPERINTERVAL: u32 = 16777215u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_SUPERSPEEDPLUS_ISOCHRONOUS_MIN_BYTESPERINTERVAL: u32 = 49153u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -4887,6 +5391,7 @@ impl ::core::default::Default for USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DE
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR_TYPE: u32 = 49u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -4994,21 +5499,37 @@ impl ::core::default::Default for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_TYPE: u32 = 48u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_SUPERSPEED_ISOCHRONOUS_MAX_MULTIPLIER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_SUPPORT_D0_COMMAND: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_SUPPORT_D1_COMMAND: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_SUPPORT_D1_WAKEUP: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_SUPPORT_D2_COMMAND: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_SUPPORT_D2_WAKEUP: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_SUPPORT_D3_COMMAND: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_TEST_MODE_TEST_FORCE_ENABLE: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_TEST_MODE_TEST_J: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_TEST_MODE_TEST_K: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_TEST_MODE_TEST_PACKET: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_TEST_MODE_TEST_SE0_NAK: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_TRANSPORT_CHARACTERISTICS_BANDWIDTH_AVAILABLE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_TRANSPORT_CHARACTERISTICS_LATENCY_AVAILABLE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_TRANSPORT_CHARACTERISTICS_VERSION_1: u32 = 1u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -5036,7 +5557,9 @@ impl ::core::default::Default for USB_UNICODE_NAME {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_UNREGISTER_COMPOSITE_DEVICE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const USB_UNREGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 284u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Usb'*"]
@@ -5201,11 +5724,17 @@ impl ::core::default::Default for WINUSB_SETUP_PACKET {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WMI_USB_DEVICE_NODE_INFORMATION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WMI_USB_DRIVER_INFORMATION: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WMI_USB_DRIVER_NOTIFICATION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WMI_USB_HUB_NODE_INFORMATION: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WMI_USB_PERFORMANCE_INFORMATION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Usb'*"]
 pub const WMI_USB_POWER_DEVICE_ENABLE: u32 = 2u32;
 pub const WinUSB_TestGuid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda812bff_12c3_46a2_8e2b_dbd3b7834c43);
 #[doc = "*Required features: 'Win32_Devices_Usb', 'Win32_Foundation'*"]

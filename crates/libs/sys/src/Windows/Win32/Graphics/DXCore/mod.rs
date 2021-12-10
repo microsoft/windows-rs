@@ -129,4 +129,5 @@ pub type IDXCoreAdapterFactory = *mut ::core::ffi::c_void;
 pub type IDXCoreAdapterList = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
 pub type PFN_DXCORE_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: DXCoreNotificationType, object: ::windows_sys::core::IUnknown, context: *const ::core::ffi::c_void)>;
+#[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
 pub const _FACDXCORE: u32 = 2176u32;

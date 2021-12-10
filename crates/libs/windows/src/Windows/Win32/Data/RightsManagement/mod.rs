@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRMACTSERVINFOVERSION: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub type DRMATTESTTYPE = i32;
@@ -110,6 +111,7 @@ pub unsafe fn DRMAttest<'a, Param1: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRMBINDINGFLAGS_IGNORE_VALIDITY_INTERVALS: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Data_RightsManagement', 'Win32_Foundation'*"]
@@ -152,10 +154,13 @@ impl ::core::default::Default for DRMBOUNDLICENSEPARAMS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRMBOUNDLICENSEPARAMSVERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub type DRMCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: ::windows::core::HRESULT, param2: *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRMCALLBACKVERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRMCLIENTSTRUCTVERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 #[inline]
@@ -534,6 +539,7 @@ pub const DRMENCODINGTYPE_TIME: DRMENCODINGTYPE = 3i32;
 pub const DRMENCODINGTYPE_UINT: DRMENCODINGTYPE = 4i32;
 #[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRMENCODINGTYPE_RAW: DRMENCODINGTYPE = 5i32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRMENVHANDLE_INVALID: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Data_RightsManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1094,7 +1100,9 @@ pub unsafe fn DRMGetUsers(hissuancelicense: u32, uindex: u32, phuser: *mut u32) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRMHANDLE_INVALID: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRMHSESSION_INVALID: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Data_RightsManagement', 'Win32_Foundation'*"]
@@ -1130,6 +1138,7 @@ impl ::core::default::Default for DRMID {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRMIDVERSION: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Data_RightsManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1176,6 +1185,7 @@ pub unsafe fn DRMIsWindowProtected<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRMLICENSEACQDATAVERSION: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Data_RightsManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1192,6 +1202,7 @@ pub unsafe fn DRMLoadLibrary<'a, Param2: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRMPUBHANDLE_INVALID: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Data_RightsManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1208,6 +1219,7 @@ pub unsafe fn DRMParseUnboundLicense<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRMQUERYHANDLE_INVALID: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Data_RightsManagement', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1414,12 +1426,19 @@ pub unsafe fn DRMVerify<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_ACTIVATE_CANCEL: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_ACTIVATE_DELAYED: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_ACTIVATE_GROUPIDENTITY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_ACTIVATE_MACHINE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_ACTIVATE_SHARED_GROUPIDENTITY: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_ACTIVATE_SILENT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_ACTIVATE_TEMPORARY: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Data_RightsManagement', 'Win32_Foundation'*"]
@@ -1455,16 +1474,27 @@ impl ::core::default::Default for DRM_ACTSERV_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_ADD_LICENSE_NOPERSIST: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_ADD_LICENSE_PERSIST: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_AILT_CANCEL: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_AILT_NONSILENT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_AILT_OBTAIN_ALL: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_AL_CANCEL: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_AL_FETCHNOADVISORY: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_AL_NONSILENT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_AL_NOPERSIST: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_AL_NOUI: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_AUTO_GENERATE_KEY: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
@@ -1503,21 +1533,37 @@ pub const DRM_DISTRIBUTION_POINT_LICENSE_ACQUISITION: DRM_DISTRIBUTION_POINT_INF
 pub const DRM_DISTRIBUTION_POINT_PUBLISHING: DRM_DISTRIBUTION_POINT_INFO = 1i32;
 #[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_DISTRIBUTION_POINT_REFERRAL_INFO: DRM_DISTRIBUTION_POINT_INFO = 2i32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_EL_CLIENTLICENSOR: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_EL_CLIENTLICENSOR_LID: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_EL_EUL: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_EL_EUL_LID: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_EL_EXPIRED: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_EL_GROUPIDENTITY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_EL_GROUPIDENTITY_LID: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_EL_GROUPIDENTITY_NAME: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_EL_ISSUANCELICENSE_TEMPLATE: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_EL_ISSUANCELICENSE_TEMPLATE_LID: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_EL_ISSUERNAME: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_EL_MACHINE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_EL_REVOCATIONLIST: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_EL_REVOCATIONLIST_LID: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_EL_SPECIFIED_CLIENTLICENSOR: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_EL_SPECIFIED_GROUPIDENTITY: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Data_RightsManagement', 'Win32_Foundation'*"]
@@ -1556,22 +1602,39 @@ impl ::core::default::Default for DRM_LICENSE_ACQ_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_LOCKBOXTYPE_BLACKBOX: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_LOCKBOXTYPE_DEFAULT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_LOCKBOXTYPE_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_LOCKBOXTYPE_WHITEBOX: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_OWNER_LICENSE_NOPERSIST: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_REUSE_KEY: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_SERVER_ISSUANCELICENSE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_SERVICE_LOCATION_ENTERPRISE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_SERVICE_LOCATION_INTERNET: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_SERVICE_TYPE_ACTIVATION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_SERVICE_TYPE_CERTIFICATION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_SERVICE_TYPE_CLIENTLICENSOR: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_SERVICE_TYPE_PUBLISHING: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_SERVICE_TYPE_SILENT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_SIGN_CANCEL: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_SIGN_OFFLINE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_SIGN_ONLINE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub type DRM_STATUS_MSG = i32;
@@ -1599,5 +1662,7 @@ pub const DRM_USAGEPOLICY_TYPE_BYPUBLICKEY: DRM_USAGEPOLICY_TYPE = 1i32;
 pub const DRM_USAGEPOLICY_TYPE_BYDIGEST: DRM_USAGEPOLICY_TYPE = 2i32;
 #[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const DRM_USAGEPOLICY_TYPE_OSEXCLUSION: DRM_USAGEPOLICY_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const MSDRM_CLIENT_ZONE: u32 = 52992u32;
+#[doc = "*Required features: 'Win32_Data_RightsManagement'*"]
 pub const MSDRM_POLICY_ZONE: u32 = 37632u32;

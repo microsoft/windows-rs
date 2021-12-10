@@ -28,8 +28,11 @@ pub const CLSID_TF_LangBarMgr: ::windows_sys::core::GUID = ::windows_sys::core::
 pub const CLSID_TF_ThreadMgr: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1385864811, data2: 25991, data3: 20259, data4: [171, 158, 156, 125, 104, 62, 60, 80] };
 pub const CLSID_TF_TransitoryExtensionUIEntry: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2926305288, data2: 2043, data3: 16397, data4: [139, 235, 51, 122, 100, 247, 5, 31] };
 pub const CLSID_TsfServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 967760896, data2: 27488, data3: 18139, data4: [141, 49, 54, 66, 190, 14, 67, 115] };
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const DCM_FLAGS_CTFMON: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const DCM_FLAGS_TASKENG: u32 = 1u32;
 pub const DocWrap: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3208802174, data2: 31326, data3: 17622, data4: [131, 12, 163, 144, 234, 148, 98, 163] };
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
@@ -109,7 +112,9 @@ pub const GUID_TFCAT_TRANSITORYEXTENSIONUI: ::windows_sys::core::GUID = ::window
 pub const GUID_TS_SERVICE_ACCESSIBLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4185416192, data2: 42431, data3: 18959, data4: [140, 36, 251, 22, 245, 209, 170, 187] };
 pub const GUID_TS_SERVICE_ACTIVEX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3935533648, data2: 51622, data3: 19325, data4: [137, 74, 73, 217, 155, 120, 72, 52] };
 pub const GUID_TS_SERVICE_DATAOBJECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1619458997, data2: 57893, data3: 18126, data4: [167, 112, 193, 187, 211, 224, 93, 123] };
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const GXFPF_NEAREST: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const GXFPF_ROUND_NEAREST: u32 = 1u32;
 pub type HKL = isize;
 pub type IAccClientDocMgr = *mut ::core::ffi::c_void;
@@ -138,7 +143,9 @@ pub type IEnumTfPropertyValue = *mut ::core::ffi::c_void;
 pub type IEnumTfRanges = *mut ::core::ffi::c_void;
 pub type IEnumTfUIElements = *mut ::core::ffi::c_void;
 pub type IInternalDocWrap = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const ILMCM_LANGUAGEBAROFF: u32 = 2u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub type INSERT_TEXT_AT_SELECTION_FLAGS = u32;
@@ -454,14 +461,23 @@ pub type TEXT_STORE_TEXT_CHANGE_FLAGS = u32;
 pub const TS_ST_NONE: TEXT_STORE_TEXT_CHANGE_FLAGS = 0u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_ST_CORRECTION: TEXT_STORE_TEXT_CHANGE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CHAR_EMBEDDED: u32 = 65532u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CLUIE_COUNT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CLUIE_CURRENTPAGE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CLUIE_DOCUMENTMGR: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CLUIE_PAGEINDEX: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CLUIE_SELECTION: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CLUIE_STRING: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_COMMANDING_ENABLED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_COMMANDING_ON: u32 = 8u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub type TF_CONTEXT_EDIT_CONTEXT_FLAGS = u32;
@@ -475,16 +491,27 @@ pub const TF_ES_READ: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 2u32;
 pub const TF_ES_READWRITE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 6u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_ES_ASYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CONVERSIONMODE_ALPHANUMERIC: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CONVERSIONMODE_CHARCODE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CONVERSIONMODE_EUDC: u32 = 512u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CONVERSIONMODE_FIXED: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CONVERSIONMODE_FULLSHAPE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CONVERSIONMODE_KATAKANA: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CONVERSIONMODE_NATIVE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CONVERSIONMODE_NOCONVERSION: u32 = 256u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CONVERSIONMODE_ROMAN: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CONVERSIONMODE_SOFTKEYBOARD: u32 = 128u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CONVERSIONMODE_SYMBOL: u32 = 1024u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub type TF_DA_ATTR_INFO = i32;
@@ -546,11 +573,17 @@ pub const TF_LS_DOT: TF_DA_LINESTYLE = 2i32;
 pub const TF_LS_DASH: TF_DA_LINESTYLE = 3i32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LS_SQUIGGLE: TF_DA_LINESTYLE = 4i32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_DICTATION_ENABLED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_DICTATION_ON: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_DISABLE_BALLOON: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_DISABLE_COMMANDING: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_DISABLE_DICTATION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_DISABLE_SPEECH: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
@@ -628,7 +661,9 @@ impl ::core::clone::Clone for TF_HALTCOND {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_HF_OBJECT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_IE_CORRECTION: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
@@ -649,24 +684,43 @@ impl ::core::clone::Clone for TF_INPUTPROCESSORPROFILE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_INVALID_COOKIE: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_INVALID_EDIT_COOKIE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_IPPMF_DISABLEPROFILE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_IPPMF_DONTCARECURRENTINPUTLANGUAGE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_IPPMF_ENABLEPROFILE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_IPPMF_FORPROCESS: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_IPPMF_FORSESSION: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_IPPMF_FORSYSTEMALL: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_IPP_CAPS_COMLESSSUPPORT: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_IPP_CAPS_DISABLEONTRANSITORY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_IPP_CAPS_IMMERSIVESUPPORT: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_IPP_CAPS_SECUREMODESUPPORT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_IPP_CAPS_SYSTRAYSUPPORT: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_IPP_CAPS_UIELEMENTENABLED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_IPP_CAPS_WOW16SUPPORT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_IPP_FLAG_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_IPP_FLAG_ENABLED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_IPSINK_FLAG_ACTIVE: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
@@ -716,31 +770,57 @@ impl ::core::clone::Clone for TF_LBBALLOONINFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_BALLOON: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_BITMAP: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_BMPF_VERTICAL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_CUSTOMUI: u32 = 32u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_DESC_MAXLEN: u32 = 32u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_ICON: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_STATUS: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_STATUS_BTN_TOGGLED: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_STATUS_DISABLED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_STATUS_HIDDEN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_STYLE_BTN_BUTTON: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_STYLE_BTN_MENU: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_STYLE_BTN_TOGGLE: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_STYLE_HIDDENBYDEFAULT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_STYLE_HIDDENSTATUSCONTROL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_STYLE_HIDEONNOOTHERITEMS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_STYLE_SHOWNINTRAY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_STYLE_SHOWNINTRAYONLY: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_STYLE_TEXTCOLORICON: u32 = 32u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_TEXT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBI_TOOLTIP: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBMENUF_CHECKED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBMENUF_GRAYED: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBMENUF_RADIOCHECKED: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBMENUF_SEPARATOR: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_LBMENUF_SUBMENU: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
@@ -774,17 +854,29 @@ impl ::core::clone::Clone for TF_LMLATTELEMENT_0 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_MENUREADY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_MOD_ALT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_MOD_CONTROL: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_MOD_IGNORE_ALL_MODIFIER: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_MOD_LALT: u32 = 64u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_MOD_LCONTROL: u32 = 128u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_MOD_LSHIFT: u32 = 256u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_MOD_ON_KEYUP: u32 = 512u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_MOD_RALT: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_MOD_RCONTROL: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_MOD_RSHIFT: u32 = 32u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_MOD_SHIFT: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
@@ -802,6 +894,7 @@ impl ::core::clone::Clone for TF_PERSISTENT_PROPERTY_HEADER_ACP {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_POPF_ALL: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
@@ -815,7 +908,9 @@ impl ::core::clone::Clone for TF_PRESERVEDKEY {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_PROFILETYPE_INPUTPROCESSOR: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_PROFILETYPE_KEYBOARDLAYOUT: u32 = 2u32;
 pub const TF_PROFILE_ARRAY: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3549364069, data2: 43590, data3: 20437, data4: [145, 167, 103, 132, 95, 176, 47, 91] };
 pub const TF_PROFILE_CANTONESE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 183242908, data2: 32406, data3: 4564, data4: [178, 239, 0, 128, 200, 130, 104, 126] };
@@ -846,22 +941,39 @@ impl ::core::clone::Clone for TF_PROPERTYVAL {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_PROPUI_STATUS_SAVETOFILE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_RCM_COMLESS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_RCM_HINT_COLLISION: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_RCM_HINT_READING_LENGTH: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_RCM_VKEY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_RIP_FLAG_FREEUNUSEDLIBRARIES: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_RIUIE_CONTEXT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_RIUIE_ERRORINDEX: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_RIUIE_MAXREADINGSTRINGLENGTH: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_RIUIE_STRING: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_RIUIE_VERTICALORDER: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_RP_HIDDENINSETTINGUI: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_RP_LOCALPROCESS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_RP_LOCALTHREAD: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_RP_SUBITEMINSETTINGUI: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SD_LOADING: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SD_READONLY: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
@@ -893,66 +1005,125 @@ impl ::core::clone::Clone for TF_SELECTIONSTYLE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SENTENCEMODE_AUTOMATIC: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SENTENCEMODE_CONVERSATION: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SENTENCEMODE_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SENTENCEMODE_PHRASEPREDICT: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SENTENCEMODE_PLAURALCLAUSE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SENTENCEMODE_SINGLECONVERT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SFT_DESKBAND: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SFT_DOCK: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SFT_EXTRAICONSONMINIMIZED: u32 = 512u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SFT_HIDDEN: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SFT_HIGHTRANSPARENCY: u32 = 64u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SFT_LABELS: u32 = 128u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SFT_LOWTRANSPARENCY: u32 = 32u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SFT_MINIMIZED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SFT_NOEXTRAICONSONMINIMIZED: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SFT_NOLABELS: u32 = 256u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SFT_NOTRANSPARENCY: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SFT_SHOWNORMAL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SHOW_BALLOON: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SPEECHUI_SHOWN: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SS_DISJOINTSEL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SS_REGIONS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SS_TKBAUTOCORRECTENABLE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SS_TKBPREDICTIONENABLE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_SS_TRANSITORY: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_ST_CORRECTION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_S_ASYNC: ::windows_sys::core::HRESULT = 262912i32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TF_IGNOREEND: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TF_MOVESTART: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TMAE_COMLESS: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TMAE_CONSOLE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TMAE_NOACTIVATEKEYBOARDLAYOUT: u32 = 32u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TMAE_NOACTIVATETIP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TMAE_SECUREMODE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TMAE_UIELEMENTENABLEDONLY: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TMAE_WOW16: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TMF_ACTIVATED: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TMF_COMLESS: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TMF_CONSOLE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TMF_IMMERSIVEMODE: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TMF_NOACTIVATETIP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TMF_SECUREMODE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TMF_UIELEMENTENABLEDONLY: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TMF_WOW16: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TRANSITORYEXTENSION_ATSELECTION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TRANSITORYEXTENSION_FLOATING: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TRANSITORYEXTENSION_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_TU_CORRECTION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_URP_ALLPROFILES: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_URP_LOCALPROCESS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_URP_LOCALTHREAD: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_US_HIDETIPUI: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_CHANGJIE: u32 = 61506u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_DAYI: u32 = 61507u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TKBL_OPT_JAPANESE_ABC: u32 = 1041u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TKBL_OPT_KOREAN_HANGUL_2_BULSIK: u32 = 1042u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TKBL_OPT_SIMPLIFIED_CHINESE_PINYIN: u32 = 2052u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TKBL_OPT_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TKBL_UNDEFINED: u32 = 0u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub type TKBLayoutType = i32;
@@ -962,9 +1133,13 @@ pub const TKBLT_UNDEFINED: TKBLayoutType = 0i32;
 pub const TKBLT_CLASSIC: TKBLayoutType = 1i32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TKBLT_OPTIMIZED: TKBLayoutType = 2i32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TKB_ALTERNATES_AUTOCORRECTION_APPLIED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TKB_ALTERNATES_FOR_AUTOCORRECTION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TKB_ALTERNATES_FOR_PREDICTION: u32 = 3u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TKB_ALTERNATES_STANDARD: u32 = 1u32;
 pub const TSATTRID_App: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2819586015, data2: 16951, data3: 16613, data4: [132, 156, 181, 250, 81, 193, 58, 199] };
 pub const TSATTRID_App_IncorrectGrammar: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3176457112, data2: 44291, data3: 19316, data4: [182, 179, 94, 219, 25, 153, 99, 136] };
@@ -1050,10 +1225,15 @@ pub const TSATTRID_Text_Para_SpaceBefore: ::windows_sys::core::GUID = ::windows_
 pub const TSATTRID_Text_ReadOnly: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2239981079, data2: 56882, data3: 19197, data4: [165, 15, 162, 219, 17, 14, 110, 77] };
 pub const TSATTRID_Text_RightToLeft: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3395710577, data2: 6920, data3: 17725, data4: [191, 221, 40, 224, 140, 138, 175, 122] };
 pub const TSATTRID_Text_VerticalWriting: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1807384981, data2: 1135, data3: 20137, data4: [179, 17, 151, 253, 102, 196, 39, 75] };
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_AS_ATTR_CHANGE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_AS_LAYOUT_CHANGE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_AS_SEL_CHANGE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_AS_STATUS_CHANGE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_AS_TEXT_CHANGE: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -1071,14 +1251,23 @@ impl ::core::clone::Clone for TS_ATTRVAL {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_ATTR_FIND_BACKWARDS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_ATTR_FIND_HIDDEN: u32 = 32u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_ATTR_FIND_UPDATESTART: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_ATTR_FIND_WANT_END: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_ATTR_FIND_WANT_OFFSET: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_ATTR_FIND_WANT_VALUE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_CHAR_EMBEDDED: u32 = 65532u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_CHAR_REGION: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_CHAR_REPLACEMENT: u32 = 65533u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_E_FORMAT: ::windows_sys::core::HRESULT = -2147220982i32;
@@ -1102,12 +1291,19 @@ pub const TS_E_NOSERVICE: ::windows_sys::core::HRESULT = -2147220989i32;
 pub const TS_E_READONLY: ::windows_sys::core::HRESULT = -2147220983i32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_E_SYNCHRONOUS: ::windows_sys::core::HRESULT = -2147220984i32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_GEA_HIDDEN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_GTA_HIDDEN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_IAS_NOQUERY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_IAS_QUERYONLY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_IE_COMPOSITION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_IE_CORRECTION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_LF_SYNC: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
@@ -1121,14 +1317,23 @@ impl ::core::clone::Clone for TS_RUNINFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED: u32 = 128u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_VISIBLE: u32 = 256u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SD_INPUTPANEMANUALDISPLAYENABLE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SD_LOADING: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SD_READONLY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SD_RESERVED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SD_TKBAUTOCORRECTENABLE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SD_TKBPREDICTIONENABLE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SD_UIINTEGRATIONENABLE: u32 = 32u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
@@ -1177,16 +1382,27 @@ impl ::core::clone::Clone for TS_SELECTION_ANCHOR {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SHIFT_COUNT_HIDDEN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SHIFT_COUNT_ONLY: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SHIFT_HALT_HIDDEN: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SHIFT_HALT_VISIBLE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SS_DISJOINTSEL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SS_NOHIDDENTEXT: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SS_REGIONS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SS_TKBAUTOCORRECTENABLE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SS_TKBPREDICTIONENABLE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SS_TRANSITORY: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_SS_UWPCONTROL: u32 = 64u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
@@ -1200,8 +1416,11 @@ impl ::core::clone::Clone for TS_STATUS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_STRF_END: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_STRF_MID: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_STRF_START: u32 = 0u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_S_ASYNC: ::windows_sys::core::HRESULT = 262912i32;
@@ -1218,6 +1437,7 @@ impl ::core::clone::Clone for TS_TEXTCHANGE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub type TfActiveSelEnd = i32;

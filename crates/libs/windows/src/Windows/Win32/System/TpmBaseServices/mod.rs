@@ -155,20 +155,35 @@ impl ::core::default::Default for TBS_CONTEXT_PARAMS2_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TBS_CONTEXT_VERSION_ONE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TBS_CONTEXT_VERSION_TWO: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TBS_OWNERAUTH_TYPE_ADMIN: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TBS_OWNERAUTH_TYPE_ENDORSEMENT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TBS_OWNERAUTH_TYPE_ENDORSEMENT_20: u32 = 12u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TBS_OWNERAUTH_TYPE_FULL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TBS_OWNERAUTH_TYPE_STORAGE_20: u32 = 13u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TBS_OWNERAUTH_TYPE_USER: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TBS_SUCCESS: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TBS_TCGLOG_DRTM_BOOT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TBS_TCGLOG_DRTM_CURRENT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TBS_TCGLOG_DRTM_RESUME: u32 = 5u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TBS_TCGLOG_SRTM_BOOT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TBS_TCGLOG_SRTM_CURRENT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TBS_TCGLOG_SRTM_RESUME: u32 = 3u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
@@ -198,17 +213,29 @@ impl ::core::default::Default for TPM_DEVICE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TPM_IFTYPE_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TPM_IFTYPE_EMULATOR: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TPM_IFTYPE_HW: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TPM_IFTYPE_SPB: u32 = 5u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TPM_IFTYPE_TRUSTZONE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TPM_IFTYPE_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TPM_VERSION_12: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TPM_VERSION_20: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TPM_VERSION_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TPM_WNF_INFO_CLEAR_SUCCESSFUL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TPM_WNF_INFO_NO_REBOOT_REQUIRED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub const TPM_WNF_INFO_OWNERSHIP_SUCCESSFUL: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 #[inline]

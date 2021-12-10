@@ -1,14 +1,25 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const BATTERY_DEVTYPE_GAMEPAD: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const BATTERY_DEVTYPE_HEADSET: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const BATTERY_LEVEL_EMPTY: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const BATTERY_LEVEL_FULL: u32 = 3u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const BATTERY_LEVEL_LOW: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const BATTERY_LEVEL_MEDIUM: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const BATTERY_TYPE_ALKALINE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const BATTERY_TYPE_DISCONNECTED: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const BATTERY_TYPE_NIMH: u32 = 3u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const BATTERY_TYPE_UNKNOWN: u32 = 255u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const BATTERY_TYPE_WIRED: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
@@ -65,23 +76,41 @@ impl ::core::default::Default for XINPUT_CAPABILITIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_CAPS_FFB_SUPPORTED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_CAPS_NO_NAVIGATION: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_CAPS_PMD_SUPPORTED: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_CAPS_VOICE_SUPPORTED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_CAPS_WIRELESS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_DEVSUBTYPE_ARCADE_PAD: u32 = 19u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_DEVSUBTYPE_ARCADE_STICK: u32 = 3u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_DEVSUBTYPE_DANCE_PAD: u32 = 5u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_DEVSUBTYPE_DRUM_KIT: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_DEVSUBTYPE_FLIGHT_STICK: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_DEVSUBTYPE_GAMEPAD: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_DEVSUBTYPE_GUITAR: u32 = 6u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_DEVSUBTYPE_GUITAR_ALTERNATE: u32 = 7u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_DEVSUBTYPE_GUITAR_BASS: u32 = 11u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_DEVSUBTYPE_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_DEVSUBTYPE_WHEEL: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_DEVTYPE_GAMEPAD: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_FLAG_GAMEPAD: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
@@ -114,22 +143,39 @@ impl ::core::default::Default for XINPUT_GAMEPAD {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_GAMEPAD_A: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_GAMEPAD_B: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_GAMEPAD_BACK: u32 = 32u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_GAMEPAD_DPAD_DOWN: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_GAMEPAD_DPAD_LEFT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_GAMEPAD_DPAD_RIGHT: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_GAMEPAD_DPAD_UP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_GAMEPAD_LEFT_SHOULDER: u32 = 256u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_GAMEPAD_LEFT_THUMB: u32 = 64u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE: u32 = 7849u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_GAMEPAD_RIGHT_SHOULDER: u32 = 512u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_GAMEPAD_RIGHT_THUMB: u32 = 128u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE: u32 = 8689u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_GAMEPAD_START: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_GAMEPAD_TRIGGER_THRESHOLD: u32 = 30u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_GAMEPAD_X: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_GAMEPAD_Y: u32 = 32768u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
@@ -160,8 +206,11 @@ impl ::core::default::Default for XINPUT_KEYSTROKE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_KEYSTROKE_KEYDOWN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_KEYSTROKE_KEYUP: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XINPUT_KEYSTROKE_REPEAT: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
@@ -381,5 +430,7 @@ pub unsafe fn XInputSetState(dwuserindex: u32, pvibration: *const XINPUT_VIBRATI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XUSER_INDEX_ANY: u32 = 255u32;
+#[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
 pub const XUSER_MAX_COUNT: u32 = 4u32;

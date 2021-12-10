@@ -167,6 +167,7 @@ pub const ElevationChangeMode_Stepping: ELEVATION_CHANGE_MODE = 2i32;
 pub const ElevationChangeMode_Max: ELEVATION_CHANGE_MODE = 3i32;
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
 pub const ElevationChangeMode_Force_Dword: ELEVATION_CHANGE_MODE = -1i32;
+#[doc = "*Required features: 'Win32_Devices_Sensors'*"]
 pub const GNSS_CLEAR_ALL_ASSISTANCE_DATA: u32 = 1u32;
 pub const GUID_DEVINTERFACE_SENSOR: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3122378386, data2: 39802, data3: 18483, data4: [154, 30, 82, 94, 209, 52, 231, 226] };
 pub const GUID_SensorCategory_All: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3273114246, data2: 50280, data3: 17032, data4: [153, 117, 212, 196, 88, 124, 68, 44] };
@@ -855,6 +856,7 @@ impl ::core::clone::Clone for SENSOR_PROPERTY_LIST {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Sensors'*"]
 pub const SENSOR_PROPERTY_LIST_HEADER_SIZE: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Devices_Sensors', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]

@@ -29,9 +29,13 @@ impl ::core::clone::Clone for IPNG_ADDRESS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
 pub const MCAST_API_CURRENT_VERSION: i32 = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
 pub const MCAST_API_VERSION_0: i32 = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
 pub const MCAST_API_VERSION_1: i32 = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
 pub const MCAST_CLIENT_ID_LEN: u32 = 17u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]

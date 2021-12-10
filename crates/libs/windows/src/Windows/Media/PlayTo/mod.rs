@@ -791,8 +791,10 @@ unsafe impl ::core::marker::Send for PlayToConnection {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToConnection {}
 #[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PlayToConnectionError(pub i32);
+#[cfg(feature = "deprecated")]
 impl PlayToConnectionError {
     pub const None: Self = Self(0i32);
     pub const DeviceNotResponding: Self = Self(1i32);
@@ -800,24 +802,31 @@ impl PlayToConnectionError {
     pub const DeviceLocked: Self = Self(3i32);
     pub const ProtectedPlaybackFailed: Self = Self(4i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for PlayToConnectionError {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for PlayToConnectionError {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for PlayToConnectionError {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for PlayToConnectionError {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PlayToConnectionError {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToConnectionError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionError;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for PlayToConnectionError {
     type DefaultType = Self;
 }
@@ -926,31 +935,40 @@ unsafe impl ::core::marker::Send for PlayToConnectionErrorEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToConnectionErrorEventArgs {}
 #[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PlayToConnectionState(pub i32);
+#[cfg(feature = "deprecated")]
 impl PlayToConnectionState {
     pub const Disconnected: Self = Self(0i32);
     pub const Connected: Self = Self(1i32);
     pub const Rendering: Self = Self(2i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for PlayToConnectionState {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for PlayToConnectionState {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for PlayToConnectionState {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for PlayToConnectionState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PlayToConnectionState {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PlayToConnectionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionState;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for PlayToConnectionState {
     type DefaultType = Self;
 }

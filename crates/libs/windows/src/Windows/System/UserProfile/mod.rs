@@ -1,30 +1,39 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'System_UserProfile', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AccountPictureKind(pub i32);
+#[cfg(feature = "deprecated")]
 impl AccountPictureKind {
     pub const SmallImage: Self = Self(0i32);
     pub const LargeImage: Self = Self(1i32);
     pub const Video: Self = Self(2i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for AccountPictureKind {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for AccountPictureKind {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for AccountPictureKind {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for AccountPictureKind {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for AccountPictureKind {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for AccountPictureKind {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.AccountPictureKind;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for AccountPictureKind {
     type DefaultType = Self;
 }
@@ -1229,8 +1238,10 @@ impl ::windows::core::RuntimeName for LockScreen {
     const NAME: &'static str = "Windows.System.UserProfile.LockScreen";
 }
 #[doc = "*Required features: 'System_UserProfile', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SetAccountPictureResult(pub i32);
+#[cfg(feature = "deprecated")]
 impl SetAccountPictureResult {
     pub const Success: Self = Self(0i32);
     pub const ChangeDisabled: Self = Self(1i32);
@@ -1239,24 +1250,31 @@ impl SetAccountPictureResult {
     pub const FileSizeError: Self = Self(4i32);
     pub const Failure: Self = Self(5i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for SetAccountPictureResult {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for SetAccountPictureResult {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SetAccountPictureResult {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for SetAccountPictureResult {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SetAccountPictureResult {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SetAccountPictureResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.UserProfile.SetAccountPictureResult;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for SetAccountPictureResult {
     type DefaultType = Self;
 }

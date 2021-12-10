@@ -583,6 +583,7 @@ impl ::core::default::Default for PROCESS_MEMORY_COUNTERS_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_ProcessStatus'*"]
 pub const PSAPI_VERSION: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_ProcessStatus'*"]

@@ -4723,8 +4723,10 @@ impl ::windows::core::DefaultType for SmsMessageClass {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SmsMessageFilter(pub i32);
+#[cfg(feature = "deprecated")]
 impl SmsMessageFilter {
     pub const All: Self = Self(0i32);
     pub const Unread: Self = Self(1i32);
@@ -4732,24 +4734,31 @@ impl SmsMessageFilter {
     pub const Sent: Self = Self(3i32);
     pub const Draft: Self = Self(4i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for SmsMessageFilter {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for SmsMessageFilter {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for SmsMessageFilter {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for SmsMessageFilter {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SmsMessageFilter {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SmsMessageFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sms.SmsMessageFilter;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for SmsMessageFilter {
     type DefaultType = Self;
 }

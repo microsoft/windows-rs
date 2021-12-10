@@ -412,6 +412,7 @@ impl ::core::clone::Clone for CAUL {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const CCH_MAX_PROPSTG_NAME: u32 = 31u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
@@ -426,6 +427,7 @@ impl ::core::clone::Clone for CLIPDATA {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const CWCSTORAGENAME: u32 = 32u32;
 pub type IDirectWriterLock = *mut ::core::ffi::c_void;
 pub type IEnumSTATPROPSETSTG = *mut ::core::ffi::c_void;
@@ -472,30 +474,55 @@ impl ::core::clone::Clone for OLESTREAMVTBL {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDDI_THUMBNAIL: i32 = 2i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDDSI_BYTECOUNT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDDSI_CATEGORY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDDSI_COMPANY: u32 = 15u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDDSI_DOCPARTS: u32 = 13u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDDSI_HEADINGPAIR: u32 = 12u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDDSI_HIDDENCOUNT: u32 = 9u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDDSI_LINECOUNT: u32 = 5u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDDSI_LINKSDIRTY: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDDSI_MANAGER: u32 = 14u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDDSI_MMCLIPCOUNT: u32 = 10u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDDSI_NOTECOUNT: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDDSI_PARCOUNT: u32 = 6u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDDSI_PRESFORMAT: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDDSI_SCALE: u32 = 11u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDDSI_SLIDECOUNT: u32 = 7u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_COPYRIGHT: i32 = 11i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_EDITOR: i32 = 2i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_OWNER: i32 = 8i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_PRODUCTION: i32 = 10i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_PROJECT: i32 = 6i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_RATING: i32 = 9i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_SEQUENCE_NO: i32 = 5i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_SOURCE: i32 = 4i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS: i32 = 7i32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub type PIDMSI_STATUS_VALUE = i32;
@@ -519,35 +546,65 @@ pub const PIDMSI_STATUS_PROOF: PIDMSI_STATUS_VALUE = 7i32;
 pub const PIDMSI_STATUS_FINAL: PIDMSI_STATUS_VALUE = 8i32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS_OTHER: PIDMSI_STATUS_VALUE = 32767i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_SUPPLIER: i32 = 3i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDSI_APPNAME: i32 = 18i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDSI_AUTHOR: i32 = 4i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDSI_CHARCOUNT: i32 = 16i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDSI_COMMENTS: i32 = 6i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDSI_CREATE_DTM: i32 = 12i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDSI_DOC_SECURITY: i32 = 19i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDSI_EDITTIME: i32 = 10i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDSI_KEYWORDS: i32 = 5i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDSI_LASTAUTHOR: i32 = 8i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDSI_LASTPRINTED: i32 = 11i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDSI_LASTSAVE_DTM: i32 = 13i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDSI_PAGECOUNT: i32 = 14i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDSI_REVNUMBER: i32 = 9i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDSI_SUBJECT: i32 = 3i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDSI_TEMPLATE: i32 = 7i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDSI_THUMBNAIL: i32 = 17i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDSI_TITLE: i32 = 2i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDSI_WORDCOUNT: i32 = 15i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PID_BEHAVIOR: u32 = 2147483651u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PID_CODEPAGE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PID_DICTIONARY: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PID_FIRST_NAME_DEFAULT: u32 = 4095u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PID_FIRST_USABLE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PID_ILLEGAL: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PID_LOCALE: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PID_MAX_READONLY: u32 = 3221225471u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PID_MIN_READONLY: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PID_MODIFY_TIME: u32 = 2147483649u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PID_SECURITY: u32 = 2147483650u32;
 #[repr(C)]
 pub struct PMemoryAllocator(pub u8);
@@ -570,12 +627,19 @@ impl ::core::clone::Clone for PROPBAG2 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PROPSETFLAG_ANSI: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PROPSETFLAG_CASE_SENSITIVE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PROPSETFLAG_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PROPSETFLAG_NONSIMPLE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PROPSETFLAG_UNBUFFERED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PROPSETHDR_OSVERSION_UNKNOWN: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PROPSET_BEHAVIOR_CASE_SENSITIVE: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
@@ -746,6 +810,7 @@ impl ::core::clone::Clone for PROPVARIANT_0_0_0 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PRSPEC_INVALID: u32 = 4294967295u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
@@ -828,11 +893,17 @@ pub const STGC_ONLYIFCURRENT: STGC = 2i32;
 pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = 4i32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGC_CONSOLIDATE: STGC = 8i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGFMT_ANY: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGFMT_DOCFILE: u32 = 5u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGFMT_DOCUMENT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGFMT_FILE: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGFMT_NATIVE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGFMT_STORAGE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub type STGMOVE = i32;
@@ -842,23 +913,41 @@ pub const STGMOVE_MOVE: STGMOVE = 0i32;
 pub const STGMOVE_COPY: STGMOVE = 1i32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGMOVE_SHALLOWCOPY: STGMOVE = 2i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGM_CONVERT: i32 = 131072i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGM_CREATE: i32 = 4096i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGM_DELETEONRELEASE: i32 = 67108864i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGM_DIRECT: i32 = 0i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGM_DIRECT_SWMR: i32 = 4194304i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGM_FAILIFTHERE: i32 = 0i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGM_NOSCRATCH: i32 = 1048576i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGM_NOSNAPSHOT: i32 = 2097152i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGM_PRIORITY: i32 = 262144i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGM_READ: i32 = 0i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGM_READWRITE: i32 = 2i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGM_SHARE_DENY_NONE: i32 = 64i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGM_SHARE_DENY_READ: i32 = 48i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGM_SHARE_DENY_WRITE: i32 = 32i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGM_SHARE_EXCLUSIVE: i32 = 16i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGM_SIMPLE: i32 = 134217728i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGM_TRANSACTED: i32 = 65536i32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGM_WRITE: i32 = 1i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
@@ -877,6 +966,7 @@ impl ::core::clone::Clone for STGOPTIONS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGOPTIONS_VERSION: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]

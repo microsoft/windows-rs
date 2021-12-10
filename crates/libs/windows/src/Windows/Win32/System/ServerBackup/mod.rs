@@ -188,7 +188,9 @@ pub struct IWsbApplicationRestoreSupportVtbl(
 );
 #[doc = "*Required features: 'Win32_System_ServerBackup'*"]
 pub const WSBAPP_ASYNC_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(7995396i32);
+#[doc = "*Required features: 'Win32_System_ServerBackup'*"]
 pub const WSB_MAX_OB_STATUS_ENTRY: u32 = 5u32;
+#[doc = "*Required features: 'Win32_System_ServerBackup'*"]
 pub const WSB_MAX_OB_STATUS_VALUE_TYPE_PAIR: u32 = 5u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_ServerBackup', 'Win32_Foundation'*"]

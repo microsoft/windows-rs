@@ -1,16 +1,29 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ACTRL_DS_CONTROL_ACCESS: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ACTRL_DS_CREATE_CHILD: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ACTRL_DS_DELETE_CHILD: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ACTRL_DS_DELETE_TREE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ACTRL_DS_LIST: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ACTRL_DS_LIST_OBJECT: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ACTRL_DS_OPEN: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ACTRL_DS_READ_PROP: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ACTRL_DS_SELF: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ACTRL_DS_WRITE_PROP: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ADAM_REPL_AUTHENTICATION_MODE_MUTUAL_AUTH_REQUIRED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE_PASS_THROUGH: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub type ADSI_DIALECT_ENUM = i32;
@@ -289,7 +302,9 @@ pub const ADS_ACETYPE_SYSTEM_ALARM_CALLBACK: ADS_ACETYPE_ENUM = 14i32;
 pub const ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = 15i32;
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ADS_ACETYPE_SYSTEM_ALARM_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = 16i32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ADS_ATTR_APPEND: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ADS_ATTR_CLEAR: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
@@ -327,6 +342,7 @@ impl ::core::default::Default for ADS_ATTR_DEF {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ADS_ATTR_DELETE: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
@@ -364,6 +380,7 @@ impl ::core::default::Default for ADS_ATTR_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ADS_ATTR_UPDATE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub type ADS_AUTHENTICATION_ENUM = u32;
@@ -636,9 +653,13 @@ pub const ADS_ESCAPEDMODE_ON: ADS_ESCAPE_MODE_ENUM = 2i32;
 pub const ADS_ESCAPEDMODE_OFF: ADS_ESCAPE_MODE_ENUM = 3i32;
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ADS_ESCAPEDMODE_OFF_EX: ADS_ESCAPE_MODE_ENUM = 4i32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ADS_EXT_INITCREDENTIALS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ADS_EXT_INITIALIZE_COMPLETE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ADS_EXT_MAXEXTDISPID: u32 = 16777215u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const ADS_EXT_MINEXTDISPID: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
@@ -1850,7 +1871,9 @@ pub const CLSID_DsObjectPicker: ::windows::core::GUID = ::windows::core::GUID::f
 pub const CLSID_DsPropertyPages: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d45d530_764b_11d0_a1ca_00aa00c16e65);
 pub const CLSID_DsQuery: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a23e65e_31c2_11d0_891c_00a024ab2dbb);
 pub const CLSID_MicrosoftDS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe1290f0_cfbd_11cf_a330_00aa00c16e65);
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const CQFF_ISOPTIONAL: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const CQFF_NOGLOBALPAGES: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
@@ -1927,20 +1950,34 @@ impl ::core::default::Default for CQPAGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const CQPM_CLEARFORM: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const CQPM_ENABLE: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const CQPM_GETPARAMETERS: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const CQPM_HANDLERSPECIFIC: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const CQPM_HELP: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const CQPM_INITIALIZE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const CQPM_PERSIST: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const CQPM_RELEASE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const CQPM_SETDEFAULTPARAMETERS: u32 = 9u32;
 pub const CaseIgnoreList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15f88a55_4680_11d1_a3b4_00c04fb950dc);
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DBDTF_RETURNEXTERNAL: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DBDTF_RETURNFQDN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DBDTF_RETURNINBOUND: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DBDTF_RETURNINOUTBOUND: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DBDTF_RETURNMIXEDDOMAINS: u32 = 2u32;
 pub const DNWithBinary: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e99c0a3_f935_11d2_ba96_00c04fb6d0d1);
 pub const DNWithString: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x334857cc_f934_11d2_ba96_00c04fb6d0d1);
@@ -2098,9 +2135,13 @@ impl ::core::default::Default for DOMAIN_TREE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSA_NEWOBJ_CTX_CLEANUP: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSA_NEWOBJ_CTX_COMMIT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSA_NEWOBJ_CTX_POSTCOMMIT: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSA_NEWOBJ_CTX_PRECOMMIT: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
@@ -2137,16 +2178,27 @@ impl ::core::default::Default for DSA_NEWOBJ_DISPINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSA_NOTIFY_DEL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSA_NOTIFY_FLAG_ADDITIONAL_DATA: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSA_NOTIFY_FLAG_FORCE_ADDITIONAL_DATA: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSA_NOTIFY_MOV: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSA_NOTIFY_PROP: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSA_NOTIFY_REN: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBF_DISPLAYNAME: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBF_ICONLOCATION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBF_STATE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBID_BANNER: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBID_CONTAINERLIST: u32 = 257u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
@@ -2228,25 +2280,45 @@ impl ::core::default::Default for DSBITEMW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBI_CHECKBOXES: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBI_DONTSIGNSEAL: u32 = 33554432u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBI_ENTIREDIRECTORY: u32 = 589824u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBI_EXPANDONOPEN: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBI_HASCREDENTIALS: u32 = 2097152u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBI_IGNORETREATASLEAF: u32 = 4194304u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBI_INCLUDEHIDDEN: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBI_NOBUTTONS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBI_NOLINES: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBI_NOLINESATROOT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBI_NOROOT: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBI_RETURNOBJECTCLASS: u32 = 16777216u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBI_RETURN_FORMAT: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBI_SIMPLEAUTHENTICATE: u32 = 8388608u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBM_CHANGEIMAGESTATE: u32 = 102u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBM_CONTEXTMENU: u32 = 104u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBM_HELP: u32 = 103u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBM_QUERYINSERT: u32 = 100u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBM_QUERYINSERTA: u32 = 101u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBM_QUERYINSERTW: u32 = 100u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_UI_Shell'*"]
@@ -2340,11 +2412,17 @@ impl ::core::default::Default for DSBROWSEINFOW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBS_CHECKED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBS_HIDDEN: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSBS_ROOT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSB_MAX_DISPLAYNAME_CHARS: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSCCIF_HASWIZARDDIALOG: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSCCIF_HASWIZARDPRIMARYPAGE: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
@@ -2436,17 +2514,29 @@ impl ::core::default::Default for DSDISPLAYSPECOPTIONS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSDSOF_DONTSIGNSEAL: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSDSOF_DSAVAILABLE: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSDSOF_HASUSERANDSERVERINFO: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSDSOF_SIMPLEAUTHENTICATE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSECAF_NOTLISTED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSGIF_DEFAULTISCONTAINER: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSGIF_GETDEFAULTICON: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSGIF_ISDISABLED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSGIF_ISMASK: u32 = 15u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSGIF_ISNORMAL: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSGIF_ISOPEN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSICCF_IGNORETREATASLEAF: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
@@ -2503,41 +2593,77 @@ impl ::core::default::Default for DSOBJECTNAMES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOBJECT_ISCONTAINER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOBJECT_READONLYPAGES: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_ALL_APP_PACKAGES: u32 = 2281701376u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_ALL_WELLKNOWN_SIDS: u32 = 2147614720u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_ANONYMOUS: u32 = 2147483712u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_AUTHENTICATED_USER: u32 = 2147483680u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_BATCH: u32 = 2147483776u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_COMPUTERS: u32 = 2147483656u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_CREATOR_GROUP: u32 = 2147484160u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_CREATOR_OWNER: u32 = 2147483904u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_DIALUP: u32 = 2147484672u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_EXCLUDE_BUILTIN_GROUPS: u32 = 2147516416u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_GLOBAL_GROUPS: u32 = 2147483652u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_IIS_APP_POOL: u32 = 2214592512u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_INTERACTIVE: u32 = 2147485696u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_INTERNET_USER: u32 = 2149580800u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_LOCAL_ACCOUNTS: u32 = 2415919104u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_LOCAL_GROUPS: u32 = 2147483650u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_LOCAL_LOGON: u32 = 2164260864u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_LOCAL_SERVICE: u32 = 2147745792u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_NETWORK: u32 = 2147487744u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_NETWORK_SERVICE: u32 = 2148007936u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_OWNER_RIGHTS: u32 = 2151677952u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_REMOTE_LOGON: u32 = 2148532224u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_SERVICE: u32 = 2147491840u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_SERVICES: u32 = 2155872256u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_SYSTEM: u32 = 2147500032u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_TERMINAL_SERVER: u32 = 2147549184u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_THIS_ORG_CERT: u32 = 2181038080u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_USERS: u32 = 2147483649u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_DOWNLEVEL_FILTER_WORLD: u32 = 2147483664u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_FILTER_BUILTIN_GROUPS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_FILTER_COMPUTERS: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_FILTER_CONTACTS: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_DL: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_SE: u32 = 512u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
@@ -2565,16 +2691,27 @@ impl ::core::default::Default for DSOP_FILTER_FLAGS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_FILTER_GLOBAL_GROUPS_DL: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_FILTER_GLOBAL_GROUPS_SE: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_FILTER_INCLUDE_ADVANCED_VIEW: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_FILTER_PASSWORDSETTINGS_OBJECTS: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_FILTER_SERVICE_ACCOUNTS: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_FILTER_UNIVERSAL_GROUPS_DL: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_FILTER_UNIVERSAL_GROUPS_SE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_FILTER_USERS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_FILTER_WELL_KNOWN_PRINCIPALS: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_FLAG_MULTISELECT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_FLAG_SKIP_TARGET_COMPUTER_DC_CHECK: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
@@ -2614,17 +2751,29 @@ impl ::core::default::Default for DSOP_INIT_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_COMPUTERS: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_CONTACTS: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_GROUPS: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_PASSWORDSETTINGS_OBJECTS: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_SERVICE_ACCOUNTS: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_USERS: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_FLAG_STARTING_SCOPE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_FLAG_WANT_DOWNLEVEL_BUILTIN_PATH: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_GC: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_LDAP: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_WINNT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_FLAG_WANT_SID_PATH: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
@@ -2664,15 +2813,25 @@ impl ::core::default::Default for DSOP_SCOPE_INIT_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_TYPE_DOWNLEVEL_JOINED_DOMAIN: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_TYPE_ENTERPRISE_DOMAIN: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_TYPE_EXTERNAL_DOWNLEVEL_DOMAIN: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_TYPE_EXTERNAL_UPLEVEL_DOMAIN: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_TYPE_GLOBAL_CATALOG: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_TYPE_TARGET_COMPUTER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_TYPE_UPLEVEL_JOINED_DOMAIN: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_TYPE_USER_ENTERED_DOWNLEVEL_SCOPE: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_TYPE_USER_ENTERED_UPLEVEL_SCOPE: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSOP_SCOPE_TYPE_WORKGROUP: u32 = 128u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
@@ -2726,20 +2885,35 @@ impl ::core::default::Default for DSPROPERTYPAGEINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSPROVIDER_ADVANCED: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSPROVIDER_AD_LDS: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSPROVIDER_UNUSED_0: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSPROVIDER_UNUSED_1: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSPROVIDER_UNUSED_2: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSPROVIDER_UNUSED_3: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSQPF_ENABLEADMINFEATURES: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSQPF_ENABLEADVANCEDFEATURES: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSQPF_HASCREDENTIALS: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSQPF_NOCHOOSECOLUMNS: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSQPF_NOSAVE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSQPF_SAVELOCATION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSQPF_SHOWHIDDENOBJECTS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSQPM_GETCLASSLIST: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSQPM_HELPTOPICS: u32 = 268435457u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
@@ -2891,6 +3065,7 @@ impl ::core::default::Default for DSROLE_OPERATION_STATE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: u32 = 16777216u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
@@ -2937,8 +3112,11 @@ pub const DsRolePrimaryDomainInfoBasic: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = 1i32;
 pub const DsRoleUpgradeStatus: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = 2i32;
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DsRoleOperationState: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = 3i32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSROLE_PRIMARY_DS_MIXED_MODE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSROLE_PRIMARY_DS_READONLY: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSROLE_PRIMARY_DS_RUNNING: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub type DSROLE_SERVER_STATE = i32;
@@ -2948,6 +3126,7 @@ pub const DsRoleServerUnknown: DSROLE_SERVER_STATE = 0i32;
 pub const DsRoleServerPrimary: DSROLE_SERVER_STATE = 1i32;
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DsRoleServerBackup: DSROLE_SERVER_STATE = 2i32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSROLE_UPGRADE_IN_PROGRESS: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
@@ -2975,33 +3154,61 @@ impl ::core::default::Default for DSROLE_UPGRADE_STATUS_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSSSF_DONTSIGNSEAL: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSSSF_DSAVAILABLE: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DSSSF_SIMPLEAUTHENTICATE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_AVOID_SELF: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_BACKGROUND_ONLY: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_BEHAVIOR_LONGHORN: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_BEHAVIOR_WIN2000: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_BEHAVIOR_WIN2003: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_BEHAVIOR_WIN2003_WITH_MIXED_DOMAINS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_BEHAVIOR_WIN2008: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_BEHAVIOR_WIN2008R2: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_BEHAVIOR_WIN2012: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_BEHAVIOR_WIN2012R2: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_BEHAVIOR_WIN2016: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_BEHAVIOR_WIN7: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_BEHAVIOR_WIN8: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_BEHAVIOR_WINBLUE: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_BEHAVIOR_WINTHRESHOLD: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_CLOSEST_FLAG: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_DIRECTORY_SERVICE_10_REQUIRED: u32 = 8388608u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_DIRECTORY_SERVICE_6_REQUIRED: u32 = 524288u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_DIRECTORY_SERVICE_8_REQUIRED: u32 = 2097152u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_DIRECTORY_SERVICE_9_REQUIRED: u32 = 4194304u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_DIRECTORY_SERVICE_PREFERRED: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_DIRECTORY_SERVICE_REQUIRED: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_DNS_CONTROLLER_FLAG: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_DNS_DOMAIN_FLAG: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_DNS_FOREST_FLAG: u32 = 2147483648u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
@@ -3261,11 +3468,17 @@ impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_3W {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_DOMAIN_DIRECT_INBOUND: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_DOMAIN_DIRECT_OUTBOUND: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_DOMAIN_IN_FOREST: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_DOMAIN_NATIVE_MODE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_DOMAIN_PRIMARY: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_DOMAIN_TREE_ROOT: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
@@ -3345,39 +3558,69 @@ impl ::core::default::Default for DS_DOMAIN_TRUSTSW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_DS_10_FLAG: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_DS_8_FLAG: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_DS_9_FLAG: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_DS_FLAG: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_EXIST_ADVISORY_MODE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_FORCE_REDISCOVERY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_FULL_SECRET_DOMAIN_6_FLAG: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_GC_FLAG: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_GC_SERVER_REQUIRED: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_GFTI_UPDATE_TDO: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_GFTI_VALID_FLAGS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_GOOD_TIMESERV_FLAG: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_GOOD_TIMESERV_PREFERRED: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_INSTANCETYPE_IS_NC_HEAD: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_INSTANCETYPE_NC_COMING: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_INSTANCETYPE_NC_GOING: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_INSTANCETYPE_NC_IS_WRITEABLE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_IP_REQUIRED: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_IS_DNS_NAME: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_IS_FLAT_NAME: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_KCC_FLAG_ASYNC_OP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_KCC_FLAG_DAMPED: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub type DS_KCC_TASKID = i32;
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_KCC_TASKID_UPDATE_TOPOLOGY: DS_KCC_TASKID = 0i32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_KDC_FLAG: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_KDC_REQUIRED: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_KEY_LIST_FLAG: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_KEY_LIST_SUPPORT_REQUIRED: u32 = 16777216u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_LDAP_FLAG: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_LIST_ACCOUNT_OBJECT_FOR_SERVER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_LIST_DNS_HOST_NAME_FOR_SERVER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_LIST_DSA_OBJECT_FOR_SERVER: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub type DS_MANGLE_FOR = i32;
@@ -3575,33 +3818,61 @@ impl ::core::default::Default for DS_NAME_RESULT_ITEMW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_NDNC_FLAG: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_NOTIFY_AFTER_SITE_RECORDS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_ONLY_DO_SITE_NAME: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_ONLY_LDAP_NEEDED: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_PDC_FLAG: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_PDC_REQUIRED: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_PING_FLAGS: u32 = 1048575u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPADD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPADD_ASYNCHRONOUS_REPLICA: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPADD_CRITICAL: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPADD_DISABLE_NOTIFICATION: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPADD_DISABLE_PERIODIC: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPADD_INITIAL: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPADD_INTERSITE_MESSAGING: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPADD_NEVER_NOTIFY: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPADD_NONGC_RO_REPLICA: u32 = 16777216u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPADD_PERIODIC: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPADD_SELECT_SECRETS: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPADD_TWO_WAY: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPADD_USE_COMPRESSION: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPADD_WRITEABLE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPDEL_ASYNCHRONOUS_OPERATION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPDEL_IGNORE_ERRORS: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPDEL_INTERSITE_MESSAGING: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPDEL_LOCAL_ONLY: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPDEL_NO_SOURCE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPDEL_REF_OK: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPDEL_WRITEABLE: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
@@ -4043,6 +4314,7 @@ impl ::core::default::Default for DS_REPL_CURSOR_BLOB {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPL_INFO_FLAG_IMPROVE_LINKED_ATTRS: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub type DS_REPL_INFO_TYPE = i32;
@@ -4178,23 +4450,41 @@ impl ::core::default::Default for DS_REPL_KCC_DSA_FAILUREW_BLOB {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPL_NBR_COMPRESS_CHANGES: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPL_NBR_DISABLE_SCHEDULED_SYNC: u32 = 134217728u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPL_NBR_DO_SCHEDULED_SYNCS: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPL_NBR_FULL_SYNC_IN_PROGRESS: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPL_NBR_FULL_SYNC_NEXT_PACKET: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPL_NBR_GCSPN: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPL_NBR_IGNORE_CHANGE_NOTIFICATIONS: u32 = 67108864u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPL_NBR_NEVER_SYNCED: u32 = 2097152u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPL_NBR_NONGC_RO_REPLICA: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPL_NBR_NO_CHANGE_NOTIFICATIONS: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPL_NBR_PARTIAL_ATTRIBUTE_SET: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPL_NBR_PREEMPTED: u32 = 16777216u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPL_NBR_RETURN_OBJECT_PARENTS: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPL_NBR_SELECT_SECRETS: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPL_NBR_SYNC_ON_STARTUP: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPL_NBR_TWO_WAY_SYNC: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPL_NBR_WRITEABLE: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
@@ -4778,16 +5068,27 @@ impl ::core::default::Default for DS_REPL_VALUE_META_DATA_EXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPMOD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPMOD_UPDATE_ADDRESS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPMOD_UPDATE_FLAGS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPMOD_UPDATE_INSTANCE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPMOD_UPDATE_RESULT: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPMOD_UPDATE_SCHEDULE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPMOD_UPDATE_TRANSPORT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPMOD_WRITEABLE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNCALL_CROSS_SITE_BOUNDARIES: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNCALL_DO_NOT_SYNC: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
@@ -4877,9 +5178,13 @@ pub const DS_REPSYNCALL_EVENT_SYNC_STARTED: DS_REPSYNCALL_EVENT = 1i32;
 pub const DS_REPSYNCALL_EVENT_SYNC_COMPLETED: DS_REPSYNCALL_EVENT = 2i32;
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNCALL_EVENT_FINISHED: DS_REPSYNCALL_EVENT = 3i32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNCALL_ID_SERVERS_BY_DN: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNCALL_NO_OPTIONS: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNCALL_SKIP_INITIAL_CHECK: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
@@ -4953,6 +5258,7 @@ impl ::core::default::Default for DS_REPSYNCALL_SYNCW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
@@ -5022,46 +5328,87 @@ impl ::core::default::Default for DS_REPSYNCALL_UPDATEW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_ABANDONED: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_ADD_REFERENCE: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_ASYNCHRONOUS_OPERATION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_ASYNCHRONOUS_REPLICA: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_CRITICAL: u32 = 2097152u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_FORCE: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_FULL: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_FULL_IN_PROGRESS: u32 = 4194304u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_INITIAL: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_INITIAL_IN_PROGRESS: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_INTERSITE_MESSAGING: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_NEVER_COMPLETED: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_NEVER_NOTIFY: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_NONGC_RO_REPLICA: u32 = 16777216u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_NOTIFICATION: u32 = 524288u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_NO_DISCARD: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_PARTIAL_ATTRIBUTE_SET: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_PERIODIC: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_PREEMPTED: u32 = 8388608u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_REQUEUE: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_SELECT_SECRETS: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_TWO_WAY: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_URGENT: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_USE_COMPRESSION: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPSYNC_WRITEABLE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPUPD_ADD_REFERENCE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPUPD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPUPD_DELETE_REFERENCE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPUPD_REFERENCE_GCSPN: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_REPUPD_WRITEABLE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_RETURN_DNS_NAME: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_RETURN_FLAT_NAME: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_ROLE_DOMAIN_OWNER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_ROLE_INFRASTRUCTURE_OWNER: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_ROLE_PDC_OWNER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_ROLE_RID_OWNER: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_ROLE_SCHEMA_OWNER: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_SCHEMA_GUID_ATTR: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_SCHEMA_GUID_ATTR_SET: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_SCHEMA_GUID_CLASS: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_SCHEMA_GUID_CONTROL_RIGHT: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
@@ -5131,6 +5478,7 @@ impl ::core::default::Default for DS_SCHEMA_GUID_MAPW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_SCHEMA_GUID_NOT_FOUND: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -5203,6 +5551,7 @@ impl ::core::default::Default for DS_SELECTION_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_SELECT_SECRET_DOMAIN_6_FLAG: u32 = 2048u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
@@ -5252,12 +5601,19 @@ pub const DS_SPN_ADD_SPN_OP: DS_SPN_WRITE_OP = 0i32;
 pub const DS_SPN_REPLACE_SPN_OP: DS_SPN_WRITE_OP = 1i32;
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_SPN_DELETE_SPN_OP: DS_SPN_WRITE_OP = 2i32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_TIMESERV_FLAG: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_TIMESERV_REQUIRED: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_TRY_NEXTCLOSEST_SITE: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_WEB_SERVICE_REQUIRED: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_WRITABLE_FLAG: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_WRITABLE_REQUIRED: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const DS_WS_FLAG: u32 = 8192u32;
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7188,14 +7544,23 @@ pub unsafe fn DsWriteAccountSpnW<'a, Param0: ::windows::core::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 pub const Email: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f92a857_478e_11d1_a3b4_00c04fb950dc);
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const FACILITY_BACKUP: u32 = 2047u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const FACILITY_NTDSB: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const FACILITY_SYSTEM: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const FLAG_DISABLABLE_OPTIONAL_FEATURE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const FLAG_DOMAIN_OPTIONAL_FEATURE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const FLAG_FOREST_OPTIONAL_FEATURE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const FLAG_SERVER_OPTIONAL_FEATURE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const FRSCONN_MAX_PRIORITY: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const FRSCONN_PRIORITY_MASK: u32 = 1879048192u32;
 pub const FaxNumber: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5062215_4681_11d1_a3b4_00c04fb950dc);
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
@@ -21462,56 +21827,107 @@ pub type LPCQPAGEPROC = ::core::option::Option<unsafe extern "system" fn(ppage: 
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDSENUMATTRIBUTES = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pszattributename: super::super::Foundation::PWSTR, pszdisplayname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT>;
 pub const LargeInteger: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x927971f5_0939_11d1_8be1_00c04fd8d503);
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSAPI_BIND_ALLOW_DELEGATION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSAPI_BIND_FIND_BINDING: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSAPI_BIND_FORCE_KERBEROS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSCONN_KCC_GC_TOPOLOGY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSCONN_KCC_INTERSITE_GC_TOPOLOGY: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSCONN_KCC_INTERSITE_TOPOLOGY: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSCONN_KCC_MINIMIZE_HOPS_TOPOLOGY: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSCONN_KCC_NO_REASON: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSCONN_KCC_OSCILLATING_CONNECTION_TOPOLOGY: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSCONN_KCC_REDUNDANT_SERVER_TOPOLOGY: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSCONN_KCC_RING_TOPOLOGY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSCONN_KCC_SERVER_FAILOVER_TOPOLOGY: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSCONN_KCC_SITE_FAILOVER_TOPOLOGY: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSCONN_KCC_STALE_SERVERS_TOPOLOGY: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSCONN_OPT_DISABLE_INTERSITE_COMPRESSION: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSCONN_OPT_IGNORE_SCHEDULE_MASK: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSCONN_OPT_IS_GENERATED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSCONN_OPT_OVERRIDE_NOTIFY_DEFAULT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSCONN_OPT_RODC_TOPOLOGY: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSCONN_OPT_TWOWAY_SYNC: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSCONN_OPT_USER_OWNED_SCHEDULE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSCONN_OPT_USE_NOTIFY: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSDSA_OPT_BLOCK_RPC: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSDSA_OPT_DISABLE_INBOUND_REPL: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSDSA_OPT_DISABLE_NTDSCONN_XLATE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSDSA_OPT_DISABLE_OUTBOUND_REPL: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSDSA_OPT_DISABLE_SPN_REGISTRATION: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSDSA_OPT_GENERATE_OWN_TOPO: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSDSA_OPT_IS_GC: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSETTINGS_DEFAULT_SERVER_REDUNDANCY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSETTINGS_OPT_FORCE_KCC_W2K_ELECTION: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSETTINGS_OPT_FORCE_KCC_WHISTLER_BEHAVIOR: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSETTINGS_OPT_IS_AUTO_TOPOLOGY_DISABLED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSETTINGS_OPT_IS_GROUP_CACHING_ENABLED: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSETTINGS_OPT_IS_INTER_SITE_AUTO_TOPOLOGY_DISABLED: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSETTINGS_OPT_IS_RAND_BH_SELECTION_DISABLED: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSETTINGS_OPT_IS_REDUNDANT_SERVER_TOPOLOGY_ENABLED: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSETTINGS_OPT_IS_SCHEDULE_HASHING_ENABLED: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSETTINGS_OPT_IS_TOPL_CLEANUP_DISABLED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSETTINGS_OPT_IS_TOPL_DETECT_STALE_DISABLED: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSETTINGS_OPT_IS_TOPL_MIN_HOPS_DISABLED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSETTINGS_OPT_W2K3_BRIDGES_REQUIRED: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSETTINGS_OPT_W2K3_IGNORE_SCHEDULES: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSITECONN_OPT_DISABLE_COMPRESSION: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSITECONN_OPT_TWOWAY_SYNC: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSITECONN_OPT_USE_NOTIFY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSITELINK_OPT_DISABLE_COMPRESSION: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSITELINK_OPT_TWOWAY_SYNC: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSSITELINK_OPT_USE_NOTIFY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSTRANSPORT_OPT_BRIDGES_REQUIRED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const NTDSTRANSPORT_OPT_IGNORE_SCHEDULES: u32 = 1u32;
 pub const NameTranslate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x274fae1f_3626_11d1_a3a4_00c04fb950dc);
 pub const NetAddress: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0b71247_4080_11d1_a3ac_00c04fb950dc);
@@ -21590,17 +22006,29 @@ impl ::core::default::Default for OPENQUERYWINDOW_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const OQWF_DEFAULTFORM: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const OQWF_HIDEMENUS: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const OQWF_HIDESEARCHUI: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const OQWF_ISSUEONOPEN: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const OQWF_LOADQUERY: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const OQWF_OKCANCEL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const OQWF_PARAMISPROPERTYBAG: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const OQWF_REMOVEFORMS: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const OQWF_REMOVESCOPES: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const OQWF_SAVEQUERYONOK: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const OQWF_SHOWOPTIONAL: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const OQWF_SINGLESELECT: u32 = 4u32;
 pub const OctetList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1241400f_4680_11d1_a3b4_00c04fb950dc);
 pub const Path: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2538919_4080_11d1_a3ac_00c04fb950dc);
@@ -21623,7 +22051,9 @@ pub unsafe fn PropVariantToAdsType(pvariant: *mut super::super::System::Com::VAR
 }
 pub const PropertyEntry: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72d3edc2_a4c4_11d0_8533_00c04fd8d503);
 pub const PropertyValue: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b9e38b0_a97c_11d0_8534_00c04fd8d503);
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const QUERYFORM_CHANGESFORMLIST: u64 = 1u64;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const QUERYFORM_CHANGESOPTFORMLIST: u64 = 2u64;
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 #[inline]
@@ -21683,6 +22113,7 @@ impl ::core::default::Default for SCHEDULE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const SCHEDULE_BANDWIDTH: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
@@ -21710,11 +22141,17 @@ impl ::core::default::Default for SCHEDULE_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const SCHEDULE_INTERVAL: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const SCHEDULE_PRIORITY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const STATUS_SEVERITY_ERROR: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const STATUS_SEVERITY_INFORMATIONAL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const STATUS_SEVERITY_SUCCESS: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const STATUS_SEVERITY_WARNING: u32 = 2u32;
 pub const SecurityDescriptor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb958f73c_9bdd_11d0_852c_00c04fd8d503);
 #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_Security', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -21734,13 +22171,21 @@ pub unsafe fn SecurityDescriptorToBinarySD<'a, Param0: ::windows::core::IntoPara
 }
 pub const Timestamp: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2bed2eb_4080_11d1_a3ac_00c04fb950dc);
 pub const TypedName: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb33143cb_4080_11d1_a3ac_00c04fb950dc);
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const WM_ADSPROP_NOTIFY_APPLY: u32 = 2128u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const WM_ADSPROP_NOTIFY_CHANGE: u32 = 2127u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const WM_ADSPROP_NOTIFY_ERROR: u32 = 2134u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const WM_ADSPROP_NOTIFY_EXIT: u32 = 2131u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const WM_ADSPROP_NOTIFY_FOREGROUND: u32 = 2130u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const WM_ADSPROP_NOTIFY_PAGEHWND: u32 = 2126u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const WM_ADSPROP_NOTIFY_PAGEINIT: u32 = 2125u32;
+#[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
 pub const WM_ADSPROP_NOTIFY_SETFOCUS: u32 = 2129u32;
 pub const WinNTSystemInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66182ec4_afd1_11d2_9cb9_0000f87a369e);
 #[repr(C)]

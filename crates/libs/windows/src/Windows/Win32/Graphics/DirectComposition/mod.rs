@@ -1,5 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 pub const COMPOSITIONOBJECT_READ: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 pub const COMPOSITIONOBJECT_WRITE: i32 = 2i32;
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 pub type COMPOSITION_FRAME_ID_TYPE = i32;
@@ -64,6 +66,7 @@ impl ::core::default::Default for COMPOSITION_STATS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 pub const COMPOSITION_STATS_MAX_TARGETS: u32 = 256u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Foundation'*"]
@@ -210,6 +213,7 @@ impl ::core::default::Default for DCOMPOSITION_FRAME_STATISTICS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 pub const DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 pub type DCOMPOSITION_OPACITY_MODE = i32;

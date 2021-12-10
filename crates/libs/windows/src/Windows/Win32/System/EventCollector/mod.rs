@@ -1,7 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_EventCollector'*"]
 pub const EC_CREATE_NEW: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_EventCollector'*"]
 pub const EC_OPEN_ALWAYS: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_EventCollector'*"]
 pub const EC_OPEN_EXISTING: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_EventCollector'*"]
 pub const EC_READ_ACCESS: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_EventCollector'*"]
 pub type EC_SUBSCRIPTION_CONFIGURATION_MODE = i32;
@@ -227,8 +231,11 @@ pub const EcVarTypeDateTime: EC_VARIANT_TYPE = 3i32;
 pub const EcVarTypeString: EC_VARIANT_TYPE = 4i32;
 #[doc = "*Required features: 'Win32_System_EventCollector'*"]
 pub const EcVarObjectArrayPropertyHandle: EC_VARIANT_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_EventCollector'*"]
 pub const EC_VARIANT_TYPE_ARRAY: u32 = 128u32;
+#[doc = "*Required features: 'Win32_System_EventCollector'*"]
 pub const EC_VARIANT_TYPE_MASK: u32 = 127u32;
+#[doc = "*Required features: 'Win32_System_EventCollector'*"]
 pub const EC_WRITE_ACCESS: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_EventCollector', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

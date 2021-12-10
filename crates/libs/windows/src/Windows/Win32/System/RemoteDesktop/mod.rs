@@ -97,6 +97,7 @@ pub const AA_UNTRUSTED: AATrustClassID = 0i32;
 pub const AA_TRUSTEDUSER_UNTRUSTEDCLIENT: AATrustClassID = 1i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const AA_TRUSTEDUSER_TRUSTEDCLIENT: AATrustClassID = 2i32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const ACQUIRE_TARGET_LOCK_TIMEOUT: u32 = 300000u32;
 pub const ADsTSUserEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2e9cae6_1e7b_4b8e_babd_e9bf6292ac29);
 #[repr(C)]
@@ -165,7 +166,9 @@ impl ::core::default::Default for BITMAP_RENDERER_STATISTICS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_BUFFER_SIZE: u32 = 65535u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_CHUNK_LENGTH: u32 = 1600u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
@@ -237,30 +240,55 @@ impl ::core::default::Default for CHANNEL_ENTRY_POINTS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_EVENT_CONNECTED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_EVENT_DATA_RECEIVED: u32 = 10u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_EVENT_DISCONNECTED: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_EVENT_INITIALIZED: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_EVENT_TERMINATED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_EVENT_V1_CONNECTED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_EVENT_WRITE_CANCELLED: u32 = 12u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_EVENT_WRITE_COMPLETE: u32 = 11u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_FLAG_FAIL: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_FLAG_FIRST: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_FLAG_LAST: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_FLAG_MIDDLE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_MAX_COUNT: u32 = 30u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_NAME_LEN: u32 = 7u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_OPTION_COMPRESS: u32 = 4194304u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_OPTION_COMPRESS_RDP: u32 = 8388608u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_OPTION_ENCRYPT_CS: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_OPTION_ENCRYPT_RDP: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_OPTION_ENCRYPT_SC: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_OPTION_INITIALIZED: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_OPTION_PRI_HIGH: u32 = 134217728u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_OPTION_PRI_LOW: u32 = 33554432u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_OPTION_PRI_MED: u32 = 67108864u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_OPTION_REMOTE_CONTROL_PERSISTENT: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_OPTION_SHOW_PROTOCOL: u32 = 2097152u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
@@ -288,28 +316,51 @@ impl ::core::default::Default for CHANNEL_PDU_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_ALREADY_CONNECTED: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_ALREADY_INITIALIZED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_ALREADY_OPEN: u32 = 14u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_BAD_CHANNEL: u32 = 6u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_BAD_CHANNEL_HANDLE: u32 = 7u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_BAD_INIT_HANDLE: u32 = 9u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_BAD_PROC: u32 = 11u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_INITIALIZATION_ERROR: u32 = 20u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_INVALID_INSTANCE: u32 = 18u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_NOT_CONNECTED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_NOT_INITIALIZED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_NOT_IN_VIRTUALCHANNELENTRY: u32 = 15u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_NOT_OPEN: u32 = 10u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_NO_BUFFER: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_NO_MEMORY: u32 = 12u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_NULL_DATA: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_OK: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_TOO_MANY_CHANNELS: u32 = 5u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_UNKNOWN_CHANNEL_NAME: u32 = 13u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_UNSUPPORTED_VERSION: u32 = 19u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CHANNEL_RC_ZERO_LENGTH: u32 = 17u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CLIENTADDRESS_LENGTH: u32 = 30u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const CLIENTNAME_LENGTH: u32 = 20u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
@@ -368,43 +419,81 @@ pub const CONNECTION_REQUEST_QUERY_PL_COMPLETED: CONNECTION_CHANGE_NOTIFICATION 
 pub const CONNECTION_REQUEST_ORCH_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = 8i32;
 pub const CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b150580_fea4_4d3c_9de4_7433a66618f7);
 pub const CONNECTION_PROPERTY_IDLE_TIME_WARNING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x693f7ff5_0c4e_4d17_b8e0_1f70325e5d58);
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_AX_ADMINMESSAGERECEIVED: u32 = 760u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_AX_AUTORECONNECTED: u32 = 756u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_AX_AUTORECONNECTING: u32 = 755u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_AX_CONNECTED: u32 = 751u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_AX_CONNECTING: u32 = 750u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_AX_DIALOGDISMISSED: u32 = 758u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_AX_DIALOGDISPLAYING: u32 = 757u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_AX_DISCONNECTED: u32 = 753u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_AX_KEYCOMBINATIONPRESSED: u32 = 761u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_AX_LOGINCOMPLETED: u32 = 752u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_AX_NETWORKSTATUSCHANGED: u32 = 759u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_AX_REMOTEDESKTOPSIZECHANGED: u32 = 762u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_AX_STATUSCHANGED: u32 = 754u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_AX_TOUCHPOINTERCURSORMOVED: u32 = 800u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_APPLY_SETTINGS: u32 = 722u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_ATTACH_EVENT: u32 = 706u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_CONNECT: u32 = 701u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_DELETE_SAVED_CREDENTIALS: u32 = 704u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_DETACH_EVENT: u32 = 707u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_DISCONNECT: u32 = 702u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_EXECUTE_REMOTE_ACTION: u32 = 732u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_GET_RDPPROPERTY: u32 = 721u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_GET_SNAPSHOT: u32 = 733u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_RECONNECT: u32 = 703u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_RESUME_SCREEN_UPDATES: u32 = 731u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_RETRIEVE_SETTINGS: u32 = 723u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_SET_RDPPROPERTY: u32 = 720u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_SUSPEND_SCREEN_UPDATES: u32 = 730u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_UPDATE_SESSION_DISPLAYSETTINGS: u32 = 705u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_PROP_REMOTEDESKTOPCLIENT_ACTIONS: u32 = 711u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_PROP_REMOTEDESKTOPCLIENT_SETTINGS: u32 = 710u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_ENABLED: u32 = 740u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_EVENTSENABLED: u32 = 741u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_POINTERSPEED: u32 = 742u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCH_POINTER: u32 = 712u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const DOMAIN_LENGTH: u32 = 17u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const FORCE_REJOIN: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const FORCE_REJOIN_IN_CLUSTERMODE: u32 = 3u32;
 pub type HwtsVirtualChannelHandle = isize;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
@@ -9285,6 +9374,7 @@ pub struct ItsPubPlugin2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userid: super::super::Foundation::PWSTR, poolid: super::super::Foundation::PWSTR, endpointname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const KEEP_EXISTING_SESSIONS: u32 = 8u32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub type KeyCombinationType = i32;
@@ -9300,22 +9390,35 @@ pub const KeyCombinationRight: KeyCombinationType = 3i32;
 pub const KeyCombinationDown: KeyCombinationType = 4i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const KeyCombinationScroll: KeyCombinationType = 5i32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const MAX_DATE_TIME_LENGTH: u32 = 56u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const MAX_ELAPSED_TIME_LENGTH: u32 = 15u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const MAX_POLICY_ATTRIBUTES: u32 = 20u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const MaxAppName_Len: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const MaxDomainName_Len: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const MaxFQDN_Len: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const MaxFarm_Len: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const MaxNetBiosName_Len: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const MaxNumOfExposed_IPs: u32 = 12u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const MaxUserName_Len: u32 = 104u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const NOTIFY_FOR_ALL_SESSIONS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const NOTIFY_FOR_THIS_SESSION: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub type PCHANNEL_INIT_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32)>;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub type PCHANNEL_OPEN_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(openhandle: u32, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32, totallength: u32, dataflags: u32)>;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const PLUGIN_CAPABILITY_EXTERNAL_REDIRECTION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub type PLUGIN_TYPE = i32;
@@ -9335,7 +9438,9 @@ pub const ORCHESTRATION_PLUGIN: PLUGIN_TYPE = 16i32;
 pub const PROVISIONING_PLUGIN: PLUGIN_TYPE = 32i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const TASK_PLUGIN: PLUGIN_TYPE = 64i32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const PRODUCTINFO_COMPANYNAME_LENGTH: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const PRODUCTINFO_PRODUCTID_LENGTH: u32 = 4u32;
 pub const PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cdfd28e_d0b9_4c1f_a5eb_6d1f6c6535b9);
 pub const PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed2c3fda_338d_4d3f_81a3_e767310d908e);
@@ -9432,14 +9537,23 @@ pub const RD_FARM_MANUAL_PERSONAL_RDSH: RD_FARM_TYPE = 4i32;
 pub const RD_FARM_AUTO_PERSONAL_RDSH: RD_FARM_TYPE = 5i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const RD_FARM_TYPE_UNKNOWN: RD_FARM_TYPE = -1i32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const REMOTECONTROL_KBDALT_HOTKEY: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const REMOTECONTROL_KBDCTRL_HOTKEY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const REMOTECONTROL_KBDSHIFT_HOTKEY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const RENDER_HINT_CLEAR: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const RENDER_HINT_MAPPEDWINDOW: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const RENDER_HINT_VIDEO: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const RESERVED_FOR_LEGACY: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const RFX_CLIENT_ID_LENGTH: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const RFX_GFX_MAX_SUPPORTED_MONITORS: u32 = 16u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
@@ -9700,7 +9814,9 @@ impl ::core::default::Default for RFX_GFX_MSG_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const RFX_GFX_MSG_PREFIX: u32 = 48u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const RFX_GFX_MSG_PREFIX_MASK: u32 = 48u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
@@ -9756,6 +9872,7 @@ impl ::core::default::Default for RFX_GFX_RECT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const RFX_RDP_MSG_PREFIX: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub type RemoteActionType = i32;
@@ -9769,6 +9886,7 @@ pub const RemoteActionSnap: RemoteActionType = 2i32;
 pub const RemoteActionStartScreen: RemoteActionType = 3i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const RemoteActionAppSwitch: RemoteActionType = 4i32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const SB_SYNCH_CONFLICT_MAX_WRITE_ATTEMPTS: u32 = 100u32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub type SESSION_TIMEOUT_ACTION_TYPE = i32;
@@ -9776,6 +9894,7 @@ pub type SESSION_TIMEOUT_ACTION_TYPE = i32;
 pub const SESSION_TIMEOUT_ACTION_DISCONNECT: SESSION_TIMEOUT_ACTION_TYPE = 0i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const SESSION_TIMEOUT_ACTION_SILENT_REAUTH: SESSION_TIMEOUT_ACTION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const SINGLE_SESSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub type SnapshotEncodingType = i32;
@@ -9958,10 +10077,15 @@ pub const TS_SB_SORT_BY_NONE: TS_SB_SORT_BY = 0i32;
 pub const TS_SB_SORT_BY_NAME: TS_SB_SORT_BY = 1i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const TS_SB_SORT_BY_PROP: TS_SB_SORT_BY = 2i32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const TS_VC_LISTENER_STATIC_CHANNEL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const USERNAME_LENGTH: u32 = 20u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const VALIDATIONINFORMATION_HARDWAREID_LENGTH: u32 = 20u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const VALIDATIONINFORMATION_LICENSE_LENGTH: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const VIRTUAL_CHANNEL_VERSION_WIN2000: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub type VM_HOST_NOTIFY_STATUS = i32;
@@ -10070,12 +10194,19 @@ impl ::core::default::Default for VM_PATCH_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WINSTATIONNAME_LENGTH: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WKS_FLAG_CLEAR_CREDS_ON_LAST_RESOURCE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WKS_FLAG_CREDS_AUTHENTICATED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WKS_FLAG_PASSWORD_ENCRYPTED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_CLIENTADDRESS_LENGTH: u32 = 30u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_CLIENTNAME_LENGTH: u32 = 20u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
@@ -10244,9 +10375,13 @@ pub type WRDS_CONNECTION_SETTING_LEVEL = i32;
 pub const WRDS_CONNECTION_SETTING_LEVEL_INVALID: WRDS_CONNECTION_SETTING_LEVEL = 0i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_CONNECTION_SETTING_LEVEL_1: WRDS_CONNECTION_SETTING_LEVEL = 1i32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_DEVICE_NAME_LENGTH: u32 = 19u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_DIRECTORY_LENGTH: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_DOMAIN_LENGTH: u32 = 255u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_DRIVER_NAME_LENGTH: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
@@ -10281,11 +10416,17 @@ impl ::core::default::Default for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_IMEFILENAME_LENGTH: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_INITIALPROGRAM_LENGTH: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_KEY_EXCHANGE_ALG_DH: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_KEY_EXCHANGE_ALG_RSA: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_LICENSE_PREAMBLE_VERSION: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_LICENSE_PROTOCOL_VERSION: u32 = 65536u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
@@ -10371,22 +10512,39 @@ pub type WRDS_LISTENER_SETTING_LEVEL = i32;
 pub const WRDS_LISTENER_SETTING_LEVEL_INVALID: WRDS_LISTENER_SETTING_LEVEL = 0i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_LISTENER_SETTING_LEVEL_1: WRDS_LISTENER_SETTING_LEVEL = 1i32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_MAX_CACHE_RESERVED: u32 = 20u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_MAX_COUNTERS: u32 = 100u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_MAX_DISPLAY_IOCTL_DATA: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_MAX_PROTOCOL_CACHE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_MAX_RESERVED: u32 = 100u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_PASSWORD_LENGTH: u32 = 255u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_PERF_DISABLE_CURSORSETTINGS: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_PERF_DISABLE_CURSOR_SHADOW: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_PERF_DISABLE_FULLWINDOWDRAG: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_PERF_DISABLE_MENUANIMATIONS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_PERF_DISABLE_NOTHING: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_PERF_DISABLE_THEMING: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_PERF_DISABLE_WALLPAPER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_PERF_ENABLE_DESKTOP_COMPOSITION: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_PERF_ENABLE_ENHANCED_GRAPHICS: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_PERF_ENABLE_FONT_SMOOTHING: u32 = 128u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
 pub const WRDS_SERVICE_ID_GRAPHICS_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2993f4d_02cf_4280_8c48_1624b44f8706);
 #[repr(C)]
@@ -10543,10 +10701,15 @@ pub const WRDS_SETTING_TYPE_MACHINE: WRDS_SETTING_TYPE = 1i32;
 pub const WRDS_SETTING_TYPE_USER: WRDS_SETTING_TYPE = 2i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_SETTING_TYPE_SAM: WRDS_SETTING_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_USERNAME_LENGTH: u32 = 255u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_VALUE_TYPE_BINARY: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_VALUE_TYPE_GUID: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_VALUE_TYPE_STRING: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRDS_VALUE_TYPE_ULONG: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub type WRdsGraphicsChannelType = i32;
@@ -10554,6 +10717,7 @@ pub type WRdsGraphicsChannelType = i32;
 pub const WRdsGraphicsChannelType_GuaranteedDelivery: WRdsGraphicsChannelType = 0i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRdsGraphicsChannelType_BestEffortDelivery: WRdsGraphicsChannelType = 1i32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WRdsGraphicsChannels_LossyChannelMaxMessageSize: u32 = 988u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
@@ -12452,13 +12616,21 @@ pub const WTS_CERT_TYPE_INVALID: WTS_CERT_TYPE = 0i32;
 pub const WTS_CERT_TYPE_PROPRIETORY: WTS_CERT_TYPE = 1i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_CERT_TYPE_X509: WTS_CERT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_CHANNEL_OPTION_DYNAMIC: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_CHANNEL_OPTION_DYNAMIC_NO_COMPRESS: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_HIGH: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_LOW: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_MED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_REAL: u32 = 6u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_CLIENTADDRESS_LENGTH: u32 = 30u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_CLIENTNAME_LENGTH: u32 = 20u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
@@ -12599,7 +12771,9 @@ impl ::core::default::Default for WTS_CLIENT_DISPLAY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_COMMENT_LENGTH: u32 = 60u32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub type WTS_CONFIG_CLASS = i32;
@@ -12669,8 +12843,11 @@ pub const WTSReset: WTS_CONNECTSTATE_CLASS = 7i32;
 pub const WTSDown: WTS_CONNECTSTATE_CLASS = 8i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTSInit: WTS_CONNECTSTATE_CLASS = 9i32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_CURRENT_SESSION: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_DEVICE_NAME_LENGTH: u32 = 19u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_DIRECTORY_LENGTH: u32 = 256u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
@@ -12698,21 +12875,37 @@ impl ::core::default::Default for WTS_DISPLAY_IOCTL {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_DOMAIN_LENGTH: u32 = 255u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_DRIVER_NAME_LENGTH: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_DRIVE_LENGTH: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_EVENT_ALL: u32 = 2147483647u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_EVENT_CONNECT: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_EVENT_CREATE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_EVENT_DELETE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_EVENT_DISCONNECT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_EVENT_FLUSH: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_EVENT_LICENSE: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_EVENT_LOGOFF: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_EVENT_LOGON: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_EVENT_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_EVENT_RENAME: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_EVENT_STATECHANGE: u32 = 128u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_IMEFILENAME_LENGTH: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub type WTS_INFO_CLASS = i32;
@@ -12776,8 +12969,11 @@ pub const WTSValidationInfo: WTS_INFO_CLASS = 27i32;
 pub const WTSSessionAddressV4: WTS_INFO_CLASS = 28i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTSIsRemoteSession: WTS_INFO_CLASS = 29i32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_INITIALPROGRAM_LENGTH: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_KEY_EXCHANGE_ALG_DH: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_KEY_EXCHANGE_ALG_RSA: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
@@ -12816,10 +13012,15 @@ impl ::core::default::Default for WTS_LICENSE_CAPABILITIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_LICENSE_PREAMBLE_VERSION: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_LICENSE_PROTOCOL_VERSION: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_LISTENER_CREATE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_LISTENER_NAME_LENGTH: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_LISTENER_UPDATE: u32 = 16u32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub type WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = i32;
@@ -12833,21 +13034,37 @@ pub const WTS_LOGON_ERR_HANDLED_SHOW: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = 2i32
 pub const WTS_LOGON_ERR_HANDLED_DONT_SHOW: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = 3i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_LOGON_ERR_HANDLED_DONT_SHOW_START_OVER: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = 4i32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_MAX_CACHE_RESERVED: u32 = 20u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_MAX_COUNTERS: u32 = 100u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_MAX_DISPLAY_IOCTL_DATA: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_MAX_PROTOCOL_CACHE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_MAX_RESERVED: u32 = 100u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_PASSWORD_LENGTH: u32 = 255u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_PERF_DISABLE_CURSORSETTINGS: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_PERF_DISABLE_CURSOR_SHADOW: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_PERF_DISABLE_FULLWINDOWDRAG: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_PERF_DISABLE_MENUANIMATIONS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_PERF_DISABLE_NOTHING: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_PERF_DISABLE_THEMING: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_PERF_DISABLE_WALLPAPER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_PERF_ENABLE_DESKTOP_COMPOSITION: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_PERF_ENABLE_ENHANCED_GRAPHICS: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_PERF_ENABLE_FONT_SMOOTHING: u32 = 128u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
@@ -13046,7 +13263,9 @@ impl ::core::default::Default for WTS_PROCESS_INFO_EXW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_PROCESS_INFO_LEVEL_0: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_PROCESS_INFO_LEVEL_1: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
@@ -13250,6 +13469,7 @@ impl ::core::default::Default for WTS_PROTOCOL_COUNTERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
@@ -13281,8 +13501,11 @@ impl ::core::default::Default for WTS_PROTOCOL_STATUS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_PROTOCOL_TYPE_CONSOLE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_PROTOCOL_TYPE_ICA: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_PROTOCOL_TYPE_RDP: u32 = 2u32;
 pub const WTS_QUERY_ALLOWED_INITIAL_APP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc77d1b30_5be1_4c6b_a0e1_bd6d2e5c9fcc);
 pub const WTS_QUERY_AUDIOENUM_DLL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bf4fa97_c883_4c2a_80ab_5a39c9af00db);
@@ -13304,16 +13527,27 @@ pub const WTS_SERVICE_NONE: WTS_RCM_SERVICE_STATE = 0i32;
 pub const WTS_SERVICE_START: WTS_RCM_SERVICE_STATE = 1i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_SERVICE_STOP: WTS_RCM_SERVICE_STATE = 2i32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_SECURITY_CONNECT: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_SECURITY_DISCONNECT: u32 = 512u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_SECURITY_GUEST_ACCESS: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_SECURITY_LOGOFF: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_SECURITY_LOGON: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_SECURITY_MESSAGE: u32 = 128u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_SECURITY_QUERY_INFORMATION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_SECURITY_REMOTE_CONTROL: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_SECURITY_RESET: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_SECURITY_SET_INFORMATION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_SECURITY_VIRTUAL_CHANNELS: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop', 'Win32_Foundation'*"]
@@ -13405,8 +13639,11 @@ impl ::core::default::Default for WTS_SERVICE_STATE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_SESSIONSTATE_LOCK: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_SESSIONSTATE_UNKNOWN: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_SESSIONSTATE_UNLOCK: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
@@ -13812,6 +14049,7 @@ pub const WTSTypeProcessInfoLevel0: WTS_TYPE_CLASS = 0i32;
 pub const WTSTypeProcessInfoLevel1: WTS_TYPE_CLASS = 1i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTSTypeSessionInfoLevel1: WTS_TYPE_CLASS = 2i32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_USERNAME_LENGTH: u32 = 255u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
@@ -13932,9 +14170,13 @@ impl ::core::default::Default for WTS_VALIDATION_INFORMATIONW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_VALUE_TYPE_BINARY: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_VALUE_TYPE_GUID: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_VALUE_TYPE_STRING: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_VALUE_TYPE_ULONG: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub type WTS_VIRTUAL_CLASS = i32;
@@ -13942,10 +14184,15 @@ pub type WTS_VIRTUAL_CLASS = i32;
 pub const WTSVirtualClientData: WTS_VIRTUAL_CLASS = 0i32;
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTSVirtualFileHandle: WTS_VIRTUAL_CLASS = 1i32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_WSD_FASTREBOOT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_WSD_LOGOFF: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_WSD_POWEROFF: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_WSD_REBOOT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]
 pub const WTS_WSD_SHUTDOWN: u32 = 2u32;
 pub const Workspace: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f1dfca6_3aad_48e1_8406_4bc21a501d7c);
 #[doc = "*Required features: 'Win32_System_RemoteDesktop'*"]

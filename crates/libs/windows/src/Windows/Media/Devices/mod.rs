@@ -5235,8 +5235,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IsoS
     }
 }
 #[doc = "*Required features: 'Media_Devices', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IsoSpeedPreset(pub i32);
+#[cfg(feature = "deprecated")]
 impl IsoSpeedPreset {
     pub const Auto: Self = Self(0i32);
     pub const Iso50: Self = Self(1i32);
@@ -5251,24 +5253,31 @@ impl IsoSpeedPreset {
     pub const Iso12800: Self = Self(10i32);
     pub const Iso25600: Self = Self(11i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for IsoSpeedPreset {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for IsoSpeedPreset {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for IsoSpeedPreset {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for IsoSpeedPreset {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for IsoSpeedPreset {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for IsoSpeedPreset {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.IsoSpeedPreset;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for IsoSpeedPreset {
     type DefaultType = Self;
 }

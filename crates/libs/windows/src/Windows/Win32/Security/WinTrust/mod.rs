@@ -1339,33 +1339,61 @@ impl ::core::default::Default for SPC_STATEMENT_TYPE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const SPC_UUID_LENGTH: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_MAX_STEPS: u32 = 38u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_CATALOGFILE: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_CERTSTORE: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_FILEIO: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_FINAL_CERTCHKPROV: u32 = 35u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_FINAL_CERTPROV: u32 = 34u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_FINAL_INITPROV: u32 = 31u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_FINAL_OBJPROV: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_FINAL_POLICYPROV: u32 = 36u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_FINAL_SIGPROV: u32 = 33u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_FINAL_UIPROV: u32 = 37u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_FINAL_WVTINIT: u32 = 30u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_MESSAGE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_MSG_CERTCHAIN: u32 = 15u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_MSG_COUNTERSIGCERT: u32 = 17u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_MSG_COUNTERSIGINFO: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_MSG_INNERCNT: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_MSG_INNERCNTTYPE: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_MSG_SIGNERCERT: u32 = 14u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_MSG_SIGNERCOUNT: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_MSG_SIGNERINFO: u32 = 13u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_MSG_STORE: u32 = 12u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_SIP: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_SIPSUBJINFO: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_VERIFY_MSGHASH: u32 = 18u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_VERIFY_MSGINDIRECTDATA: u32 = 19u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const TRUSTERROR_STEP_WVTPARAMS: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
@@ -1651,7 +1679,9 @@ pub type WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = u32;
 pub const DWACTION_ALLOCANDFILL: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = 1u32;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const DWACTION_FREE: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = 2u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WINTRUST_MAX_HASH_BYTES_TO_MAP_DEFAULT: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WINTRUST_MAX_HEADER_BYTES_TO_MAP_DEFAULT: u32 = 10485760u32;
 #[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub type WINTRUST_POLICY_FLAGS = u32;
@@ -1784,11 +1814,17 @@ impl ::core::default::Default for WIN_CERTIFICATE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WIN_CERT_REVISION_1_0: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WIN_CERT_REVISION_2_0: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WIN_CERT_TYPE_PKCS_SIGNED_DATA: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WIN_CERT_TYPE_RESERVED_1: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WIN_CERT_TYPE_TS_STACK_SIGNED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WIN_CERT_TYPE_X509: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
@@ -1950,14 +1986,23 @@ impl ::core::default::Default for WIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WSS_CERTTRUST_SUPPORT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WSS_INPUT_FLAG_MASK: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WSS_OBJTRUST_SUPPORT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WSS_OUTPUT_FLAG_MASK: u32 = 3758096384u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WSS_OUT_FILE_SUPPORTS_SEAL: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WSS_OUT_HAS_SEALING_INTENT: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WSS_OUT_SEALING_STATUS_VERIFIED: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WSS_SIGTRUST_SUPPORT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WSS_VERIFY_SEALING: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation', 'Win32_Security_Cryptography'*"]
@@ -2258,11 +2303,17 @@ pub unsafe fn WTHelperProvDataFromStateData<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WT_ADD_ACTION_ID_RET_RESULT_FLAG: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WT_CURRENT_VERSION: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WT_TRUSTDBDIALOG_NO_UI_FLAG: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WT_TRUSTDBDIALOG_ONLY_PUB_TAB_FLAG: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WT_TRUSTDBDIALOG_WRITE_IEAK_STORE_FLAG: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Security_WinTrust'*"]
 pub const WT_TRUSTDBDIALOG_WRITE_LEGACY_REG_FLAG: u32 = 256u32;
 #[doc = "*Required features: 'Win32_Security_WinTrust', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

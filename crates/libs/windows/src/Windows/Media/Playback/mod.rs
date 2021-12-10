@@ -7920,8 +7920,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 unsafe impl ::core::marker::Send for MediaPlayerRateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlayerRateChangedEventArgs {}
 #[doc = "*Required features: 'Media_Playback', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct MediaPlayerState(pub i32);
+#[cfg(feature = "deprecated")]
 impl MediaPlayerState {
     pub const Closed: Self = Self(0i32);
     pub const Opening: Self = Self(1i32);
@@ -7930,24 +7932,31 @@ impl MediaPlayerState {
     pub const Paused: Self = Self(4i32);
     pub const Stopped: Self = Self(5i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for MediaPlayerState {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for MediaPlayerState {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for MediaPlayerState {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for MediaPlayerState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for MediaPlayerState {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for MediaPlayerState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Playback.MediaPlayerState;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for MediaPlayerState {
     type DefaultType = Self;
 }

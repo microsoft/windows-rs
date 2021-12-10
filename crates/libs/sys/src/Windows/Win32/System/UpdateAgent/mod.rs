@@ -238,6 +238,7 @@ pub const ssWindowsUpdate: ServerSelection = 2i32;
 pub const ssOthers: ServerSelection = 3i32;
 pub const StringCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1925807476, data2: 31803, data3: 16558, data4: [183, 125, 171, 219, 34, 235, 166, 251] };
 pub const SystemInformation: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3223034784, data2: 48807, data3: 16826, data4: [182, 4, 208, 163, 111, 70, 145, 51] };
+#[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
 pub const UPDATE_LOCKDOWN_WEBSITE_ACCESS: u32 = 1u32;
 pub const UpdateCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 325293155, data2: 219, data3: 17990, data4: [128, 61, 82, 128, 38, 20, 13, 136] };
 pub const UpdateDownloader: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1538221386, data2: 23047, data3: 16996, data4: [162, 85, 159, 245, 76, 113, 81, 231] };

@@ -1411,6 +1411,7 @@ pub const SANDBOX_INERT: CREATE_RESTRICTED_TOKEN_FLAGS = 2u32;
 pub const LUA_TOKEN: CREATE_RESTRICTED_TOKEN_FLAGS = 4u32;
 #[doc = "*Required features: 'Win32_Security'*"]
 pub const WRITE_RESTRICTED: CREATE_RESTRICTED_TOKEN_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const CVT_SECONDS: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

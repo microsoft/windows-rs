@@ -53,10 +53,15 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn UnregisterDeviceWithManagement(enrollmentid: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
 }
+#[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
 pub const DEVICEREGISTRATIONTYPE_MAM: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
 pub const DEVICEREGISTRATIONTYPE_MDM_DEVICEWIDE_WITH_AAD: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
 pub const DEVICEREGISTRATIONTYPE_MDM_ONLY: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
 pub const DEVICEREGISTRATIONTYPE_MDM_USERSPECIFIC_WITH_AAD: u32 = 13u32;
+#[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
 pub const DEVICE_ENROLLER_FACILITY_CODE: u32 = 24u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration', 'Win32_Foundation'*"]
@@ -90,6 +95,7 @@ impl ::core::clone::Clone for MANAGEMENT_SERVICE_INFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
 pub const MDM_REGISTRATION_FACILITY_CODE: u32 = 25u32;
 #[doc = "*Required features: 'Win32_Management_MobileDeviceManagementRegistration'*"]
 pub const MENROLL_E_CERTAUTH_FAILED_TO_FIND_CERT: ::windows_sys::core::HRESULT = -2145910744i32;

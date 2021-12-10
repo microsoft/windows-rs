@@ -1,16 +1,29 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDM_FIRST: u32 = 1124u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDM_GETFILEPATH: u32 = 1125u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDM_GETFOLDERIDLIST: u32 = 1127u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDM_GETFOLDERPATH: u32 = 1126u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDM_GETSPEC: u32 = 1124u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDM_HIDECONTROL: u32 = 1129u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDM_LAST: u32 = 1224u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDM_SETCONTROLTEXT: u32 = 1128u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CDM_SETDEFEXT: u32 = 1130u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CD_LBSELADD: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CD_LBSELCHANGE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CD_LBSELNOITEMS: i32 = -1i32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const CD_LBSELSUB: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
@@ -490,35 +503,65 @@ pub const REGULAR_FONTTYPE: CHOOSEFONT_FONT_TYPE = 1024u16;
 pub const SCREEN_FONTTYPE: CHOOSEFONT_FONT_TYPE = 8192u16;
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const SIMULATED_FONTTYPE: CHOOSEFONT_FONT_TYPE = 32768u16;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_ADD: u32 = 712u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_BLUE: u32 = 708u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_BLUEACCEL: u32 = 728u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_BOX1: u32 = 720u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_CURRENT: u32 = 709u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_CUSTOM1: u32 = 721u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_ELEMENT: u32 = 716u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_GREEN: u32 = 707u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_GREENACCEL: u32 = 727u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_HUE: u32 = 703u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_HUEACCEL: u32 = 723u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_HUESCROLL: u32 = 700u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_LUM: u32 = 705u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_LUMACCEL: u32 = 725u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_LUMSCROLL: u32 = 702u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_MIX: u32 = 719u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_PALETTE: u32 = 718u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_RAINBOW: u32 = 710u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_RED: u32 = 706u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_REDACCEL: u32 = 726u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_SAMPLES: u32 = 717u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_SAT: u32 = 704u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_SATACCEL: u32 = 724u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_SATSCROLL: u32 = 701u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_SAVE: u32 = 711u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_SCHEMES: u32 = 715u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_SOLID: u32 = 713u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_SOLID_LEFT: u32 = 730u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_SOLID_RIGHT: u32 = 731u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const COLOR_TUNE: u32 = 714u32;
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub type COMMON_DLG_ERRORS = u32;
@@ -740,7 +783,9 @@ impl ::core::default::Default for DEVNAMES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const DLG_COLOR: u32 = 10u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const DN_DEFAULTPRN: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
@@ -974,13 +1019,21 @@ pub const FR_REPLACEALL: FINDREPLACE_FLAGS = 32u32;
 pub const FR_SHOWHELP: FINDREPLACE_FLAGS = 128u32;
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_WHOLEWORD: FINDREPLACE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FRM_FIRST: u32 = 1124u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FRM_LAST: u32 = 1224u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FRM_SETOPERATIONRESULT: u32 = 1124u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FRM_SETOPERATIONRESULTTEXT: u32 = 1125u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_NOWRAPAROUND: u32 = 524288u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_RAW: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_SHOWWRAPAROUND: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const FR_WRAPAROUND: u32 = 1048576u32;
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1258,7 +1311,9 @@ pub type LPPRINTHOOKPROC = ::core::option::Option<unsafe extern "system" fn(para
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPSETUPHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const NUM_BASIC_COLORS: u32 = 48u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const NUM_CUSTOM_COLORS: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
@@ -1592,8 +1647,11 @@ impl ::core::default::Default for OFNOTIFYW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_SHAREFALLTHROUGH: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_SHARENOWARN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const OFN_SHAREWARN: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
@@ -2379,8 +2437,11 @@ pub const PSD_NOWARNING: PAGESETUPDLG_FLAGS = 128u32;
 pub const PSD_RETURNDEFAULT: PAGESETUPDLG_FLAGS = 1024u32;
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PSD_SHOWHELP: PAGESETUPDLG_FLAGS = 2048u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_RESULT_APPLY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_RESULT_CANCEL: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PD_RESULT_PRINT: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
@@ -3028,6 +3089,7 @@ impl ::core::default::Default for PRINTPAGERANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const PS_OPENTYPE_FONTTYPE: u32 = 65536u32;
 #[doc = "*Required features: 'Win32_UI_Controls_Dialogs', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3149,16 +3211,29 @@ pub unsafe fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::super::super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const START_PAGE_GENERAL: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const SYMBOL_FONTTYPE: u32 = 524288u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const TT_OPENTYPE_FONTTYPE: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const TYPE1_FONTTYPE: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const WM_CHOOSEFONT_GETLOGFONT: u32 = 1025u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const WM_CHOOSEFONT_SETFLAGS: u32 = 1126u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const WM_CHOOSEFONT_SETLOGFONT: u32 = 1125u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const WM_PSD_ENVSTAMPRECT: u32 = 1029u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const WM_PSD_FULLPAGERECT: u32 = 1025u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const WM_PSD_GREEKTEXTRECT: u32 = 1028u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const WM_PSD_MARGINRECT: u32 = 1027u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const WM_PSD_MINMARGINRECT: u32 = 1026u32;
+#[doc = "*Required features: 'Win32_UI_Controls_Dialogs'*"]
 pub const WM_PSD_YAFULLPAGERECT: u32 = 1030u32;

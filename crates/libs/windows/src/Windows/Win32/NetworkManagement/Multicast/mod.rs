@@ -25,9 +25,13 @@ impl ::core::default::Default for IPNG_ADDRESS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
 pub const MCAST_API_CURRENT_VERSION: i32 = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
 pub const MCAST_API_VERSION_0: i32 = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
 pub const MCAST_API_VERSION_1: i32 = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
 pub const MCAST_CLIENT_ID_LEN: u32 = 17u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]

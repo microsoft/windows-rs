@@ -1,6 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_RestartManager'*"]
 pub const CCH_RM_MAX_APP_NAME: u32 = 255u32;
+#[doc = "*Required features: 'Win32_System_RestartManager'*"]
 pub const CCH_RM_MAX_SVC_NAME: u32 = 63u32;
+#[doc = "*Required features: 'Win32_System_RestartManager'*"]
 pub const CCH_RM_SESSION_KEY: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_RestartManager'*"]
 pub type RM_APP_STATUS = i32;
@@ -125,7 +128,9 @@ pub const RmFilterTriggerFile: RM_FILTER_TRIGGER = 1i32;
 pub const RmFilterTriggerProcess: RM_FILTER_TRIGGER = 2i32;
 #[doc = "*Required features: 'Win32_System_RestartManager'*"]
 pub const RmFilterTriggerService: RM_FILTER_TRIGGER = 3i32;
+#[doc = "*Required features: 'Win32_System_RestartManager'*"]
 pub const RM_INVALID_PROCESS: i32 = -1i32;
+#[doc = "*Required features: 'Win32_System_RestartManager'*"]
 pub const RM_INVALID_TS_SESSION: i32 = -1i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_RestartManager', 'Win32_Foundation'*"]

@@ -746,6 +746,7 @@ pub struct IUISimplePropertySetVtbl(
 pub const LIBID_UIRibbon: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x942f35c2_e83b_45ef_b085_ac295dd63d5b);
 pub const UIRibbonFramework: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x926749fa_2615_4987_8845_c33e65f2b957);
 pub const UIRibbonImageFromBitmapFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f7434b6_59b6_4250_999e_d168d6ae4293);
+#[doc = "*Required features: 'Win32_UI_Ribbon'*"]
 pub const UI_ALL_COMMANDS: u32 = 0u32;
 #[doc = "*Required features: 'Win32_UI_Ribbon'*"]
 pub type UI_COLLECTIONCHANGE = i32;
@@ -757,6 +758,7 @@ pub const UI_COLLECTIONCHANGE_REMOVE: UI_COLLECTIONCHANGE = 1i32;
 pub const UI_COLLECTIONCHANGE_REPLACE: UI_COLLECTIONCHANGE = 2i32;
 #[doc = "*Required features: 'Win32_UI_Ribbon'*"]
 pub const UI_COLLECTIONCHANGE_RESET: UI_COLLECTIONCHANGE = 3i32;
+#[doc = "*Required features: 'Win32_UI_Ribbon'*"]
 pub const UI_COLLECTION_INVALIDINDEX: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_UI_Ribbon'*"]
 pub type UI_COMMANDTYPE = i32;

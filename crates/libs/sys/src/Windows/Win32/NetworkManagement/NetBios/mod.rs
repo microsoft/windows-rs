@@ -55,10 +55,15 @@ impl ::core::clone::Clone for ADAPTER_STATUS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const ASYNCH: u32 = 128u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const CALL_PENDING: u32 = 2u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const DEREGISTERED: u32 = 5u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const DUPLICATE: u32 = 6u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const DUPLICATE_DEREG: u32 = 7u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
@@ -89,8 +94,11 @@ impl ::core::clone::Clone for FIND_NAME_HEADER {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const GROUP_NAME: u32 = 128u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const HANGUP_COMPLETE: u32 = 5u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const HANGUP_PENDING: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
@@ -104,7 +112,9 @@ impl ::core::clone::Clone for LANA_ENUM {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const LISTEN_OUTSTANDING: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const MAX_LANA: u32 = 254u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
@@ -119,6 +129,7 @@ impl ::core::clone::Clone for NAME_BUFFER {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NAME_FLAGS_MASK: u32 = 135u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetBios', 'Win32_Foundation'*"]
@@ -182,74 +193,143 @@ impl ::core::clone::Clone for NCB {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBACTION: u32 = 119u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBADDGRNAME: u32 = 54u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBADDNAME: u32 = 48u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBASTAT: u32 = 51u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBCALL: u32 = 16u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBCANCEL: u32 = 53u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBCHAINSEND: u32 = 23u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBCHAINSENDNA: u32 = 114u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBDELNAME: u32 = 49u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBDGRECV: u32 = 33u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBDGRECVBC: u32 = 35u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBDGSEND: u32 = 32u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBDGSENDBC: u32 = 34u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBENUM: u32 = 55u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBFINDNAME: u32 = 120u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBHANGUP: u32 = 18u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBLANSTALERT: u32 = 115u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBLISTEN: u32 = 17u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBNAMSZ: u32 = 16u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBRECV: u32 = 21u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBRECVANY: u32 = 22u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBRESET: u32 = 50u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBSEND: u32 = 20u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBSENDNA: u32 = 113u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBSSTAT: u32 = 52u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBTRACE: u32 = 121u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NCBUNLINK: u32 = 112u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_ACTSES: u32 = 15u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_BADDR: u32 = 7u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_BRIDGE: u32 = 35u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_BUFLEN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_CANCEL: u32 = 38u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_CANOCCR: u32 = 36u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_CMDCAN: u32 = 11u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_CMDTMO: u32 = 5u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_DUPENV: u32 = 48u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_DUPNAME: u32 = 13u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_ENVNOTDEF: u32 = 52u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_GOODRET: u32 = 0u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_IFBUSY: u32 = 33u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_ILLCMD: u32 = 3u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_ILLNN: u32 = 19u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_INCOMP: u32 = 6u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_INUSE: u32 = 22u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_INVADDRESS: u32 = 57u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_INVDDID: u32 = 59u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_LOCKFAIL: u32 = 60u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_LOCTFUL: u32 = 17u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_MAXAPPS: u32 = 54u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_NAMCONF: u32 = 25u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_NAMERR: u32 = 23u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_NAMTFUL: u32 = 14u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_NOCALL: u32 = 20u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_NORES: u32 = 9u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_NORESOURCES: u32 = 56u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_NOSAPS: u32 = 55u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_NOWILD: u32 = 21u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_OPENERR: u32 = 63u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_OSRESNOTAV: u32 = 53u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_PENDING: u32 = 255u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_REMTFUL: u32 = 18u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_SABORT: u32 = 24u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_SCLOSED: u32 = 10u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_SNUMOUT: u32 = 8u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_SYSTEM: u32 = 64u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const NRC_TOOMANY: u32 = 34u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const REGISTERED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const REGISTERING: u32 = 0u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const SESSION_ABORTED: u32 = 6u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
@@ -267,6 +347,7 @@ impl ::core::clone::Clone for SESSION_BUFFER {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const SESSION_ESTABLISHED: u32 = 3u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
@@ -282,4 +363,5 @@ impl ::core::clone::Clone for SESSION_HEADER {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_NetBios'*"]
 pub const UNIQUE_NAME: u32 = 0u32;

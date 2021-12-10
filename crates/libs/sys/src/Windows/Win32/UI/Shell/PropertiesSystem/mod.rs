@@ -768,6 +768,7 @@ pub const PKA_SET: PKA_FLAGS = 0i32;
 pub const PKA_APPEND: PKA_FLAGS = 1i32;
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
 pub const PKA_DELETE: PKA_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
 pub const PKEY_PIDSTR_MAX: u32 = 10u32;
 #[doc = "*Required features: 'Win32_UI_Shell_PropertiesSystem'*"]
 pub type PLACEHOLDER_STATES = i32;

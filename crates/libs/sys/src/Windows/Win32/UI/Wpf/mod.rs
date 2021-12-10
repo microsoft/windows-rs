@@ -25,6 +25,7 @@ pub type IMILBitmapEffectPrimitiveImpl = *mut ::core::ffi::c_void;
 pub type IMILBitmapEffectRenderContext = *mut ::core::ffi::c_void;
 pub type IMILBitmapEffectRenderContextImpl = *mut ::core::ffi::c_void;
 pub type IMILBitmapEffects = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 pub const MILBITMAPEFFECT_SDK_VERSION: u32 = 16777216u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Wpf'*"]

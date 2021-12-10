@@ -92,12 +92,19 @@ pub const HttpAuthenticationHardeningLegacy: HTTP_AUTHENTICATION_HARDENING_LEVEL
 pub const HttpAuthenticationHardeningMedium: HTTP_AUTHENTICATION_HARDENING_LEVELS = 1i32;
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HttpAuthenticationHardeningStrict: HTTP_AUTHENTICATION_HARDENING_LEVELS = 2i32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_AUTH_ENABLE_BASIC: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_AUTH_ENABLE_DIGEST: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_AUTH_ENABLE_KERBEROS: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_AUTH_ENABLE_NEGOTIATE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_AUTH_ENABLE_NTLM: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_AUTH_EX_FLAG_CAPTURE_CREDENTIAL: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_AUTH_EX_FLAG_ENABLE_KERBEROS_CREDENTIAL_CACHING: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub type HTTP_AUTH_STATUS = i32;
@@ -228,7 +235,9 @@ pub const HttpCachePolicyUserInvalidates: HTTP_CACHE_POLICY_TYPE = 1i32;
 pub const HttpCachePolicyTimeToLive: HTTP_CACHE_POLICY_TYPE = 2i32;
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HttpCachePolicyMaximum: HTTP_CACHE_POLICY_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_CHANNEL_BIND_CLIENT_SERVICE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_CHANNEL_BIND_DOTLESS_SERVICE: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
@@ -258,9 +267,13 @@ impl ::core::default::Default for HTTP_CHANNEL_BIND_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_CHANNEL_BIND_NO_SERVICE_NAME_CHECK: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_CHANNEL_BIND_PROXY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_CHANNEL_BIND_PROXY_COHOSTING: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_CHANNEL_BIND_SECURE_CHANNEL_TOKEN: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
@@ -327,8 +340,11 @@ impl ::core::default::Default for HTTP_COOKED_URL {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_CONTROLLER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_DELEGATION: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_CREATE_REQUEST_QUEUE_FLAG_OPEN_EXISTING: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub type HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = i32;
@@ -644,6 +660,7 @@ impl ::core::default::Default for HTTP_DELEGATE_REQUEST_PROPERTY_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_DEMAND_CBT: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub type HTTP_ENABLED_STATE = i32;
@@ -727,6 +744,7 @@ impl ::core::default::Default for HTTP_FLOWRATE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_FLUSH_RESPONSE_FLAG_RECURSIVE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub type HTTP_HEADER_ID = i32;
@@ -910,9 +928,13 @@ impl ::core::default::Default for HTTP_LISTEN_ENDPOINT_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOGGING_FLAG_LOCAL_TIME_ROLLOVER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOGGING_FLAG_LOG_ERRORS_ONLY: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOGGING_FLAG_LOG_SUCCESS_ONLY: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOGGING_FLAG_USE_UTF8_CONVERSION: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation', 'Win32_Security'*"]
@@ -1071,38 +1093,71 @@ impl ::core::default::Default for HTTP_LOG_FIELDS_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_BYTES_RECV: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_BYTES_SENT: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_CLIENT_IP: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_CLIENT_PORT: u32 = 4194304u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_COMPUTER_NAME: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_COOKIE: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_CORRELATION_ID: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_DATE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_HOST: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_METHOD: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_QUEUE_NAME: u32 = 67108864u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_REASON: u32 = 33554432u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_REFERER: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_SERVER_IP: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_SERVER_PORT: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_SITE_ID: u32 = 16777216u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_SITE_NAME: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_STATUS: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_STREAM_ID: u32 = 134217728u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_STREAM_ID_EX: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_SUB_STATUS: u32 = 2097152u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_TIME: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_TIME_TAKEN: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_TRANSPORT_TYPE: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_URI: u32 = 8388608u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_URI_QUERY: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_URI_STEM: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_USER_AGENT: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_USER_NAME: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_VERSION: u32 = 524288u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_LOG_FIELD_WIN32_STATUS: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_MAX_SERVER_QUEUE_LENGTH: u32 = 2147483647u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_MIN_SERVER_QUEUE_LENGTH: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
@@ -1430,6 +1485,7 @@ impl ::core::default::Default for HTTP_QUIC_STREAM_API_TIMINGS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_RECEIVE_FULL_CHAIN: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub type HTTP_RECEIVE_HTTP_REQUEST_FLAGS = u32;
@@ -1437,8 +1493,11 @@ pub type HTTP_RECEIVE_HTTP_REQUEST_FLAGS = u32;
 pub const HTTP_RECEIVE_REQUEST_FLAG_COPY_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS = 1u32;
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_RECEIVE_REQUEST_FLAG_FLUSH_BODY: HTTP_RECEIVE_HTTP_REQUEST_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_RECEIVE_REQUEST_ENTITY_BODY_FLAG_FILL_BUFFER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_RECEIVE_SECURE_CHANNEL_TOKEN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_REQUEST_AUTH_FLAG_TOKEN_FOR_CACHED_CRED: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
@@ -1526,9 +1585,13 @@ impl ::core::default::Default for HTTP_REQUEST_CHANNEL_BIND_STATUS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_REQUEST_FLAG_HTTP2: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_REQUEST_FLAG_HTTP3: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_REQUEST_FLAG_IP_ROUTED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_REQUEST_FLAG_MORE_ENTITY_BODY_EXISTS: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
@@ -1659,8 +1722,11 @@ impl ::core::default::Default for HTTP_REQUEST_PROPERTY_SNI {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_REQUEST_PROPERTY_SNI_FLAG_NO_SNI: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_REQUEST_PROPERTY_SNI_FLAG_SNI_USED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_REQUEST_PROPERTY_SNI_HOST_MAX_LENGTH: u32 = 255u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
@@ -1715,9 +1781,13 @@ impl ::core::default::Default for HTTP_REQUEST_SIZING_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_REQUEST_SIZING_INFO_FLAG_FIRST_REQUEST: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_REQUEST_SIZING_INFO_FLAG_TCP_FAST_OPEN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_REQUEST_SIZING_INFO_FLAG_TLS_FALSE_START: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_REQUEST_SIZING_INFO_FLAG_TLS_SESSION_RESUMPTION: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub type HTTP_REQUEST_SIZING_TYPE = i32;
@@ -1935,7 +2005,9 @@ impl ::core::default::Default for HTTP_REQUEST_V2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_RESPONSE_FLAG_MORE_ENTITY_BODY_EXISTS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_RESPONSE_FLAG_MULTIPLE_ENCODINGS_AVAILABLE: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
@@ -2000,6 +2072,7 @@ impl ::core::default::Default for HTTP_RESPONSE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_RESPONSE_INFO_FLAGS_PRESERVE_ORDER: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub type HTTP_RESPONSE_INFO_TYPE = i32;
@@ -2092,12 +2165,19 @@ pub const HttpSchemeHttp: HTTP_SCHEME = 0i32;
 pub const HttpSchemeHttps: HTTP_SCHEME = 1i32;
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HttpSchemeMaximum: HTTP_SCHEME = 2i32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SEND_RESPONSE_FLAG_BUFFER_DATA: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SEND_RESPONSE_FLAG_DISCONNECT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SEND_RESPONSE_FLAG_ENABLE_NAGLING: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SEND_RESPONSE_FLAG_GOAWAY: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SEND_RESPONSE_FLAG_MORE_DATA: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SEND_RESPONSE_FLAG_OPAQUE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SEND_RESPONSE_FLAG_PROCESS_RANGES: u32 = 32u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
@@ -2670,19 +2750,33 @@ impl ::core::default::Default for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_HTTP2: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_LEGACY_TLS: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_OCSP_STAPLING: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_QUIC: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_TLS12: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_TLS13: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_ENABLE_CLIENT_CORRELATION: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_ENABLE_SESSION_TICKET: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_ENABLE_TOKEN_BINDING: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_LOG_EXTENDED_EVENTS: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_NEGOTIATE_CLIENT_CERT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_NO_RAW_FILTER: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_REJECT: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_USE_DS_MAPPER: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
@@ -3625,6 +3719,7 @@ impl ::core::default::Default for HTTP_UNKNOWN_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub const HTTP_URL_FLAG_REMOVE_ALL: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
 pub type HTTP_VERB = i32;

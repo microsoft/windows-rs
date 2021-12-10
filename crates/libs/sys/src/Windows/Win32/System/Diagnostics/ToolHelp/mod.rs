@@ -110,8 +110,11 @@ impl ::core::clone::Clone for HEAPLIST32 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_ToolHelp'*"]
 pub const HF32_DEFAULT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_ToolHelp'*"]
 pub const HF32_SHARED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_ToolHelp'*"]
 pub const MAX_MODULE_NAME32: u32 = 255u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Diagnostics_ToolHelp', 'Win32_Foundation'*"]

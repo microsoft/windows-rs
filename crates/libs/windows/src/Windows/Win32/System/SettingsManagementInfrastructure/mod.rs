@@ -962,7 +962,9 @@ pub struct ITargetInfoVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmountname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const LIMITED_VALIDATION_MODE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const LINK_STORE_TO_ENGINE_INSTANCE: u32 = 1u32;
 pub const SettingsEngine: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bb5_20b3_11da_81a5_0030f1642e3c);
 #[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
@@ -1055,7 +1057,9 @@ pub const WCM_E_VALIDATIONFAILED: ::windows::core::HRESULT = ::windows::core::HR
 pub const WCM_E_VALUETOOBIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255386i32);
 #[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_E_WRONGESCAPESTRING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255412i32);
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_SETTINGS_ID_FLAG_DEFINITION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_SETTINGS_ID_FLAG_REFERENCE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_SettingsManagementInfrastructure'*"]
 pub const WCM_S_ATTRIBUTENOTALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(2232325i32);

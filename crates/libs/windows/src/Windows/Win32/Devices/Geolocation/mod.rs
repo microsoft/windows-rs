@@ -1,17 +1,26 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const BREADCRUMBING_UNSUPPORTED: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const BREADCRUMBING_VERSION_1: u32 = 1u32;
 pub const CivicAddressReport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd39e7bdd_7d05_46b8_8721_80cf035f57d7);
 pub const CivicAddressReportFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a11f42c_3e81_4ad4_9cbe_45579d89671a);
 pub const DefaultLocation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b7fbfe0_5cd7_494a_af8c_283a65707506);
 pub const DispCivicAddressReport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c596aec_8544_4082_ba9f_eb0a7d8e65c6);
 pub const DispLatLongReport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a7c3277_8f84_4636_95b2_ebb5507ff77e);
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_AGNSSFORMAT_LTO: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_AGNSSFORMAT_XTRA1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_AGNSSFORMAT_XTRA2: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_AGNSSFORMAT_XTRA3: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_AGNSSFORMAT_XTRA3_1: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_AGNSSFORMAT_XTRA3_2: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_AGNSSFORMAT_XTRA_INT: u32 = 64u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
@@ -680,11 +689,17 @@ impl ::core::default::Default for GNSS_DRIVER_REQUEST_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_DRIVER_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_DRIVER_VERSION_2: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_DRIVER_VERSION_3: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_DRIVER_VERSION_4: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_DRIVER_VERSION_5: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_DRIVER_VERSION_6: u32 = 6u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
@@ -1166,8 +1181,11 @@ impl ::core::default::Default for GNSS_FIXDATA_SATELLITE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_FIXDETAIL_ACCURACY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_FIXDETAIL_BASIC: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_FIXDETAIL_SATELLITE: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub type GNSS_FIXSESSIONTYPE = i32;
@@ -1242,7 +1260,9 @@ impl ::core::default::Default for GNSS_FIXSESSION_PARAM_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_GEOFENCESUPPORT_CIRCLE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_GEOFENCESUPPORT_SUPPORTED: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
@@ -1524,6 +1544,7 @@ impl ::core::default::Default for GNSS_LKGFIX_PARAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_MAXSATELLITE: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub type GNSS_NI_NOTIFICATION_TYPE = i32;
@@ -1661,7 +1682,9 @@ pub const GNSS_Ni_UserResponseAccept: GNSS_NI_USER_RESPONSE = 1i32;
 pub const GNSS_Ni_UserResponseDeny: GNSS_NI_USER_RESPONSE = 2i32;
 #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_Ni_UserResponseTimeout: GNSS_NI_USER_RESPONSE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_NMEALOGGING_ALL: u32 = 255u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_NMEALOGGING_NONE: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
@@ -1697,12 +1720,19 @@ impl ::core::default::Default for GNSS_NMEA_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_OPERMODE_AFLT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_OPERMODE_ANY: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_OPERMODE_CELLID: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_OPERMODE_MSA: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_OPERMODE_MSB: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_OPERMODE_MSS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_OPERMODE_OTDOA: u32 = 32u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
@@ -1776,10 +1806,15 @@ impl ::core::default::Default for GNSS_SATELLITEINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_SATELLITE_ANY: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_SATELLITE_BEIDOU: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_SATELLITE_GALILEO: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_SATELLITE_GLONASS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_SATELLITE_GPS: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
@@ -3529,34 +3564,63 @@ pub struct ILocationReportFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desiredaccuracy: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: *const u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_CONFIG_SUPL_CERT: u32 = 2228488u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_CREATE_GEOFENCE: u32 = 2228544u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_DELETE_GEOFENCE: u32 = 2228548u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_EXECUTE_CWTEST: u32 = 2228496u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_EXECUTE_SELFTEST: u32 = 2228500u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_GET_CHIPSETINFO: u32 = 2228504u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_GET_DEVICE_CAPABILITY: u32 = 2228232u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_GET_FIXDATA: u32 = 2228300u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_INJECT_AGNSS: u32 = 2228352u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_LISTEN_AGNSS: u32 = 2228416u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_LISTEN_BREADCRUMBING_ALERT: u32 = 2228680u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_LISTEN_DRIVER_REQUEST: u32 = 2228608u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_LISTEN_ERROR: u32 = 2228420u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_LISTEN_GEOFENCES_TRACKINGSTATUS: u32 = 2228556u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_LISTEN_GEOFENCE_ALERT: u32 = 2228552u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_LISTEN_NI: u32 = 2228480u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_LISTEN_NMEA: u32 = 2228508u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_MODIFY_FIXSESSION: u32 = 2228292u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_POP_BREADCRUMBS: u32 = 2228684u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_RESPOND_NI: u32 = 2228492u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_SEND_DRIVERCOMMAND: u32 = 2228236u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_SEND_PLATFORM_CAPABILITY: u32 = 2228228u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_SET_SUPL_HSLP: u32 = 2228484u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_SET_V2UPL_CONFIG: u32 = 2228512u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_START_BREADCRUMBING: u32 = 2228672u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_START_FIXSESSION: u32 = 2228288u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_STOP_BREADCRUMBING: u32 = 2228676u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_STOP_FIXSESSION: u32 = 2228296u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const LOCATION_API_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub type LOCATION_REPORT_STATUS = i32;
@@ -3573,8 +3637,11 @@ pub const REPORT_RUNNING: LOCATION_REPORT_STATUS = 4i32;
 pub const LatLongReport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed81c073_1f84_4ca8_a161_183c776bc651);
 pub const LatLongReportFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9dcc3cc8_8609_4863_bad4_03601f4c65e8);
 pub const Location: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5b8e079_ee6d_4e33_a438_c87f2e959254);
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const MAX_SERVER_URL_NAME: u32 = 260u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const MIN_BREADCRUMBS_SUPPORTED: u32 = 120u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const MIN_GEOFENCES_REQUIRED: u32 = 100u32;
 #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 #[repr(transparent)]

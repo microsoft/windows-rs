@@ -900,11 +900,17 @@ pub const CRMREGFLAG_ALLPHASES: CRMREGFLAGS = 7i32;
 #[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CRMREGFLAG_FAILIFINDOUBTSREMAIN: CRMREGFLAGS = 16i32;
 pub const CRMRecoveryClerk: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0be_7f19_11d2_978e_0000f8757e2a);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CRR_ACTIVATION_LIMIT: u32 = 4294967294u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CRR_CALL_LIMIT: u32 = 4294967293u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CRR_LIFETIME_LIMIT: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CRR_MEMORY_LIMIT: u32 = 4294967292u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CRR_NO_REASON_SUPPLIED: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const CRR_RECYCLED_FROM_UI: u32 = 4294967291u32;
 #[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type CSC_Binding = i32;
@@ -1514,6 +1520,7 @@ pub const TxState_Committed: CrmTransactionState = 1i32;
 pub const TxState_Aborted: CrmTransactionState = 2i32;
 #[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const TxState_Indoubt: CrmTransactionState = 3i32;
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const DATA_NOT_AVAILABLE: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type DUMPTYPE = i32;
@@ -1526,6 +1533,7 @@ pub const DUMPTYPE_NONE: DUMPTYPE = 2i32;
 pub const DispenserManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c0_7f19_11d2_978e_0000f8757e2a);
 pub const Dummy30040732: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a9_7f19_11d2_978e_0000f8757e2a);
 pub const EventServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabafbc_7f19_11d2_978e_0000f8757e2a);
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const GUID_STRING_SIZE: u32 = 40u32;
 #[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub type GetAppTrackerDataFlags = i32;
@@ -11998,6 +12006,7 @@ pub unsafe fn MTSCreateActivity(riid: *const ::windows::core::GUID, ppobj: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_ComponentServices'*"]
 pub const MTXDM_E_ENLISTRESOURCEFAILED: u32 = 2147803392u32;
 pub const MessageMover: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0bf_7f19_11d2_978e_0000f8757e2a);
 pub const MtsGrp: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b2e958d_0393_11d1_b1ab_00aa00ba3258);

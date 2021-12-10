@@ -158,14 +158,23 @@ pub unsafe fn BackupClusterDatabase<'a, Param1: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const BitLockerDecrypted: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const BitLockerDecrypting: i32 = 16i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const BitLockerEnabled: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const BitLockerPaused: i32 = 64i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const BitLockerStopped: i32 = 128i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const BitlockerEncrypted: i32 = 8i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const BitlockerEncrypting: i32 = 32i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CA_UPGRADE_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLCTL_CLUSTER_BASE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type CLCTL_CODES = i32;
@@ -555,9 +564,13 @@ pub const CLCTL_VALIDATE_CHANGE_GROUP: CLCTL_CODES = 1057061i32;
 pub const CLCTL_CHECK_DRAIN_VETO: CLCTL_CODES = 1057069i32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLCTL_NOTIFY_DRAIN_COMPLETE: CLCTL_CODES = 1057073i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLCTL_GLOBAL_SHIFT: u32 = 23u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLCTL_INTERNAL_SHIFT: u32 = 20u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLCTL_MODIFY_SHIFT: u32 = 22u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLCTL_USER_SHIFT: u32 = 21u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
@@ -847,9 +860,13 @@ impl ::core::default::Default for CLRES_V4_FUNCTIONS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLRES_VERSION_V1_00: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLRES_VERSION_V2_00: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLRES_VERSION_V3_00: u32 = 768u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLRES_VERSION_V4_00: u32 = 1024u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type CLUADMEX_OBJECT_TYPE = i32;
@@ -869,49 +886,93 @@ pub const CLUADMEX_OT_RESOURCETYPE: CLUADMEX_OBJECT_TYPE = 5i32;
 pub const CLUADMEX_OT_NETWORK: CLUADMEX_OBJECT_TYPE = 6i32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUADMEX_OT_NETINTERFACE: CLUADMEX_OBJECT_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_CHANGE_ACCESS: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_CHANGE_RESOURCE_GROUP_FORCE_MOVE_TO_CSV: u64 = 1u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_GROUP_MOVE_FAILBACK: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_GROUP_MOVE_HIGH_PRIORITY_START: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_GROUP_MOVE_IGNORE_AFFINITY_RULE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_GROUP_MOVE_IGNORE_RESOURCE_STATUS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_GROUP_MOVE_QUEUE_ENABLED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_GROUP_MOVE_RETURN_TO_SOURCE_NODE_ON_ERROR: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_GROUP_OFFLINE_IGNORE_RESOURCE_STATUS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_GROUP_ONLINE_BEST_POSSIBLE_NODE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_GROUP_ONLINE_IGNORE_AFFINITY_RULE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_GROUP_ONLINE_IGNORE_RESOURCE_STATUS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_GROUP_ONLINE_SYNCHRONOUS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_NODE_AVOID_PLACEMENT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_NODE_PAUSE_REMAIN_ON_PAUSED_NODE_ON_MOVE_ERROR: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_NODE_PAUSE_RETRY_DRAIN_ON_FAILURE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_NO_ACCESS: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_READ_ACCESS: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_RESOURCE_OFFLINE_DO_NOT_UPDATE_PERSISTENT_STATE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_RESOURCE_OFFLINE_FORCE_WITH_TERMINATION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_RESOURCE_OFFLINE_IGNORE_RESOURCE_STATUS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_RESOURCE_OFFLINE_REASON_BEING_DELETED: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_RESOURCE_OFFLINE_REASON_BEING_RESTARTED: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_RESOURCE_OFFLINE_REASON_MOVING: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_RESOURCE_OFFLINE_REASON_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_RESOURCE_OFFLINE_REASON_PREEMPTED: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_RESOURCE_OFFLINE_REASON_SHUTTING_DOWN: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_RESOURCE_OFFLINE_REASON_UNKNOWN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_RESOURCE_OFFLINE_REASON_USER_REQUESTED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_RESOURCE_ONLINE_BEST_POSSIBLE_NODE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_RESOURCE_ONLINE_DO_NOT_UPDATE_PERSISTENT_STATE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_RESOURCE_ONLINE_IGNORE_AFFINITY_RULE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_RESOURCE_ONLINE_IGNORE_RESOURCE_STATUS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_RESOURCE_ONLINE_NECESSARY_FOR_QUORUM: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_VALID_CHANGE_RESOURCE_GROUP_FLAGS: u64 = 1u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_VERSION: u32 = 2560u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_VERSION_RS3: u32 = 2560u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_VERSION_SERVER2008: u32 = 1536u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_VERSION_SERVER2008R2: u32 = 1792u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_VERSION_WINDOWS8: u32 = 1793u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_VERSION_WINDOWSBLUE: u32 = 1794u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_VERSION_WINTHRESHOLD: u32 = 1795u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_ACCESS_MODE_MASK: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_ACCESS_SHIFT: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type CLUSCTL_AFFINITYRULE_CODES = i32;
@@ -1003,8 +1064,11 @@ pub const CLUSCTL_CLUSTER_GET_NODES_IN_FD: CLUSCTL_CLUSTER_CODES = 117452257i32;
 pub const CLUSCTL_CLUSTER_FORCE_FLUSH_DB: CLUSCTL_CLUSTER_CODES = 121646566i32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_CLUSTER_GET_CLMUSR_TOKEN: CLUSCTL_CLUSTER_CODES = 117440877i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_CONTROL_CODE_MASK: u32 = 4194303u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_FUNCTION_SHIFT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_GET_OPERATION_CONTEXT_PARAMS_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type CLUSCTL_GROUPSET_CODES = i32;
@@ -1230,7 +1294,9 @@ pub const CLUSCTL_NODE_SEND_DUMMY_GEM_MESSAGES: CLUSCTL_NODE_CODES = 67109577i32
 pub const CLUSCTL_NODE_BLOCK_GEM_SEND_RECV: CLUSCTL_NODE_CODES = 67109581i32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_NODE_GET_GEMID_VECTOR: CLUSCTL_NODE_CODES = 67109585i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_OBJECT_MASK: u32 = 255u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_OBJECT_SHIFT: u32 = 24u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type CLUSCTL_RESOURCE_CODES = i32;
@@ -1481,6 +1547,7 @@ impl ::core::default::Default for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_RESOURCE_STATE_CHANGE_REASON_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type CLUSCTL_RESOURCE_TYPE_CODES = i32;
@@ -1614,8 +1681,11 @@ pub const CLUSCTL_RESOURCE_TYPE_NOTIFY_MONITOR_SHUTTING_DOWN: CLUSCTL_RESOURCE_T
 pub const CLUSCTL_RESOURCE_TYPE_CHECK_DRAIN_VETO: CLUSCTL_RESOURCE_TYPE_CODES = 34611501i32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_RESOURCE_TYPE_NOTIFY_DRAIN_COMPLETE: CLUSCTL_RESOURCE_TYPE_CODES = 34611505i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_ADD_VOLUME_INFO: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_FILTER_BY_POOL: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_INCLUDE_NON_SHARED_DISKS: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -1643,9 +1713,13 @@ impl ::core::default::Default for CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DI
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSGROUPSET_STATUS_APPLICATION_READY: u64 = 8u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSGROUPSET_STATUS_GROUPS_ONLINE: u64 = 2u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSGROUPSET_STATUS_GROUPS_PENDING: u64 = 1u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSGROUPSET_STATUS_OS_HEARTBEAT: u64 = 4u64;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type CLUSGROUP_TYPE = i32;
@@ -1709,18 +1783,31 @@ pub const ClusGroupTypeInfrastructureFileServer: CLUSGROUP_TYPE = 122i32;
 pub const ClusGroupTypeCoreSddc: CLUSGROUP_TYPE = 123i32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const ClusGroupTypeUnknown: CLUSGROUP_TYPE = 9999i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSGRP_STATUS_APPLICATION_READY: u64 = 1024u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSGRP_STATUS_EMBEDDED_FAILURE: u64 = 32u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSGRP_STATUS_LOCKED_MODE: u64 = 1u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSGRP_STATUS_NETWORK_FAILURE: u64 = 128u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSGRP_STATUS_OFFLINE_DUE_TO_ANTIAFFINITY_CONFLICT: u64 = 64u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSGRP_STATUS_OFFLINE_NOT_LOCAL_DISK_OWNER: u64 = 2048u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSGRP_STATUS_OS_HEARTBEAT: u64 = 512u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSGRP_STATUS_PHYSICAL_RESOURCES_LACKING: u64 = 8u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSGRP_STATUS_PREEMPTED: u64 = 2u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSGRP_STATUS_UNMONITORED: u64 = 256u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSGRP_STATUS_WAITING_FOR_DEPENDENCIES: u64 = 4096u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSGRP_STATUS_WAITING_IN_QUEUE_FOR_MOVE: u64 = 4u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSGRP_STATUS_WAITING_TO_START: u64 = 16u64;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -2401,28 +2488,51 @@ impl ::core::default::Default for CLUSPROP_WORD {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSREG_DATABASE_ISOLATE_READ: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSREG_DATABASE_SYNC_WRITE_TO_ALL_NODES: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRESDLL_STATUS_DO_NOT_COLLECT_WER_REPORT: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRESDLL_STATUS_DUMP_NOW: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRESDLL_STATUS_INSUFFICIENT_MEMORY: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRESDLL_STATUS_INSUFFICIENT_OTHER_RESOURCES: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRESDLL_STATUS_INSUFFICIENT_PROCESSOR: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRESDLL_STATUS_INVALID_PARAMETERS: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRESDLL_STATUS_NETWORK_NOT_AVAILABLE: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRESDLL_STATUS_OFFLINE_BUSY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRESDLL_STATUS_OFFLINE_DESTINATION_REJECTED: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRESDLL_STATUS_OFFLINE_DESTINATION_THROTTLED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRESDLL_STATUS_OFFLINE_SOURCE_THROTTLED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRES_STATUS_APPLICATION_READY: u64 = 256u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRES_STATUS_EMBEDDED_FAILURE: u64 = 2u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRES_STATUS_FAILED_DUE_TO_INSUFFICIENT_CPU: u64 = 4u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRES_STATUS_FAILED_DUE_TO_INSUFFICIENT_GENERIC_RESOURCES: u64 = 16u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRES_STATUS_FAILED_DUE_TO_INSUFFICIENT_MEMORY: u64 = 8u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRES_STATUS_LOCKED_MODE: u64 = 1u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRES_STATUS_NETWORK_FAILURE: u64 = 32u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRES_STATUS_OFFLINE_NOT_LOCAL_DISK_OWNER: u64 = 512u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRES_STATUS_OS_HEARTBEAT: u64 = 128u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRES_STATUS_UNMONITORED: u64 = 64u64;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type CLUSTERSET_OBJECT_TYPE = i32;
@@ -2533,6 +2643,7 @@ impl ::core::default::Default for CLUSTER_AVAILABILITY_SET_CONFIG {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_AVAILABILITY_SET_CONFIG_V1: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
@@ -2858,6 +2969,7 @@ pub const CLUSTER_CLOUD_TYPE_AZURE: CLUSTER_CLOUD_TYPE = 1i32;
 pub const CLUSTER_CLOUD_TYPE_MIXED: CLUSTER_CLOUD_TYPE = 128i32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_CLOUD_TYPE_UNKNOWN: CLUSTER_CLOUD_TYPE = -1i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_CONFIGURED: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type CLUSTER_CONTROL_OBJECT = i32;
@@ -2909,7 +3021,9 @@ impl ::core::default::Default for CLUSTER_CREATE_GROUP_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_CREATE_GROUP_INFO_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_CREATE_GROUP_INFO_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type CLUSTER_CSV_VOLUME_FAULT_STATE = i32;
@@ -2923,6 +3037,7 @@ pub const VolumeStateNoAccess: CLUSTER_CSV_VOLUME_FAULT_STATE = 2i32;
 pub const VolumeStateInMaintenance: CLUSTER_CSV_VOLUME_FAULT_STATE = 4i32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const VolumeStateDismounted: CLUSTER_CSV_VOLUME_FAULT_STATE = 8i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_DELETE_ACCESS_CONTROL_ENTRY: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type CLUSTER_ENUM = i32;
@@ -2983,7 +3098,9 @@ impl ::core::default::Default for CLUSTER_ENUM_ITEM {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_ENUM_ITEM_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_ENUM_ITEM_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type CLUSTER_GROUP_AUTOFAILBACK_TYPE = i32;
@@ -3045,7 +3162,9 @@ impl ::core::default::Default for CLUSTER_GROUP_ENUM_ITEM {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type CLUSTER_GROUP_PRIORITY = i32;
@@ -3109,6 +3228,7 @@ impl ::core::default::Default for CLUSTER_HEALTH_FAULT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_HEALTH_FAULT_ARGS: u32 = 7u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
@@ -3143,13 +3263,21 @@ impl ::core::default::Default for CLUSTER_HEALTH_FAULT_ARRAY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_HEALTH_FAULT_DESCRIPTION: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_HEALTH_FAULT_ERRORCODE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_HEALTH_FAULT_ERRORTYPE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_HEALTH_FAULT_FLAGS: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_HEALTH_FAULT_ID: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_HEALTH_FAULT_PROVIDER: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_HEALTH_FAULT_RESERVED: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_INSTALLED: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
@@ -3679,7 +3807,9 @@ impl ::core::default::Default for CLUSTER_RESOURCE_ENUM_ITEM {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type CLUSTER_RESOURCE_RESTART_ACTION = i32;
@@ -3807,6 +3937,7 @@ pub const ClusterRoleUnknown: CLUSTER_ROLE_STATE = -1i32;
 pub const ClusterRoleClustered: CLUSTER_ROLE_STATE = 0i32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const ClusterRoleUnclustered: CLUSTER_ROLE_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_RUNNING: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type CLUSTER_SETUP_PHASE = i32;
@@ -3884,7 +4015,9 @@ pub const ClusterSetupPhaseContinue: CLUSTER_SETUP_PHASE_TYPE = 2i32;
 pub const ClusterSetupPhaseEnd: CLUSTER_SETUP_PHASE_TYPE = 3i32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const ClusterSetupPhaseReport: CLUSTER_SETUP_PHASE_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_SET_ACCESS_TYPE_ALLOWED: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_SET_ACCESS_TYPE_DENIED: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
@@ -4300,10 +4433,15 @@ impl ::core::default::Default for CLUSTER_VALIDATE_PATH {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_VERSION_FLAG_MIXED_MODE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_VERSION_UNKNOWN: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_ACCESS_ANY: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_ACCESS_READ: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_ACCESS_WRITE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type CLUS_AFFINITY_RULE_TYPE = i32;
@@ -4393,6 +4531,7 @@ impl ::core::default::Default for CLUS_CHKDSK_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_CREATE_CRYPT_CONTAINER_NOT_FOUND: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -4677,6 +4816,7 @@ impl ::core::default::Default for CLUS_FTSET_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_GLOBAL: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type CLUS_GROUP_START_SETTING = i32;
@@ -4686,8 +4826,11 @@ pub const CLUS_GROUP_START_ALWAYS: CLUS_GROUP_START_SETTING = 0i32;
 pub const CLUS_GROUP_DO_NOT_START: CLUS_GROUP_START_SETTING = 1i32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_GROUP_START_ALLOWED: CLUS_GROUP_START_SETTING = 2i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_GRP_MOVE_ALLOWED: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_GRP_MOVE_LOCKED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_HYBRID_QUORUM: u32 = 1024u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
@@ -4756,6 +4899,7 @@ impl ::core::default::Default for CLUS_MAINTENANCE_MODE_INFOEX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_MODIFY: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -4901,8 +5045,11 @@ impl ::core::default::Default for CLUS_NETNAME_VS_TOKEN_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_NODE_MAJORITY_QUORUM: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_NOT_GLOBAL: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_NO_MODIFY: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -5025,19 +5172,33 @@ impl ::core::default::Default for CLUS_PROVIDER_STATE_CHANGE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_RESDLL_OFFLINE_DO_NOT_UPDATE_PERSISTENT_STATE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_RESDLL_OFFLINE_DUE_TO_EMBEDDED_FAILURE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_RESDLL_OFFLINE_IGNORE_NETWORK_CONNECTIVITY: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_RESDLL_OFFLINE_IGNORE_RESOURCE_STATUS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_RESDLL_OFFLINE_QUEUE_ENABLED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_RESDLL_OFFLINE_RETURNING_TO_SOURCE_NODE_BECAUSE_OF_ERROR: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_RESDLL_OFFLINE_RETURN_TO_SOURCE_NODE_ON_ERROR: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_RESDLL_ONLINE_IGNORE_NETWORK_CONNECTIVITY: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_RESDLL_ONLINE_IGNORE_RESOURCE_STATUS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_RESDLL_ONLINE_RECOVER_MONITOR_STATE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_RESDLL_ONLINE_RESTORE_ONLINE_STATE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_RESDLL_ONLINE_RETURN_TO_SOURCE_NODE_ON_ERROR: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_RESDLL_OPEN_DONT_DELETE_TEMP_DISK: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_RESDLL_OPEN_RECOVER_MONITOR_STATE: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -5442,6 +5603,7 @@ impl ::core::default::Default for CLUS_WORKER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CREATEDC_PRESENT: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
@@ -5483,6 +5645,7 @@ impl ::core::default::Default for CREATE_CLUSTER_CONFIG {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CREATE_CLUSTER_MAJOR_VERSION_MASK: u32 = 4294967040u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
@@ -5524,6 +5687,7 @@ impl ::core::default::Default for CREATE_CLUSTER_NAME_ACCOUNT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CREATE_CLUSTER_VERSION: u32 = 1536u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7531,6 +7695,7 @@ pub unsafe fn CreateClusterResourceType<'a, Param1: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const DNS_LENGTH: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 #[inline]
@@ -7713,6 +7878,7 @@ pub const FAILURE_TYPE_GENERAL: FAILURE_TYPE = 0i32;
 pub const FAILURE_TYPE_EMBEDDED: FAILURE_TYPE = 1i32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const FAILURE_TYPE_NETWORK_LOSS: FAILURE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const FE_UPGRADE_VERSION: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -7862,9 +8028,13 @@ impl ::core::default::Default for GET_OPERATION_CONTEXT_PARAMS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const GROUPSET_READY_SETTING_APPLICATION_READY: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const GROUPSET_READY_SETTING_DELAY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const GROUPSET_READY_SETTING_ONLINE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const GROUPSET_READY_SETTING_OS_HEARTBEAT: u32 = 3u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -7918,6 +8088,7 @@ impl ::core::default::Default for GROUP_FAILURE_INFO_BUFFER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const GROUP_FAILURE_INFO_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type GRP_PLACEMENT_OPTIONS = i32;
@@ -7929,6 +8100,7 @@ pub const GRP_PLACEMENT_OPTIONS_DEFAULT: GRP_PLACEMENT_OPTIONS = 0i32;
 pub const GRP_PLACEMENT_OPTIONS_DISABLE_AUTOBALANCING: GRP_PLACEMENT_OPTIONS = 1i32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const GRP_PLACEMENT_OPTIONS_ALL: GRP_PLACEMENT_OPTIONS = 1i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const GUID_PRESENT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 #[inline]
@@ -8372,6 +8544,7 @@ pub unsafe fn GetNotifyEventHandle(hchange: *const _HCHANGE, lphtargetevent: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const HCI_UPGRADE_BIT: u32 = 32768u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 #[repr(transparent)]
@@ -15401,6 +15574,7 @@ pub unsafe fn IsFileOnClusterSharedVolume<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const LOCKED_MODE_FLAGS_DONT_REMOVE_FROM_MOVE_QUEUE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type LOG_LEVEL = i32;
@@ -15428,13 +15602,21 @@ pub const MaintenanceModeTypeDisableIsAliveCheck: MAINTENANCE_MODE_TYPE_ENUM = 1
 pub const MaintenanceModeTypeOfflineResource: MAINTENANCE_MODE_TYPE_ENUM = 2i32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const MaintenanceModeTypeUnclusterResource: MAINTENANCE_MODE_TYPE_ENUM = 3i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const MAINTENANCE_MODE_V2_SIG: u32 = 2881155087u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const MAX_CLUSTERNAME_LENGTH: u32 = 63u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const MAX_CO_PASSWORD_LENGTH: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const MAX_CO_PASSWORD_LENGTHEX: u32 = 127u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const MAX_CO_PASSWORD_STORAGEEX: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const MAX_CREATINGDC_LENGTH: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const MAX_OBJECTID: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const MN_UPGRADE_VERSION: u32 = 3u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
@@ -15499,8 +15681,11 @@ pub unsafe fn MoveClusterGroupEx(hgroup: *const _HGROUP, hdestinationnode: *cons
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const NINETEEN_H1_UPGRADE_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const NINETEEN_H2_UPGRADE_VERSION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const NNLEN: u32 = 80u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type NODE_CLUSTER_STATE = i32;
@@ -15538,17 +15723,29 @@ impl ::core::default::Default for NOTIFY_FILTER_AND_TYPE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const NT10_MAJOR_VERSION: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const NT11_MAJOR_VERSION: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const NT12_MAJOR_VERSION: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const NT13_MAJOR_VERSION: u32 = 12u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const NT4SP4_MAJOR_VERSION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const NT4_MAJOR_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const NT51_MAJOR_VERSION: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const NT5_MAJOR_VERSION: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const NT6_MAJOR_VERSION: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const NT7_MAJOR_VERSION: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const NT8_MAJOR_VERSION: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const NT9_MAJOR_VERSION: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -17057,6 +17254,7 @@ impl ::core::default::Default for RESOURCE_FAILURE_INFO_BUFFER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const RESOURCE_FAILURE_INFO_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type RESOURCE_MONITOR_STATE = i32;
@@ -17197,7 +17395,9 @@ impl ::core::default::Default for RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const RESTYPE_MONITOR_SHUTTING_DOWN_CLUSSVC_CRASH: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const RESTYPE_MONITOR_SHUTTING_DOWN_NODE_STOP: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
@@ -17336,9 +17536,13 @@ impl ::core::default::Default for RESUTIL_PROPERTY_ITEM_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const RESUTIL_PROPITEM_IN_MEMORY: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const RESUTIL_PROPITEM_READ_ONLY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const RESUTIL_PROPITEM_REQUIRED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const RESUTIL_PROPITEM_SIGNED: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -17367,15 +17571,25 @@ impl ::core::default::Default for RESUTIL_ULARGEINT_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const RS3_UPGRADE_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const RS4_UPGRADE_VERSION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const RS5_UPGRADE_VERSION: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const RedirectedIOReasonBitLockerInitializing: u64 = 16u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const RedirectedIOReasonFileSystemTiering: u64 = 8u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const RedirectedIOReasonMax: u64 = 9223372036854775808u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const RedirectedIOReasonReFs: u64 = 32u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const RedirectedIOReasonUnsafeFileSystemFilter: u64 = 2u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const RedirectedIOReasonUnsafeVolumeFilter: u64 = 4u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const RedirectedIOReasonUserRequest: u64 = 1u64;
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -19113,6 +19327,7 @@ pub unsafe fn ResumeClusterNodeEx(hnode: *const _HNODE, eresumefailbacktype: CLU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const SET_APPINSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -19161,6 +19376,7 @@ pub const SrReplicatedDiskTypeNotInParthership: SR_REPLICATED_DISK_TYPE = 5i32;
 pub const SrReplicatedDiskTypeLogNotInParthership: SR_REPLICATED_DISK_TYPE = 6i32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const SrReplicatedDiskTypeOther: SR_REPLICATED_DISK_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const SR_REPLICATED_PARTITION_DISALLOW_MULTINODE_IO: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
@@ -19680,12 +19896,19 @@ pub const VmResdllContextShutdown: VM_RESDLL_CONTEXT = 2i32;
 pub const VmResdllContextShutdownForce: VM_RESDLL_CONTEXT = 3i32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const VmResdllContextLiveMigration: VM_RESDLL_CONTEXT = 4i32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const VolumeRedirectedIOReasonMax: u64 = 9223372036854775808u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const VolumeRedirectedIOReasonNoDiskConnectivity: u64 = 1u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const VolumeRedirectedIOReasonStorageSpaceNotAttached: u64 = 2u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const VolumeRedirectedIOReasonVolumeReplicationEnabled: u64 = 4u64;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const WS2016_RTM_UPGRADE_VERSION: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const WS2016_TP4_UPGRADE_VERSION: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const WS2016_TP5_UPGRADE_VERSION: u32 = 7u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]

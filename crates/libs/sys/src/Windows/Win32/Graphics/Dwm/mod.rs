@@ -115,7 +115,9 @@ pub type DWMTRANSITION_OWNEDWINDOW_TARGET = i32;
 pub const DWMTRANSITION_OWNEDWINDOW_NULL: DWMTRANSITION_OWNEDWINDOW_TARGET = -1i32;
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWMTRANSITION_OWNEDWINDOW_REPOSITION: DWMTRANSITION_OWNEDWINDOW_TARGET = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWMWA_COLOR_DEFAULT: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWMWA_COLOR_NONE: u32 = 4294967294u32;
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub type DWMWINDOWATTRIBUTE = i32;
@@ -167,8 +169,11 @@ pub const DWMWA_TEXT_COLOR: DWMWINDOWATTRIBUTE = 36i32;
 pub const DWMWA_VISIBLE_FRAME_BORDER_THICKNESS: DWMWINDOWATTRIBUTE = 37i32;
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWMWA_LAST: DWMWINDOWATTRIBUTE = 38i32;
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWM_BB_BLURREGION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWM_BB_ENABLE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWM_BB_TRANSITIONONMAXIMIZED: u32 = 4u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
@@ -187,11 +192,17 @@ impl ::core::clone::Clone for DWM_BLURBEHIND {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWM_CLOAKED_APP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWM_CLOAKED_INHERITED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWM_CLOAKED_SHELL: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWM_EC_DISABLECOMPOSITION: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWM_EC_ENABLECOMPOSITION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWM_FRAME_DURATION_DEFAULT: i32 = -1i32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Graphics_Dwm', 'Win32_Foundation'*"]
@@ -230,6 +241,7 @@ pub const DWMSC_PENBARREL: DWM_SHOWCONTACT = 16u32;
 pub const DWMSC_NONE: DWM_SHOWCONTACT = 0u32;
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWMSC_ALL: DWM_SHOWCONTACT = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWM_SIT_DISPLAYFRAME: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub type DWM_SOURCE_FRAME_SAMPLING = i32;
@@ -332,10 +344,15 @@ impl ::core::clone::Clone for DWM_TIMING_INFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWM_TNP_OPACITY: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWM_TNP_RECTDESTINATION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWM_TNP_RECTSOURCE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWM_TNP_SOURCECLIENTAREAONLY: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const DWM_TNP_VISIBLE: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub type DWM_WINDOW_CORNER_PREFERENCE = i32;
@@ -399,6 +416,9 @@ impl ::core::clone::Clone for UNSIGNED_RATIO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const c_DwmMaxAdapters: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const c_DwmMaxMonitors: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Dwm'*"]
 pub const c_DwmMaxQueuedBuffers: u32 = 8u32;

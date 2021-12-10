@@ -559,6 +559,7 @@ impl ::core::default::Default for PSS_PERFORMANCE_COUNTERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_ProcessSnapshotting'*"]
 pub const PSS_PERF_RESOLUTION: u32 = 1000000u32;
 #[doc = "*Required features: 'Win32_System_Diagnostics_ProcessSnapshotting'*"]
 pub type PSS_PROCESS_FLAGS = u32;

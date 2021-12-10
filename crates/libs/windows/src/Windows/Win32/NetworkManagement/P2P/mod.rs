@@ -444,6 +444,7 @@ pub type DRT_LEAFSET_KEY_CHANGE_TYPE = i32;
 pub const DRT_LEAFSET_KEY_ADDED: DRT_LEAFSET_KEY_CHANGE_TYPE = 0i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const DRT_LEAFSET_KEY_DELETED: DRT_LEAFSET_KEY_CHANGE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const DRT_LINK_LOCAL_ISATAP_SCOPEID: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub type DRT_MATCH_TYPE = i32;
@@ -453,10 +454,15 @@ pub const DRT_MATCH_EXACT: DRT_MATCH_TYPE = 0i32;
 pub const DRT_MATCH_NEAR: DRT_MATCH_TYPE = 1i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const DRT_MATCH_INTERMEDIATE: DRT_MATCH_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const DRT_MAX_INSTANCE_PREFIX_LEN: u32 = 128u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const DRT_MAX_PAYLOAD_SIZE: u32 = 5120u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const DRT_MAX_ROUTING_ADDRESSES: u32 = 20u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const DRT_MIN_ROUTING_ADDRESSES: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const DRT_PAYLOAD_REVOKED: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
@@ -1058,8 +1064,11 @@ pub unsafe fn DrtUpdateKey(hkeyregistration: *const ::core::ffi::c_void, pappdat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const FACILITY_DRT: u32 = 98u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const NS_PNRPCLOUD: u32 = 39u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const NS_PNRPNAME: u32 = 38u32;
 pub const NS_PROVIDER_PNRPCLOUD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03fe89ce_766d_4976_b9c1_bb9bc42c7b4d);
 pub const NS_PROVIDER_PNRPNAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03fe89cd_766d_4976_b9c1_bb9bc42c7b4d);
@@ -1152,10 +1161,15 @@ impl ::core::default::Default for PEERDIST_PUBLICATION_OPTIONS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PEERDIST_PUBLICATION_OPTIONS_VERSION: i32 = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PEERDIST_PUBLICATION_OPTIONS_VERSION_1: i32 = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PEERDIST_PUBLICATION_OPTIONS_VERSION_2: i32 = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PEERDIST_READ_TIMEOUT_DEFAULT: u32 = 4294967294u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PEERDIST_READ_TIMEOUT_LOCAL_CACHE_ONLY: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
@@ -3173,6 +3187,7 @@ impl ::core::default::Default for PNRPCLOUDINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PNRPINFO_HINT: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
@@ -3350,7 +3365,9 @@ pub const PNRP_EXTENDED_PAYLOAD_TYPE_NONE: PNRP_EXTENDED_PAYLOAD_TYPE = 0i32;
 pub const PNRP_EXTENDED_PAYLOAD_TYPE_BINARY: PNRP_EXTENDED_PAYLOAD_TYPE = 1i32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PNRP_EXTENDED_PAYLOAD_TYPE_STRING: PNRP_EXTENDED_PAYLOAD_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PNRP_MAX_ENDPOINT_ADDRESSES: u32 = 10u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const PNRP_MAX_EXTENDED_PAYLOAD_BYTES: u32 = 4096u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub type PNRP_REGISTERED_ID_STATE = i32;
@@ -5980,12 +5997,21 @@ pub unsafe fn PeerPnrpUpdateRegistration(hregistration: *const ::core::ffi::c_vo
 pub const SVCID_PNRPCLOUD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2239ce6_00c0_4fbf_bad6_18139385a49a);
 pub const SVCID_PNRPNAME_V1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2239ce5_00c0_4fbf_bad6_18139385a49a);
 pub const SVCID_PNRPNAME_V2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2239ce7_00c0_4fbf_bad6_18139385a49a);
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const WSA_PNRP_CLIENT_INVALID_COMPARTMENT_ID: u32 = 11506u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const WSA_PNRP_CLOUD_DISABLED: u32 = 11502u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const WSA_PNRP_CLOUD_IS_DEAD: u32 = 11509u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const WSA_PNRP_CLOUD_IS_SEARCH_ONLY: u32 = 11505u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const WSA_PNRP_CLOUD_NOT_FOUND: u32 = 11501u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const WSA_PNRP_DUPLICATE_PEER_NAME: u32 = 11508u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const WSA_PNRP_ERROR_BASE: u32 = 11500u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const WSA_PNRP_INVALID_IDENTITY: u32 = 11503u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_P2P'*"]
 pub const WSA_PNRP_TOO_MUCH_LOAD: u32 = 11504u32;

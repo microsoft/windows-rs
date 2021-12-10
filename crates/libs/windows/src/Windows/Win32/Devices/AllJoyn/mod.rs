@@ -1,38 +1,73 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_BIG_ENDIAN: u8 = 66u8;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_CRED_CERT_CHAIN: u16 = 4u16;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_CRED_EXPIRATION: u16 = 32u16;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_CRED_LOGON_ENTRY: u16 = 16u16;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_CRED_NEW_PASSWORD: u16 = 4097u16;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_CRED_ONE_TIME_PWD: u16 = 8193u16;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_CRED_PASSWORD: u16 = 1u16;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_CRED_PRIVATE_KEY: u16 = 8u16;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_CRED_USER_NAME: u16 = 2u16;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_DISCONNECTED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_LITTLE_ENDIAN: u8 = 108u8;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_MEMBER_ANNOTATE_DEPRECATED: u8 = 2u8;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_MEMBER_ANNOTATE_GLOBAL_BROADCAST: u8 = 32u8;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_MEMBER_ANNOTATE_NO_REPLY: u8 = 1u8;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_MEMBER_ANNOTATE_SESSIONCAST: u8 = 4u8;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_MEMBER_ANNOTATE_SESSIONLESS: u8 = 8u8;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_MEMBER_ANNOTATE_UNICAST: u8 = 16u8;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_MESSAGE_DEFAULT_TIMEOUT: u32 = 25000u32;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_MESSAGE_FLAG_ALLOW_REMOTE_MSG: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_MESSAGE_FLAG_AUTO_START: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_MESSAGE_FLAG_ENCRYPTED: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_MESSAGE_FLAG_GLOBAL_BROADCAST: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_MESSAGE_FLAG_NO_REPLY_EXPECTED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_MESSAGE_FLAG_SESSIONLESS: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_PROP_ACCESS_READ: u8 = 1u8;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_PROP_ACCESS_RW: u8 = 3u8;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_PROP_ACCESS_WRITE: u8 = 2u8;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_PROXIMITY_ANY: u32 = 255u32;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_PROXIMITY_NETWORK: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_PROXIMITY_PHYSICAL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_READ_READY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_TRAFFIC_TYPE_MESSAGES: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_TRAFFIC_TYPE_RAW_RELIABLE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_TRAFFIC_TYPE_RAW_UNRELIABLE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const ALLJOYN_WRITE_READY: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Devices_AllJoyn', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -154,6 +189,7 @@ pub unsafe fn AllJoynSendToBus<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const QCC_FALSE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Devices_AllJoyn', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -170,6 +206,7 @@ pub unsafe fn QCC_StatusText(status: QStatus) -> super::super::Foundation::PSTR 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub const QCC_TRUE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Devices_AllJoyn'*"]
 pub type QStatus = i32;

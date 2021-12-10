@@ -1,7 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct FeatureElementKindPreview(pub i32);
+#[cfg(feature = "deprecated")]
 impl FeatureElementKindPreview {
     pub const Undefined: Self = Self(0i32);
     pub const Float: Self = Self(1i32);
@@ -20,24 +22,31 @@ impl FeatureElementKindPreview {
     pub const Complex64: Self = Self(14i32);
     pub const Complex128: Self = Self(15i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for FeatureElementKindPreview {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for FeatureElementKindPreview {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for FeatureElementKindPreview {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for FeatureElementKindPreview {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for FeatureElementKindPreview {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for FeatureElementKindPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.Preview.FeatureElementKindPreview;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for FeatureElementKindPreview {
     type DefaultType = Self;
 }
@@ -1183,8 +1192,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lear
     }
 }
 #[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct LearningModelDeviceKindPreview(pub i32);
+#[cfg(feature = "deprecated")]
 impl LearningModelDeviceKindPreview {
     pub const LearningDeviceAny: Self = Self(0i32);
     pub const LearningDeviceCpu: Self = Self(1i32);
@@ -1193,24 +1204,31 @@ impl LearningModelDeviceKindPreview {
     pub const LearningDeviceDsp: Self = Self(4i32);
     pub const LearningDeviceFpga: Self = Self(5i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for LearningModelDeviceKindPreview {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for LearningModelDeviceKindPreview {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for LearningModelDeviceKindPreview {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for LearningModelDeviceKindPreview {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for LearningModelDeviceKindPreview {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for LearningModelDeviceKindPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.Preview.LearningModelDeviceKindPreview;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for LearningModelDeviceKindPreview {
     type DefaultType = Self;
 }
@@ -1315,8 +1333,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lear
     }
 }
 #[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct LearningModelFeatureKindPreview(pub i32);
+#[cfg(feature = "deprecated")]
 impl LearningModelFeatureKindPreview {
     pub const Undefined: Self = Self(0i32);
     pub const Tensor: Self = Self(1i32);
@@ -1324,24 +1344,31 @@ impl LearningModelFeatureKindPreview {
     pub const Map: Self = Self(3i32);
     pub const Image: Self = Self(4i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for LearningModelFeatureKindPreview {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for LearningModelFeatureKindPreview {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for LearningModelFeatureKindPreview {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for LearningModelFeatureKindPreview {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for LearningModelFeatureKindPreview {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for LearningModelFeatureKindPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.AI.MachineLearning.Preview.LearningModelFeatureKindPreview;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for LearningModelFeatureKindPreview {
     type DefaultType = Self;
 }

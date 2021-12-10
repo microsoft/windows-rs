@@ -61,11 +61,15 @@ impl ::core::clone::Clone for NET_INTERFACE_CONTEXT_TABLE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub const NET_INTERFACE_FLAG_CONNECT_IF_NEEDED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub const NET_INTERFACE_FLAG_NONE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub type ONDEMAND_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *const ::core::ffi::c_void)>;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub const WCM_API_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub const WCM_API_VERSION_1_0: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager', 'Win32_Foundation'*"]
@@ -143,6 +147,7 @@ impl ::core::clone::Clone for WCM_DATAPLAN_STATUS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub const WCM_MAX_PROFILE_NAME: u32 = 256u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub type WCM_MEDIA_TYPE = i32;
@@ -231,6 +236,7 @@ impl ::core::clone::Clone for WCM_TIME_INTERVAL {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager'*"]
 pub const WCM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsConnectionManager', 'Win32_Foundation'*"]

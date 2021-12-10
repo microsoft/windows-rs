@@ -206,9 +206,13 @@ pub unsafe fn DiscardVirtualMemory(virtualaddress: *mut ::core::ffi::c_void, siz
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Memory'*"]
 pub const FILE_CACHE_MAX_HARD_DISABLE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Memory'*"]
 pub const FILE_CACHE_MAX_HARD_ENABLE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Memory'*"]
 pub const FILE_CACHE_MIN_HARD_DISABLE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Memory'*"]
 pub const FILE_CACHE_MIN_HARD_ENABLE: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_Memory'*"]
 pub type FILE_MAP = u32;
@@ -969,6 +973,7 @@ pub unsafe fn LocalUnlock(hmem: isize) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Memory'*"]
 pub const MEHC_PATROL_SCRUBBER_PRESENT: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Memory'*"]

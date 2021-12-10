@@ -213,6 +213,7 @@ impl ::core::clone::Clone for EVENTSFORLOGFILE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_EventLog'*"]
 pub const EVT_ALL_ACCESS: u32 = 7u32;
 #[doc = "*Required features: 'Win32_System_EventLog'*"]
 pub type EVT_CHANNEL_CLOCK_TYPE = i32;
@@ -294,6 +295,7 @@ pub const EvtChannelTypeOperational: EVT_CHANNEL_TYPE = 1i32;
 pub const EvtChannelTypeAnalytic: EVT_CHANNEL_TYPE = 2i32;
 #[doc = "*Required features: 'Win32_System_EventLog'*"]
 pub const EvtChannelTypeDebug: EVT_CHANNEL_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_EventLog'*"]
 pub const EVT_CLEAR_ACCESS: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_EventLog'*"]
 pub type EVT_EVENT_METADATA_PROPERTY_ID = i32;
@@ -465,6 +467,7 @@ pub const EvtQueryNames: EVT_QUERY_PROPERTY_ID = 0i32;
 pub const EvtQueryStatuses: EVT_QUERY_PROPERTY_ID = 1i32;
 #[doc = "*Required features: 'Win32_System_EventLog'*"]
 pub const EvtQueryPropertyIdEND: EVT_QUERY_PROPERTY_ID = 2i32;
+#[doc = "*Required features: 'Win32_System_EventLog'*"]
 pub const EVT_READ_ACCESS: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_EventLog'*"]
 pub type EVT_RENDER_CONTEXT_FLAGS = i32;
@@ -705,8 +708,11 @@ pub const EvtVarTypeHexInt64: EVT_VARIANT_TYPE = 21i32;
 pub const EvtVarTypeEvtHandle: EVT_VARIANT_TYPE = 32i32;
 #[doc = "*Required features: 'Win32_System_EventLog'*"]
 pub const EvtVarTypeEvtXml: EVT_VARIANT_TYPE = 35i32;
+#[doc = "*Required features: 'Win32_System_EventLog'*"]
 pub const EVT_VARIANT_TYPE_ARRAY: u32 = 128u32;
+#[doc = "*Required features: 'Win32_System_EventLog'*"]
 pub const EVT_VARIANT_TYPE_MASK: u32 = 127u32;
+#[doc = "*Required features: 'Win32_System_EventLog'*"]
 pub const EVT_WRITE_ACCESS: u32 = 2u32;
 pub type EventLogHandle = isize;
 pub type EventSourceHandle = isize;

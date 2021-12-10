@@ -1180,32 +1180,55 @@ pub const SC_EVENT_DATABASE_CHANGE: SC_EVENT_TYPE = 0i32;
 pub const SC_EVENT_PROPERTY_CHANGE: SC_EVENT_TYPE = 1i32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SC_EVENT_STATUS_CHANGE: SC_EVENT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SC_MANAGER_ALL_ACCESS: u32 = 983103u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SC_MANAGER_CONNECT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SC_MANAGER_CREATE_SERVICE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SC_MANAGER_ENUMERATE_SERVICE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SC_MANAGER_LOCK: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SC_MANAGER_MODIFY_BOOT_CONFIG: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SC_MANAGER_QUERY_LOCK_STATUS: u32 = 16u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub type SC_STATUS_TYPE = i32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SC_STATUS_PROCESS_INFO: SC_STATUS_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_ACCEPT_HARDWAREPROFILECHANGE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_ACCEPT_LOWRESOURCES: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_ACCEPT_NETBINDCHANGE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_ACCEPT_PARAMCHANGE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_ACCEPT_PAUSE_CONTINUE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_ACCEPT_POWEREVENT: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_ACCEPT_PRESHUTDOWN: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_ACCEPT_SESSIONCHANGE: u32 = 128u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_ACCEPT_SHUTDOWN: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_ACCEPT_STOP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_ACCEPT_SYSTEMLOWRESOURCES: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_ACCEPT_TIMECHANGE: u32 = 512u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_ACCEPT_TRIGGEREVENT: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_ACCEPT_USER_LOGOFF: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_ALL_ACCESS: u32 = 983551u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CHANGE_CONFIG: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub type SERVICE_CONFIG = u32;
@@ -1229,21 +1252,37 @@ pub const SERVICE_CONFIG_SERVICE_SID_INFO: SERVICE_CONFIG = 5u32;
 pub const SERVICE_CONFIG_TRIGGER_INFO: SERVICE_CONFIG = 8u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONFIG_LAUNCH_PROTECTED: SERVICE_CONFIG = 12u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_CONTINUE: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_DEVICEEVENT: u32 = 11u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_HARDWAREPROFILECHANGE: u32 = 12u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_INTERROGATE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_LOWRESOURCES: u32 = 96u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_NETBINDADD: u32 = 7u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_NETBINDDISABLE: u32 = 10u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_NETBINDENABLE: u32 = 9u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_NETBINDREMOVE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_PARAMCHANGE: u32 = 6u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_PAUSE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_POWEREVENT: u32 = 13u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_PRESHUTDOWN: u32 = 15u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_SESSIONCHANGE: u32 = 14u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_SHUTDOWN: u32 = 5u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_STATUS_REASON_INFO: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation'*"]
@@ -1313,9 +1352,13 @@ impl ::core::default::Default for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_STOP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_SYSTEMLOWRESOURCES: u32 = 97u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_TIMECHANGE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_CONTROL_TRIGGEREVENT: u32 = 32u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Services'*"]
@@ -1496,7 +1539,9 @@ pub type SERVICE_DIRECTORY_TYPE = i32;
 pub const ServiceDirectoryPersistentState: SERVICE_DIRECTORY_TYPE = 0i32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub const ServiceDirectoryTypeMax: SERVICE_DIRECTORY_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_DYNAMIC_INFORMATION_LEVEL_START_REASON: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_ENUMERATE_DEPENDENTS: u32 = 8u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub type SERVICE_ERROR = u32;
@@ -1612,7 +1657,9 @@ impl ::core::default::Default for SERVICE_FAILURE_ACTIONS_FLAG {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_INTERROGATE: u32 = 128u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_LAUNCH_PROTECTED_ANTIMALWARE_LIGHT: u32 = 3u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Services'*"]
@@ -1639,8 +1686,11 @@ impl ::core::default::Default for SERVICE_LAUNCH_PROTECTED_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_LAUNCH_PROTECTED_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS_LIGHT: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub type SERVICE_MAIN_FUNCTIONA = ::core::option::Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut *mut i8)>;
@@ -1774,10 +1824,15 @@ impl ::core::default::Default for SERVICE_NOTIFY_2W {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_NOTIFY_STATUS_CHANGE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_NOTIFY_STATUS_CHANGE_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_NOTIFY_STATUS_CHANGE_2: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_NO_CHANGE: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_PAUSE_CONTINUE: u32 = 64u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation'*"]
@@ -1837,7 +1892,9 @@ impl ::core::default::Default for SERVICE_PRESHUTDOWN_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_QUERY_CONFIG: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_QUERY_STATUS: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub type SERVICE_REGISTRY_STATE_TYPE = i32;
@@ -1950,8 +2007,11 @@ impl ::core::default::Default for SERVICE_SID_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_SID_TYPE_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_SID_TYPE_UNRESTRICTED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_START: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Services'*"]
@@ -1978,10 +2038,15 @@ impl ::core::default::Default for SERVICE_START_REASON {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_START_REASON_AUTO: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_START_REASON_DELAYEDAUTO: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_START_REASON_DEMAND: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_START_REASON_RESTART_ON_FAILURE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_START_REASON_TRIGGER: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub type SERVICE_START_TYPE = u32;
@@ -2076,49 +2141,93 @@ impl ::core::default::Default for SERVICE_STATUS_PROCESS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_FLAG_CUSTOM: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_FLAG_MAX: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_FLAG_MIN: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_FLAG_PLANNED: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_FLAG_UNPLANNED: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MAJOR_APPLICATION: u32 = 327680u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MAJOR_HARDWARE: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MAJOR_MAX: u32 = 458752u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MAJOR_MAX_CUSTOM: u32 = 16711680u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MAJOR_MIN: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MAJOR_MIN_CUSTOM: u32 = 4194304u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MAJOR_NONE: u32 = 393216u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MAJOR_OPERATINGSYSTEM: u32 = 196608u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MAJOR_OTHER: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MAJOR_SOFTWARE: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_DISK: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_ENVIRONMENT: u32 = 10u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_HARDWARE_DRIVER: u32 = 11u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_HUNG: u32 = 6u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_INSTALLATION: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_MAINTENANCE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_MAX: u32 = 25u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_MAX_CUSTOM: u32 = 65535u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_MEMOTYLIMIT: u32 = 24u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_MIN: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_MIN_CUSTOM: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_MMC: u32 = 22u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_NETWORKCARD: u32 = 9u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_NETWORK_CONNECTIVITY: u32 = 17u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_NONE: u32 = 23u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_OTHER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_OTHERDRIVER: u32 = 12u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_RECONFIG: u32 = 5u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_SECURITY: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_SECURITYFIX: u32 = 15u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_SECURITYFIX_UNINSTALL: u32 = 21u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_SERVICEPACK: u32 = 13u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_SERVICEPACK_UNINSTALL: u32 = 19u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_SOFTWARE_UPDATE: u32 = 14u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_SOFTWARE_UPDATE_UNINSTALL: u32 = 20u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_UNSTABLE: u32 = 7u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_UPGRADE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_STOP_REASON_MINOR_WMI: u32 = 18u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation'*"]
@@ -2354,8 +2463,11 @@ pub const SERVICE_TRIGGER_TYPE_GROUP_POLICY: SERVICE_TRIGGER_TYPE = 5u32;
 pub const SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY: SERVICE_TRIGGER_TYPE = 2u32;
 #[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT: SERVICE_TRIGGER_TYPE = 6u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_TRIGGER_TYPE_AGGREGATE: u32 = 30u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_TRIGGER_TYPE_CUSTOM_SYSTEM_STATE_CHANGE: u32 = 7u32;
+#[doc = "*Required features: 'Win32_System_Services'*"]
 pub const SERVICE_USER_DEFINED_CONTROL: u32 = 256u32;
 #[doc = "*Required features: 'Win32_System_Services', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

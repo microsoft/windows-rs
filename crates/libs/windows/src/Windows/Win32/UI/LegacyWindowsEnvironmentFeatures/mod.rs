@@ -1,13 +1,23 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const EVCCBF_LASTNOTIFICATION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const EVCF_DONTSHOWIFZERO: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const EVCF_ENABLEBYDEFAULT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const EVCF_ENABLEBYDEFAULT_AUTO: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const EVCF_HASSETTINGS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const EVCF_OUTOFDISKSPACE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const EVCF_REMOVEFROMLIST: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const EVCF_SETTINGSMODE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const EVCF_SYSTEMAUTORUN: u32 = 256u32;
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const EVCF_USERCONSENTOBTAINED: u32 = 128u32;
 #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 #[repr(transparent)]
@@ -578,6 +588,7 @@ pub const REC_S_IDIDTHEUPDATES: ::windows::core::HRESULT = ::windows::core::HRES
 pub const REC_S_NOTCOMPLETE: ::windows::core::HRESULT = ::windows::core::HRESULT(266241i32);
 #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const REC_S_NOTCOMPLETEBUTPROPAGATE: ::windows::core::HRESULT = ::windows::core::HRESULT(266242i32);
+#[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const STATEBITS_FLAT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub type _reconcilef = i32;

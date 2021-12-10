@@ -511,5 +511,6 @@ pub const TPMVSC_ATTESTATION_NONE: TPMVSC_ATTESTATION_TYPE = 0i32;
 pub const TPMVSC_ATTESTATION_AIK_ONLY: TPMVSC_ATTESTATION_TYPE = 1i32;
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
 pub const TPMVSC_ATTESTATION_AIK_AND_CERTIFICATE: TPMVSC_ATTESTATION_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Security_Tpm'*"]
 pub const TPMVSC_DEFAULT_ADMIN_ALGORITHM_ID: u32 = 130u32;
 pub const TpmVirtualSmartCardManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16a18e86_7f6e_4c20_ad89_4ffc0db7a96a);

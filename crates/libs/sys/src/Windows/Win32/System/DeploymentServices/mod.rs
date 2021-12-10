@@ -313,8 +313,11 @@ pub const EVT_WDSMCS_E_PARAMETERS_READ_FAILED: ::windows_sys::core::HRESULT = -1
 pub const EVT_WDSMCS_S_PARAMETERS_READ: ::windows_sys::core::HRESULT = 1092682240i32;
 #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const EVT_WDSMCS_W_CP_DLL_LOAD_FAILED_NOT_CRITICAL: ::windows_sys::core::HRESULT = -2128543142i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const FACILITY_WDSMCCLIENT: u32 = 290u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const FACILITY_WDSMCSERVER: u32 = 289u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const FACILITY_WDSTPTMGMT: u32 = 272u32;
 pub type IWdsTransportCacheable = *mut ::core::ffi::c_void;
 pub type IWdsTransportClient = *mut ::core::ffi::c_void;
@@ -341,6 +344,7 @@ pub type IWdsTransportSetupManager = *mut ::core::ffi::c_void;
 pub type IWdsTransportSetupManager2 = *mut ::core::ffi::c_void;
 pub type IWdsTransportTftpClient = *mut ::core::ffi::c_void;
 pub type IWdsTransportTftpManager = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const MC_SERVER_CURRENT_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub type PFN_WDS_CLI_CALLBACK_MESSAGE_ID = u32;
@@ -402,18 +406,31 @@ impl ::core::clone::Clone for PXE_ADDRESS_0 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_ADDR_BROADCAST: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_ADDR_USE_ADDR: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_ADDR_USE_DHCP_RULES: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_ADDR_USE_PORT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_BA_CUSTOM: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_BA_IGNORE: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_BA_NBP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_BA_REJECTED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_CALLBACK_MAX: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_CALLBACK_RECV_REQUEST: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_CALLBACK_SERVICE_CONTROL: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_CALLBACK_SHUTDOWN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_DHCPV6_CLIENT_PORT: u32 = 546u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
@@ -469,6 +486,7 @@ impl ::core::clone::Clone for PXE_DHCPV6_OPTION {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_DHCPV6_RELAY_HOP_COUNT_LIMIT: u32 = 32u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
@@ -485,10 +503,15 @@ impl ::core::clone::Clone for PXE_DHCPV6_RELAY_MESSAGE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_DHCPV6_SERVER_PORT: u32 = 547u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_DHCP_CLIENT_PORT: u32 = 68u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_DHCP_FILE_SIZE: u32 = 128u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_DHCP_HWAADR_SIZE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_DHCP_MAGIC_COOKIE_SIZE: u32 = 4u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
@@ -541,10 +564,15 @@ impl ::core::clone::Clone for PXE_DHCP_OPTION {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_DHCP_SERVER_PORT: u32 = 67u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_DHCP_SERVER_SIZE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_GSI_SERVER_DUID: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_GSI_TRACE_ENABLED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_MAX_ADDRESS: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation'*"]
@@ -564,19 +592,33 @@ impl ::core::clone::Clone for PXE_PROVIDER {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_PROV_ATTR_FILTER: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_PROV_ATTR_FILTER_IPV6: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_PROV_ATTR_IPV6_CAPABLE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_PROV_FILTER_ALL: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_PROV_FILTER_DHCP_ONLY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_PROV_FILTER_PXE_ONLY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_REG_INDEX_BOTTOM: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_REG_INDEX_TOP: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_SERVER_PORT: u32 = 4011u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_TRACE_ERROR: u32 = 524288u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_TRACE_FATAL: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_TRACE_INFO: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_TRACE_VERBOSE: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const PXE_TRACE_WARNING: u32 = 262144u32;
 #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub type TRANSPORTCLIENT_CALLBACK_ID = i32;
@@ -635,26 +677,47 @@ pub const WDS_TRANSPORTPROVIDER_REFRESH_SETTINGS: TRANSPORTPROVIDER_CALLBACK_ID 
 pub const WDS_TRANSPORTPROVIDER_GET_CONTENT_METADATA: TRANSPORTPROVIDER_CALLBACK_ID = 11i32;
 #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_TRANSPORTPROVIDER_MAX_CALLBACKS: TRANSPORTPROVIDER_CALLBACK_ID = 12i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const TRANSPORTPROVIDER_CURRENT_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_OPTVAL_ACTION_ABORT: u32 = 5u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_OPTVAL_ACTION_APPROVAL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_OPTVAL_ACTION_REFERRAL: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_OPTVAL_NBP_VER_7: u32 = 1792u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_OPTVAL_NBP_VER_8: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_OPTVAL_PXE_PROMPT_NOPROMPT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_OPTVAL_PXE_PROMPT_OPTIN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_OPTVAL_PXE_PROMPT_OPTOUT: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_OPT_TYPE_BYTE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_OPT_TYPE_IP4: u32 = 6u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_OPT_TYPE_IP6: u32 = 7u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_OPT_TYPE_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_OPT_TYPE_STR: u32 = 5u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_OPT_TYPE_ULONG: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_OPT_TYPE_USHORT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_OPT_TYPE_WSTR: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_PK_TYPE_BCD: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_PK_TYPE_DHCP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_PK_TYPE_DHCPV6: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSBP_PK_TYPE_WDSNBP: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSMCCLIENT_CATEGORY: ::windows_sys::core::HRESULT = 2i32;
@@ -866,6 +929,7 @@ pub type WDSTRANSPORT_PROTOCOL_FLAGS = i32;
 pub const WdsTptProtocolUnicast: WDSTRANSPORT_PROTOCOL_FLAGS = 1i32;
 #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WdsTptProtocolMulticast: WDSTRANSPORT_PROTOCOL_FLAGS = 2i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDSTRANSPORT_RESOURCE_UTILIZATION_UNKNOWN: u32 = 255u32;
 #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub type WDSTRANSPORT_SERVICE_NOTIFICATION = i32;
@@ -937,40 +1001,75 @@ pub const WDS_CLI_IMAGE_TYPE_WIM: WDS_CLI_IMAGE_TYPE = 1i32;
 pub const WDS_CLI_IMAGE_TYPE_VHD: WDS_CLI_IMAGE_TYPE = 2i32;
 #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_CLI_IMAGE_TYPE_VHDX: WDS_CLI_IMAGE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_CLI_NO_SPARSE_FILE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_CLI_TRANSFER_ASYNCHRONOUS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_LEVEL_DISABLED: i32 = 0i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_LEVEL_ERROR: i32 = 1i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_LEVEL_INFO: i32 = 3i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_LEVEL_WARNING: i32 = 2i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_APPLY_FINISHED: i32 = 6i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_APPLY_FINISHED_2: i32 = 16i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_APPLY_STARTED: i32 = 5i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_APPLY_STARTED_2: i32 = 15i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_DOMAINJOINERROR: i32 = 12i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_DOMAINJOINERROR_2: i32 = 17i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_DRIVER_PACKAGE_NOT_ACCESSIBLE: i32 = 18i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_ERROR: i32 = 1i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_FINISHED: i32 = 3i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_GENERIC_MESSAGE: i32 = 7i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_IMAGE_SELECTED: i32 = 4i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_IMAGE_SELECTED2: i32 = 22i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_IMAGE_SELECTED3: i32 = 23i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_MAX_CODE: i32 = 24i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_OFFLINE_DRIVER_INJECTION_END: i32 = 20i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_OFFLINE_DRIVER_INJECTION_FAILURE: i32 = 21i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_OFFLINE_DRIVER_INJECTION_START: i32 = 19i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_POST_ACTIONS_END: i32 = 14i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_POST_ACTIONS_START: i32 = 13i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_STARTED: i32 = 2i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_TRANSFER_DOWNGRADE: i32 = 11i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_TRANSFER_END: i32 = 10i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_TRANSFER_START: i32 = 9i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_LOG_TYPE_CLIENT_UNATTEND_MODE: i32 = 8i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_MC_TRACE_ERROR: u32 = 524288u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_MC_TRACE_FATAL: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_MC_TRACE_INFO: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_MC_TRACE_VERBOSE: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_MC_TRACE_WARNING: u32 = 262144u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation'*"]
@@ -991,8 +1090,11 @@ impl ::core::clone::Clone for WDS_TRANSPORTCLIENT_CALLBACKS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_TRANSPORTCLIENT_CURRENT_API_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_TRANSPORTCLIENT_NO_CACHE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_TRANSPORTCLIENT_PROTOCOL_MULTICAST: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation'*"]
@@ -1023,8 +1125,11 @@ pub type WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = u32;
 pub const WDS_TRANSPORTCLIENT_AUTH: WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = 1u32;
 #[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_TRANSPORTCLIENT_NO_AUTH: WDS_TRANSPORTCLIENT_REQUEST_AUTH_LEVEL = 2u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_TRANSPORTCLIENT_STATUS_FAILURE: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_TRANSPORTCLIENT_STATUS_IN_PROGRESS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WDS_TRANSPORTCLIENT_STATUS_SUCCESS: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_DeploymentServices', 'Win32_Foundation', 'Win32_System_Registry'*"]
@@ -1055,7 +1160,9 @@ impl ::core::clone::Clone for WDS_TRANSPORTPROVIDER_SETTINGS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WdsCliFlagEnumFilterFirmware: i32 = 2i32;
+#[doc = "*Required features: 'Win32_System_DeploymentServices'*"]
 pub const WdsCliFlagEnumFilterVersion: i32 = 1i32;
 pub const WdsTransportCacheable: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1884883734, data2: 61766, data3: 18109, data4: [189, 157, 74, 170, 144, 8, 75, 245] };
 pub const WdsTransportClient: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1725089257, data2: 4086, data3: 18924, data4: [151, 51, 218, 251, 30, 1, 223, 28] };

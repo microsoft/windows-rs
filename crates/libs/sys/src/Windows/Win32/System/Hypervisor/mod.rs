@@ -422,6 +422,7 @@ pub const HdvMmioMappingFlagNone: HDV_MMIO_MAPPING_FLAGS = 0u32;
 pub const HdvMmioMappingFlagWriteable: HDV_MMIO_MAPPING_FLAGS = 1u32;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const HdvMmioMappingFlagExecutable: HDV_MMIO_MAPPING_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const HDV_PCI_BAR_COUNT: u32 = 6u32;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub type HDV_PCI_BAR_SELECTOR = i32;
@@ -506,6 +507,7 @@ pub type HDV_PCI_READ_INTERCEPTED_MEMORY = ::core::option::Option<unsafe extern 
 pub type HDV_PCI_WRITE_CONFIG_SPACE = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, offset: u32, value: u32) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub type HDV_PCI_WRITE_INTERCEPTED_MEMORY = ::core::option::Option<unsafe extern "system" fn(devicecontext: *const ::core::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offset: u64, length: u64, value: *const u8) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const HVSOCKET_ADDRESS_FLAG_PASSTHRU: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
@@ -521,9 +523,13 @@ impl ::core::clone::Clone for HVSOCKET_ADDRESS_INFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const HVSOCKET_CONNECTED_SUSPEND: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const HVSOCKET_CONNECT_TIMEOUT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const HVSOCKET_CONNECT_TIMEOUT_MAX: u32 = 300000u32;
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const HVSOCKET_CONTAINER_PASSTHRU: u32 = 2u32;
 pub const HV_GUID_BROADCAST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4294967295, data2: 65535, data3: 65535, data4: [255, 255, 255, 255, 255, 255, 255, 255] };
 pub const HV_GUID_CHILDREN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2430307209, data2: 3381, data3: 20345, data4: [140, 233, 73, 234, 10, 200, 183, 205] };
@@ -532,7 +538,9 @@ pub const HV_GUID_PARENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID 
 pub const HV_GUID_SILOHOST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 918359132, data2: 29302, data3: 16931, data4: [136, 186, 125, 3, 182, 84, 197, 104] };
 pub const HV_GUID_VSOCK_TEMPLATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 64203, data3: 4582, data4: [189, 88, 100, 0, 106, 121, 134, 211] };
 pub const HV_GUID_ZERO: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const HV_PROTOCOL_RAW: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const IOCTL_VMGENCOUNTER_READ: u32 = 3325956u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Hypervisor', 'Win32_Foundation'*"]
@@ -1183,6 +1191,7 @@ pub type WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = u32;
 pub const WHvAllocateVpciResourceFlagNone: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = 0u32;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHvAllocateVpciResourceFlagAllowDirectP2P: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHV_ANY_VP: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub type WHV_CACHE_TYPE = i32;
@@ -1493,6 +1502,7 @@ impl ::core::clone::Clone for WHV_HYPERCALL_CONTEXT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS: u32 = 6u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
@@ -1568,6 +1578,7 @@ pub const WHvMapGpaRangeFlagWrite: WHV_MAP_GPA_RANGE_FLAGS = 2u32;
 pub const WHvMapGpaRangeFlagExecute: WHV_MAP_GPA_RANGE_FLAGS = 4u32;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHvMapGpaRangeFlagTrackDirtyPages: WHV_MAP_GPA_RANGE_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHV_MAX_DEVICE_ID_SIZE_IN_CHARS: u32 = 200u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
@@ -1944,6 +1955,7 @@ impl ::core::clone::Clone for WHV_PROCESSOR_FEATURES_BANKS_0_0 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHV_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
@@ -2063,6 +2075,7 @@ impl ::core::clone::Clone for WHV_PROCESSOR_XSAVE_FEATURES_0 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHV_READ_WRITE_GPA_RANGE_MAX_SIZE: u32 = 16u32;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub type WHV_REGISTER_NAME = i32;
@@ -2693,6 +2706,7 @@ impl ::core::clone::Clone for WHV_SYNIC_EVENT_PARAMETERS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHV_SYNIC_MESSAGE_SIZE: u32 = 256u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
@@ -2766,6 +2780,7 @@ impl ::core::clone::Clone for WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_0_0 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub type WHV_TRANSLATE_GVA_FLAGS = u32;
@@ -3069,6 +3084,7 @@ impl ::core::clone::Clone for WHV_VPCI_PROBED_BARS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Hypervisor'*"]
 pub const WHV_VPCI_TYPE0_BAR_COUNT: u32 = 6u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Hypervisor'*"]

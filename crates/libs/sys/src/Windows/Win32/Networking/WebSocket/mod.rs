@@ -148,6 +148,7 @@ impl ::core::clone::Clone for WEB_SOCKET_HTTP_HEADER {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WebSocket'*"]
 pub const WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WebSocket'*"]

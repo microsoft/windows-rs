@@ -44,6 +44,7 @@ pub unsafe fn BeginUpdateResourceW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_LibraryLoader'*"]
 pub const CURRENT_IMPORT_REDIRECTION_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_LibraryLoader', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -315,8 +316,11 @@ pub unsafe fn EnumResourceTypesW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_LibraryLoader'*"]
 pub const FIND_RESOURCE_DIRECTORY_LANGUAGES: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_System_LibraryLoader'*"]
 pub const FIND_RESOURCE_DIRECTORY_NAMES: u32 = 512u32;
+#[doc = "*Required features: 'Win32_System_LibraryLoader'*"]
 pub const FIND_RESOURCE_DIRECTORY_TYPES: u32 = 256u32;
 #[doc = "*Required features: 'Win32_System_LibraryLoader', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -423,8 +427,11 @@ pub unsafe fn FreeResource(hresdata: isize) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_LibraryLoader'*"]
 pub const GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_LibraryLoader'*"]
 pub const GET_MODULE_HANDLE_EX_FLAG_PIN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_LibraryLoader'*"]
 pub const GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_LibraryLoader', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -591,6 +598,7 @@ pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: LOAD_LIBRARY_FLAGS = 4096u32;
 pub const LOAD_LIBRARY_SAFE_CURRENT_DIRS: LOAD_LIBRARY_FLAGS = 8192u32;
 #[doc = "*Required features: 'Win32_System_LibraryLoader'*"]
 pub const LOAD_LIBRARY_SEARCH_SYSTEM32_NO_FORWARDER: LOAD_LIBRARY_FLAGS = 16384u32;
+#[doc = "*Required features: 'Win32_System_LibraryLoader'*"]
 pub const LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY: u32 = 32768u32;
 #[doc = "*Required features: 'Win32_System_LibraryLoader', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -785,10 +793,15 @@ impl ::core::default::Default for REDIRECTION_FUNCTION_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_LibraryLoader'*"]
 pub const RESOURCE_ENUM_LN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_LibraryLoader'*"]
 pub const RESOURCE_ENUM_MODULE_EXACT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_LibraryLoader'*"]
 pub const RESOURCE_ENUM_MUI: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_LibraryLoader'*"]
 pub const RESOURCE_ENUM_MUI_SYSTEM: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_LibraryLoader'*"]
 pub const RESOURCE_ENUM_VALIDATE: u32 = 8u32;
 #[doc = "*Required features: 'Win32_System_LibraryLoader', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -805,6 +818,7 @@ pub unsafe fn RemoveDllDirectory(cookie: *const ::core::ffi::c_void) -> super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_LibraryLoader'*"]
 pub const SUPPORT_LANG_NUMBER: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_LibraryLoader', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

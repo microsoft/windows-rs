@@ -183,29 +183,53 @@ pub const E_UNSUPPORTED_TRANSPORT: ::windows_sys::core::HRESULT = -2147479529i32
 pub const E_WILD_IN_DTYPE: ::windows_sys::core::HRESULT = -2147479455i32;
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const E_WORDTOOLONG: ::windows_sys::core::HRESULT = -2147479457i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_BACK: i32 = 7i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_CONTRACT: i32 = 6i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_CUSTOMIZE: i32 = 16i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_EXPAND: i32 = 5i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_FORWARD: i32 = 8i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_HIGHLIGHT: i32 = 15i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_HOME: i32 = 11i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_JUMP1: i32 = 17i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_JUMP2: i32 = 18i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_LAST_ENUM: i32 = 23i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_NOTES: i32 = 22i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_OPTIONS: i32 = 13i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_PRINT: i32 = 14i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_REFRESH: i32 = 10i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_STOP: i32 = 9i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_SYNC: i32 = 12i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_TAB_CONTENTS: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_TAB_FAVORITES: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_TAB_HISTORY: i32 = 3i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_TAB_INDEX: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_TAB_SEARCH: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_TOC_NEXT: i32 = 20i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_TOC_PREV: i32 = 21i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHACT_ZOOM: i32 = 19i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Data_HtmlHelp', 'Win32_Foundation', 'Win32_UI_Controls'*"]
@@ -239,79 +263,153 @@ impl ::core::clone::Clone for HHN_NOTIFY {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_BACK: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_BROWSE_BCK: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_BROWSE_FWD: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_CONTENTS: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_EXPAND: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_FAVORITES: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_FORWARD: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_HISTORY: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_HOME: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_INDEX: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_JUMP1: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_JUMP2: u32 = 524288u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_NOTES: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_OPTIONS: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_PRINT: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_REFRESH: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_SEARCH: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_STOP: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_SYNC: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_TOC_NEXT: u32 = 2097152u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_TOC_PREV: u32 = 4194304u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_BUTTON_ZOOM: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_NAVTAB_BOTTOM: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_NAVTAB_LEFT: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_NAVTAB_TOP: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_NAVTYPE_AUTHOR: i32 = 5i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_NAVTYPE_CUSTOM_FIRST: i32 = 11i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_NAVTYPE_FAVORITES: i32 = 3i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_NAVTYPE_HISTORY: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_NAVTYPE_INDEX: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_NAVTYPE_SEARCH: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_NAVTYPE_TOC: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PARAM_CUR_TAB: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PARAM_EXPANSION: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PARAM_EXSTYLES: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PARAM_HISTORY_COUNT: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PARAM_INFOTYPES: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PARAM_NAV_WIDTH: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PARAM_PROPERTIES: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PARAM_RECT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PARAM_SHOWSTATE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PARAM_STYLES: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PARAM_TABORDER: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PARAM_TABPOS: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PARAM_TB_FLAGS: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_AUTO_SYNC: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_CHANGE_TITLE: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_MENU: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_NAV_ONLY_WIN: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_NODEF_EXSTYLES: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_NODEF_STYLES: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_NOTB_TEXT: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_NOTITLEBAR: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_NO_TOOLBAR: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_ONTOP: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_POST_QUIT: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_TAB_ADVSEARCH: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_TAB_AUTOHIDESHOW: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_TAB_CUSTOM1: u32 = 524288u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_TAB_CUSTOM2: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_TAB_CUSTOM3: u32 = 2097152u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_TAB_CUSTOM4: u32 = 4194304u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_TAB_CUSTOM5: u32 = 8388608u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_TAB_CUSTOM6: u32 = 16777216u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_TAB_CUSTOM7: u32 = 33554432u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_TAB_CUSTOM8: u32 = 67108864u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_TAB_CUSTOM9: u32 = 134217728u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_TAB_FAVORITES: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_TAB_HISTORY: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_TAB_SEARCH: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_TRACKING: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_TRI_PANE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_PROP_USER_POS: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HHWIN_TB_MARGIN: u32 = 268435456u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Data_HtmlHelp', 'Win32_Foundation'*"]
@@ -334,12 +432,19 @@ impl ::core::clone::Clone for HH_AKLINK {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_ALINK_LOOKUP: u32 = 19u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_CLOSE_ALL: u32 = 18u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_DISPLAY_INDEX: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_DISPLAY_SEARCH: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_DISPLAY_TEXT_POPUP: u32 = 14u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_DISPLAY_TOC: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_DISPLAY_TOPIC: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Data_HtmlHelp', 'Win32_Foundation'*"]
@@ -357,8 +462,11 @@ impl ::core::clone::Clone for HH_ENUM_CAT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_ENUM_CATEGORY: u32 = 21u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_ENUM_CATEGORY_IT: u32 = 22u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_ENUM_INFO_TYPE: u32 = 7u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Data_HtmlHelp', 'Win32_Foundation'*"]
@@ -378,6 +486,7 @@ impl ::core::clone::Clone for HH_ENUM_IT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_FTS_DEFAULT_PROXIMITY: i32 = -1i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Data_HtmlHelp', 'Win32_Foundation'*"]
@@ -400,8 +509,11 @@ impl ::core::clone::Clone for HH_FTS_QUERY {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_GET_LAST_ERROR: u32 = 20u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_GET_WIN_HANDLE: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_GET_WIN_TYPE: u32 = 5u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Data_HtmlHelp', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -430,10 +542,15 @@ pub const HH_GPROPID_UI_LANGUAGE: HH_GPROPID = 3i32;
 pub const HH_GPROPID_CURRENT_SUBSET: HH_GPROPID = 4i32;
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_GPROPID_CONTENT_LANGUAGE: HH_GPROPID = 5i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_HELP_CONTEXT: u32 = 15u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_HELP_FINDER: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_INITIALIZE: u32 = 28u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_KEYWORD_LOOKUP: u32 = 13u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_MAX_TABS: u32 = 19u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Data_HtmlHelp', 'Win32_Foundation'*"]
@@ -457,14 +574,23 @@ impl ::core::clone::Clone for HH_POPUP {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_PRETRANSLATEMESSAGE: u32 = 253u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_RESERVED1: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_RESERVED2: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_RESERVED3: u32 = 12u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_RESET_IT_FILTER: u32 = 23u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_SAFE_DISPLAY_TOPIC: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_SET_EXCLUSIVE_FILTER: u32 = 25u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_SET_GLOBAL_PROPERTY: u32 = 252u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_SET_INCLUSIVE_FILTER: u32 = 24u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Data_HtmlHelp', 'Win32_Foundation'*"]
@@ -482,20 +608,35 @@ impl ::core::clone::Clone for HH_SET_INFOTYPE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_SET_INFO_TYPE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_SET_QUERYSERVICE: u32 = 30u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_SET_WIN_TYPE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_SYNC: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_TAB_AUTHOR: i32 = 5i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_TAB_CONTENTS: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_TAB_CUSTOM_FIRST: i32 = 11i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_TAB_CUSTOM_LAST: i32 = 19i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_TAB_FAVORITES: i32 = 3i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_TAB_HISTORY: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_TAB_INDEX: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_TAB_SEARCH: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_TP_HELP_CONTEXTMENU: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_TP_HELP_WM_HELP: u32 = 17u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_UNINITIALIZE: u32 = 29u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Data_HtmlHelp', 'Win32_Foundation'*"]
@@ -546,29 +687,53 @@ impl ::core::clone::Clone for HH_WINTYPE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_BACK: u32 = 204u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_BROWSE_BACK: u32 = 212u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_BROWSE_FWD: u32 = 211u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_CONTENTS: u32 = 213u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_CONTRACT: u32 = 201u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_CUSTOMIZE: u32 = 221u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_EXPAND: u32 = 200u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_FAVORITES: u32 = 217u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_FORWARD: u32 = 209u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_HISTORY: u32 = 216u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_HOME: u32 = 205u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_INDEX: u32 = 214u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_JUMP1: u32 = 218u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_JUMP2: u32 = 219u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_NOTES: u32 = 210u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_OPTIONS: u32 = 208u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_PRINT: u32 = 207u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_REFRESH: u32 = 203u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_SEARCH: u32 = 215u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_STOP: u32 = 202u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_SYNC: u32 = 206u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_TOC_NEXT: u32 = 223u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_TOC_PREV: u32 = 224u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IDTB_ZOOM: u32 = 222u32;
 pub type IITDatabase = *mut ::core::ffi::c_void;
 #[repr(C)]
@@ -579,17 +744,25 @@ pub struct IITQuery(pub u8);
 pub type IITResultSet = *mut ::core::ffi::c_void;
 #[repr(C)]
 pub struct IITStopWordList(pub u8);
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IITWBC_BREAK_ACCEPT_WILDCARDS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IITWBC_BREAK_AND_STEM: u32 = 2u32;
 pub type IITWordWheel = *mut ::core::ffi::c_void;
 pub type IStemSink = *mut ::core::ffi::c_void;
 pub type IStemmerConfig = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const ITWW_CBKEY_MAX: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const ITWW_OPEN_NOCONNECT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IT_EXCLUSIVE: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IT_HIDDEN: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const IT_INCLUSIVE: i32 = 0i32;
 pub type IWordBreakerConfig = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const MAX_COLUMNS: u32 = 256u32;
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub type PFNCOLHEAPFREE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> i32>;
@@ -601,8 +774,11 @@ pub const PRIORITY_LOW: PRIORITY = 0i32;
 pub const PRIORITY_NORMAL: PRIORITY = 1i32;
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const PRIORITY_HIGH: PRIORITY = 2i32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const PROP_ADD: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const PROP_DELETE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const PROP_UPDATE: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
@@ -618,24 +794,43 @@ impl ::core::clone::Clone for ROWSTATUS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const STDPROP_DISPLAYKEY: u32 = 101u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const STDPROP_INDEX_BREAK: u32 = 204u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const STDPROP_INDEX_DTYPE: u32 = 202u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const STDPROP_INDEX_LENGTH: u32 = 203u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const STDPROP_INDEX_TERM: u32 = 210u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const STDPROP_INDEX_TERM_RAW_LENGTH: u32 = 211u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const STDPROP_INDEX_TEXT: u32 = 200u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const STDPROP_INDEX_VFLD: u32 = 201u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const STDPROP_KEY: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const STDPROP_SORTKEY: u32 = 100u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const STDPROP_SORTORDINAL: u32 = 102u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const STDPROP_TITLE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const STDPROP_UID: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const STDPROP_USERDATA: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const STDPROP_USERPROP_BASE: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const STDPROP_USERPROP_MAX: u32 = 2147483647u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const TYPE_POINTER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const TYPE_STRING: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const TYPE_VALUE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub type WORD_WHEEL_OPEN_FLAGS = u32;

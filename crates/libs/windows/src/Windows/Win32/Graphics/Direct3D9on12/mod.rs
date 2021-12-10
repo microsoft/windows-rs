@@ -135,6 +135,7 @@ pub struct IDirect3DDevice9On12Vtbl(
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, numsync: u32, psignalvalues: *mut u64, ppfences: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9")))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D9on12'*"]
 pub const MAX_D3D9ON12_QUEUES: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D9on12', 'Win32_Foundation', 'Win32_Graphics_Direct3D9'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]

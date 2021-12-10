@@ -764,8 +764,10 @@ unsafe impl ::core::marker::Send for AllJoynAuthenticationCompleteEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynAuthenticationCompleteEventArgs {}
 #[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynAuthenticationMechanism(pub i32);
+#[cfg(feature = "deprecated")]
 impl AllJoynAuthenticationMechanism {
     pub const None: Self = Self(0i32);
     pub const SrpAnonymous: Self = Self(1i32);
@@ -775,24 +777,31 @@ impl AllJoynAuthenticationMechanism {
     pub const EcdheEcdsa: Self = Self(5i32);
     pub const EcdheSpeke: Self = Self(6i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for AllJoynAuthenticationMechanism {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for AllJoynAuthenticationMechanism {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for AllJoynAuthenticationMechanism {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for AllJoynAuthenticationMechanism {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for AllJoynAuthenticationMechanism {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for AllJoynAuthenticationMechanism {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.AllJoyn.AllJoynAuthenticationMechanism;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for AllJoynAuthenticationMechanism {
     type DefaultType = Self;
 }
@@ -1100,32 +1109,41 @@ unsafe impl ::core::marker::Send for AllJoynBusAttachment {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynBusAttachment {}
 #[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynBusAttachmentState(pub i32);
+#[cfg(feature = "deprecated")]
 impl AllJoynBusAttachmentState {
     pub const Disconnected: Self = Self(0i32);
     pub const Connecting: Self = Self(1i32);
     pub const Connected: Self = Self(2i32);
     pub const Disconnecting: Self = Self(3i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for AllJoynBusAttachmentState {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for AllJoynBusAttachmentState {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for AllJoynBusAttachmentState {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for AllJoynBusAttachmentState {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for AllJoynBusAttachmentState {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for AllJoynBusAttachmentState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.AllJoyn.AllJoynBusAttachmentState;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for AllJoynBusAttachmentState {
     type DefaultType = Self;
 }
@@ -2801,8 +2819,10 @@ unsafe impl ::core::marker::Send for AllJoynSessionLostEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for AllJoynSessionLostEventArgs {}
 #[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynSessionLostReason(pub i32);
+#[cfg(feature = "deprecated")]
 impl AllJoynSessionLostReason {
     pub const None: Self = Self(0i32);
     pub const ProducerLeftSession: Self = Self(1i32);
@@ -2811,24 +2831,31 @@ impl AllJoynSessionLostReason {
     pub const LinkTimeout: Self = Self(4i32);
     pub const Other: Self = Self(5i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for AllJoynSessionLostReason {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for AllJoynSessionLostReason {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for AllJoynSessionLostReason {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for AllJoynSessionLostReason {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for AllJoynSessionLostReason {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for AllJoynSessionLostReason {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.AllJoyn.AllJoynSessionLostReason;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for AllJoynSessionLostReason {
     type DefaultType = Self;
 }
@@ -3211,32 +3238,41 @@ impl ::windows::core::RuntimeName for AllJoynStatus {
     const NAME: &'static str = "Windows.Devices.AllJoyn.AllJoynStatus";
 }
 #[doc = "*Required features: 'Devices_AllJoyn', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct AllJoynTrafficType(pub i32);
+#[cfg(feature = "deprecated")]
 impl AllJoynTrafficType {
     pub const Unknown: Self = Self(0i32);
     pub const Messages: Self = Self(1i32);
     pub const RawUnreliable: Self = Self(2i32);
     pub const RawReliable: Self = Self(4i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for AllJoynTrafficType {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for AllJoynTrafficType {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for AllJoynTrafficType {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for AllJoynTrafficType {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for AllJoynTrafficType {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for AllJoynTrafficType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.AllJoyn.AllJoynTrafficType;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for AllJoynTrafficType {
     type DefaultType = Self;
 }

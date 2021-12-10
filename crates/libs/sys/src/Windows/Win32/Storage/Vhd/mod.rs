@@ -418,7 +418,9 @@ impl ::core::clone::Clone for CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Storage_Vhd'*"]
 pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_BLOCK_SIZE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_Vhd'*"]
 pub const CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_SECTOR_SIZE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Storage_Vhd'*"]
 pub type CREATE_VIRTUAL_DISK_VERSION = i32;
@@ -764,6 +766,7 @@ pub const GET_VIRTUAL_DISK_INFO_IS_LOADED: GET_VIRTUAL_DISK_INFO_VERSION = 13i32
 pub const GET_VIRTUAL_DISK_INFO_VIRTUAL_DISK_ID: GET_VIRTUAL_DISK_INFO_VERSION = 14i32;
 #[doc = "*Required features: 'Win32_Storage_Vhd'*"]
 pub const GET_VIRTUAL_DISK_INFO_CHANGE_TRACKING_STATE: GET_VIRTUAL_DISK_INFO_VERSION = 15i32;
+#[doc = "*Required features: 'Win32_Storage_Vhd'*"]
 pub const MERGE_VIRTUAL_DISK_DEFAULT_MERGE_DEPTH: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_Vhd'*"]
 pub type MERGE_VIRTUAL_DISK_FLAG = u32;
@@ -1053,6 +1056,7 @@ impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Storage_Vhd'*"]
 pub const OPEN_VIRTUAL_DISK_RW_DEPTH_DEFAULT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_Vhd'*"]
 pub type OPEN_VIRTUAL_DISK_VERSION = i32;
@@ -1450,6 +1454,7 @@ pub const VIRTUAL_DISK_ACCESS_READ: VIRTUAL_DISK_ACCESS_MASK = 851968u32;
 pub const VIRTUAL_DISK_ACCESS_ALL: VIRTUAL_DISK_ACCESS_MASK = 4128768u32;
 #[doc = "*Required features: 'Win32_Storage_Vhd'*"]
 pub const VIRTUAL_DISK_ACCESS_WRITABLE: VIRTUAL_DISK_ACCESS_MASK = 3276800u32;
+#[doc = "*Required features: 'Win32_Storage_Vhd'*"]
 pub const VIRTUAL_DISK_MAXIMUM_CHANGE_TRACKING_ID_LENGTH: u32 = 256u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_Vhd'*"]
@@ -1476,10 +1481,15 @@ impl ::core::clone::Clone for VIRTUAL_STORAGE_TYPE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Storage_Vhd'*"]
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_ISO: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_Vhd'*"]
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_Vhd'*"]
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHD: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_Vhd'*"]
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHDSET: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_Vhd'*"]
 pub const VIRTUAL_STORAGE_TYPE_DEVICE_VHDX: u32 = 3u32;
 pub const VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3969403628, data2: 41209, data3: 18409, data4: [144, 31, 113, 65, 90, 102, 52, 91] };
 pub const VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 0, data2: 0, data3: 0, data4: [0, 0, 0, 0, 0, 0, 0, 0] };

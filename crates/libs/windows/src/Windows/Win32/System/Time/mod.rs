@@ -272,9 +272,13 @@ impl ::core::default::Default for TIME_ZONE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Time'*"]
 pub const TSF_Authenticated: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Time'*"]
 pub const TSF_Hardware: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Time'*"]
 pub const TSF_IPv6: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Time'*"]
 pub const TSF_SignatureAuthenticated: u32 = 8u32;
 #[doc = "*Required features: 'Win32_System_Time', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

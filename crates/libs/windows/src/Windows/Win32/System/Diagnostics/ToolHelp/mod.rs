@@ -106,7 +106,9 @@ impl ::core::default::Default for HEAPLIST32 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_ToolHelp'*"]
 pub const HF32_DEFAULT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Diagnostics_ToolHelp'*"]
 pub const HF32_SHARED: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Diagnostics_ToolHelp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -168,6 +170,7 @@ pub unsafe fn Heap32Next(lphe: *mut HEAPENTRY32) -> super::super::super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_ToolHelp'*"]
 pub const MAX_MODULE_NAME32: u32 = 255u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Diagnostics_ToolHelp', 'Win32_Foundation'*"]

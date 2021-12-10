@@ -428,10 +428,15 @@ impl ::core::clone::Clone for ACTRL_ACCESS_INFOW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_ACCESS_NO_OPTIONS: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_ACCESS_PROTECTED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_ACCESS_SUPPORTS_OBJECT_ENTRIES: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_CHANGE_ACCESS: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_CHANGE_OWNER: u32 = 1073741824u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
@@ -463,36 +468,67 @@ impl ::core::clone::Clone for ACTRL_CONTROL_INFOW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_DELETE: u32 = 134217728u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_DIR_CREATE_CHILD: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_DIR_CREATE_OBJECT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_DIR_DELETE_CHILD: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_DIR_LIST: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_DIR_TRAVERSE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_FILE_APPEND: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_FILE_CREATE_PIPE: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_FILE_EXECUTE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_FILE_READ: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_FILE_READ_ATTRIB: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_FILE_READ_PROP: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_FILE_WRITE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_FILE_WRITE_ATTRIB: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_FILE_WRITE_PROP: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_KERNEL_ALERT: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_KERNEL_CONTROL: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_KERNEL_DIMPERSONATE: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_KERNEL_DUP_HANDLE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_KERNEL_GET_CONTEXT: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_KERNEL_GET_INFO: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_KERNEL_IMPERSONATE: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_KERNEL_PROCESS: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_KERNEL_SET_CONTEXT: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_KERNEL_SET_INFO: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_KERNEL_TERMINATE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_KERNEL_THREAD: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_KERNEL_TOKEN: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_KERNEL_VM: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_KERNEL_VM_READ: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_KERNEL_VM_WRITE: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
@@ -525,30 +561,55 @@ impl ::core::clone::Clone for ACTRL_OVERLAPPED_0 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_10: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_11: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_12: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_13: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_14: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_15: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_16: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_17: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_18: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_19: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_2: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_20: u32 = 524288u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_3: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_4: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_5: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_6: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_7: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_8: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PERM_9: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PRINT_JADMIN: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PRINT_PADMIN: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PRINT_PUSE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PRINT_SADMIN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_PRINT_SLIST: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
@@ -582,39 +643,73 @@ impl ::core::clone::Clone for ACTRL_PROPERTY_ENTRYW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_READ_CONTROL: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_REG_CREATE_CHILD: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_REG_LINK: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_REG_LIST: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_REG_NOTIFY: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_REG_QUERY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_REG_SET: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_RESERVED: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_STD_RIGHTS_ALL: u32 = 4160749568u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_SVC_GET_INFO: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_SVC_INTERROGATE: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_SVC_LIST: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_SVC_PAUSE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_SVC_SET_INFO: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_SVC_START: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_SVC_STATUS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_SVC_STOP: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_SVC_UCONTROL: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_SYNCHRONIZE: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_SYSTEM_ACCESS: u32 = 67108864u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_WIN_CLIPBRD: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_WIN_CREATE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_WIN_EXIT: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_WIN_GLOBAL_ATOMS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_WIN_LIST: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_WIN_LIST_DESK: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_WIN_READ_ATTRIBS: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_WIN_SCREEN: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ACTRL_WIN_WRITE_ATTRIBS: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const APF_AuditFailure: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const APF_AuditSuccess: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const APF_ValidFlags: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AP_ParamTypeBits: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AP_ParamTypeMask: i32 = 255i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
@@ -753,8 +848,11 @@ pub const APT_Int64: AUDIT_PARAM_TYPE = 11i32;
 pub const APT_IpAddress: AUDIT_PARAM_TYPE = 12i32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const APT_LogonIdWithSid: AUDIT_PARAM_TYPE = 13i32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUDIT_TYPE_LEGACY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUDIT_TYPE_WMI: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZP_WPD_EVENT: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub type AUTHZ_ACCESS_CHECK_FLAGS = u32;
@@ -793,6 +891,7 @@ impl ::core::clone::Clone for AUTHZ_ACCESS_REQUEST {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
 pub type AUTHZ_AUDIT_EVENT_HANDLE = isize;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
@@ -851,6 +950,7 @@ impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_UNION {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_AUDIT_INSTANCE_INFORMATION: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
@@ -864,6 +964,7 @@ impl ::core::clone::Clone for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
     }
 }
 pub type AUTHZ_CLIENT_CONTEXT_HANDLE = isize;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_COMPUTE_PRIVILEGES: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub type AUTHZ_CONTEXT_INFORMATION_CLASS = i32;
@@ -899,6 +1000,7 @@ pub const AuthzContextInfoDeviceClaims: AUTHZ_CONTEXT_INFORMATION_CLASS = 14i32;
 pub const AuthzContextInfoAppContainerSid: AUTHZ_CONTEXT_INFORMATION_CLASS = 15i32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AuthzContextInfoCapabilitySids: AUTHZ_CONTEXT_INFORMATION_CLASS = 16i32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_FLAG_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub type AUTHZ_GENERATE_RESULTS = u32;
@@ -934,7 +1036,9 @@ impl ::core::clone::Clone for AUTHZ_INIT_INFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_INIT_INFO_VERSION_V1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_MIGRATED_LEGACY_PUBLISHER: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
@@ -951,6 +1055,7 @@ impl ::core::clone::Clone for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_REQUIRE_S4U_LOGON: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub type AUTHZ_RESOURCE_MANAGER_FLAGS = u32;
@@ -981,6 +1086,7 @@ impl ::core::clone::Clone for AUTHZ_RPC_INIT_INFO_CLIENT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
@@ -1013,7 +1119,9 @@ impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub type AUTHZ_SECURITY_ATTRIBUTE_FLAGS = u32;
@@ -1060,13 +1168,21 @@ pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD: AUTHZ_SECURITY_ATTRIBUTE_OPERA
 pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_DELETE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 3i32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = 4i32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_FQBN: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INT64: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INVALID: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_SID: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_STRING: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_UINT64: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
@@ -1118,6 +1234,7 @@ pub const AUTHZ_SID_OPERATION_ADD: AUTHZ_SID_OPERATION = 2i32;
 pub const AUTHZ_SID_OPERATION_DELETE: AUTHZ_SID_OPERATION = 3i32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_SID_OPERATION_REPLACE: AUTHZ_SID_OPERATION = 4i32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_SKIP_TOKEN_GROUPS: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
@@ -1156,6 +1273,7 @@ impl ::core::clone::Clone for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const AUTHZ_WPD_CATEGORY_FLAG: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub type AZ_PROP_CONSTANTS = i32;
@@ -1440,6 +1558,7 @@ pub type IAzScopes = *mut ::core::ffi::c_void;
 pub type IAzTask = *mut ::core::ffi::c_void;
 pub type IAzTask2 = *mut ::core::ffi::c_void;
 pub type IAzTasks = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const INHERITED_ACCESS_ENTRY: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
@@ -1471,7 +1590,9 @@ impl ::core::clone::Clone for INHERITED_FROMW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const INHERITED_GRANDPARENT: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const INHERITED_PARENT: u32 = 268435456u32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub type MULTIPLE_TRUSTEE_OPERATION = i32;
@@ -1559,8 +1680,11 @@ pub const ProgressCancelOperation: PROG_INVOKE_SETTING = 4i32;
 pub const ProgressRetryOperation: PROG_INVOKE_SETTING = 5i32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const ProgressInvokePrePostError: PROG_INVOKE_SETTING = 6i32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const SDDL_ALIAS_SIZE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const SDDL_REVISION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const SDDL_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub type SE_OBJECT_TYPE = i32;
@@ -1652,10 +1776,15 @@ impl ::core::clone::Clone for TRUSTEE_ACCESSW {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const TRUSTEE_ACCESS_ALL: i32 = -1i32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const TRUSTEE_ACCESS_ALLOWED: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const TRUSTEE_ACCESS_EXPLICIT: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const TRUSTEE_ACCESS_READ: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const TRUSTEE_ACCESS_WRITE: i32 = 4i32;
 #[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub type TRUSTEE_FORM = i32;
@@ -1707,4 +1836,5 @@ impl ::core::clone::Clone for TRUSTEE_W {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authorization'*"]
 pub const _AUTHZ_SS_MAXSIZE: u32 = 128u32;

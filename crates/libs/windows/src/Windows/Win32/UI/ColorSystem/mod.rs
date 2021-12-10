@@ -1,5 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ATTRIB_MATTE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ATTRIB_TRANSPARENCY: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -31,6 +33,7 @@ pub unsafe fn AssociateColorProfileWithDeviceW<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const BEST_MODE: u32 = 3u32;
 #[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub type BMFORMAT = i32;
@@ -403,30 +406,55 @@ pub unsafe fn CMIsProfileValid(hprofile: isize, lpbvalid: *mut i32) -> super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMM_DESCRIPTION: u32 = 5u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMM_DLL_VERSION: u32 = 3u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMM_DRIVER_VERSION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMM_FROM_PROFILE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMM_IDENT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMM_LOGOICON: u32 = 6u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMM_VERSION: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMM_WIN_VERSION: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMS_BACKWARD: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMS_DISABLEICM: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMS_DISABLEINTENT: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMS_DISABLERENDERINTENT: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMS_ENABLEPROOFING: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMS_FORWARD: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMS_MONITOROVERFLOW: i32 = -2147483648i32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMS_PRINTEROVERFLOW: i32 = 1073741824i32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMS_SETMONITORPROFILE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMS_SETPRINTERPROFILE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMS_SETPROOFINTENT: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMS_SETRENDERINTENT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMS_SETTARGETPROFILE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMS_TARGETOVERFLOW: i32 = 536870912i32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMS_USEAPPLYCALLBACK: u32 = 256u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMS_USEDESCRIPTION: u32 = 512u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CMS_USEHOOK: u32 = 128u32;
 #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -756,14 +784,23 @@ pub const CS_ENABLE: COLOR_MATCH_TO_TARGET_ACTION = 1i32;
 pub const CS_DISABLE: COLOR_MATCH_TO_TARGET_ACTION = 2i32;
 #[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CS_DELETE_TRANSFORM: COLOR_MATCH_TO_TARGET_ACTION = 3i32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const COLOR_MATCH_VERSION: u32 = 512u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CSA_A: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CSA_ABC: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CSA_CMYK: u32 = 7u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CSA_DEF: u32 = 3u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CSA_DEFG: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CSA_GRAY: u32 = 5u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CSA_Lab: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const CSA_RGB: u32 = 6u32;
 #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1096,6 +1133,7 @@ pub unsafe fn CreateProfileFromLogColorSpaceW(plogcolorspace: *const LOGCOLORSPA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const DONT_USE_EMBEDDED_WCS_PROFILES: i32 = 1i32;
 #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1228,6 +1266,7 @@ impl ::core::default::Default for EMRCREATECOLORSPACEW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ENABLE_GAMUT_CHECKING: u32 = 65536u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
@@ -1331,25 +1370,45 @@ impl ::core::default::Default for ENUMTYPEW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ENUM_TYPE_VERSION: u32 = 768u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ET_ATTRIBUTES: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ET_CLASS: u32 = 32u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ET_CMMTYPE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ET_CONNECTIONSPACE: u32 = 128u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ET_CREATOR: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ET_DATACOLORSPACE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ET_DEVICECLASS: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ET_DEVICENAME: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ET_DITHERMODE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ET_EXTENDEDDISPLAYCOLOR: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ET_MANUFACTURER: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ET_MEDIATYPE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ET_MODEL: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ET_PLATFORM: u32 = 512u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ET_PROFILEFLAGS: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ET_RENDERINGINTENT: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ET_RESOLUTION: u32 = 8u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ET_SIGNATURE: u32 = 256u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const ET_STANDARDDISPLAYCOLOR: u32 = 131072u32;
 #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1411,9 +1470,13 @@ pub unsafe fn EnumICMProfilesW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const FAST_TRANSLATE: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const FLAG_DEPENDENTONDATA: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const FLAG_EMBEDDEDPROFILE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const FLAG_ENABLE_CHROMATIC_ADAPTATION: u32 = 33554432u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
@@ -2069,10 +2132,15 @@ pub struct IGamutMapModelPlugInVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ccolors: u32, pinputcolors: *const JChColorF, poutputcolors: *mut JChColorF) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const INDEX_DONT_CARE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const INTENT_ABSOLUTE_COLORIMETRIC: u32 = 3u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const INTENT_PERCEPTUAL: u32 = 0u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const INTENT_RELATIVE_COLORIMETRIC: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const INTENT_SATURATION: u32 = 2u32;
 #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2300,6 +2368,7 @@ impl ::core::default::Default for LabCOLOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const MAX_COLOR_CHANNELS: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
@@ -2355,6 +2424,7 @@ impl ::core::default::Default for NAMED_PROFILE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const NORMAL_MODE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 #[inline]
@@ -2390,6 +2460,7 @@ pub type PCMSCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0
 #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type PCMSCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut COLORMATCHSETUPW, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const PRESERVEBLACK: u32 = 1048576u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
@@ -2466,10 +2537,15 @@ impl ::core::default::Default for PROFILEHEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const PROFILE_FILENAME: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const PROFILE_MEMBUFFER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const PROFILE_READ: u32 = 1u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const PROFILE_READWRITE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const PROOF_MODE: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
@@ -2535,6 +2611,7 @@ impl ::core::default::Default for PrimaryXYZColors {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const RESERVED: u32 = 2147483648u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
@@ -2593,6 +2670,7 @@ pub unsafe fn RegisterCMMW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const SEQUENTIAL_TRANSFORM: u32 = 2155872256u32;
 #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2834,6 +2912,7 @@ pub unsafe fn TranslateColors(hcolortransform: isize, painputcolors: *const COLO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const USE_RELATIVE_COLORIMETRIC: u32 = 131072u32;
 #[doc = "*Required features: 'Win32_UI_ColorSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2925,7 +3004,9 @@ pub unsafe fn UpdateICMRegKeyW<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const WCS_ALWAYS: u32 = 2097152u32;
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const WCS_DEFAULT: i32 = 0i32;
 #[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub type WCS_DEVICE_CAPABILITIES_TYPE = i32;
@@ -3002,6 +3083,7 @@ impl ::core::default::Default for WCS_DEVICE_VCGT_CAPABILITIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub const WCS_ICCONLY: i32 = 65536i32;
 #[doc = "*Required features: 'Win32_UI_ColorSystem'*"]
 pub type WCS_PROFILE_MANAGEMENT_SCOPE = i32;

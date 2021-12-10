@@ -917,6 +917,7 @@ pub unsafe fn EnableIdleRoutine<'a, Param1: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const FACILITY_IMAPI2: u32 = 170u32;
 #[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4790,24 +4791,43 @@ impl ::core::default::Default for MAPIUID {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MAPI_COMPOUND: u32 = 128u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MAPI_DIM: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MAPI_ERROR_VERSION: i32 = 0i32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MAPI_E_CALL_FAILED: i32 = -2147467259i32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MAPI_E_INTERFACE_NOT_SUPPORTED: i32 = -2147467262i32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MAPI_E_INVALID_PARAMETER: i32 = -2147024809i32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MAPI_E_NOT_ENOUGH_MEMORY: i32 = -2147024882i32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MAPI_E_NO_ACCESS: i32 = -2147024891i32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MAPI_NOTRECIP: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MAPI_NOTRESERVED: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MAPI_NOW: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MAPI_ONE_OFF_NO_RICH_INFO: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MAPI_P1: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MAPI_SHORTTERM: u32 = 128u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MAPI_SUBMITTED: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MAPI_THISSESSION: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MAPI_USE_DEFAULT: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MNID_ID: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MNID_STRING: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
@@ -4835,7 +4855,9 @@ impl ::core::default::Default for MTSID {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MV_FLAG: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const MV_INSTANCE: u32 = 8192u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
@@ -5018,12 +5040,19 @@ pub unsafe fn OpenStreamOnFile(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer:
 #[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNIDLE = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const PRIHIGHEST: u32 = 32767u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const PRILOWEST: i32 = -32768i32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const PRIUSER: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const PROP_ID_INVALID: u32 = 65535u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const PROP_ID_NULL: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const PROP_ID_SECURE_MAX: u32 = 26623u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const PROP_ID_SECURE_MIN: u32 = 26608u32;
 #[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -5395,7 +5424,9 @@ impl ::core::default::Default for SDoubleArray {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const SERVICE_UI_ALLOWED: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const SERVICE_UI_ALWAYS: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
@@ -6341,7 +6372,9 @@ pub unsafe fn SzFindSz(lpsz: *mut i8, lpszkey: *mut i8) -> *mut i8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const TABLE_CHANGED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const TABLE_ERROR: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation', 'Win32_System_Com'*"]
@@ -6380,13 +6413,21 @@ impl ::core::default::Default for TABLE_NOTIFICATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const TABLE_RELOAD: u32 = 9u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const TABLE_RESTRICT_DONE: u32 = 7u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const TABLE_ROW_ADDED: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const TABLE_ROW_DELETED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const TABLE_ROW_MODIFIED: u32 = 5u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const TABLE_SETCOL_DONE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const TABLE_SORT_DONE: u32 = 6u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const TAD_ALL_ROWS: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
 #[inline]
@@ -6402,7 +6443,9 @@ pub unsafe fn UFromSz(lpsz: *mut i8) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const UI_CURRENT_PROVIDER_FIRST: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const UI_SERVICE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
 #[inline]
@@ -6529,14 +6572,23 @@ impl ::core::default::Default for WABIMPORTPARAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const WABOBJECT_LDAPURL_RETURN_MAILUSER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const WABOBJECT_ME_NEW: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const WABOBJECT_ME_NOCREATE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const WAB_CONTEXT_ADRLIST: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const WAB_DISPLAY_ISNTDS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const WAB_DISPLAY_LDAPURL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const WAB_ENABLE_PROFILES: u32 = 4194304u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const WAB_IGNORE_PROFILES: u32 = 8388608u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const WAB_LOCAL_CONTAINERS: u32 = 1048576u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_Foundation'*"]
@@ -6574,9 +6626,13 @@ impl ::core::default::Default for WAB_PARAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const WAB_PROFILE_CONTENTS: u32 = 2097152u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const WAB_USE_OE_SENDMAIL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const WAB_VCARD_FILE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_AddressBook'*"]
 pub const WAB_VCARD_STREAM: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_AddressBook', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]

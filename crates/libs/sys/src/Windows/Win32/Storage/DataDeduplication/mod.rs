@@ -17,6 +17,7 @@ pub type DEDUP_BACKUP_SUPPORT_PARAM_TYPE = i32;
 pub const DEDUP_RECONSTRUCT_UNOPTIMIZED: DEDUP_BACKUP_SUPPORT_PARAM_TYPE = 1i32;
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
 pub const DEDUP_RECONSTRUCT_OPTIMIZED: DEDUP_BACKUP_SUPPORT_PARAM_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
 pub const DEDUP_CHUNKLIB_MAX_CHUNKS_ENUM: u32 = 1024u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]

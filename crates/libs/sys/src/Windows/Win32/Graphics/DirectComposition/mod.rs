@@ -32,7 +32,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn DCompositionWaitForCompositorClock(count: u32, handles: *const super::super::Foundation::HANDLE, timeoutinms: u32) -> u32;
 }
+#[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 pub const COMPOSITIONOBJECT_READ: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 pub const COMPOSITIONOBJECT_WRITE: i32 = 2i32;
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 pub type COMPOSITION_FRAME_ID_TYPE = i32;
@@ -69,6 +71,7 @@ impl ::core::clone::Clone for COMPOSITION_STATS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 pub const COMPOSITION_STATS_MAX_TARGETS: u32 = 256u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Foundation'*"]
@@ -165,6 +168,7 @@ impl ::core::clone::Clone for DCOMPOSITION_FRAME_STATISTICS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 pub const DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 pub type DCOMPOSITION_OPACITY_MODE = i32;

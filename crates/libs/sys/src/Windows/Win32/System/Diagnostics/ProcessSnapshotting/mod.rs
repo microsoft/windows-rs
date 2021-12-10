@@ -349,6 +349,7 @@ impl ::core::clone::Clone for PSS_PERFORMANCE_COUNTERS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Diagnostics_ProcessSnapshotting'*"]
 pub const PSS_PERF_RESOLUTION: u32 = 1000000u32;
 #[doc = "*Required features: 'Win32_System_Diagnostics_ProcessSnapshotting'*"]
 pub type PSS_PROCESS_FLAGS = u32;

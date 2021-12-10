@@ -57,6 +57,7 @@ impl ::core::clone::Clone for AVRF_HEAP_ALLOCATION {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
 pub const AVRF_MAX_TRACES: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
 pub type AVRF_RESOURCE_ENUMERATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(resourcedescription: *mut ::core::ffi::c_void, enumerationcontext: *mut ::core::ffi::c_void, enumerationlevel: *mut u32) -> u32>;

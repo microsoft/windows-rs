@@ -813,6 +813,7 @@ impl ::core::clone::Clone for APP_MEMORY_INFORMATION {
     }
 }
 pub type BoundaryDescriptorHandle = isize;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const CONDITION_VARIABLE_LOCKMODE_SHARED: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub type CREATE_EVENT = u32;
@@ -820,6 +821,7 @@ pub type CREATE_EVENT = u32;
 pub const CREATE_EVENT_INITIAL_SET: CREATE_EVENT = 2u32;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const CREATE_EVENT_MANUAL_RESET: CREATE_EVENT = 1u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const CREATE_MUTEX_INITIAL_OWNER: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub type CREATE_PROCESS_LOGON_FLAGS = u32;
@@ -827,7 +829,9 @@ pub type CREATE_PROCESS_LOGON_FLAGS = u32;
 pub const LOGON_WITH_PROFILE: CREATE_PROCESS_LOGON_FLAGS = 1u32;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const LOGON_NETCREDENTIALS_ONLY: CREATE_PROCESS_LOGON_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const CREATE_WAITABLE_TIMER_HIGH_RESOLUTION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const CREATE_WAITABLE_TIMER_MANUAL_RESET: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub type GET_GUI_RESOURCES_FLAGS = u32;
@@ -839,9 +843,13 @@ pub const GR_GDIOBJECTS_PEAK: GET_GUI_RESOURCES_FLAGS = 2u32;
 pub const GR_USEROBJECTS: GET_GUI_RESOURCES_FLAGS = 1u32;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const GR_USEROBJECTS_PEAK: GET_GUI_RESOURCES_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const INIT_ONCE_ASYNC: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const INIT_ONCE_CHECK_ONLY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const INIT_ONCE_CTX_RESERVED_BITS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const INIT_ONCE_INIT_FAILED: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Threading'*"]
@@ -895,6 +903,7 @@ impl ::core::clone::Clone for MEMORY_PRIORITY_INFORMATION {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const MUTEX_MODIFY_STATE: u32 = 1u32;
 pub type NamespaceHandle = isize;
 #[repr(C)]
@@ -950,8 +959,11 @@ pub type PFLS_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" 
 #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PINIT_ONCE_FN = ::core::option::Option<unsafe extern "system" fn(initonce: *mut RTL_RUN_ONCE, parameter: *mut ::core::ffi::c_void, context: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const PME_CURRENT_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const PME_FAILFAST_ON_COMMIT_FAIL_DISABLE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const PME_FAILFAST_ON_COMMIT_FAIL_ENABLE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub type POWER_REQUEST_CONTEXT_FLAGS = u32;
@@ -961,6 +973,7 @@ pub const POWER_REQUEST_CONTEXT_DETAILED_STRING: POWER_REQUEST_CONTEXT_FLAGS = 2
 pub const POWER_REQUEST_CONTEXT_SIMPLE_STRING: POWER_REQUEST_CONTEXT_FLAGS = 1u32;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub type PPS_POST_PROCESS_INIT_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const PRIVATE_NAMESPACE_FLAG_DESTROY: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub type PROCESSINFOCLASS = i32;
@@ -1278,7 +1291,9 @@ impl ::core::clone::Clone for PROCESS_LEAP_SECOND_INFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const PROCESS_LEAP_SECOND_INFO_FLAG_ENABLE_SIXTY_SECOND: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const PROCESS_LEAP_SECOND_INFO_VALID_FLAGS: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Threading'*"]
@@ -1357,8 +1372,11 @@ pub type PROCESS_NAME_FORMAT = u32;
 pub const PROCESS_NAME_WIN32: PROCESS_NAME_FORMAT = 0u32;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const PROCESS_NAME_NATIVE: PROCESS_NAME_FORMAT = 1u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const PROCESS_POWER_THROTTLING_CURRENT_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const PROCESS_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Threading'*"]
@@ -1406,6 +1424,7 @@ impl ::core::clone::Clone for PROCESS_PROTECTION_LEVEL_INFORMATION {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const PROC_THREAD_ATTRIBUTE_REPLACE_VALUE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Threading', 'Win32_System_SystemServices'*"]
 #[cfg(feature = "Win32_System_SystemServices")]
@@ -1725,8 +1744,11 @@ pub const STARTF_USESHOWWINDOW: STARTUPINFOW_FLAGS = 1u32;
 pub const STARTF_USESIZE: STARTUPINFOW_FLAGS = 2u32;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const STARTF_USESTDHANDLES: STARTUPINFOW_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const SYNCHRONIZATION_BARRIER_FLAGS_BLOCK_ONLY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const SYNCHRONIZATION_BARRIER_FLAGS_NO_DELETE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub type THREADINFOCLASS = i32;
@@ -1794,7 +1816,9 @@ pub const ThreadDynamicCodePolicy: THREAD_INFORMATION_CLASS = 2i32;
 pub const ThreadPowerThrottling: THREAD_INFORMATION_CLASS = 3i32;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const ThreadInformationClassMax: THREAD_INFORMATION_CLASS = 4i32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const THREAD_POWER_THROTTLING_CURRENT_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const THREAD_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Threading'*"]
@@ -1809,6 +1833,7 @@ impl ::core::clone::Clone for THREAD_POWER_THROTTLING_STATE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const THREAD_POWER_THROTTLING_VALID_FLAGS: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub type THREAD_PRIORITY = i32;
@@ -1967,9 +1992,13 @@ impl ::core::clone::Clone for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
 #[doc = "*Required features: 'Win32_System_Threading', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WAITORTIMERCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::BOOLEAN)>;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const WAIT_ABANDONED: u32 = 128u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const WAIT_ABANDONED_0: u32 = 128u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const WAIT_IO_COMPLETION: u32 = 192u32;
+#[doc = "*Required features: 'Win32_System_Threading'*"]
 pub const WAIT_OBJECT_0: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_Threading'*"]
 pub type WORKER_THREAD_FLAGS = u32;

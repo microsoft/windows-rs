@@ -179,8 +179,11 @@ pub unsafe fn CryptSIPVerifyIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pin
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const MSSIP_FLAGS_MULTI_HASH: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const MSSIP_FLAGS_PROHIBIT_RESIZE_ON_CREATE: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const MSSIP_FLAGS_USE_CATALOG: u32 = 131072u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
@@ -321,7 +324,9 @@ impl ::core::default::Default for SIP_ADD_NEWPROVIDER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const SIP_CAP_FLAG_SEALING: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const SIP_CAP_SET_CUR_VER: u32 = 3u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography_Sip', 'Win32_Foundation'*"]
@@ -426,7 +431,9 @@ impl ::core::default::Default for SIP_CAP_SET_V3_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const SIP_CAP_SET_VERSION_2: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const SIP_CAP_SET_VERSION_3: u32 = 3u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography_Sip', 'Win32_Foundation', 'Win32_Security_Cryptography_Catalog'*"]
@@ -500,6 +507,7 @@ impl ::core::default::Default for SIP_INDIRECT_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const SIP_MAX_MAGIC_NUMBER: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography_Sip', 'Win32_Foundation', 'Win32_Security_Cryptography_Catalog'*"]
@@ -584,16 +592,27 @@ impl ::core::default::Default for SIP_SUBJECTINFO_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const SPC_DIGEST_GENERATE_FLAG: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const SPC_DIGEST_SIGN_EX_FLAG: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const SPC_DIGEST_SIGN_FLAG: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const SPC_EXC_PE_PAGE_HASHES_FLAG: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const SPC_INC_PE_DEBUG_INFO_FLAG: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const SPC_INC_PE_IMPORT_ADDR_TABLE_FLAG: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const SPC_INC_PE_PAGE_HASHES_FLAG: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const SPC_INC_PE_RESOURCES_FLAG: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const SPC_MARKER_CHECK_CURRENTLY_SUPPORTED_FLAGS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const SPC_MARKER_CHECK_SKIP_SIP_INDIRECT_DATA_FLAG: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const SPC_RELAXED_PE_MARKER_CHECK: u32 = 2048u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Sip', 'Win32_Foundation', 'Win32_Security_Cryptography_Catalog'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]

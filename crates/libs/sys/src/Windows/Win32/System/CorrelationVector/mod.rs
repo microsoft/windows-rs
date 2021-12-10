@@ -29,8 +29,13 @@ impl ::core::clone::Clone for CORRELATION_VECTOR {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_CorrelationVector'*"]
 pub const RTL_CORRELATION_VECTOR_STRING_LENGTH: u32 = 129u32;
+#[doc = "*Required features: 'Win32_System_CorrelationVector'*"]
 pub const RTL_CORRELATION_VECTOR_V1_LENGTH: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_CorrelationVector'*"]
 pub const RTL_CORRELATION_VECTOR_V1_PREFIX_LENGTH: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_CorrelationVector'*"]
 pub const RTL_CORRELATION_VECTOR_V2_LENGTH: u32 = 128u32;
+#[doc = "*Required features: 'Win32_System_CorrelationVector'*"]
 pub const RTL_CORRELATION_VECTOR_V2_PREFIX_LENGTH: u32 = 22u32;

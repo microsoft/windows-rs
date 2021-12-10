@@ -4087,6 +4087,7 @@ impl ::core::default::Default for DML_MEAN_VARIANCE_NORMALIZATION_OPERATOR_DESC 
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub const DML_MINIMUM_BUFFER_TENSOR_ALIGNMENT: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
@@ -4580,6 +4581,7 @@ impl ::core::default::Default for DML_PADDING_OPERATOR_DESC {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub const DML_PERSISTENT_BUFFER_ALIGNMENT: u32 = 256u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
@@ -5339,7 +5341,9 @@ impl ::core::default::Default for DML_SPLIT_OPERATOR_DESC {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub const DML_TARGET_VERSION: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub const DML_TEMPORARY_BUFFER_ALIGNMENT: u32 = 256u32;
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub type DML_TENSOR_DATA_TYPE = i32;
@@ -5393,7 +5397,9 @@ impl ::core::default::Default for DML_TENSOR_DESC {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub const DML_TENSOR_DIMENSION_COUNT_MAX: u32 = 5u32;
+#[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub const DML_TENSOR_DIMENSION_COUNT_MAX1: u32 = 8u32;
 #[doc = "*Required features: 'Win32_AI_MachineLearning_DirectML'*"]
 pub type DML_TENSOR_FLAGS = u32;

@@ -32,27 +32,49 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn CryptUIWizImport(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: super::super::super::Foundation::HWND, pwszwizardtitle: super::super::super::Foundation::PWSTR, pimportsrc: *const CRYPTUI_WIZ_IMPORT_SRC_INFO, hdestcertstore: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL;
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const ACTION_REVOCATION_DEFAULT_CACHE: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const ACTION_REVOCATION_DEFAULT_ONLINE: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERTVIEW_CRYPTUI_LPARAM: u32 = 8388608u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_CREDENTIAL_PROVIDER_ID: i32 = -509i32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_DISPWELL_DISTRUST_ADD_CA_CERT: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_DISPWELL_DISTRUST_ADD_LEAF_CERT: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_DISPWELL_DISTRUST_CA_CERT: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_DISPWELL_DISTRUST_LEAF_CERT: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_DISPWELL_SELECT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_DISPWELL_TRUST_ADD_CA_CERT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_DISPWELL_TRUST_ADD_LEAF_CERT: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_DISPWELL_TRUST_CA_CERT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_DISPWELL_TRUST_LEAF_CERT: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_FILTER_INCLUDE_V1_CERTS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_FILTER_ISSUER_CERTS_ONLY: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_FILTER_KEY_EXISTS: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_FILTER_LEAF_CERTS_ONLY: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_FILTER_OP_EQUALITY: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_FILTER_OP_EXISTS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_FILTER_OP_NOT_EXISTS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_FILTER_VALID_SIGNATURE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_FILTER_VALID_TIME_RANGE: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
@@ -144,29 +166,53 @@ impl ::core::clone::Clone for CERT_SELECT_STRUCT_W {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_TRUST_DO_FULL_SEARCH: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_TRUST_DO_FULL_TRUST: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_TRUST_MASK: u32 = 16777215u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_TRUST_PERMIT_MISSING_CRLS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_AFTER_END: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_BEFORE_START: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_CERTIFICATE_REVOKED: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_CRL_OUT_OF_DATE: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_EXPLICITLY_DISTRUSTED: u32 = 16777216u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_EXTENDED_USAGE_FAILURE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_ISSUER_DISTRUST: u32 = 33554432u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_ISSUER_INVALID: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_KEY_USAGE_EXT_FAILURE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_MASK_TRUST: u32 = 4294901760u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_MASK_VALIDITY: u32 = 65535u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_NAME_CONSTRAINTS_FAILURE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_NO_CRL_FOUND: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_NO_ISSUER_CERT_FOUND: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_NO_TRUST_DATA: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_OTHER_ERROR: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_OTHER_EXTENSION_FAILURE: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_PERIOD_NESTING_FAILURE: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_SIGNATURE_FAILS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CERT_VALIDITY_UNKNOWN_CRITICAL_EXTENSION: u32 = 128u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
@@ -326,16 +372,27 @@ impl ::core::clone::Clone for CMOID {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CM_VIEWFLAGS_MASK: u32 = 16777215u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTDLG_ACTION_MASK: u32 = 4294901760u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTDLG_CACHE_ONLY_URL_RETRIEVAL: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTDLG_DISABLE_AIA: u32 = 134217728u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTDLG_POLICY_MASK: u32 = 65535u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTDLG_REVOCATION_CACHE: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTDLG_REVOCATION_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTDLG_REVOCATION_NONE: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTDLG_REVOCATION_ONLINE: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_CERT_MGR_PUBLISHER_TAB: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_CERT_MGR_SINGLE_TAB_FLAG: u32 = 32768u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
@@ -355,6 +412,7 @@ impl ::core::clone::Clone for CRYPTUI_CERT_MGR_STRUCT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_CERT_MGR_TAB_MASK: u32 = 15u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
@@ -371,11 +429,17 @@ impl ::core::clone::Clone for CRYPTUI_INITDIALOG_STRUCT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_SELECT_EXPIRATION_COLUMN: u64 = 32u64;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_SELECT_FRIENDLYNAME_COLUMN: u64 = 8u64;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_SELECT_INTENDEDUSE_COLUMN: u64 = 4u64;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_SELECT_ISSUEDBY_COLUMN: u64 = 2u64;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_SELECT_ISSUEDTO_COLUMN: u64 = 1u64;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_SELECT_LOCATION_COLUMN: u64 = 16u64;
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub type CRYPTUI_VIEWCERTIFICATE_FLAGS = u32;
@@ -592,6 +656,7 @@ impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_EXCLUDE_PAGE_HASHES: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
@@ -615,6 +680,7 @@ impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_DIGITAL_SIGN_INCLUDE_PAGE_HASHES: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
@@ -756,6 +822,7 @@ pub const CRYPTUI_WIZ_EXPORT_FORMAT_BASE64: CRYPTUI_WIZ_EXPORT_FORMAT = 4u32;
 pub const CRYPTUI_WIZ_EXPORT_FORMAT_CRL: CRYPTUI_WIZ_EXPORT_FORMAT = 6u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_EXPORT_FORMAT_CTL: CRYPTUI_WIZ_EXPORT_FORMAT = 7u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_EXPORT_FORMAT_SERIALIZED_CERT_STORE: u32 = 5u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
@@ -879,7 +946,9 @@ pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CTL_CONTEXT: CRYPTUI_WIZ_IMPORT_SUBJECT_OPT
 pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CRL_CONTEXT: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = 4u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CERT_STORE: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = 5u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYTPDLG_FLAGS_MASK: u32 = 4278190080u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CSS_SELECTCERT_MASK: u32 = 16777215u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
@@ -917,12 +986,21 @@ pub type PFNCMHOOKPROC = ::core::option::Option<unsafe extern "system" fn(hwnddi
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNTRUSTHELPER = ::core::option::Option<unsafe extern "system" fn(pcertcontext: *const super::CERT_CONTEXT, lcustdata: super::super::super::Foundation::LPARAM, fleafcertificate: super::super::super::Foundation::BOOL, pbtrustblob: *mut u8) -> ::windows_sys::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const POLICY_IGNORE_NON_CRITICAL_BC: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const SELCERT_ALGORITHM: u32 = 105u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const SELCERT_CERTLIST: u32 = 102u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const SELCERT_FINEPRINT: u32 = 101u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const SELCERT_ISSUED_TO: u32 = 103u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const SELCERT_PROPERTIES: u32 = 100u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const SELCERT_SERIAL_NUM: u32 = 106u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const SELCERT_THUMBPRINT: u32 = 107u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const SELCERT_VALIDITY: u32 = 104u32;

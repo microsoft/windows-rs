@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 pub const DWRITE_ALPHA_MAX: u32 = 255u32;
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 pub type DWRITE_AUTOMATIC_FONT_AXES = u32;
@@ -200,6 +201,7 @@ pub const DWRITE_CONTAINER_TYPE_UNKNOWN: DWRITE_CONTAINER_TYPE = 0i32;
 pub const DWRITE_CONTAINER_TYPE_WOFF: DWRITE_CONTAINER_TYPE = 1i32;
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 pub const DWRITE_CONTAINER_TYPE_WOFF2: DWRITE_CONTAINER_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 pub const DWRITE_ERR_BASE: u32 = 20480u32;
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 pub const DWRITE_E_DOWNLOADCANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003283954i32);
@@ -2681,6 +2683,7 @@ pub unsafe fn DWriteCreateFactory(factorytype: DWRITE_FACTORY_TYPE, iid: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 pub const FACILITY_DWRITE: u32 = 2200u32;
 #[doc = "*Required features: 'Win32_Graphics_DirectWrite'*"]
 #[repr(transparent)]

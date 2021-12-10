@@ -303,8 +303,10 @@ unsafe impl ::core::marker::Send for CortanaActionableInsightsOptions {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for CortanaActionableInsightsOptions {}
 #[doc = "*Required features: 'Services_Cortana', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct CortanaPermission(pub i32);
+#[cfg(feature = "deprecated")]
 impl CortanaPermission {
     pub const BrowsingHistory: Self = Self(0i32);
     pub const Calendar: Self = Self(1i32);
@@ -318,53 +320,69 @@ impl CortanaPermission {
     pub const Personalization: Self = Self(9i32);
     pub const PhoneCall: Self = Self(10i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for CortanaPermission {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for CortanaPermission {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for CortanaPermission {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for CortanaPermission {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for CortanaPermission {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for CortanaPermission {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Cortana.CortanaPermission;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for CortanaPermission {
     type DefaultType = Self;
 }
 #[doc = "*Required features: 'Services_Cortana', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct CortanaPermissionsChangeResult(pub i32);
+#[cfg(feature = "deprecated")]
 impl CortanaPermissionsChangeResult {
     pub const Success: Self = Self(0i32);
     pub const Unavailable: Self = Self(1i32);
     pub const DisabledByPolicy: Self = Self(2i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for CortanaPermissionsChangeResult {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for CortanaPermissionsChangeResult {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for CortanaPermissionsChangeResult {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for CortanaPermissionsChangeResult {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for CortanaPermissionsChangeResult {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for CortanaPermissionsChangeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Cortana.CortanaPermissionsChangeResult;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for CortanaPermissionsChangeResult {
     type DefaultType = Self;
 }

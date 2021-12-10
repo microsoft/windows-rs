@@ -4284,32 +4284,41 @@ unsafe impl ::core::marker::Send for PerceptionDepthFrameSourceWatcher {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionDepthFrameSourceWatcher {}
 #[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionFrameSourceAccessStatus(pub i32);
+#[cfg(feature = "deprecated")]
 impl PerceptionFrameSourceAccessStatus {
     pub const Unspecified: Self = Self(0i32);
     pub const Allowed: Self = Self(1i32);
     pub const DeniedByUser: Self = Self(2i32);
     pub const DeniedBySystem: Self = Self(3i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for PerceptionFrameSourceAccessStatus {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for PerceptionFrameSourceAccessStatus {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for PerceptionFrameSourceAccessStatus {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for PerceptionFrameSourceAccessStatus {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionFrameSourceAccessStatus {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionFrameSourceAccessStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Perception.PerceptionFrameSourceAccessStatus;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for PerceptionFrameSourceAccessStatus {
     type DefaultType = Self;
 }
@@ -4522,8 +4531,10 @@ unsafe impl ::core::marker::Send for PerceptionFrameSourcePropertyChangeResult {
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionFrameSourcePropertyChangeResult {}
 #[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionFrameSourcePropertyChangeStatus(pub i32);
+#[cfg(feature = "deprecated")]
 impl PerceptionFrameSourcePropertyChangeStatus {
     pub const Unknown: Self = Self(0i32);
     pub const Accepted: Self = Self(1i32);
@@ -4532,24 +4543,31 @@ impl PerceptionFrameSourcePropertyChangeStatus {
     pub const PropertyReadOnly: Self = Self(4i32);
     pub const ValueOutOfRange: Self = Self(5i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for PerceptionFrameSourcePropertyChangeStatus {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for PerceptionFrameSourcePropertyChangeStatus {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Abi for PerceptionFrameSourcePropertyChangeStatus {
     type Abi = Self;
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for PerceptionFrameSourcePropertyChangeStatus {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionFrameSourcePropertyChangeStatus {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionFrameSourcePropertyChangeStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Perception.PerceptionFrameSourcePropertyChangeStatus;i4)");
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::DefaultType for PerceptionFrameSourcePropertyChangeStatus {
     type DefaultType = Self;
 }

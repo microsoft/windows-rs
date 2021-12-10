@@ -11,14 +11,19 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::BOOL;
 }
+#[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
 pub const CONNECTION_AOL: u32 = 4u32;
 pub type ISensLogon = *mut ::core::ffi::c_void;
 pub type ISensLogon2 = *mut ::core::ffi::c_void;
 pub type ISensNetwork = *mut ::core::ffi::c_void;
 pub type ISensOnNow = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
 pub const NETWORK_ALIVE_AOL: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
 pub const NETWORK_ALIVE_INTERNET: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
 pub const NETWORK_ALIVE_LAN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
 pub const NETWORK_ALIVE_WAN: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_EventNotificationService'*"]

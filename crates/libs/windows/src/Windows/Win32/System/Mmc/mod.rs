@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const AUTO_WIDTH: i32 = -1i32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
@@ -1270,7 +1271,9 @@ pub struct FrameVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, right: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, right: i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const HDI_HIDDEN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const HIDE_COLUMN: i32 = -4i32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
@@ -3696,7 +3699,9 @@ pub struct IImageListVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, picon: *const isize, nloc: i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const ILSIF_LEAVE_LARGE_ICON: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const ILSIF_LEAVE_SMALL_ICON: u32 = 536870912u32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
@@ -5277,16 +5282,27 @@ impl ::core::default::Default for MMCBUTTON {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCLV_AUTO: i32 = -1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCLV_NOICON: i32 = -1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCLV_NOPARAM: i32 = -2i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCLV_NOPTR: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCLV_UPDATE_NOINVALIDATEALL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCLV_UPDATE_NOSCROLL: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCLV_VIEWSTYLE_FILTERED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCLV_VIEWSTYLE_ICON: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCLV_VIEWSTYLE_LIST: u32 = 3u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCLV_VIEWSTYLE_REPORT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCLV_VIEWSTYLE_SMALLICON: u32 = 2u32;
 pub const MMCVersionInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6fedb1d_cf21_4bd9_af3b_c5468e9c6684);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
@@ -5402,6 +5418,7 @@ pub const TOOLBAR: MMC_CONTROL_TYPE = 0i32;
 pub const MENUBUTTON: MMC_CONTROL_TYPE = 1i32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const COMBOBOXBAR: MMC_CONTROL_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_DEFAULT_OPERATION_COPY: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
@@ -5523,9 +5540,13 @@ pub const MMC_STRING_FILTER: MMC_FILTER_TYPE = 0i32;
 pub const MMC_INT_FILTER: MMC_FILTER_TYPE = 1i32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_FILTER_NOVALUE: MMC_FILTER_TYPE = 32768i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_IMAGECALLBACK: i32 = -1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_ITEM_OVERLAY_STATE_MASK: u32 = 3840u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_ITEM_OVERLAY_STATE_SHIFT: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_ITEM_STATE_MASK: u32 = 255u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
@@ -5565,7 +5586,9 @@ impl ::core::default::Default for MMC_LISTPAD_INFO {
 pub type MMC_MENU_COMMAND_IDS = i32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCC_STANDARD_VIEW_SELECT: MMC_MENU_COMMAND_IDS = -1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_MULTI_SELECT_COOKIE: i32 = -2i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_NODEID_SLOW_RETRIEVAL: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type MMC_NOTIFY_TYPE = i32;
@@ -5639,12 +5662,19 @@ pub const MMCN_EXPANDSYNC: MMC_NOTIFY_TYPE = 32801i32;
 pub const MMCN_COLUMNS_CHANGED: MMC_NOTIFY_TYPE = 32802i32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMCN_CANPASTE_OUTOFPROC: MMC_NOTIFY_TYPE = 32803i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_NW_OPTION_CUSTOMTITLE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_NW_OPTION_NOACTIONPANE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_NW_OPTION_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_NW_OPTION_NOPERSIST: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_NW_OPTION_NOSCOPEPANE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_NW_OPTION_NOTOOLBARS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_NW_OPTION_SHORTTITLE: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type MMC_PROPERTY_ACTION = i32;
@@ -5654,13 +5684,21 @@ pub const MMC_PROPACT_DELETING: MMC_PROPERTY_ACTION = 1i32;
 pub const MMC_PROPACT_CHANGING: MMC_PROPERTY_ACTION = 2i32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_PROPACT_INITIALIZED: MMC_PROPERTY_ACTION = 3i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_PROP_CHANGEAFFECTSUI: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_PROP_MODIFIABLE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_PROP_PERSIST: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_PROP_REMOVABLE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_PSO_HASHELP: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_PSO_NEWWIZARDTYPE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_PSO_NOAPPLYNOW: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_PSO_NO_PROPTITLE: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
@@ -6016,15 +6054,25 @@ pub const MMC_TASK_DISPLAY_TYPE_VANILLA_GIF: MMC_TASK_DISPLAY_TYPE = 2i32;
 pub const MMC_TASK_DISPLAY_TYPE_CHOCOLATE_GIF: MMC_TASK_DISPLAY_TYPE = 3i32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_TASK_DISPLAY_TYPE_BITMAP: MMC_TASK_DISPLAY_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VER: u32 = 512u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VIEW_OPTIONS_CREATENEW: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VIEW_OPTIONS_EXCLUDE_SCOPE_ITEMS_FROM_LIST: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VIEW_OPTIONS_FILTERED: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VIEW_OPTIONS_LEXICAL_SORT: u32 = 128u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VIEW_OPTIONS_MULTISELECT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VIEW_OPTIONS_NOLISTVIEWS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VIEW_OPTIONS_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VIEW_OPTIONS_OWNERDATALIST: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VIEW_OPTIONS_USEFONTLINKING: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub type MMC_VIEW_TYPE = i32;
@@ -6060,6 +6108,7 @@ impl ::core::default::Default for MMC_VISIBLE_COLUMNS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_WINDOW_COOKIE: i32 = -3i32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]
@@ -6703,6 +6752,7 @@ pub struct PropertyVtbl(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut u16) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RDCI_ScopeItem: u32 = 2147483648u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
@@ -6775,11 +6825,17 @@ impl ::core::default::Default for RDITEMHDR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RDI_IMAGE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RDI_INDENT: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RDI_INDEX: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RDI_PARAM: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RDI_STATE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RDI_STR: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
@@ -6990,23 +7046,41 @@ impl ::core::default::Default for RESULT_VIEW_TYPE_INFO_0_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RFI_PARTIAL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RFI_WRAP: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RSI_DESCENDING: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RSI_NOSORTICON: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RVTI_HTML_OPTIONS_NOLISTVIEW: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RVTI_HTML_OPTIONS_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RVTI_LIST_OPTIONS_ALLOWPASTE: u32 = 256u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RVTI_LIST_OPTIONS_EXCLUDE_SCOPE_ITEMS_FROM_LIST: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RVTI_LIST_OPTIONS_FILTERED: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RVTI_LIST_OPTIONS_LEXICAL_SORT: u32 = 128u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RVTI_LIST_OPTIONS_MULTISELECT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RVTI_LIST_OPTIONS_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RVTI_LIST_OPTIONS_OWNERDATALIST: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RVTI_LIST_OPTIONS_USEFONTLINKING: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RVTI_MISC_OPTIONS_NOLISTVIEWS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RVTI_OCX_OPTIONS_CACHE_OCX: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RVTI_OCX_OPTIONS_NOLISTVIEW: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const RVTI_OCX_OPTIONS_NONE: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
@@ -7075,15 +7149,25 @@ impl ::core::default::Default for SColumnSetID {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const SDI_CHILDREN: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const SDI_FIRST: u32 = 134217728u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const SDI_IMAGE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const SDI_NEXT: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const SDI_OPENIMAGE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const SDI_PARAM: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const SDI_PARENT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const SDI_PREVIOUS: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const SDI_STATE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const SDI_STR: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Mmc', 'Win32_System_Com'*"]
@@ -7195,9 +7279,13 @@ impl ::core::default::Default for SNodeID2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const SPECIAL_COOKIE_MAX: i32 = -1i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const SPECIAL_COOKIE_MIN: i32 = -10i32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const SPECIAL_DOBJ_MAX: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const SPECIAL_DOBJ_MIN: i32 = -10i32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 #[repr(transparent)]

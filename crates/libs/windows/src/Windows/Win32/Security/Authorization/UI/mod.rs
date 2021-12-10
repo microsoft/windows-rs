@@ -14,10 +14,15 @@ pub unsafe fn CreateSecurityPage<'a, Param0: ::windows::core::IntoParam<'a, ISec
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const DOBJ_COND_NTACLS: i32 = 8i32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const DOBJ_RES_CONT: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const DOBJ_RES_ROOT: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const DOBJ_RIBBON_LAUNCH: i32 = 16i32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const DOBJ_VOL_NTACLS: i32 = 4i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
@@ -613,9 +618,13 @@ impl ::core::default::Default for SECURITY_OBJECT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SECURITY_OBJECT_ID_CENTRAL_ACCESS_RULE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SECURITY_OBJECT_ID_CENTRAL_POLICY: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SECURITY_OBJECT_ID_OBJECT_SD: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SECURITY_OBJECT_ID_SHARE: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
@@ -720,12 +729,19 @@ impl ::core::default::Default for SI_ACCESS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_ACCESS_CONTAINER: i32 = 262144i32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_ACCESS_GENERAL: i32 = 131072i32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_ACCESS_PROPERTY: i32 = 524288i32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_ACCESS_SPECIFIC: i32 = 65536i32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_CONTAINER: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_EDIT_OWNER: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_EDIT_PERMS: i32 = 0i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
@@ -761,8 +777,11 @@ impl ::core::default::Default for SI_INHERIT_TYPE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_NO_ACL_PROTECT: i32 = 512i32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_NO_TREE_APPLY: i32 = 1024i32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_OBJECT_GUID: i32 = 65536i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
@@ -831,7 +850,9 @@ pub const SI_RESET_SACL: SI_OBJECT_INFO_FLAGS = 524288u32;
 pub const SI_SCOPE_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = 134217728u32;
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_VIEW_ONLY: SI_OBJECT_INFO_FLAGS = 4194304u32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_OWNER_READONLY: i32 = 64i32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_OWNER_RECURSE: i32 = 256i32;
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub type SI_PAGE_ACTIVATED = i32;
@@ -849,6 +870,7 @@ pub const SI_SHOW_EFFECTIVE_ACTIVATED: SI_PAGE_ACTIVATED = 4i32;
 pub const SI_SHOW_SHARE_ACTIVATED: SI_PAGE_ACTIVATED = 5i32;
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_SHOW_CENTRAL_POLICY_ACTIVATED: SI_PAGE_ACTIVATED = 6i32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_PAGE_TITLE: i32 = 2048i32;
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub type SI_PAGE_TYPE = i32;
@@ -866,8 +888,13 @@ pub const SI_PAGE_EFFECTIVE: SI_PAGE_TYPE = 4i32;
 pub const SI_PAGE_TAKEOWNERSHIP: SI_PAGE_TYPE = 5i32;
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_PAGE_SHARE: SI_PAGE_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_READONLY: i32 = 8i32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_RESET: i32 = 32i32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_RESET_DACL_TREE: i32 = 16384i32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_RESET_SACL_TREE: i32 = 32768i32;
+#[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_SERVER_IS_DC: i32 = 4096i32;

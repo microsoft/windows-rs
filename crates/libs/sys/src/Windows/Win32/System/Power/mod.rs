@@ -298,9 +298,13 @@ impl ::core::clone::Clone for ACPI_REAL_TIME {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const ACPI_TIME_ADJUST_DAYLIGHT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const ACPI_TIME_IN_DAYLIGHT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const ACPI_TIME_ZONE_UNKNOWN: u32 = 2047u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const ACTIVE_COOLING: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -318,6 +322,7 @@ impl ::core::clone::Clone for ADMINISTRATOR_POWER_POLICY {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_CAPACITY_RELATIVE: u32 = 1073741824u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -331,6 +336,7 @@ impl ::core::clone::Clone for BATTERY_CHARGER_STATUS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_CHARGING: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -369,11 +375,16 @@ pub const BatteryChargingSourceType_USB: BATTERY_CHARGING_SOURCE_TYPE = 2i32;
 pub const BatteryChargingSourceType_Wireless: BATTERY_CHARGING_SOURCE_TYPE = 3i32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BatteryChargingSourceType_Max: BATTERY_CHARGING_SOURCE_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_CLASS_MAJOR_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_CLASS_MINOR_VERSION: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_CLASS_MINOR_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_CRITICAL: u32 = 8u32;
 pub const BATTERY_CYCLE_COUNT_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4019772196, data2: 20, data3: 19493, data4: [165, 11, 199, 36, 174, 92, 211, 113] };
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_DISCHARGING: u32 = 2u32;
 pub const BATTERY_FULL_CHARGED_CAPACITY_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1085539685, data2: 38647, data3: 17461, data4: [134, 148, 151, 224, 228, 57, 89, 5] };
 #[repr(C)]
@@ -396,6 +407,7 @@ impl ::core::clone::Clone for BATTERY_INFORMATION {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_IS_SHORT_TERM: u32 = 536870912u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -410,8 +422,11 @@ impl ::core::clone::Clone for BATTERY_MANUFACTURE_DATE {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_MINIPORT_UPDATE_DATA_VER_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_MINIPORT_UPDATE_DATA_VER_2: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_POWER_ON_LINE: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -459,10 +474,15 @@ impl ::core::clone::Clone for BATTERY_REPORTING_SCALE {
     }
 }
 pub const BATTERY_RUNTIME_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1398421351, data2: 6850, data3: 18876, data4: [160, 119, 63, 122, 2, 228, 10, 236] };
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_SEALED: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_SET_CHARGER_ID_SUPPORTED: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_SET_CHARGE_SUPPORTED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_SET_CHARGINGSOURCE_SUPPORTED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_SET_DISCHARGE_SUPPORTED: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -508,14 +528,21 @@ impl ::core::clone::Clone for BATTERY_STATUS {
 }
 pub const BATTERY_STATUS_CHANGE_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3453984963, data2: 31835, data3: 20035, data4: [160, 52, 5, 159, 165, 184, 67, 100] };
 pub const BATTERY_STATUS_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4232474833, data2: 60351, data3: 16750, data4: [135, 206, 55, 74, 78, 188, 17, 26] };
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_SYSTEM_BATTERY: u32 = 2147483648u32;
 pub const BATTERY_TAG_CHANGE_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1579118105, data2: 34694, data3: 19747, data4: [148, 252, 158, 116, 107, 213, 216, 136] };
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_TAG_INVALID: u32 = 0u32;
 pub const BATTERY_TEMPERATURE_WMI_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 441622861, data2: 44494, data3: 19012, data4: [154, 62, 200, 216, 241, 95, 242, 194] };
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_UNKNOWN_CAPACITY: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_UNKNOWN_CURRENT: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_UNKNOWN_RATE: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_UNKNOWN_TIME: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_UNKNOWN_VOLTAGE: u32 = 4294967295u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -536,7 +563,9 @@ impl ::core::clone::Clone for BATTERY_USB_CHARGER_STATUS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_USB_CHARGER_STATUS_FN_DEFAULT_USB: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_USB_CHARGER_STATUS_UCM_PD: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -571,14 +600,23 @@ impl ::core::clone::Clone for CM_POWER_DATA {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const DEVICEPOWER_AND_OPERATION: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const DEVICEPOWER_CLEAR_WAKEENABLED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const DEVICEPOWER_FILTER_DEVICES_PRESENT: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const DEVICEPOWER_FILTER_HARDWARE: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const DEVICEPOWER_FILTER_ON_NAME: u32 = 33554432u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const DEVICEPOWER_FILTER_WAKEENABLED: u32 = 134217728u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const DEVICEPOWER_FILTER_WAKEPROGRAMMABLE: u32 = 67108864u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const DEVICEPOWER_HARDWAREID: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const DEVICEPOWER_SET_WAKEENABLED: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -624,7 +662,9 @@ pub const EffectivePowerModeGameMode: EFFECTIVE_POWER_MODE = 5i32;
 pub const EffectivePowerModeMixedReality: EFFECTIVE_POWER_MODE = 6i32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub type EFFECTIVE_POWER_MODE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(mode: EFFECTIVE_POWER_MODE, context: *const ::core::ffi::c_void)>;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const EFFECTIVE_POWER_MODE_V1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const EFFECTIVE_POWER_MODE_V2: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -708,6 +748,7 @@ impl ::core::clone::Clone for EMI_METADATA_V2 {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const EMI_NAME_MAX: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -720,7 +761,9 @@ impl ::core::clone::Clone for EMI_VERSION {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const EMI_VERSION_V1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const EMI_VERSION_V2: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub type EXECUTION_STATE = u32;
@@ -734,10 +777,15 @@ pub const ES_DISPLAY_REQUIRED: EXECUTION_STATE = 2u32;
 pub const ES_SYSTEM_REQUIRED: EXECUTION_STATE = 1u32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub const ES_USER_PRESENT: EXECUTION_STATE = 4u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const EnableMultiBatteryDisplay: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const EnablePasswordLogon: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const EnableSysTrayBatteryMeter: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const EnableVideoDimDisplay: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const EnableWakeOnRing: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -805,33 +853,61 @@ pub const GUID_DEVICE_THERMAL_ZONE: ::windows_sys::core::GUID = ::windows_sys::c
 pub const GUID_DEVINTERFACE_THERMAL_COOLING: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3689166653, data2: 15489, data3: 16587, data4: [172, 228, 224, 229, 208, 95, 12, 159] };
 pub const GUID_DEVINTERFACE_THERMAL_MANAGER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2457780371, data2: 27044, data3: 19392, data4: [189, 2, 113, 22, 100, 113, 68, 99] };
 pub type HPOWERNOTIFY = isize;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_ACPI_GET_REAL_TIME: u32 = 2703888u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_ACPI_SET_REAL_TIME: u32 = 2720276u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_BATTERY_CHARGING_SOURCE_CHANGE: u32 = 2703440u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_BATTERY_QUERY_INFORMATION: u32 = 2703428u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_BATTERY_QUERY_STATUS: u32 = 2703436u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_BATTERY_QUERY_TAG: u32 = 2703424u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_BATTERY_SET_INFORMATION: u32 = 2719816u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_EMI_GET_MEASUREMENT: u32 = 2244620u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_EMI_GET_METADATA: u32 = 2244616u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_EMI_GET_METADATA_SIZE: u32 = 2244612u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_EMI_GET_VERSION: u32 = 2244608u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_GET_PROCESSOR_OBJ_INFO: u32 = 2703744u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_GET_SYS_BUTTON_CAPS: u32 = 2703680u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_GET_SYS_BUTTON_EVENT: u32 = 2703684u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_GET_WAKE_ALARM_POLICY: u32 = 2736652u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_GET_WAKE_ALARM_SYSTEM_POWERSTATE: u32 = 2703896u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_GET_WAKE_ALARM_VALUE: u32 = 2736648u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_NOTIFY_SWITCH_EVENT: u32 = 2703616u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_QUERY_LID: u32 = 2703552u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_RUN_ACTIVE_COOLING_METHOD: u32 = 2719880u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_SET_SYS_MESSAGE_INDICATOR: u32 = 2720192u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_SET_WAKE_ALARM_POLICY: u32 = 2720260u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_SET_WAKE_ALARM_VALUE: u32 = 2720256u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_THERMAL_QUERY_INFORMATION: u32 = 2703488u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_THERMAL_READ_POLICY: u32 = 2703508u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_THERMAL_READ_TEMPERATURE: u32 = 2703504u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_THERMAL_SET_COOLING_POLICY: u32 = 2719876u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const IOCTL_THERMAL_SET_PASSIVE_LIMIT: u32 = 2719884u32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub type LATENCY_TIME = i32;
@@ -876,18 +952,31 @@ impl ::core::clone::Clone for MACHINE_PROCESSOR_POWER_POLICY {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const MAX_ACTIVE_COOLING_LEVELS: u32 = 10u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const MAX_BATTERY_STRING_SIZE: u32 = 128u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const PASSIVE_COOLING: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const PDCAP_S0_SUPPORTED: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const PDCAP_S1_SUPPORTED: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const PDCAP_S2_SUPPORTED: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const PDCAP_S3_SUPPORTED: u32 = 524288u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const PDCAP_S4_SUPPORTED: u32 = 16777216u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const PDCAP_S5_SUPPORTED: u32 = 33554432u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const PDCAP_WAKE_FROM_S0_SUPPORTED: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const PDCAP_WAKE_FROM_S1_SUPPORTED: u32 = 2097152u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const PDCAP_WAKE_FROM_S2_SUPPORTED: u32 = 4194304u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const PDCAP_WAKE_FROM_S3_SUPPORTED: u32 = 8388608u32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub type PDEVICE_NOTIFY_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, r#type: u32, setting: *const ::core::ffi::c_void) -> u32>;
@@ -951,7 +1040,9 @@ pub const POWER_LEVEL_USER_NOTIFY_TEXT: POWER_ACTION_POLICY_EVENT_CODE = 1u32;
 pub const POWER_USER_NOTIFY_BUTTON: POWER_ACTION_POLICY_EVENT_CODE = 8u32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub const POWER_USER_NOTIFY_SHUTDOWN: POWER_ACTION_POLICY_EVENT_CODE = 16u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const POWER_ATTRIBUTE_HIDE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub type POWER_DATA_ACCESSOR = i32;
@@ -1528,16 +1619,27 @@ impl ::core::clone::Clone for SYSTEM_POWER_STATUS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const SYS_BUTTON_LID: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const SYS_BUTTON_LID_CHANGED: u32 = 524288u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const SYS_BUTTON_LID_CLOSED: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const SYS_BUTTON_LID_INITIAL: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const SYS_BUTTON_LID_OPEN: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const SYS_BUTTON_LID_STATE_MASK: u32 = 196608u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const SYS_BUTTON_POWER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const SYS_BUTTON_SLEEP: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const SYS_BUTTON_WAKE: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const THERMAL_COOLING_INTERFACE_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const THERMAL_DEVICE_INTERFACE_VERSION: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
@@ -1558,6 +1660,7 @@ impl ::core::clone::Clone for THERMAL_EVENT {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const THERMAL_EVENT_VERSION: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -1601,7 +1704,9 @@ impl ::core::clone::Clone for THERMAL_POLICY {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const THERMAL_POLICY_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const THERMAL_POLICY_VERSION_2: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -1616,11 +1721,17 @@ impl ::core::clone::Clone for THERMAL_WAIT_READ {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const TZ_ACTIVATION_REASON_CURRENT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const TZ_ACTIVATION_REASON_THERMAL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const UNKNOWN_CAPACITY: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const UNKNOWN_CURRENT: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const UNKNOWN_RATE: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_System_Power'*"]
 pub const UNKNOWN_VOLTAGE: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub type USB_CHARGER_PORT = i32;

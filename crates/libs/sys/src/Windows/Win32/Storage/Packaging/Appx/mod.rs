@@ -590,16 +590,27 @@ impl ::core::clone::Clone for PACKAGEDEPENDENCY_CONTEXT__ {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_DEPENDENCY_RANK_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_FILTER_ALL_LOADED: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_FILTER_BUNDLE: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_FILTER_DIRECT: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_FILTER_DYNAMIC: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_FILTER_HEAD: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_FILTER_HOSTRUNTIME: u32 = 2097152u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_FILTER_IS_IN_RELATED_SET: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_FILTER_OPTIONAL: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_FILTER_RESOURCE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_FILTER_STATIC: u32 = 524288u32;
 #[repr(C, packed(4))]
 #[doc = "*Required features: 'Win32_Storage_Packaging_Appx', 'Win32_Foundation'*"]
@@ -640,16 +651,27 @@ impl ::core::clone::Clone for PACKAGE_INFO {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_INFORMATION_BASIC: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_INFORMATION_FULL: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_PROPERTY_BUNDLE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_PROPERTY_DEVELOPMENT_MODE: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_PROPERTY_DYNAMIC: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_PROPERTY_FRAMEWORK: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_PROPERTY_HOSTRUNTIME: u32 = 2097152u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_PROPERTY_IS_IN_RELATED_SET: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_PROPERTY_OPTIONAL: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_PROPERTY_RESOURCE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]
 pub const PACKAGE_PROPERTY_STATIC: u32 = 524288u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_Packaging_Appx'*"]

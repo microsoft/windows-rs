@@ -1,5 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization'*"]
 pub const WNV_API_MAJOR_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization'*"]
 pub const WNV_API_MINOR_VERSION_0: u32 = 0u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsNetworkVirtualization'*"]
 pub type WNV_CA_NOTIFICATION_TYPE = i32;

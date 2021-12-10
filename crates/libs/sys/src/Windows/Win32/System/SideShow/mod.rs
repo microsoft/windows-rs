@@ -15,7 +15,9 @@ impl ::core::clone::Clone for APPLICATION_EVENT_DATA {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_System_SideShow'*"]
 pub const CONTENT_ID_GLANCE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_System_SideShow'*"]
 pub const CONTENT_ID_HOME: u32 = 1u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_System_SideShow'*"]
@@ -221,7 +223,9 @@ pub const SIDESHOW_COLOR_TYPE_BLACK_AND_WHITE: SIDESHOW_COLOR_TYPE = 2i32;
 pub const SIDESHOW_CONTENT_MISSING_EVENT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1342700456, data2: 54035, data3: 17311, data4: [190, 162, 165, 2, 1, 211, 233, 168] };
 pub const SIDESHOW_ENDPOINT_ICAL: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1308571317, data2: 40414, data3: 20342, data4: [154, 42, 150, 67, 80, 71, 6, 61] };
 pub const SIDESHOW_ENDPOINT_SIMPLE_CONTENT_FORMAT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2846176575, data2: 11595, data3: 18382, data4: [147, 238, 117, 159, 58, 125, 218, 79] };
+#[doc = "*Required features: 'Win32_System_SideShow'*"]
 pub const SIDESHOW_EVENTID_APPLICATION_ENTER: u32 = 4294901760u32;
+#[doc = "*Required features: 'Win32_System_SideShow'*"]
 pub const SIDESHOW_EVENTID_APPLICATION_EXIT: u32 = 4294901761u32;
 pub const SIDESHOW_NEW_EVENT_DATA_AVAILABLE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1468086356, data2: 12225, data3: 16668, data4: [165, 159, 242, 73, 39, 96, 136, 4] };
 #[doc = "*Required features: 'Win32_System_SideShow'*"]
@@ -235,4 +239,5 @@ pub const SideShowKeyCollection: ::windows_sys::core::GUID = ::windows_sys::core
 pub const SideShowNotification: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 216262767, data2: 54733, data3: 17701, data4: [167, 102, 26, 186, 177, 167, 82, 245] };
 pub const SideShowPropVariantCollection: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3863016469, data2: 21406, data3: 18723, data4: [150, 205, 95, 9, 59, 194, 80, 205] };
 pub const SideShowSession: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3791995833, data2: 63365, data3: 20130, data4: [152, 30, 196, 255, 167, 107, 188, 124] };
+#[doc = "*Required features: 'Win32_System_SideShow'*"]
 pub const VERSION_1_WINDOWS_7: u32 = 0u32;

@@ -84,9 +84,13 @@ pub struct IContentPrefetcherTaskTriggerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: super::super::Foundation::PWSTR, isregistered: *mut u8) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_API_CURRENT_VERSION: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_API_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_API_VERSION_2: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_API_VERSION_3: u32 = 3u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
@@ -131,18 +135,31 @@ impl ::core::default::Default for WEBAUTHN_ASSERTION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_ASSERTION_CURRENT_VERSION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_ASSERTION_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_ASSERTION_VERSION_2: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_ANY: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_DIRECT: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_INDIRECT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_ATTESTATION_CONVEYANCE_PREFERENCE_NONE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_ATTESTATION_DECODE_COMMON: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_ATTESTATION_DECODE_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_ANY: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_CROSS_PLATFORM_U2F_V2: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_AUTHENTICATOR_ATTACHMENT_PLATFORM: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
@@ -189,11 +206,17 @@ impl ::core::default::Default for WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_CURRENT_VERSION: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_2: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_3: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_4: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS_VERSION_5: u32 = 5u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
@@ -240,10 +263,15 @@ impl ::core::default::Default for WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_CURRENT_VERSION: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_2: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_3: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_AUTHENTICATOR_MAKE_CREDENTIAL_OPTIONS_VERSION_4: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
@@ -280,6 +308,7 @@ impl ::core::default::Default for WEBAUTHN_CLIENT_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CLIENT_DATA_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
@@ -324,15 +353,25 @@ impl ::core::default::Default for WEBAUTHN_COMMON_ATTESTATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_COMMON_ATTESTATION_CURRENT_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_COSE_ALGORITHM_ECDSA_P256_WITH_SHA256: i32 = -7i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_COSE_ALGORITHM_ECDSA_P384_WITH_SHA384: i32 = -35i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_COSE_ALGORITHM_ECDSA_P521_WITH_SHA512: i32 = -36i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_COSE_ALGORITHM_RSASSA_PKCS1_V1_5_WITH_SHA256: i32 = -257i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_COSE_ALGORITHM_RSASSA_PKCS1_V1_5_WITH_SHA384: i32 = -258i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_COSE_ALGORITHM_RSASSA_PKCS1_V1_5_WITH_SHA512: i32 = -259i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA256: i32 = -37i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA384: i32 = -38i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_COSE_ALGORITHM_RSA_PSS_WITH_SHA512: i32 = -39i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
@@ -401,6 +440,7 @@ impl ::core::default::Default for WEBAUTHN_COSE_CREDENTIAL_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_COSE_CREDENTIAL_PARAMETER_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
@@ -518,11 +558,17 @@ impl ::core::default::Default for WEBAUTHN_CREDENTIAL_ATTESTATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_CURRENT_VERSION: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_2: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_3: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CREDENTIAL_ATTESTATION_VERSION_4: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CREDENTIAL_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
@@ -560,6 +606,7 @@ impl ::core::default::Default for WEBAUTHN_CREDENTIAL_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CREDENTIAL_EX_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
@@ -620,19 +667,33 @@ impl ::core::default::Default for WEBAUTHN_CRED_BLOB_EXTENSION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_DELETE: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_GET: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CRED_LARGE_BLOB_OPERATION_SET: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_AUTHENTICATOR_ERROR: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_INVALID_DATA: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_INVALID_PARAMETER: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_LACK_OF_SPACE: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_MULTIPLE_CREDENTIALS: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_NOT_FOUND: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_NOT_SUPPORTED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_PLATFORM_ERROR: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CRED_LARGE_BLOB_STATUS_SUCCESS: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
@@ -667,14 +728,23 @@ impl ::core::default::Default for WEBAUTHN_CRED_PROTECT_EXTENSION_IN {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CTAP_TRANSPORT_BLE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CTAP_TRANSPORT_FLAGS_MASK: u32 = 31u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CTAP_TRANSPORT_INTERNAL: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CTAP_TRANSPORT_NFC: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CTAP_TRANSPORT_TEST: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_CTAP_TRANSPORT_USB: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_ENTERPRISE_ATTESTATION_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_ENTERPRISE_ATTESTATION_PLATFORM_MANAGED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_ENTERPRISE_ATTESTATION_VENDOR_FACILITATED: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
@@ -743,9 +813,13 @@ impl ::core::default::Default for WEBAUTHN_EXTENSIONS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_LARGE_BLOB_SUPPORT_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_LARGE_BLOB_SUPPORT_PREFERRED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_LARGE_BLOB_SUPPORT_REQUIRED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_MAX_USER_ID_LENGTH: u32 = 64u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
@@ -782,6 +856,7 @@ impl ::core::default::Default for WEBAUTHN_RP_ENTITY_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_RP_ENTITY_INFORMATION_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
@@ -820,14 +895,23 @@ impl ::core::default::Default for WEBAUTHN_USER_ENTITY_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_USER_ENTITY_INFORMATION_CURRENT_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_USER_VERIFICATION_ANY: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_USER_VERIFICATION_OPTIONAL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_USER_VERIFICATION_OPTIONAL_WITH_CREDENTIAL_ID_LIST: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_USER_VERIFICATION_REQUIRED: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_ANY: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_DISCOURAGED: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_PREFERRED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WEBAUTHN_USER_VERIFICATION_REQUIREMENT_REQUIRED: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
@@ -1388,10 +1472,15 @@ impl ::core::default::Default for WS_CERT_ENDPOINT_IDENTITY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_CERT_FAILURE_CN_MISMATCH: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_CERT_FAILURE_INVALID_DATE: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_CERT_FAILURE_REVOCATION_OFFLINE: i32 = 16i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_CERT_FAILURE_UNTRUSTED_ROOT: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_CERT_FAILURE_WRONG_USAGE: i32 = 8i32;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Security_Authentication_Identity', 'Win32_Security_Cryptography'*"]
 #[cfg(all(feature = "Win32_Security_Authentication_Identity", feature = "Win32_Security_Cryptography"))]
@@ -3012,10 +3101,15 @@ pub const WS_REPEATING_ANY_ELEMENT_FIELD_MAPPING: WS_FIELD_MAPPING = 10i32;
 pub const WS_ANY_CONTENT_FIELD_MAPPING: WS_FIELD_MAPPING = 11i32;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_ANY_ATTRIBUTES_FIELD_MAPPING: WS_FIELD_MAPPING = 12i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_FIELD_NILLABLE: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_FIELD_NILLABLE_ITEM: i32 = 8i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_FIELD_OPTIONAL: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_FIELD_OTHER_NAMESPACE: i32 = 16i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_FIELD_POINTER: i32 = 1i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
@@ -3314,11 +3408,17 @@ impl ::core::default::Default for WS_HTTP_HEADER_AUTH_POLICY_DESCRIPTION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_HTTP_HEADER_AUTH_SCHEME_BASIC: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_HTTP_HEADER_AUTH_SCHEME_DIGEST: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_HTTP_HEADER_AUTH_SCHEME_NEGOTIATE: i32 = 16i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_HTTP_HEADER_AUTH_SCHEME_NONE: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_HTTP_HEADER_AUTH_SCHEME_NTLM: i32 = 8i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_HTTP_HEADER_AUTH_SCHEME_PASSPORT: i32 = 32i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
@@ -3461,8 +3561,11 @@ impl ::core::default::Default for WS_HTTP_HEADER_MAPPING {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_HTTP_HEADER_MAPPING_COMMA_SEPARATOR: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_HTTP_HEADER_MAPPING_QUOTED_VALUE: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_HTTP_HEADER_MAPPING_SEMICOLON_SEPARATOR: i32 = 2i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
@@ -3570,8 +3673,11 @@ impl ::core::default::Default for WS_HTTP_REDIRECT_CALLBACK_CONTEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_HTTP_REQUEST_MAPPING_VERB: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_HTTP_RESPONSE_MAPPING_STATUS_CODE: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_HTTP_RESPONSE_MAPPING_STATUS_TEXT: i32 = 2i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
@@ -4392,15 +4498,25 @@ pub const WS_LISTENER_STATE_FAULTED: WS_LISTENER_STATE = 3i32;
 pub const WS_LISTENER_STATE_CLOSING: WS_LISTENER_STATE = 4i32;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_LISTENER_STATE_CLOSED: WS_LISTENER_STATE = 5i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_MATCH_URL_DNS_FULLY_QUALIFIED_HOST: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_MATCH_URL_DNS_HOST: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_MATCH_URL_EXACT_PATH: i32 = 64i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_MATCH_URL_HOST_ADDRESSES: i32 = 16i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_MATCH_URL_LOCAL_HOST: i32 = 8i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_MATCH_URL_NETBIOS_HOST: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_MATCH_URL_NO_QUERY: i32 = 256i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_MATCH_URL_PORT: i32 = 32i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_MATCH_URL_PREFIX_PATH: i32 = 128i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_MATCH_URL_THIS_HOST: i32 = 31i32;
 #[repr(C)]
 pub struct WS_MESSAGE(pub u8);
@@ -4726,6 +4842,7 @@ pub const WS_MOVE_TO_BOF: WS_MOVE_TO = 9i32;
 pub const WS_MOVE_TO_EOF: WS_MOVE_TO = 10i32;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_MOVE_TO_CHILD_NODE: WS_MOVE_TO = 11i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_MUST_UNDERSTAND_HEADER_ATTRIBUTE: i32 = 1i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
@@ -5261,6 +5378,7 @@ pub type WS_RECEIVE_OPTION = i32;
 pub const WS_RECEIVE_REQUIRED_MESSAGE: WS_RECEIVE_OPTION = 1i32;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_RECEIVE_OPTIONAL_MESSAGE: WS_RECEIVE_OPTION = 2i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_RELAY_HEADER_ATTRIBUTE: i32 = 2i32;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub type WS_REPEATING_HEADER_OPTION = i32;
@@ -6626,6 +6744,7 @@ impl ::core::default::Default for WS_SERVICE_METADATA_DOCUMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_SERVICE_OPERATION_MESSAGE_NILLABLE_ELEMENT: i32 = 1i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
@@ -7144,6 +7263,7 @@ impl ::core::default::Default for WS_STRING_WINDOWS_INTEGRATED_AUTH_CREDENTIAL {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_STRUCT_ABSTRACT: i32 = 1i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
@@ -7186,7 +7306,9 @@ impl ::core::default::Default for WS_STRUCT_DESCRIPTION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_STRUCT_IGNORE_TRAILING_ELEMENT_CONTENT: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_STRUCT_IGNORE_UNHANDLED_ATTRIBUTES: i32 = 4i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
@@ -8542,8 +8664,11 @@ impl ::core::default::Default for WS_URL {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_URL_FLAGS_ALLOW_HOST_WILDCARDS: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_URL_FLAGS_NO_PATH_COLLAPSE: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub const WS_URL_FLAGS_ZERO_TERMINATE: i32 = 4i32;
 #[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
 pub type WS_URL_SCHEME_TYPE = i32;

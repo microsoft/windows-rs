@@ -6801,8 +6801,11 @@ pub const PKEY_PROVIDER_SUPPORTED_ARCHITECTURE: super::super::UI::Shell::Propert
 #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PROVIDER_TOOLTIPS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x84179e61_60f6_4c1c_88ed_f1c531b32bda), pid: 10u32 };
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SYNC_CHANGE_FLAG_DELETED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SYNC_CHANGE_FLAG_DOES_NOT_EXIST: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SYNC_CHANGE_FLAG_GHOST: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub type SYNC_CONSTRAINT_RESOLVE_ACTION = i32;
@@ -6853,9 +6856,13 @@ impl ::core::default::Default for SYNC_FILTER_CHANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SYNC_FILTER_INFO_COMBINED: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SYNC_FILTER_INFO_FLAG_CHANGE_UNIT_LIST: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SYNC_FILTER_INFO_FLAG_CUSTOM: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SYNC_FILTER_INFO_FLAG_ITEM_LIST: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub type SYNC_FULL_ENUMERATION_ACTION = i32;
@@ -6943,6 +6950,7 @@ pub const SYNC_SERIALIZATION_VERSION_V1: SYNC_SERIALIZATION_VERSION = 1i32;
 pub const SYNC_SERIALIZATION_VERSION_V2: SYNC_SERIALIZATION_VERSION = 4i32;
 #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SYNC_SERIALIZATION_VERSION_V3: SYNC_SERIALIZATION_VERSION = 5i32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SYNC_SERIALIZE_REPLICA_KEY_MAP: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
@@ -7026,7 +7034,9 @@ impl ::core::default::Default for SYNC_VERSION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SYNC_VERSION_FLAG_FROM_FEED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub const SYNC_VERSION_FLAG_HAS_BY: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_WindowsSync', 'Win32_Foundation'*"]
